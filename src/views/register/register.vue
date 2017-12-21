@@ -170,6 +170,29 @@ export default{
         },
         agree:function(){
             if( this.isphone==true || this.ispassword==true || this.isagainPas==true || this.isconfirm==true || this.isusername==true || this.checkbox==true){
+                let obj = {
+                    "password": this.password,
+                    "phone": this.phone,
+                    "realname": this.username,
+                    "tenant": this.confirm
+                };
+                let strObj = JSON.stringify(obj);
+                // this.$http.post(this.Host+'/auth/register',{
+                //    userInfo:strObj
+                // },{
+                //     emulateJSON : true
+                // }).then(function(res){
+                //     console.log('res',res);
+                // },function(){
+
+                // });/broker/plan/questions/analysis/-1/1/1
+                this.$http.get('/broker/plan/questions/analysis/-1/1/1',{
+                    emulateJSON : true
+                }).then(function(res){
+                    console.log('res',res);
+                },function(){
+
+                });
                 console.log(111);
             }else{
                 this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
