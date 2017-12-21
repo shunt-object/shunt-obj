@@ -37,7 +37,7 @@
 							<span class="log">登陆</span>
 						</li>
 						<li>
-              <span class="resc">注册</span>
+              <span class="resc" ><router-link to="/register" class="router-link-d">注册</router-link></span>
 						</li>
 					</ul>
           </div>
@@ -697,4 +697,9 @@ ul,ol li{
   background:red;
   cursor:pointer
 }
+
+.router-link-d{
+  color:#fff;
+}
+ 
 </style>
