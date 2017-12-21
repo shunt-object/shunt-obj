@@ -1,6 +1,7 @@
 <template>
-  <div class="homepage" style="background:#f8f8f8;">
-     <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="homepage">
+     
+<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header page-scroll">
@@ -49,63 +50,63 @@
     <!--  nav end-->
 
      
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:100%;height:auto">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
             </ol>
             <div class="carousel-inner">
-                <div class="item active" style="width:100%;min-width:100%">
+                <div class="item active" style="width:100%;min-width:100%;height:100%;">
+                    <div class=" lunmain" >
+                        <div class="container" >
+                          <div class="col-md-7 lun-le">
+                                  <h1>中国的“RightScale”,助您轻松上云!</h1>
+                                  <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>
+                                                     打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>
+                                                     适合云厂商？”一体化线上SaaS服务平台。
+                                  </p>
+                                  <p class="pBottom"><span class="pSpan">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                          </div>
+                          <div class="col-md-5 col-sx-12 lun-rig">
+                            <img src="../assets/text.png"  alt="" >
+                          </div> 
+                        </div>         
+                  </div>
+                </div>
+                 <div class="item" style="width:100%;min-width:100%;height:100%;">
                     <div class="lunmain" >
                       <div class="container">
-                        <div class="row" style="width:100%">
+                        <div class="row" style="">
                           <div class="col-md-7 lun-le">
                               <h1>中国的“RightScale”,助您轻松上云!</h1>
                               <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>
 打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>
 适合云厂商？”一体化线上SaaS服务平台。</p>
                               <p class="pBottom"><span class="pSpan">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
-
+      
                           </div>
                           <div class="col-md-5 lun-rig">
-                              <img src="../assets/text.png" alt="" style="width:426px;height:303px;">
+                              <img src="../assets/text.png" alt="">
                           </div>
                         </div>
                       </div>
                     </div>
                 </div>
-                 <div class="item" style="width:100%;min-width:100%">
-                    <div class="lunmain" >
-                      <div class="container">
-                        <div class="row" style="width:100%">
-                          <div class="col-md-7 lun-le">
-                              <h1>中国的“RightScale”,助您轻松上云!</h1>
-                              <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>
-打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>
-适合云厂商？”一体化线上SaaS服务平台。</p>
-                              <p class="pBottom"><span class="pSpan">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
-
-                          </div>
-                          <div class="col-md-5 lun-rig">
-                              <img src="../assets/text.png" alt="" style="width:426px;height:303px;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              
+                  	<a class="carousel-control left" href="next" 
+	   data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="prev" 
+	   data-slide="next" style="height:100%">&rsaquo;</a>
             </div>
+             
 
             <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                
                 
             </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              
-             
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;">
+
             </a>
         </div>
         <!-------------------------------轮播结束------------------------------------------>
@@ -120,7 +121,7 @@
                   <li class="col-md-7 col-xs-7 lis" style="text-align:center">
                     <marquee direction="left">关于未备案网站核查处理公告 11-28
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    CSB再出重磅服务:“智能机器人小易”</marquee>
+                    CSB²再出重磅服务:“智能机器人小易”</marquee>
                   </li>
                 </ul>
          </div>
@@ -303,8 +304,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.homepage{
+  background:#f8f8f8;
+}
 .row{
   margin-left:0;
+  margin-right:0px;
 }
 *{
   font-family:"Microsoft YaHei";
@@ -315,24 +320,12 @@ ul,ol li{
 .lunmain {
   background:url('../assets/bg-f.png') no-repeat;
   background-size:cover;
-  height:600px
+  height:600px;
 }
 
 .navbar{
-  background:none;
+  background:blue;
   border:none
-}
-@media (min-width: 768px){
-  .announce ul .lis{
-    overflow: hidden;
-    text-overflow:ellipsis; 
-    white-space: nowrap;
-    height:58px;
-  }
-  .annou{
-    text-align:center;
-  }
-
 }
 @media (min-width: 768px){
   .cl{
@@ -344,7 +337,7 @@ ul,ol li{
 }
 .lunmain .lun-le{
  padding-top:180px;
- padding-left:178px;
+ padding-left:136px;
  text-align:left;
 }
 .lunmain .lun-rig{
@@ -352,7 +345,10 @@ ul,ol li{
   padding-right:50px
 }
 .Imgs{
-  margin-left:158px
+  margin-left:135px
+}
+.navbar-right{
+  margin-right:85px;
 }
 .navbar ul li a:hover{
   border-bottom:1px solid #fff
@@ -393,12 +389,19 @@ ul,ol li{
 }
 .navbar-right ul li span{
   padding:5px 15px;
-  color:#000;
+  cursor:pointer;
   border-radius:4px
   
 }
+.navbar li a{
+  color:#fff;
+}
+.navbar li a:hover{
+  color:#fff;
+}
 .log{
    border:1px solid #ccc;
+   color:#e5e5e5;
 }
 .resc{
   background:#eaa84f;
@@ -415,7 +418,7 @@ ul,ol li{
   
 }
 .left,.right{
-  width:5%;
+  width:10%;
 }
 .navbar-nav li a:hover{
   border-bottom:1px solid #fff
@@ -636,7 +639,19 @@ ul,ol li{
 .dis{
   padding:50px;
 }
+.lun-rig img{
+  width:426px;height:303px;
+}
 @media (max-width: 768px){
+  .lunmain .container{
+    width:100%;
+    margin-top:10%;
+  }
+  .lun-rig img{
+    width:80%;
+    height:80%;
+    margin-top:50px;
+  }
   .dsg{
     padding:0
   }

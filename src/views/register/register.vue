@@ -89,7 +89,7 @@
 <script>
 import '../register/register.css'
 export default{
-    name:'Register',
+    name:'register',
     data () {
         return {
             phone:'',
