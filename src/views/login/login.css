@@ -1,0 +1,116 @@
+.login{
+    width:100vm;
+    height:100vh;
+    overflow-x:hidden;
+    box-sizing:border-box;
+    background:url('../../assets/login-bg3.png');
+    background-size:100% 100%;
+    font-family:'微软雅黑';
+}
+.login-content{
+    width:1200px;
+    height:100%;
+    margin:0 auto;
+}
+.login-header{
+    width:100%;
+    height:180px;
+}
+.login-main{
+    height:370px;
+    margin-bottom:110px;
+}
+.login-img{
+    float:left;
+    width:572px;
+    height:348px;
+}
+.login-from{
+    width:384px;
+    height:368px;
+    border-radius:5px;
+    background:#fff;
+    float:right;
+}
+.login-from-title{
+    width:100%;
+    height:53px;
+    font-size:20px;
+    color:#333;
+    text-align:center;
+    line-height:53px;
+    border-bottom:1px solid #e4e0e0;
+    margin-bottom:46px;
+}
+.login-from-list{
+    border:1px solid #cccccc;
+    border-radius:4px;
+    width:315px;
+    height:42px;
+    margin:0 auto 20px auto;
+    text-align:left;
+    line-height:42px;
+    padding:0 10px;
+}
+.error{
+    border:1px solid red;
+    margin-bottom:0;
+}
+.phone-notice{
+    color:red;
+    font-size:12px;
+    text-align:left;
+    text-indent:80px;
+    line-height:20px;
+}
+.login-from-list i{
+    font-size:22px;
+    color:#bfbfbf;
+    margin-right:10px;
+}
+.login-from-list input{
+    height:38px;
+    width:260px;
+    border:none;
+    outline:none;
+}
+.login-from-btn{
+    background:#0983f6;
+    border:1px solid #0983f6;
+    border-radius:4px;
+    width:315px;
+    height:36px;
+    font-size:14px;
+    color:#ffffff;
+    margin-top:10px;
+}
+.login-from-remember{
+    width:315px;
+    margin:20px auto;
+    font-size:12px;
+    line-height:20px;
+}
+.login-from-left{
+    float:left;
+}
+.login-from-left input{
+    float:left;
+}
+.login-from-right{
+    float:right;
+}
+.login-footer{
+    margin-bottom:44px;
+    position:relative;
+}
+.login-footer img{
+    position:absolute;
+    left:0;
+    bottom:-44px;
+}
+.login-foot-list{
+    font-size:12px;
+    color:#ffffff;
+    line-height:10px;
+    text-align:center;
+}
