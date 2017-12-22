@@ -9,12 +9,9 @@ import 'bootstrap/dist/js/bootstrap.min'
 import VueResource from 'vue-resource'
 import layer from 'vue-layer'
 import 'font-awesome/css/font-awesome.min.css'
+
 Vue.prototype.$layer = layer(Vue);
 Vue.use(VueResource);
-// Vue.http.options.emulateJSON = false;
-// Vue.http.options.headers = {
-//   'Content-Type': 'application/json',
-// }
 
 
 
