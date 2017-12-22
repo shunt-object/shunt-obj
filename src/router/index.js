@@ -5,6 +5,7 @@ import Register from '@/views/Register/register'
 import Login from '@/views/Login/login'
 import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
+import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
 
 Vue.use(Router)
 
@@ -31,9 +32,14 @@ export default new Router({
       component:Qualitative
     },
     {
-       path:'/',
+      path:'/',
       name:'ResourceGroup',
       component:ResourceGroup
+    },
+    {
+      path:'/CreateAnalysis',
+      name:'CreateAnalysis',
+      component:CreateAnalysis
     }
   ]
 })

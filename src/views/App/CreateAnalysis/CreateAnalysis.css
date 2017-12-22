@@ -1,0 +1,15 @@
+.CreateAnalysis{
+    width:100%;
+    height:100%;
+}
+/*表单*/
+.CreateAnalysis_from{
+    width:100%;
+    height:500px;
+    background:#f8f8f8;
+}
+.CreateAnalysis_from_list{
+    text-align:left;
+    width:100%;
+    padding:10px 20px;
+}
