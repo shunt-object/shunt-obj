@@ -40,7 +40,7 @@
 </div>
 </template>
 <script>
-import '../login/login.css'
+import '../Login/login.css'
 export default{
     name:'login',
     data(){

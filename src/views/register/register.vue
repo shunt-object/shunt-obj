@@ -87,7 +87,7 @@
 </div>
 </template>
 <script>
-import '../register/register.css'
+import '../Register/register.css'
 export default{
     name:'register',
     data () {

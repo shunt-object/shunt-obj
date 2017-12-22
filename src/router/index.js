@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/views/HomePage'
-import Register from '@/views/register/register'
-import Login from '@/views/login/login'
+import Register from '@/views/Register/register'
+import Login from '@/views/Login/login'
 import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
 
