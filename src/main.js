@@ -11,10 +11,10 @@ import axios from 'axios'
 
 import layer from 'vue-layer'
 import 'font-awesome/css/font-awesome.min.css'
+
 Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
 Vue.use(VueResource);
-
 
 
 

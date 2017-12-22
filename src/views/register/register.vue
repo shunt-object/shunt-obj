@@ -110,6 +110,8 @@ export default{
             againPassError:''
         }
     },
+    mounted:function(){
+    },
     methods:{
         notice:function(dom){
             if(dom=='phone'){
@@ -170,7 +172,21 @@ export default{
         },
         agree:function(){
             if( this.isphone==true || this.ispassword==true || this.isagainPas==true || this.isconfirm==true || this.isusername==true || this.checkbox==true){
-                console.log(111);
+                let obj = {
+                    "password": this.password,
+                    "phone": this.phone,
+                    "realname": this.username,
+                    "tenant": this.confirm
+                };
+                let strObj = JSON.stringify(obj);
+                this.$http.post('/broker/auth/register',strObj).then(function(res){
+                    console.log('res',res);
+                    if(res.body.code=='1'){
+                         this.$router.push({path:'/login'});
+                    }
+                },function(){
+
+                });
             }else{
                 this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
                 this.password==''?this.ispassword=true:this.password=false;

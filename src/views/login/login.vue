@@ -79,6 +79,19 @@ export default{
         },
         login:function(){
             if( this.account!=''&&this.isaccount==false && this.password!=''&&this.ishave==false ){//请求接口
+                let obj = {
+                    "password": this.password,
+                    "username": this.account
+                };
+                let str = JSON.stringify(obj);
+                this.$http.post('/broker/auth/login',str).then(function(res){
+                    console.log('res',res);
+                    if(res.body.code=='1'){
+                         this.$router.push({path:'/'});
+                    }
+                },function(){
+
+                });
                if(this.remember==true){
                    localStorage.setItem('remPassword',this.password);
                }else{
