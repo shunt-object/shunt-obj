@@ -111,6 +111,7 @@ export default{
         }
     },
     mounted:function(){
+
     },
     methods:{
         notice:function(dom){
@@ -144,7 +145,18 @@ export default{
                     this.isphone = true;
                     this.phoneError = '请输入正确的手机格式';
                 }else{
-                    this.isphone = false;
+                    this.$http.get('/broker/auth/check/'+this.phone+'/')
+                    .then(function(data){
+                        if(data.body.data==true){
+                            this.isphone = false;
+                        }else{
+                            this.isphone = true;
+                            this.phoneError = '您的手机号已被注册';
+                        }
+                    },function(){
+
+                    })
+                    //this.isphone = false;
                 }
             }else if(dom=='password'){
                 this.isnotice = 'passwordfalse';

@@ -85,9 +85,10 @@ export default{
                 };
                 let str = JSON.stringify(obj);
                 this.$http.post('/broker/auth/login',str).then(function(res){
-                    console.log('res',res);
+                    console.log('login',res);
                     if(res.body.code=='1'){
                          this.$router.push({path:'/'});
+                         sessionStorage.setItem("accountId",this.account);
                     }
                 },function(){
 
