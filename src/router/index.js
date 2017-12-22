@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/views/HomePage'
 import Register from '@/views/register/register'
 import Login from '@/views/login/login'
+import Qualitative from '@/views/Qualitative/qualitative'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path:'/login',
       name:'login',
       component:Login
+    },
+    {
+      path:'/qualitative',
+      name:'qualitative',
+      component:Qualitative
     }
   ]
 })
