@@ -137,7 +137,7 @@ export default{
             }
         },
         reg:function(dom){
-            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0-9]))\d{8}$/;
             let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
             if(dom=='phone'){
                 this.isnotice = 'phonefalse';
@@ -145,18 +145,18 @@ export default{
                     this.isphone = true;
                     this.phoneError = '请输入正确的手机格式';
                 }else{
-                    this.$http.get('/broker/auth/check/'+this.phone+'/')
-                    .then(function(data){
-                        if(data.body.data==true){
-                            this.isphone = false;
+                    let that = this;
+                    this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
+                        //console.log(response);
+                        if(response.data.data==true){
+                            that.isphone = false;
                         }else{
-                            this.isphone = true;
-                            this.phoneError = '您的手机号已被注册';
+                            that.isphone = true;
+                            that.phoneError = '您的手机号已被注册';
                         }
-                    },function(){
-
-                    })
-                    //this.isphone = false;
+                    }).catch((error)=> {
+                        console.log(error);
+                    });
                 }
             }else if(dom=='password'){
                 this.isnotice = 'passwordfalse';
@@ -191,14 +191,14 @@ export default{
                     "tenant": this.confirm
                 };
                 let strObj = JSON.stringify(obj);
-                this.$http.post('/broker/auth/register',strObj).then(function(res){
-                    console.log('res',res);
-                    if(res.body.code=='1'){
-                         this.$router.push({path:'/login'});
+                let that = this;
+                this.$this.post('/broker/auth/register',strObj).then((response)=>{
+                    if(response.data.code=='1'){
+                         that.$router.push({path:'/login'});
                     }
-                },function(){
-
-                });
+                }).catch((error)=>{
+                    console.log(error);
+                })
             }else{
                 this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
                 this.password==''?this.ispassword=true:this.password=false;

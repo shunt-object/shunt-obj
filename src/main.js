@@ -13,6 +13,8 @@ import 'font-awesome/css/font-awesome.min.css'
 
 Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
+axios.defaults.withCredentials=true;
+axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
 
 
