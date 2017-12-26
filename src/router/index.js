@@ -6,7 +6,11 @@ import Login from '@/views/Login/login'
 import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
 import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
+
 import bothMany from '@/views/Both/both-many'
+
+import Plan from '@/views/Question/Plan/Plan'
+
 
 Vue.use(Router)
 
@@ -42,10 +46,17 @@ export default new Router({
       name:'CreateAnalysis',
       component:CreateAnalysis
     },
+
      {
       path:'/bothMany',
       name:'bothMany',
       component:bothMany
+    },
+
+    {
+      path:'/plan',
+      name:'plan',
+      component:Plan
     }
   ]
 })

@@ -84,15 +84,21 @@ export default{
                     "username": this.account
                 };
                 let str = JSON.stringify(obj);
-                this.$http.post('/broker/auth/login',str).then(function(res){
-                    console.log('login',res);
-                    if(res.body.code=='1'){
-                         this.$router.push({path:'/'});
-                         sessionStorage.setItem("accountId",this.account);
+                let that = this;
+                this.$this.post('/broker/auth/login',str).then((response)=>{
+                    console.log(response);
+                    if(response.data.code=='1'){
+                        this.$router.push({path:'/'});
+                        sessionStorage.setItem("accountId",this.account);
+                    }else if(response.data.code=='0'){
+                        this.isaccount=true;
+                        this.ishave=true;
+                        this.accountText = '用户名或密码不正确';
+                        this.passwordText = '用户名或密码不正确';
                     }
-                },function(){
-
-                });
+                }).catch((error)=>{
+                    console.log(error);
+                })
                if(this.remember==true){
                    localStorage.setItem('remPassword',this.password);
                }else{
