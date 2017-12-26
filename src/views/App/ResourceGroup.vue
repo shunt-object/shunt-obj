@@ -95,7 +95,7 @@ export default {
              
             let valuely = $("#sele").val();
             let valueey = $("#selet").val();
-            
+            console.log(this.appId);
             let obj ={
                 
                     "appId": this.appId,

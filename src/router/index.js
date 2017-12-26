@@ -37,7 +37,7 @@ export default new Router({
       component:Qualitative
     },
     {
-      path:'/',
+      path:'/ResourceGroup',
       name:'ResourceGroup',
       component:ResourceGroup
     },
@@ -48,7 +48,7 @@ export default new Router({
     },
 
      {
-      path:'/bothMany',
+      path:'/',
       name:'bothMany',
       component:bothMany
     },
