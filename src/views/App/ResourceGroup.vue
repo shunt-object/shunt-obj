@@ -54,7 +54,7 @@ export default {
   data () {
     return {
        appId:0,
-      
+       
        cores:"",
        ghz:"",
        ram:"",
@@ -80,22 +80,25 @@ export default {
        sna:"",
        nsa:"",
        cloudStorage:"",
+
+       appId:""
     }
   },
   methods:{
       
       btn:function(){
-            console.log(this.os);
+            //console.log(this.os);
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
                return false
             }else{
-
+            this.appId = sessionStorage.getItem("appId"); 
+             
             let valuely = $("#sele").val();
             let valueey = $("#selet").val();
             
             let obj ={
                 
-                    "appId": 0,
+                    "appId": this.appId,
                     "appServer": {
                         "computeMappingFactor":this.computeMappingFactor,
                         "cores": this.cores,
@@ -126,6 +129,7 @@ export default {
                         "nsa": this.nsa,
                         "sna": this.sna
                     }
+
               };
             
             this.$http.post('/broker/app/resource/group',obj).then((res)=>{
