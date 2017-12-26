@@ -41,14 +41,6 @@ export default{
         }
     },
     mounted:function(){
-        // this.$http.get('/broker/app/frames').then(function(data){
-        //     //console.log(data);
-        //     this.frameList = data.body.data;
-        // },function(){});
-        // this.$http.get('/broker/app/types').then(function(data){
-        //     //console.log(data);
-        //     this.typeList = data.body.data;
-        // },function(){});
         this.$this.get('/broker/app/types').then((response)=>{
             console.log(response);
             this.typeList = response.data.data;
@@ -71,10 +63,13 @@ export default{
                 "appType": this.type
             };
             let str = JSON.stringify(obj);
+            let that = this;
             console.log(this.frame);
             if(this.analysisName!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
                 this.$this.post('/broker/app/analysis',str).then((response)=>{
-                    console.log(response);
+                    //console.log(response);
+                    //console.log(response.data.data.id);
+                    sessionStorage.setItem('appId',response.data.data.id);
                 }).catch((error)=>{
                     console.log(error);
                 })
