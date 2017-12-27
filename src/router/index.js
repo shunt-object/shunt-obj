@@ -6,7 +6,7 @@ import Login from '@/views/Login/login'
 import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
 import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
-
+import Guihua from '@/views/Guihua/guihua'
 import bothMany from '@/views/Both/both-many'
 
 import Plan from '@/views/Question/Plan/Plan'
@@ -48,7 +48,7 @@ export default new Router({
     },
 
      {
-      path:'/',
+      path:'/bothMany',
       name:'bothMany',
       component:bothMany
     },
@@ -57,6 +57,11 @@ export default new Router({
       path:'/plan',
       name:'plan',
       component:Plan
+    },
+     {
+      path:'/',
+      name:'guihua',
+      component:Guihua
     }
   ]
 })

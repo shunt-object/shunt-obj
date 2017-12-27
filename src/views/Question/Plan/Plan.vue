@@ -38,7 +38,7 @@ export default{
     data(){
         return {
             quetionList:[],
-            appId:'',
+            appId:2,
             qinhe:[],
             serverce:'',
             cloud:'',
@@ -47,7 +47,7 @@ export default{
         }
     },
     mounted:function(){
-        this.appId = sessionStorage.getItem('appId');
+        //this.appId = sessionStorage.getItem('appId');
         let qcode = -1;
         let optcode = -1;
         console.log('appId',sessionStorage.getItem('appId'));

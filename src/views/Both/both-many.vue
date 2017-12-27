@@ -3,7 +3,7 @@
          <ul class="uls">
              <li class="sps row">
                  <span class="col-md-1"><input type="checkbox"></span>
-                 <span class="col-md-1">云分析</span>
+                 <span class="col-md-1">云分析名称</span>
                  <span class="col-md-2">应用名称</span>
                  <span class="col-md-4">云规划进度</span>
                  <span class="col-md-4">云选型进度</span>
@@ -23,7 +23,15 @@
                         <span class="col-md-2 bn">{{item.appname}}</span>
                         <span class="col-md-8 text-left">
                             <p >
-                                <a href="#" v-for="im in item.appResults" id="as" style="position:relative">{{im.moduleName}}</a>
+                                
+                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)">
+                                    <a  class="ad" v-if="im.moduleName!=='受益度'&&im.moduleName!=='亲和度'&&im.result!==null"  style="position:absolute;left:0;top:-50px;width:160px;">{{JSON.parse(im.result).sname}}</a>
+                                    <a  class="ad" v-else-if="im.result==null"  style="position:absolute;left:0;top:-50px;" >未完成</a>
+                                    <a  class="ad" v-else style="position:absolute;left:0;top:-50px;" >{{im.result}}</a><!--v-show="index == i"-->
+                                    {{im.moduleName}}
+                                </a>
+                                <a>资源组配置</a>
+                                <a >标准</a>
                          
                             </p>
                             <div class="progress">
@@ -86,22 +94,29 @@
 ul li{
     list-style:none
 }
+a{
+    text-decoration:none; 
+    color:#000;
+}
+a:hover{
+    text-decoration:none;  
+}
 .row a{
     display:inline-block;
-    padding:5px 40px;
+    text-align:left;
+    width:90px;
     margin:0 10px 0 0;
     background:#ccc;
     border-radius:20px;
     border:1px solid #ccc;
 }
-
+.ad{
+    width:100px;
+    margin-right:10px;
+}
 </style>
 <script>
- $("#as").hover(function(){
-                    // for(var i=0;i<$(".as").length;i++){
- alert(1)                   //     $("#pol")[i].css('display','block');
-                    // }
-                })
+
     export default {
         name:"bothMany",
         data (){
@@ -111,18 +126,23 @@ ul li{
                 ds:[],
                 df:[],
                 dg:"",
-                gv:""
+                gv:"",
+                list:false,
+                i:-1
             }
         },
         methods:{
-            
+            onm:function(index){
+                
+                 this.i = index
+            }
                
             
 
         },
         created:function(){
                     this.$http.get('/broker/result/analysis').then((res)=>{
-                        console.log(eval("(" + res.bodyText +")").data.length);
+                        console.log(eval("(" + res.bodyText +")").data);
 
                         this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
                         for(let i = 0;i<this.vpd.length;i++){            
@@ -135,10 +155,11 @@ ul li{
                                // console.log('appname-----',this.ssd[j].appname);
                                 // this.df.push(this.ssd[j].appname);
                                 this.dg = this.ssd[j].appResults;
-                                 console.log(this.dg);
+                                 //console.log(this.dg);
                                   for(let c = 0;c<this.dg.length;c++){
-                                        this.gv = this.dg[c].moduleName;
-                                        console.log(this.gv) 
+                                        this.gv = this.dg[c].result;
+                                        console.log(eval("("+ this.gv +")") );
+                                        console.log(this.gv )
 
                                  }
                             }
