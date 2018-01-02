@@ -10,6 +10,7 @@ import Guihua from '@/views/Guihua/guihua'
 import bothMany from '@/views/Both/both-many'
 
 import Plan from '@/views/Question/Plan/Plan'
+import Compare from '@/views/Question/Compare/Compare'
 
 
 Vue.use(Router)
@@ -54,10 +55,14 @@ export default new Router({
     },
 
     {
-      path:'/plan',
+      path:'/Plan',
       name:'plan',
       component:Plan
     },
+    {
+      path:'/Compare',
+      name:'compare',
+      component:Compare},
      {
       path:'/',
       name:'guihua',
