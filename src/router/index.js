@@ -7,6 +7,7 @@ import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
 import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
 import Plan from '@/views/Question/Plan/Plan'
+import Compare from '@/views/Question/Compare/Compare'
 
 Vue.use(Router)
 
@@ -43,9 +44,14 @@ export default new Router({
       component:CreateAnalysis
     },
     {
-      path:'/plan',
+      path:'/Plan',
       name:'plan',
       component:Plan
+    },
+    {
+      path:'/Compare',
+      name:'compare',
+      component:Compare
     }
   ]
 })
