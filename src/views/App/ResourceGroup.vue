@@ -1,6 +1,6 @@
 <template>
     <div>
-           <h1>App servers</h1>
+           <h1>App servers</h1><input type="text" v-model="num">
            <ul>
                <li><input type="number" v-model="cores" >Vcpu</li>
                <li><input type="text" v-model="ghz">处理器主频</li>
@@ -16,7 +16,7 @@
                <li><input type="text" v-model="monthlyUsage">每个月用量</li>
                <li><input type="text" v-model="dailyUsage">每天用量</li>
            </ul>
-                <h1>App SDB Servers</h1>
+                <h1>App SDB Servers</h1><input type="text" v-model="nume">
                     <ul>
                         <li><input type="text" v-model="coresq">cpu</li>
                         <li><input type="text" v-model="ghzq">处理器主频</li>
@@ -38,7 +38,7 @@
                         <li><input type="text" v-model="inbound">入站</li>
                         <li><input type="text" v-model="outbound">出站</li>
                     </ul>
-                <h1>Storage</h1>
+                <h1>Storage</h1><input type="text" v-model="nums">
                     <ul>
                         <li><input type="text" v-model="sna">共享存储</li>
                         <li><input type="text" v-model="nsa">网络存储</li>
@@ -53,7 +53,7 @@ export default {
   name: 'ResourceGroup',
   data () {
     return {
-       appId:0,
+    //    appId:"",
        
        cores:"",
        ghz:"",
@@ -63,7 +63,9 @@ export default {
        os:"",
        monthlyUsage:"",
        dailyUsage:"",
-
+       num:"",
+       nume:"",
+       nums:"",
        coresq:"",
        ghzq:"",
        ramq:"",
@@ -91,14 +93,14 @@ export default {
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
                return false
             }else{
-            this.appId = sessionStorage.getItem("appId"); 
+            // this.appId = sessionStorage.getItem("appId"); 
              
-            let valuely = $("#sele").val();
-            let valueey = $("#selet").val();
-            console.log(this.appId);
+            // let valuely = $("#sele").val();
+            // let valueey = $("#selet").val();
+            // console.log(this.appId);
             let obj ={
                 
-                    "appId": this.appId,
+                    "appId":12,
                     "appServer": {
                         "computeMappingFactor":this.computeMappingFactor,
                         "cores": this.cores,
@@ -106,6 +108,7 @@ export default {
                         "ghz": this.ghz,
                         "localDisk": this.localDisk,
                         "monthlyUsage":this.monthlyUsage ,
+                        "num":this.num,
                         "os": this.os,
                         "ram": this.ram
                     },
@@ -116,6 +119,7 @@ export default {
                         "ghz": this.ghzq,
                         "localDisk": this.localDiskq,
                         "monthlyUsage": this.monthlyUsageq,
+                        "num":this.nume,
                         "os": this.osq,
                         "ram": this.ramq
                     },
@@ -127,6 +131,7 @@ export default {
                     "storage": {
                         "cloudStorage": this.cloudStorage,
                         "nsa": this.nsa,
+                        "num":this.nums,
                         "sna": this.sna
                     }
 
@@ -146,3 +151,5 @@ export default {
   }
 }
   </script>
+
+
