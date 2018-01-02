@@ -109,7 +109,7 @@ export default{
     data(){
         return {
             quetionList:[],
-            appId:'',
+            appId:2,
             qinhe:[],
             serverce:'',
             cloud:'',
@@ -120,8 +120,12 @@ export default{
         }
     },
     mounted:function(){
+<<<<<<< HEAD
        // this.appId = sessionStorage.getItem('appId');
        this.appId = 12;
+=======
+        //this.appId = sessionStorage.getItem('appId');
+>>>>>>> 7f13e61ef86c0aba21af8ff725906cc46ef1b515
         let qcode = -1;
         let optcode = -1;
         console.log('appId',sessionStorage.getItem('appId'));
