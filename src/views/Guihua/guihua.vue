@@ -47,13 +47,13 @@
 <script>
      
                 
-                $(document).ready(function(){
-                    $('#example').dataTable({
-                         "bPaginate": true,
-                          "bAutoWidth": false,
-                          "pageLength": 1,
-                    });
-                });
+                // $(document).ready(function(){
+                //     $('#example').dataTable({
+                //          "bPaginate": true,
+                //           "bAutoWidth": false,
+                //           "pageLength": 1,
+                //     });
+                // });
             
          
 
@@ -138,7 +138,7 @@
                     $("input[type='checkbox']").each(function() {  
                         this.checked = false;  
                     });  
-                    this.ssd = false;  
+                    
             } else {  
                     $("input[type='checkbox']").each(function() {  
                         this.checked = true;  
