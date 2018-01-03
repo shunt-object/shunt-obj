@@ -2,7 +2,7 @@
 <div class="register">
     <div class="reg-header">
         <div class="reg-content">
-            <img class="logo" src="../../assets/logo.png" alt="">
+            <img class="logo" src="../../../assets/logo.png" alt="">
         </div>
     </div>
     <div class="reg-from">
@@ -16,7 +16,7 @@
             </ul>
             <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
             <div :class="isphone==false?'right':'null'">
-                <img class="svg" src="../../assets/right.svg" alt="">
+                <img class="svg" src="../../../assets/right.svg" alt="">
             </div>
         </div>
         <div class="reg-from-list" :class="ispassword==true?'error':''">
@@ -28,7 +28,7 @@
             </ul>
             <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
             <div :class="ispassword==false?'right':'null'">
-                <img class="svg" src="../../assets/right.svg" alt="">
+                <img class="svg" src="../../../assets/right.svg" alt="">
             </div>
         </div>
         <div class="reg-from-list" :class="isagainPas==true?'error':''">
@@ -40,7 +40,7 @@
             </ul>
             <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
             <div :class="isagainPas==false?'right':'null'">
-                <img class="svg" src="../../assets/right.svg" alt="">
+                <img class="svg" src="../../../assets/right.svg" alt="">
             </div>
         </div>
         <div class="reg-from-list" :class="isconfirm==true?'error':''">
@@ -52,7 +52,7 @@
             </ul>
             <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
             <div :class="isconfirm==false?'right':'null'">
-                <img class="svg" src="../../assets/right.svg" alt="">
+                <img class="svg" src="../../../assets/right.svg" alt="">
             </div>
         </div>
         <div class="reg-from-list" :class="isusername==true?'error':''">
@@ -64,7 +64,7 @@
             </ul>
             <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
             <div :class="isusername==false?'right':'null'">
-                <img class="svg" src="../../assets/right.svg" alt="">
+                <img class="svg" src="../../../assets/right.svg" alt="">
             </div>
         </div>
         <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
@@ -87,7 +87,7 @@
 </div>
 </template>
 <script>
-import '../Register/register.css'
+import '../register/register.css'
 export default{
     name:'register',
     data () {

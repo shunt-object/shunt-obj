@@ -70,7 +70,7 @@
                 });
             
     export default{
-        name:"programming",
+        name:"planList",
         data(){
             return{
                 dat:[],

@@ -66,7 +66,7 @@ $(document).ready(function() {
     })
 } )
 export default{
-    name:'plan',
+    name:'planQuestion',
     data(){
         return {
             quetionList:[],

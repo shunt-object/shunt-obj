@@ -3,7 +3,7 @@
     height:100vh;
     overflow-x:hidden;
     box-sizing:border-box;
-    background:url('../../assets/register-bg.png');
+    background:url('../../../assets/register-bg.png');
     background-size:100% 100%;
 }
 .reg-content{
@@ -90,12 +90,12 @@
 }
 .reg-phone{
     height:48px;
-    background:url('../../assets/phone-bg.png');
+    background:url('../../../assets/phone-bg.png');
     line-height:48px;
 }
 .reg-password{
     height:94px;
-    background:url('../../assets/password-bg.png');
+    background:url('../../../assets/password-bg.png');
     line-height:25px;
     padding-top:13px;
 }

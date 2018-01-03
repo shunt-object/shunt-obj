@@ -118,7 +118,7 @@ a:hover{
 <script>
 
     export default {
-        name:"bothMany",
+        name:"overviewList",
         data (){
             return {
                 vpd:[],

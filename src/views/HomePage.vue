@@ -575,7 +575,7 @@
 <script>
   export default {
   
-    name: 'HomePage',
+    name: 'homePage',
   
     data() {
   

@@ -16,7 +16,7 @@
 </template>
 <script>
 export default{
-    name:'compare',
+    name:'compareQuestion',
     data(){
         return {
             List:[],

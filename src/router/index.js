@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/views/HomePage'
-import Register from '@/views/Register/register'
-import Login from '@/views/Login/login'
-import Qualitative from '@/views/Qualitative/qualitative'
-import ResourceGroup from '@/views/App/ResourceGroup'
-import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
-import Programming from '@/views/Programming/programming'
-import bothMany from '@/views/Both/both-many'
+import homePage from '@/views/homePage'
+import register from '@/views/front/register/register'
+import login from '@/views/front/login/login'
+import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
+import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
+import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
+import compareQuestion from '@/views/console/compare/compareQuestion/compareQuestion'
+import planList from '@/views/console/plan/planList/planList'
+import overviewList from '@/views/console/overview/overviewList/overviewList'
 
-import Plan from '@/views/Question/Plan/Plan'
-import Compare from '@/views/Question/Compare/Compare'
+
 
 
 Vue.use(Router)
@@ -18,55 +18,51 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/HomePage',
-      name: 'HomePage',
-      component: HomePage
+      path: '/homePage',
+      name: 'homePage',
+      component: homePage
     },
     {
       path:'/register',
       name:'register',
-      component:Register
+      component:register
     },
     {
       path:'/login',
       name:'login',
-      component:Login
+      component:login
     },
     {
-      path:'/qualitative',
-      name:'qualitative',
-      component:Qualitative
+      path:'/resourceGroup',
+      name:'resourceGroup',
+      component:resourceGroup
     },
     {
-      path:'/ResourceGroup',
-      name:'ResourceGroup',
-      component:ResourceGroup
-    },
-    {
-      path:'/CreateAnalysis',
-      name:'CreateAnalysis',
-      component:CreateAnalysis
+      path:'/createAnalysis',
+      name:'createAnalysis',
+      component:createAnalysis
     },
 
      {
-      path:'/bothMany',
-      name:'bothMany',
-      component:bothMany
+      path:'/overviewList',
+      name:'overviewList',
+      component:overviewList
     },
 
     {
-      path:'/Plan',
-      name:'plan',
-      component:Plan
+      path:'/planQuestion',
+      name:'planQuestion',
+      component:planQuestion
     },
     {
-      path:'/Compare',
-      name:'compare',
-      component:Compare},
+      path:'/compareQuestion',
+      name:'compareQuestion',
+      component:compareQuestion
+    },
      {
       path:'/',
-      name:'programming',
-      component:Programming
+      name:'planList',
+      component:planList
     }
   ]
 })

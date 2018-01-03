@@ -27,9 +27,9 @@
     </div>
 </template>
 <script>
-import '../CreateAnalysis/CreateAnalysis.css'
+import '../createAnalysis/createAnalysis.css'
 export default{
-    name:'CreateAnalysis',
+    name:'createAnalysis',
     data(){
         return {
             typeList:[],
