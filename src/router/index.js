@@ -6,7 +6,7 @@ import Login from '@/views/Login/login'
 import Qualitative from '@/views/Qualitative/qualitative'
 import ResourceGroup from '@/views/App/ResourceGroup'
 import CreateAnalysis from '@/views/App/CreateAnalysis/CreateAnalysis'
-import Guihua from '@/views/Guihua/guihua'
+import Programming from '@/views/Programming/programming'
 import bothMany from '@/views/Both/both-many'
 
 import Plan from '@/views/Question/Plan/Plan'
@@ -65,8 +65,8 @@ export default new Router({
       component:Compare},
      {
       path:'/',
-      name:'guihua',
-      component:Guihua
+      name:'programming',
+      component:Programming
     }
   ]
 })
