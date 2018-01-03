@@ -55,10 +55,11 @@
         </tbody>
  
     </table>
+    <div id="main" style="width: 600px;height: 400px;"></div>
 </div>
 </template>
 <script> 
-
+import echarts from 'echarts'
 $(document).ready(function() {
     $('#example').dataTable( {
         "bPaginate":true,
@@ -76,7 +77,13 @@ export default{
             checked:false,
             shouyi:[],
             selectedId:[],
-            indexI:0
+            indexI:0,
+            charts:'',
+            opiniondata:[{
+                name: '王小虎',
+                sales: 80,
+                services: 70
+            }]
         }
     },
     mounted:function(){
@@ -96,6 +103,10 @@ export default{
         }).catch((error)=>{
             
         }) 
+        //图表
+        this.$nextTick(function() {
+            this.drawPie('main')
+        })
         
     },
     methods:{
@@ -193,6 +204,212 @@ export default{
             }).catch((error)=>{
                 
             }) 
+        },
+        drawPie:function(id){
+            this.charts = echarts.init(document.getElementById(id));
+            this.charts.setOption({
+                backgroundColor:'#ccc',
+                title: {
+                    text: '服务四象限图'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    axisPointer: {
+                        show: true,
+                        type: 'cross',
+                        lineStyle: {
+                            type: 'dashed',
+                            width: 1
+                        },
+                    }
+                },
+                xAxis: {
+                    name: '收益度',
+                    type: 'value',
+                    scale: true,
+                    min:0,
+                    max:100,
+                    axisLabel: {
+                        interval:20
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#3259B8'
+                        }
+                    }
+                },
+                yAxis: {
+                    name: '亲和度',
+                    type: 'value',
+                    scale: true,
+                    min:0,
+                    max:100,
+                    axisLabel: {
+                        interval:20
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#3259B8'
+                        }
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 800,
+                    dimension: 0,
+                    left: 'right',
+                    top: 'top',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: true,
+                    itemWidth: 18,
+                    itemHeight: 160,
+                    textStyle: {
+                        color: '#3259B8',
+                        height: 56,
+                        fontSize: 11,
+                        lineHeight: 60,
+                    },
+                    inRange: {
+                        color: ['#7AB7F7', '#b45ef7']
+                    },
+                    padding: [50, 20],
+                    orient: 'horizontal',
+                },
+                series: [{
+                    type: 'scatter',
+                    data: this.seriesData(),
+                    symbolSize: 20,
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                color: "#626c91",
+                                type: 'solid',
+                                width: 1,
+                            },
+                            emphasis: {
+                                color: "#d9def7"
+                            }
+                        },
+                        data: [{
+                            xAxis: 50,
+                            name: '营业额平均线',
+                            itemStyle: {
+                                normal: {
+                                    color: "#b84a58",
+                                }
+                            }
+                        }, {
+                            yAxis: 50,
+                            name: '服务能力平均线',
+                            itemStyle: {
+                                normal: {
+                                    color: "#b84a58",
+                                }
+                            }
+                        }]
+                    },
+                    markArea: {
+                        silent: true,
+                        data: [
+                            [{
+                                name: '改进',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'red'
+                                    },
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'insideTopLeft',
+                                        fontStyle: 'normal',
+                                        color: "#409EFF",
+                                        fontSize: 20,
+                                    }
+                                },
+                                coord: [50, 50],
+                            }, {
+                                coord: [Number.MAX_VALUE, 0],
+                            }],
+                            [{
+                                name: '淘汰',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'green',
+                                    },
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'insideTopRight',
+                                        fontStyle: 'normal',
+                                        color: "#409EFF",
+                                        fontSize: 20,
+                                    }
+                                },
+                                coord: [0, 0],
+                            }, {
+                                coord: [50, 50],
+                            }],
+                            [{
+                                name: '保持',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'yellow',
+                                    },
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'insideBottomLeft',
+                                        fontStyle: 'normal',
+                                        color: "#409EFF",
+                                        fontSize: 20,
+                                    }
+                                },
+                                coord: [50, 50],
+                            }, {
+                                coord: [Number.MAX_VALUE, Number.MAX_VALUE],
+                            }],
+                            [{
+                                name: '激励',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'blue',
+                                    },
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'insideBottomRight',
+                                        fontStyle: 'normal',
+                                        color: "#409EFF",
+                                        fontSize: 20,
+                                    }
+                                },
+                                coord: [0, Number.MAX_VALUE],
+                            }, {
+                                coord: [50, 50],
+                            }],
+                        ]
+                    }
+                }]
+                //
+            })
+        },
+        seriesData:function(){
+            this.opiniondata.map(function(item, index, array) {
+                return {
+                    name: item['name'],
+                    value: [item['sales'], item['services']]
+                }
+            })
         }
     }
 }
