@@ -23,7 +23,7 @@
   
   					</button>
   
-          <a class="navbar-brand page-scroll" href="#page-top"><img src="../assets/logo.png" alt="Lattes theme logo" class="Imgs"></a>
+          <a class="navbar-brand page-scroll" href="#page-top"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs"></a>
   
         </div>
   
@@ -139,7 +139,7 @@
   
               <div class="col-md-5 col-sx-12 lun-rig">
   
-                <img src="../assets/text.png" alt="">
+                <img src="../../assets/text.png" alt="">
   
               </div>
   
@@ -175,7 +175,7 @@
   
                 <div class="col-md-5 lun-rig">
   
-                  <img src="../assets/text.png" alt="">
+                  <img src="../../assets/text.png" alt="">
   
                 </div>
   
@@ -263,7 +263,7 @@
   
           <div class="col-xs-12 col-sm-6 blurb-cta">
   
-            <img src="../assets/yun-f.png" alt="" class="Yunimg">
+            <img src="../../assets/yun-f.png" alt="" class="Yunimg">
   
             <h2>云规划</h2>
   
@@ -279,7 +279,7 @@
   
           <div class="col-xs-12 col-sm-6 blurb-cta">
   
-            <img src="../assets/yun-s.png" alt="" class="Yunimg">
+            <img src="../../assets/yun-s.png" alt="" class="Yunimg">
   
             <h2>云选型</h2>
   
@@ -305,9 +305,9 @@
   
     <div class="obj-what phone-position">
   
-      <img src="../assets/qq.png" alt="" class="RenGong">
+      <img src="../../assets/qq.png" alt="" class="RenGong">
   
-      <img src="../assets/phone.png" alt="" class="phone">
+      <img src="../../assets/phone.png" alt="" class="phone">
   
       <div class="container">
   
@@ -321,13 +321,13 @@
   
         <div class="col-xs-12 col-sm-6 obj-what-dv">
   
-          <img src="../assets/computer.png" alt="">
+          <img src="../../assets/computer.png" alt="">
   
         </div>
   
         <div class="col-xs-12 col-sm-6 obj-what-ds">
   
-          <h1><img src="../assets/sheng.png" alt="">省力</h1>
+          <h1><img src="../../assets/sheng.png" alt="">省力</h1>
   
           <h3>为您减少 50%的上云规划时间</h3>
   
@@ -345,7 +345,7 @@
   
         <div class="col-xs-12 col-sm-6 obj-what-ds obj-what-dc" style="">
   
-          <h1><img src="../assets/sheng.png" alt="">专业</h1>
+          <h1><img src="../../assets/sheng.png" alt="">专业</h1>
   
           <h3>集结上百位专家心血，&nbsp&nbsp&nbsp</br>为了您提供科学规划上云</h3>
   
@@ -357,7 +357,7 @@
   
         <div class="col-xs-12 col-sm-6 obj-what-dv obj-what-da">
   
-          <img src="../assets/computer-s.png" alt="">
+          <img src="../../assets/computer-s.png" alt="">
   
         </div>
   
@@ -371,13 +371,13 @@
   
         <div class="col-xs-12 col-sm-6 obj-what-dv" style="padding:50px 50px">
   
-          <img src="../assets/computer.png" alt="">
+          <img src="../../assets/computer.png" alt="">
   
         </div>
   
         <div class="col-xs-12 col-sm-6 obj-what-ds dsg">
   
-          <h1><img src="../assets/sheng.png" alt="">省钱</h1>
+          <h1><img src="../../assets/sheng.png" alt="">省钱</h1>
   
           <h3>洞察您当前的工作负载，&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</br>为您节省 30%的上云成本支出</h3>
   
@@ -409,49 +409,49 @@
   
         <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
-          <img src="../assets/friend.png" alt="">
-  
-        </div>
-  
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
-  
-          <img src="../assets/friend.png" alt="">
-  
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
         </div>
   
         <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
-          <img src="../assets/friend.png" alt="">
-  
-        </div>
-  
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
-  
-          <img src="../assets/friend.png" alt="">
-  
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
         </div>
   
         <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
         </div>
   
         <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
   
-          <img src="../assets/friend.png" alt="">
+          <img src="../../assets/friend.png" alt="">
+  
+        </div>
+  
+        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
+  
+          <img src="../../assets/friend.png" alt="">
+  
+          <img src="../../assets/friend.png" alt="">
+  
+        </div>
+  
+        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
+  
+          <img src="../../assets/friend.png" alt="">
+  
+          <img src="../../assets/friend.png" alt="">
   
         </div>
   
@@ -547,7 +547,7 @@
   
             <p>您的专属上云顾问</p>
   
-            <img src="../assets/weichat.png" alt="">
+            <img src="../../assets/weichat.png" alt="">
   
           </div>
   
@@ -630,7 +630,7 @@
   
   .lunmain {
   
-    background: url('../assets/bg-f.png') no-repeat;
+    background: url('../../assets/bg-f.png') no-repeat;
   
     background-size: cover;
   
@@ -1228,7 +1228,7 @@
   
     width: 100%;
   
-    background: url("../assets/bg-g.png") no-repeat;
+    background: url("../../assets/bg-g.png") no-repeat;
   
     background-size: cover;
   

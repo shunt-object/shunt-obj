@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import homePage from '@/views/homePage'
+import homePage from '@/views/front/homePage'
 import register from '@/views/front/register/register'
 import login from '@/views/front/login/login'
 import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
