@@ -31,6 +31,7 @@
             
         </div>
 </template>
+
 <style>
 
     *{
@@ -49,11 +50,11 @@
 <script>
 // import '../programming/js/jquery.paginate.js';
 // import '../programming/js/jquery.yhhDataTable.js';
+   import "../planList/datatable.css";
        $(document).ready(function(){
              $('#example').dataTable({
                          "bPaginate": true,
                           "bAutoWidth": false,
- 
                           "bScrollCollapse" : true,
                           "bAutoWidth" : true, //是否自适应宽度    
                           "pageLength":2,

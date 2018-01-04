@@ -36,14 +36,14 @@ export default new Router({
       component:login
     },
     {
-      path:'/',
+      path:'/resourceGroup',
 
       name:'resourceGroup',
       component:resourceGroup
     },
      
     {
-      path:'/consolePage',
+      path:'/',
 
       name:'consolePage',
       component:consolePage,
@@ -59,7 +59,7 @@ export default new Router({
           component:resetviewList
         },
         {
-          path:'/planList',
+          path:'/',
           name:'planList',
           component:planList
         },
