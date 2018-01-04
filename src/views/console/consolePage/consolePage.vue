@@ -179,6 +179,13 @@ $(function(){
 export default{
     name:'consolePage',
   
+
+    data(){
+        return {
+            
+        }
+    },
+
     mounted:function(){},
     methods:{
         planning:function(){

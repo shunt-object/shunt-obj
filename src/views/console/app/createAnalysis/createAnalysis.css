@@ -1,14 +1,102 @@
+.outbox{
+    width:100%;
+    height:100%;
+    padding:30px 20px;
+}
 .CreateAnalysis{
     width:100%;
     height:100%;
+    background:#f8f8f8;
+    border:1px solid #dedede;
+    border-radius:5px;
+}
+select,input{
+    outline:none;
 }
 /*表单*/
+.CreateAnalysis_from_box{
+    padding:50px 50px 100px 50px;
+}
 .CreateAnalysis_from{
     width:100%;
-    height:500px;
+    /*height:300px;*/
+    background:#eee;
+    border-radius:5px;
+    padding:30px;
 }
 .CreateAnalysis_from_list{
     text-align:left;
     width:100%;
-    padding:10px 20px;
+    padding:10px 0px;
+    font-size:14px;
+}
+.CreateAnalysis_key{
+    display:inline-block;
+    width:100px;
+    text-align:right;
+}
+.CreateAnalysis_input{
+    width:200px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding-left:10px;
+    padding-right:25px;
+    color: #333;
+}
+.CreateAnalysis_select{
+    width:120px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:3px;
+}
+.nextbtn{
+    float:right;
+    margin-top:30px;
+}
+.label{
+    position:relative;
+    padding:0 !important;
+    font-weight:normal !important;
+    font-size:14px !important;
+}
+.down{
+    border-left:1px solid #ccc;
+    display:inline-block;
+    height:30px;
+    position:absolute;
+    right:8px;
+    top:-8px;
+    width:20px;
+}
+.down i{
+    width: 0px;
+    height: 5px;
+    border: 5px solid;
+    border-color:  #666 transparent transparent transparent;
+    float: left;
+    margin: 13px 8px;
+    cursor: pointer;
+}
+.analysis_name{
+    width: 200px;
+    text-align: left;
+    margin-left: 104px;
+    color:#333;
+    line-height:30px;
+    border:1px solid #ccc;
+    border-top:none;
+    border-radius:0 0 5px 5px;
+    background:#fff;
+    padding:0;
+}
+.analysis_name li{
+    cursor:pointer;
+    padding:0 10px;
+}
+.analysis_name li:hover{
+    background:#ccc;
+}
+.error{
+    border:1px solid red;
 }
