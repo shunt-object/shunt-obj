@@ -56,7 +56,7 @@
                 <li class="active">
                     <a class="" href="#">
                         <i class="icon-dashboard"></i>
-                        <span><router-link to="/consolePage/" style="padding:0;">总览</router-link></span>
+                        <span>总览</span>
                     </a>
                 </li>
                 <li class="sub-menu">
@@ -178,7 +178,7 @@ $(function(){
 })
 export default{
     name:'consolePage',
-    data(){},
+  
     mounted:function(){},
     methods:{
         planning:function(){

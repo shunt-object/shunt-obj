@@ -10,6 +10,7 @@ import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
 import compareQuestion from '@/views/console/compare/compareQuestion/compareQuestion'
 import planList from '@/views/console/plan/planList/planList'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
+import resetviewList from '@/views/console/overview/resetviewList/resetviewList'
 
 
 
@@ -19,7 +20,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'homePage',
       component: homePage
     },
@@ -34,7 +35,7 @@ export default new Router({
       component:login
     },
     {
-      path:'/resourceGroup',
+      path:'/',
       name:'resourceGroup',
       component:resourceGroup
     },
@@ -45,9 +46,14 @@ export default new Router({
       component:consolePage,
       children:[
         {
-          path:'/',
+          path:'/overviewList',
           name:'overviewList',
           component:overviewList
+        },
+        {
+          path:'/resetviewList',
+          name:'resetviewList',
+          component:resetviewList
         },
         {
           path:'/planList',

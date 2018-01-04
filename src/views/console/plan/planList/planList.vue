@@ -1,9 +1,9 @@
 <template>
         <div>
             <div>象限图</div>
-            <router-link to="/CreateAnalysis"><button style="color:#000">创建云规划</button></router-link><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="button" value="导出"><input type="text" value="搜索">
+            <router-link to="/CreateAnalysis"><button style="color:#000">创建云规划</button></router-link><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="button" value="导出"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
-          <table id="exam" border="1">
+          <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr style="margin-top:50px; text-align:center">
                         <th class="col-md-1"><input type="checkbox" name="checkbox" v-on:click="Qqno" class="cls"></th>
@@ -15,7 +15,7 @@
                         <th class="col-md-1">操作</th>
                     </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
                         <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='checkname'></td>
                         <td class="col-md-1">{{sp.appname}}</td>
@@ -27,6 +27,7 @@
                     </tr>
             </tbody>
         </table>
+        
             
         </div>
 </template>
@@ -44,31 +45,64 @@
     }
 </style>
 
+
 <script>
-          $(document).ready(function(){
-                    $('#exam').dataTable({
-                         "bPaginate": true,
-                          "bAutoWidth": false,
-                          "pageLength": 3,
+// import '../programming/js/jquery.paginate.js';
+// import '../programming/js/jquery.yhhDataTable.js';
+       $(document).ready(function(){
+             $('#example').dataTable({
+                         "bPaginate": true,
+                          "bAutoWidth": false,
+ 
+                          "bScrollCollapse" : true,
+                          "bAutoWidth" : true, //是否自适应宽度    
+                          "pageLength":2,
+                          "bDeferRender":false,
                           "lengthChange": false,
-                           "info": true,
-                           "language": {  
-                "sInfoEmpty": "没有数据",  
-                "sZeroRecords": "没有查找到满足条件的数据",  
-                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",  
-                "sLengthMenu": "每页显示 _MENU_ 条记录",  
-                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",  
-                "oPaginate": {  
-                    "sFirst": "首页",  
-                    "sPrevious": "前一页",  
-                    "sNext": "后一页",  
-                    "sLast": "尾页"  
-                },
-                "ordering": true,
-            },  
-                    });
-                });
-            
+                          "searching": true,//搜索  
+                          "ordering": true,//排序 
+                          "language": {  
+                                "sInfoEmpty": "没有数据",  
+                                "sZeroRecords": "没有查找到满足条件的数据",  
+                                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",  
+                                "sLengthMenu": "每页显示 _MENU_ 条记录",  
+                                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",  
+                                "sSearch" : "搜索", 
+                                "oPaginate": {  
+                                    "sFirst": "首页",  
+                                    "sPrevious": "前一页",  
+                                    "sNext": "后一页",  
+                                    "sLast": "尾页"  
+                                }  
+                        },  
+             });
+        
+        var counter = 0;
+        if (window.history && window.history.pushState) {
+            $(window).on('popstate', function () {
+                window.history.replaceState("","",'#/');//在这改变地址 这里使用生产环境localhost
+                window.history.forward(1);
+
+            // 此处为监听到浏览器后退按钮的后续事件  例：刷新前一个页面；或者刷新当前页面等
+                 window.location.reload();
+            //   window.location.href = 'http://localhost:8081/#';  或者在这改变地址  这里适用上线以后加http地址
+            });
+        }
+        //兼容IE
+        window.history.pushState("","",'#/'); 
+        window.history.forward(1);
+      })
+      
+      function myFunn(){ 
+        var $sea=$('#myInput').val();
+        //先隐藏全部，再把符合筛选条件的值显示
+        console.log($sea);
+            $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+        }
+    //    $(document).ready(function(e) {
+    //    
+    // });   
+
     export default{
         name:"planList",
         data(){
@@ -78,11 +112,22 @@
                 sps:[]
             }
         },
-        created:function(){
-            this.getData();                 
+        
+        mounted:function(){
+            this.getData();
+                            
         },
-
+        created:function(){
+             this.getData();
+        },
+         beforeDestroy: function () {
+          this.getData();
+      },
         methods:{
+           myFun:function(){
+               myFunn();
+               
+           },
            getData:function(){                       //获取数据
                 this.$http.get("/broker/result/plan/list").then((sps)=>{
                     this.sps = eval("(" + sps.bodyText +")").data;
@@ -100,7 +145,7 @@
                      let id = [];
                      let ids = [];
 
-                    // console.log($("#trs input[type='checkbox']").is(':checked'));
+                     console.log($("#trs input[type='checkbox']").is(':checked'));
                      for(let i=0;i<$("input[type='checkbox']").length;i++){
                          if($("input[type='checkbox']").eq(i).is(':checked')){
                             id.push($("input[type='checkbox']").eq(i).attr("data-id"))
