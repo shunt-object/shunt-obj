@@ -37,15 +37,14 @@ export default new Router({
     },
     {
       path:'/',
-<<<<<<< HEAD
+
       name:'resourceGroup',
       component:resourceGroup
     },
      
     {
       path:'/consolePage',
-=======
->>>>>>> 91a516ce9bce9742ffddcb5d1729113e31be1e90
+
       name:'consolePage',
       component:consolePage,
       children:[

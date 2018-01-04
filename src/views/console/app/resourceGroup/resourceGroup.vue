@@ -45,9 +45,17 @@
                         <li><input type="text" v-model="cloudStorage">云存储</li>
                     </ul>
 
-                    <button style="width:100px;height:50px;background:#ccc" @click="btn()">下一步</button>
+                   <router-link to="/compareQuestion" class="nex"><button style="width:100px;height:50px;background:#ccc" @click="btn()">下一步</button></router-link> 
     </div>
 </template>
+<style>
+    .nex{
+        color:#000;
+    }
+    a:hover{
+        color:#000;
+    }
+</style>
 <script>
 export default {
   name: 'ResourceGroup',
