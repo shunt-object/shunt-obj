@@ -12,6 +12,7 @@
         </div>
     </div>
     <button v-on:click="result()">云选型结果</button>
+    
 </div>
 </template>
 <script>

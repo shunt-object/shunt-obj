@@ -1,0 +1,50 @@
+.steps{
+    width:100%;
+    height:120px;
+    background:yellow;
+    padding:20px;
+    position:relative;
+    border-bottom:1px solid #dedede;
+}
+.steps-line{
+    width:100%;
+    height:1px;
+    background:#ccc;
+    position:absolute;
+    left:0;
+    top:48px;
+    z-index:1;
+}
+.steps-atage{
+    padding:0 20px;
+    background:lightgreen;
+    float:left;
+    margin-top:10px;
+    position:absolute;
+    left:0;
+    top:20px;
+    z-index:2;
+}
+.steps-atage span{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:red;
+    display:block;
+    margin-left:25px;
+}
+.steps2{
+    left:16.6%;
+}
+.steps3{
+    left:33.2%;
+}
+.steps4{
+    left:49.8%;
+}
+.steps5{
+    left:66.4%;
+}
+.steps6{
+    left:83%;
+}

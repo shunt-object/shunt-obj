@@ -14,12 +14,13 @@ import overviewList from '@/views/console/overview/overviewList/overviewList'
 
 
 
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'homePage',
       component: homePage
     },
@@ -34,13 +35,7 @@ export default new Router({
       component:login
     },
     {
-      path:'/resourceGroup',
-      name:'resourceGroup',
-      component:resourceGroup
-    },
-     
-    {
-      path:'/consolePage',
+      path:'/',
       name:'consolePage',
       component:consolePage,
       children:[
@@ -68,6 +63,11 @@ export default new Router({
           path:'/compareQuestion',
           name:'compareQuestion',
           component:compareQuestion
+        },
+        {
+          path:'/resourceGroup',
+          name:'resourceGroup',
+          component:resourceGroup
         },
       ]
     }
