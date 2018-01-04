@@ -10,6 +10,8 @@ import VueResource from 'vue-resource'
 import axios from 'axios'
 import layer from 'vue-layer'
 import 'font-awesome/css/font-awesome.min.css'
+import "datatables/media/css/jquery.dataTables.min.css"
+import "datatables/media/js/jquery.dataTables.min.js"
 
 
 Vue.prototype.$layer = layer(Vue);

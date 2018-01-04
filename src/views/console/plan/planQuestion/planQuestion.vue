@@ -31,40 +31,12 @@
         </p>
         <button v-on:click="result(3)">收益结果</button>
     </div>
-    <!--表格 -->
-        <table id="example">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-        </tbody>
- 
-    </table>
     <div id="main" style="width: 600px;height: 400px;"></div>
 </div>
 </template>
 <script> 
 import echarts from 'echarts'
-$(document).ready(function() {
-    $('#example').dataTable( {
-        "bPaginate":true,
-    })
-} )
+
 export default{
     name:'planQuestion',
     data(){

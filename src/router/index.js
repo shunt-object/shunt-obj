@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import homePage from '@/views/front/homePage'
 import register from '@/views/front/register/register'
 import login from '@/views/front/login/login'
+import consolePage from '@/views/console/consolePage/consolePage'
 import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
 import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
@@ -18,7 +19,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/homePage',
+      path: '/',
       name: 'homePage',
       component: homePage
     },
@@ -37,32 +38,38 @@ export default new Router({
       name:'resourceGroup',
       component:resourceGroup
     },
+     
     {
-      path:'/createAnalysis',
-      name:'createAnalysis',
-      component:createAnalysis
-    },
-
-     {
-      path:'/overviewList',
-      name:'overviewList',
-      component:overviewList
-    },
-
-    {
-      path:'/planQuestion',
-      name:'planQuestion',
-      component:planQuestion
-    },
-    {
-      path:'/compareQuestion',
-      name:'compareQuestion',
-      component:compareQuestion
-    },
-     {
-      path:'/',
-      name:'planList',
-      component:planList
+      path:'/consolePage',
+      name:'consolePage',
+      component:consolePage,
+      children:[
+        {
+          path:'/',
+          name:'overviewList',
+          component:overviewList
+        },
+        {
+          path:'/planList',
+          name:'planList',
+          component:planList
+        },
+        {
+            path:'/createAnalysis',
+            name:'createAnalysis',
+            component:createAnalysis
+        },
+        {
+          path:'/planQuestion',
+          name:'planQuestion',
+          component:planQuestion
+        },
+        {
+          path:'/compareQuestion',
+          name:'compareQuestion',
+          component:compareQuestion
+        },
+      ]
     }
   ]
 })
