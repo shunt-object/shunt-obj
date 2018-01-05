@@ -85,12 +85,15 @@
             }
         }, 
         created:function(){
+            
              this.getData();    
           },
            
         updated:function(){
-            
-            $(document).ready(function(){
+           
+                
+           
+            $('#example').dataTable().fnDestroy();
             $('#example').dataTable({
                          "bPaginate": true,
                           "bAutoWidth": false,
@@ -116,7 +119,7 @@
                                 }  
                         },  
              });
-            })
+            
         },
         methods:{
            myFun:function(){
@@ -161,7 +164,9 @@
                              method: 'delete',
                              url: '/broker/app/applications',
                              data: asf }).then(function (response) {
-                             _that.getData();
+                             //_that.getData();
+                             window.location.reload()
+                               
                             //$(":checkbox").attr("checked") != "checked"
                               for(let s=0;s<$("input[type='checkbox']").length;s++){
                                   if($("input[type='checkbox']").eq(s).is(":checked")){
