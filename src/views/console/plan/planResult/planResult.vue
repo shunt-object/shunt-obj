@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <!--<div class="">-->
-        <child message="hellow" data="aaa"></child>
+        <child index="3" start="0"></child>
         <div class="compare-start">
             <button class="btn btn-default startbtn" v-on:click="compare()">开始云选型</button>
             <button class="btn btn-default importbtn">导出</button>

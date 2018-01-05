@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-    <child message="hellow" data="aaa"></child>
+    <child index="4" start="0"></child>
 
     <div class="compare-box">
 

@@ -6,7 +6,7 @@
 </div>
 <div class="outbox" style="background:#fff;">
     <div class="CreateAnalysis">
-        <child message="hellow" data="aaa"></child>
+        <child index="1" start="0"></child>
         <div class="CreateAnalysis_from_box">
             <div class="CreateAnalysis_from">
                 <div class="CreateAnalysis_from_list">
