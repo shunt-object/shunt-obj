@@ -1,0 +1,26 @@
+.compare-box{
+    padding:20px 40px;
+}
+.compare-list{
+    width:100%;
+    padding:10px;
+}
+/*.compare-list:hover{
+    background:#ccc;
+}*/
+.readonly{
+    float:left;
+    margin-right:10px !important;
+}
+.compare-question-item{
+    width:100%;
+    padding:10px 20px;
+}
+.compare-select{
+    float:right;
+    width:200px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-right:100px;
+}

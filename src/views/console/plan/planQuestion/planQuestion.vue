@@ -1,85 +1,101 @@
 <template>
-<div>
-    <!--定性问题-->
-    <div class="list">
-        <p v-if="cloud==''">{{quetionList.content}}</p>
-        <p v-if="cloud==''">
-            <span v-for="item in quetionList.option">
-                <input type="radio" :name="quetionList.code" v-on:click="fn(quetionList.code,item.code)" v-model="checked">{{item.content}}
-            </span>
-        </p>
-        <p v-else>{{cloud}}</p>
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <router-link to="/">总览</router-link> > 云规划
+</div>
+<div class="plan-box">
+    <div class="plan-container">
+        <child message="hellow" data="aaa"></child>
+        <div class="plan-question-box">
+            <div class="plan-question-list">
+                <div class="plan-question-item row">
+                    <div class="plan-type col-md-4">
+                        <button class="btn btn-primary plan-btn">{{cloudName}}</button>
+                    </div>
+                    <div class="plan-type col-md-4">
+                        <button class="btn btn-primary plan-btn">{{profitReault}}</button>
+                    </div>
+                    <div class="plan-type col-md-4">
+                        <button class="btn btn-primary plan-btn">{{affinityResult}}</button>
+                    </div>
+                </div>
+                <!--定性问题-->
+                <div class="question-list" v-show="qualitative">
+                    <p class="question-list-item">{{quetionList.content}}</p>
+                    <p class="question-list-item">
+                        <span class="question-option" v-for="item in quetionList.option">
+                            <input type="radio" :name="quetionList.code" v-on:click="fn(quetionList.code,item.code)" v-model="checked">{{item.content}}
+                        </span>
+                    </p>
+                    <!-- v-if="cloud==''"<p v-else>{{cloud}}</p>-->
+                </div>
+                <!--定量问题 收益度-->
+                <div class="question-list" v-show="profit">
+                    <div class="question-list-item" v-for="(i,index) in qinhe">{{i.content}}
+                        <p>
+                            <span class="question-option" v-for="(item,itemIndex) in i.option" >
+                                <input type="radio" :name="i.code" v-if="i.qtype==1" v-on:click="qin(index,i.qtype,i.code,item.code)" :checked="i.selectOption==item.code?true:false">
+                                <input :id="item.code" type="checkbox" :checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
+                                {{item.content}}
+                            </span>
+                        </p>
+                    </div>
+                    <button class="btn btn-default planbtn" v-on:click="result(2)">下一步</button>
+                </div>
+                <!--定量问题 亲和度-->
+                <div class="question-list" v-show="affinity">
+                    <div class="question-list-item" v-for="i in shouyi">{{i.content}}
+                        <p>
+                            <span class="question-option" v-for="(item,itemIndex) in i.option">
+                                <input type="radio" :checked="i.selectOption==item.code?true:false" :name="i.code" v-if="i.qtype==1" v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
+                                <input type="checkbox":checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">{{item.content}}
+                            </span>
+                        </p>
+                    </div>
+                    <button class="btn btn-default planbtn" v-on:click="result(3)">下一步</button>
+                </div>
+            </div>
+        </div>
+    
     </div>
-    <!--定量问题 收益度-->
-    <div class="liang">
-        <p v-for="(i,index) in qinhe">{{i.content}}
-            <span v-for="(item,itemIndex) in i.option" >
-                <input type="radio" :name="i.code" v-if="i.qtype==1" v-on:click="qin(index,i.qtype,i.code,item.code)" :checked="i.selectOption==item.code?true:false">
-                <input :id="item.code" type="checkbox" :checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
-                {{item.content}}
-            </span>
-        </p>
-        <button v-on:click="result(2)">定量结果</button>
-    </div>
-    <!--定量问题 亲和度-->
-    <div class="liang">
-        <p v-for="i in shouyi">{{i.content}}
-            <span v-for="(item,itemIndex) in i.option">
-                <input type="radio" :checked="i.selectOption==item.code?true:false" :name="i.code" v-if="i.qtype==1" v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
-                <input type="checkbox":checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">{{item.content}}
-            </span>
-        </p>
-        <button v-on:click="result(3)">收益结果</button>
-    </div>
-    <div id="main" style="width: 600px;height: 400px;"></div>
+</div>
 </div>
 </template>
 <script> 
-import echarts from 'echarts'
+import child from '../../../../components/steps/steps.vue'
+import '../planQuestion/planQuestion.css'
 
 export default{
     name:'planQuestion',
     data(){
         return {
-            quetionList:[],
-            appId:2,
-            qinhe:[],
-            serverce:'',
-            cloud:'',
-            checked:false,
-            shouyi:[],
-            selectedId:[],
-            indexI:0,
-            charts:'',
-            opiniondata:[{
-                name: '王小虎',
-                sales: 80,
-                services: 70
-            }]
+            quetionList:[],//定性问题列表
+            appId:2,//创建云分析的appid
+            qinhe:[],//收益度问题列表
+            serverce:'',//定性id
+            cloudName:'云定性',//定性云
+            profitReault:'云收益度',//收益结果
+            affinityResult:'云亲和度',//亲和结果
+            checked:false,//默认不选中
+            shouyi:[],//亲和度问题李彪
+            selectedId:[],//多选
+            indexI:0,//
+            qualitative:true,//定性问题是否显示
+            profit:false,//收益度问题是否显示
+            affinity:false,//亲和度问题是否显示
         }
     },
     mounted:function(){
-       // this.appId = sessionStorage.getItem('appId');
-       this.appId = 12;
-        //this.appId = sessionStorage.getItem('appId');
+        this.appId = sessionStorage.getItem('appId');
+        //this.appId = 12;
         let qcode = -1;
         let optcode = -1;
         console.log('appId',sessionStorage.getItem('appId'));
         this.getdata(this.appId,qcode,optcode);
         //定量问题
         this.getLiang(this.appId,2);
-        this.getLiang(this.appId,3);
-        //
-        this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
-            console.log('结果',response);                
-        }).catch((error)=>{
-            
-        }) 
-        //图表
-        this.$nextTick(function() {
-            this.drawPie('main')
-        })
-        
+        this.getLiang(this.appId,3);    
     },
     methods:{
         fn:function(qcode,optcode){
@@ -88,17 +104,17 @@ export default{
         getdata:function(appId,qcode,optcode){
             let that = this;
             this.$this.get('/broker/plan/questions/analysis/'+appId+'/'+qcode+'/'+optcode+'').then((response)=>{
-                console.log(response);
+                //console.log(response);
                 if(response.data.code=='1'){
                     that.quetionList = response.data.data;
                     that.checked = false;
                 }else if(response.data.code=='2'){//结果
-                    that.cloud = response.data.data.sname;
+                    that.cloudName = response.data.data.sname;
                     that.serverce = response.data.data.id;
+                    that.qualitative = false;
+                    that.profit = true;
                 }
-                
             }).catch((error)=>{
-                //console.log(error);
             })
         },
         getLiang:function(appId,type){//type=2 云受益；type=3 亲和度
@@ -164,8 +180,18 @@ export default{
             this.save(str);
         },
         result:function(type){
+            //type=2 云受益；type=3 亲和度
            this.$this.get('/broker/plan/questions/result/'+this.appId+'/3/{type}?type='+type+'').then((response)=>{
-                console.log('result',response);                
+                console.log('result',response); 
+                if(type==2){
+                    this.profit = false;
+                    this.qualitative = false;
+                    this.affinity = true;
+                    this.profitReault =  response.data.data+'分';
+                }else{
+                    this.affinityResult = response.data.data+'分';
+                    this.$router.push({path:'/planResult'});
+                }              
             }).catch((error)=>{
                 //console.log(error);
             }) 
@@ -176,213 +202,10 @@ export default{
             }).catch((error)=>{
                 
             }) 
-        },
-        drawPie:function(id){
-            this.charts = echarts.init(document.getElementById(id));
-            this.charts.setOption({
-                backgroundColor:'#ccc',
-                title: {
-                    text: '服务四象限图'
-                },
-                tooltip: {
-                    trigger: 'item',
-                    axisPointer: {
-                        show: true,
-                        type: 'cross',
-                        lineStyle: {
-                            type: 'dashed',
-                            width: 1
-                        },
-                    }
-                },
-                xAxis: {
-                    name: '收益度',
-                    type: 'value',
-                    scale: true,
-                    min:0,
-                    max:100,
-                    axisLabel: {
-                        interval:20
-                    },
-                    splitLine: {
-                        show: false
-                    },
-                    axisLine: {
-                        lineStyle: {
-                            color: '#3259B8'
-                        }
-                    }
-                },
-                yAxis: {
-                    name: '亲和度',
-                    type: 'value',
-                    scale: true,
-                    min:0,
-                    max:100,
-                    axisLabel: {
-                        interval:20
-                    },
-                    splitLine: {
-                        show: false
-                    },
-                    axisLine: {
-                        lineStyle: {
-                            color: '#3259B8'
-                        }
-                    }
-                },
-                visualMap: {
-                    min: 0,
-                    max: 800,
-                    dimension: 0,
-                    left: 'right',
-                    top: 'top',
-                    text: ['高', '低'], // 文本，默认为数值文本
-                    calculable: true,
-                    itemWidth: 18,
-                    itemHeight: 160,
-                    textStyle: {
-                        color: '#3259B8',
-                        height: 56,
-                        fontSize: 11,
-                        lineHeight: 60,
-                    },
-                    inRange: {
-                        color: ['#7AB7F7', '#b45ef7']
-                    },
-                    padding: [50, 20],
-                    orient: 'horizontal',
-                },
-                series: [{
-                    type: 'scatter',
-                    data: this.seriesData(),
-                    symbolSize: 20,
-                    markLine: {
-                        lineStyle: {
-                            normal: {
-                                color: "#626c91",
-                                type: 'solid',
-                                width: 1,
-                            },
-                            emphasis: {
-                                color: "#d9def7"
-                            }
-                        },
-                        data: [{
-                            xAxis: 50,
-                            name: '营业额平均线',
-                            itemStyle: {
-                                normal: {
-                                    color: "#b84a58",
-                                }
-                            }
-                        }, {
-                            yAxis: 50,
-                            name: '服务能力平均线',
-                            itemStyle: {
-                                normal: {
-                                    color: "#b84a58",
-                                }
-                            }
-                        }]
-                    },
-                    markArea: {
-                        silent: true,
-                        data: [
-                            [{
-                                name: '改进',
-                                itemStyle: {
-                                    normal: {
-                                        color: 'red'
-                                    },
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'insideTopLeft',
-                                        fontStyle: 'normal',
-                                        color: "#409EFF",
-                                        fontSize: 20,
-                                    }
-                                },
-                                coord: [50, 50],
-                            }, {
-                                coord: [Number.MAX_VALUE, 0],
-                            }],
-                            [{
-                                name: '淘汰',
-                                itemStyle: {
-                                    normal: {
-                                        color: 'green',
-                                    },
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'insideTopRight',
-                                        fontStyle: 'normal',
-                                        color: "#409EFF",
-                                        fontSize: 20,
-                                    }
-                                },
-                                coord: [0, 0],
-                            }, {
-                                coord: [50, 50],
-                            }],
-                            [{
-                                name: '保持',
-                                itemStyle: {
-                                    normal: {
-                                        color: 'yellow',
-                                    },
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'insideBottomLeft',
-                                        fontStyle: 'normal',
-                                        color: "#409EFF",
-                                        fontSize: 20,
-                                    }
-                                },
-                                coord: [50, 50],
-                            }, {
-                                coord: [Number.MAX_VALUE, Number.MAX_VALUE],
-                            }],
-                            [{
-                                name: '激励',
-                                itemStyle: {
-                                    normal: {
-                                        color: 'blue',
-                                    },
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'insideBottomRight',
-                                        fontStyle: 'normal',
-                                        color: "#409EFF",
-                                        fontSize: 20,
-                                    }
-                                },
-                                coord: [0, Number.MAX_VALUE],
-                            }, {
-                                coord: [50, 50],
-                            }],
-                        ]
-                    }
-                }]
-                //
-            })
-        },
-        seriesData:function(){
-            this.opiniondata.map(function(item, index, array) {
-                return {
-                    name: item['name'],
-                    value: [item['sales'], item['services']]
-                }
-            })
         }
+    },
+    components:{
+        child
     }
 }
 </script>

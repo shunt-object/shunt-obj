@@ -1,21 +1,37 @@
 <template>
-<div class="compare" style="padding-left:100px;">
-    <div class="list" v-for="(out,index) in List">
-        <div class="out" style="text-align:left;" v-on:click="getquestion(index,out.id)">
-            <input type="checkbox" :checked="outdata[index].boolean">{{out.gname}}
-            <ul v-show="index==i">
-                <li v-for="(item,i) in question">
-                    {{item.content}} 
-                    <select v-model="formdata[item.id]" v-on:change="select(out.id,item,index)"><option :value="answer" v-for="answer in option">{{answer.name}}</option></select>
-                </li>
-            </ul>
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <router-link to="/">总览</router-link> > 云规划
+</div>
+<div class="plan-box">
+    <div class="plan-container">
+    <child message="hellow" data="aaa"></child>
+
+    <div class="compare-box">
+
+        <div class="compare-list" v-for="(out,index) in List">
+            <div class="out" style="text-align:left;" v-on:click="getquestion(index,out.id)">
+                <input type="checkbox" :checked="outdata[index].boolean" readonly class="readonly">{{out.gname}}
+                <ul class="compareQuestion-list" v-show="index==i">
+                    <li class="compare-question-item" v-for="(item,i) in question">
+                        {{item.content}} 
+                        <select class="compare-select" v-model="formdata[item.id]" v-on:change="select(out.id,item,index)"><option :value="answer" v-for="answer in option">{{answer.name}}</option></select>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <button class="btn btn-default planbtn" v-on:click="result()">开始比较</button>
+        <div class="clear"></div>
     </div>
-    <button v-on:click="result()">云选型结果</button>
-    
+
+    </div>
+</div>
 </div>
 </template>
 <script>
+import child from '../../../../components/steps/steps.vue'
+import '../compareQuestion/compareQuestion.css'
 export default{
     name:'compareQuestion',
     data(){
@@ -87,6 +103,9 @@ export default{
             this.$this.get('/broker/compare/result/'+12+'').then((response)=>{                
             }).catch((error)=>{})
         }
+    },
+    components:{
+        child
     }
 }
 </script>

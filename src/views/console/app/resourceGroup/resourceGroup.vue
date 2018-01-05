@@ -45,7 +45,7 @@
                         <li><input type="text" v-model="cloudStorage">云存储</li>
                     </ul>
 
-                   <router-link to="/compareQuestion" class="nex"><button style="width:100px;height:50px;background:#ccc" @click="btn()">下一步</button></router-link> 
+                   <router-link to="/planQuestion" class="nex"><button style="width:100px;height:50px;background:#ccc" @click="btn()">下一步</button></router-link> 
     </div>
 </template>
 <style>

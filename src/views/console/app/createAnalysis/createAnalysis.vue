@@ -1,5 +1,10 @@
 <template>
-<div class="outbox">
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <router-link to="/">总览</router-link> > 创建云分析
+</div>
+<div class="outbox" style="background:#fff;">
     <div class="CreateAnalysis">
         <child message="hellow" data="aaa"></child>
         <div class="CreateAnalysis_from_box">
@@ -9,7 +14,7 @@
                     <label class="label">
                         <input type="text" class="CreateAnalysis_input" :class="isanalysis==false?'error':''" v-model="analysisName" placeholder="请输入或选择云分析名称"><span class="down" v-on:click="function(){analysis_list==false?analysis_list=true:analysis_list=false}"><i></i></span>
                         <ul class="analysis_name" v-show="analysis_list">
-                            <li v-for="item in existing" v-on:click="changeExist(item.proname)">{{item.proname}}</li>
+                            <li v-for="item in existing" v-on:click="changeExist(item.proname,item.id)">{{item.proname}}</li>
                         </ul>
                     </label>
                 </div>
@@ -35,6 +40,7 @@
         
     </div>
 </div>
+</div>
 </template>
 <script>
 import child from '../../../../components/steps/steps.vue'
@@ -54,7 +60,8 @@ export default{
             isanalysis:true,
             istype:true,
             isframe:true,
-            isappName:true
+            isappName:true,
+            proId:''
         }
     },
     mounted:function(){
@@ -77,11 +84,15 @@ export default{
     },
     methods:{
         submit:function(){
+            if(this.proId==''){
+                this.proId = 0;
+            }
             let obj = {
                 "analysisName": this.analysisName,
                 "appFrame": this.frame,
                 "appName": this.appName,
-                "appType": this.type
+                "appType": this.type,
+                "proId":this.proId
             };
             let str = JSON.stringify(obj);
             let that = this;
@@ -92,7 +103,7 @@ export default{
                 this.isframe = true;
                 this.isappName = true;
                 this.$this.post('/broker/app/analysis',str).then((response)=>{
-                    sessionStorage.setItem('appId',response.data.data.id);
+                    sessionStorage.setItem('appId',response.data.data);
                     this.$router.push({path:'/resourceGroup'});
                 }).catch((error)=>{
                     console.log(error);
@@ -103,10 +114,12 @@ export default{
                 this.frame == ''?this.isframe = false:this.isframe = true;
                 this.appName ==''?this.isappName = false:this.isappName = true;  
             }
+            //this.$router.push({path:'/resourceGroup'});
         },
-        changeExist:function(name){//选择已有的云分析
+        changeExist:function(name,id){//选择已有的云分析
             this.analysis_list = false;
             this.analysisName = name;
+            this.proId = id;
         }
     },
     components:{

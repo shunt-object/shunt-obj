@@ -110,7 +110,7 @@
             <!-- sidebar menu end-->
         </div>
     </aside>
-    <section id="main-content">
+    <section id="main-content" style="background:#f0f0f0;">
         <section class="wrapper">
             <router-view></router-view>
         </section>
