@@ -51,13 +51,52 @@
 // import '../programming/js/jquery.paginate.js';
 // import '../programming/js/jquery.yhhDataTable.js';
    import "../planList/datatable.css";
-       $(document).ready(function(){
-             $('#example').dataTable({
+      
+       var counter = 0;
+        if (window.history && window.history.pushState) {
+            $(window).on('popstate', function () {
+                window.history.replaceState("","",'#/');//在这改变地址 这里使用生产环境localhost
+                window.history.forward(1);
+
+            // 此处为监听到浏览器后退按钮的后续事件  例：刷新前一个页面；或者刷新当前页面等
+                 window.location.reload();
+            //   window.location.href = 'http://localhost:8081/#';  或者在这改变地址  这里适用上线以后加http地址
+            });
+        }
+        //兼容IE
+        window.history.pushState("","",'#/'); 
+        window.history.forward(1);
+
+    // ----------------------------------手写搜索 
+    //   function myFunn(){ 
+    //     var $sea=$('#myInput').val();
+    //     //先隐藏全部，再把符合筛选条件的值显示
+    //     console.log($sea);
+    //         $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+    //     }
+
+    export default{
+        name:"planList",
+        data(){
+            return{
+                dat:[],
+                ssd:false,
+                sps:[]
+            }
+        }, 
+        created:function(){
+             this.getData();    
+          },
+           
+        updated:function(){
+            
+            $(document).ready(function(){
+            $('#example').dataTable({
                          "bPaginate": true,
                           "bAutoWidth": false,
                           "bScrollCollapse" : true,
                           "bAutoWidth" : true, //是否自适应宽度    
-                          "pageLength":2,
+                          "pageLength":5,
                           "bDeferRender":false,
                           "lengthChange": false,
                           "searching": true,//搜索  
@@ -77,57 +116,11 @@
                                 }  
                         },  
              });
-        
-        var counter = 0;
-        if (window.history && window.history.pushState) {
-            $(window).on('popstate', function () {
-                window.history.replaceState("","",'#/');//在这改变地址 这里使用生产环境localhost
-                window.history.forward(1);
-
-            // 此处为监听到浏览器后退按钮的后续事件  例：刷新前一个页面；或者刷新当前页面等
-                 window.location.reload();
-            //   window.location.href = 'http://localhost:8081/#';  或者在这改变地址  这里适用上线以后加http地址
-            });
-        }
-        //兼容IE
-        window.history.pushState("","",'#/'); 
-        window.history.forward(1);
-      })
-      
-      function myFunn(){ 
-        var $sea=$('#myInput').val();
-        //先隐藏全部，再把符合筛选条件的值显示
-        console.log($sea);
-            $('table tbody tr').hide().filter(':contains('+$sea+')').show();
-        }
-    //    $(document).ready(function(e) {
-    //    
-    // });   
-
-    export default{
-        name:"planList",
-        data(){
-            return{
-                dat:[],
-                ssd:false,
-                sps:[]
-            }
+            })
         },
-        
-        mounted:function(){
-            this.getData();
-                            
-        },
-        created:function(){
-             this.getData();
-        },
-         beforeDestroy: function () {
-          this.getData();
-      },
         methods:{
            myFun:function(){
-               myFunn();
-               
+               myFunn();    
            },
            getData:function(){                       //获取数据
                 this.$http.get("/broker/result/plan/list").then((sps)=>{
@@ -146,11 +139,12 @@
                      let id = [];
                      let ids = [];
 
-                     console.log($("#trs input[type='checkbox']").is(':checked'));
+                     //console.log($("#trs input[type='checkbox']").is(':checked'));
                      for(let i=0;i<$("input[type='checkbox']").length;i++){
                          if($("input[type='checkbox']").eq(i).is(':checked')){
                             id.push($("input[type='checkbox']").eq(i).attr("data-id"))
                             
+                            //多选时候出现的问题
                             if(id[0]==undefined){
                                 ids=id.slice(1);
                                // console.log(ids);
@@ -163,27 +157,33 @@
                      if(con==true){
                         //console.log($("#trs"));
                         var asf ={"ids":ids}; 
-
-                           _that.$this({
-                                      method: 'delete',
-                                      url: '/broker/app/applications',
-                                      data: asf }).then(function (response) {
-                                            alert(response.data);
-                                            _that.getData();
-                                            //$(":checkbox").attr("checked") != "checked"
-                                        })
-                                            .catch(function (error) {
-                                                alert(error);
-                                            });
+                        _that.$this({
+                             method: 'delete',
+                             url: '/broker/app/applications',
+                             data: asf }).then(function (response) {
+                             _that.getData();
+                            //$(":checkbox").attr("checked") != "checked"
+                              for(let s=0;s<$("input[type='checkbox']").length;s++){
+                                  if($("input[type='checkbox']").eq(s).is(":checked")){
+                                       $("input[type='checkbox']").eq(s).prop("checked",false)
+                                  }
+                              }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                             });
                      }else{
                          alert("我们不删除了")
                      }
                 }else{
-                    alert("至少选中一个删除")
+                    alert("至少选中一个删除");
+                    //最好不要用attr 用prop  一样获取属性 返回当前jq对象所匹配的元素的属性值。
+                    $(".cls").prop("checked",false) 
+
                 }
              },
             
-            Qqno:function(){
+            Qqno:function(){  //全选
                   if ($(":checkbox").attr("checked") != "checked") {
                        $(":checkbox").attr("checked",true);
             }
