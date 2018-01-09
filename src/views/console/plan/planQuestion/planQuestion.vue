@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-        <child index="3" start="0"></child>
+        <child index="3" start="0" :type="queryType"></child>
         <div class="plan-question-box">
             <div class="plan-question-list">
                 <div class="plan-question-item row">
@@ -84,9 +84,11 @@ export default{
             qualitative:true,//定性问题是否显示
             profit:false,//收益度问题是否显示
             affinity:false,//亲和度问题是否显示
+            queryType:''
         }
     },
     mounted:function(){
+        this.queryType = this.$route.query.type;
         this.appId = sessionStorage.getItem('appId');
         //this.appId = 12;
         let qcode = -1;

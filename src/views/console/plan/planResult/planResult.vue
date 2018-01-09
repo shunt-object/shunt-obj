@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <!--<div class="">-->
-        <child index="3" start="0"></child>
+        <child index="3" start="0" :type="queryType"></child>
         <div class="compare-start">
             <button class="btn btn-default startbtn" v-on:click="compare()">开始云选型</button>
             <button class="btn btn-default importbtn">导出</button>
@@ -48,10 +48,12 @@ export default{
             charts:'',
             opiniondata:[],
             appId:'',
-            result:{}
+            result:{},
+            queryType:''
         }
     },
     mounted:function(){
+        this.queryType = this.$route.query.type;
         //this.appId = sessionStorage.getItem('appId');
         this.appId = this.$route.query.id;
         //this.appId = 48;

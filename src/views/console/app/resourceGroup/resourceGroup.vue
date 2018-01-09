@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-        <child index="2" start="0"></child>
+        <child index="2" start="0" :type="queryType"></child>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
                     <span class="padding-65">App servers</span><input type="text" v-model="num">
@@ -67,7 +67,7 @@
                     <li><input type="text" v-model="cloudStorage">云存储</li>
                 </ul>
             </div>
-            <router-link to="/planQuestion" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
+            <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
             <div class="clear" style="margin-bottom:20px;"></div>
     </div>
 
@@ -119,8 +119,12 @@ export default {
        nsa:"",
        cloudStorage:"",
 
-       appId:""
+       appId:"",
+       queryType:''
     }
+  },
+  mounted:function(){
+      this.queryType = this.$route.query.type;
   },
   methods:{
       
@@ -175,8 +179,13 @@ export default {
             
             this.$http.post('/broker/app/resource/group',obj).then((res)=>{
                     console.log(res+"chengg");
-                     this.$router.push({path:'/login'});
-
+                     //this.$router.push({path:'/login'});/planQuestion
+                     if(this.queryType=='plan'){
+                        this.$router.push({path:'/planQuestion',query:{type:this.queryType}});
+                     }else{
+                        this.$router.push({path:'/compareQuestion',query:{type:this.queryType}});
+                     }
+                     
                      },(err)=>{
                          console.log("不好意思")
                       });

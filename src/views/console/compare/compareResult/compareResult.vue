@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-        <child index="4" start="0"></child>
+        <child index="4" start="0" :type="queryType"></child>
         <h4>对比供应商</h4>
         <table class="table-box table table-striped">
             <thead>
@@ -53,10 +53,12 @@ export default{
         return {
             compareResultList:[],
             resourceGroup:[],
-            appId:''
+            appId:'',
+            queryType:''
         }
     },
     mounted:function(){
+        this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{   
             this.compareResultList = JSON.parse(response.data.data.datas);

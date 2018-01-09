@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-    <child index="4" start="0"></child>
+    <child index="4" start="0" :type="queryType"></child>
 
     <div class="compare-box">
 
@@ -43,10 +43,12 @@ export default{
             checked:'',
             formdata:[],
             outdata:[],
-            appId:''
+            appId:'',
+            queryType:''
         }
     },
     mounted:function(){
+        this.queryType = this.$route.query.type;
         this.appId = sessionStorage.getItem('appId');
         this.$this.get('/broker/compare/types').then((response)=>{
             //console.log('aaa',response); 

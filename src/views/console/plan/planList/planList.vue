@@ -97,7 +97,7 @@ export default {
     idClick:function(sid){
             this.$router.push({path:'/planResult',query:{id:sid}});
     },
-    CreateId:function(){
+    CreatId:function(){
         this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
     },
     getData: function() {
