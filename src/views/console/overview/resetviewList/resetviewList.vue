@@ -1,6 +1,6 @@
 <template>
 <div>
-       <button style="color:#000">创建云规划</button><input type="button" value="删除" id="rems"><input type="button" value="导出报告">
+       <button style="color:#000" v-on:click="CreatCom">创建云选型</button><input type="button" value="删除" id="rems"><input type="button" value="导出报告">
        <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr style="margin-top:50px;" class="text-center">
@@ -22,7 +22,7 @@
                             </ul>
                         </td>
                         <td v-else></td>
-                         <td class="col-md-1"> <a href="#">查看详情</a></td>
+                         <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)">查看详情</a></td>
                     </tr>
             </tbody>
           
@@ -60,6 +60,12 @@
               
             });
            },
+        idClick:function(rid){
+            this.$router.push({path:'/compareResult',query:{id:rid}});
+        },
+        CreatCom:function(){
+            this.$router.push({path:'/CreateAnalysis',query:{type:'compare'}});
+        }
 
     }
  }   

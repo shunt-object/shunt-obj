@@ -1,7 +1,7 @@
 <template>
         <div>
             <div>象限图</div>
-            <router-link to="/CreateAnalysis"><button style="color:#000">创建云规划</button></router-link><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="button" value="导出"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
+            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="button" value="导出"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
@@ -28,7 +28,7 @@
                         <td class="col-md-1" v-else></td>
                         <td class="col-md-1" v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                         <td class="col-md-1" v-else></td>
-                        <td><a href="">查看详情</a></td>
+                        <td><a href="javascript:;" v-on:click="idClick(sp.id)">查看详情</a></td>
                     </tr>
             </tbody>
 
@@ -93,6 +93,12 @@ export default {
   methods: {
     myFun: function() {
       myFunn();
+    },
+    idClick:function(sid){
+            this.$router.push({path:'/planResult',query:{id:sid}});
+    },
+    CreateId:function(){
+        this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
     },
     getData: function() {
       //获取数据
