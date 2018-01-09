@@ -58,7 +58,7 @@ export default{
     },
     mounted:function(){
         this.appId = this.$route.query.id;
-        this.$this.get('/broker/compare/result/'+94+'').then((response)=>{   
+        this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{   
             this.compareResultList = JSON.parse(response.data.data.datas);
             this.resourceGroup = response.data.data.res;
         }).catch((error)=>{})
