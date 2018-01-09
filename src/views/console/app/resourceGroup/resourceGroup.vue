@@ -13,9 +13,9 @@
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="number" v-model="cores" >Vcpu</li>
-                    <li><input type="text" v-model="ghz">处理器主频</li>
-                    <li><input type="text" v-model="ram">内存</li>
-                    <li><input type="text" v-model="localDisk">系统盘</li>
+                    <li><input type="text" v-model="ghz">处理器主频（Ghz）</li>
+                    <li><input type="text" v-model="ram">内存(GB)</li>
+                    <li><input type="text" v-model="localDisk">系统盘(GB)</li>
                     <li><select name="" id="sele" v-model="os">
                                 <option value="Linux">Linux</option>
                                 <option value="Window">Window</option>
@@ -23,8 +23,8 @@
                         </select>操作系统
                         </li>
                         <li><input type="text" v-model="computeMappingFactor">计算机映射因子</li>
-                    <li><input type="text" v-model="monthlyUsage">每个月用量</li>
-                    <li><input type="text" v-model="dailyUsage">每天用量</li>
+                    <li><input type="text" v-model="monthlyUsage">每个月用量（天/月）</li>
+                    <li><input type="text" v-model="dailyUsage">每天用量（小时/天）</li>
                 </ul>
             </div>
             <div class="resourceCroup-list row">
@@ -33,9 +33,9 @@
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="text" v-model="coresq">cpu</li>
-                    <li><input type="text" v-model="ghzq">处理器主频</li>
-                    <li><input type="text" v-model="ramq">内存</li>
-                    <li><input type="text" v-model="localDiskq">系统盘</li>
+                    <li><input type="text" v-model="ghzq">处理器主频（Ghz）</li>
+                    <li><input type="text" v-model="ramq">内存(GB)</li>
+                    <li><input type="text" v-model="localDiskq">系统盘(GB)</li>
                     <li><select name="" id="selet" v-model="osq">
                                 <option value="Linux">Linux</option>
                                 <option value="Window">Window</option>
@@ -43,8 +43,8 @@
                         </select>
                         </li>
                         <li><input type="text" v-model="computeMappingFactorq">计算机映射因子</li>
-                    <li><input type="text" v-model="monthlyUsageq">每个月用量</li>
-                    <li><input type="text" v-model="dailyUsageq">每天用量</li>
+                    <li><input type="text" v-model="monthlyUsageq">每个月用量（天/月）</li>
+                    <li><input type="text" v-model="dailyUsageq">每天用量（小时/天）</li>
                 </ul>
             </div>
             <div class="resourceCroup-list row">  
@@ -52,9 +52,9 @@
                     <span class="padding-25">Network</span>
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
-                    <li><input type="text" v-model="bandwidth ">带宽</li>
-                    <li><input type="text" v-model="inbound">入站</li>
-                    <li><input type="text" v-model="outbound">出站</li>
+                    <li><input type="text" v-model="bandwidth ">带宽（GB/月）</li>
+                    <li><input type="text" v-model="inbound">入站（GB/月）</li>
+                    <li><input type="text" v-model="outbound">出站（GB/月）</li>
                 </ul>
             </div>
             <div class="resourceCroup-list row">
@@ -62,9 +62,9 @@
                     <span class="padding-25">Storage</span><input type="text" v-model="nums">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
-                    <li><input type="text" v-model="sna">共享存储</li>
-                    <li><input type="text" v-model="nsa">网络存储</li>
-                    <li><input type="text" v-model="cloudStorage">云存储</li>
+                    <li><input type="text" v-model="sna">共享存储(SAN)(GB)</li>
+                    <li><input type="text" v-model="nsa">网络存储(NAS)(GB)</li>
+                    <li><input type="text" v-model="cloudStorage">云存储(GB)</li>
                 </ul>
             </div>
             <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
@@ -99,9 +99,9 @@ export default {
        os:"",
        monthlyUsage:"",
        dailyUsage:"",
-       num:"",
-       nume:"",
-       nums:"",
+       num:"1",
+       nume:"1",
+       nums:"1",
        coresq:"",
        ghzq:"",
        ramq:"",
