@@ -16,12 +16,13 @@
                         <td><input type="checkbox" name="checkbox"></td>
                         <td>{{re.appname}}</td>
                         <td>{{re.proname}}</td>
-                        <td v-for="dls in re.appResults" >
+                        <td v-if="re.appResults[0]!=null" >
                             <ul>
-                                <li v-for="dl in dls.result"><span>{{JSON.parse(dl.serverName)}}</span><span>2</span><span>3</span></li>
+                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span><span></span><span></span></li>
                             </ul>
                         </td>
-                         <td class="col-md-1"><input type="button" value="操作" style="padding:1px 20px "></td>
+                        <td v-else></td>
+                         <td class="col-md-1"> <a href="#">查看详情</a></td>
                     </tr>
             </tbody>
           
@@ -33,13 +34,17 @@
         margin:0px;
         padding:0px;
       }
+     td{
+         height:60px;
+     }
 </style>
 <script>
  export default{
     name:"resetviewList",
     data(){
         return{
-            res:[]
+            res:[],
+        
         }
     },
     created:function(){
@@ -50,6 +55,7 @@
                 this.$http.get("/broker/result/compare/list").then((res)=>{
                     this.res = eval("(" + res.bodyText +")").data;
                     console.log(this.res)
+                
             },(err)=>{
               
             });
@@ -57,6 +63,6 @@
 
     }
  }   
- 
+
 </script>
  

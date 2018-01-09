@@ -54,12 +54,12 @@ export default new Router({
           component:overviewList
         },
         {
-          path:'/resetviewList',
+          path:'/',
           name:'resetviewList',
           component:resetviewList
         },
         {
-          path:'/',
+          path:'/planList',
           name:'planList',
           component:planList
         },
