@@ -1,0 +1,46 @@
+.row{
+    margin: 10px auto !important;
+}
+.resourceCroup-list{
+    width:96%;
+    margin:10px auto;
+    border:1px solid #ccc;
+}
+.resourceCroup-list-head span{
+    display:inline-block;
+    font-size:16px;
+    color:#333;
+}
+.padding-20{
+    padding-top:20%;
+}
+.padding-25{
+    padding-top:25%;
+}
+.padding-65{
+    padding-top:65%;
+}
+.resourceCroup-list-head input{
+    width:50px;
+    height:30px;
+    margin-left:10px;
+}
+.resourceCroup-list-ul{
+    text-align:left;
+}
+.resourceCroup-list-ul li{
+    line-height:40px;
+}
+.resourceCroup-list-ul li input,.resourceCroup-list-ul li select{
+    width:200px;
+    height:30px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    margin-right:10px;
+    padding:0 10px;
+}
+.resourcebtn{
+    float:right;
+    color:#666 !important;
+    margin-right:2%;
+}
