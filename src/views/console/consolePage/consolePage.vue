@@ -192,7 +192,7 @@ export default{
             this.$router.push({path:'/planList'});
         },
         compare:function(){
-            this.$router.push({path:'/compareQuestion'});
+            this.$router.push({path:'/resetviewList'});
         }
     }
 }

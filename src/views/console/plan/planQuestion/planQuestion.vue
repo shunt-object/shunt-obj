@@ -190,7 +190,7 @@ export default{
                     this.profitReault =  response.data.data+'分';
                 }else{
                     this.affinityResult = response.data.data+'分';
-                    this.$router.push({path:'/planResult'});
+                    this.$router.push({path:'/planResult',query:{id:this.appId}});
                 }              
             }).catch((error)=>{
                 //console.log(error);

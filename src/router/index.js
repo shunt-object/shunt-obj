@@ -8,6 +8,7 @@ import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
 import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
 import compareQuestion from '@/views/console/compare/compareQuestion/compareQuestion'
+import compareResult from '@/views/console/compare/compareResult/compareResult'
 import planList from '@/views/console/plan/planList/planList'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
 import resetviewList from '@/views/console/overview/resetviewList/resetviewList'
@@ -36,25 +37,18 @@ export default new Router({
       name:'login',
       component:login
     },
-    // {
-    //   path:'/resourceGroup',
-
-    //   name:'resourceGroup',
-    //   component:resourceGroup
-    // },
-     
     {
       path:'/',
       name:'consolePage',
       component:consolePage,
       children:[
         {
-          path:'/overviewList',
+          path:'/',
           name:'overviewList',
           component:overviewList
         },
         {
-          path:'/',
+          path:'/resetviewList',
           name:'resetviewList',
           component:resetviewList
         },
@@ -88,8 +82,12 @@ export default new Router({
           name:'planResult',
           component:planResult
         },
+        {
+          path:'/compareResult',
+          name:'compareResult',
+          component:compareResult
+        },
       ]
     }
   ]
 })
-  

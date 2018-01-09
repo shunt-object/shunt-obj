@@ -1,0 +1,10 @@
+.table-box{
+    width:96%;
+    margin:20px auto;
+    border:1px solid #ccc;
+    text-align:center;
+    font-size:14px;
+}
+.table-box tr th{
+    text-align:center;
+}

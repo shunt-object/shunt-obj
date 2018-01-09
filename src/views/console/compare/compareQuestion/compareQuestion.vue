@@ -42,10 +42,12 @@ export default{
             i:'',
             checked:'',
             formdata:[],
-            outdata:[]
+            outdata:[],
+            appId:''
         }
     },
     mounted:function(){
+        this.appId = sessionStorage.getItem('appId');
         this.$this.get('/broker/compare/types').then((response)=>{
             //console.log('aaa',response); 
             this.List = response.data.data;  
@@ -78,7 +80,7 @@ export default{
         select:function(featureCode,item,out){
             console.log(item);
             let obj = {
-                "appid": 12,
+                "appid": this.appId,
                 "featureCode":featureCode,
                 //"groupId": item.groupId,
                 "optionId": this.formdata[item.id].id
@@ -100,8 +102,7 @@ export default{
             })
         },
         result:function(){
-            this.$this.get('/broker/compare/result/'+12+'').then((response)=>{                
-            }).catch((error)=>{})
+            this.$router.push({path:'/compareResult',query:{id:this.appId}});
         }
     },
     components:{

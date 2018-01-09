@@ -52,7 +52,8 @@ export default{
         }
     },
     mounted:function(){
-        this.appId = sessionStorage.getItem('appId');
+        //this.appId = sessionStorage.getItem('appId');
+        this.appId = this.$route.query.id;
         //this.appId = 48;
         //结果
         this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
