@@ -16,9 +16,9 @@
                         <td><input type="checkbox" name="checkbox"></td>
                         <td>{{re.appname}}</td>
                         <td>{{re.proname}}</td>
-                        <td v-for="dl in re.appResults" >
-                            <ul v-if="dl!==''>
-                                <li v-for="dls in dl.result"><span>{{JSON.parse(dls.serverName)}}</span><span>2</span><span>3</span></li>
+                        <td v-for="dls in re.appResults" >
+                            <ul>
+                                <li v-for="dl in dls.result"><span>{{JSON.parse(dl.serverName)}}</span><span>2</span><span>3</span></li>
                             </ul>
                         </td>
                          <td class="col-md-1"><input type="button" value="操作" style="padding:1px 20px "></td>
@@ -32,7 +32,7 @@
      *{
         margin:0px;
         padding:0px;
-    }
+      }
 </style>
 <script>
  export default{
@@ -57,5 +57,6 @@
 
     }
  }   
+ 
 </script>
  

@@ -20,7 +20,7 @@
                         <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='checkname'></td>
                         <td class="col-md-1">{{sp.appname}}</td>
                         <td class="col-md-1">{{sp.proname}}</td>
-                        <td class="col-md-1" v-for="sol in sp.appResults" v-if="sol.moduleName!=='受益度'&&sol.moduleName!=='亲和度'&&sol.result!==null&&sol.moduleName!=='比较标准'&&sol.moduleName!=='资源配置'" >{{JSON.parse(sol.result).sname}}</td>       
+                        <td class="col-md-1" v-for="sol in sp.appResults" v-if="sol.moduleName!=='受益度'&&sol.moduleName!=='亲和度'&&sol.result!==null&&sol.moduleName!=='比较标准'&&sol.moduleName!=='资源配置'" >{{JSON.parse(sol.result).sname}}</td> 
                         <td class="col-md-1" v-for="sol in sp.appResults" v-if="sol.moduleName!=='云定性'&&sol.moduleName!=='比较标准'&&sol.result!==null&&sol.moduleName!=='资源配置'" >{{sol.result}}</td>
                         <td class="col-md-1" v-for="sol in sp.appResults" v-if="sol.result==null&&sol.moduleName!=='资源配置'">未完成</td>
                         <td class="col-md-1"><input type="button" value="操作" style="padding:1px 20px "></td>
