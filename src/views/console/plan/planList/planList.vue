@@ -1,12 +1,12 @@
 <template>
         <div>
             <div>象限图</div>
-            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="button" value="导出"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
+            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr style="margin-top:50px; text-align:center">
-                        <th class="col-md-1"><input type="checkbox" name="checkbox" v-on:click="Qqno" class="cls"></th>
+                        <th class="col-md-1"><input type="checkbox"   name="a" id="cls"></th>
                         <th class="col-md-1">应用名称</th>
                         <th class="col-md-1">云分析名称</th>
                         <th class="col-md-1">定性</th>
@@ -19,7 +19,7 @@
 
             <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='checkname'></td>
+                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'></td>
                         <td class="col-md-1">{{sp.appname}}</td>
                         <td class="col-md-1">{{sp.proname}}</td>
                         <td class="col-md-1" v-if="null!=sp.appResults[0]">{{JSON.parse(sp.appResults[0].result).sname}}</td>
@@ -55,28 +55,44 @@ td {
 // import '../programming/js/jquery.yhhDataTable.js';
 import "../planList/datatable.css";
 
-var counter = 0;
-if (window.history && window.history.pushState) {
-  $(window).on("popstate", function() {
-    window.history.replaceState("", "", "#/"); //在这改变地址 这里使用生产环境localhost
-    window.history.forward(1);
+// var counter = 0;
+// if (window.history && window.history.pushState) {
+//   $(window).on("popstate", function() {
+//     window.history.replaceState("", "", "#/"); //在这改变地址 这里使用生产环境localhost
+//     window.history.forward(1);
 
-    // 此处为监听到浏览器后退按钮的后续事件  例：刷新前一个页面；或者刷新当前页面等
-    window.location.reload();
-    //   window.location.href = 'http://localhost:8081/#';  或者在这改变地址  这里适用上线以后加http地址
-  });
-}
-//兼容IE
-window.history.pushState("", "", "#/");
-window.history.forward(1);
+//     // 此处为监听到浏览器后退按钮的后续事件  例：刷新前一个页面；或者刷新当前页面等
+//     window.location.reload();
+//     //   window.location.href = 'http://localhost:8081/#';  或者在这改变地址  这里适用上线以后加http地址
+//   });
+// }
+// //兼容IE
+// window.history.pushState("", "", "#/");
+// window.history.forward(1);
 
-// ----------------------------------手写搜索
-//   function myFunn(){
-//     var $sea=$('#myInput').val();
-//     //先隐藏全部，再把符合筛选条件的值显示
-//     console.log($sea);
-//         $('table tbody tr').hide().filter(':contains('+$sea+')').show();
-//     }
+//----------------------------------手写搜索
+  function myFunn(){
+    var $sea=$('#myInput').val();
+    //先隐藏全部，再把符合筛选条件的值显示
+    console.log($sea);
+        $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+    }
+$(document).ready(function(){ 
+  $("#cls").change(function() {
+      //全选
+      if ($(":checkbox").attr("checked") != "checked") {
+        $(":checkbox").each(function() {  
+            $(this).attr("checked", true); 
+        })
+      } else {
+            $(":checkbox").each(function() {  
+             $(":checkbox").removeAttr("checked");
+        })
+     
+     
+      }
+    })
+})
 
 export default {
   name: "planList",
@@ -97,7 +113,7 @@ export default {
     idClick:function(sid){
             this.$router.push({path:'/planResult',query:{id:sid}});
     },
-    CreateId:function(){
+    CreatId:function(){
         this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
     },
     getData: function() {
@@ -152,10 +168,10 @@ export default {
               data: asf
             })
             .then(function(response) {
-              //_that.getData();
-              window.location.reload();
+             // _that.getData();
+             window.location.reload();
 
-              //$(":checkbox").attr("checked") != "checked"
+              $(":checkbox").attr("checked") != "checked"
               for (let s = 0; s < $("input[type='checkbox']").length; s++) {
                 if (
                   $("input[type='checkbox']")
@@ -181,14 +197,7 @@ export default {
       }
     },
 
-    Qqno: function() {
-      //全选
-      if ($(":checkbox").attr("checked") != "checked") {
-        $(":checkbox").attr("checked", true);
-      } else {
-        $(":checkbox").attr("checked", false);
-      }
-    }
+  
   }
 };
 </script>

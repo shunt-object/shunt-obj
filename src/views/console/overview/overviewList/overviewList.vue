@@ -1,31 +1,33 @@
 <template>
-    <div>
+
+    <div class="Lists">
+        <div class="modle" v-show="this.flag"><input type="button" value="创建云分析" v-on:click="als"></div>
          <ul class="uls">
              <li class="sps row">
-                 <span class="col-md-1"><input type="checkbox"></span>
-                 <span class="col-md-1">云分析名称</span>
-                 <span class="col-md-2">应用名称</span>
+                 <span class="col-md-1"><input type="checkbox" class="text-center"></span>
+                 <span class="col-md-2">云分析名称</span>
+                 <span class="col-md-1">应用名称</span>
                  <span class="col-md-4">云规划进度</span>
-                 <span class="col-md-4">云选型进度</span>
+                 <span class="col-md-3">云选型进度</span>
              </li>
              <li class="" v-for="vp in vpd">
                  <ul >
                       <li class="row sps" >
                         <span class="col-md-1"><input type="checkbox"></span>
-                        <span class="col-md-1">{{vp.proname}}</span>
-                        <span class="col-md-2"></span>
-                        <span class="col-md-4"></span>
-                        <span class="col-md-4"></span>
+                        <span class="col-md-2">{{vp.proname}}</span>
+                        <span class="col-md-1"></span>
+                        <span class="col-md-6"></span>
+                        <span class="col-md-2 removeIng" style="color:#222222"  v-on:click="rems(vp.id)">删除云分析</span>
                       </li>
                       <li class="row spx active" v-for="item in vp.projectApps">
                         <span class="col-md-1 bn"></span>
                         <span class="col-md-1 bn"></span>
-                        <span class="col-md-2 bn">{{item.appname}}</span>
-                        <span class="col-md-8 text-left">
+                        <span class="col-md-3 bn">{{item.appname}}</span>
+                        <span class="col-md-7 text-left">
                             <p >
                                 
                                 <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)">
-                                    <a  class="ad" v-if="im.moduleName!=='受益度'&&im.moduleName!=='亲和度'&&im.result!==null"  style="position:absolute;left:0;top:-50px;width:160px;">{{JSON.parse(im.result).sname}}</a>
+                                    <a  class="ad" v-if="im.moduleName!=='受益度'&&im.moduleName!=='亲和度'&&im.result!==null"  style="position:absolute;left:0;top:-50px;width:80px;">{{JSON.parse(im.result).sname}}</a>
                                     <a  class="ad" v-else-if="im.result==null"  style="position:absolute;left:0;top:-50px;" >未完成</a>
                                     <a  class="ad" v-else style="position:absolute;left:0;top:-50px;" >{{im.result}}</a><!--v-show="index == i"-->
                                     {{im.moduleName}}
@@ -34,13 +36,14 @@
                                 <a >标准</a>
                          
                             </p>
-                            <div class="progress">
+                            <div class="progress" style="background:#99a0a3">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
                                     <span class="sr-only">40% 完成</span>
                                 </div>
                             </div><span class="spc">40%</span>
                         </span>
+                
                      </li>
                  </ul> 
              </li>
@@ -50,8 +53,33 @@
     
 </template>
 <style>
+.Lists{
+    position:relative;
+    height:100%;
+}
+.removeIng:hover{
+    cursor:pointer
+}
+.modle{
+    position:absolute;
+    left:0;
+    top:10px;
+    width:100%;
+    height:600px;
+    background:#000;
+    opacity:0.5;  
+}
+.modle input{
+    width:15%;
+    height:15%;
+    margin:25% 40%;
+    text-align:center;
+    color:#000;
+    font-weight:900
+}
 .active{
-    display:block
+    display:block;
+    background:#ccc;
 }
 #pol{
     display:BLOCK;
@@ -60,13 +88,13 @@
 .sps{
    height:50px;
    background:#ccc;
-   border:1px solid #000;
+   border:1px solid #fff;
    line-height:49px;
    
 }
 .spx{ 
    height:200px;
-   background:red;
+   
    
 }
 .spx .bn{
@@ -84,10 +112,10 @@
 } 
 .spc{
     margin-left:5px;
-    color:#ccc;
+    color:#fff;
 }
 .progress-bar{
-    background-color:#ccc;
+    background-color:#f8f8f8;
     border-radius:10px;
 }
 *{margin:0;padding:0}
@@ -106,7 +134,8 @@ a:hover{
     text-align:left;
     width:90px;
     margin:0 10px 0 0;
-    background:#ccc;
+    background:#fff;
+    text-align:center;
     border-radius:20px;
     border:1px solid #ccc;
 }
@@ -128,15 +157,40 @@ a:hover{
                 dg:"",
                 gv:"",
                 list:false,
-                i:-1
+                i:-1, 
+                flag:false,
+                
+                //{"ids":[1,2,3]}
             }
         },
         methods:{
             onm:function(index){
                 
                  this.i = index
+            },
+       
+            als:function(){
+                this.$router.push({path:'/CreateAnalysis'});
+            },
+            rems:function(e){
+                var that = this;
+                var con = confirm("您确定要删除该云分析下的所有应用吗?");
+                if(con == true){
+                    let ids=[];
+                    ids.push(e);
+                    var asf = {"ids":ids};
+                    console.log(asf);
+                    that.$this({
+                        method: "delete",
+                        url: "/broker/app/analysis",
+                        data: asf
+                    }).then(function(response) {
+                        window.location.reload();
+                    }).catch(function(error) {
+                        console.log(error);
+                    });
+                }
             }
-               
             
 
         },
@@ -145,6 +199,13 @@ a:hover{
                         console.log(eval("(" + res.bodyText +")").data);
 
                         this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
+                            
+                                    if(this.vpd.length==0){
+                                        this.flag=true
+                                    }else{
+                                        this.flag=false
+                                    }
+                                
                         for(let i = 0;i<this.vpd.length;i++){            
                             this.ssd = this.vpd[i].projectApps;                                         // app   5个
                             //console.log(this.ssd);

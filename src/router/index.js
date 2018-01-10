@@ -43,7 +43,7 @@ export default new Router({
       component:consolePage,
       children:[
         {
-          path:'/overviewList',
+          path:'/',
           name:'overviewList',
           component:overviewList
         },
@@ -53,7 +53,7 @@ export default new Router({
           component:resetviewList
         },
         {
-          path:'/',
+          path:'/planList',
           name:'planList',
           component:planList
         },

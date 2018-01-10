@@ -129,14 +129,14 @@ export default {
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
                return false
             }else{
-            // this.appId = sessionStorage.getItem("appId"); 
+            this.appId = sessionStorage.getItem("appId"); 
              
             // let valuely = $("#sele").val();
             // let valueey = $("#selet").val();
             // console.log(this.appId);
             let obj ={
                 
-                    "appId":12,
+                    "appId":this.appId,
                     "appServer": {
                         "computeMappingFactor":this.computeMappingFactor,
                         "cores": this.cores,
