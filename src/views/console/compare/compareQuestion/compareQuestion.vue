@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-    <child index="4" start="0"></child>
+    <child index="4" start="0" :type="queryType"></child>
 
     <div class="compare-box">
 
@@ -16,7 +16,9 @@
                 <ul class="compareQuestion-list" v-show="index==i">
                     <li class="compare-question-item" v-for="(item,i) in question">
                         {{item.content}} 
-                        <select class="compare-select" v-model="formdata[item.id]" v-on:change="select(out.id,item,index)"><option :value="answer" v-for="answer in option">{{answer.name}}</option></select>
+                        <select class="compare-select" v-model="formdata[item.id]" v-on:change="select(item.code,item,index)">
+                            <option :value="answer" v-for="answer in option">{{answer.name}}</option>
+                        </select>
                     </li>
                 </ul>
             </div>
@@ -43,11 +45,18 @@ export default{
             checked:'',
             formdata:[],
             outdata:[],
-            appId:''
+            appId:'',
+            queryType:''
         }
     },
     mounted:function(){
-        this.appId = sessionStorage.getItem('appId');
+        this.queryType = this.$route.query.type;
+        //console.log('aaa',sessionStorage.getItem('appId'));
+        if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
+            this.appId = this.$route.query.id;            
+        }else{
+            this.appId = sessionStorage.getItem('appId');
+        }
         this.$this.get('/broker/compare/types').then((response)=>{
             //console.log('aaa',response); 
             this.List = response.data.data;  
@@ -72,7 +81,7 @@ export default{
                 this.question = response.data.data;  
                 for(let i=0;i<response.data.data.length;i++){
                     this.formdata.push(response.data.data[i].id);
-                }   
+                }  
             }).catch((error)=>{
                 
             }) 
@@ -86,12 +95,12 @@ export default{
                 "optionId": this.formdata[item.id].id
             };
             let strObj = JSON.stringify(obj);
-            console.log(this.formdata[item.id]);
-            for(let n=0;n<this.formdata.length;n++){
-                if(n!=item.id){
-                    this.formdata[n]=='';
-                }
-            }
+            //console.log(this.formdata[item.id]);
+            // for(let n=0;n<this.formdata.length;n++){
+            //     if(n!=item.id){
+            //         this.formdata[n]=='';
+            //     }
+            // }
             if(this.formdata[item.id]!=''){
                 this.outdata[out].boolean = true;
             }

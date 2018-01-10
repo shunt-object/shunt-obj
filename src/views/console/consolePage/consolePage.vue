@@ -70,42 +70,6 @@
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
-                        <i class="icon-cogs"></i>
-                        <span>Components</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
-                        <i class="icon-tasks"></i>
-                        <span>Form Stuff</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
-                        <i class="icon-th"></i>
-                        <span>Data Tables</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="inbox.html">
-                        <i class="icon-envelope"></i>
-                        <span>Mail </span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
-                        <i class="icon-glass"></i>
-                        <span>Extra</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="login.html">
-                        <i class="icon-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>

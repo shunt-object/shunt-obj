@@ -30,6 +30,6 @@
 <script>
 import '../steps/steps.css'
 export default{
-  props:["index","start"]
+  props:["index","start","type"]
 }
 </script>

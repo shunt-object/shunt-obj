@@ -6,7 +6,7 @@
 </div>
 <div class="outbox" style="background:#fff;">
     <div class="CreateAnalysis">
-        <child index="1" start="0"></child>
+        <child index="1" start="0" :type="queryType"></child>
         <div class="CreateAnalysis_from_box">
             <div class="CreateAnalysis_from">
                 <div class="CreateAnalysis_from_list">
@@ -61,10 +61,13 @@ export default{
             istype:true,
             isframe:true,
             isappName:true,
-            proId:''
+            proId:'',
+            queryType:''
         }
     },
     mounted:function(){
+        this.queryType = this.$route.query.type;
+        //console.log('type',this.queryType);
         this.$this.get('/broker/app/types').then((response)=>{
             this.typeList = response.data.data;
         }).catch((error)=>{
@@ -104,7 +107,7 @@ export default{
                 this.isappName = true;
                 this.$this.post('/broker/app/analysis',str).then((response)=>{
                     sessionStorage.setItem('appId',response.data.data);
-                    this.$router.push({path:'/resourceGroup'});
+                    this.$router.push({path:'/resourceGroup',query:{type:this.queryType}});
                 }).catch((error)=>{
                     console.log(error);
                 })
