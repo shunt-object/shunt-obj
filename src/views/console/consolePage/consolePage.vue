@@ -5,7 +5,7 @@
             <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
         </div>
         <!--logo start-->
-        <a href="#" class="logo">Flat<span>lab</span></a>
+        <a href="#" class="logo">CSB<span></span></a>
         <!--头部icon-->
         <div class="nav notify-row" id="top_menu">
             <ul class="nav top-menu">
@@ -36,13 +36,12 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" src="../../../assets/avatar1_small.jpg">
-                        <span class="username">Jhon Doue</span>
+                        <span class="username">{{sessionStorage.getItem("account").realname}}</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="/broker/auth/logout"><i class="icon-key"></i>退出</a></li>
                     </ul>
                 </li>
             </ul>
