@@ -28,12 +28,8 @@
                         <span class="col-md-3 bn">{{item.appname}}</span>
                         <span class="col-md-7 text-left">
                             <p >
-                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)">
-                                    <a  class="ad" v-if="im.moduleName!=='受益度'&&im.moduleName!=='亲和度'&&im.result!==null"  style="position:absolute;left:0;top:-50px;width:80px;">{{JSON.parse(im.result).sname}}</a>
-                                    <a  class="ad" v-else-if="im.result==null"  style="position:absolute;left:0;top:-50px;" >未完成</a>
-                                    <a  class="ad" v-else style="position:absolute;left:0;top:-50px;" >{{im.result}}</a><!--v-show="index == i"-->
-                                    {{im.moduleName}}
-                                    
+                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)"  >
+                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')">{{im.moduleName}}</span>                                    
                                     
                                 </a>
                                 
@@ -143,6 +139,31 @@ a:hover{
     border-radius:20px;
     border:1px solid #ccc;
 }
+.bg{
+    background:green;
+    text-align:center;
+    border-radius:20px;
+    border:0px solid #ccc;
+     width:90px;
+    margin:0 10px 0 0;
+    display:block
+}
+.hg{
+     background:blue;
+    text-align:center;
+    border-radius:20px;
+    border:0px solid #ccc;
+     width:90px;
+    margin:0 10px 0 0;   
+}
+.fl{
+        background:red;
+    text-align:center;
+    border-radius:20px;
+    border:0px solid #ccc;
+     width:90px;
+    margin:0 10px 0 0;
+}
 .ad{
     width:100px;
     margin-right:10px;
@@ -171,11 +192,32 @@ a:hover{
             }
         },
         methods:{
-            onm:function(index){
+            // onm:function(index){
                 
-                 this.i = index
+            //      this.i = index
+            // },
+            onm:function(index){
+                //alert(index);
+                //console.log(this.vpd);
+                var ps = [];
+                var aix = this.vpd;
+                for(var i=0;i<aix.length;i++){
+                    if(aix[i].projectApps&&aix[i].projectApps.length>0){
+                        for(var j=0;j<aix[i].projectApps.length;j++){
+                            //console.log(aix[i].projectApps[j].appResults)
+                            if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
+                                    for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
+                                       // console.log(aix[i].projectApps[j].appResults[k].result)
+                                     var a=aix[i].projectApps[j].appResults[k].result;
+                                    
+                                    }
+                            }
+                        }
+                    }
+                }
+                ps.push(a);
+                 console.log(ps)
             },
-       
             als:function(){
                 this.$router.push({path:'/CreateAnalysis'});
             },
@@ -210,8 +252,8 @@ a:hover{
 
         },
         created:function(){
-                    this.$this.get('/broker/result/analysis').then((res)=>{
-                        console.log(eval("(" + res.bodyText +")").data);
+                    this.$http.get('/broker/result/analysis').then((res)=>{
+                        console.log(res);
 
                         this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
                             

@@ -146,7 +146,7 @@ export default {
     getData: function() {
       //获取数据
      
-      this.$this.get("/broker/result/plan/list").then(
+      this.$http.get("/broker/result/plan/list").then(
         sps => {
           this.sps = eval("(" + sps.bodyText + ")").data;
           console.log(this.sps);
