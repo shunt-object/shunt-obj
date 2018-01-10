@@ -19,7 +19,7 @@
                 <div class="col-md-6 font-16 clould-name">{{result.appname}}</div>
             </div>
             <div class="col-md-6 row">
-                <div class="col-md-4" v-for="item in result.appResults">
+                <div class="col-md-4" v-for="item in resultlist">
                     <button class="scalebtn" disabled v-if="item.moduleName!='云定性'">{{item.result}}</button>
                     <button class="scalebtn" disabled v-else>{{JSON.parse(item.result).sname}}</button>
                     <p class="sacleword">{{item.moduleName}}</p>
@@ -49,7 +49,8 @@ export default{
             opiniondata:[],
             appId:'',
             result:{},
-            queryType:''
+            queryType:'',
+            resultlist:[]
         }
     },
     mounted:function(){
@@ -59,10 +60,13 @@ export default{
         //this.appId = 48;
         //结果
         this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
-            console.log('结果',response);
+            //console.log('结果',response);
             let qinhe,shouyi;   
             this.result =  response.data.data; 
             for(let i=0;i<response.data.data.appResults.length;i++){
+                if(response.data.data.appResults[i].moduleName!='资源配置'){
+                    this.resultlist.push(response.data.data.appResults[i]);
+                }
                 if(response.data.data.appResults[i].moduleName=='受益度'){
                     shouyi = response.data.data.appResults[i].result;
                 }

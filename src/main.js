@@ -21,7 +21,33 @@ Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
+// 退出
+Vue.prototype.logout = function(){
+    this.$this.get('/broker/auth/logout').then((response)=>{
+        if(response.data.code=='1'){
+            sessionStorage.clear();
+            this.$router.push({path:'/'});
+        }
+    }).catch((error)=>{
+        console.log(error);
+    })
+}
 
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+        if (sessionStorage.getItem("accountId")) {  // 通过vuex state获取当前的token是否存在
+            next();
+        }else {
+            next({
+                path: '/login',
+                query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+            })
+        }
+    }
+    else {
+        next();
+    }
+})
 
 
 Vue.config.productionTip = false
