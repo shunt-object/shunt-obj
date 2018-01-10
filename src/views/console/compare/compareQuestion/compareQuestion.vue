@@ -51,7 +51,12 @@ export default{
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
-        this.appId = sessionStorage.getItem('appId');
+        //console.log('aaa',sessionStorage.getItem('appId'));
+        if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
+            this.appId = this.$route.query.id;            
+        }else{
+            this.appId = sessionStorage.getItem('appId');
+        }
         this.$this.get('/broker/compare/types').then((response)=>{
             //console.log('aaa',response); 
             this.List = response.data.data;  

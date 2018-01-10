@@ -88,7 +88,7 @@ export default{
     },
     methods:{
         compare:function(){
-            this.$router.push({path:'/compareQuestion'});
+            this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
         },
         drawPie:function(id){
             this.charts = echarts.init(document.getElementById(id));
