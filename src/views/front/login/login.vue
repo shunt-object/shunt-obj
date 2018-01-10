@@ -90,6 +90,7 @@ export default{
                     if(response.data.code=='1'){
                         this.$router.push({path:'/'});
                         sessionStorage.setItem("accountId",this.account);
+                        sessionStorage.setItem("account",response.data.data);
                     }else if(response.data.code=='0'){
                         this.isaccount=true;
                         this.ishave=true;
