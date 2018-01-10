@@ -135,7 +135,7 @@ export default {
       btn:function(){
             //console.log(this.os);
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
-                this.$layer.alert("注意：您还有未填写的项目！")
+               
             }else{
             this.appId = sessionStorage.getItem("appId"); 
              
