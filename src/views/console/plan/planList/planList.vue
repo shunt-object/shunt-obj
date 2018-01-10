@@ -6,7 +6,7 @@
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr style="margin-top:50px; text-align:center">
-                        <th class="col-md-1"><input type="checkbox"   name="a" id="cls"></th>
+                        <th class="col-md-1"><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
                         <th class="col-md-1">应用名称</th>
                         <th class="col-md-1">云分析名称</th>
                         <th class="col-md-1">定性</th>
@@ -19,7 +19,7 @@
 
             <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'></td>
+                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b' v-model="checkboxModel"></td>
                         <td class="col-md-1">{{sp.appname}}</td>
                         <td class="col-md-1">{{sp.proname}}</td>
                         <td class="col-md-1" v-if="null!=sp.appResults[0]">{{JSON.parse(sp.appResults[0].result).sname}}</td>
@@ -77,22 +77,23 @@ import "../planList/datatable.css";
     console.log($sea);
         $('table tbody tr').hide().filter(':contains('+$sea+')').show();
     }
-$(document).ready(function(){ 
-  $("#cls").change(function() {
-      //全选
-      if ($(":checkbox").attr("checked") != "checked") {
-        $(":checkbox").each(function() {  
-            $(this).attr("checked", true); 
-        })
-      } else {
-            $(":checkbox").each(function() {  
-             $(":checkbox").removeAttr("checked");
-        })
+// $(document).ready(function(){ 
+//   $("#cls").change(function() {
+//       全选
+//       if ($(":checkbox").attr("checked") != "checked") {
+//         $(":checkbox").each(function() {  
+//             $(this).attr("checked", true); 
+//         })
+//       } else {
+//             $(":checkbox").each(function() {  
+//              $(":checkbox").removeAttr("checked");
+//         })
      
      
-      }
-    })
-})
+//       // }
+      
+//     })
+// })
 
 export default {
   name: "planList",
@@ -100,15 +101,41 @@ export default {
     return {
       dat: [],
       ssd: false,
-      sps: []
+      sps: [],
+      checkboxModel:[],
+      checkboxAll:false    //为false时 checkbox没有选中 为true时 checkbox默认选中
     };
   },
+
+  //全选逻辑 watch监听
+  watch:{
+    checkboxModel:{
+      handler(){
+        if(this.checkboxModel.length == this.sps.length){
+          this.checkboxAll=true
+        }else{
+          this.checkboxAll=false;
+        }
+      },
+      deep:true
+    }
+  },
+
   created: function() {
     this.getData();
   },
   methods: {
     myFun: function() {
       myFunn();
+    },
+    changeSta:function(item){
+    console.log(this.sps.length)
+      this.checkboxModel = [];
+      if(this.checkbox == true){
+          this.sps.forEach((value,index)=>{
+            this.checkModel.push(value.username)
+          })
+      }
     },
     idClick:function(sid){
             this.$router.push({path:'/planResult',query:{id:sid}});

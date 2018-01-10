@@ -36,7 +36,7 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="username">{{sessionStorage.getItem("account").realname}}</span>
+                        <!--<span class="username">{{sessionStorage.getItem("account").realname}}</span>-->
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">

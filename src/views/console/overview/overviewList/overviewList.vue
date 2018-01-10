@@ -2,6 +2,9 @@
 
     <div class="Lists">
         <div class="modle" v-show="this.flag"><input type="button" value="创建云分析" v-on:click="als"></div>
+        <ul>
+            <li><input type="button" value="创建云分析" v-on:click="UpRoute"></li>
+        </ul>
          <ul class="uls">
              <li class="sps row">
                  <span class="col-md-1"><input type="checkbox" class="text-center"></span>
@@ -64,7 +67,7 @@
 .modle{
     position:absolute;
     left:0;
-    top:10px;
+    top:0px;
     width:100%;
     height:600px;
     background:#000;
@@ -144,6 +147,9 @@ a:hover{
     width:100px;
     margin-right:10px;
 }
+.notice-title{
+    margin:0px !important;
+}
 </style>
 <script>
 
@@ -175,24 +181,30 @@ a:hover{
             },
             rems:function(e){
                 var that = this;
-                var con = confirm("您确定要删除该云分析下的所有应用吗?");
-                if(con == true){
-                    let ids=[];
-                    ids.push(e);
-                    var asf = {"ids":ids};
-                    console.log(asf);
-                    that.$this({
-                        method: "delete",
-                        url: "/broker/app/analysis",
-                        data: asf
-                    }).then(function(response) {
-                        window.location.reload();
-                    }).catch(function(error) {
-                        console.log(error);
-                    });
-                }else{
-                    return;
-                }
+                var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
+                        let ids=[];
+                        ids.push(e);
+                        var asf = {"ids":ids};
+                        console.log(asf);
+                        that.$this({
+                            method: "delete",
+                            url: "/broker/app/analysis",
+                            data: asf
+                        }).then(function(response) {
+                             that.$layer.close(con);
+                            window.location.reload();
+                        }).catch(function(error) {
+                            console.log(error);
+                        });
+                       
+                       
+                },function(){
+                    return ;
+                });
+                                       
+            },
+            UpRoute:function(){
+                this.$router.push({path:'/CreateAnalysis'});
             }
             
 

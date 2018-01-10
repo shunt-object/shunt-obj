@@ -22,7 +22,24 @@ axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
 
-
+axios.interceptors.response.use(
+    response => {
+        return response;
+    },
+    error => {
+        if (error.response) {
+            switch (error.response.status) {
+                case 403:
+                    // 返回 401 清除token信息并跳转到登录页面
+                    store.commit(types.LOGOUT);
+                    router.replace({
+                        path: '/login',
+                        query: {redirect: router.currentRoute.fullPath}
+                    })
+            }
+        }
+        return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+    });
 
 Vue.config.productionTip = false
 
@@ -31,5 +48,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  
 })

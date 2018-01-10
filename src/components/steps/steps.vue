@@ -30,6 +30,7 @@
 <script>
 import '../steps/steps.css'
 export default{
+  name:"sds",
   props:["index","start","type"]
 }
 </script>

@@ -6,7 +6,7 @@
 </div>
 <div class="plan-box">
     <div class="plan-container">
-        <child index="2" start="0" :type="queryType"></child>
+        <sds index="2" start="0" :type="queryType"></sds>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
                     <span class="padding-65">App servers</span><input type="text" v-model="num">
@@ -81,9 +81,12 @@
     a:hover{
         color:#000;
     }
+    .notice-title{
+    margin:0px !important;
+}
 </style>
 <script>
-import child from '../../../../components/steps/steps.vue'
+import sds from '../../../../components/steps/steps.vue'
 import '../resourceGroup/resourceGroup.css'
 export default {
   name: 'ResourceGroup',
@@ -125,13 +128,14 @@ export default {
   },
   mounted:function(){
       this.queryType = this.$route.query.type;
+      this.$layer.alert("注意：以下全为必填项");
   },
   methods:{
       
       btn:function(){
             //console.log(this.os);
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
-               return false
+                this.$layer.alert("注意：您还有未填写的项目！")
             }else{
             this.appId = sessionStorage.getItem("appId"); 
              
@@ -195,7 +199,7 @@ export default {
       }}
   },
     components:{
-        child
+        sds
     }
 }
   </script>
