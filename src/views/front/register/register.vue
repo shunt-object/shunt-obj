@@ -183,7 +183,7 @@ export default{
             }
         },
         agree:function(){
-            if( this.isphone==true || this.ispassword==true || this.isagainPas==true || this.isconfirm==true || this.isusername==true || this.checkbox==true){
+            if( this.isphone==true && this.ispassword==true && this.isagainPas==true && this.isconfirm==true && this.isusername==true && this.checkbox==true){
                 let obj = {
                     "password": this.password,
                     "phone": this.phone,
@@ -208,6 +208,9 @@ export default{
                 this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
                 this.username==''?this.isusername=true:this.isusername=false;
+                if(this.checkbox==false){
+                    this.$layer.msg('请阅读服务协议');
+                }
             }
         }
     }

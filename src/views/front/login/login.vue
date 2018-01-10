@@ -86,16 +86,16 @@ export default{
                 let str = JSON.stringify(obj);
                 let that = this;
                 this.$this.post('/broker/auth/login',str).then((response)=>{
-                    console.log(response);
+                    console.log('login',response);
                     if(response.data.code=='1'){
                         this.$router.push({path:'/'});
                         sessionStorage.setItem("accountId",this.account);
-                        sessionStorage.setItem("account",response.data.data);
+                        sessionStorage.setItem("account",JSON.stringify(response.data.data));
                     }else if(response.data.code=='0'){
                         this.isaccount=true;
                         this.ishave=true;
-                        this.accountText = '用户名或密码不正确';
-                        this.passwordText = '用户名或密码不正确';
+                        this.accountText = '用户名不正确';
+                        this.passwordText = '密码不正确';
                     }
                 }).catch((error)=>{
                     console.log(error);

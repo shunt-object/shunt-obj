@@ -36,11 +36,7 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-<<<<<<< HEAD
-                        <!--<span class="username">{{sessionStorage.getItem("account").realname}}</span>-->
-=======
-                        <span class="username">halou<!--{{sessionStorage.getItem("account").realname}}--></span>
->>>>>>> bdf0c953d985f0ace62a57b84db73256e9f97b1a
+                        <span class="username">{{username}}</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -59,7 +55,7 @@
                 <li class="active">
                     <a class="" href="#">
                         <i class="icon-dashboard"></i>
-                        <span>总览</span>
+                        <span><router-link to="/consolePage">总览</router-link></span>
                     </a>
                 </li>
                 <li class="sub-menu">
@@ -88,26 +84,67 @@
 import '../consolePage/consoleFrame.css'
 import '../consolePage/style-responsive.css'
 import '../consolePage/font-awesome/css/font-awesome.css'
-$(function(){
-     jQuery('#sidebar .sub-menu > a').click(function () {
-        var last = jQuery('.sub-menu.open', $('#sidebar'));
-        last.removeClass("open");
-        jQuery('.arrow', last).removeClass("open");
-        jQuery('.sub', last).slideUp(200);
-        var sub = jQuery(this).next();
-        if (sub.is(":visible")) {
-            jQuery('.arrow', jQuery(this)).removeClass("open");
-            jQuery(this).parent().removeClass("open");
-            sub.slideUp(200);
-        } else {
-            jQuery('.arrow', jQuery(this)).addClass("open");
-            jQuery(this).parent().addClass("open");
-            sub.slideDown(200);
+
+export default{
+    name:'consolePage',
+    data(){
+        return {
+            username:''
         }
-    });
-//sidebar toggle
-    $(function() {
-        function responsiveView() {
+    },
+    mounted:function(){
+        $('#sidebar .sub-menu > a').click(function () {
+            var last = $('.sub-menu.open', $('#sidebar'));
+            last.removeClass("open");
+            $('.arrow', last).removeClass("open");
+            $('.sub', last).slideUp(200);
+            var sub = $(this).next();
+            if (sub.is(":visible")) {
+                $('.arrow', $(this)).removeClass("open");
+                $(this).parent().removeClass("open");
+                sub.slideUp(200);
+            } else {
+                $('.arrow', $(this)).addClass("open");
+                $(this).parent().addClass("open");
+                sub.slideDown(200);
+            }
+        });
+        
+        this.responsiveView();
+        $(window).on('load', this.responsiveView());
+        $(window).on('resize', this.responsiveView());
+        $('.icon-reorder').click(function () {
+            if ($('#sidebar > ul').is(":visible") === true) {
+                $('#main-content').css({
+                    'margin-left': '0px'
+                });
+                $('#sidebar').css({
+                    'margin-left': '-180px'
+                });
+                $('#sidebar > ul').hide();
+                $("#container").addClass("sidebar-closed");
+            } else {
+                $('#main-content').css({
+                    'margin-left': '180px'
+                });
+                $('#sidebar > ul').show();
+                $('#sidebar').css({
+                    'margin-left': '0'
+                });
+                $("#container").removeClass("sidebar-closed");
+            }
+        });
+        this.username = JSON.parse(sessionStorage.getItem("account")).username
+       // console.log(JSON.parse(sessionStorage.getItem("account")));
+    },
+    methods:{
+        planning:function(){
+            this.$router.push({path:'/planList'});
+        },
+        compare:function(){
+            this.$router.push({path:'/resetviewList'});
+        },
+        responsiveView:function () {
             var wSize = $(window).width();
             if (wSize <= 768) {
                 $('#container').addClass('sidebar-close');
@@ -117,46 +154,6 @@ $(function(){
                 $('#container').removeClass('sidebar-close');
                 $('#sidebar > ul').show();
             }
-        }
-        $(window).on('load', responsiveView);
-        $(window).on('resize', responsiveView);
-    });
-    $('.icon-reorder').click(function () {
-        if ($('#sidebar > ul').is(":visible") === true) {
-            $('#main-content').css({
-                'margin-left': '0px'
-            });
-            $('#sidebar').css({
-                'margin-left': '-180px'
-            });
-            $('#sidebar > ul').hide();
-            $("#container").addClass("sidebar-closed");
-        } else {
-            $('#main-content').css({
-                'margin-left': '180px'
-            });
-            $('#sidebar > ul').show();
-            $('#sidebar').css({
-                'margin-left': '0'
-            });
-            $("#container").removeClass("sidebar-closed");
-        }
-    });
-})
-export default{
-    name:'consolePage',
-    data(){
-        return {
-            
-        }
-    },
-    mounted:function(){},
-    methods:{
-        planning:function(){
-            this.$router.push({path:'/planList'});
-        },
-        compare:function(){
-            this.$router.push({path:'/resetviewList'});
         }
     }
 }
