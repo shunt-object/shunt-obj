@@ -31,7 +31,7 @@ export default new Router({
       path:'/register',
       name:'register',
       component:register
-    },
+    },   
     {
       path:'/login',
       name:'login',
