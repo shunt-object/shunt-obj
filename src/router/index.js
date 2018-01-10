@@ -40,21 +40,33 @@ export default new Router({
     {
       path:'/consolePage',
       name:'consolePage',
+      meta: {
+          requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
       component:consolePage,
       children:[
         {
           path:'/',
           name:'overviewList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:overviewList
         },
         {
           path:'/resetviewList',
           name:'resetviewList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:resetviewList
         },
         {
           path:'/planList',
           name:'planList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planList
         },
         {
@@ -68,26 +80,41 @@ export default new Router({
         {
           path:'/planQuestion',
           name:'planQuestion',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planQuestion
         },
         {
           path:'/compareQuestion',
           name:'compareQuestion',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:compareQuestion
         },
         {
           path:'/resourceGroup',
           name:'resourceGroup',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:resourceGroup
         },
         {
           path:'/planResult',
           name:'planResult',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planResult
         },
         {
           path:'/compareResult',
           name:'compareResult',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:compareResult
         },
       ]
