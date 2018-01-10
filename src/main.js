@@ -21,7 +21,6 @@ Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
-<<<<<<< HEAD
 
 axios.interceptors.response.use(
     response => {
@@ -41,7 +40,6 @@ axios.interceptors.response.use(
         }
         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
     });
-=======
 // 退出
 Vue.prototype.logout = function(){
     this.$this.get('/broker/auth/logout').then((response)=>{
@@ -70,7 +68,6 @@ router.beforeEach((to, from, next) => {
     }
 })
 
->>>>>>> bdf0c953d985f0ace62a57b84db73256e9f97b1a
 
 Vue.config.productionTip = false
 
