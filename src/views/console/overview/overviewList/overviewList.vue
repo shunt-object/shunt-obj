@@ -210,7 +210,7 @@ a:hover{
 
         },
         created:function(){
-                    this.$http.get('/broker/result/analysis').then((res)=>{
+                    this.$this.get('/broker/result/analysis').then((res)=>{
                         console.log(eval("(" + res.bodyText +")").data);
 
                         this.vpd = eval("(" + res.bodyText +")").data;   //所有数据

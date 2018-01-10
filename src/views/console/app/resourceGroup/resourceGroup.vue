@@ -181,7 +181,7 @@ export default {
 
               };
             
-            this.$http.post('/broker/app/resource/group',obj).then((res)=>{
+            this.$this.post('/broker/app/resource/group',obj).then((res)=>{
                     console.log(res+"chengg");
                      //this.$router.push({path:'/login'});/planQuestion
                      if(this.queryType=='compare'){

@@ -52,7 +52,7 @@
     },
     methods:{
          getData:function(){                       //获取数据
-                this.$http.get("/broker/result/compare/list").then((res)=>{
+                this.$this.get("/broker/result/compare/list").then((res)=>{
                     this.res = eval("(" + res.bodyText +")").data;
                     console.log(this.res)
                 
