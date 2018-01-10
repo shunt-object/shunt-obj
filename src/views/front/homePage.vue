@@ -59,7 +59,7 @@
   
             <li>
   
-              <a class="page-scroll" href="#contact">控制台</a>
+              <a class="page-scroll" href="javascript:;"><router-link to="/consolePage">控制台</router-link></a>
   
             </li>
   
@@ -71,7 +71,7 @@
   
               <li>
   
-                <span class="log">登陆</span>
+                <span class="log"><router-link  to="/login">登陆</router-link></span>
   
               </li>
   

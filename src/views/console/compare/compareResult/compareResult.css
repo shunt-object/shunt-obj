@@ -8,3 +8,17 @@
 .table-box tr th{
     text-align:center;
 }
+.row{
+    margin:0 auto 10px auto !important;
+}
+.resourceCroup-head{
+    font-size:14px;
+    background:#ccc;
+    width:96%;
+    margin:0 auto;
+    margin-bottom:-10px !important;
+    line-height:50px;
+}
+.resourceCroup-list-head span{
+    font-size:14px;
+}
