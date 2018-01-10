@@ -25,15 +25,15 @@
                         <span class="col-md-3 bn">{{item.appname}}</span>
                         <span class="col-md-7 text-left">
                             <p >
-                                
                                 <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)">
                                     <a  class="ad" v-if="im.moduleName!=='受益度'&&im.moduleName!=='亲和度'&&im.result!==null"  style="position:absolute;left:0;top:-50px;width:80px;">{{JSON.parse(im.result).sname}}</a>
                                     <a  class="ad" v-else-if="im.result==null"  style="position:absolute;left:0;top:-50px;" >未完成</a>
                                     <a  class="ad" v-else style="position:absolute;left:0;top:-50px;" >{{im.result}}</a><!--v-show="index == i"-->
                                     {{im.moduleName}}
+                                    
+                                    
                                 </a>
-                                <a>资源组配置</a>
-                                <a >标准</a>
+                                
                          
                             </p>
                             <div class="progress" style="background:#99a0a3">
@@ -42,6 +42,7 @@
                                     <span class="sr-only">40% 完成</span>
                                 </div>
                             </div><span class="spc">40%</span>
+                            
                         </span>
                 
                      </li>
@@ -79,7 +80,7 @@
 }
 .active{
     display:block;
-    background:#ccc;
+
 }
 #pol{
     display:BLOCK;
@@ -189,6 +190,8 @@ a:hover{
                     }).catch(function(error) {
                         console.log(error);
                     });
+                }else{
+                    return;
                 }
             }
             
