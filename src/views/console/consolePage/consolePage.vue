@@ -36,12 +36,16 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+<<<<<<< HEAD
                         <!--<span class="username">{{sessionStorage.getItem("account").realname}}</span>-->
+=======
+                        <span class="username">halou<!--{{sessionStorage.getItem("account").realname}}--></span>
+>>>>>>> bdf0c953d985f0ace62a57b84db73256e9f97b1a
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li><a href="/broker/auth/logout"><i class="icon-key"></i>退出</a></li>
+                        <li v-on:click="logout()"><a href="javascript:;"><i class="icon-key"></i>退出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -141,14 +145,11 @@ $(function(){
 })
 export default{
     name:'consolePage',
-  
-
     data(){
         return {
             
         }
     },
-
     mounted:function(){},
     methods:{
         planning:function(){

@@ -184,10 +184,10 @@ export default {
             this.$http.post('/broker/app/resource/group',obj).then((res)=>{
                     console.log(res+"chengg");
                      //this.$router.push({path:'/login'});/planQuestion
-                     if(this.queryType=='plan'){
-                        this.$router.push({path:'/planQuestion',query:{type:this.queryType}});
-                     }else{
+                     if(this.queryType=='compare'){
                         this.$router.push({path:'/compareQuestion',query:{type:this.queryType}});
+                     }else{
+                        this.$router.push({path:'/planQuestion',query:{type:this.queryType}});
                      }
                      
                      },(err)=>{

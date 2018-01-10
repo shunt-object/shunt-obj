@@ -23,7 +23,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/homePage',
+      path: '/',
       name: 'homePage',
       component: homePage
     },
@@ -31,60 +31,90 @@ export default new Router({
       path:'/register',
       name:'register',
       component:register
-    },
+    },   
     {
       path:'/login',
       name:'login',
       component:login
     },
     {
-      path:'/',
+      path:'/consolePage',
       name:'consolePage',
+      meta: {
+          requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
       component:consolePage,
       children:[
         {
           path:'/',
           name:'overviewList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:overviewList
         },
         {
           path:'/resetviewList',
           name:'resetviewList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:resetviewList
         },
         {
           path:'/planList',
           name:'planList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planList
         },
         {
             path:'/createAnalysis',
             name:'createAnalysis',
+            meta: {
+              requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+            },
             component:createAnalysis
         },
         {
           path:'/planQuestion',
           name:'planQuestion',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planQuestion
         },
         {
           path:'/compareQuestion',
           name:'compareQuestion',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:compareQuestion
         },
         {
           path:'/resourceGroup',
           name:'resourceGroup',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:resourceGroup
         },
         {
           path:'/planResult',
           name:'planResult',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planResult
         },
         {
           path:'/compareResult',
           name:'compareResult',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:compareResult
         },
       ]

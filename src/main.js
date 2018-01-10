@@ -21,6 +21,7 @@ Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
+<<<<<<< HEAD
 
 axios.interceptors.response.use(
     response => {
@@ -40,6 +41,36 @@ axios.interceptors.response.use(
         }
         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
     });
+=======
+// 退出
+Vue.prototype.logout = function(){
+    this.$this.get('/broker/auth/logout').then((response)=>{
+        if(response.data.code=='1'){
+            sessionStorage.clear();
+            this.$router.push({path:'/'});
+        }
+    }).catch((error)=>{
+        console.log(error);
+    })
+}
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+        if (sessionStorage.getItem("accountId")) {  // 通过vuex state获取当前的token是否存在
+            next();
+        }else {
+            next({
+                path: '/login',
+                query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+            })
+        }
+    }
+    else {
+        next();
+    }
+})
+
+>>>>>>> bdf0c953d985f0ace62a57b84db73256e9f97b1a
 
 Vue.config.productionTip = false
 
