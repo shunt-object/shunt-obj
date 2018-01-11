@@ -30,7 +30,7 @@
                             <p >
                                 <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(im.moduleName,vp.id,im.taskStatus)"  >
                                     <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>                                    
-                                    
+                                    <!--0=未做；1=已做未完成；2=已完成-->
                                 </a>
                                 
                                 
@@ -279,7 +279,16 @@ a:hover{
                 console.log(n,o,b);
                 if(b==2){
                      var o = o;
+                    
                      this.$router.push({path:'/planResult',query:{id:o}});
+                }else if(b==1){
+                      var o = o;
+                     var n = n;
+                     this.$router.push({path:'/planResult',query:{id:o,name:n}});
+                }else if(b==0){
+                      var o = o;
+                      var n = n;
+                     this.$router.push({path:'/planResult',query:{id:o,name:n}});
                 }
 
             },
