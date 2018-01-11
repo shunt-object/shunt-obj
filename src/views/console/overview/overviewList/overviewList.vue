@@ -28,14 +28,14 @@
                         <span class="col-md-3 bn">{{item.appname}}</span>
                         <span class="col-md-6 text-left">
                             <p >
-                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(im.moduleName,vp.id,im.taskStatus)"  >
+                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleName,item.id,im.taskStatus)"  >
                                     <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>                                    
                                     <!--0=未做；1=已做未完成；2=已完成-->
                                 </a>
                                 
                                 
                             </p>
-                            <div class="progress" style="background:#99a0a3">
+                            <div class="progress" style="background:#f8f8f8">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60"
                                     aria-valuemin="0" aria-valuemax="100" :style="{width:item.percent+'%'}">
                                 </div>
@@ -112,6 +112,7 @@
     margin:20px 0 0 0;
     height:12px;
     border-radius:10px;
+    border:1px solid #868686;
     display:inline-block;
     margin:5px 0 0 0;
 } 
@@ -120,7 +121,7 @@
     color:#000;
 }
 .progress-bar{
-    background-color:#f8f8f8;
+    background-color:#868686;
     border-radius:10px;
 }
 *{margin:0;padding:0}
