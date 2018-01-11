@@ -89,7 +89,6 @@ export default{
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
-        //this.appId = sessionStorage.getItem('appId');
         // if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
         //     this.appId = this.$route.query.id;            
         // }else{
