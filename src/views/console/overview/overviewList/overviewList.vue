@@ -278,18 +278,24 @@ a:hover{
             onm:function(n,o,b){
                 //this.$router.push({path:'/',query:{id:n}});
                 console.log(n,o,b);
-                if(b==2){
-                     var o = o;
-                    
-                     this.$router.push({path:'/planResult',query:{id:o}});
-                }else if(b==1){
-                      var o = o;
-                     var n = n;
-                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
-                }else if(b==0){
-                      var o = o;
-                      var n = n;
-                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                var o = o;
+                var n = n;
+                if(n=="比较标准"){
+                    if(b==2){
+                        this.$router.push({path:'/compareResult',query:{id:o}});
+                    }else if(b==1){
+                        this.$router.push({path:'/compareQuestion',query:{id:o}});
+                    }else if(b==0){
+                        this.$router.push({path:'/compareQuestion',query:{id:o}});
+                    }
+                }else{
+                     if(b==2){
+                        this.$router.push({path:'/planResult',query:{id:o}});
+                    }else if(b==1){
+                        this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                    }else if(b==0){
+                        this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                    }
                 }
 
             },
