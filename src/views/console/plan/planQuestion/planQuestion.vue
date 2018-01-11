@@ -111,10 +111,14 @@ export default{
             this.qualitative = false;//定性问题是否显示
             this.profit = false;//收益度问题是否显示
             this.affinity = true;//亲和度问题是否显示
-        }else{
+        }else if(this.typeName=='收益度'){
             this.qualitative = false;//定性问题是否显示
             this.profit = true;//收益度问题是否显示
             this.affinity = false;//亲和度问题是否显示
+        }else{
+            this.qualitative = true;//定性问题是否显示
+            this.profit = false;//收益度问题是否显示
+            this.affinity = false;//亲和度问题是否显示 
         }
     },
     methods:{
