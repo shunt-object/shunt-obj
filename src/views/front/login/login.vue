@@ -85,13 +85,14 @@ export default{
                 };
                 let str = JSON.stringify(obj);
                 let that = this;
-                this.$this.post('/broker/auth/login',str).then((response)=>{
-                    console.log('login',response);
-                    if(response.data.code=='1'){
+                this.$this.post('/broker/auth/login',str).then((res)=>{
+                    console.log('login',res);
+                    if(res.data.code=='1'){
+                        console.log('1111');
                         this.$router.push({path:'/'});
                         sessionStorage.setItem("accountId",this.account);
-                        sessionStorage.setItem("account",JSON.stringify(response.data.data));
-                    }else if(response.data.code=='0'){
+                        sessionStorage.setItem("account",JSON.stringify(res.data.data));
+                    }else if(res.data.code=='0'){
                         this.isaccount=true;
                         this.ishave=true;
                         this.accountText = '用户名不正确';
