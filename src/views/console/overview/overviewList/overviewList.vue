@@ -26,14 +26,14 @@
                         <span class="col-md-1 bn"></span>
                         <span class="col-md-1 bn"></span>
                         <span class="col-md-3 bn">{{item.appname}}</span>
-                        <span class="col-md-7 text-left">
+                        <span class="col-md-6 text-left">
                             <p >
                                 <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)"  >
                                     <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')">{{im.moduleName}}</span>                                    
                                     
                                 </a>
                                 
-                         
+                                
                             </p>
                             <div class="progress" style="background:#99a0a3">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60"
@@ -43,6 +43,7 @@
                             </div><span class="spc">40%</span>
                             
                         </span>
+                        <span class="col-md-1 cs" v-on:click="remYy(item.id)">删除应用</span>
                 
                      </li>
                  </ul> 
@@ -92,6 +93,10 @@
    line-height:49px;
    
 }
+.cs{
+    margin-top:88px;
+     cursor:pointer;
+}
 .spx{ 
    height:200px;
    
@@ -139,30 +144,33 @@ a:hover{
     border-radius:20px;
     border:1px solid #ccc;
 }
-.bg{
-    background:green;
+.hg{
+    background:url("../../../../assets/brank.png") no-repeat;
+    background-size:cover;
     text-align:center;
     border-radius:20px;
     border:0px solid #ccc;
-     width:90px;
-    margin:0 10px 0 0;
+    
+   width:90px;
     display:block
 }
-.hg{
-     background:blue;
+.bg{
+     background:#868686;
     text-align:center;
     border-radius:20px;
     border:0px solid #ccc;
      width:90px;
-    margin:0 10px 0 0;   
+    margin:0 10px 0 0; 
+      display:block  
 }
 .fl{
-        background:red;
+    background:#e4e4e4;
     text-align:center;
     border-radius:20px;
     border:0px solid #ccc;
      width:90px;
     margin:0 10px 0 0;
+      display:block
 }
 .ad{
     width:100px;
@@ -209,14 +217,14 @@ a:hover{
                                     for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
                                        // console.log(aix[i].projectApps[j].appResults[k].result)
                                      var a=aix[i].projectApps[j].appResults[k].result;
-                                    
+                                    console.log(a)
                                     }
                             }
                         }
                     }
                 }
                 ps.push(a);
-                 console.log(ps)
+                 
             },
             als:function(){
                 this.$router.push({path:'/CreateAnalysis'});
@@ -227,7 +235,7 @@ a:hover{
                         let ids=[];
                         ids.push(e);
                         var asf = {"ids":ids};
-                        console.log(asf);
+                        //console.log(asf);
                         that.$this({
                             method: "delete",
                             url: "/broker/app/analysis",
@@ -238,12 +246,32 @@ a:hover{
                         }).catch(function(error) {
                             console.log(error);
                         });
-                       
-                       
                 },function(){
                     return ;
                 });
-                                       
+            },
+
+            remYy:function(id){
+                console.log(id)
+                var that = this;
+                 var con = this.$layer.confirm("您确定要删除该应用吗?", async function () {
+                    var ida = [];
+                    ida.push(id); //=也ok
+                        var asg = {"ids":ida};
+                        that.$this({
+                            method: "delete",
+                            url: "/broker/app/applications",
+                            data: asg
+                        }).then(function(response) {
+                             that.$layer.close(con);
+                            // window.location.reload();
+                        }).catch(function(error) {
+                            console.log(error);
+                        })
+                     },function(){
+                    return ;
+                });
+
             },
             UpRoute:function(){
                 this.$router.push({path:'/CreateAnalysis'});
@@ -253,10 +281,10 @@ a:hover{
         },
         created:function(){
                     this.$http.get('/broker/result/analysis').then((res)=>{
-                        console.log(res);
+                     
 
                         this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
-                            
+                               console.log(this.vpd);
                                     if(this.vpd.length==0){
                                         this.flag=true
                                     }else{
