@@ -12,8 +12,8 @@ var express = require('express');
 var proxy = require('http-proxy-middleware');
 var app = express();
 app.middleware = [
-        //proxy(['/broker'], {target: 'http://172.16.10.39:8080', changeOrigin: true})
-        proxy(['/broker'], {target: 'http://localhost:8080', changeOrigin: true})
+        proxy(['/broker'], {target: 'http://172.16.10.39:8080', changeOrigin: true})
+        //proxy(['/broker'], {target: 'http://localhost:8080', changeOrigin: true})
 ];
 
 app.use(app.middleware);
