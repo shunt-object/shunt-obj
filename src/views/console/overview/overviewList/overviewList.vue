@@ -28,8 +28,8 @@
                         <span class="col-md-3 bn">{{item.appname}}</span>
                         <span class="col-md-6 text-left">
                             <p >
-                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(index)"  >
-                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')">{{im.moduleName}}</span>                                    
+                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative" v-on:click="onm(im.moduleName,vp.id,im.taskStatus)"  >
+                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>                                    
                                     
                                 </a>
                                 
@@ -204,28 +204,28 @@ a:hover{
                 
             //      this.i = index
             // },
-            onm:function(index){
-                //alert(index);
-                //console.log(this.vpd);
-                var ps = [];
-                var aix = this.vpd;
-                for(var i=0;i<aix.length;i++){
-                    if(aix[i].projectApps&&aix[i].projectApps.length>0){
-                        for(var j=0;j<aix[i].projectApps.length;j++){
-                            //console.log(aix[i].projectApps[j].appResults)
-                            if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
-                                    for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
-                                       // console.log(aix[i].projectApps[j].appResults[k].result)
-                                     var a=aix[i].projectApps[j].appResults[k].result;
-                                    console.log(a)
-                                    }
-                            }
-                        }
-                    }
-                }
-                ps.push(a);
+            // onm:function(index){
+            //     //alert(index);
+            //     //console.log(this.vpd);
+            //     var ps = [];
+            //     var aix = this.vpd;
+            //     for(var i=0;i<aix.length;i++){
+            //         if(aix[i].projectApps&&aix[i].projectApps.length>0){
+            //             for(var j=0;j<aix[i].projectApps.length;j++){
+            //                 //console.log(aix[i].projectApps[j].appResults)
+            //                 if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
+            //                         for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
+            //                            // console.log(aix[i].projectApps[j].appResults[k].result)
+            //                          var a=aix[i].projectApps[j].appResults[k].result;
+            //                         console.log(a)
+            //                         }
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     ps.push(a);
                  
-            },
+            // },
             als:function(){
                 this.$router.push({path:'/CreateAnalysis'});
             },
@@ -271,6 +271,14 @@ a:hover{
                      },function(){
                     return ;
                 });
+
+            },
+            onm:function(n,o,b){
+                //this.$router.push({path:'/',query:{id:n}});
+                console.log(n,o,b);
+                if(b==2){
+                     this.$router.push({path:'/planResult',query:{id:o}});
+                }
 
             },
             UpRoute:function(){
