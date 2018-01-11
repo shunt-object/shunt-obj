@@ -183,7 +183,6 @@ export default{
             }
         },
         agree:function(){
-            console.log(this.password);
             if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true){
                 let obj = {
                     "password": this.password,
