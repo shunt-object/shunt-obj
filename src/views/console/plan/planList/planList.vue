@@ -1,6 +1,6 @@
 <template>
         <div>
-            <div>象限图</div>
+            <!-- <div>象限图</div> -->
             <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
