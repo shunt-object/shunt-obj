@@ -9,7 +9,7 @@
         <child index="3" start="0" :type="queryType"></child>
         <div class="compare-start">
             <button class="btn btn-default startbtn" v-on:click="compare()">开始云选型</button>
-            <button class="btn btn-default importbtn">导出</button>
+            <!-- <button class="btn btn-default importbtn">导出</button> -->
             <div class="clear"></div>
         </div>
         <div class="result-echarts" id="main"></div>
@@ -185,10 +185,10 @@ export default{
                         silent: true,
                         data: [
                             [{
-                                name: '改进',
+                                name: '合适',
                                 itemStyle: {
                                     normal: {
-                                        color: 'red'
+                                        color: '#E8FFC4'
                                     },
                                 },
                                 label: {
@@ -205,10 +205,10 @@ export default{
                                 coord: [Number.MAX_VALUE, 0],
                             }],
                             [{
-                                name: '淘汰',
+                                name: '低',
                                 itemStyle: {
                                     normal: {
-                                        color: 'green',
+                                        color: '#844200',
                                     },
                                 },
                                 label: {
@@ -225,10 +225,10 @@ export default{
                                 coord: [50, 50],
                             }],
                             [{
-                                name: '保持',
+                                name: '高',
                                 itemStyle: {
                                     normal: {
-                                        color: 'yellow',
+                                        color: '#9AFF02',
                                     },
                                 },
                                 label: {
@@ -245,10 +245,10 @@ export default{
                                 coord: [Number.MAX_VALUE, Number.MAX_VALUE],
                             }],
                             [{
-                                name: '激励',
+                                name: '一般',
                                 itemStyle: {
                                     normal: {
-                                        color: 'blue',
+                                        color: '#FFDCB9',
                                     },
                                 },
                                 label: {
