@@ -84,11 +84,13 @@ export default{
             qualitative:true,//定性问题是否显示
             profit:false,//收益度问题是否显示
             affinity:false,//亲和度问题是否显示
-            queryType:''
+            queryType:'',
+            typeName:''
         }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
+        this.typeName = this.$route.query.name;
         // if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
         //     this.appId = this.$route.query.id;            
         // }else{
@@ -100,7 +102,20 @@ export default{
         this.getdata(this.appId,qcode,optcode);
         //定量问题
         this.getLiang(this.appId,2);
-        this.getLiang(this.appId,3);    
+        this.getLiang(this.appId,3);  
+        if(this.typeName=='云定性'){
+            this.qualitative = true;//定性问题是否显示
+            this.profit = false;//收益度问题是否显示
+            this.affinity = false;//亲和度问题是否显示
+        }else if(this.typeName=='亲和度'){
+            this.qualitative = false;//定性问题是否显示
+            this.profit = false;//收益度问题是否显示
+            this.affinity = true;//亲和度问题是否显示
+        }else{
+            this.qualitative = false;//定性问题是否显示
+            this.profit = true;//收益度问题是否显示
+            this.affinity = false;//亲和度问题是否显示
+        }
     },
     methods:{
         fn:function(qcode,optcode){
