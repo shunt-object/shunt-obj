@@ -20,7 +20,7 @@
                         <span class="col-md-2">{{vp.proname}}</span>
                         <span class="col-md-1"></span>
                         <span class="col-md-6"></span>
-                        <span class="col-md-2 removeIng" style="color:#222222"  v-on:click="rems(vp.id)">删除云分析</span>
+                        <span class="col-md-2 removeIng"   v-on:click="rems(vp.id)" style="color:#337ab7">删除云分析</span>
                       </li>
                       <li class="row spx active" v-for="item in vp.projectApps">
                         <span class="col-md-1 bn"></span>

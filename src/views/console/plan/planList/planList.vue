@@ -29,7 +29,7 @@
                         <td class="col-md-1" v-else></td>
                         <td class="col-md-1" v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                         <td class="col-md-1" v-else></td>
-                        <td><a href="javascript:;" v-on:click="idClick(sp.id)">查看详情</a></td>
+                        <td><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
                     </tr>
             </tbody>
 
@@ -47,6 +47,9 @@
 }
 td {
   line-height: 20px;
+}
+.lookCom{
+  color:#337ab7;
 }
 </style>
 

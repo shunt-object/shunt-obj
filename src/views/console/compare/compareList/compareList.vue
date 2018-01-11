@@ -19,7 +19,7 @@
                         <td>{{re.proname}}</td>
                         <td v-if="re.appResults[0]!=null" >
                             <ul>
-                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span>--<span>{{ic.scope}}</span><span></span></li>
+                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span>=====<span>{{ic.scope}}分</span><span></span></li>
                             </ul>
                         </td>
                         <td v-else></td>
