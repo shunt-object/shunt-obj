@@ -64,7 +64,7 @@ export default{
             let qinhe,shouyi;   
             this.result =  response.data.data; 
             for(let i=0;i<response.data.data.appResults.length;i++){
-                if(response.data.data.appResults[i].moduleName!='资源配置'){
+                if(response.data.data.appResults[i].moduleName=='云定性'||response.data.data.appResults[i].moduleName=='收益度'||response.data.data.appResults[i].moduleName=='亲和度'){
                     this.resultlist.push(response.data.data.appResults[i]);
                 }
                 if(response.data.data.appResults[i].moduleName=='受益度'){
