@@ -264,7 +264,7 @@ a:hover{
                             data: asg
                         }).then(function(response) {
                              that.$layer.close(con);
-                            // window.location.reload();
+                            window.location.reload();
                         }).catch(function(error) {
                             console.log(error);
                         })
