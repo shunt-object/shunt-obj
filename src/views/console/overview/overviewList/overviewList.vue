@@ -1,10 +1,12 @@
 <template>
 
     <div class="Lists">
+    <div class="total-header">
+        <span></span>
+        总览
+    </div>
         <div class="modle" v-show="this.flag"><input type="button" value="创建云分析" v-on:click="als"></div>
-        <ul>
-            <li><input type="button" value="创建云分析" v-on:click="UpRoute"></li>
-        </ul>
+        <div v-on:click="UpRoute" class="creastes">创建云分析</div>
          <ul class="uls">
              <li class="sps row">
                  <span class="col-md-1"><input type="checkbox" class="text-center"></span>
@@ -56,6 +58,13 @@
 .Lists{
     position:relative;
     height:100%;
+}
+.creastes{
+    border:1px solid #ccc;
+     cursor:pointer;
+     padding:5px 10px;
+     background:rgb(51, 122, 183);
+     color:#ccc;
 }
 .removeIng:hover{
     cursor:pointer
