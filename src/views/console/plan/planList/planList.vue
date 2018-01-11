@@ -1,7 +1,7 @@
 <template>
         <div>
             <div>象限图</div>
-            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="button" value="删除" v-on:click="rems()" id="rems"><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
+            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
@@ -19,10 +19,11 @@
 
             <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b' v-model="checkboxModel"></td>
+                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'  v-on:click="al"></td>
                         <td class="col-md-1">{{sp.appname}}</td>
                         <td class="col-md-1">{{sp.proname}}</td>
-                        <td class="col-md-1" v-if="null!=sp.appResults[0]">{{JSON.parse(sp.appResults[0].result).sname}}</td>
+                        <td class="col-md-1" v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>
+                        
                         <td class="col-md-1" v-else></td>
                         <td class="col-md-1" v-if="null!=sp.appResults[1]">{{sp.appResults[1].result}}</td>
                         <td class="col-md-1" v-else></td>
@@ -102,24 +103,12 @@ export default {
       dat: [],
       ssd: false,
       sps: [],
-      checkboxModel:[],
+    
       checkboxAll:false    //为false时 checkbox没有选中 为true时 checkbox默认选中
     };
   },
 
-  //全选逻辑 watch监听
-  watch:{
-    checkboxModel:{
-      handler(){
-        if(this.checkboxModel.length == this.sps.length){
-          this.checkboxAll=true
-        }else{
-          this.checkboxAll=false;
-        }
-      },
-      deep:true
-    }
-  },
+
 
   created: function() {
     this.getData();
@@ -129,13 +118,14 @@ export default {
       myFunn();
     },
     changeSta:function(item){
-    console.log(this.sps.length)
-      this.checkboxModel = [];
-      if(this.checkbox == true){
-          this.sps.forEach((value,index)=>{
-            this.checkModel.push(value.username)
-          })
-      }
+        if(this.checkboxAll){
+           $("#trs input[type='checkbox']").prop("checked",true)
+        }else{
+            $("#trs input[type='checkbox']").prop("checked",false)
+        }
+    },
+    al:function(){
+      this.checkboxModel=""
     },
     idClick:function(sid){
             this.$router.push({path:'/planResult',query:{id:sid}});

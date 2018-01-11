@@ -40,7 +40,7 @@
 </style>
 <script>
  export default{
-    name:"resetviewList",
+    name:"compareList",
     data(){
         return{
             res:[],
