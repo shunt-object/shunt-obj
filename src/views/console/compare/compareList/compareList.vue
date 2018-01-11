@@ -1,6 +1,7 @@
 <template>
 <div>
-       <button style="color:#000" v-on:click="CreatCom">创建云选型</button><input type="button" value="删除" id="rems" v-on:click="remsveily">
+       <button style="color:#000" v-on:click="CreatCom">创建云选型</button><!--<input type="button" value="删除" id="rems" v-on:click="remsveily">-->
+       <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
        <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr class="text-center">
@@ -22,7 +23,7 @@
                             </ul>
                         </td>
                         <td v-else></td>
-                         <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)">查看详情</a></td>
+                         <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7">查看报告</a></td>
                     </tr>
             </tbody>
           
@@ -39,6 +40,14 @@
      }
 </style>
 <script>
+  
+  function myFunn(){
+    var $sea=$('#myInput').val();
+    //先隐藏全部，再把符合筛选条件的值显示
+    console.log($sea);
+        $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+    }
+    
  export default{
     name:"compareList",
     data(){
@@ -135,7 +144,10 @@
                         $(".cls").prop("checked", false);
                     }
     
-        }
+        },
+         myFun: function() {
+            myFunn();
+        },
 
     }
  }   

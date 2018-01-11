@@ -37,10 +37,9 @@
                             </p>
                             <div class="progress" style="background:#99a0a3">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                                    <span class="sr-only">40% 完成</span>
+                                    aria-valuemin="0" aria-valuemax="100" :style="{width:item.percent+'%'}">
                                 </div>
-                            </div><span class="spc">40%</span>
+                            </div><span class="spc">{{item.percent}}%</span>
                             
                         </span>
                         <span class="col-md-1 cs" v-on:click="remYy(item.id)">删除应用</span>
@@ -96,6 +95,7 @@
 .cs{
     margin-top:88px;
      cursor:pointer;
+     color:#337ab7
 }
 .spx{ 
    height:200px;
@@ -117,7 +117,7 @@
 } 
 .spc{
     margin-left:5px;
-    color:#fff;
+    color:#000;
 }
 .progress-bar{
     background-color:#f8f8f8;
@@ -195,10 +195,11 @@ a:hover{
                 list:false,
                 i:-1, 
                 flag:false,
-                
+              
                 //{"ids":[1,2,3]}
             }
         },
+     
         methods:{
             // onm:function(index){
                 
