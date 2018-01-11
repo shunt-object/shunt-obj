@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 云比较
+    <router-link to="/consolePage">总览</router-link> > 云比较
 </div>
 <div class="plan-box">
     <div class="plan-container">

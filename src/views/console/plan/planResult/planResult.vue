@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 报表
+    <router-link to="/consolePage">总览</router-link> > 报表
 </div>
 <div class="plan-box">
     <!--<div class="">-->
@@ -57,7 +57,7 @@ export default{
         this.queryType = this.$route.query.type;
         //this.appId = sessionStorage.getItem('appId');
         this.appId = this.$route.query.id;
-        //this.appId = 48;
+        console.log(this.appId);
         //结果
         this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
             //console.log('结果',response);

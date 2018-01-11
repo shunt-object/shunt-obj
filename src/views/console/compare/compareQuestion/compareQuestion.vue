@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 云规划
+    <router-link to="/consolePage">总览</router-link> > 云规划
 </div>
 <div class="plan-box">
     <div class="plan-container">
@@ -51,7 +51,6 @@ export default{
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
-        //console.log('aaa',sessionStorage.getItem('appId'));
         if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
             this.appId = this.$route.query.id;            
         }else{
@@ -76,18 +75,23 @@ export default{
     methods:{
         getquestion:function(i,Id){
             this.i = i;
-            this.$this.get('/broker/compare/feature/'+Id+'').then((response)=>{
+            this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
                 //console.log('bbb',response); 
                 this.question = response.data.data;  
                 for(let i=0;i<response.data.data.length;i++){
                     this.formdata.push(response.data.data[i].id);
+                }
+                //默认选中
+                for(let n=0;n<response.data.data.length;n++){
+                    if(response.data.data[n].selectOptId!=null){
+                        this.formdata[response.data.data[n].id] = this.option[response.data.data[n].selectOptId-1];
+                    }
                 }  
             }).catch((error)=>{
                 
             }) 
         },
         select:function(featureCode,item,out){
-            console.log(item);
             let obj = {
                 "appid": this.appId,
                 "featureCode":featureCode,

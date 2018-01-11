@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 云规划
+    <router-link to="/consolePage">总览</router-link> > 云规划
 </div>
 <div class="plan-box">
     <div class="plan-container">
@@ -89,11 +89,14 @@ export default{
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
-        this.appId = sessionStorage.getItem('appId');
-        //this.appId = 12;
+        //this.appId = sessionStorage.getItem('appId');
+        if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
+            this.appId = this.$route.query.id;            
+        }else{
+            this.appId = sessionStorage.getItem('appId');
+        }
         let qcode = -1;
         let optcode = -1;
-        console.log('appId',sessionStorage.getItem('appId'));
         this.getdata(this.appId,qcode,optcode);
         //定量问题
         this.getLiang(this.appId,2);

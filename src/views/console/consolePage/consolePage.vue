@@ -5,7 +5,7 @@
             <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
         </div>
         <!--logo start-->
-        <a href="#" class="logo">CSB<span></span></a>
+        <a href="javascript:;" class="logo"><router-link to="/">CSB</router-link></a>
         <!--头部icon-->
         <div class="nav notify-row" id="top_menu">
             <ul class="nav top-menu">

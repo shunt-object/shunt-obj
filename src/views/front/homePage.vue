@@ -71,7 +71,7 @@
   
               <li>
   
-                <span class="log" v-on:click="fn()">{{word}}</span>
+                <span class="log" v-if="islogin==false"><router-link to="/login" class="router-link-d">登录</router-link></span>
   
               </li>
   
@@ -79,6 +79,15 @@
   
                 <span class="resc" v-if="islogin==false"><router-link to="/register" class="router-link-d">注册</router-link></span>
   
+              </li>
+              <li v-if="islogin==true">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle logoutbtn" 
+                      data-toggle="dropdown"> {{realname}}</button>
+                    <ul class="dropdown-menu logout-ul" role="menu">
+                      <li v-on:click="fn()" style="cursor:pointer;">退出</li>
+                    </ul>
+                </div>
               </li>
   
             </ul>
@@ -581,29 +590,22 @@
   
       return {
         islogin:false,
-        word:'登录'
+        realname:''
       }
   
     },
     mounted:function(){
       if(sessionStorage.getItem("accountId")==null || sessionStorage.getItem("accountId")==''){
         this.islogin = false;
-        this.word = '登录';
       }else{
-        this.word = '退出';
         this.islogin = true;
+        this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
       }
     },
     methods:{
       fn:function(){
-        if(this.islogin == true){
-          this.logout();
-          this.islogin = false;
-          this.word = '登录';
-        }else{
-          this.$router.push({path:'/login'});
-        }
-         
+        this.logout();
+        this.islogin = false;
       }
     }
   
@@ -1564,5 +1566,13 @@
   
     color: #fff;
   
+  }
+  .logoutbtn{
+    background:#fff;
+    padding:5px 20px !important;
+  }
+  .logout-ul li{
+    text-align:center;
+    line-height:30px;
   }
 </style>

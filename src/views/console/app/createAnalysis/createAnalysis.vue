@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 创建云分析
+    <router-link to="/consolePage">总览</router-link> > 创建云分析
 </div>
 <div class="outbox" style="background:#fff;">
     <div class="CreateAnalysis">
