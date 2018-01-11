@@ -183,7 +183,8 @@ export default{
             }
         },
         agree:function(){
-            if( this.isphone==true && this.ispassword==true && this.isagainPas==true && this.isconfirm==true && this.isusername==true && this.checkbox==true){
+            console.log(this.password);
+            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true){
                 let obj = {
                     "password": this.password,
                     "phone": this.phone,
@@ -201,9 +202,11 @@ export default{
                 })
             }else{
                 this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
-                this.password==''?this.ispassword=true:this.password=false;
                 if(this.password==''){
                     this.passError = '请输入您的密码';
+                    this.ispassword=true;
+                }else{
+                    this.ispassword=false;
                 }
                 this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
