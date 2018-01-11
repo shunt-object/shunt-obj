@@ -11,7 +11,7 @@ import compareQuestion from '@/views/console/compare/compareQuestion/compareQues
 import compareResult from '@/views/console/compare/compareResult/compareResult'
 import planList from '@/views/console/plan/planList/planList'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
-import resetviewList from '@/views/console/overview/resetviewList/resetviewList'
+import compareList from '@/views/console/compare/compareList/compareList'
 import planResult from '@/views/console/plan/planResult/planResult'
 
 
@@ -54,12 +54,12 @@ export default new Router({
           component:overviewList
         },
         {
-          path:'/resetviewList',
-          name:'resetviewList',
+          path:'/compareList',
+          name:'compareList',
           meta: {
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
-          component:resetviewList
+          component:compareList
         },
         {
           path:'/planList',

@@ -142,7 +142,7 @@ export default{
             this.$router.push({path:'/planList'});
         },
         compare:function(){
-            this.$router.push({path:'/resetviewList'});
+            this.$router.push({path:'/compareList'});
         },
         responsiveView:function () {
             var wSize = $(window).width();
