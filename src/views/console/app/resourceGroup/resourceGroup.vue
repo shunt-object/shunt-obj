@@ -2,7 +2,7 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/">总览</router-link> > 资源组配置
+    <router-link to="/consolePage">总览</router-link> > 资源组配置
 </div>
 <div class="plan-box">
     <div class="plan-container">
