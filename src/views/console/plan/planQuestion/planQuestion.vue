@@ -103,15 +103,15 @@ export default{
         //定量问题
         this.getLiang(this.appId,2);
         this.getLiang(this.appId,3);  
-        if(this.typeName=='云定性'){
+        if(this.typeName==1){
             this.qualitative = true;//定性问题是否显示
             this.profit = false;//收益度问题是否显示
             this.affinity = false;//亲和度问题是否显示
-        }else if(this.typeName=='亲和度'){
+        }else if(this.typeName==3){
             this.qualitative = false;//定性问题是否显示
             this.profit = false;//收益度问题是否显示
             this.affinity = true;//亲和度问题是否显示
-        }else if(this.typeName=='收益度'){
+        }else if(this.typeName==2){
             this.qualitative = false;//定性问题是否显示
             this.profit = true;//收益度问题是否显示
             this.affinity = false;//亲和度问题是否显示

@@ -28,7 +28,7 @@
                         <span class="col-md-3 bn">{{item.appname}}</span>
                         <span class="col-md-6 text-left">
                             <p >
-                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleName,item.id,im.taskStatus)"  >
+                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
                                     <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>                                    
                                     <!--0=未做；1=已做未完成；2=已完成-->
                                 </a>
@@ -280,24 +280,17 @@ a:hover{
                 console.log(n,o,b);
                 var o = o;
                 var n = n;
-                if(n=="比较标准"){
-                    if(b==2){
-                        this.$router.push({path:'/compareResult',query:{id:o}});
-                    }else if(b==1){
-                        this.$router.push({path:'/compareQuestion',query:{id:o}});
-                    }else if(b==0){
+                if(n == 4){
+                    if((b==1 || b==0)){
                         this.$router.push({path:'/compareQuestion',query:{id:o}});
                     }
+                }else if(n == 5){
+                    this.$router.push({path:'/resourceGroup',query:{id:o}});
                 }else{
-                     if(b==2){
-                        this.$router.push({path:'/planResult',query:{id:o}});
-                    }else if(b==1){
-                        this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
-                    }else if(b==0){
+                    if(b==1 || b==0){
                         this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
                     }
                 }
-
             },
             UpRoute:function(){
                 this.$router.push({path:'/CreateAnalysis'});
