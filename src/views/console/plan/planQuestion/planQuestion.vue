@@ -90,11 +90,12 @@ export default{
     mounted:function(){
         this.queryType = this.$route.query.type;
         //this.appId = sessionStorage.getItem('appId');
-        if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
-            this.appId = this.$route.query.id;            
-        }else{
-            this.appId = sessionStorage.getItem('appId');
-        }
+        // if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
+        //     this.appId = this.$route.query.id;            
+        // }else{
+            //this.appId = sessionStorage.getItem('appId');
+        //}
+        this.appId = this.$route.query.id; 
         let qcode = -1;
         let optcode = -1;
         this.getdata(this.appId,qcode,optcode);

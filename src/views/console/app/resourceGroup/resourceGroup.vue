@@ -185,9 +185,9 @@ export default {
                     console.log(res+"chengg");
                      //this.$router.push({path:'/login'});/planQuestion
                      if(this.queryType=='compare'){
-                        this.$router.push({path:'/compareQuestion',query:{type:this.queryType}});
+                        this.$router.push({path:'/compareQuestion',query:{type:this.queryType,id:this.appId}});
                      }else{
-                        this.$router.push({path:'/planQuestion',query:{type:this.queryType}});
+                        this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
                      }
                      
                      },(err)=>{
