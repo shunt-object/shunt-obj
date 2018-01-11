@@ -25,7 +25,7 @@ Vue.use(VueResource);
 
 axios.interceptors.response.use(
     response => {
-        return this.response;
+        return response;
     },
     error => {
         if (error.response) {
