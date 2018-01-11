@@ -67,7 +67,7 @@ export default{
                 if(response.data.data.appResults[i].moduleName=='云定性'||response.data.data.appResults[i].moduleName=='收益度'||response.data.data.appResults[i].moduleName=='亲和度'){
                     this.resultlist.push(response.data.data.appResults[i]);
                 }
-                if(response.data.data.appResults[i].moduleName=='受益度'){
+                if(response.data.data.appResults[i].moduleName=='收益度'){
                     shouyi = response.data.data.appResults[i].result;
                 }
                 if(response.data.data.appResults[i].moduleName=='亲和度'){
