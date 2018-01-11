@@ -53,7 +53,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active">
-                    <a class="" href="#">
+                    <a class="" href="javascript:;">
                         <i class="icon-dashboard"></i>
                         <span><router-link to="/consolePage">总览</router-link></span>
                     </a>
