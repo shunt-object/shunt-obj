@@ -59,6 +59,12 @@ export default{
             this.remember = true;
             this.password = localStorage.getItem('remPassword');
         }
+        let that = this;
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                that.login();
+            }
+        });
     },
     methods:{
         PhoneReg:function(dom){
@@ -88,7 +94,6 @@ export default{
                 this.$this.post('/broker/auth/login',str).then((res)=>{
                     console.log('login',res);
                     if(res.data.code=='1'){
-                        console.log('1111');
                         this.$router.push({path:'/'});
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));

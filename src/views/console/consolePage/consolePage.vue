@@ -134,7 +134,7 @@ export default{
                 $("#container").removeClass("sidebar-closed");
             }
         });
-        this.username = JSON.parse(sessionStorage.getItem("account")).username
+        this.username = JSON.parse(sessionStorage.getItem("account")).realname;
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{

@@ -71,13 +71,13 @@
   
               <li>
   
-                <span class="log"><router-link  to="/login">登陆</router-link></span>
+                <span class="log" v-on:click="fn()">{{word}}</span>
   
               </li>
   
               <li>
   
-                <span class="resc"><router-link to="/register" class="router-link-d">注册</router-link></span>
+                <span class="resc" v-if="islogin==false"><router-link to="/register" class="router-link-d">注册</router-link></span>
   
               </li>
   
@@ -580,11 +580,31 @@
     data() {
   
       return {
-  
-  
-  
+        islogin:false,
+        word:'登录'
       }
   
+    },
+    mounted:function(){
+      if(sessionStorage.getItem("accountId")==null || sessionStorage.getItem("accountId")==''){
+        this.islogin = false;
+        this.word = '登录';
+      }else{
+        this.word = '退出';
+        this.islogin = true;
+      }
+    },
+    methods:{
+      fn:function(){
+        if(this.islogin == true){
+          this.logout();
+          this.islogin = false;
+          this.word = '登录';
+        }else{
+          this.$router.push({path:'/login'});
+        }
+         
+      }
     }
   
   }
