@@ -18,7 +18,7 @@
                         <td>{{re.proname}}</td>
                         <td v-if="re.appResults[0]!=null" >
                             <ul>
-                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span><span></span><span></span></li>
+                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span>--<span>{{ic.scope}}</span><span></span></li>
                             </ul>
                         </td>
                         <td v-else></td>
@@ -53,7 +53,7 @@
     methods:{
          getData:function(){                       //获取数据
                 this.$this.get("/broker/result/compare/list").then((res)=>{
-                    this.res = eval("(" + res.bodyText +")").data;
+                    this.res = res.data.data;
                     console.log(this.res)
                 
             },(err)=>{
