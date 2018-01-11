@@ -280,15 +280,15 @@ a:hover{
                 if(b==2){
                      var o = o;
                     
-                     this.$router.push({path:'/planResult',query:{id:o}});
+                     this.$router.push({path:'/planQuestion',query:{id:o}});
                 }else if(b==1){
                       var o = o;
                      var n = n;
-                     this.$router.push({path:'/planResult',query:{id:o,name:n}});
+                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
                 }else if(b==0){
                       var o = o;
                       var n = n;
-                     this.$router.push({path:'/planResult',query:{id:o,name:n}});
+                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
                 }
 
             },
