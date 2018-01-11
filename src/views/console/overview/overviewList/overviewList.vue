@@ -281,7 +281,7 @@ a:hover{
                 if(b==2){
                      var o = o;
                     
-                     this.$router.push({path:'/planQuestion',query:{id:o}});
+                     this.$router.push({path:'/planResult',query:{id:o}});
                 }else if(b==1){
                       var o = o;
                      var n = n;
