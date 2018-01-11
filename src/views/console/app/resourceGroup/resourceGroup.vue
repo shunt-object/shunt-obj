@@ -9,7 +9,7 @@
         <sds index="2" start="0" :type="queryType"></sds>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">App servers</span><input type="text" v-model="num">
+                    <span class="padding-65">应用服务</span><input type="text" v-model="num">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="number" v-model="cores" >Vcpu</li>
@@ -29,7 +29,7 @@
             </div>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">App SDB Servers</span><input type="text" v-model="nume">
+                    <span class="padding-65">数据库服务</span><input type="text" v-model="nume">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="text" v-model="coresq">cpu</li>
@@ -49,7 +49,7 @@
             </div>
             <div class="resourceCroup-list row">  
                 <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">Network</span>
+                    <span class="padding-25">网络</span>
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="text" v-model="bandwidth ">带宽（GB/月）</li>
@@ -59,7 +59,7 @@
             </div>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">Storage</span><input type="text" v-model="nums">
+                    <span class="padding-25">存储</span><input type="text" v-model="nums">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="text" v-model="sna">共享存储(SAN)(GB)</li>
