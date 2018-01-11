@@ -71,7 +71,7 @@ export default{
     data(){
         return {
             quetionList:[],//定性问题列表
-            appId:2,//创建云分析的appid
+            appId:'',//创建云分析的appid
             qinhe:[],//收益度问题列表
             serverce:'',//定性id
             cloudName:'云定性',//定性云

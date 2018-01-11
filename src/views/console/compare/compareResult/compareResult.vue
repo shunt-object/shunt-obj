@@ -8,19 +8,19 @@
     <div class="plan-container">
         <child index="4" start="0" :type="queryType"></child>
         <h4>对比供应商</h4>
-        <table class="table-box table table-striped">
+        <table class="table-box table table-striped table-score">
             <thead>
                 <tr>
                     <th>云供应商</th>
                     <th>分数</th>
-                    <th>区域价格范围</th>
+                    <!--<th>区域价格范围</th>-->
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="item in compareResultList">
                     <td>{{item.serverName}}</td>
                     <td>{{item.scope}}</td>
-                    <td>2000-3000/月</td>
+                    <!--<td>2000-3000/月</td>-->
                 </tr>
             </tbody>
         </table>
@@ -116,7 +116,6 @@ export default{
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-              
             this.compareResultList = JSON.parse(response.data.data.datas);
             this.appServer = JSON.parse(response.data.data.res.appServer);
             this.dbServer = JSON.parse(response.data.data.res.dbServer);
