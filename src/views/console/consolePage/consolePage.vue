@@ -52,10 +52,10 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
-                <li class="active">
+                <li class="active" v-on:click="index()">
                     <a class="" href="javascript:;">
                         <i class="icon-dashboard"></i>
-                        <span><router-link to="/consolePage">总览</router-link></span>
+                        <span>总览</span>
                     </a>
                 </li>
                 <li class="sub-menu">
@@ -154,6 +154,9 @@ export default{
                 $('#container').removeClass('sidebar-close');
                 $('#sidebar > ul').show();
             }
+        },
+        index:function(){
+            this.$router.push({path:'/consolePage'});
         }
     }
 }
