@@ -59,7 +59,7 @@
   
             <li>
   
-              <a class="page-scroll" href="javascript:;"><router-link to="/consolePage">控制台</router-link></a>
+              <a class="page-scroll" v-on:click="condole">控制台</a>
   
             </li>
   
@@ -71,13 +71,13 @@
   
               <li>
   
-                <span class="log" v-if="islogin==false"><router-link to="/login" class="router-link-d">登录</router-link></span>
+                <span class="log" v-if="islogin==false" v-on:click="loGog">登录</span>
   
               </li>
   
               <li>
   
-                <span class="resc" v-if="islogin==false"><router-link to="/register" class="router-link-d">注册</router-link></span>
+                <span class="resc" v-if="islogin==false" v-on:click="reset">注册</span>
   
               </li>
               <li v-if="islogin==true">
@@ -606,7 +606,19 @@
       fn:function(){
         this.logout();
         this.islogin = false;
+      },
+     
+      loGog:function(){
+         this.$router.push({path:'/login'});
+      },
+      condole:function(){
+         this.$router.push({path:'/consolePage'});
+      },
+      reset:function(){
+        this.$router.push({path:'/register'})
       }
+    
+
     }
   
   }
@@ -718,7 +730,8 @@
   
     .navbar ul li a:hover {
   
-      border-bottom: 1px solid #fff
+      border-bottom: 1px solid #fff;
+      cursor:pointer;
   
     }
   
@@ -823,6 +836,7 @@
   .navbar li a:hover {
   
     color: #fff;
+    text-decoration:none
   
   }
   
@@ -1564,8 +1578,11 @@
   
   .router-link-d {
   
-    color: #fff;
+    color: #000;
   
+  }
+  a:hover{
+    text-decoration:none
   }
   .logoutbtn{
     background:#fff;
@@ -1576,3 +1593,4 @@
     line-height:30px;
   }
 </style>
+

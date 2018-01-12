@@ -127,9 +127,9 @@ export default {
             $("#trs input[type='checkbox']").prop("checked",false)
         }
     },
-    al:function(){
-      this.checkboxModel=""
-    },
+    // al:function(){
+    //   this.checkboxModel=""
+    // },
     idClick:function(sid){
             this.$router.push({path:'/planResult',query:{id:sid}});
     },
