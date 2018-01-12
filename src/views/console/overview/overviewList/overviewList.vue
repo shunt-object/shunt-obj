@@ -294,7 +294,10 @@ a:hover{
                         this.$router.push({path:'/compareQuestion',query:{id:o}});
                     }
                 }else if(n == 5){
-                    this.$router.push({path:'/resourceGroup',query:{id:o}});
+                     if((b==1 || b==0)){
+                       this.$router.push({path:'/resourceGroup',query:{id:o}});
+                    }
+                    
                 }else{
                     if(b==1 || b==0){
                         this.$router.push({path:'/planQuestion',query:{id:o,name:n}});

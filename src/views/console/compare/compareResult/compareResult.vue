@@ -116,6 +116,7 @@ export default{
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.getdata();
+         
     },
     methods:{
         getdata:function(){
@@ -126,6 +127,7 @@ export default{
                 this.network = JSON.parse(response.data.data.res.network);
                 this.storage = JSON.parse(response.data.data.res.storage);
                 console.log(this.appServer); 
+             
             }).catch((error)=>{})
         }
     },

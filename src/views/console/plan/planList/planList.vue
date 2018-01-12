@@ -19,7 +19,7 @@
 
             <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'  v-on:click="al"></td>
+                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'></td>
                         <td class="col-md-1">{{sp.appname}}</td>
                         <td class="col-md-1">{{sp.proname}}</td>
                         <td class="col-md-1" v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>
