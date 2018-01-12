@@ -11,10 +11,10 @@
             <div class="plan-question-list">
                 <div class="plan-question-item row">
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary plan-btn">{{cloudName}}</button>
+                        <button class="btn btn-primary" :class="isclass1==true?'confirm-btn':'plan-btn'">{{cloudName}}</button>
                     </div>
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary plan-btn">{{profitReault}}</button>
+                        <button class="btn btn-primary" :class="isclass2==true?'confirm-btn':'plan-btn'">{{profitReault}}</button>
                     </div>
                     <div class="plan-type col-md-4">
                         <button class="btn btn-primary plan-btn">{{affinityResult}}</button>
@@ -85,7 +85,9 @@ export default{
             profit:false,//收益度问题是否显示
             affinity:false,//亲和度问题是否显示
             queryType:'',
-            typeName:''
+            typeName:'',
+            isclass1:false,
+            isclass2:false
         }
     },
     mounted:function(){
@@ -137,6 +139,7 @@ export default{
                     that.serverce = response.data.data.id;
                     that.qualitative = false;
                     that.profit = true;
+                    that.isclass1 = true;
                 }
             }).catch((error)=>{
             })
@@ -212,6 +215,7 @@ export default{
                     this.qualitative = false;
                     this.affinity = true;
                     this.profitReault =  response.data.data+'分';
+                    this.isclass2 = true;
                 }else{
                     this.affinityResult = response.data.data+'分';
                     this.$router.push({path:'/planResult',query:{id:this.appId}});

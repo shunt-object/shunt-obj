@@ -115,17 +115,19 @@ export default{
     mounted:function(){
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
-        this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-            this.compareResultList = JSON.parse(response.data.data.datas);
-            this.appServer = JSON.parse(response.data.data.res.appServer);
-            this.dbServer = JSON.parse(response.data.data.res.dbServer);
-            this.network = JSON.parse(response.data.data.res.network);
-            this.storage = JSON.parse(response.data.data.res.storage);
-            console.log(this.appServer); 
-        }).catch((error)=>{})
+        this.getdata();
     },
     methods:{
-
+        getdata:function(){
+            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
+                this.compareResultList = JSON.parse(response.data.data.datas);
+                this.appServer = JSON.parse(response.data.data.res.appServer);
+                this.dbServer = JSON.parse(response.data.data.res.dbServer);
+                this.network = JSON.parse(response.data.data.res.network);
+                this.storage = JSON.parse(response.data.data.res.storage);
+                console.log(this.appServer); 
+            }).catch((error)=>{})
+        }
     },
     components:{
         child

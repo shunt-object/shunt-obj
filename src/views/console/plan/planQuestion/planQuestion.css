@@ -29,10 +29,21 @@
 .plan-type{
     padding:20px 0;
 }
+.confirm-btn{
+    width:80%;
+    padding:20px 10px!important;
+    border-radius:0 !important;
+    border:1px solid #ccc !important;
+    background:#666 !important;
+    color:#fff !important;
+}
 .plan-btn{
     width:80%;
     padding:20px 10px!important;
     border-radius:0 !important;
+    border:1px solid #ccc !important;
+    background:#ccc !important;
+    color:#666 !important;
 }
 .question-list{
     margin-top:10px;
