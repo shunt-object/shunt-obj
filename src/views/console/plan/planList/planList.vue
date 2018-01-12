@@ -1,6 +1,7 @@
 <template>
         <div>
             <!-- <div>象限图</div> -->
+            <div class="result-echarts" id="main"></div>
             <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
@@ -58,6 +59,7 @@ td {
 // import '../programming/js/jquery.paginate.js';
 // import '../programming/js/jquery.yhhDataTable.js';
 import "../planList/datatable.css";
+import echarts from 'echarts'
 
 // var counter = 0;
 // if (window.history && window.history.pushState) {
@@ -106,7 +108,8 @@ export default {
       dat: [],
       ssd: false,
       sps: [],
-    
+      charts:'',
+      opiniondata:[],
       checkboxAll:false    //为false时 checkbox没有选中 为true时 checkbox默认选中
     };
   },
@@ -142,7 +145,25 @@ export default {
       this.$http.get("/broker/result/plan/list").then(
         sps => {
           this.sps = eval("(" + sps.bodyText + ")").data;
-          console.log(this.sps);
+          let arr = [],brr = [];
+          for(let i=0;i<this.sps.length;i++){
+            arr.push({name:this.sps[i].appname,value:[]});
+            for(let n=0;n<this.sps[i].appResults.length;n++){
+                if(this.sps[i].appResults[n].moduleId=='2'){
+                    arr[i].value.push(this.sps[i].appResults[n].result);
+                }
+                if(this.sps[i].appResults[n].moduleId=='3'){
+                    arr[i].value.push(this.sps[i].appResults[n].result);
+                }
+            }
+          }
+          //console.log('arr',arr);
+          this.opiniondata =  arr;
+          this.$nextTick(function() {
+                this.drawPie('main')
+          });
+
+          //console.log(this.sps);
         },
         err => {}
       );
@@ -217,6 +238,182 @@ export default {
         $(".cls").prop("checked", false);
       }
     },
+    drawPie:function(id){
+        this.charts = echarts.init(document.getElementById(id));
+        this.charts.setOption({
+            //backgroundColor:'#ccc',
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'item',
+                axisPointer: {
+                    show: true,
+                    type: 'cross',
+                    lineStyle: {
+                        type: 'dashed',
+                        width: 1
+                    },
+                }
+            },
+            xAxis: {
+                name: '收益度',
+                type: 'value',
+                scale: true,
+                min:0,
+                max:100,
+                axisLabel: {
+                    interval:20
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#3259B8'
+                    }
+                }
+            },
+            yAxis: {
+                name: '亲和度',
+                type: 'value',
+                scale: true,
+                min:0,
+                max:100,
+                axisLabel: {
+                    interval:20
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#3259B8'
+                    }
+                }
+            },
+            series: [{
+                type: 'scatter',
+                data: this.opiniondata,
+                symbolSize: 20,
+                markLine: {
+                    lineStyle: {
+                        normal: {
+                            color: "#626c91",
+                            type: 'solid',
+                            width: 1,
+                        },
+                        emphasis: {
+                            color: "#d9def7"
+                        }
+                    },
+                    data: [{
+                        xAxis: 50,
+                        name: '营业额平均线',
+                        itemStyle: {
+                            normal: {
+                                color: "#b84a58",
+                            }
+                        }
+                    }, {
+                        yAxis: 50,
+                        name: '服务能力平均线',
+                        itemStyle: {
+                            normal: {
+                                color: "#b84a58",
+                            }
+                        }
+                    }]
+                },
+                markArea: {
+                    silent: true,
+                    data: [
+                        [{
+                            name: '合适',
+                            itemStyle: {
+                                normal: {
+                                    color: '#E8FFC4'
+                                },
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'insideTopLeft',
+                                    fontStyle: 'normal',
+                                    color: "#409EFF",
+                                    fontSize: 20,
+                                }
+                            },
+                            coord: [50, 50],
+                        }, {
+                            coord: [Number.MAX_VALUE, 0],
+                        }],
+                        [{
+                            name: '低',
+                            itemStyle: {
+                                normal: {
+                                    color: '#844200',
+                                },
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'insideTopRight',
+                                    fontStyle: 'normal',
+                                    color: "#409EFF",
+                                    fontSize: 20,
+                                }
+                            },
+                            coord: [0, 0],
+                        }, {
+                            coord: [50, 50],
+                        }],
+                        [{
+                            name: '高',
+                            itemStyle: {
+                                normal: {
+                                    color: '#9AFF02',
+                                },
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'insideBottomLeft',
+                                    fontStyle: 'normal',
+                                    color: "#409EFF",
+                                    fontSize: 20,
+                                }
+                            },
+                            coord: [50, 50],
+                        }, {
+                            coord: [Number.MAX_VALUE, Number.MAX_VALUE],
+                        }],
+                        [{
+                            name: '一般',
+                            itemStyle: {
+                                normal: {
+                                    color: '#FFDCB9',
+                                },
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'insideBottomRight',
+                                    fontStyle: 'normal',
+                                    color: "#409EFF",
+                                    fontSize: 20,
+                                }
+                            },
+                            coord: [0, Number.MAX_VALUE],
+                        }, {
+                            coord: [50, 50],
+                        }],
+                    ]
+                }
+            }]
+            //
+        })
+    }
 
   
   }
