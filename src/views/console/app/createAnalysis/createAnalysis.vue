@@ -66,6 +66,9 @@ export default{
         }
     },
     mounted:function(){
+        // this.$layer.loading(3, {
+        //     time: 2
+        // });
         this.queryType = this.$route.query.type;
         //console.log('type',this.queryType);
         this.$this.get('/broker/app/types').then((response)=>{

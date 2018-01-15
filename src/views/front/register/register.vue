@@ -111,7 +111,7 @@ export default{
         }
     },
     mounted:function(){
-
+        
     },
     methods:{
         notice:function(dom){
