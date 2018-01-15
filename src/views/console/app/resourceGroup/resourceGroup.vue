@@ -9,10 +9,10 @@
         <sds index="2" start="0" :type="queryType"></sds>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">应用服务</span><input type="text" v-model="num">
+                    <span class="padding-65">App Server(s)</span><input type="text" v-model="num">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
-                    <li><input type="number" v-model="cores" >Vcpu</li>
+                    <li><input type="number" v-model="cores" >vCPU</li>
                     <li><input type="text" v-model="ghz">处理器主频（Ghz）</li>
                     <li><input type="text" v-model="ram">内存(GB)</li>
                     <li><input type="text" v-model="localDisk">系统盘(GB)</li>
@@ -22,34 +22,34 @@
                                 <option value="Unix">Unix</option>
                         </select>操作系统
                         </li>
-                        <li><input type="text" v-model="computeMappingFactor">计算机映射因子</li>
+                        <li><input type="text" v-model="computeMappingFactor">计算机云主机平均合并率</li>
                     <li><input type="text" v-model="monthlyUsage">每个月用量（天/月）</li>
                     <li><input type="text" v-model="dailyUsage">每天用量（小时/天）</li>
                 </ul>
             </div>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">数据库服务</span><input type="text" v-model="nume">
+                    <span class="padding-65">App SDB Server(s)</span><input type="text" v-model="nume">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
-                    <li><input type="text" v-model="coresq">cpu</li>
+                    <li><input type="text" v-model="coresq">vCPU</li>
                     <li><input type="text" v-model="ghzq">处理器主频（Ghz）</li>
                     <li><input type="text" v-model="ramq">内存(GB)</li>
-                    <li><input type="text" v-model="localDiskq">系统盘(GB)</li>
+                    <li><input type="text" v-model="localDiskq">本地磁盘 (GB)</li>
                     <li><select name="" id="selet" v-model="osq">
                                 <option value="Linux">Linux</option>
                                 <option value="Window">Window</option>
                                 <option value="Unix">Unix</option>
-                        </select>
+                        </select>操作系统
                         </li>
-                        <li><input type="text" v-model="computeMappingFactorq">计算机映射因子</li>
+                        <li><input type="text" v-model="computeMappingFactorq">计算机云主机平均合并率</li>
                     <li><input type="text" v-model="monthlyUsageq">每个月用量（天/月）</li>
                     <li><input type="text" v-model="dailyUsageq">每天用量（小时/天）</li>
                 </ul>
             </div>
             <div class="resourceCroup-list row">  
                 <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">网络</span>
+                    <span class="padding-25">Network</span>
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
                     <li><input type="text" v-model="bandwidth ">带宽（GB/月）</li>
@@ -59,11 +59,11 @@
             </div>
             <div class="resourceCroup-list row">
                 <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">存储</span><input type="text" v-model="nums">
+                    <span class="padding-25">Storage</span><input type="text" v-model="nums">
                 </div>
                 <ul class="resourceCroup-list-ul col-md-9">
-                    <li><input type="text" v-model="sna">共享存储(SAN)(GB)</li>
-                    <li><input type="text" v-model="nsa">网络存储(NAS)(GB)</li>
+                    <li><input type="text" v-model="sna" id="Gx">共享存储(SAN)(GB)</li>
+                    <li><input type="text" v-model="nsa" id="Ine">网络存储(NAS)(GB)</li>
                     <li><input type="text" v-model="cloudStorage">云存储(GB)</li>
                 </ul>
             </div>
@@ -128,17 +128,18 @@ export default {
   },
   mounted:function(){
       this.queryType = this.$route.query.type;
-      this.$layer.msg("注意：以下全为必填项");
-      this.appId = this.$route.query.id;
+      //this.$layer.msg("注意：以下全为必填项");
+      //this.appId = this.$route.query.id;
       //console.log("="+this.appId) 
   },
   methods:{
       
       btn:function(){
            //console.log(this.os);
-            if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
-               this.$layer.alert("注意：您有未填写的项目，请填写完整");
-            }else{
+            // if(){
+
+            //    this.$layer.alert("注意：您有未填写的项目，请填写完整");
+            // }else{
             //this.appId = sessionStorage.getItem("appId"); 
 
             // let valuely = $("#sele").val();
@@ -198,7 +199,7 @@ export default {
                
             
 
-      }}
+      }
   },
     components:{
         sds
