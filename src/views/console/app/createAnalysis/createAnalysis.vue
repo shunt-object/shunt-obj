@@ -66,9 +66,6 @@ export default{
         }
     },
     mounted:function(){
-        // this.$layer.loading(3, {
-        //     time: 2
-        // });
         this.queryType = this.$route.query.type;
         //console.log('type',this.queryType);
         this.$this.get('/broker/app/types').then((response)=>{
@@ -110,7 +107,7 @@ export default{
                 this.isappName = true;
                 this.$this.post('/broker/app/analysis',str).then((response)=>{
                     sessionStorage.setItem('appId',response.data.data);
-                    this.$router.push({path:'/resourceGroup',query:{type:this.queryType}});
+                    this.$router.push({path:'/resourceGroup',query:{type:this.queryType,id:response.data.data}});
                 }).catch((error)=>{
                     console.log(error);
                 })
