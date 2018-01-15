@@ -55,7 +55,7 @@ select,input{
     text-align:right;
 }
 .CreateAnalysis_input{
-    width:200px;
+    width:240px;
     height:30px;
     border:1px solid #ccc;
     border-radius:3px;
@@ -64,7 +64,7 @@ select,input{
     color: #333;
 }
 .CreateAnalysis_select{
-    width:120px;
+    width:180px;
     height:30px;
     border:1px solid #ccc;
     border-radius:3px;

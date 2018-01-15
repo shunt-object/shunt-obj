@@ -11,21 +11,21 @@
             <div class="plan-question-list">
                 <div class="plan-question-item row">
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary" :class="isclass1==true?'confirm-btn':'plan-btn'">{{cloudName}}</button>
+                        <button class="btn btn-primary" :class="isclass1==true?'confirm-btn':'plan-btn'" v-on:click="tab(1)">{{cloudName}}</button>
                     </div>
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary" :class="isclass2==true?'confirm-btn':'plan-btn'">{{profitReault}}</button>
+                        <button class="btn btn-primary" :class="isclass2==true?'confirm-btn':'plan-btn'" v-on:click="tab(2)">{{profitReault}}</button>
                     </div>
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary plan-btn">{{affinityResult}}</button>
+                        <button class="btn btn-primary" :class="isclass3==true?'confirm-btn':'plan-btn'" v-on:click="tab(3)">{{affinityResult}}</button>
                     </div>
                 </div>
                 <!--定性问题-->
                 <div class="question-list" v-show="qualitative">
                     <p class="question-list-item">{{quetionList.content}}</p>
                     <p class="question-list-item">
-                        <span class="question-option" v-for="item in quetionList.option">
-                            <input type="radio" :name="quetionList.code" v-on:click="fn(quetionList.code,item.code)" v-model="checked">{{item.content}}
+                        <span class="question-option question-type" v-for="item in quetionList.option">
+                            <input type="radio" :name="quetionList.code" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
                         </span>
                     </p>
                     <!-- v-if="cloud==''"<p v-else>{{cloud}}</p>-->
@@ -77,7 +77,6 @@ export default{
             cloudName:'云定性',//定性云
             profitReault:'云收益度',//收益结果
             affinityResult:'云亲和度',//亲和结果
-            checked:false,//默认不选中
             shouyi:[],//亲和度问题李彪
             selectedId:[],//多选
             indexI:0,//
@@ -87,24 +86,21 @@ export default{
             queryType:'',
             typeName:'',
             isclass1:false,
-            isclass2:false
+            isclass2:false,
+            isclass3:false,
+            havedList:[],//云定性已做的题，可编辑
         }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
         this.typeName = this.$route.query.name;
-        // if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
-        //     this.appId = this.$route.query.id;            
-        // }else{
-            //this.appId = sessionStorage.getItem('appId');
-        //}
         this.appId = this.$route.query.id; 
-        let qcode = -1;
-        let optcode = -1;
+        let qcode = -1,optcode = -1;
         this.getdata(this.appId,qcode,optcode);
         //定量问题
         this.getLiang(this.appId,2);
-        this.getLiang(this.appId,3);  
+        this.getLiang(this.appId,3); 
+        this.getLiang(this.appId,1); 
         if(this.typeName==1){
             this.qualitative = true;//定性问题是否显示
             this.profit = false;//收益度问题是否显示
@@ -133,7 +129,7 @@ export default{
                 //console.log(response);
                 if(response.data.code=='1'){
                     that.quetionList = response.data.data;
-                    that.checked = false;
+                    $(".question-type input").prop("checked",false); 
                 }else if(response.data.code=='2'){//结果
                     that.cloudName = response.data.data.sname;
                     that.serverce = response.data.data.id;
@@ -144,18 +140,19 @@ export default{
             }).catch((error)=>{
             })
         },
-        getLiang:function(appId,type){//type=2 云受益；type=3 亲和度
+        getLiang:function(appId,type){//type=1云定性记录 type=2 云受益；type=3 亲和度
             let that = this;
             this.$this.get('/broker/plan/questions/'+appId+'/{type}?type='+type+'').then((response)=>{
-                if(type==2){
+                if(type==1){
+                    console.log('type=1',response);
+                    that.havedList = response.data.data;
+                }else if(type==2){
                     that.qinhe = response.data.data;
                 }else{
                     that.shouyi = response.data.data;
                 }
-                //qtype==1单选qtype==2多选
-                //console.log(response);                
+                //qtype==1单选qtype==2多选               
             }).catch((error)=>{
-                //console.log(error);
             }) 
         },
         qin:function(selectOption,qtype,qcode,optcode){
@@ -230,6 +227,33 @@ export default{
             }).catch((error)=>{
                 
             }) 
+        },
+        tab:function(typeId){
+            if(typeId==1){
+                if(this.profit==true || this.affinity==true){
+                    this.qualitative = true;//定性问题是否显示
+                    this.profit = false;//收益度问题是否显示
+                    this.affinity = false;//亲和度问题是否显示
+                }
+            }else if(typeId==2){
+                if( this.isclass1==true || this.affinity==true){
+                    this.qualitative = false;//定性问题是否显示
+                    this.profit = true;//收益度问题是否显示
+                    this.affinity = false;//亲和度问题是否显示
+                    this.getLiang(this.appId,2);
+                }else{
+                    this.$layer.msg("不能点击");
+                }
+            }else if(typeId==3){
+                if(this.isclass2==true){
+                    this.qualitative = false;//定性问题是否显示
+                    this.profit = false;//收益度问题是否显示
+                    this.affinity = true;//亲和度问题是否显示
+                    this.getLiang(this.appId,3);
+                }else{
+                    this.$layer.msg("no");
+                }
+            }
         }
     },
     components:{

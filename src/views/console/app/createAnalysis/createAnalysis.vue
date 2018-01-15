@@ -10,26 +10,26 @@
         <div class="CreateAnalysis_from_box">
             <div class="CreateAnalysis_from">
                 <div class="CreateAnalysis_from_list">
-                    <span class="CreateAnalysis_key">云分析名称：</span>
+                    <span class="CreateAnalysis_key">上云分析名称：</span>
                     <label class="label">
-                        <input type="text" class="CreateAnalysis_input" :class="isanalysis==false?'error':''" v-model="analysisName" placeholder="请输入或选择云分析名称"><span class="down" v-on:click="function(){analysis_list==false?analysis_list=true:analysis_list=false}"><i></i></span>
+                        <input type="text" class="CreateAnalysis_input" :class="isanalysis==false?'error':''" v-model="analysisName" placeholder="请输入或选择上云分析名称"><span class="down" v-on:click="function(){analysis_list==false?analysis_list=true:analysis_list=false}"><i></i></span>
                         <ul class="analysis_name" v-show="analysis_list">
                             <li v-for="item in existing" v-on:click="changeExist(item.proname,item.id)">{{item.proname}}</li>
                         </ul>
                     </label>
                 </div>
                 <div class="CreateAnalysis_from_list">
-                    <span class="CreateAnalysis_key">应用负载名称：</span>
-                    <input type="text" class="CreateAnalysis_input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入应用负载名称">
+                    <span class="CreateAnalysis_key">工作负载名称：</span>
+                    <input type="text" class="CreateAnalysis_input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入工作负载名称">
                 </div>
                 <div class="CreateAnalysis_from_list">
-                    <span class="CreateAnalysis_key">应用负载类型：</span>
+                    <span class="CreateAnalysis_key">工作负载类型：</span>
                     <select class="CreateAnalysis_select" v-model="type" :class="istype==false?'error':''" >
                         <option :value="item.id" v-for="item in typeList">{{item.gname}}</option>
                     </select>
                 </div>
                 <div class="CreateAnalysis_from_list">
-                    <span class="CreateAnalysis_key">应用负载架构：</span>
+                    <span class="CreateAnalysis_key">工作负载架构：</span>
                     <select class="CreateAnalysis_select" v-model="frame" :class="isframe==false?'error':''" >
                         <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
                     </select>
