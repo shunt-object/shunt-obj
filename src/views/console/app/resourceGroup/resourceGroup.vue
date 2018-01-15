@@ -129,16 +129,18 @@ export default {
   mounted:function(){
       this.queryType = this.$route.query.type;
       this.$layer.msg("注意：以下全为必填项");
+      this.appId = this.$route.query.id;
+      //console.log("="+this.appId) 
   },
   methods:{
       
       btn:function(){
-            //console.log(this.os);
+           //console.log(this.os);
             if(this.nsa==""||this.sna==""||this.computeMappingFactor==""||this.cores==""||this.dailyUsage==""||this.ghz==""||this.localDisk==""||this.monthlyUsage==""||this.os==""||this.ram==""||this.computeMappingFactorq==""||this.coresq==""||this.dailyUsageq==""||this.ghzq==""||this.localDiskq==""||this.monthlyUsageq==""||this.osq==""||this.ramq==""||this.bandwidth==""||this.inbound==""||this.outbound==""||this.cloudStorage==""){
                this.$layer.alert("注意：您有未填写的项目，请填写完整");
             }else{
-            this.appId = sessionStorage.getItem("appId"); 
-             
+            //this.appId = sessionStorage.getItem("appId"); 
+
             // let valuely = $("#sele").val();
             // let valueey = $("#selet").val();
             // console.log(this.appId);
