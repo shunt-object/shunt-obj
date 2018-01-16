@@ -7,11 +7,15 @@
 <div class="plan-box">
     <div class="plan-container">
         <sds index="2" start="0" :type="queryType"></sds>
+        <div class="resource">配置信息</div>
+           
             <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">App Server(s)</span><input type="number" min="1" v-model="num">
+                <div class="resourceCroup-list-head col-md-2">
+                    <img src="../../../../assets/resource.png" alt="">
+                    <h4>应用服务</h4>
                 </div>
-                <ul class="resourceCroup-list-ul col-md-9">
+                <div class="col-md-3 text-left Inp" > <input type="number" min="1" v-model="num"></div>
+                <ul class="resourceCroup-list-ul col-md-7 text-left ulss">
                     <li><input type="number" v-model="cores" min="1">vCPU</li>
                     <li><input type="number" v-model="ghz" min="1">处理器主频（Ghz）</li>
                     <li><input type="number" v-model="ram" min="1">内存(GB)</li>
@@ -27,11 +31,14 @@
                     <li><input type="number" min="1" v-model="dailyUsage">每天用量（小时/天）</li>
                 </ul>
             </div>
+
             <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-3">
-                    <span class="padding-65">App SDB Server(s)</span><input type="number" v-model="nume" min="1">
+                <div class="resourceCroup-list-head col-md-2">
+                      <img src="../../../../assets/resource.png" alt="">
+                      <h4>数据库服务</h4>
                 </div>
-                <ul class="resourceCroup-list-ul col-md-9">
+                 <div class="col-md-3 text-left Inp" > <input type="number" min="1" v-model="num"></div>
+                <ul class="resourceCroup-list-ul col-md-7 ulss text-left">
                     <li><input type="number" min="1" v-model="coresq">vCPU</li>
                     <li><input type="number" min="1" v-model="ghzq">处理器主频（Ghz）</li>
                     <li><input type="number" min="1" v-model="ramq">内存(GB)</li>
@@ -47,34 +54,60 @@
                     <li><input type="number" min="1" v-model="dailyUsageq">每天用量（小时/天）</li>
                 </ul>
             </div>
-            <div class="resourceCroup-list row">  
-                <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">Network</span>
+
+
+             <div class="resourceCroup-list row">  
+                <div class=" col-md-2 head">
+                      <img src="../../../../assets/resource.png" alt="">
+                      <h4 style="margin-bottom:50px;">网络</h4>
                 </div>
-                <ul class="resourceCroup-list-ul col-md-9">
+                 <div class="col-md-3 text-left Inp"  ></div>
+                <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left">
                     <li><input type="number" min="1" v-model="bandwidth ">带宽（GB/月）</li>
                     <li><input type="number" min="1" v-model="inbound">入站（GB/月）</li>
                     <li><input type="number" min="1" v-model="outbound">出站（GB/月）</li>
                 </ul>
             </div>
-            <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-3">  
-                    <span class="padding-25">Storage</span><input type="number" min="1" v-model="nums">
+
+            
+             <div class="resourceCroup-list row">
+                <div class="resourceCroup-list-head col-md-2 head">  
+                    <img src="../../../../assets/resource.png" alt="">
+                      <h4 style="margin-bottom:50px;">存储</h4>
                 </div>
-                <ul class="resourceCroup-list-ul col-md-9">
+                  <div class="col-md-3 text-left Inp"  ></div>
+                <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left">
                     <li><input type="number" min="1" v-model="sna" id="Gx">共享存储(SAN)(GB)</li>
                     <li><input type="number" min="1" v-model="nsa" id="Ine">网络存储(NAS)(GB)</li>
                     <li><input type="number" min="1" v-model="cloudStorage">云存储(GB)</li>
                 </ul>
             </div>
+             </div>
             <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
             <div class="clear" style="margin-bottom:20px;"></div>
-    </div>
+
+
+
+
+
+
+
+
+
+         
+   
 
 </div>
 </div>
 </template>
 <style>
+*{
+    padding:0
+}
+img{
+    width:90px;
+    height:102px;
+}
     .nex{
         color:#000;
     }
@@ -82,12 +115,81 @@
         color:#000;
     }
     .notice-title{
-    margin:0px !important;
-}
+    margin:0px !important;}
+
+    .resource{
+            background:#da121a;
+            border-radius:2px;
+             width:100%;
+            height:44px;
+            font-size:14px;
+            color:#ffffff;
+            text-align:center;
+            line-height:44px;
+    }
+    .resourceCroup-list{
+        margin:5px 5px;
+        background:#ffffff;
+    }
+     .resourceCroup-list h4{
+         font-size:14px;
+        color:#333333;      
+     }
+    .plan-container{
+        background:#f8fafd;
+        border:none;
+    }
+    .plan-box{
+        background:none
+    }
+    .ulss li{
+        margin-bottom:10px;
+    }
+    .ulis{
+         margin-top:30px;
+    }
+    .ulss li:nth-child(1){
+        margin-top:30px;
+    }
+    input,select{
+        width:236px;
+        height:30px;
+    }
+    .Inp input{
+        width:60px;
+        height:27px;
+        padding:0;
+        margin-top:150px;
+    }
+    .resourceCroup-list-head{
+        margin-top:100px;
+    }
+    .head{
+        margin-top:66px;
+    }
+    .btn{
+        margin-left:90%;
+        margin-top:10px;
+        background:#da121a;
+        border-radius:2px;
+        width:94px;
+        height:35px;
+        font-size:14px;
+color:#f0f0f0;
+text-align:center;
+    }
+      .btn:hover{
+        background:#da121a;
+        border-radius:2px;
+        width:94px;
+        height:35px;
+        font-size:14px;
+color:#f0f0f0;
+text-align:center;
+    }
 </style>
 <script>
 import sds from '../../../../components/steps/steps.vue'
-import '../resourceGroup/resourceGroup.css'
 export default {
   name: 'ResourceGroup',
   data () {

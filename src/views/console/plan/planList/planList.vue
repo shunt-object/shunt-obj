@@ -1,41 +1,54 @@
 <template>
-        <div>
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <router-link to="/consolePage">总览</router-link> > 云规划
+</div>
+       
+            <div class="CRe row " >
+               <ul>
+                   <li>创建云规划</li>
+                   <li><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索云分析、应用名称" ></li>
+               </ul>
+        
+            </div>
             <!-- <div>象限图</div> -->
             <div class="result-echarts" id="main"></div>
-            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
+            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" style="margin-top50px;" >
            
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
                     <tr style="margin-top:50px; text-align:center">
-                        <th class="col-md-1"><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
-                        <th class="col-md-1">应用名称</th>
-                        <th class="col-md-1">云分析名称</th>
-                        <th class="col-md-1">定性</th>
-                        <th class="col-md-1">云收益度</th>
-                        <th class="col-md-1">云亲和度</th>
-                        <th class="col-md-1">操作</th>
+                        <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
+                        <th class="col-md-1 text-center">应用名称</th>
+                        <th class="col-md-3 text-center">上云分析名称</th>
+                        <th class="col-md-2 text-center">云定性</th>
+                        <th class="col-md-3 text-center">云收益度</th>
+                        <th class="col-md-1 text-center">云亲和度</th>
+                        <th class="col-md-1 text-center">操作</th>
                     </tr>
             </thead>
 
 
             <tbody id="myTable" >
                     <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td class="col-md-1"><input type="checkbox" :data-id="sp.id" name='b'></td>
-                        <td class="col-md-1">{{sp.appname}}</td>
-                        <td class="col-md-1">{{sp.proname}}</td>
-                        <td class="col-md-1" v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>
+                        <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
+                        <td >{{sp.appname}}</td>
+                        <td >{{sp.proname}}</td>
+                        <td  v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>
                         
-                        <td class="col-md-1" v-else></td>
-                        <td class="col-md-1" v-if="null!=sp.appResults[1]">{{sp.appResults[1].result}}</td>
-                        <td class="col-md-1" v-else></td>
-                        <td class="col-md-1" v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
-                        <td class="col-md-1" v-else></td>
-                        <td><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
+                        <td  v-else></td>
+                        <td  v-if="null!=sp.appResults[1]">{{sp.appResults[1].result}}</td>
+                        <td  v-else></td>
+                        <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
+                        <td  v-else></td>
+                        <td ><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
                     </tr>
             </tbody>
 
         </table>
         </div>
+         </div>
 </template>
 
 <style>
@@ -52,12 +65,82 @@ td {
 .lookCom{
   color:#337ab7;
 }
+tr th{
+    font-size:14px;
+    color:#2b2b2b;
+}
+tr th input{
+    width:16px;
+    height:16px;
+}
+tr td{
+    font-size:14px;
+color:#2b2b2b;
+text-align:center;
+}
+tr td input{
+    width:16px;
+    height:16px;
+}
+table{
+border:1px solid #e5e5e5;
+}
+tr td a{
+    font-size:14px;
+color:#2eabf5;
+text-align:center;
+}
+.CRe div{
+    float:left;
+}
+.CRe{
+    width:100%;
+    
+    background:#ffffff;
+box-shadow:0 1px 1px 0 rgba(222,222,222,0.50);
+
+}
+.CRe ul li{
+    float:left;
+    
+}
+.CRe ul li:nth-child(1){
+    background:#da121a;
+    width:114px;
+    height:30px;
+    background:#da121a;
+    width:114px;
+    height:30px;
+    color:#fff;
+    text-align:center;
+    line-height:30px;
+    margin:15px 15px;
+    display:inline-block
+}
+.CRe ul li:nth-child(2){
+    float:right;
+    margin-top:20px;
+    margin-right:38px;
+  
+
+}
+.CRe ul li input{
+      border:2px solid #cccccc;
+    width:232px;
+    height:28px;
+   background:url("../../../../assets/souuo.png") no-repeat right;
+   
+}
+
+
 </style>
 
 
 <script>
 // import '../programming/js/jquery.paginate.js';
 // import '../programming/js/jquery.yhhDataTable.js';
+import sds from '../../../../components/steps/steps.vue'
+
 import "../planList/datatable.css";
 import echarts from 'echarts'
 
