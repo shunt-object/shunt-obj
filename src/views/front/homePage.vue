@@ -659,7 +659,7 @@
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt="">
+            <img src="../../assets/what.png" alt="" class="tranImg">
   
             <h4>SaaS化</h4>
   
@@ -675,7 +675,23 @@
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt="">
+            <img src="../../assets/what.png" alt=""  class="tranImg">
+  
+            <h4>SaaS化</h4>
+  
+            <div class="mainpa">
+  
+              <p class="mainPd">沉淀5年</p>
+  
+              <p>打造国内领先的S级产品</p>
+  
+            </div>
+  
+          </div>
+  
+          <div class="col-xs-12 col-sm-2" >
+  
+            <img src="../../assets/what.png" alt=""  class="tranImg">
   
             <h4>SaaS化</h4>
   
@@ -691,7 +707,7 @@
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt="">
+            <img src="../../assets/what.png" alt=""  class="tranImg">
   
             <h4>SaaS化</h4>
   
@@ -707,23 +723,7 @@
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt="">
-  
-            <h4>SaaS化</h4>
-  
-            <div class="mainpa">
-  
-              <p class="mainPd">沉淀5年</p>
-  
-              <p>打造国内领先的S级产品</p>
-  
-            </div>
-  
-          </div>
-  
-          <div class="col-xs-12 col-sm-2">
-  
-            <img src="../../assets/what.png" alt="">
+            <img src="../../assets/what.png" alt=""  class="tranImg">
   
             <h4>SaaS化</h4>
   
@@ -808,12 +808,12 @@
   
   
           <h1 class="text-center thin">合作伙伴</h1>
-  
-  
+          
+        
   
           <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态!</h3>
   
-  
+          <div class="he-su"></div>
   
         </div>
   
@@ -1894,7 +1894,7 @@
   
     height: auto;
   
-    padding-bottom: 70px;
+    padding-bottom: 50px;
   
   }
   
@@ -1902,15 +1902,15 @@
   
   .obj-free p {
   
-    font-size: 24px;
+    font-size: 14px;
   
-    color: #fafafa;
+    color:#ffffff;
   
     line-height: 44px;
   
     font-weight: 200;
   
-    padding-top: 50px;
+    padding-top: 30px;
   
     padding-bottom: 30px;
   
@@ -1922,13 +1922,9 @@
   
     border: 1px solid #fff;
   
-    font-size: 20px;
-  
-    color: #ffffff;
-  
-    border-radius: 4px;
-  
-    padding: 8px 50px;
+    font-size:14px;
+    color:#ffffff;  
+    padding: 8px 40px;
   
   }
   
@@ -2369,5 +2365,25 @@
     padding-bottom: 40px;
   
   }
+  .he-su{
+    background: #da121a;
+    margin: 0 auto;
+    width: 60px;
+    height: 3px;
+    margin-bottom: 30px;
+  }
+@-webkit-keyframes rotation{
+from {-webkit-transform: rotate(0deg);}
+to {-webkit-transform: rotate(360deg);}
+}
+
+.tranImg:hover{
+-webkit-transform: rotate(360deg);
+animation: rotation 2s linear infinite;
+-moz-animation: rotation 2s linear infinite;
+-webkit-animation: rotation 2s linear infinite;
+-o-animation: rotation 2s linear infinite;
+}
+
 </style>
 
