@@ -64,7 +64,6 @@
 <script>
 import child from '../../../../components/steps/steps.vue'
 import '../compareQuestion/compareQuestion.css'
-import Select2 from 'zf-vue-select2'
 export default{
     name:'compareQuestion',
     data(){
