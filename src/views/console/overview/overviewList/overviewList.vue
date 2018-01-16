@@ -290,18 +290,18 @@ a:hover{
                 var o = o;
                 var n = n;
                 if(n == 4){
-                    if((b==1 || b==0)){
+                    //if((b==1 || b==0)){
                         this.$router.push({path:'/compareQuestion',query:{id:o}});
-                    }
+                    //}
                 }else if(n == 5){
-                     if((b==1 || b==0)){
+                     //if((b==1 || b==0)){
                        this.$router.push({path:'/resourceGroup',query:{id:o}});
-                    }
+                    //}
                     
                 }else{
-                    if(b==1 || b==0){
+                    //if(b==1 || b==0){
                         this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
-                    }
+                    //}
                 }
             },
             UpRoute:function(){

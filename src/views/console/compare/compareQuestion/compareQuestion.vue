@@ -179,19 +179,26 @@ export default{
                         this.modelList.push(this.typesList[i].value[n].id);
                     }
                 }
+                // 默认选中
+                for(let n=0;n<this.typesList.length;n++){
+                    for(let s=0;s<this.typesList[n].value.length;s++){
+                        if(this.typesList[n].value[s].selectOptId!=null){
+                            this.modelList[this.typesList[n].value[s].id] = this.option[this.typesList[n].value[s].selectOptId-1];
+                        }
+                    }
+                    
+                }  
                 //console.log('cccc',this.modelList);        
             }).catch((error)=>{
                 
             })
         },
         selectChang:function(item){
-            // console.log(item);
-            // console.log(this.modelList[item.id]);
             let obj = {
                 "appid": this.appId,
-                "featureCode":item.code,
+                "featureCode":item.code,//问题的id
                 //"groupId": item.groupId,
-                "optionId": this.modelList[item.id].id
+                "optionId": this.modelList[item.id].id//选项的id
             };
             let strObj = JSON.stringify(obj);
             this.$this.post('/broker/compare/saveUser',strObj).then((response)=>{

@@ -125,6 +125,33 @@ export default{
             this.profit = false;//收益度问题是否显示
             this.affinity = false;//亲和度问题是否显示 
         }
+
+       this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
+            console.log('结果',response);    
+            for(let i=0;i<response.data.data.appResults.length;i++){
+                if(response.data.data.appResults[i].moduleId==1){
+                    if(response.data.data.appResults[i].result!=''){
+                        this.isclass1 = true;
+                        this.cloudName = JSON.parse(response.data.data.appResults[i].result).sname;
+                    }
+                }
+                if(response.data.data.appResults[i].moduleId==2){
+                    if(response.data.data.appResults[i].result!=null){
+                        this.isclass2 = true;
+                        this.profitReault = response.data.data.appResults[i].result;
+                    }
+                }
+                if(response.data.data.appResults[i].moduleId==3){
+                    if(response.data.data.appResults[i].result!=null){
+                        this.isclass3 = true;
+                        this.affinityResult = response.data.data.appResults[i].result;
+                    }
+                }
+            }   
+        }).catch((error)=>{
+        }) 
+
+        
     },
     methods:{
         fn:function(qcode,optcode){
@@ -143,8 +170,10 @@ export default{
                     that.cloudName = response.data.data.sname;
                     that.serverce = response.data.data.id;
                     that.qualitative = false;
-                    that.profit = true;
                     that.isclass1 = true;
+                    if(this.typeName==null ||this.typeName==undefined || this.typeName=='' ){
+                        that.profit = true;
+                    }
                 }
             }).catch((error)=>{
             })
