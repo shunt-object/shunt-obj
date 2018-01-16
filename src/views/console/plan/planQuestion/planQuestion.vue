@@ -22,12 +22,19 @@
                 </div>
                 <!--定性问题-->
                 <div class="question-list" v-show="qualitative">
-                    <p class="question-list-item">{{quetionList.content}}</p>
-                    <p class="question-list-item">
-                        <span class="question-option question-type" v-for="item in quetionList.option">
-                            <input type="radio" :name="quetionList.code" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
-                        </span>
-                    </p>
+                    <div class="question-heaved">
+                        <p class="question-heaved-list" v-for="(item,index) in havedList" v-on:click="edit(item)">{{index+1}}、{{item.content}}
+                         <span v-for="ia in item.option" v-show="ia.code==item.selectOption">{{ia.content}}</span>
+                        </p>
+                    </div>
+                    <div class="question-block">
+                        <p class="question-list-item">{{quetionList.content}}</p>
+                        <p class="question-list-item">
+                            <span class="question-option question-type" v-for="item in quetionList.option">
+                                <input type="radio" :name="quetionList.code" :checked="item.code==quetionList.selectOption" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
+                            </span>
+                        </p>
+                    </div>
                     <!-- v-if="cloud==''"<p v-else>{{cloud}}</p>-->
                 </div>
                 <!--定量问题 收益度-->
@@ -129,8 +136,10 @@ export default{
                 //console.log(response);
                 if(response.data.code=='1'){
                     that.quetionList = response.data.data;
+                    this.getLiang(this.appId,1); 
                     $(".question-type input").prop("checked",false); 
                 }else if(response.data.code=='2'){//结果
+                    that.quetionList = [];
                     that.cloudName = response.data.data.sname;
                     that.serverce = response.data.data.id;
                     that.qualitative = false;
@@ -144,7 +153,6 @@ export default{
             let that = this;
             this.$this.get('/broker/plan/questions/'+appId+'/{type}?type='+type+'').then((response)=>{
                 if(type==1){
-                    console.log('type=1',response);
                     that.havedList = response.data.data;
                 }else if(type==2){
                     that.qinhe = response.data.data;
@@ -254,6 +262,9 @@ export default{
                     this.$layer.msg("no");
                 }
             }
+        },
+        edit:function(item){
+            this.quetionList = item;
         }
     },
     components:{

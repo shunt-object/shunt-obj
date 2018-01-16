@@ -9,8 +9,38 @@
     <child index="4" start="0" :type="queryType"></child>
 
     <div class="compare-box">
-
-        <div class="compare-list" v-for="(out,index) in List">
+        <!--<div class="select2">
+            <div class="slect2-box">
+                <i class="square"></i>
+            </div>
+            <ul class="select2-list">
+                <li>aaaa</li>
+                <li>aaaa</li>
+            </ul>
+        </div>-->
+        <div>
+            <p class="">请选择场景</p>
+            <p class="" v-for="(item,index) in List">
+                <span style="float:left;"><input type="checkbox" v-model="types[index].boolean">{{item.gname}}</span>
+            </p>
+            <button v-on:click="scene()">开始答题</button>
+        </div>
+        <div class="clear"></div>
+        <div class="compare-list" v-for="(item,index) in typesList">
+            <h5>{{item.title.gname}}</h5>
+            <ul class="compareQuestion-list">
+                <li class="compare-question-item" v-for="ia in item.value">
+                    <p class="">
+                        {{ia.content}}
+                        <select class="compare-select" v-model="modelList[ia.id]" v-on:change="selectChang(ia)">
+                            <option :value="answer" v-for="answer in option">{{answer.name}}</option>
+                        </select>
+                    </p>
+                
+                </li>
+            </ul>
+        </div>
+        <!--<div class="compare-list" v-for="(out,index) in List">
             <div class="out" style="text-align:left;" v-on:click="getquestion(index,out.id)">
                 <input type="checkbox" :checked="outdata[index].boolean" readonly class="readonly">{{out.gname}}
                 <ul class="compareQuestion-list" v-show="index==i">
@@ -22,7 +52,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>-->
         <button class="btn btn-default planbtn" v-on:click="result()">开始比较</button>
         <div class="clear"></div>
     </div>
@@ -34,6 +64,7 @@
 <script>
 import child from '../../../../components/steps/steps.vue'
 import '../compareQuestion/compareQuestion.css'
+import Select2 from 'zf-vue-select2'
 export default{
     name:'compareQuestion',
     data(){
@@ -46,7 +77,12 @@ export default{
             formdata:[],
             outdata:[],
             appId:'',
-            queryType:''
+            queryType:'',
+            // 改变
+            types:[],
+            typesList:[],
+            typesdata:[],
+            modelList:[]
         }
     },
     mounted:function(){
@@ -58,10 +94,10 @@ export default{
         // }
         this.appId = this.$route.query.id; 
         this.$this.get('/broker/compare/types').then((response)=>{
-            //console.log('aaa',response); 
             this.List = response.data.data;  
             for(let i=0;i<response.data.data.length;i++){
                 this.outdata.push({boolean:false});
+                this.types.push({boolean:false,id:response.data.data[i].id,gname:response.data.data[i].gname});
             }             
         }).catch((error)=>{
             
@@ -117,6 +153,53 @@ export default{
         },
         result:function(){
             this.$router.push({path:'/compareResult',query:{id:this.appId}});
+        },
+        change(item,backParamsData){
+            console.log('item',item)
+        },
+        // 改变
+        scene:function(){
+            for(let i=0;i<this.types.length;i++){
+                if(this.types[i].boolean==true){
+                    this.typesList.push({title:this.types[i],value:{}});
+                }
+            }
+            for(let n=0;n<this.typesList.length;n++){
+                this.data(this.typesList[n].title.id,n);
+            }
+            for(let i=0;i<this.types.length;i++){
+                this.types[i].boolean = false;
+            }
+        },
+        data:function(id,I){
+            this.$this.get('/broker/compare/feature/'+this.appId+'/'+id+'').then((response)=>{
+                this.typesList[I].value = response.data.data;
+                //console.log(this.typesList);
+                for(let i=0;i<this.typesList.length;i++){
+                    for(let n=0;n<this.typesList[i].value.length;n++){
+                        this.modelList.push(this.typesList[i].value[n].id);
+                    }
+                }
+                //console.log('cccc',this.modelList);        
+            }).catch((error)=>{
+                
+            })
+        },
+        selectChang:function(item){
+            // console.log(item);
+            // console.log(this.modelList[item.id]);
+            let obj = {
+                "appid": this.appId,
+                "featureCode":item.code,
+                //"groupId": item.groupId,
+                "optionId": this.modelList[item.id].id
+            };
+            let strObj = JSON.stringify(obj);
+            this.$this.post('/broker/compare/saveUser',strObj).then((response)=>{
+                             
+            }).catch((error)=>{
+                
+            })
         }
     },
     components:{
