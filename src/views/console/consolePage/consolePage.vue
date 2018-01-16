@@ -73,7 +73,7 @@
             <!-- sidebar menu end-->
         </div>
     </aside>
-    <section id="main-content" style="background:#f0f0f0;">
+    <section id="main-content" style="min-height:100vh;background:#f3f3f3;">
         <section class="wrapper">
             <router-view></router-view>
         </section>

@@ -92,7 +92,7 @@ export default{
         //     this.appId = sessionStorage.getItem('appId');
         // }
         this.appId = this.$route.query.id; 
-        this.$this.get('/broker/compare/types').then((response)=>{
+        this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
             this.List = response.data.data;  
             for(let i=0;i<response.data.data.length;i++){
                 this.outdata.push({boolean:false});

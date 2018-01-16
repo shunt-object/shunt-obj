@@ -1,10 +1,10 @@
 .steps{
     width:100%;
-    height:120px;
-    background:#eee;
+    height:105px;
+    background:#fff;
     padding:20px;
     position:relative;
-    border-bottom:1px solid #dedede;
+    /*border-bottom:1px solid #dedede;*/
 }
 .steps-line{
     width:90%;
@@ -17,7 +17,7 @@
 }
 .steps-atage{
     width: 120px;
-    background:#eee;
+    background:#fff;
     float:left;
     margin-top:10px;
     position:absolute;

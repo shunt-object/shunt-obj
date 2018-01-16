@@ -1,54 +1,110 @@
+.total{
+    font-size:'微软雅黑';
+}
+.plan-box{
+    border-top:6px solid #f3f3f3;
+    padding:0 47px 30px 47px;
+}
+button{
+    border:none;
+    outline:none;
+}
+/*比较按钮*/
 .compare-start{
     width:100%;
-    padding:20px 0;
-    border-bottom:1px solid #ccc;
+    padding:24px 0;    
 }
 .startbtn{
     float:left;
-    color:#333 !important;
+    background:#da121a;
+    width:100px;
+    height:30px;
+    font-size:14px;
+    color:#ffffff;
 }
 .importbtn{
     float:right;
     color:#333 !important;
 }
+/*图表*/
 .result-echarts{
     width:100%;
     height:500px;
-    margin-top:30px;
+    /*margin-top:30px;*/
 }
 .clear{
     clear:both;
 }
+/**/
 .clould-result{
     width:100%;
     padding:20px 0;
 }
-.clould-name{
+.clould-result{
+    
+}
+.col-md-3{
+    padding:0 8px 0 0 !important;
+}
+.score{
+    width:100%;
+    height:42px;
+    background:#da121a;
+    color:#fff;
     text-align:left;
 }
-.scalebtn{
+.score-name{
+    float:left;
+    margin:8px;
+    font-size:12px;
+}
+.score-val{
+    line-height:42px;
+    display:inline-block;
+    margin-left:20%;
+}
+.appname{
+    background:#f2f2f2;
+    height:42px;
+}
+.appname span{
+    font-size:14px;
+    color:#2b2b2b;
+    margin-left:15px;
+    display:inline-block;
+    line-height:42px;
+    font-weight:900;
+}
+
+/*.clould-name{
+    text-align:left;
+}*/
+/*.scalebtn{
     padding:10px 20px;
     background:#fff;
     border:1px solid #ccc;
 }
 .sacleword{
     line-height:30px;
-}
+}*/
 .clould-title{
-    font-size:18px;
-    line-height:2;
+    font-size:14px;
+    color:#2b2b2b;
     text-align:left;
     font-weight:bold;
+    margin-bottom:10px;
 }
 .clould-desc{
     width:100%;
     height:100%;
-    padding:30px 50px;
-    background:#dedede;
+    padding:20px 30px;
+    background:#f9f9f9;
+    border-radius:1px;
 }
 .clould-desc-main{
     text-align:left;
-    font-size:14px;
+    font-size:12px;
+    color:#666;
     line-height:1.5;
 }
 .font-16{

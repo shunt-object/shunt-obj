@@ -5,31 +5,37 @@
     <router-link to="/consolePage">总览</router-link> > 云规划
 </div>
 <div class="plan-box">
-    <div class="plan-container">
+    <!--<div class="plan-container">-->
         <child index="3" start="0" :type="queryType"></child>
         <div class="plan-question-box">
             <div class="plan-question-list">
                 <div class="plan-question-item row">
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary" :class="isclass1==true?'confirm-btn':'plan-btn'" v-on:click="tab(1)">{{cloudName}}</button>
+                        <p class="plan-step" :class="qualitative==true?'qualitative-step':''">步骤1</p>
+                        <button class="qualitative-ready" :class="qualitative==true?'qualitativeBtn':'qualitative-btn'" v-on:click="tab(1)">{{cloudName}}</button>
+                        <div :class="qualitative==true?'qualitative-line':''"></div>
                     </div>
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary" :class="isclass2==true?'confirm-btn':'plan-btn'" v-on:click="tab(2)">{{profitReault}}</button>
+                        <p class="plan-step" :class="profit==true?'profit-step':''">步骤2</p>
+                        <button class="profit-ready" :class="profit==true?'profitBtn':'profit-btn'" v-on:click="tab(2)">{{profitReault}}</button>
+                        <div :class="profit==true?'profit-line':''"></div>
                     </div>
                     <div class="plan-type col-md-4">
-                        <button class="btn btn-primary" :class="isclass3==true?'confirm-btn':'plan-btn'" v-on:click="tab(3)">{{affinityResult}}</button>
+                        <p class="plan-step" :class="affinity==true?'affinity-step':''">步骤3</p>
+                        <button class="affinity-ready" :class="affinity==true?'affinityBtn':'affinity-btn'" v-on:click="tab(3)">{{affinityResult}}</button>
+                        <div :class="affinity==true?'affinity-line':''"></div>
                     </div>
                 </div>
                 <!--定性问题-->
                 <div class="question-list" v-show="qualitative">
                     <div class="question-heaved">
-                        <p class="question-heaved-list" v-for="(item,index) in havedList" v-on:click="edit(item)">{{index+1}}、{{item.content}}
+                        <p class="question-heaved-list" v-for="(item,index) in havedList" v-on:click="edit(item)">Q{{index+1}}.{{item.content}}
                          <span v-for="ia in item.option" v-show="ia.code==item.selectOption">{{ia.content}}</span>
                         </p>
                     </div>
-                    <div class="question-block">
-                        <p class="question-list-item">{{quetionList.content}}</p>
-                        <p class="question-list-item">
+                    <div class="question-block" v-if="quetionList!=''">
+                        <p class="qualitative-list">Q{{quetionList.ordernum}}.{{quetionList.content}}</p>
+                        <p class="qualitative-list">
                             <span class="question-option question-type" v-for="item in quetionList.option">
                                 <input type="radio" :name="quetionList.code" :checked="item.code==quetionList.selectOption" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
                             </span>
@@ -39,33 +45,35 @@
                 </div>
                 <!--定量问题 收益度-->
                 <div class="question-list" v-show="profit">
-                    <div class="question-list-item" v-for="(i,index) in qinhe">{{i.content}}
+                    <div class="question-list-item" v-for="(i,index) in qinhe">Q{{index+1}}.{{i.content}}
                         <p>
-                            <span class="question-option" v-for="(item,itemIndex) in i.option" >
-                                <input type="radio" :name="i.code" v-if="i.qtype==1" v-on:click="qin(index,i.qtype,i.code,item.code)" :checked="i.selectOption==item.code?true:false">
-                                <input :id="item.code" type="checkbox" :checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
+                            <span class="question-option" v-for="(item,itemIndex) in i.option">
+                                <input type="radio" :name="i.code" v-if="i.qtype==1" v-on:click="qin(index,i.qtype,i.code,item.code,2)" :checked="i.selectOption==item.code?true:false">
+                                <input :id="item.code" type="checkbox" :checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code,2)">
                                 {{item.content}}
                             </span>
                         </p>
                     </div>
-                    <button class="btn btn-default planbtn" v-on:click="result(2)">下一步</button>
+                    <button class="planbtn" v-on:click="result(2)">下一步</button>
+                    <div class="clear"></div>
                 </div>
                 <!--定量问题 亲和度-->
                 <div class="question-list" v-show="affinity">
-                    <div class="question-list-item" v-for="i in shouyi">{{i.content}}
+                    <div class="question-list-item" v-for="(i,index) in shouyi">Q{{index+1}}.{{i.content}}
                         <p>
                             <span class="question-option" v-for="(item,itemIndex) in i.option">
-                                <input type="radio" :checked="i.selectOption==item.code?true:false" :name="i.code" v-if="i.qtype==1" v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">
-                                <input type="checkbox":checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code)">{{item.content}}
+                                <input type="radio" :checked="i.selectOption==item.code?true:false" :name="i.code" v-if="i.qtype==1" v-on:click="qin(i.selectOption,i.qtype,i.code,item.code,3)">
+                                <input type="checkbox":checked="i.selectOption[itemIndex]==item.code?true:false" v-else v-on:click="qin(i.selectOption,i.qtype,i.code,item.code,3)">{{item.content}}
                             </span>
                         </p>
                     </div>
-                    <button class="btn btn-default planbtn" v-on:click="result(3)">下一步</button>
+                    <button class="planbtn" v-on:click="result(3)">下一步</button>
+                    <div class="clear"></div>
                 </div>
             </div>
         </div>
     
-    </div>
+    <!--</div>-->
 </div>
 </div>
 </template>
@@ -127,7 +135,7 @@ export default{
         }
 
        this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
-            console.log('结果',response);    
+            //console.log('结果',response);    
             for(let i=0;i<response.data.data.appResults.length;i++){
                 if(response.data.data.appResults[i].moduleId==1){
                     if(response.data.data.appResults[i].result!=''){
@@ -156,6 +164,7 @@ export default{
     methods:{
         fn:function(qcode,optcode){
             this.getdata(this.appId,qcode,optcode);
+            this.getLiang(this.appId,1); 
         },
         getdata:function(appId,qcode,optcode){
             let that = this;
@@ -169,10 +178,10 @@ export default{
                     that.quetionList = [];
                     that.cloudName = response.data.data.sname;
                     that.serverce = response.data.data.id;
-                    that.qualitative = false;
                     that.isclass1 = true;
                     if(this.typeName==null ||this.typeName==undefined || this.typeName=='' ){
                         that.profit = true;
+                        that.qualitative = false;
                     }
                 }
             }).catch((error)=>{
@@ -192,7 +201,7 @@ export default{
             }).catch((error)=>{
             }) 
         },
-        qin:function(selectOption,qtype,qcode,optcode){
+        qin:function(selectOption,qtype,qcode,optcode,moduleId){
             //qtype==1单选qtype==2多选
             let boolean ;
             let n = 0;
@@ -233,6 +242,7 @@ export default{
             let obj = {
                     "appid":this.appId,
                     "optcode":optcode,
+                    "moduleId":moduleId,
                     "questionCode":qcode,
                     "select":boolean,
                     "multi":isDouble

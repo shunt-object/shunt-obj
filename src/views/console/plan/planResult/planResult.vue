@@ -4,36 +4,49 @@
     <span></span>
     <router-link to="/consolePage">总览</router-link> > 报表
 </div>
+<child index="3" start="0" :type="queryType"></child>
 <div class="plan-box">
-    <!--<div class="">-->
-        <child index="3" start="0" :type="queryType"></child>
-        <div class="compare-start">
-            <button class="btn btn-default startbtn" v-on:click="compare()">开始云选型</button>
-            <!-- <button class="btn btn-default importbtn">导出</button> -->
-            <div class="clear"></div>
-        </div>
-        <div class="result-echarts" id="main"></div>
-        <div class="row clould-result">
-            <div class="col-md-6">
-                <div class="col-md-6 font-16">{{result.proname}}</div>
-                <div class="col-md-6 font-16 clould-name">{{result.appname}}</div>
-            </div>
-            <div class="col-md-6 row">
-                <div class="col-md-4" v-for="item in resultlist">
-                    <button class="scalebtn" disabled v-if="item.moduleName!='云定性'">{{item.result}}</button>
-                    <button class="scalebtn" disabled v-else>{{JSON.parse(item.result).sname}}</button>
-                    <p class="sacleword">{{item.moduleName}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="clould-desc">
-            <div class="clould-title">公有云Iaas</div>
-            <p class="clould-desc-main">作为Infrastructure as a Service (IaaS) 在实际应用中的一个例子，The New York Times 使用成百上千台 Amazon EC2虚拟机实例在 36 小时内处理 TB 级的文档数据。如果没有 EC2，The New York Times 处理这些数据将要花费数天或者数月的时间。
-            </p>
-            <p class="clould-desc-main">IaaS通常分为三两种用法：公有云共的和、私有云的和混合云。AmazonEC2在基础设施云中使用公共服务器池（公有云）。更加私有化的服务会使用企业内部数据中心的一组公用或私有服务器池（私有云）。如果在企业数据中心环境中开发软件，那么这两种类型公有云、私有云、混合云都能使用，而且使用EC2临时扩展资源的成本也很低，如—比方说开发和测试，混合云。结合使用两者可以更快地开发应用程序和服务，缩短开发和测试周期。
+    <div class="compare-start">
+        <button class="startbtn" v-on:click="compare()">开始云选型</button>
+            <!--<button class="btn btn-default importbtn">导出</button>-->
+        <div class="clear"></div>
+    </div>
+    <div class="result-echarts" id="main"></div>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="appname">
+                <span>{{result.proname}}</span>
+                <span>{{result.appname}}</span>
             </p>
         </div>
-    <!--</div>-->
+        <div class="col-md-3 clould-result" v-for="item in resultlist">
+            <p class="score">
+                <span class="score-name">{{item.moduleName}}</span>
+                <span class="score-val" v-if="item.moduleName!='云定性'">{{item.result}}</span>
+                <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
+            </p>
+        </div>
+
+        <!--<div class="col-md-6">
+            <div class="col-md-6 font-16">{{result.proname}}</div>
+            <div class="col-md-6 font-16 clould-name">{{result.appname}}</div>
+        </div>
+        <div class="col-md-6 row">
+            <div class="col-md-4" v-for="item in resultlist">
+                <button class="scalebtn" disabled v-if="item.moduleName!='云定性'">{{item.result}}</button>
+                <button class="scalebtn" disabled v-else>{{JSON.parse(item.result).sname}}</button>
+                <p class="sacleword">{{item.moduleName}}</p>
+            </div>
+        </div>-->
+    </div>
+    <div class="clould-desc">
+        <div class="clould-title">公有云Iaas</div>
+        <p class="clould-desc-main">作为Infrastructure as a Service (IaaS) 在实际应用中的一个例子，The New York Times 使用成百上千台 Amazon EC2虚拟机实例在 36 小时内处理 TB 级的文档数据。如果没有 EC2，The New York Times 处理这些数据将要花费数天或者数月的时间。
+        </p>
+        <p class="clould-desc-main">IaaS通常分为三两种用法：公有云共的和、私有云的和混合云。AmazonEC2在基础设施云中使用公共服务器池（公有云）。更加私有化的服务会使用企业内部数据中心的一组公用或私有服务器池（私有云）。如果在企业数据中心环境中开发软件，那么这两种类型公有云、私有云、混合云都能使用，而且使用EC2临时扩展资源的成本也很低，如—比方说开发和测试，混合云。结合使用两者可以更快地开发应用程序和服务，缩短开发和测试周期。
+        </p>
+    </div>
+
 </div>
 </div>
 </template>
@@ -99,7 +112,16 @@ export default{
             this.charts.setOption({
                 //backgroundColor:'#ccc',
                 title: {
-                    text: ''
+                    text: this.result.proname+' '+this.result.appname +'云规划报告',
+                    textStyle:{
+                        color:'#333333',
+                        fontWeight:'normal',
+                        fontSize:'14px',
+                        width:'100%',
+                        rich:{
+                            align:'center'
+                        }
+                    }
                 },
                 tooltip: {
                     trigger: 'item',
@@ -126,8 +148,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#3259B8'
+                            color: '#c2c2c2'
                         }
+                    },
+                    nameTextStyle:{
+                        color:'#ccc'
                     }
                 },
                 yAxis: {
@@ -144,8 +169,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#3259B8'
+                            color: '#c2c2c2'
                         }
+                    },
+                    nameTextStyle:{
+                        color:'#ccc'
                     }
                 },
                 series: [{
@@ -188,7 +216,7 @@ export default{
                                 name: '合适',
                                 itemStyle: {
                                     normal: {
-                                        color: '#E8FFC4'
+                                        color: '#e7faff'
                                     },
                                 },
                                 label: {
@@ -208,7 +236,7 @@ export default{
                                 name: '低',
                                 itemStyle: {
                                     normal: {
-                                        color: '#844200',
+                                        color: '#efefef',
                                     },
                                 },
                                 label: {
@@ -228,7 +256,7 @@ export default{
                                 name: '高',
                                 itemStyle: {
                                     normal: {
-                                        color: '#9AFF02',
+                                        color: '#ffe9ea',
                                     },
                                 },
                                 label: {
@@ -248,7 +276,7 @@ export default{
                                 name: '一般',
                                 itemStyle: {
                                     normal: {
-                                        color: '#FFDCB9',
+                                        color: '#cee7f2',
                                     },
                                 },
                                 label: {

@@ -4,65 +4,165 @@
 .plan-box{
     width:100%;
     height:100%;
-    padding:30px 20px;
     background:#fff;
 }
-.plan-container{
-    width:100%;
-    height:100%;
-    background:#f8f8f8;
-    border:1px solid #dedede;
-    border-radius:5px;
+button{
+    outline:none;
 }
 .question-heaved-list{
     text-align:left;
     padding-left:40px;
     cursor:pointer;
 }
+/**/
 .plan-question-box{
-    padding:50px;
+    background:#ffffff;
+    border-top:6px solid #f3f3f3;
+    padding-bottom:30px;
 }
 .plan-question-list{
     width:100%;
-    background:#eee;
     border-radius:5px;
-    padding:30px 30px 50px 30px;
 }
 .plan-question-item{
     width:100%;
 }
 .plan-type{
-    padding:20px 0;
+    padding:10px 0;
 }
-.confirm-btn{
-    width:80%;
-    padding:20px 10px!important;
-    border-radius:0 !important;
-    border:1px solid #ccc !important;
-    background:#666 !important;
-    color:#fff !important;
+/*三个块*/
+.qualitative-ready{
+    background:#da121a;
+    border-radius:2px;
+    border:none;
+    font-size:20px;
+    color:#ffffff;
+    text-align:right;
+    padding-right:28px;
 }
-.plan-btn{
+.qualitative-btn{
     width:80%;
-    padding:20px 10px!important;
-    border-radius:0 !important;
-    border:1px solid #ccc !important;
-    background:#ccc !important;
-    color:#666 !important;
+    height:106px;  
+}
+.qualitativeBtn{
+    width:82%;
+    height:119px;
+}
+.profit-ready{
+    background:#f7a72c;
+    border-radius:2px;
+    border:none;
+    font-size:20px;
+    color:#ffffff;
+    text-align:right;
+    padding-right:28px;
+}
+.profit-btn{
+    width:80%;
+    height:106px;  
+}
+.profitBtn{
+    width:82%;
+    height:119px;
+}
+.affinity-ready{
+    background:#e15e2d;
+    border-radius:2px;
+    border:none;
+    font-size:20px;
+    color:#ffffff;
+    text-align:right;
+    padding-right:28px;
+}
+.affinity-btn{
+    width:80%;
+    height:106px;  
+}
+.affinityBtn{
+    width:82%;
+    height:119px;
+}
+.plan-step{
+    font-size:14px;
+    color:#666666;
+}
+.qualitative-step{
+    font-size:18px;
+    color:#df333a;  
+}
+.profit-step{
+    font-size:18px;
+    color:#f7a72c;  
+}
+.affinity-step{
+    font-size:18px;
+    color:#e15e2d;  
+}
+.qualitative-line{
+    display:inline-block;
+    width:82%;
+    height:3px;
+    background:#df333a;
+}
+.profit-line{
+    display:inline-block;
+    width:82%;
+    height:3px;
+    background:#f7a72c;
+}
+.affinity-line{
+    display:inline-block;
+    width:82%;
+    height:3px;
+    background:#e15e2d;
 }
 .question-list{
     margin-top:10px;
+    padding:0 20px;
 }
+/*定性*/
+.question-block{
+    background:#fafbfd;
+    padding:10px;
+}
+.qualitative-list{
+    font-size:14px;
+    text-align:left;
+    color:#666;
+}
+/*收益度*/
 .question-list-item{
     font-size:14px;
     text-align:left;
+    color:#666;
+    background:#eff3f9;
+    padding:10px;
+    margin-bottom:5px;
     line-height:30px;
-    padding-left:40px;
 }
+/*定性已做的*/
+.question-heaved-list{
+    background:#f2f2f2;
+    margin-bottom:5px;
+    padding:10px;
+    color:#b7b7b7;
+    font-size:14px;
+}
+.question-heaved-list span{
+    color:#666;
+}
+/*选项*/
 .question-option{
-    margin-right:20px;
+    margin:0 20px;
 }
 .planbtn{
     float:right;
-    color:#666 !important;
+    margin:10px 0;
+    background:#da121a;
+    border-radius:2px;
+    width:94px;
+    height:35px;
+    border:none;
+    font-size:14px;
+    color:#f0f0f0;
 }
