@@ -12,6 +12,7 @@
         <div class="clear"></div>
     </div>
     <div class="result-echarts" id="main"></div>
+    <div class="echarts-desc">工作负载分布图</div>
     <div class="row">
         <div class="col-md-3">
             <p class="appname">
@@ -26,18 +27,6 @@
                 <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
             </p>
         </div>
-
-        <!--<div class="col-md-6">
-            <div class="col-md-6 font-16">{{result.proname}}</div>
-            <div class="col-md-6 font-16 clould-name">{{result.appname}}</div>
-        </div>
-        <div class="col-md-6 row">
-            <div class="col-md-4" v-for="item in resultlist">
-                <button class="scalebtn" disabled v-if="item.moduleName!='云定性'">{{item.result}}</button>
-                <button class="scalebtn" disabled v-else>{{JSON.parse(item.result).sname}}</button>
-                <p class="sacleword">{{item.moduleName}}</p>
-            </div>
-        </div>-->
     </div>
     <div class="clould-desc">
         <div class="clould-title">公有云Iaas</div>
@@ -116,8 +105,8 @@ export default{
                     textStyle:{
                         color:'#333333',
                         fontWeight:'normal',
-                        fontSize:'14px',
-                        width:'100%',
+                        fontSize:'14',
+                        align:'center',
                         rich:{
                             align:'center'
                         }
@@ -152,7 +141,7 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#ccc'
+                        color:'#333'
                     }
                 },
                 yAxis: {
@@ -173,7 +162,31 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#ccc'
+                        color:'#333'
+                    }
+                },
+                visualMap:{
+                    top: 10,
+                    right: 10,
+                    pieces: [{
+                        gt: 0,
+                        lte: 25,
+                        color: '#096'
+                    }, {
+                        gt: 25,
+                        lte: 50,
+                        color: '#ffde33'
+                    }, {
+                        gt: 50,
+                        lte: 75,
+                        color: '#ff9933'
+                    }, {
+                        gt: 75,
+                        lte: 100,
+                        color: '#cc0033'
+                    }],
+                    outOfRange: {
+                        color: '#999'
                     }
                 },
                 series: [{
