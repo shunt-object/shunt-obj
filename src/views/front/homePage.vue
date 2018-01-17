@@ -1016,7 +1016,7 @@
           <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
   
   
-  
+          <div class="heng"></div>
   
   
   
@@ -1177,7 +1177,7 @@
   
   
   
-            <h2>云选型</h2>
+            <h2>云实测</h2>
   
   
   
@@ -1357,7 +1357,7 @@
   
   
   
-            <h4>SaaS化</h4>
+            <h4>保姆化</h4>
   
   
   
@@ -1365,11 +1365,11 @@
   
   
   
-              <p class="mainPd">沉淀5年</p>
+              <p class="mainPd">1V1顾问支持</p>
   
   
   
-              <p>打造国内领先的S级产品</p>
+              <p>提供一站化体验</p>
   
   
   
@@ -1389,7 +1389,7 @@
   
   
   
-            <h4>SaaS化</h4>
+            <h4>权威化</h4>
   
   
   
@@ -1397,11 +1397,11 @@
   
   
   
-              <p class="mainPd">沉淀5年</p>
+              <p class="mainPd">云集百位专家</p>
   
   
   
-              <p>打造国内领先的S级产品</p>
+              <p>提供科学化上云规划</p>
   
   
   
@@ -1421,7 +1421,7 @@
   
   
   
-            <h4>SaaS化</h4>
+            <h4>可视化</h4>
   
   
   
@@ -1429,11 +1429,11 @@
   
   
   
-              <p class="mainPd">沉淀5年</p>
+              <p class="mainPd">多维报表分析</p>
   
   
   
-              <p>打造国内领先的S级产品</p>
+              <p>提供可视化数据展现</p>
   
   
   
@@ -1453,7 +1453,7 @@
   
   
   
-            <h4>SaaS化</h4>
+            <h4>实测化</h4>
   
   
   
@@ -1461,11 +1461,11 @@
   
   
   
-              <p class="mainPd">沉淀5年</p>
+              <p class="mainPd">云端百台真机测试</p>
   
   
   
-              <p>打造国内领先的S级产品</p>
+              <p>节省百台真机费用</p>
   
   
   
@@ -1521,13 +1521,13 @@
   
   
   
-        <h2 class="lhat-td">我们的特点</h2>
+        <h2 class="lhat-td">为什么选择我们</h2>
   
   
   
-        <p class="p-wha">科学权威上云分析</p>
+        <p class="p-wha">云可能很复杂，但我们助您上云变得简单和轻松</p>
   
-  
+       
   
         <div class="heng"></div>
   
@@ -1540,8 +1540,8 @@
           <li class="col-xs-12 col-sm-4">
   
             <div class=" li-fir"><img src="../../assets/pict-1.png" alt="" class="pict">
-  
-              <p style="padding-top:60%">为您减少50%的上云规划时间</p>
+              <h2>省力</h2>
+              <p style="padding-top:44%">为您减少50%的上云规划时间</p>
   
             </div>
   
@@ -1552,8 +1552,8 @@
           <li class="col-xs-12 col-sm-4 ">
   
             <div class="li-sec"><img src="../../assets/pict-3.png" alt="" class="picts">
-  
-              <p style="padding-top:56%">集结上百位专家心血，<br/> 为了您提供科学规划和上云
+              <h2>专业</h2>
+              <p style="padding-top:40%">集结上百位专家心血，<br/> 为了您提供科学规划和上云
   
               </p>
   
@@ -1566,8 +1566,8 @@
           <li class="col-xs-12 col-sm-4 ">
   
             <div class="li-the"><img src="../../assets/pict-2.png" alt="" class="pict">
-  
-              <p style="padding-top:56%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
+            <h2>省钱</h2>
+              <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
   
             </div>
   
@@ -1915,7 +1915,7 @@
   
   
   
-    <div class=" obj-free ">
+    <div class=" obj-frees"   style="height:210px;position:relative">
   
   
   
@@ -1923,7 +1923,7 @@
   
   
   
-      <div class="container">
+     
   
   
   
@@ -1931,87 +1931,36 @@
   
   
   
-        <div class="col-xs-12 col-sm-12 obj-what-dv jzfei">
+        
   
   
   
   
   
+          <div class="pder">
+            <p class="text-center">
+                这一路走来，我们经历过坎坷、经历过风雨;<br/>
+                为此，我们曾经彷徨过、迷茫过、哭过、笑过;</br>  
+                但我们从未放弃、倔强而努力;</br>
+                因为我们坚信:<br/>
+                我们每前进小一步，都将为您带来更好的云上体验!
+            </p>
+            <span>立即体验</span>
+          </div>
   
+         <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
+         
+         
   
-          <p>
   
   
+       
   
   
   
   
   
-            这一路走来，我们经历过坎坷、经历过风雨;</br>
   
-  
-  
-  
-  
-  
-  
-            为此，我们曾经彷徨过、迷茫过、哭过、笑过;</br>
-  
-  
-  
-  
-  
-  
-  
-            但我们从未放弃、倔强而努力;</br>
-  
-  
-  
-  
-  
-  
-  
-            因为我们坚信:</br>
-  
-  
-  
-  
-  
-  
-  
-            我们每前进小一步，都将为您带来更好的云上体验!
-  
-  
-  
-  
-  
-  
-  
-          </p>
-  
-  
-  
-  
-  
-  
-  
-          <span>立即体验</span>
-  
-  
-  
-  
-  
-  
-  
-        </div>
-  
-  
-  
-  
-  
-  
-  
-      </div>
   
   
   
@@ -2319,6 +2268,7 @@
 </template>
 
 <script>
+
   export default {
   
   
@@ -2368,8 +2318,186 @@
   
   
     mounted: function() {
-  
-  
+  function CanvasAnimate(Dom,options){
+    options = options || {}
+    this.Element = Dom
+    this.cvs = Dom.getContext("2d")
+    this.off_cvs = document.createElement("canvas")
+    this.off_cvs.width = Dom.width
+    this.off_cvs.height = Dom.height
+    this.Dom = this.off_cvs.getContext("2d")
+    this.width = Dom.width
+    this.height = Dom.height
+    this.length = options.length || 10
+    this.RoundColor = options.RoundColor || "#CA0F17" 
+    this.RoundDiameter = options.RoundDiameter || 2
+    this.LineColor = options.LineColor || "#CA0F17"
+    this.LineWeight = options.LineWeight || 1
+    this.clicked = options.clicked || false
+    this.moveon = options.moveon || false
+    this.list = []
+    this.paused = true
+}
+CanvasAnimate.prototype.Run = function(){
+    if( this.clicked ){
+        this.Element.addEventListener( "click",this.Clicked.bind(this) )
+    }
+    if( this.moveon ){
+        this.Element.addEventListener( "mousemove",this.moveXY.bind(this) )
+        this.Element.addEventListener( "mouseout",this.moveoutXY.bind(this) )
+    }
+    this.Draw( this.getLength() )
+}
+CanvasAnimate.prototype.getLength=function(){
+    let arr = []
+    for(let i=0;i< this.length ;i++){
+        let obj = {}
+            obj.x = parseInt( Math.random() * this.width )
+            obj.y = parseInt( Math.random() * this.height )
+            obj.r = parseInt( Math.random()*6 ) //圆球大小  
+            obj.controlX = parseInt( Math.random()*10 ) > 5 ? "left":"right"
+            obj.controlY = parseInt( Math.random()*10 ) > 5 ? "bottom":"top"
+        arr.push(obj)
+    }
+    return arr
+}
+CanvasAnimate.prototype.Draw = function(list){
+    let new_arr = []
+    let line_arr = []
+
+    list.map((item,index)=>{
+        let xy = this.ControlXY(item)
+        let obj = this.ControlRound(xy)
+        new_arr.push( obj )
+    });
+    
+    new_arr.map((item1,index1)=>{
+        new_arr.map((item2,index2)=>{
+            if(item1 !== item2){
+                let x = item1.x - item2.x
+                let y = item1.y - item2.y
+                if( Math.abs(x)< 80 && Math.abs(y)<80 ){
+                    let obj = {
+                        x1:item1.x,
+                        y1:item1.y,
+                        x2:item2.x,
+                        y2:item2.y,
+                    }
+                    line_arr.push(obj)
+                }
+            }
+        })
+    })
+
+    this.drawLine(line_arr)
+    
+    new_arr.map((item)=>{
+        this.drawRound(item)
+    })
+
+    this.list = new_arr
+
+    this.cvs.drawImage(this.off_cvs,0,0,this.width,this.height)
+    
+    setTimeout(()=>{
+        if(this.paused){
+            this.next()
+        }
+    },50)
+}
+CanvasAnimate.prototype.next = function(){
+    this.cvs.clearRect( 0,0,this.width,this.height )
+    this.Dom.clearRect( 0,0,this.width,this.height )
+    this.Draw( this.list )
+}
+CanvasAnimate.prototype.drawRound = function(obj){
+    let {x,y,r} = obj
+    this.Dom.beginPath()
+    this.Dom.arc( x,y,r, 0, 2*Math.PI )
+    this.Dom.fillStyle = this.RoundColor
+    this.Dom.fill()
+    this.Dom.closePath()
+}
+CanvasAnimate.prototype.drawLine = function(list){
+    list.map( (item)=>{
+        this.Dom.beginPath()
+        this.Dom.moveTo( item.x1,item.y1 )
+        this.Dom.lineTo( item.x2,item.y2 )
+        this.Dom.lineWidth = this.LineWeight
+        this.Dom.strokeStyle = this.LineColor
+        this.Dom.stroke()
+        this.Dom.closePath()
+    })
+}
+CanvasAnimate.prototype.ControlXY = function(obj){
+    if(obj.x >= (this.width - obj.r) ){
+        obj.controlX = 'left'
+    }else if( obj.x <= parseInt(obj.r/2)  ){
+        obj.controlX = "right"
+    }
+
+    if( obj.y >= (this.height - obj.r) ){
+        obj.controlY = "bottom"
+    }else if( obj.y <= parseInt(obj.r/2) ){
+        obj.controlY = "top"
+    }
+    return obj
+}
+CanvasAnimate.prototype.ControlRound = function(obj){
+    switch(obj.controlX){
+        case "right":
+            obj.x++;
+            break;
+        case "left":
+            obj.x--;
+            break;
+    }
+    switch(obj.controlY){
+        case "top":
+            obj.y++;
+            break;
+        case "bottom":
+            obj.y--;
+            break;
+    }
+    return obj
+}
+CanvasAnimate.prototype.Clicked = function(event){
+    let obj = {}
+        obj.x = event.clientX
+        obj.y = event.clientY
+        obj.r = parseInt( Math.random()*10 )
+        obj.controlX = parseInt( Math.random()*10 ) > 5 ? 'left' :'right'
+        obj.controlY = parseInt( Math.random()*10 ) > 5 ? 'bottom' :'top'
+    this.list.push(obj)
+}
+CanvasAnimate.prototype.moveXY = function(event){
+    let obj = {}
+        obj.x = event.clientX
+        obj.y = event.clientY
+        obj.r = 0
+        obj.move = true
+    if( this.list[0]["move"] ){
+        this.list[0]["x"] = obj.x
+        this.list[0]["y"] = obj.y
+        this.list[0]["r"] = 1
+    }else{
+        this.list.unshift(obj)
+    }
+}
+CanvasAnimate.prototype.moveoutXY = function(event){
+    this.list.shift()
+}
+CanvasAnimate.prototype.pause = function(){
+    this.paused = !this.paused
+    if( this.paused){
+        this.Draw(this.list)
+    }
+}
+ var root = document.querySelector("#root")
+        var a = new CanvasAnimate(root,{length:50,clicked:true,moveon:true})
+            a.Run()
+        
   
       if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
   
@@ -2519,7 +2647,9 @@
     margin-right: 0px;
   
   }
-  
+  h3{
+    margin-top:0;
+  }
   
   
   * {
@@ -2556,17 +2686,7 @@
   
   
   
-  .tuPa {
-  
-    right: 10%;
-  
-    height: 288px;
-  
-    position: absolute;
-  
-    bottom: 0
-  
-  }
+
   
   
   
@@ -2581,13 +2701,27 @@
   
   
   @media (min-width: 768px) {
-  
-    .uls-w li {
+       .pder{
+          position:absolute;
+          top:15%;
+          left:35%;
+        }
+      .uls-w li {
   
       width: 33.333%;
   
     }
+    .tuPa {
   
+    right: 10%;
+  
+    height: 288px;
+  
+    position: absolute;
+  
+    bottom: 0
+  
+  }
     .cla {
   
       margin-left: 8%;
@@ -2694,7 +2828,7 @@
   
     border: 1px solid #ccc;
   
-    border-radius: 4px;
+    
   
     color: #fff;
   
@@ -2732,7 +2866,7 @@
   
     cursor: pointer;
   
-    border-radius: 4px
+ 
   
   }
   
@@ -2896,11 +3030,13 @@
   
     color: #333333;
   
-    font-weight: 700;
+    font-weight: 200;
   
-    font-size: 36px;
-  
-    line-height: 100px;
+ 
+    font-size:32px;
+
+text-align:center;
+   
   
   }
   
@@ -2908,11 +3044,11 @@
   
   .obj-main h3 {
   
-    font-size: 22px;
+    font-size:16px;
+color:#777777;
+text-align:center;
   
-    color: #777777;
-  
-    font-weight: 100
+ 
   
   }
   
@@ -2936,7 +3072,7 @@
   
     border: 1px solid #da121a;
   
-    border-radius: 4px;
+   
   
     margin-top: 5px;
   
@@ -3174,14 +3310,13 @@
   
     width: 100%;
   
-    background: red;
+    background: #da121a;
   
     background-size: cover;
   
     height: auto;
   
-    padding-bottom: 50px;
-  
+    
   }
   
   
@@ -3264,7 +3399,7 @@
   
   .footer .container {
   
-    width: 55%;
+    width: 60%;
   
   }
   
@@ -3333,7 +3468,11 @@
   
   
   @media (max-width: 768px) {
-  
+    .pder{
+   position:absolute;
+   top:15%;
+   left:10%;
+ }
     .lunmain .container {
   
       width: 100%;
@@ -3341,7 +3480,18 @@
       margin-top: 10%;
   
     }
+    .tuPa {
   
+    right: 0;
+  
+    height:0%;
+    
+  
+    position: absolute;
+  
+    bottom: 0
+  
+  }
     .lun-rig img {
   
       width: 80%;
@@ -3565,8 +3715,8 @@
   .obj-what-whew h2 {
   
     font-size: 32px;
-  
-    color: #2b2b2b;
+    font-weight:200;
+    color: #333333;
   
   }
   
@@ -3775,7 +3925,7 @@
     width: 54px;
   
     height: 60px;
-  
+    transition: all 0.6s;  
     margin-top: 30%;
   
   }
@@ -3787,9 +3937,9 @@
     width: 70px;
   
     height: 60px;
-  
+    transition: all 0.6s;  
     margin-top: 30%;
-  
+    
     margin-left: 4%;
   
   }
@@ -3808,6 +3958,86 @@
   
     text-align: center;
   
+  }
+  .li-fir h2{
+    font-size:20px;
+color:#ffffff;
+text-align:center;
+font-size:20px;
+  }
+    .li-sec h2{
+    font-size:20px;
+color:#ffffff;
+text-align:center;
+font-size:20px;
+padding-left:2%;
+  }
+    .li-the h2{
+    font-size:20px;
+color:#ffffff;
+text-align:center;
+font-size:20px;
+  }
+ .pict:hover{
+      transform: scale(1.4);
+  }
+ .picts:hover{
+    transform: scale(1.4);
+ }
+ 
+ .obj-frees{
+    
+  
+    width: 100%;
+  
+    background: #da121a;
+  
+    background-size: cover;
+  
+    height: auto;
+  
+    
+ }
+  
+  
+  
+  .obj-frees p {
+  
+  font-size:14px;
+  color:#ffffff;
+  line-height:22px;
+  text-align:center;
+  
+  
+  
+  
+ }
+   .obj-frees span {
+  
+    border: 1px solid #fff;
+    display:inline-block;
+    font-size: 14px;
+    margin-top:10px;
+    color: #ffffff;
+    cursor:pointer; 
+    transition: all .25s ease;
+    padding: 4px 20px;
+  
+  }
+  .obj-frees span:hover{
+    background:#fff;
+    color:#da121a;
+  }
+  .jsFei h1{
+    font-size:32px;
+  color:#333333;
+  font-weight:200;
+  text-align:center;
+  }
+  .jsFei h3{
+    font-size:16px;
+color:#777777;
+text-align:center;
   }
 </style>
 

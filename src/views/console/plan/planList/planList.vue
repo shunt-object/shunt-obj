@@ -18,7 +18,7 @@
            
           <table id="example" class="table table-striped table-bordered" border="1">
              <thead>
-                    <tr style="margin-top:50px; text-align:center">
+                    <tr style="margin-top:50px; text-align:center" id="tryes">
                         <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
                         <th class="col-md-1 text-center">应用名称</th>
                         <th class="col-md-3 text-center">上云分析名称</th>
@@ -56,6 +56,10 @@
   margin: 0px;
   padding: 0px;
 }
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+    border-bottom-width:0px;
+    padding:0px;
+}
 .ls {
   margin-top: 20px;
 }
@@ -65,17 +69,19 @@ td {
 .lookCom{
   color:#337ab7;
 }
-tr th{
-    font-size:14px;
+#tryes th{
+   line-height:60px;
     color:#2b2b2b;
 }
 tr th input{
     width:16px;
     height:16px;
+    
 }
-tr td{
+#trs td{
     font-size:14px;
 color:#2b2b2b;
+line-height:60px;
 text-align:center;
 }
 tr td input{
