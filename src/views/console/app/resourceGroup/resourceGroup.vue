@@ -1,5 +1,5 @@
 <template>
-<div class="total">
+<div class="total resourceGroup">
 <div class="total-header">
     <span></span>
     <router-link to="/consolePage">总览</router-link> > 资源组配置
@@ -107,7 +107,7 @@
 .row{
     width:100%;
 }
-img{
+.resourceGroup img{
     width:90px;
    
 }
@@ -157,7 +157,7 @@ img{
     .ulss li:nth-child(1){
         margin-top:30px;
     }
-    input,select{
+    .resourceGroup input,select{
         width:236px;
         height:30px;
     }

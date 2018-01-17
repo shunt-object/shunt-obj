@@ -14,7 +14,7 @@ button{
     padding-left:40px;
     cursor:pointer;
 }
-.plan-box input{
+.plan-input input{
     width:14px !important;
     height:14px !important;
 }

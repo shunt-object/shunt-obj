@@ -5,7 +5,7 @@
     <router-link to="/consolePage">总览</router-link> > 云规划
 </div>
 <child index="3" start="0" :type="queryType"></child>
-<div class="plan-box">
+<div class="plan-box plan-input">
     <div class="plan-question-item row">
         <div class="plan-type col-md-4">
             <p class="plan-step" :class="qualitative==true?'qualitative-step':''">步骤1</p>
