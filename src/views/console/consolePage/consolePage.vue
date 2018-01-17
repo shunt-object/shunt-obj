@@ -73,7 +73,7 @@
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/fenxi.png" alt="">
-                        <span>云分析</span>
+                        <span>上云分析</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">

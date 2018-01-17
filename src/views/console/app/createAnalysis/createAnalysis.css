@@ -120,7 +120,7 @@ select,input{
 }
 .analysis_name{
     width: 240px;
-    height:100px;
+    max-height:100px;
     overflow:auto;
     text-align: left;
     margin-left: 104px;
