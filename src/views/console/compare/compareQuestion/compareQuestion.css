@@ -69,7 +69,7 @@
 .compare-box{
     background:#ffffff;
     width:100%;
-    margin-bottom:20px;
+    margin-top:20px;
 }
 .compare-question-title{
     background:#f3f3f3;
@@ -82,6 +82,13 @@
     text-align:left;
     text-indent:38px;
     line-height:32px;
+}
+.add-toggle{
+    float:right;
+    font-size:20px;
+    color:#555;
+    padding-right:20px;
+    cursor:pointer;
 }
 .compare-question-list{
     padding:0 10px;
@@ -102,4 +109,31 @@
     border-radius:2px;
     width:234px;
     height:28px;
+    padding:0 10px;
+}
+.comparebtn{
+    background:#da121a;
+    border-radius:2px;
+    width:94px;
+    height:35px;
+    font-size:14px;
+    color:#f0f0f0;
+    text-align:center;
+    outline:none;
+    border:none;
+    float:right;
+}
+/*没有数据*/
+.nodata{
+    background:#ffffff;
+    width:100%;
+    height:500px;
+    font-size:14px;
+    color:#555;
+    margin:10px 0;
+    line-height:30px;
+    text-align:center;
+}
+.nodata img{
+    margin-top:200px;
 }

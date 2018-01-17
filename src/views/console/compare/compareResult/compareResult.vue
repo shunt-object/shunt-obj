@@ -4,94 +4,88 @@
     <span></span>
     <router-link to="/consolePage">总览</router-link> > 云比较
 </div>
-<div class="plan-box">
-    <div class="plan-container">
-        <child index="4" start="0" :type="queryType"></child>
-        <h4>对比供应商</h4>
-        <table class="table-box table table-striped table-score">
-            <thead>
-                <tr>
-                    <th>云供应商</th>
-                    <th>分数</th>
-                    <!--<th>区域价格范围</th>-->
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in compareResultList">
-                    <td>{{item.serverName}}</td>
-                    <td>{{item.scope}}</td>
-                    <!--<td>2000-3000/月</td>-->
-                </tr>
-            </tbody>
-        </table>
-        <div class="row resourceCroup-head">
-            <div class="col-md-4">数量</div>
-            <div class="col-md-4">资源</div>
-            <div class="col-md-4" style="text-align:left;">规格</div>
-        </div>
-        <div class="resourceCroup-list row">
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-65">{{appServer.num}}</span>
-            </div>
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-65">应用程序</span>
-            </div>
-            <ul class="resourceCroup-list-ul col-md-4">
-                <li>{{appServer.cores}}Vcpu</li>
-                <li>{{appServer.ghz}}处理器主频（Ghz）</li>
-                <li>{{appServer.ram}}内存(GB)</li>
-                <li>{{appServer.localDisk}}系统盘(GB)</li>
-                <li>{{appServer.os}}操作系统</li>
-                <li>{{appServer.computeMappingFactor}}计算机映射因子</li>
-                <li>{{appServer.monthlyUsage}}每个月用量（天/月）</li>
-                <li>{{appServer.dailyUsage}}每天用量（小时/天）</li>
-            </ul>
-        </div>
-        <div class="resourceCroup-list row">
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-65">{{dbServer.num}}</span>
-            </div>
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-65">数据库服务</span>
-            </div>
-            <ul class="resourceCroup-list-ul col-md-4">
-                <li>{{dbServer.cores}}Vcpu</li>
-                <li>{{dbServer.ghz}}处理器主频（Ghz）</li>
-                <li>{{dbServer.ram}}内存(GB)</li>
-                <li>{{dbServer.localDisk}}系统盘(GB)</li>
-                <li>{{dbServer.os}}操作系统</li>
-                <li>{{dbServer.computeMappingFactor}}计算机映射因子</li>
-                <li>{{dbServer.monthlyUsage}}每个月用量（天/月）</li>
-                <li>{{dbServer.dailyUsage}}每天用量（小时/天）</li>
-            </ul>
-        </div>
-        <div class="resourceCroup-list row">  
-            <div class="resourceCroup-list-head col-md-4">  
-                <span class="padding-25"></span>
-            </div>
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-25">网络存储</span>
-            </div>
-            <ul class="resourceCroup-list-ul col-md-4">
-                <li>{{network.bandwidth}}带宽（GB/月）</li>
-                <li>{{network.inbound}}入站（GB/月）</li>
-                <li>{{network.outbound}}出站（GB/月）</li>
-            </ul>
-        </div>
-        <div class="resourceCroup-list row">
-            <div class="resourceCroup-list-head col-md-4">  
-                <span class="padding-25">{{storage.num}}</span>
-            </div>
-            <div class="resourceCroup-list-head col-md-4">
-                <span class="padding-25">存储</span>
-            </div>
-            <ul class="resourceCroup-list-ul col-md-4">
-                <li>{{storage.sna}}共享存储(SAN)(GB)</li>
-                <li>{{storage.nsa}}网络存储(NAS)(GB)</li>
-                <li>{{storage.cloudStorage}}云存储(GB)</li>
-            </ul>
-        </div>
+<child index="4" start="0" :type="queryType"></child>
+<div class="compare-line"></div>
+<div class="compare-container">
+    <div class="compare-title">对比供应商</div>
+    <table class="table-score">
+        <thead>
+            <tr>
+                <th>云供应商</th>
+                <th>分数</th>
+                <th>区域价格范围</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in compareResultList">
+                <td>{{item.serverName}}</td>
+                <td>{{item.scope}}</td>
+                <td>2000-3000/月</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table-score resourGroup-table">
+        <thead>
+            <tr>
+                <th>数量</th>
+                <th>资源</th>
+                <th>规格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{appServer.num}}</td>
+                <td>应用程序</td>
+                <td>
+                    <p>{{appServer.cores}}Vcpu</p>
+                    <p>{{appServer.ghz}}处理器主频（Ghz）</p>
+                    <p>{{appServer.ram}}内存(GB)</p>
+                    <p>{{appServer.localDisk}}系统盘(GB)</p>
+                    <p>{{appServer.os}}操作系统</p>
+                    <p>{{appServer.computeMappingFactor}}计算机映射因子</p>
+                    <p>{{appServer.monthlyUsage}}每个月用量（天/月）</p>
+                    <p>{{appServer.dailyUsage}}每天用量（小时/天）</p>
+                </td>
+            </tr>
+            <tr>
+                <td>{{dbServer.num}}</td>
+                <td>数据库服务</td>
+                <td>
+                    <p>{{dbServer.cores}}Vcpu</p>
+                    <p>{{dbServer.ghz}}处理器主频（Ghz）</p>
+                    <p>{{dbServer.ram}}内存(GB)</p>
+                    <p>{{dbServer.localDisk}}系统盘(GB)</p>
+                    <p>{{dbServer.os}}操作系统</p>
+                    <p>{{dbServer.computeMappingFactor}}计算机映射因子</p>
+                    <p>{{dbServer.monthlyUsage}}每个月用量（天/月）</p>
+                    <p>{{dbServer.dailyUsage}}每天用量（小时/天）</p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>网络存储</td>
+                <td>
+                    <p>{{network.bandwidth}}带宽（GB/月）</p>
+                    <p>{{network.inbound}}入站（GB/月）</p>
+                    <p>{{network.outbound}}出站（GB/月）</p>
+                </td>
+            </tr>
+            <tr>
+                <td>{{storage.num}}</td>
+                <td>存储</td>
+                <td>
+                    <p>{{storage.sna}}共享存储(SAN)(GB)</p>
+                    <p>{{storage.nsa}}网络存储(NAS)(GB)</p>
+                    <p>{{storage.cloudStorage}}云存储(GB)</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="compareResult-btn">
+        <button class="compare-btn compare-nextBtn">下一步</button>
+        <button class="compare-btn compare-prevBtn" v-on:click="prev()">上一步</button>        
     </div>
+    <div class="clear"></div>
 </div>
 </div>
 </template>
@@ -127,6 +121,9 @@ export default{
                 this.storage = JSON.parse(response.data.data.res.storage);
                 //console.log(this.appServer); 
             }).catch((error)=>{})
+        },
+        prev:function(){
+            this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
         }
     },
     components:{

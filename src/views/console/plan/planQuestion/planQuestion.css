@@ -14,16 +14,11 @@ button{
     padding-left:40px;
     cursor:pointer;
 }
+.plan-box input{
+    width:14px !important;
+    height:14px !important;
+}
 /**/
-.plan-question-box{
-    background:#ffffff;
-    border-top:6px solid #f3f3f3;
-    padding-bottom:30px;
-}
-.plan-question-list{
-    width:100%;
-    border-radius:5px;
-}
 .plan-question-item{
     width:100%;
 }

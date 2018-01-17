@@ -12,69 +12,38 @@
     <div class="compare-change row">
         <div class="change-name col-md-1">场景选择：</div>
         <div class="change-list col-md-11 row">
-            <p class="change-all col-md-1">全选</p>
+            <p class="change-all col-md-1" v-on:click="allSelect()">全选</p>
             <ul class="all-list col-md-11">
-                <li class="default" v-on:click="changeType()" v-for="types in typelist">{{types.gname}}</li>
+                <li class="default" :class="types.selected==true?'active-change':''" v-on:click="changeType(index)" v-for="(types,index) in typelist">{{types.gname}}</li>
             </ul>
         </div>
     </div>
+    <!-- 空白 -->
+    <div class="nodata" v-if="typeCheck.length<1">
+        <img src="../../../../assets/compare-nodata.png" alt="">
+        <br>
+        暂无数据
+    </div>
     <!-- 做题 -->
-    <div class="compare-box">
-        <div class="compare-question-title">合规性</div>
-        <ul class="compare-question-list">
-            <li class="row">
-                <p class="col-md-6">Q1、ISO27001/ISO20000</p>
+    <div class="compare-box" v-else v-for="(item,index) in typeCheck">
+        <div class="compare-question-title">
+            {{item.type.gname}}
+            <span class="add-toggle" v-on:click="toggle(item,index)">+</span>
+        </div>
+        <ul class="compare-question-list" v-if="item.boolean==true">
+            <li class="row" v-for="(list,i) in item.data">
+                <p class="col-md-6">Q{{i+1}}.{{list.content}}</p>
                 <p class="col-md-6">
-                    <select class="compare-select">
-                        <option value="">aaaaa</option>
+                    <select class="compare-select" v-model="valuelist[list.id]" v-on:change="changeSelect(list)">
+                        <option :value="option" v-for="option in optionlist">{{option.name}}</option>
                     </select>
                 </p>
             </li>
         </ul>
     </div>
 
-
-
-
-    <div class="">
-        <div>
-            <p class="">请选择场景</p>
-            <p class="" v-for="(item,index) in List">
-                <span style="float:left;"><input type="checkbox" v-model="types[index].boolean">{{item.gname}}</span>
-            </p>
-            <button v-on:click="scene()">开始答题</button>
-        </div>
-        <div class="clear"></div>
-        <div class="compare-list" v-for="(item,index) in typesList">
-            <h5>{{item.title.gname}}</h5>
-            <ul class="compareQuestion-list">
-                <li class="compare-question-item" v-for="ia in item.value">
-                    <p class="">
-                        {{ia.content}}
-                        <select class="compare-select" v-model="modelList[ia.id]" v-on:change="selectChang(ia)">
-                            <option :value="answer" v-for="answer in option">{{answer.name}}</option>
-                        </select>
-                    </p>
-                
-                </li>
-            </ul>
-        </div>
-        <!--<div class="compare-list" v-for="(out,index) in List">
-            <div class="out" style="text-align:left;" v-on:click="getquestion(index,out.id)">
-                <input type="checkbox" :checked="outdata[index].boolean" readonly class="readonly">{{out.gname}}
-                <ul class="compareQuestion-list" v-show="index==i">
-                    <li class="compare-question-item" v-for="(item,i) in question">
-                        {{item.content}} 
-                        <select class="compare-select" v-model="formdata[item.id]" v-on:change="select(item.code,item,index)">
-                            <option :value="answer" v-for="answer in option">{{answer.name}}</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-        </div>-->
-        <button class="btn btn-default planbtn" v-on:click="result()">开始比较</button>
-        <div class="clear"></div>
-    </div>
+    <button class="comparebtn" v-on:click="result()">开始比较</button>
+    <div class="clear"></div>
 
 </div>
 </div>
@@ -86,22 +55,12 @@ export default{
     name:'compareQuestion',
     data(){
         return {
-            List:[],
-            question:[],
-            option:[],
-            i:'',
-            checked:'',
-            formdata:[],
-            outdata:[],
-            appId:'',
             queryType:'',
-            // 改变
-            types:[],
-            typesList:[],
-            typesdata:[],
-            modelList:[],
-            // new
             typelist:[],
+            typeCheck:[],
+            optionlist:[],
+            valuelist:[],
+            togglelist:[]
         }
     },
     mounted:function(){
@@ -111,128 +70,89 @@ export default{
         this.getOptions();
     },
     methods:{
-        getTypes:function(){//new
+        getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
-                //new
                 this.typelist = response.data.data;
-                //new
-                this.List = response.data.data;  
-                for(let i=0;i<response.data.data.length;i++){
-                    this.outdata.push({boolean:false});
-                    this.types.push({boolean:false,id:response.data.data[i].id,gname:response.data.data[i].gname});
-                }             
-            }).catch((error)=>{
-                
-            })
-        },
-        getOptions:function(){//new
-            this.$this.get('/broker/compare/feature/option').then((response)=>{
-                //console.log('ccc',response); 
-                this.option = response.data.data;               
-            }).catch((error)=>{
-                
-            })
-        },
-        changeType:function(){
-
-        },
-        getquestion:function(i,Id){
-            this.i = i;
-            this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
-                //console.log('bbb',response); 
-                this.question = response.data.data;  
-                for(let i=0;i<response.data.data.length;i++){
-                    this.formdata.push(response.data.data[i].id);
-                }
-                //默认选中
                 for(let n=0;n<response.data.data.length;n++){
-                    if(response.data.data[n].selectOptId!=null){
-                        this.formdata[response.data.data[n].id] = this.option[response.data.data[n].selectOptId-1];
+                    if(response.data.data[n].selected==true){
+                        this.questionList(response.data.data[n].id,true);
                     }
-                }  
+                }            
             }).catch((error)=>{
                 
+            })
+        },
+        getOptions:function(){
+            this.$this.get('/broker/compare/feature/option').then((response)=>{
+                //console.log('ccc',response);
+                this.optionlist =  response.data.data;                
+            }).catch((error)=>{
+                
+            })
+        },
+        changeType:function(Index){
+            if(this.typelist[Index].selected==true){
+                this.typelist[Index].selected=false;
+                this.questionList(this.typelist[Index].id,false);
+            }else{
+                this.typelist[Index].selected=true;
+                this.questionList(this.typelist[Index].id,true);
+            }
+        },
+        questionList:function(Id,boolean){
+            this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
+                if(boolean==true){
+                    for(let i=0;i<this.typelist.length;i++){
+                        if(this.typelist[i].id==Id){
+                            this.typeCheck.push({boolean:true,type:this.typelist[i],data:response.data.data});
+                        }
+                    }
+                    for(let n=0;n<this.typeCheck.length;n++){
+                        for(let v=0;v<this.typeCheck[n].data.length;v++){
+                            this.valuelist.push(this.typeCheck[n].data[v].id);
+                            // 默认选中
+                            if(this.typeCheck[n].data[v].selectOptId!=null){
+                                this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
+                            }
+                        }
+                    }
+                }else{
+                    for(let i=0;i<this.typeCheck.length;i++){
+                        if(this.typeCheck[i].type.id==Id){
+                            this.typeCheck.splice(i,1);
+                        }
+                    }
+                }
+            }).catch((error)=>{ 
             }) 
         },
-        select:function(featureCode,item,out){
+        changeSelect:function(item){
             let obj = {
                 "appid": this.appId,
-                "featureCode":featureCode,
+                "featureCode":item.code,//问题的code
                 //"groupId": item.groupId,
-                "optionId": this.formdata[item.id].id
+                "optionId": this.valuelist[item.id].id//选项的id
             };
             let strObj = JSON.stringify(obj);
-            //console.log(this.formdata[item.id]);
-            // for(let n=0;n<this.formdata.length;n++){
-            //     if(n!=item.id){
-            //         this.formdata[n]=='';
-            //     }
-            // }
-            if(this.formdata[item.id]!=''){
-                this.outdata[out].boolean = true;
-            }
-            this.$this.post('/broker/compare/saveUser',strObj).then((response)=>{
-                             
+            this.$this.post('/broker/compare/saveUser',strObj).then((response)=>{            
             }).catch((error)=>{
-                
             })
+        },
+        toggle:function(item,Index){
+            if(this.typeCheck[Index].boolean==true){
+                this.typeCheck[Index].boolean=false;
+            }else{
+                this.typeCheck[Index].boolean=true;
+            }
         },
         result:function(){
             this.$router.push({path:'/compareResult',query:{id:this.appId}});
         },
-        change(item,backParamsData){
-            console.log('item',item)
-        },
-        // 改变
-        scene:function(){
-            for(let i=0;i<this.types.length;i++){
-                if(this.types[i].boolean==true){
-                    this.typesList.push({title:this.types[i],value:{}});
-                }
+        allSelect:function(){
+            for(let i=0;i<this.typelist.length;i++){
+                this.typelist[i].selected=true;
+                this.questionList(this.typelist[i].id,true);
             }
-            for(let n=0;n<this.typesList.length;n++){
-                this.data(this.typesList[n].title.id,n);
-            }
-            for(let i=0;i<this.types.length;i++){
-                this.types[i].boolean = false;
-            }
-        },
-        data:function(id,I){
-            this.$this.get('/broker/compare/feature/'+this.appId+'/'+id+'').then((response)=>{
-                this.typesList[I].value = response.data.data;
-                //console.log(this.typesList);
-                for(let i=0;i<this.typesList.length;i++){
-                    for(let n=0;n<this.typesList[i].value.length;n++){
-                        this.modelList.push(this.typesList[i].value[n].id);
-                    }
-                }
-                // 默认选中
-                for(let n=0;n<this.typesList.length;n++){
-                    for(let s=0;s<this.typesList[n].value.length;s++){
-                        if(this.typesList[n].value[s].selectOptId!=null){
-                            this.modelList[this.typesList[n].value[s].id] = this.option[this.typesList[n].value[s].selectOptId-1];
-                        }
-                    }
-                    
-                }  
-                //console.log('cccc',this.modelList);        
-            }).catch((error)=>{
-                
-            })
-        },
-        selectChang:function(item){
-            let obj = {
-                "appid": this.appId,
-                "featureCode":item.code,//问题的id
-                //"groupId": item.groupId,
-                "optionId": this.modelList[item.id].id//选项的id
-            };
-            let strObj = JSON.stringify(obj);
-            this.$this.post('/broker/compare/saveUser',strObj).then((response)=>{
-                             
-            }).catch((error)=>{
-                
-            })
         }
     },
     components:{
