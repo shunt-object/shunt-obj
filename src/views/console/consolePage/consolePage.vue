@@ -1,32 +1,21 @@
 <template>
 <div class="consolePage" id="container">
     <header class="header white-bg">
-        <div class="sidebar-toggle-box">
-            <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+        <div class="header-logo">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips" style="color:#fff;"></div>
+            </div>
+            <!--logo start-->
+            <a href="javascript:;" class="logo"><router-link to="/"><img src="../../../assets/logo1.png" alt=""></router-link></a>
         </div>
-        <!--logo start-->
-        <a href="javascript:;" class="logo"><router-link to="/">CSB</router-link></a>
-        <!--头部icon-->
-        <div class="nav notify-row" id="top_menu">
-            <ul class="nav top-menu">
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-tasks"></i>
-                    </a>
-                </li>
-                <li id="header_inbox_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-envelope-alt"></i>
-                    </a>
-                </li>
-                <li id="header_notification_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-bell-alt"></i>
-                    </a>
-                </li>
+        <!-- 公告信息 -->
+        <div class="notice">
+            <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
+            <ul class="notice-list">
+                <li>CSB²V1.0版本正式上线<span class="notice-time">2017-12-05</span></li>
             </ul>
         </div>
-        <!--用户信息-->
+         <!--用户信息-->
         <div class="top-nav ">
             <ul class="nav pull-right top-menu">
                 <!--搜索框
@@ -46,6 +35,27 @@
                 </li>
             </ul>
         </div>
+        <!--头部icon-->
+        <div class="nav notify-row" id="top_menu" style="float:right;">
+            <ul class="nav top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-tasks"></i>帮助中心
+                    </a>                    
+                </li>
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-envelope-alt"></i>通知中心
+                    </a>                    
+                </li>
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-bell-alt"></i>在线咨询
+                    </a>                    
+                </li>
+            </ul>
+        </div>
+       
     </header>
     <!--侧导航-->
     <aside>
@@ -54,19 +64,22 @@
             <ul class="sidebar-menu">
                 <li class="active" v-on:click="index()">
                     <a class="" href="javascript:;">
-                        <i class="icon-dashboard"></i>
+                        <!--<i class="icon-dashboard"></i>-->
+                        <img src="../../../assets/zong.png" alt="">
                         <span>总览</span>
                     </a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
-                        <i class="icon-book"></i>
+                        <!--<i class="icon-book"></i>-->
+                        <img src="../../../assets/fenxi.png" alt="">
                         <span>云分析</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
+                        <li><a href="javascript:;">云实测</a></li>
                     </ul>
                 </li>
             </ul>

@@ -228,7 +228,7 @@
 
 @media (max-width: 480px) {
 
-    .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
+    .notify-row, .search, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn,.notice{
         display: none;
     }
 
@@ -274,7 +274,7 @@
         padding: 15px 17px !important;
     }
 
-    .notify-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
+    .notify-row, .search, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn ,.notice{
         display: none;
     }
 

@@ -86,17 +86,13 @@ export default{
             console.log(this.opiniondata);         
         }).catch((error)=>{
         }) 
-        
-        //图表
-        // this.$nextTick(function() {
-        //     this.drawPie('main')
-        // })
     },
     methods:{
         compare:function(){
             this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
         },
         drawPie:function(id){
+            console.log(this.opiniondata);
             this.charts = echarts.init(document.getElementById(id));
             this.charts.setOption({
                 //backgroundColor:'#ccc',
@@ -105,12 +101,9 @@ export default{
                     textStyle:{
                         color:'#333333',
                         fontWeight:'normal',
-                        fontSize:'14',
-                        align:'center',
-                        rich:{
-                            align:'center'
-                        }
-                    }
+                        fontSize:'14'
+                    },
+                    left: 'center'
                 },
                 tooltip: {
                     trigger: 'item',
@@ -120,7 +113,7 @@ export default{
                         lineStyle: {
                             type: 'dashed',
                             width: 1
-                        },
+                        }                        
                     }
                 },
                 xAxis: {
@@ -163,30 +156,6 @@ export default{
                     },
                     nameTextStyle:{
                         color:'#333'
-                    }
-                },
-                visualMap:{
-                    top: 10,
-                    right: 10,
-                    pieces: [{
-                        gt: 0,
-                        lte: 25,
-                        color: '#096'
-                    }, {
-                        gt: 25,
-                        lte: 50,
-                        color: '#ffde33'
-                    }, {
-                        gt: 50,
-                        lte: 75,
-                        color: '#ff9933'
-                    }, {
-                        gt: 75,
-                        lte: 100,
-                        color: '#cc0033'
-                    }],
-                    outOfRange: {
-                        color: '#999'
                     }
                 },
                 series: [{

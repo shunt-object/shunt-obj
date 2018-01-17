@@ -12,18 +12,39 @@
                 <div class="plan-question-item row">
                     <div class="plan-type col-md-4">
                         <p class="plan-step" :class="qualitative==true?'qualitative-step':''">步骤1</p>
-                        <button class="qualitative-ready" :class="qualitative==true?'qualitativeBtn':'qualitative-btn'" v-on:click="tab(1)">{{cloudName}}</button>
-                        <div :class="qualitative==true?'qualitative-line':''"></div>
+                        <div class="common-block qualitative-ready" :class="qualitative==true?'activeBtn':'active-btn'" v-on:click="tab(1)">
+                            <div class="plan-title">
+                                <p class="title1">云定性</p>
+                                <p class="title2">Cloud qualitative</p>
+                                <p class="title-line"></p>
+                            </div>
+                            <span>{{cloudName}}</span>
+                        </div>
+                        <div class="qualitative-line" :class="qualitative==true?'active-line':'plan-line'"></div>
                     </div>
                     <div class="plan-type col-md-4">
                         <p class="plan-step" :class="profit==true?'profit-step':''">步骤2</p>
-                        <button class="profit-ready" :class="profit==true?'profitBtn':'profit-btn'" v-on:click="tab(2)">{{profitReault}}</button>
-                        <div :class="profit==true?'profit-line':''"></div>
+                        <div class="common-block profit-ready" :class="profit==true?'activeBtn':'active-btn'" v-on:click="tab(2)">
+                            <div class="plan-title">
+                                <p class="title1">云收益度</p>
+                                <p class="title2">Cloud qualitative</p>
+                                <p class="title-line"></p>
+                            </div>
+                            <span>{{profitReault}}</span>
+                        </div>
+                        <div class="profit-line" :class="profit==true?'active-line':'plan-line'"></div>
                     </div>
                     <div class="plan-type col-md-4">
                         <p class="plan-step" :class="affinity==true?'affinity-step':''">步骤3</p>
-                        <button class="affinity-ready" :class="affinity==true?'affinityBtn':'affinity-btn'" v-on:click="tab(3)">{{affinityResult}}</button>
-                        <div :class="affinity==true?'affinity-line':''"></div>
+                        <div class="common-block affinity-ready" :class="affinity==true?'activeBtn':'active-btn'" v-on:click="tab(3)">
+                            <div class="plan-title">
+                                <p class="title1">云亲和度</p>
+                                <p class="title2">Cloud qualitative</p>
+                                <p class="title-line"></p>
+                            </div>
+                            <span>{{affinityResult}}</span>
+                        </div>
+                        <div class="affinity-line" :class="affinity==true?'active-line':'plan-line'"></div>
                     </div>
                 </div>
                 <!--定性问题-->
@@ -89,9 +110,9 @@ export default{
             appId:'',//创建云分析的appid
             qinhe:[],//收益度问题列表
             serverce:'',//定性id
-            cloudName:'云定性',//定性云
-            profitReault:'云收益度',//收益结果
-            affinityResult:'云亲和度',//亲和结果
+            cloudName:'',//定性云
+            profitReault:'',//收益结果
+            affinityResult:'',//亲和结果
             shouyi:[],//亲和度问题李彪
             selectedId:[],//多选
             indexI:0,//

@@ -4,20 +4,39 @@
     <span></span>
     <router-link to="/consolePage">总览</router-link> > 云规划
 </div>
-<div class="plan-box">
-    <div class="plan-container">
-    <child index="4" start="0" :type="queryType"></child>
-
-    <div class="compare-box">
-        <!--<div class="select2">
-            <div class="slect2-box">
-                <i class="square"></i>
-            </div>
-            <ul class="select2-list">
-                <li>aaaa</li>
-                <li>aaaa</li>
+<child index="4" start="0" :type="queryType"></child>
+<div class="compare-line"></div>
+<div class="compare-container">
+    <div class="compare-title">比较标准</div>
+    <!-- 场景选择 -->
+    <div class="compare-change row">
+        <div class="change-name col-md-1">场景选择：</div>
+        <div class="change-list col-md-11 row">
+            <p class="change-all col-md-1">全选</p>
+            <ul class="all-list col-md-11">
+                <li class="default" v-on:click="changeType()" v-for="types in typelist">{{types.gname}}</li>
             </ul>
-        </div>-->
+        </div>
+    </div>
+    <!-- 做题 -->
+    <div class="compare-box">
+        <div class="compare-question-title">合规性</div>
+        <ul class="compare-question-list">
+            <li class="row">
+                <p class="col-md-6">Q1、ISO27001/ISO20000</p>
+                <p class="col-md-6">
+                    <select class="compare-select">
+                        <option value="">aaaaa</option>
+                    </select>
+                </p>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="">
         <div>
             <p class="">请选择场景</p>
             <p class="" v-for="(item,index) in List">
@@ -57,7 +76,6 @@
         <div class="clear"></div>
     </div>
 
-    </div>
 </div>
 </div>
 </template>
@@ -81,34 +99,43 @@ export default{
             types:[],
             typesList:[],
             typesdata:[],
-            modelList:[]
+            modelList:[],
+            // new
+            typelist:[],
         }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
-        // if( sessionStorage.getItem('appId')==null || sessionStorage.getItem('appId')=='' ){
-        //     this.appId = this.$route.query.id;            
-        // }else{
-        //     this.appId = sessionStorage.getItem('appId');
-        // }
         this.appId = this.$route.query.id; 
-        this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
-            this.List = response.data.data;  
-            for(let i=0;i<response.data.data.length;i++){
-                this.outdata.push({boolean:false});
-                this.types.push({boolean:false,id:response.data.data[i].id,gname:response.data.data[i].gname});
-            }             
-        }).catch((error)=>{
-            
-        }) 
-        this.$this.get('/broker/compare/feature/option').then((response)=>{
-            //console.log('ccc',response); 
-            this.option = response.data.data;               
-        }).catch((error)=>{
-            
-        })
+        this.getTypes();
+        this.getOptions();
     },
     methods:{
+        getTypes:function(){//new
+            this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
+                //new
+                this.typelist = response.data.data;
+                //new
+                this.List = response.data.data;  
+                for(let i=0;i<response.data.data.length;i++){
+                    this.outdata.push({boolean:false});
+                    this.types.push({boolean:false,id:response.data.data[i].id,gname:response.data.data[i].gname});
+                }             
+            }).catch((error)=>{
+                
+            })
+        },
+        getOptions:function(){//new
+            this.$this.get('/broker/compare/feature/option').then((response)=>{
+                //console.log('ccc',response); 
+                this.option = response.data.data;               
+            }).catch((error)=>{
+                
+            })
+        },
+        changeType:function(){
+
+        },
         getquestion:function(i,Id){
             this.i = i;
             this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{

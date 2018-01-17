@@ -32,54 +32,37 @@ button{
 }
 /*三个块*/
 .qualitative-ready{
-    background:#da121a;
-    border-radius:2px;
-    border:none;
-    font-size:20px;
-    color:#ffffff;
-    text-align:right;
-    padding-right:28px;
-}
-.qualitative-btn{
-    width:80%;
-    height:106px;  
-}
-.qualitativeBtn{
-    width:82%;
-    height:119px;
+    background:url('../../../../assets/plan-group1.png') no-repeat; 
+     background-size:100% 100%;  
 }
 .profit-ready{
-    background:#f7a72c;
+     background:url('../../../../assets/plan-group2.png') no-repeat; 
+     background-size:100% 100%;  
+}
+.affinity-ready{ 
+     background:url('../../../../assets/plan-group3.png') no-repeat; 
+     background-size:100% 100%;   
+}
+.common-block{
+    margin:0 auto;
     border-radius:2px;
     border:none;
     font-size:20px;
     color:#ffffff;
     text-align:right;
     padding-right:28px;
+    cursor: pointer;
 }
-.profit-btn{
-    width:80%;
-    height:106px;  
+.common-block span{
+    display:inline-block;
+    line-height:119px;
 }
-.profitBtn{
-    width:82%;
-    height:119px;
+.active-btn{
+    width:96%;
+    height:106px;
 }
-.affinity-ready{
-    background:#e15e2d;
-    border-radius:2px;
-    border:none;
-    font-size:20px;
-    color:#ffffff;
-    text-align:right;
-    padding-right:28px;
-}
-.affinity-btn{
-    width:80%;
-    height:106px;  
-}
-.affinityBtn{
-    width:82%;
+.activeBtn{
+    width:98%;
     height:119px;
 }
 .plan-step{
@@ -98,27 +81,51 @@ button{
     font-size:18px;
     color:#e15e2d;  
 }
-.qualitative-line{
+.plan-line{
     display:inline-block;
-    width:82%;
+    width:96%;
     height:3px;
+}
+.active-line{
+    display:inline-block;
+    width:98%;
+    height:3px;
+}
+.qualitative-line{
     background:#df333a;
 }
 .profit-line{
-    display:inline-block;
-    width:82%;
-    height:3px;
     background:#f7a72c;
 }
 .affinity-line{
-    display:inline-block;
-    width:82%;
-    height:3px;
     background:#e15e2d;
 }
 .question-list{
     margin-top:10px;
     padding:0 20px;
+}
+.plan-title{
+    float:left;
+    color:#fff;
+    text-align:left;
+    text-indent:32px;
+    padding-top:24px;
+}
+.plan-title>p{
+    margin:0;
+}
+.plan-title>.title1{
+    font-size:20px;
+}
+.plan-title>.title2{
+    font-size:14px;
+}
+.plan-title>.title-line{
+    background:#ffffff;
+    width:67px;
+    height:3px;
+    margin-left:32px;
+    margin-top:5px;
 }
 /*定性*/
 .question-block{
