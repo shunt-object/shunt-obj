@@ -76,7 +76,10 @@
                         <span class="col-md-6 text-left">
                             <p >
                                 <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
-                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>                                    
+                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>
+                                    <span v-if="im.taskStatus==2">(已完成)</span>    
+                                    <span v-if="im.taskStatus==1">(未完成)</span>   
+                                    <span v-if="im.taskStatus==0">(未做)</span>                                   
                                     <!--0=未做；1=已做未完成；2=已完成-->
                                 </a>
                                 
