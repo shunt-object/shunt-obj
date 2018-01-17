@@ -7,7 +7,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
     <nav class="navbar navbar-default navbar-fixed-top">
+  
+  
+  
+  
   
   
   
@@ -15,7 +27,15 @@
   
   
   
+  
+  
+  
+  
         <!-- Brand and toggle get grouped for better mobile display -->
+  
+  
+  
+  
   
   
   
@@ -23,27 +43,55 @@
   
   
   
+  
+  
+  
+  
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
   
     
   
-    					<span class="sr-only">Toggle navigation</span>
+      
   
     
   
-    					<span class="icon-bar"></span>
+      					<span class="sr-only">Toggle navigation</span>
   
     
   
-    					<span class="icon-bar"></span>
+      
   
     
   
-    					<span class="icon-bar"></span>
+      					<span class="icon-bar"></span>
   
     
   
-    					</button>
+      
+  
+    
+  
+      					<span class="icon-bar"></span>
+  
+    
+  
+      
+  
+    
+  
+      					<span class="icon-bar"></span>
+  
+    
+  
+      
+  
+    
+  
+      					</button>
+  
+  
+  
+  
   
   
   
@@ -51,7 +99,15 @@
   
   
   
+  
+  
+  
+  
         </div>
+  
+  
+  
+  
   
   
   
@@ -59,7 +115,15 @@
   
   
   
+  
+  
+  
+  
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  
+  
+  
+  
   
   
   
@@ -67,7 +131,15 @@
   
   
   
+  
+  
+  
+  
             <li>
+  
+  
+  
+  
   
   
   
@@ -75,11 +147,23 @@
   
   
   
+  
+  
+  
+  
             </li>
   
   
   
+  
+  
+  
+  
             <li>
+  
+  
+  
+  
   
   
   
@@ -87,11 +171,23 @@
   
   
   
+  
+  
+  
+  
             </li>
   
   
   
+  
+  
+  
+  
             <li>
+  
+  
+  
+  
   
   
   
@@ -99,11 +195,23 @@
   
   
   
+  
+  
+  
+  
             </li>
   
   
   
+  
+  
+  
+  
             <li>
+  
+  
+  
+  
   
   
   
@@ -111,7 +219,15 @@
   
   
   
+  
+  
+  
+  
             </li>
+  
+  
+  
+  
   
   
   
@@ -119,7 +235,15 @@
   
   
   
+  
+  
+  
+  
               <a class="page-scroll" v-on:click="condole">控制台</a>
+  
+  
+  
+  
   
   
   
@@ -127,7 +251,15 @@
   
   
   
+  
+  
+  
+  
           </ul>
+  
+  
+  
+  
   
   
   
@@ -135,11 +267,23 @@
   
   
   
+  
+  
+  
+  
             <ul class="nav navbar-nav " id="navright">
   
   
   
+  
+  
+  
+  
               <li>
+  
+  
+  
+  
   
   
   
@@ -147,7 +291,15 @@
   
   
   
+  
+  
+  
+  
               </li>
+  
+  
+  
+  
   
   
   
@@ -155,27 +307,55 @@
   
   
   
+  
+  
+  
+  
                 <span class="resc" v-if="islogin==false" v-on:click="reset">注册</span>
   
   
   
+  
+  
+  
+  
               </li>
+  
+  
   
               <li v-if="islogin==true">
   
+  
+  
                 <div class="btn-group">
+  
+  
   
                   <button type="button" class="btn btn-default dropdown-toggle logoutbtn" data-toggle="dropdown"> {{realname}}</button>
   
+  
+  
                   <ul class="dropdown-menu logout-ul" role="menu">
+  
+  
   
                     <li v-on:click="fn()" style="cursor:pointer;">退出</li>
   
+  
+  
                   </ul>
+  
+  
   
                 </div>
   
+  
+  
               </li>
+  
+  
+  
+  
   
   
   
@@ -183,7 +363,15 @@
   
   
   
+  
+  
+  
+  
           </div>
+  
+  
+  
+  
   
   
   
@@ -191,7 +379,15 @@
   
   
   
+  
+  
+  
+  
         <!-- /.navbar-collapse -->
+  
+  
+  
+  
   
   
   
@@ -199,11 +395,23 @@
   
   
   
+  
+  
+  
+  
       <!-- /.container-fluid -->
   
   
   
+  
+  
+  
+  
     </nav>
+  
+  
+  
+  
   
   
   
@@ -219,7 +427,23 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  
+  
+  
+  
   
   
   
@@ -227,7 +451,15 @@
   
   
   
+  
+  
+  
+  
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+  
+  
+  
+  
   
   
   
@@ -239,7 +471,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
       </ol>
+  
+  
+  
+  
   
   
   
@@ -247,7 +491,15 @@
   
   
   
+  
+  
+  
+  
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
+  
+  
+  
+  
   
   
   
@@ -255,7 +507,15 @@
   
   
   
+            <img src="../../assets/tu.png" alt="" class="tuPa">
+  
+  
+  
             <div class="container">
+  
+  
+  
+  
   
   
   
@@ -263,7 +523,15 @@
   
   
   
+  
+  
+  
+  
                 <h1>中国的“RightScale”,助您轻松上云!</h1>
+  
+  
+  
+  
   
   
   
@@ -271,7 +539,15 @@
   
   
   
+  
+  
+  
+  
                   打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>
+  
+  
+  
+  
   
   
   
@@ -279,7 +555,15 @@
   
   
   
+  
+  
+  
+  
                 </p>
+  
+  
+  
+  
   
   
   
@@ -287,7 +571,15 @@
   
   
   
+  
+  
+  
+  
               </div>
+  
+  
+  
+  
   
   
   
@@ -295,7 +587,17 @@
   
   
   
+  
+  
+  
+  
                 <img src="../../assets/text.png" alt="">
+  
+  
+  
+  
+  
+  
   
   
   
@@ -303,7 +605,15 @@
   
   
   
+  
+  
+  
+  
             </div>
+  
+  
+  
+  
   
   
   
@@ -311,7 +621,15 @@
   
   
   
+  
+  
+  
+  
         </div>
+  
+  
+  
+  
   
   
   
@@ -319,7 +637,15 @@
   
   
   
+  
+  
+  
+  
           <div class="lunmain">
+  
+  
+  
+            <img src="../../assets/tu.png" alt="" class="tuPa">
   
   
   
@@ -327,7 +653,15 @@
   
   
   
+  
+  
+  
+  
               <div class="row" style="">
+  
+  
+  
+  
   
   
   
@@ -335,7 +669,15 @@
   
   
   
+  
+  
+  
+  
                   <h1>中国的“RightScale”,助您轻松上云!</h1>
+  
+  
+  
+  
   
   
   
@@ -343,11 +685,23 @@
   
   
   
+  
+  
+  
+  
                     打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>
   
   
   
+  
+  
+  
+  
                     适合云厂商？”一体化线上SaaS服务平台。</p>
+  
+  
+  
+  
   
   
   
@@ -359,7 +713,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
                 </div>
+  
+  
+  
+  
   
   
   
@@ -367,7 +733,15 @@
   
   
   
+  
+  
+  
+  
                   <img src="../../assets/text.png" alt="">
+  
+  
+  
+  
   
   
   
@@ -375,7 +749,15 @@
   
   
   
+  
+  
+  
+  
               </div>
+  
+  
+  
+  
   
   
   
@@ -383,7 +765,15 @@
   
   
   
+  
+  
+  
+  
           </div>
+  
+  
+  
+  
   
   
   
@@ -391,11 +781,23 @@
   
   
   
+  
+  
+  
+  
         <a class="carousel-control left" href="next" data-slide="prev">&lsaquo;</a>
   
   
   
+  
+  
+  
+  
         <a class="carousel-control right" href="prev" data-slide="next" style="height:100%">&rsaquo;</a>
+  
+  
+  
+  
   
   
   
@@ -411,17 +813,43 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
       <!-- Controls -->
+  
+  
+  
+  
   
   
   
       <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
   
+  
+  
       <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;"></a>
   
   
   
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
   
   
   
@@ -445,7 +873,31 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     <!--------------------------------公告------------------------------------------------>
+  
+  
+  
+  
   
   
   
@@ -453,7 +905,15 @@
   
   
   
+  
+  
+  
+  
       <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+  
+  
+  
+  
   
   
   
@@ -461,7 +921,15 @@
   
   
   
+  
+  
+  
+  
         <li class="col-md-7 col-xs-7 lis" style="text-align:center">
+  
+  
+  
+  
   
   
   
@@ -469,7 +937,15 @@
   
   
   
+  
+  
+  
+  
           </marquee>
+  
+  
+  
+  
   
   
   
@@ -477,7 +953,15 @@
   
   
   
+  
+  
+  
+  
       </ul>
+  
+  
+  
+  
   
   
   
@@ -485,7 +969,15 @@
   
   
   
+  
+  
+  
+  
     <!----------------------------main-start---------------------------------->
+  
+  
+  
+  
   
   
   
@@ -493,7 +985,15 @@
   
   
   
+  
+  
+  
+  
       <div class="container">
+  
+  
+  
+  
   
   
   
@@ -501,7 +1001,15 @@
   
   
   
-          <h1 class="text-center thin">Saas化云服务</h1>
+  
+  
+  
+  
+          <h1 class="text-center thin ths">Saas化云服务</h1>
+  
+  
+  
+  
   
   
   
@@ -509,7 +1017,15 @@
   
   
   
+  
+  
+  
+  
         </div>
+  
+  
+  
+  
   
   
   
@@ -517,17 +1033,35 @@
   
   
   
+  
+  
+  
+  
           <div class="col-xs-12 col-sm-4 blurb-cta">
   
   
   
-            <img src="../../assets/yun-f.png" alt="" class="Yunimg">
+  
+  
+  
+  
+            <img src="../../assets/13.png" alt="" class="Yunimg">
+  
+  
+  
+  
   
   
   
             <h2>云规划</h2>
   
+  
+  
             <div class="bluar-ccc">
+  
+  
+  
+  
   
   
   
@@ -537,9 +1071,23 @@
   
   
   
+  
+  
+  
+  
+  
+  
             </div>
   
+  
+  
             <span class="obj-cta">查看更多</span>
+  
+  
+  
+  
+  
+  
   
   
   
@@ -549,11 +1097,23 @@
   
   
   
+  
+  
+  
+  
           <div class="col-xs-12 col-sm-4 blurb-cta">
   
   
   
-            <img src="../../assets/yun-s.png" alt="" class="Yunimg">
+  
+  
+  
+  
+            <img src="../../assets/Page 1.png" alt="" class="Yunimg">
+  
+  
+  
+  
   
   
   
@@ -561,7 +1121,17 @@
   
   
   
+  
+  
+  
+  
             <div class="bluar-ccc">
+  
+  
+  
+  
+  
+  
   
   
   
@@ -573,17 +1143,37 @@
   
   
   
+  
+  
+  
+  
+  
+  
             </div>
+  
+  
   
             <span class="obj-cta">查看更多</span>
   
+  
+  
           </div>
+  
+  
   
           <div class="col-xs-12 col-sm-4 blurb-cta">
   
   
   
-            <img src="../../assets/yun-s.png" alt="" class="Yunimg">
+  
+  
+  
+  
+            <img src="../../assets/12.png" alt="" class="Yunimg">
+  
+  
+  
+  
   
   
   
@@ -591,7 +1181,17 @@
   
   
   
+  
+  
+  
+  
             <div class="bluar-ccc">
+  
+  
+  
+  
+  
+  
   
   
   
@@ -603,11 +1203,25 @@
   
   
   
+  
+  
+  
+  
+  
+  
             </div>
+  
+  
   
             <p><span class="obj-cta">查看更多</span></p>
   
+  
+  
           </div>
+  
+  
+  
+  
   
   
   
@@ -615,11 +1229,31 @@
   
   
   
+  
+  
+  
+  
       </div>
   
   
   
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -635,107 +1269,213 @@
   
   
   
+  
+  
+  
+  
     <div class="obj-what phone-position">
   
   
   
-      <img src="../../assets/qq.png" alt="" class="RenGong">
   
   
   
-      <img src="../../assets/phone.png" alt="" class="phone">
+  
+      <img src="../../assets/Group 32.png" alt="" class="RenGong">
+  
+  
+  
+  
+  
+  
+  
+      <img src="../../assets/Group 40.png" alt="" class="phone">
+  
+  
+  
+  
   
   
   
       <div class="container obj-what-whew">
   
+  
+  
         <h2>我们的特点</h2>
+  
+  
   
         <p class="p-wha">科学权威上云分析</p>
   
+  
+  
         <div class="heng"></div>
+  
+  
   
         <div class="col-xs-12 cla">
   
-          <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt="" class="tranImg">
-  
-            <h4>SaaS化</h4>
-  
-            <div class="mainpa">
-  
-              <p class="mainPd">沉淀5年</p>
-  
-              <p>打造国内领先的S级产品</p>
-  
-            </div>
-  
-          </div>
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt=""  class="tranImg">
+  
+  
+            <img src="../../assets/a.png" alt="" class="tranImg">
+  
+  
   
             <h4>SaaS化</h4>
   
-            <div class="mainpa">
   
-              <p class="mainPd">沉淀5年</p>
-  
-              <p>打造国内领先的S级产品</p>
-  
-            </div>
-  
-          </div>
-  
-          <div class="col-xs-12 col-sm-2" >
-  
-            <img src="../../assets/what.png" alt=""  class="tranImg">
-  
-            <h4>SaaS化</h4>
   
             <div class="mainpa">
   
+  
+  
               <p class="mainPd">沉淀5年</p>
+  
+  
   
               <p>打造国内领先的S级产品</p>
   
+  
+  
             </div>
   
+  
+  
           </div>
+  
+  
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt=""  class="tranImg">
+  
+  
+            <img src="../../assets/b.png" alt="" class="tranImg">
+  
+  
   
             <h4>SaaS化</h4>
   
+  
+  
             <div class="mainpa">
+  
+  
   
               <p class="mainPd">沉淀5年</p>
   
+  
+  
               <p>打造国内领先的S级产品</p>
+  
+  
   
             </div>
   
+  
+  
           </div>
+  
+  
   
           <div class="col-xs-12 col-sm-2">
   
-            <img src="../../assets/what.png" alt=""  class="tranImg">
+  
+  
+            <img src="../../assets/c.png" alt="" class="tranImg">
+  
+  
   
             <h4>SaaS化</h4>
   
+  
+  
             <div class="mainpa">
+  
+  
   
               <p class="mainPd">沉淀5年</p>
   
+  
+  
               <p>打造国内领先的S级产品</p>
+  
+  
   
             </div>
   
+  
+  
           </div>
+  
+  
+  
+          <div class="col-xs-12 col-sm-2">
+  
+  
+  
+            <img src="../../assets/e.png" alt="" class="tranImg">
+  
+  
+  
+            <h4>SaaS化</h4>
+  
+  
+  
+            <div class="mainpa">
+  
+  
+  
+              <p class="mainPd">沉淀5年</p>
+  
+  
+  
+              <p>打造国内领先的S级产品</p>
+  
+  
+  
+            </div>
+  
+  
+  
+          </div>
+  
+  
+  
+          <div class="col-xs-12 col-sm-2">
+  
+  
+  
+            <img src="../../assets/5.png" alt="" class="tranImg">
+  
+  
+  
+            <h4>SaaS化</h4>
+  
+  
+  
+            <div class="mainpa">
+  
+  
+  
+              <p class="mainPd">沉淀5年</p>
+  
+  
+  
+              <p>打造国内领先的S级产品</p>
+  
+  
+  
+            </div>
+  
+  
+  
+          </div>
+  
+  
   
         </div>
   
@@ -745,39 +1485,119 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
       </div>
   
   
   
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
   
   
   
     <!--------------------------为什么选择我们------------------------------>
   
+  
+  
     <div class="obj-what obj-lhat ">
+  
+  
   
       <div class="container obj-what-whew expru">
   
+  
+  
         <h2 class="lhat-td">我们的特点</h2>
+  
+  
   
         <p class="p-wha">科学权威上云分析</p>
   
+  
+  
         <div class="heng"></div>
+  
+  
   
         <ul class="row col-xs-12 uls-w">
   
-          <li class="col-xs-12 col-sm-4"><img src="../../assets/1516007432(1).jpg" alt=""></li>
   
-          <li class="col-xs-12 col-sm-4"><img src="../../assets/1516007432(1).jpg" alt=""></li>
   
-          <li class="col-xs-12 col-sm-4"><img src="../../assets/1516007432(1).jpg" alt=""></li>
+          <li class="col-xs-12 col-sm-4">
+  
+            <div class=" li-fir"><img src="../../assets/pict-1.png" alt="" class="pict">
+  
+              <p style="padding-top:60%">为您减少50%的上云规划时间</p>
+  
+            </div>
+  
+          </li>
+  
+  
+  
+          <li class="col-xs-12 col-sm-4 ">
+  
+            <div class="li-sec"><img src="../../assets/pict-3.png" alt="" class="picts">
+  
+              <p style="padding-top:56%">集结上百位专家心血，<br/> 为了您提供科学规划和上云
+  
+              </p>
+  
+            </div>
+  
+          </li>
+  
+  
+  
+          <li class="col-xs-12 col-sm-4 ">
+  
+            <div class="li-the"><img src="../../assets/pict-2.png" alt="" class="pict">
+  
+              <p style="padding-top:56%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
+  
+            </div>
+  
+          </li>
+  
+  
   
         </ul>
   
+  
+  
       </div>
   
+  
+  
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -795,7 +1615,15 @@
   
   
   
-    <div class=" obj-what obj-friend" style="background:#fff">
+  
+  
+  
+  
+    <div class=" obj-what obj-friend" style="background:#f7f7f7;">
+  
+  
+  
+  
   
   
   
@@ -803,63 +1631,63 @@
   
   
   
+  
+  
+  
+  
         <div class="row text-center jzWe jsFei">
   
   
   
+  
+  
+  
+  
           <h1 class="text-center thin">合作伙伴</h1>
-          
-        
+  
+  
+  
+  
+  
+  
   
           <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态!</h3>
   
+  
+  
           <div class="he-su"></div>
   
-        </div>
-  
-  
-  
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
-  
-  
-  
-          <img src="../../assets/friend.png" alt="">
-  
-  
-  
-          <img src="../../assets/friend.png" alt="">
-  
   
   
         </div>
   
   
   
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
   
   
   
-        </div>
+  
+          <img src="../../assets/Group 29.png" alt="">
   
   
   
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+          <img src="../../assets/Group 39.png" alt="">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
   
   
   
@@ -867,15 +1695,63 @@
   
   
   
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+  
+  
+  
+          <img src="../../assets/Group 30.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 41.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 34.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 42.png" alt="">
+  
+  
+  
+  
   
   
   
@@ -883,15 +1759,31 @@
   
   
   
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+  
+  
+  
+          <img src="../../assets/Group 36.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 43.png" alt="">
+  
+  
+  
+  
   
   
   
@@ -899,19 +1791,79 @@
   
   
   
-        <div class="col-xs-6 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
   
   
   
-          <img src="../../assets/friend.png" alt="">
+  
+  
+  
+  
+          <img src="../../assets/Group 37.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 44.png" alt="">
+  
+  
+  
+  
   
   
   
         </div>
+  
+  
+  
+  
+  
+  
+  
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 38.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+          <img src="../../assets/Group 45.png" alt="">
+  
+  
+  
+  
+  
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -927,7 +1879,23 @@
   
   
   
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -943,7 +1911,15 @@
   
   
   
+  
+  
+  
+  
     <div class=" obj-free ">
+  
+  
+  
+  
   
   
   
@@ -951,7 +1927,15 @@
   
   
   
+  
+  
+  
+  
         <div class="col-xs-12 col-sm-12 obj-what-dv jzfei">
+  
+  
+  
+  
   
   
   
@@ -959,7 +1943,15 @@
   
   
   
+  
+  
+  
+  
             这一路走来，我们经历过坎坷、经历过风雨;</br>
+  
+  
+  
+  
   
   
   
@@ -967,7 +1959,15 @@
   
   
   
+  
+  
+  
+  
             但我们从未放弃、倔强而努力;</br>
+  
+  
+  
+  
   
   
   
@@ -975,7 +1975,15 @@
   
   
   
+  
+  
+  
+  
             我们每前进小一步，都将为您带来更好的云上体验!
+  
+  
+  
+  
   
   
   
@@ -983,7 +1991,15 @@
   
   
   
+  
+  
+  
+  
           <span>立即体验</span>
+  
+  
+  
+  
   
   
   
@@ -991,11 +2007,31 @@
   
   
   
+  
+  
+  
+  
       </div>
   
   
   
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -1011,7 +2047,15 @@
   
   
   
+  
+  
+  
+  
     <div class=" obj-friend footer">
+  
+  
+  
+  
   
   
   
@@ -1019,7 +2063,15 @@
   
   
   
+  
+  
+  
+  
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+  
+  
+  
+  
   
   
   
@@ -1027,7 +2079,15 @@
   
   
   
+  
+  
+  
+  
           <p class="text-left"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-030-8008</p>
+  
+  
+  
+  
   
   
   
@@ -1035,11 +2095,23 @@
   
   
   
+  
+  
+  
+  
         </div>
   
   
   
+  
+  
+  
+  
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+  
+  
+  
+  
   
   
   
@@ -1047,7 +2119,15 @@
   
   
   
+  
+  
+  
+  
           <p class="text-left">云规划</p>
+  
+  
+  
+  
   
   
   
@@ -1055,11 +2135,23 @@
   
   
   
+  
+  
+  
+  
           <p class="text-left">云管理</p>
   
   
   
+  
+  
+  
+  
         </div>
+  
+  
+  
+  
   
   
   
@@ -1067,7 +2159,15 @@
   
   
   
+  
+  
+  
+  
           <p class="text-left footer-jx">服务支持</p>
+  
+  
+  
+  
   
   
   
@@ -1075,11 +2175,23 @@
   
   
   
+  
+  
+  
+  
           <p class="text-left">服务条款</p>
   
   
   
+  
+  
+  
+  
         </div>
+  
+  
+  
+  
   
   
   
@@ -1087,7 +2199,15 @@
   
   
   
+  
+  
+  
+  
           <p class="footer-jx">易云管</p>
+  
+  
+  
+  
   
   
   
@@ -1095,7 +2215,15 @@
   
   
   
+  
+  
+  
+  
             <p>您的专属上云顾问</p>
+  
+  
+  
+  
   
   
   
@@ -1103,7 +2231,15 @@
   
   
   
+  
+  
+  
+  
           </div>
+  
+  
+  
+  
   
   
   
@@ -1111,7 +2247,15 @@
   
   
   
+  
+  
+  
+  
       </div>
+  
+  
+  
+  
   
   
   
@@ -1119,7 +2263,15 @@
   
   
   
+  
+  
+  
+  
         <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有 TEL:(0379）65112858 65112856</p>
+  
+  
+  
+  
   
   
   
@@ -1127,10 +2279,18 @@
   
   
   
+  
+  
+  
+  
     </div>
   
   
   
+  
+  
+  
+  
   </div>
   
   
@@ -1139,7 +2299,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
+  
+  
   
   
   
@@ -1151,7 +2323,15 @@
   
   
   
+  
+  
+  
+  
     name: 'homePage',
+  
+  
+  
+  
   
   
   
@@ -1159,81 +2339,163 @@
   
   
   
+  
+  
+  
+  
       return {
+  
+  
   
         islogin: false,
   
+  
+  
         realname: ''
+  
+  
   
       }
   
   
   
+  
+  
+  
+  
     },
+  
+  
   
     mounted: function() {
   
+  
+  
       if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
   
+  
+  
         this.islogin = false;
+  
+  
   
       } else {
   
+  
+  
         this.islogin = true;
+  
+  
   
         this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
   
+  
+  
       }
+  
+  
   
     },
   
+  
+  
     methods: {
+  
+  
   
       fn: function() {
   
+  
+  
         this.logout();
+  
+  
   
         this.islogin = false;
   
+  
+  
       },
+  
+  
+  
+  
   
   
   
       loGog: function() {
   
+  
+  
         this.$router.push({
+  
+  
   
           path: '/login'
   
+  
+  
         });
   
+  
+  
       },
+  
+  
   
       condole: function() {
   
+  
+  
         this.$router.push({
+  
+  
   
           path: '/consolePage'
   
+  
+  
         });
+  
+  
   
       },
   
+  
+  
       reset: function() {
+  
+  
   
         this.$router.push({
   
+  
+  
           path: '/register'
+  
+  
   
         })
   
+  
+  
       }
+  
+  
+  
+  
+  
+  
   
   
   
   
   
     }
+  
+  
+  
+  
   
   
   
@@ -1280,11 +2542,29 @@
   
   .lunmain {
   
-    background: url('../../assets/bg-f.png') no-repeat;
+    background: url('../../assets/Rectangle 10.png') no-repeat;
   
     background-size: cover;
   
+    width: 100%;
+  
     height: 600px;
+  
+    position: relative
+  
+  }
+  
+  
+  
+  .tuPa {
+  
+    right: 10%;
+  
+    height: 288px;
+  
+    position: absolute;
+  
+    bottom: 0
   
   }
   
@@ -1301,6 +2581,12 @@
   
   
   @media (min-width: 768px) {
+  
+    .uls-w li {
+  
+      width: 33.333%;
+  
+    }
   
     .cla {
   
@@ -1340,7 +2626,9 @@
   
     .Imgs {
   
-      margin-left: 135px
+      margin-left: 90px;
+  
+      margin-top: 15px
   
     }
   
@@ -1430,9 +2718,9 @@
   
   .Imgs {
   
-    width: 70px;
+    width: 144px;
   
-    height: 40px;
+    height: 19px;
   
   }
   
@@ -1606,13 +2894,11 @@
   
   .obj-main h1 {
   
-    font-size: 48px;
-  
     color: #333333;
   
     font-weight: 700;
   
-    font-size: 50px;
+    font-size: 36px;
   
     line-height: 100px;
   
@@ -1634,9 +2920,9 @@
   
   .obj-main .Yunimg {
   
-    width: 225px;
+    width: 120px;
   
-    height: 224px;
+    height: 75px;
   
   }
   
@@ -1904,7 +3190,7 @@
   
     font-size: 14px;
   
-    color:#ffffff;
+    color: #ffffff;
   
     line-height: 44px;
   
@@ -1922,8 +3208,10 @@
   
     border: 1px solid #fff;
   
-    font-size:14px;
-    color:#ffffff;  
+    font-size: 14px;
+  
+    color: #ffffff;
+  
     padding: 8px 40px;
   
   }
@@ -2150,6 +3438,10 @@
   
   .RenGong {
   
+    width: 66px;
+  
+    height: 66px;
+  
     position: absolute;
   
     right: 0px;
@@ -2161,6 +3453,10 @@
   
   
   .phone {
+  
+    width: 66px;
+  
+    height: 66px;
   
     position: absolute;
   
@@ -2365,25 +3661,153 @@
     padding-bottom: 40px;
   
   }
-  .he-su{
+  
+  
+  
+  .he-su {
+  
     background: #da121a;
+  
     margin: 0 auto;
+  
     width: 60px;
+  
     height: 3px;
+  
     margin-bottom: 30px;
+  
   }
-@-webkit-keyframes rotation{
-from {-webkit-transform: rotate(0deg);}
-to {-webkit-transform: rotate(360deg);}
-}
-
-.tranImg:hover{
--webkit-transform: rotate(360deg);
-animation: rotation 2s linear infinite;
--moz-animation: rotation 2s linear infinite;
--webkit-animation: rotation 2s linear infinite;
--o-animation: rotation 2s linear infinite;
-}
-
+  
+  
+  
+  @-webkit-keyframes rotation {
+  
+    from {
+  
+      -webkit-transform: rotate(0deg);
+  
+    }
+  
+    to {
+  
+      -webkit-transform: rotate(360deg);
+  
+    }
+  
+  }
+  
+  
+  
+  .tranImg:hover {
+  
+    -webkit-transform: rotate(360deg);
+  
+    animation: rotation 2s linear infinite;
+  
+    -moz-animation: rotation 2s linear infinite;
+  
+    -webkit-animation: rotation 2s linear infinite;
+  
+    -o-animation: rotation 2s linear infinite;
+  
+  }
+  
+  
+  
+  .ths {
+  
+    font-size: 36px;
+  
+  }
+  
+  
+  
+  .li-fir {
+  
+    background: url('../../assets/Group 28.png') no-repeat;
+  
+    text-align: center;
+  
+    margin: 0 auto;
+  
+    width: 273px;
+  
+    height: 376px;
+  
+  }
+  
+  
+  
+  .li-sec {
+  
+    background: url('../../assets/Group 24.png') no-repeat;
+  
+    text-align: center;
+  
+    margin: 0 auto;
+  
+    width: 273px;
+  
+    height: 376px;
+  
+  }
+  
+  
+  
+  .li-the {
+  
+    background: url('../../assets/Group 22.png') no-repeat;
+  
+    text-align: center;
+  
+    margin: 0 auto;
+  
+    width: 273px;
+  
+    height: 376px;
+  
+  }
+  
+  
+  
+  .pict {
+  
+    width: 54px;
+  
+    height: 60px;
+  
+    margin-top: 30%;
+  
+  }
+  
+  
+  
+  .picts {
+  
+    width: 70px;
+  
+    height: 60px;
+  
+    margin-top: 30%;
+  
+    margin-left: 4%;
+  
+  }
+  
+  
+  
+  .li-fir,
+  
+  .li-sec,
+  
+  .li-the p {
+  
+    font-size: 14px;
+  
+    color: #e5e5e5;
+  
+    text-align: center;
+  
+  }
 </style>
 

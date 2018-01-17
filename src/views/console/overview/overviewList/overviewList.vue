@@ -7,15 +7,18 @@
     </div>
         <div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
 
-                <div class="modle-title "><h1>早上好！欢迎来到CloudBroker</h1></div>
+               
                
                <div class="cals" style="width:100%;">
+               
                     <div class="slider"> 
                          <ul class="slider-main"> 
                             <li class="slider-panel"> 
+                                <div class="modle-title" ><h1>早上好！欢迎来到CloudBroker</h1></div>
                                 <a><img src="../../../../assets/welcome.png"></a> 
                             </li> 
                             <li class="slider-panel"> 
+                             <div class="modle-title" ><h1>CloudBroker六步祝您轻松上云</h1></div>
                                  <a><img src="../../../../assets/welcome.png"></a>
                                  <a class="creatCloud">
                                         创建云分析
@@ -119,6 +122,7 @@
     height:768px;
     opacity:0.94;
     background:#49494b;
+    z-index:999;
 }
 .modle input{
     width:15%;
@@ -237,8 +241,8 @@ a:hover{
     text-align:center;
     font-size:32px;
     color:#ffffff;
-    margin-top:167px;
-    margin-left:308px;
+    margin-left:15%;  
+    margin-bottom:10px;  
 }
 ul { 
  list-style: outside none none; 
@@ -278,7 +282,7 @@ ul {
  margin-left: -51px; 
  position: absolute; 
  left: 55%; 
- bottom: 4px; 
+ bottom: -35%; 
  } 
  .slider-nav li { 
 background:#a70f1d;
@@ -304,7 +308,7 @@ border-radius:100%;
  width: 42px; 
  height: 42px; 
  position: absolute; 
- top: 50%; 
+ top:74%; 
  
  }
 
