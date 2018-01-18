@@ -1,583 +1,533 @@
 <template>
-
-    <div class="Lists">
-    <div class="total-header">
-        <span></span>
-        总览
+<div class="total Lists">
+<div class="total-header">
+    <span></span>
+    总览
+</div>
+<div class="overviewlist">
+    <div class="overviewSearch">
+        <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
     </div>
-        <div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
-
-               
-               
-               <div class="cals" style="width:100%;">
-               
-                    <div class="slider"> 
-                         <ul class="slider-main"> 
-                            <li class="slider-panel"> 
-                                <div class="modle-title" ><h1>早上好！欢迎来到CloudBroker</h1></div>
-                                <a><img src="../../../../assets/welcome.png"></a> 
-                            </li> 
-                            <li class="slider-panel"> 
-                             <div class="modle-title" ><h1>CloudBroker六步祝您轻松上云</h1></div>
-                                 <a><img src="../../../../assets/welcome.png"></a>
-                                 <a class="creatCloud">
-                                        创建云分析
-                                </a>
-                             </li> 
-                             
-                        </ul> 
-                    <div class="slider-extra"> 
-                        <ul class="slider-nav"> 
-                            <li class="slider-item"></li> 
-                            <li class="slider-item"></li> 
-                        </ul> 
-                         <div class="slider-page"> 
-                            <a class="slider-pre" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a> 
-                            <a class="slider-next" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a>
-                           
-                        </div> 
+    <!-- 数据为空时显示 -->
+    <div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
+        <div class="cals" style="width:100%;">
+            <div class="slider">
+                <ul class="slider-main"> 
+                    <li class="slider-panel"> 
+                        <div class="modle-title" ><h1>早上好！欢迎来到CloudBroker</h1></div>
+                        <a><img src="../../../../assets/welcome.png"></a> 
+                    </li> 
+                    <li class="slider-panel"> 
+                        <div class="modle-title" ><h1>CloudBroker六步祝您轻松上云</h1></div>
+                        <a><img src="../../../../assets/welcome.png"></a>
+                        <a class="creatCloud">创建云分析</a>
+                    </li> 
+                </ul>
+                <div class="slider-extra"> 
+                    <ul class="slider-nav"> 
+                        <li class="slider-item"></li> 
+                        <li class="slider-item"></li> 
+                    </ul> 
+                    <div class="slider-page"> 
+                        <a class="slider-pre" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a> 
+                        <a class="slider-next" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a>
                     </div> 
                 </div>
-              
+            </div>
         </div>
-      
-        
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div v-on:click="UpRoute" class="creastes">创建云分析</div>
-         <ul class="uls">
-             <li class="sps row">
-                 <span class="col-md-1"><input type="checkbox" class="text-center"></span>
-                 <span class="col-md-2">云分析名称</span>
-                 <span class="col-md-1">应用名称</span>
-                 <span class="col-md-4">云规划进度</span>
-                 <span class="col-md-3">云选型进度</span>
-             </li>
-             <li class="" v-for="vp in vpd">
-                 <ul >
-                      <li class="row sps" >
-                        <span class="col-md-1"><input type="checkbox"></span>
-                        <span class="col-md-2">{{vp.proname}}</span>
-                        <span class="col-md-1"></span>
-                        <span class="col-md-6"></span>
-                        <span class="col-md-2 removeIng"   v-on:click="rems(vp.id)" style="color:#337ab7">删除云分析</span>
-                      </li>
-                      <li class="row spx active" v-for="item in vp.projectApps">
-                        <span class="col-md-1 bn"></span>
-                        <span class="col-md-1 bn"></span>
-                        <span class="col-md-3 bn">{{item.appname}}</span>
-                        <span class="col-md-6 text-left">
-                            <p >
-                                <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
-                                    <span :class="im.taskStatus==2?'bg':((im.taskStatus==1)?'hg':'fl')" >{{im.moduleName}}</span>
-                                    <span v-if="im.taskStatus==2">(已完成)</span>    
-                                    <span v-if="im.taskStatus==1">(未完成)</span>   
-                                    <span v-if="im.taskStatus==0">(未做)</span>                                   
-                                    <!--0=未做；1=已做未完成；2=已完成-->
-                                </a>
-                                
-                                
-                            </p>
-                            <div class="progress" style="background:#f8f8f8">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" :style="{width:item.percent+'%'}">
-                                </div>
-                            </div><span class="spc">{{item.percent}}%</span>
-                            
-                        </span>
-                        <span class="col-md-1 cs" v-on:click="remYy(item.id)">删除应用</span>
-                
-                     </li>
-                 </ul> 
-             </li>
-         </ul>
     </div>
-    
-    
+    <!-- 数据为空结束 -->
+    <ul class="uls">
+        <li class="sps row">
+            <span class="col-md-1"><input type="checkbox" class="text-center"></span>
+            <span class="col-md-2">云分析名称</span>
+            <span class="col-md-1">应用负载名称</span>
+            <span class="col-md-7">进度</span>
+            <!--<span class="col-md-3">云选型进度</span>-->
+        </li>
+        <li class="" v-for="(vp,index) in vpd">
+            <ul >
+                <!-- <li class="row sps" > -->
+                <li class="row sps-overall" >
+                    <span class="col-md-1"><input type="checkbox"></span>
+                    <span class="col-md-2">{{vp.proname}}</span>
+                    <span class="col-md-1"></span>
+                    <span class="col-md-6"></span>
+                    <span class="col-md-2 removeIng">
+                        <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
+                        <i class="toggle-clould" v-on:click="toggleShow(index)">+</i>
+                    </span>
+                </li>
+                <li class="row spx active" v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
+                    <span class="col-md-1 bn"></span>
+                    <span class="col-md-1 bn"></span>
+                    <span class="col-md-3 bn">{{item.appname}}</span>
+                    <span class="col-md-6 text-left">
+                        <p class="rate">
+                            <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
+                                <p class="ratelist" v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
+                                <p class="ratelist" v-if="im.moduleId==2" :class="im.taskStatus==2?'profit-ed':((im.taskStatus==1)?'profit-ing':'profit-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
+                                <p class="ratelist" v-if="im.moduleId==3" :class="im.taskStatus==2?'affine-ed':((im.taskStatus==1)?'affine-ing':'affine-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
+                                <p class="ratelist" v-if="im.moduleId==4" :class="im.taskStatus==2?'compare-ed':((im.taskStatus==1)?'compare-ing':'compare-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
+                                <p class="ratelist" v-if="im.moduleId==5" :class="im.taskStatus==2?'group-ed':((im.taskStatus==1)?'group-ing':'group-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
+                                <span class="satatus" v-if="im.taskStatus==2">(已完成)</span>    
+                                <span class="satatus" v-if="im.taskStatus==1">(未完成)</span>   
+                                <span class="satatus" v-if="im.taskStatus==0">(未做)</span>             <!--0=未做；1=已做未完成；2=已完成-->
+                                <!--1云定性 2收益度 3亲和度 4比较标准 5资源配置 -->
+                            </a>
+                        </p>
+                        <div class="progress" style="background:#f8f8f8">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                    aria-valuemin="0" aria-valuemax="100" :style="{width:item.percent+'%'}">
+                            </div>
+                        </div>
+                        <span class="spc">{{item.percent}}%</span>                            
+                    </span>
+                    <span class="col-md-1 cs" v-on:click="remYy(item.id)">
+                        <i class="fa fa-trash-o"></i>
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+</div>   
 </template>
 <style>
+i{
+    font-style:normal;
+}
 .Lists{
-    position:relative;
-    height:100%;
+    position:relative; height:100%;
 }
-.creastes{
-    border:1px solid #ccc;
-     cursor:pointer;
-     padding:5px 10px;
-     background:rgb(51, 122, 183);
-     color:#ccc;
+/**/
+.overviewlist{
+    min-height:500px; background:#fff; padding:0 15px;
 }
-.removeIng:hover{
-    cursor:pointer
+.overviewSearch{
+     width:100%; height:57px;
+}
+.creatAll{
+    background:#da121a; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
+line-height:30px; float:left; margin-top:13px;
+}
+/**/
+.removeIng{
+    font-size:20px; text-align:right;
+}
+.toggle-clould{
+    color:#e15e2d; margin-left:10px; cursor:pointer;
+}
+.removeBtn{
+    font-size:16px; color:#a8a8a8; cursor:pointer;
 }
 .modle{
-    position:absolute;
-    left:0;
-    top:0px;
-    width:100%;
-    height:768px;
-    opacity:0.94;
-    background:#49494b;
-    z-index:999;
+    position:absolute; left:0; top:0px; width:100%; height:768px; opacity:0.94; background:#49494b; z-index:999;
 }
 .modle input{
-    width:15%;
-    height:15%;
-    margin:25% 40%;
-    text-align:center;
-    color:#000;
-    font-weight:900
+    width:15%; height:15%; margin:25% 40%; text-align:center; color:#000; font-weight:900
 }
 .active{
     display:block;
-
 }
 #pol{
     display:BLOCK;
 }
-
 .sps{
-   height:50px;
-   background:#ccc;
-   border:1px solid #fff;
-   line-height:49px;
-   
+    height:40px; background:#ebebeb; text-align:center; font-size:14px; color:#2b2b2b;line-height:40px;
+}
+.sps-overall{
+    height:40px; background:#f6f9fd; text-align:center; font-size:14px; color:#2b2b2b;line-height:40px;
 }
 .cs{
-    margin-top:88px;
-     cursor:pointer;
-     color:#337ab7
+    margin-top:40px; cursor:pointer; color:#a8a8a8; font-size:16px;
 }
 .spx{ 
-   height:200px;
-   
-   
+   height:200px; 
 }
 .spx .bn{
     line-height:200px
 }
-.spx span p{margin-top:80px;}
-
+.spx span .rate{
+    margin-top:20px;
+}
 .progress{
-    width:59%;
-    margin:20px 0 0 0;
-    height:12px;
-    border-radius:10px;
-    border:1px solid #868686;
-    display:inline-block;
-    margin:5px 0 0 0;
+    width:90%; margin:20px 0 0 0; height:6px; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
 } 
 .spc{
-    margin-left:5px;
-    color:#000;
+    margin-left:5px; color:#000;
 }
 .progress-bar{
-    background-color:#868686;
-    border-radius:10px;
+    background-color:#5db85b; border-radius:10px;
 }
-*{margin:0;padding:0}
+*{ margin:0;padding:0 }
 ul li{
     list-style:none
 }
 a{
-    text-decoration:none; 
-    color:#000;
+    text-decoration:none;  color:#333;
 }
 a:hover{
     text-decoration:none;  
 }
 .row a{
-    display:inline-block;
-    text-align:left;
-    width:90px;
-    margin:0 10px 0 0;
-    background:#fff;
-    text-align:center;
-    border-radius:20px;
-    border:1px solid #ccc;
+    display:inline-block; text-align:left; width:90px; margin:0 10px 0 0; text-align:center; 
 }
-.hg{
-    background:url("../../../../assets/brank.png") no-repeat;
-    background-size:cover;
-    text-align:center;
-    border-radius:20px;
-    border:0px solid #ccc;
-    
-   width:90px;
-    display:block
+.ratelist{
+    height:70px;
 }
-.bg{
-     background:#868686;
-    text-align:center;
-    border-radius:20px;
-    border:0px solid #ccc;
-     width:90px;
-    margin:0 10px 0 0; 
-      display:block  
+.ratelist span{
+    display: inline-block; padding-top:60px; color:#666666;
 }
-.fl{
-    background:#e4e4e4;
-    text-align:center;
-    border-radius:20px;
-    border:0px solid #ccc;
-     width:90px;
-    margin:0 10px 0 0;
-      display:block
+.satatus{
+    color:#666666; font-size:12px;
+}
+.clould-ing{
+    background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
+}
+.clould-ed{
+    background:url('../../../../assets/overview/overview-clould-ed.png') no-repeat top center;
+}
+.clould-null{
+    background:url('../../../../assets/overview/overview-clould-null.png') no-repeat top center;
+}
+.profit-ing{
+    background:url('../../../../assets/overview/overview-profit-ing.png') no-repeat top center;
+}
+.profit-ed{
+    background:url('../../../../assets/overview/overview-profit-ed.png') no-repeat top center;
+}
+.profit-null{
+    background:url('../../../../assets/overview/overview-profit-null.png') no-repeat top center;
+}
+.affine-ing{
+    background:url('../../../../assets/overview/overview-affine-ing.png') no-repeat top center;
+}
+.affine-ed{
+    background:url('../../../../assets/overview/overview-affine-ed.png') no-repeat top center;
+}
+.affine-null{
+    background:url('../../../../assets/overview/overview-affine-null.png') no-repeat top center;
+}
+.compare-ing{
+    background:url('../../../../assets/overview/overview-compare-ing.png') no-repeat top center;
+}
+.compare-ed{
+    background:url('../../../../assets/overview/overview-compare-ed.png') no-repeat top center;
+}
+.compare-null{
+    background:url('../../../../assets/overview/overview-compare-null.png') no-repeat top center;
+}
+.group-ing{
+    background:url('../../../../assets/overview/overview-group-ing.png') no-repeat top center;
+}
+.group-ed{
+    background:url('../../../../assets/overview/overview-group-ed.png') no-repeat top center;
+}
+.group-null{
+    background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
 }
 .ad{
-    width:100px;
-    margin-right:10px;
+    width:100px; margin-right:10px;
 }
 .notice-title{
     margin:0px !important;
 }
 .modle-title{
-    width:408px;
-    height:84px;
-    text-align:center;
-    font-size:32px;
-    color:#ffffff;
-    margin-left:15%;  
-    margin-bottom:10px;  
+    width:408px; height:84px; text-align:center; font-size:32px; color:#ffffff; margin-left:15%;  margin-bottom:10px;  
 }
 ul { 
  list-style: outside none none; 
  } 
  .slider, .slider-panel img, .slider-extra { 
- width: 610px; 
- height: 331px; 
+    width: 610px;  height: 331px; 
  } 
  .slider { 
- text-align: center; 
- margin: 30px auto; 
- 
+    text-align: center; margin: 30px auto; 
  } 
  .slider-panel, .slider-nav, .slider-pre, .slider-next { 
- position: absolute; 
- z-index: 8; 
+    position: absolute;  z-index: 8; 
  } 
  .slider .slider-pre{
-     position: absolute; 
-     right:100%;
-     margin-right:42px;
+     position: absolute;   right:100%; margin-right:42px;
  }
  .slider .slider-next{
-     position: absolute; 
-     right:10%
+     position: absolute;  right:10%
  }
  .slider-panel { 
- position: absolute; 
+    position: absolute; 
  } 
  .slider-panel img { 
- border: none; 
+    border: none; 
  } 
  .slider-extra { 
- position: relative; 
+    position: relative; 
  } 
  .slider-nav { 
- margin-left: -51px; 
- position: absolute; 
- left: 55%; 
- bottom: -35%; 
+    margin-left: -51px;  position: absolute;  left: 55%;  bottom: -35%; 
  } 
  .slider-nav li { 
-background:#a70f1d;
- border-radius: 100%; 
- color: #fff; 
- cursor: pointer; 
- margin: 0 2px; 
- overflow: hidden; 
- text-align: center; 
- display: inline-block; 
- width:13px;
- height:13px;
- line-height: 18px; 
- 
+    background:#a70f1d; border-radius: 100%;  color: #fff;  cursor: pointer;  margin: 0 2px;   overflow: hidden;  text-align: center; display: inline-block;  width:13px; height:13px; line-height: 18px; 
  } 
  .slider-nav .slider-item-selected { 
- background:#ffd2d6;
-width:13px;
-height:13px;
-border-radius:100%;
+ background:#ffd2d6; width:13px; height:13px; border-radius:100%;
  } 
  .slider-page a{ 
- width: 42px; 
- height: 42px; 
- position: absolute; 
- top:74%; 
- 
+ width: 42px;  height: 42px;  position: absolute; top:74%; 
  }
-
-
  .slider-next { 
- left: 100%; 
- margin-left: 42px;; 
+ left: 100%;  margin-left: 42px;; 
  } 
 .cals{
-position: relative; 
-width:100%;
+position: relative; width:100%;
 }
 .creatCloud{
-    background:#ee566b; 
-    border-radius:2px; 
-    width:159px;
-    height:42px;
-    position:absolute;
-    left: 36%;
-    top: 105%;
-    line-height:42px;
-    font-size:18px;
-    color:#ffffff;
-    text-align:center;cursor: pointer; 
+    background:#ee566b;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 105%; line-height:42px; font-size:18px; color:#ffffff; text-align:center; cursor: pointer; 
 }
 </style>
 <script>
   
-    export default {
-        name:"overviewList",
-        data (){
-            return {
-                vpd:[],
-                ssd:[],
-                ds:[],
-                df:[],
-                dg:"",
-                gv:"",
-                list:false,
-                i:-1, 
-                flag:false,
-              
-                //{"ids":[1,2,3]}
-            }
-        },
-     
-        methods:{
-            // onm:function(index){
-                
-            //      this.i = index
-            // },
-            // onm:function(index){
-            //     //alert(index);
-            //     //console.log(this.vpd);
-            //     var ps = [];
-            //     var aix = this.vpd;
-            //     for(var i=0;i<aix.length;i++){
-            //         if(aix[i].projectApps&&aix[i].projectApps.length>0){
-            //             for(var j=0;j<aix[i].projectApps.length;j++){
-            //                 //console.log(aix[i].projectApps[j].appResults)
-            //                 if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
-            //                         for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
-            //                            // console.log(aix[i].projectApps[j].appResults[k].result)
-            //                          var a=aix[i].projectApps[j].appResults[k].result;
-            //                         console.log(a)
-            //                         }
-            //                 }
-            //             }
-            //         }
-            //     }
-            //     ps.push(a);
-                 
-            // },
-            // als:function(){
-            //     this.$router.push({path:'/CreateAnalysis'});
-            // },
-            rems:function(e){
-                var that = this;
-                var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
-                        let ids=[];
-                        ids.push(e);
-                        var asf = {"ids":ids};
-                        //console.log(asf);
-                        that.$this({
-                            method: "delete",
-                            url: "/broker/app/analysis",
-                            data: asf
-                        }).then(function(response) {
-                             that.$layer.close(con);
-                            window.location.reload();
-                        }).catch(function(error) {
-                            console.log(error);
-                        });
-                },function(){
-                    return ;
-                });
-            },
-
-            remYy:function(id){
-                console.log(id)
-                var that = this;
-                 var con = this.$layer.confirm("您确定要删除该应用吗?", async function () {
-                    var ida = [];
-                    ida.push(id); //=也ok
-                        var asg = {"ids":ida};
-                        that.$this({
-                            method: "delete",
-                            url: "/broker/app/applications",
-                            data: asg
-                        }).then(function(response) {
-                             that.$layer.close(con);
-                            window.location.reload();
-                        }).catch(function(error) {
-                            console.log(error);
-                        })
-                     },function(){
-                    return ;
-                });
-
-            },
-            onm:function(n,o,b){
-                //this.$router.push({path:'/',query:{id:n}});
-                console.log(n,o,b);
-                var o = o;
-                var n = n;
-                if(n == 4){
-                    //if((b==1 || b==0)){
-                        this.$router.push({path:'/compareQuestion',query:{id:o}});
-                    //}
-                }else if(n == 5){
-                     //if((b==1 || b==0)){
-                       this.$router.push({path:'/resourceGroup',query:{id:o}});
-                    //}
-                    
-                }else{
-                    //if(b==1 || b==0){
-                        this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
-                    //}
-                }
-            },
-            UpRoute:function(){
-                this.$router.push({path:'/CreateAnalysis'});
-            }
-            
-
-        },
-        created:function(){
-                    this.$http.get('/broker/result/analysis').then((res)=>{
-                     
-
-                        this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
-                               console.log(this.vpd);
-                                    if(this.vpd.length==0){
-                                        this.flag=true
-                                    }else{
-                                        this.flag=false
-                                    }
-                                
-                        for(let i = 0;i<this.vpd.length;i++){            
-                            this.ssd = this.vpd[i].projectApps;                                         // app   5个
-                            //console.log(this.ssd);
-                            // for(let e = 0;e<this.ds.length;e++){
-                            //         console.log(this.ds[e])
-                            // }  
-                            for(let j=0;j<this.ssd.length;j++){
-                               // console.log('appname-----',this.ssd[j].appname);
-                                // this.df.push(this.ssd[j].appname);
-                                this.dg = this.ssd[j].appResults;
-                                 //console.log(this.dg);
-                                  for(let c = 0;c<this.dg.length;c++){
-                                        this.gv = this.dg[c].result;
-                                        console.log(eval("("+ this.gv +")") );
-                                        console.log(this.gv )
-
-                                 }
-                            }
-                        }
-                        
-                     },(err)=>{
-                         console.log("不好意思")
-                      })
-        },
-        mounted:function(){
-               $(document).ready(function() { 
-        var length, 
-        currentIndex = 0, 
-        interval, 
-        hasStarted = false, //是否已经开始轮播 
-        t = 5000; //轮播时间间隔 
-        length = $('.slider-panel').length; 
-        //将除了第一张图片隐藏 
-        $('.slider-panel:not(:first)').hide(); 
-        //将第一个slider-item设为激活状态 
-        $('.slider-item:first').addClass('slider-item-selected'); 
-        //隐藏向前、向后翻按钮 
-        //  $('.slider-page').hide(); 
-        //鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动 
-        $('.slider-panel, .slider-pre, .slider-next').hover(function() { 
-             stop(); 
-             $('.slider-page').show(); 
-        }, function() { 
-        //   $('.slider-page').hide(); 
-             start(); 
-        }); 
-        $('.slider-item').click(function(e) { 
-            stop(); 
-            var preIndex = $(".slider-item").filter(".slider-item-selected").index(); 
-            currentIndex = $(this).index(); 
-            play(preIndex, currentIndex);
-         });
-        //  }, function() { 
-        //   start(); 
-        //  }); 
-        $('.slider-pre').unbind('click'); 
-        $('.slider-pre').bind('click', function() { 
-            pre(); 
-        }); 
-        $('.slider-next').unbind('click'); 
-        $('.slider-next').bind('click', function() { 
-            next(); 
-        }); 
-        /** 
-        * 向前翻页 
-        */
-        function pre() { 
-            var preIndex = currentIndex; 
-            currentIndex = (--currentIndex + length) % length; 
-            play(preIndex, currentIndex); 
-        } 
-        /** 
-        * 向后翻页 
-        */
-        function next() { 
-            var preIndex = currentIndex; 
-            currentIndex = ++currentIndex % length; 
-            play(preIndex, currentIndex); 
-        } 
-        /** 
-        * 从preIndex页翻到currentIndex页 
-        * preIndex 整数，翻页的起始页 
-        * currentIndex 整数，翻到的那页 
-        */
-        function play(preIndex, currentIndex) { 
-            $('.slider-panel').eq(preIndex).fadeOut(500).parent().children().eq(currentIndex).fadeIn(1000); 
-            $('.slider-item').removeClass('slider-item-selected'); 
-            $('.slider-item').eq(currentIndex).addClass('slider-item-selected'); 
-        } 
-        /** 
-        * 开始轮播 
-        */
-        function start() { 
-            if(!hasStarted) { 
-                hasStarted = true; 
-                interval = setInterval(next, t); 
-            } 
-        } 
-        /** 
-        * 停止轮播 
-        */
-        function stop() { 
-            clearInterval(interval); 
-            hasStarted = false; 
-        } 
-        //开始轮播 
-        start(); 
- }); 
+export default {
+    name:"overviewList",
+    data (){
+        return {
+            vpd:[],
+            ssd:[],
+            ds:[],
+            df:[],
+            dg:"",
+            gv:"",
+            list:false,
+            i:-1, 
+            flag:false,
+            togglelist:[]
+            //{"ids":[1,2,3]}
         }
+    },     
+    methods:{
+        // onm:function(index){
+            
+        //      this.i = index
+        // },
+        // onm:function(index){
+        //     //alert(index);
+        //     //console.log(this.vpd);
+        //     var ps = [];
+        //     var aix = this.vpd;
+        //     for(var i=0;i<aix.length;i++){
+        //         if(aix[i].projectApps&&aix[i].projectApps.length>0){
+        //             for(var j=0;j<aix[i].projectApps.length;j++){
+        //                 //console.log(aix[i].projectApps[j].appResults)
+        //                 if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
+        //                         for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
+        //                            // console.log(aix[i].projectApps[j].appResults[k].result)
+        //                          var a=aix[i].projectApps[j].appResults[k].result;
+        //                         console.log(a)
+        //                         }
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     ps.push(a);
+                
+        // },
+        // als:function(){
+        //     this.$router.push({path:'/CreateAnalysis'});
+        // },            
+        rems:function(e){
+            var that = this;
+            var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
+                let ids=[];
+                ids.push(e);
+                var asf = {"ids":ids};
+                //console.log(asf);
+                that.$this({
+                    method: "delete",
+                    url: "/broker/app/analysis",
+                    data: asf
+                }).then(function(response) {
+                    that.$layer.close(con);
+                    window.location.reload();
+                }).catch(function(error) {
+                    console.log(error);
+                });
+            },function(){
+                    return ;
+            });
+        },
+        remYy:function(id){
+            //console.log(id)
+            var that = this;
+            var con = this.$layer.confirm("您确定要删除该应用吗?", async function () {
+                var ida = [];
+                ida.push(id); //=也ok
+                var asg = {"ids":ida};
+                that.$this({
+                    method: "delete",
+                    url: "/broker/app/applications",
+                    data: asg
+                }).then(function(response) {
+                        that.$layer.close(con);
+                    window.location.reload();
+                }).catch(function(error) {
+                    console.log(error);
+                })
+            },function(){
+                 return ;
+            });
+        },
+        onm:function(n,o,b){
+            //this.$router.push({path:'/',query:{id:n}});
+            //console.log(n,o,b);
+            var o = o;
+            var n = n;
+            if(n == 4){
+                //if((b==1 || b==0)){
+                    this.$router.push({path:'/compareQuestion',query:{id:o}});
+                //}
+            }else if(n == 5){
+                    //if((b==1 || b==0)){
+                    this.$router.push({path:'/resourceGroup',query:{id:o}});
+                //}
+                
+            }else{
+                //if(b==1 || b==0){
+                    this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                //}
+            }
+        },
+        UpRoute:function(){
+            this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
+        },
+        toggleShow:function(index){
+            if(this.togglelist[index].boolean==true){
+                this.togglelist[index].boolean=false;
+            }else{
+                this.togglelist[index].boolean=true;
+            }
+        }
+    },
+    created:function(){
+        this.$http.get('/broker/result/analysis').then((res)=>{
+            this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
+            //console.log(this.vpd);
+            if(this.vpd.length==0){
+                this.flag=true
+            }else{
+                this.flag=false
+            }
+            for(let i = 0;i<this.vpd.length;i++){            
+                this.ssd = this.vpd[i].projectApps;
+                this.togglelist.push({boolean:true});                            
+                // app   5个
+                //console.log(this.ssd);
+                // for(let e = 0;e<this.ds.length;e++){
+                //         console.log(this.ds[e])
+                // }  
+                for(let j=0;j<this.ssd.length;j++){
+                    // console.log('appname-----',this.ssd[j].appname);
+                    // this.df.push(this.ssd[j].appname);
+                    this.dg = this.ssd[j].appResults;
+                    //console.log(this.dg);
+                    for(let c = 0;c<this.dg.length;c++){
+                        this.gv = this.dg[c].result;
+                        console.log(eval("("+ this.gv +")") );
+                        console.log(this.gv )
+
+                    }
+                }
+            }                        
+        },(err)=>{
+            console.log("不好意思")
+        })
+    },
+    mounted:function(){
+        $(document).ready(function() { 
+            var length, 
+            currentIndex = 0, 
+            interval, 
+            hasStarted = false, //是否已经开始轮播 
+            t = 5000; //轮播时间间隔 
+            length = $('.slider-panel').length; 
+            //将除了第一张图片隐藏 
+            $('.slider-panel:not(:first)').hide(); 
+            //将第一个slider-item设为激活状态 
+            $('.slider-item:first').addClass('slider-item-selected'); 
+            //隐藏向前、向后翻按钮 
+            //  $('.slider-page').hide(); 
+            //鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动 
+            $('.slider-panel, .slider-pre, .slider-next').hover(function() { 
+                stop(); 
+                $('.slider-page').show(); 
+            }, function() { 
+                //   $('.slider-page').hide(); 
+                start(); 
+            }); 
+            $('.slider-item').click(function(e) { 
+                stop(); 
+                var preIndex = $(".slider-item").filter(".slider-item-selected").index(); 
+                currentIndex = $(this).index(); 
+                play(preIndex, currentIndex);
+            });
+            //  }, function() { 
+            //   start(); 
+            //  }); 
+            $('.slider-pre').unbind('click'); 
+            $('.slider-pre').bind('click', function() { 
+                pre(); 
+            }); 
+            $('.slider-next').unbind('click'); 
+            $('.slider-next').bind('click', function() { 
+                next(); 
+            }); 
+            /**  向前翻页 */
+            function pre() { 
+                var preIndex = currentIndex; 
+                currentIndex = (--currentIndex + length) % length; 
+                play(preIndex, currentIndex); 
+            } 
+            /**  向后翻页 */
+            function next() { 
+                var preIndex = currentIndex; 
+                currentIndex = ++currentIndex % length; 
+                play(preIndex, currentIndex); 
+            } 
+            /** 
+            * 从preIndex页翻到currentIndex页 
+            * preIndex 整数，翻页的起始页 
+            * currentIndex 整数，翻到的那页 
+            */
+            function play(preIndex, currentIndex) { 
+                $('.slider-panel').eq(preIndex).fadeOut(500).parent().children().eq(currentIndex).fadeIn(1000); 
+                $('.slider-item').removeClass('slider-item-selected'); 
+                $('.slider-item').eq(currentIndex).addClass('slider-item-selected'); 
+            } 
+            /**  开始轮播 */
+            function start() { 
+                if(!hasStarted) { 
+                    hasStarted = true; 
+                    interval = setInterval(next, t); 
+                } 
+            } 
+            /** 停止轮播 */
+            function stop() { 
+                clearInterval(interval); 
+                hasStarted = false; 
+            } 
+            //开始轮播 
+            start(); 
+        }); 
     }
+}
 </script>

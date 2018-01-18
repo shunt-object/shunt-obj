@@ -2,100 +2,85 @@
 <div class="total resourceGroup">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 资源组配置
+    <router-link class="zong" to="/consolePage">总览</router-link>
+    ><p class="comback">资源组配置</p>
 </div>
-<div class="plan-box">
-    <div class="plan-container">
-        <sds index="2" start="0" :type="queryType"></sds>
-        <div class="resource">配置信息</div>
-           
-            <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
-                    <img src="../../../../assets/resource.png" alt="">
-                    <h4>应用服务</h4>
-                </div>
-                <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"></div>
-                <ul class="resourceCroup-list-ul col-md-7 text-left ulss col-sm-12">
-                    <li class=" col-sm-12"><input type="number" v-model="cores" min="1">&nbsp&nbspvCPU</li>
-                    <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频（Ghz）</li>
-                    <li class=" col-sm-12"><input type="number" v-model="ram" min="1">&nbsp&nbsp内存(GB)</li>
-                    <li class=" col-sm-12"><input type="number" v-model="localDisk" min="1">&nbsp&nbsp系统盘(GB)</li>
-                    <li class=" col-sm-12"><select name="" id="sele" v-model="os">
-                                <option value="Linux">Linux</option>
-                                <option value="Window">Window</option>
-                                <option value="Unix">Unix</option>
-                        </select>&nbsp&nbsp操作系统
-                        </li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactor">&nbsp&nbsp平均计算合并率</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsage">&nbsp&nbsp每个月用量（天/月）</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
-                </ul>
-            </div>
+<sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
+<div class="reourceContent">        
+    <div class="resource">配置信息</div> 
+    <div class="resourceCroup-list row">
+        <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
+            <img src="../../../../assets/resource.png" alt="">
+            <h4>应用服务</h4>
+        </div>
+        <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"></div>
+        <ul class="resourceCroup-list-ul col-md-7 text-left ulss col-sm-12">
+            <li class=" col-sm-12"><input type="number" v-model="cores" min="1">&nbsp&nbspvCPU</li>
+            <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频（Ghz）</li>
+            <li class=" col-sm-12"><input type="number" v-model="ram" min="1">&nbsp&nbsp内存(GB)</li>
+            <li class=" col-sm-12"><input type="number" v-model="localDisk" min="1">&nbsp&nbsp系统盘(GB)</li>
+            <li class=" col-sm-12">
+                <select name="" id="sele" v-model="os">
+                    <option value="Linux">Linux</option>
+                    <option value="Window">Window</option>
+                    <option value="Unix">Unix</option>
+                </select>&nbsp&nbsp操作系统
+            </li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactor">&nbsp&nbsp平均计算合并率</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsage">&nbsp&nbsp每个月用量（天/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
+        </ul>
+    </div>
+    <div class="resourceCroup-list row">
+        <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
+            <img src="../../../../assets/resource.png" alt="">
+            <h4>数据库服务</h4>
+        </div>
+        <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"></div>
+        <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
+            <li class=" col-sm-12"><input type="number" min="1" v-model="coresq">&nbsp&nbspvCPU</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（Ghz）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ramq">&nbsp&nbsp内存(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
+            <li class=" col-sm-12">
+                <select name="" id="selet" v-model="osq">
+                    <option value="Linux">Linux</option>
+                    <option value="Window">Window</option>
+                    <option value="Unix">Unix</option>
+                </select>&nbsp&nbsp操作系统
+            </li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactorq">&nbsp&nbsp平均计算合并率</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsageq">&nbsp&nbsp每个月用量（天/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
+        </ul>
+    </div>
+    <div class="resourceCroup-list row">  
+        <div class=" col-md-2 head col-sm-12 col-xs-12">
+                <img src="../../../../assets/resource.png" alt="">
+                <h4 style="margin-bottom:50px;">网络</h4>
+        </div>
+        <div class="col-md-3 text-left Inp "  ></div>
+        <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
+            <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（GB/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（GB/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站（GB/月）</li>
+        </ul>
+    </div>   
 
-            <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
-                      <img src="../../../../assets/resource.png" alt="">
-                      <h4>数据库服务</h4>
-                </div>
-                 <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"></div>
-                <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="coresq">&nbsp&nbspvCPU</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（Ghz）</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="ramq">&nbsp&nbsp内存(GB)</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
-                    <li class=" col-sm-12"><select name="" id="selet" v-model="osq">
-                                <option value="Linux">Linux</option>
-                                <option value="Window">Window</option>
-                                <option value="Unix">Unix</option>
-                        </select>&nbsp&nbsp操作系统
-                        </li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactorq">&nbsp&nbsp平均计算合并率</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsageq">&nbsp&nbsp每个月用量（天/月）</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
-                </ul>
-            </div>
-
-
-             <div class="resourceCroup-list row">  
-                <div class=" col-md-2 head col-sm-12 col-xs-12">
-                      <img src="../../../../assets/resource.png" alt="">
-                      <h4 style="margin-bottom:50px;">网络</h4>
-                </div>
-                 <div class="col-md-3 text-left Inp "  ></div>
-                <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（GB/月）</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（GB/月）</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站（GB/月）</li>
-                </ul>
-            </div>
-
-            
-             <div class="resourceCroup-list row">
-                <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
-                    <img src="../../../../assets/resource.png" alt="">
-                      <h4 style="margin-bottom:50px;">存储</h4>
-                </div>
-                  <div class="col-md-3 text-left Inp"  ></div>
-                <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
-                    <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
-                </ul>
-            </div>
-             </div>
-            <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
-            <div class="clear" style="margin-bottom:20px;"></div>
-
-
-
-
-
-
-
-
-
-         
-   
+    <div class="resourceCroup-list row">
+        <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
+            <img src="../../../../assets/resource.png" alt="">
+            <h4 style="margin-bottom:50px;">存储</h4>
+        </div>
+        <div class="col-md-3 text-left Inp"  ></div>
+        <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
+            <li class=" col-sm-12"><input type="number" min="1" v-model="sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
+        </ul>
+    </div>
+    <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
+    <div class="clear" style="margin-bottom:20px;"></div>
 
 </div>
 </div>
@@ -104,97 +89,61 @@
 *{
     padding:0
 }
+.reourceContent{
+    width:100%; height:100%;background:#f8fafd; padding:12px 25px; border-top:1px solid #e9e9e9;
+}
 .row{
     width:100%;
 }
 .resourceGroup img{
-    width:90px;
-   
+    width:90px; 
 }
-    .nex{
-        color:#000;
-    }
-    a:hover{
-        color:#000;
-    }
-    .notice-title{
-    margin:0px !important;}
-
-    .resource{
-            background:#da121a;
-            border-radius:2px;
-             width:100%;
-            height:44px;
-            font-size:14px;
-            color:#ffffff;
-            text-align:center;
-            line-height:44px;
-    }
-    .resourceCroup-list{
-        margin:5px 5px;
-        background:#ffffff;
-        
-    }
-     .resourceCroup-list h4{
-         font-size:14px;
-        color:#333333;      
-     }
-    .plan-container{
-        background:#f8fafd;
-        border:none;
-    }
-    .plan-box{
-        background:#f8fafd;
-    }
-    .ulss li{
-        margin-bottom:10px;
-        font-size:12px;
-        color:#333333;
-    }
-    .ulis{
-         margin-top:30px;
-    }
-    .ulss li:nth-child(1){
-        margin-top:30px;
-    }
-    .resourceGroup input,select{
-        width:236px;
-        height:30px;
-    }
-    .Inp input{
-        width:60px;
-        height:27px;
-        padding:0;
-        margin-top:150px;
-    }
-    .resourceCroup-list-head{
-        margin-top:100px;
-        padding-left:60px;
-    }
-    .head{
-        margin-top:66px;
-        padding-left:60px;
-    }
-    .btn{
-        margin-left:90%;
-        margin-top:10px;
-        background:#da121a;
-        border-radius:2px;
-        width:94px;
-        height:35px;
-        font-size:14px;
-color:#f0f0f0;
-text-align:center;
-    }
-      .btn:hover{
-        background:#da121a;
-        border-radius:2px;
-        width:94px;
-        height:35px;
-        font-size:14px;
-color:#f0f0f0;
-text-align:center;
-    }
+.nex{
+    color:#000;
+}
+a:hover{
+    color:#000;
+}
+.notice-title{
+    margin:0px !important;
+}
+.resource{
+    background:#da121a; border-radius:2px;  width:100%; height:30px; font-size:14px; color:#ffffff;text-align:center; line-height:30px; margin-bottom:12px;
+}
+.resourceCroup-list{
+    margin-bottom:10px !important; background:#ffffff; 
+}
+.resourceCroup-list h4{
+    font-size:14px; color:#333333;      
+}  
+.ulss li{
+    margin-bottom:10px; font-size:12px; color:#333333;
+}
+.ulis{
+    margin-top:30px;
+}
+.ulss li:nth-child(1){
+    margin-top:30px;
+}
+.resourceGroup input,select{
+    width:236px; height:30px;
+}
+.Inp input{
+    width:60px; height:27px; padding:0; margin-top:150px;
+}
+.resourceCroup-list-head{
+    margin-top:100px; padding-left:60px;
+}
+.head{
+    margin-top:66px; padding-left:60px;
+}
+.btn{
+    margin-left:90%; margin-top:10px; background:#da121a; border-radius:2px; width:94px; height:35px;
+    font-size:14px; color:#f0f0f0; text-align:center;
+}
+.btn:hover{
+    background:#da121a; border-radius:2px; width:94px; height:35px; font-size:14px; color:#f0f0f0;  text-align:center;
+}
 </style>
 <script>
 import sds from '../../../../components/steps/steps.vue'

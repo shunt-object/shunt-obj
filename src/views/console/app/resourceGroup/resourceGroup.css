@@ -1,11 +1,9 @@
 .row{
     margin: 10px auto !important;
 }
-.resourceCroup-list{
-    width:96%;
-   
-   
-}
+/*.resourceCroup-list{
+    width:96%; 
+}*/
 .resourceCroup-list-head span{
     display:inline-block;
     font-size:16px;

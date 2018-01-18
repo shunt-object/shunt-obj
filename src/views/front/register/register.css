@@ -3,7 +3,8 @@
     height:100vh;
     overflow-x:hidden;
     box-sizing:border-box;
-    background:url('../../../assets/register-bg.png');
+    /*background:url('../../../assets/register-bg.png');*/
+    background:#fff;
     background-size:100% 100%;
 }
 .reg-content{
@@ -12,9 +13,11 @@
     margin:0 auto;
 }
 .reg-header{
-    border-bottom:1px solid #b6cbf0;
+    border-bottom:1px solid #e5e5e5;
+    border-top:1px solid #e5e5e5;
     width:100%;
     height:80px;
+    margin-top:20px;
 }
 .logo{
     float:left;
@@ -27,14 +30,14 @@
     height:501px;
     background:#fff;
     border-radius:8px;
-    margin:27px auto;
+    margin:0 auto;
 }
 .reg-from-title{
     width:100%;
     line-height:40px;
     padding-top:20px;
     font-size:28px;
-    color:#666666;
+    color:#da121a;
     text-align:center;
 }
 .reg-from-list{
@@ -91,11 +94,13 @@
 .reg-phone{
     height:48px;
     background:url('../../../assets/phone-bg.png');
+    background-size:100% 100%;
     line-height:48px;
 }
 .reg-password{
     height:94px;
     background:url('../../../assets/password-bg.png');
+    background-size:100% 100%;
     line-height:25px;
     padding-top:13px;
 }
@@ -108,12 +113,11 @@
     color:red;
 }
 .reg-from-btn{
-    border:1px solid #0983f6;
+    background:#da121a;
     border-radius:4px;
     width:360px;
     height:37px;
-    color:#0983f6;
-    background:#fff;
+    color:#fff;
 }
 .reg-from-agreement{
     width:330px;
@@ -126,12 +130,12 @@
 .reg-from-checkoux{
     float:left;
 }
-.reg-from-null{
+/*.reg-from-null{
     border-bottom:1px solid #e9e9e9;
     width:352px;
     height:0px;
     margin:30px auto 0 auto;
-}
+}*/
 .reg-from-notice{
     font-size:14px;
     color:#333333;
@@ -139,13 +143,19 @@
     margin-top:24px;
 }
 .reg-footer{
-    margin-bottom:44px;
+    /*margin-bottom:44px;*/
 }
 .reg-foot-list{
     font-size:12px;
-    color:#ffffff;
+    color:#969696;
     line-height:10px;
     text-align:center;
+}
+.placego{
+    color:#da121a;
+}
+.placego:hover{
+    color:#da121a;
 }
 .error{
     border:1px solid red;

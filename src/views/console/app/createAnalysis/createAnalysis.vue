@@ -2,10 +2,11 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 创建云分析
+    <router-link class="zong" to="/consolePage">总览</router-link>
+    ><p class="comback">创建云分析</p>
 </div>
 <div class="outbox" style="background:#fff;">
-    <child index="1" start="0" :type="queryType"></child>
+    <child index="1" start="1" id="0" :type="$route.query.type"></child>
     <div class="CreateAnalysis_from_box">
         <div class="new-built">创建上云分析信息</div>
         <div class="CreateAnalysis_from">

@@ -2,10 +2,12 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 云规划
+    <router-link class="zong" to="/consolePage">总览</router-link>
+    ><p class="comback" v-on:click="goBack()">云规划</p>
+    ><p class="comback">选择标准</p>
 </div>
-<child index="3" start="0" :type="queryType"></child>
-<div class="plan-box plan-input">
+<child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
+<div class="planquestion plan-input">
     <div class="plan-question-item row">
         <div class="plan-type col-md-4">
             <p class="plan-step" :class="qualitative==true?'qualitative-step':''">步骤1</p>
@@ -180,6 +182,7 @@ export default{
                     this.quetionList = [];
                     this.cloudName = response.data.data.sname;
                     this.serverce = response.data.data.id;
+                    document.documentElement.scrollTop = 0;
                     if(this.typeName==null ||this.typeName==undefined || this.typeName=='' ){
                         this.whichShow(2);
                     }
@@ -258,6 +261,7 @@ export default{
                 if(type==2){
                     this.whichShow(3);
                     this.profitReault =  response.data.data+'分';
+                    document.documentElement.scrollTop = 0;
                 }else{
                     this.affinityResult = response.data.data+'分';
                     this.$router.push({path:'/planResult',query:{id:this.appId}});
@@ -317,6 +321,9 @@ export default{
                 this.profit = false;//收益度问题是否显示
                 this.affinity = false;//亲和度问题是否显示 
             }
+        },
+        goBack:function(){
+            this.$router.push({path:'/planList'});
         }
     },
     components:{

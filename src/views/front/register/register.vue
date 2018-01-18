@@ -72,10 +72,10 @@
             <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
             <router-link to="/login">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>
         </div>
-        <div class="reg-from-null"></div>
+        <!--<div class="reg-from-null"></div>-->
         <div class="reg-from-notice">
             已有CSB²账号?
-            <router-link to="/login">请登录</router-link>
+            <router-link class="placego" to="/login">请登录</router-link>
         </div>
     </div>
     <div class="reg-footer">

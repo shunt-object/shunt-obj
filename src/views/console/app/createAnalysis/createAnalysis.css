@@ -10,13 +10,23 @@
     font-size:14px;
     line-height:20px;
     text-indent:10px;
-    color:#da121a;
+    color:#666;
 }
 .total-header span{
     width:3px;
     height:20px;
     background:#da121a;
     float:left;
+}
+.comback{
+    display:inline-block;
+    margin:0 !important;
+    margin-right: 5px !important;
+    cursor:pointer;
+}
+.zong{
+    color:#333;
+    margin-right:5px;
 }
 .outbox{
     width:100%;

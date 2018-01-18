@@ -1,53 +1,110 @@
 <template>
-<div>
-       <button style="color:#000" v-on:click="CreatCom">创建云选型</button><!--<input type="button" value="删除" id="rems" v-on:click="remsveily">-->
-       <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
-       <table id="example" class="table table-striped table-bordered" border="1">
+<div class="total">
+<!-- 公共的样式 -->
+<div class="total-header">
+    <span></span>
+    云选型
+</div>
+    <div class="compareList">
+        <div class="compareList-search">
+            <button class="creatCompareBtn" v-on:click="CreatCom">创建云选型</button><!--<input type="button" value="删除" id="rems" v-on:click="remsveily">-->
+            <div class="searchBox">
+                <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
+                <button class="searchBtn"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+       <table id="example" class="table table-striped table-bordered compareList-table" border="1">
              <thead>
-                    <tr class="text-center">
-                        <td class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></td>
-                        <td class="col-md-1">应用名称</td>
-                        <td class="col-md-1">云分析名称</td>
-                        <td class="col-md-3">对比供应商</td>
-                        <td class="col-md-1">操作</td>
-                    </tr>
+                <tr class="text-center">
+                    <td class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></td>
+                    <td class="col-md-1">应用名称</td>
+                    <td class="col-md-1">云分析名称</td>
+                    <td class="col-md-3">对比供应商</td>
+                    <td class="col-md-1">操作</td>
+                </tr>
             </thead>
             <tbody  id="myTable" >
-                    <tr width="100%" v-for="re in res">
-                        <td><input type="checkbox" name="checkbox" :data-id="re.id"></td>
-                        <td>{{re.appname}}</td>
-                        <td>{{re.proname}}</td>
-                        <td v-if="re.appResults[0]!=null" >
-                            <ul>
-                                <li v-for="ic in JSON.parse(re.appResults[0].result)"><span>{{ic.serverName}}</span>=====<span>{{ic.scope}}分</span><span></span></li>
-                            </ul>
-                        </td>
-                        <td v-else></td>
-                         <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7">查看报告</a></td>
-                    </tr>
+                <tr width="100%" v-for="re in res">
+                    <td><input type="checkbox" name="checkbox" :data-id="re.id"></td>
+                    <td>{{re.appname}}</td>
+                    <td>{{re.proname}}</td>
+                    <td v-if="re.appResults[0]!=null" >
+                        <ul>
+                            <li class="row" v-for="ic in JSON.parse(re.appResults[0].result)">
+                                <span class="col-md-4"></span>
+                                <span class="firm-name col-md-4">{{ic.serverName}}</span>
+                                <span class="firm-score col-md-4">{{ic.scope}}分</span>
+                                <!--<span></span>-->
+                            </li>
+                        </ul>
+                    </td>
+                    <td v-else></td>
+                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7">查看报告</a></td>
+                </tr>
             </tbody>
-          
         </table>
+    </div>
 </div>
 </template>
 <style>
-     *{
-        margin:0px;
-        padding:0px;
-      }
-     td{
-         height:60px;
-     }
+.compareList{
+    min-height:500px; background:#fff; padding:0 15px;
+}
+.compareList-search{
+    background:#ffffff; box-shadow:0 1px 1px 0 rgba(222,222,222,0.50); width:100%; height:57px;border-bottom:1px solid #e5e5e5;
+}
+.creatCompareBtn{
+    background:#da121a; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
+line-height:30px; float:left; margin-top:13px;
+}
+.searchBox{
+    float:right; padding-top:13px;
+}
+#myInput{
+    border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
+}
+.searchBtn{
+   background:#da121a; width:42px; height:30px; color:#fff; float:right;
+}
+.compareList-table{
+    margin-top:20px;
+}
+.compareList-table td{
+    height:60px;
+}
+.table>tbody>tr>td, .table>thead>tr>td, .table>thead>tr>th{
+    vertical-align:middle !important;
+}
+.table>tbody>tr>td{
+    line-height:30px;
+    background:#fff;
+    color:#2b2b2b;
+}
+.table>thead>tr>td{
+    background:#ebebeb;
+    color:#2b2b2b;
+}
+.table>tbody>tr:nth-child(2n)>td{
+    background:#f7f7f7;
+}
+.firm-name{
+    min-width:100px; text-align:left;
+}
+.firm-score{
+    text-align:left; text-indent:-40px;
+}
+*{
+    margin:0px;
+    padding:0px;
+}
 </style>
 <script>
-  
   function myFunn(){
     var $sea=$('#myInput').val();
     //先隐藏全部，再把符合筛选条件的值显示
-    console.log($sea);
+    //console.log($sea);
         $('table tbody tr').hide().filter(':contains('+$sea+')').show();
-    }
-    
+    }  
  export default{
     name:"compareList",
     data(){
@@ -70,7 +127,7 @@
             });
            },
         idClick:function(rid){
-            this.$router.push({path:'/compareResult',query:{id:rid}});
+            this.$router.push({path:'/compareResult',query:{id:rid,type:'compare'}});
         },
         CreatCom:function(){
             this.$router.push({path:'/CreateAnalysis',query:{type:'compare'}});

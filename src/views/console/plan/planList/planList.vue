@@ -2,53 +2,47 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 云规划
-</div>
-       
-            <div class="CRe row " >
-               <ul>
-                   <li>创建云规划</li>
-                   <li><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索云分析、应用名称" ></li>
-               </ul>
-        
-            </div>
-            <!-- <div>象限图</div> -->
-            <div class="result-echarts" id="main"></div>
-            <button style="color:#000" v-on:click="CreatId()">创建云规划</button><input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" style="margin-top50px;" >
-           
-          <table id="example" class="table table-striped table-bordered" border="1">
-             <thead>
-                    <tr style="margin-top:50px; text-align:center" id="tryes">
-                        <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
-                        <th class="col-md-1 text-center">应用名称</th>
-                        <th class="col-md-3 text-center">上云分析名称</th>
-                        <th class="col-md-2 text-center">云定性</th>
-                        <th class="col-md-3 text-center">云收益度</th>
-                        <th class="col-md-1 text-center">云亲和度</th>
-                        <th class="col-md-1 text-center">操作</th>
-                    </tr>
-            </thead>
-
-
-            <tbody id="myTable" >
-                    <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                        <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
-                        <td >{{sp.appname}}</td>
-                        <td >{{sp.proname}}</td>
-                        <td  v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>
-                        
-                        <td  v-else></td>
-                        <td  v-if="null!=sp.appResults[1]">{{sp.appResults[1].result}}</td>
-                        <td  v-else></td>
-                        <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
-                        <td  v-else></td>
-                        <td ><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
-                    </tr>
-            </tbody>
-
-        </table>
+    云规划
+</div>       
+<div class="CRe row planList" >
+    <div class="palnList-search">
+        <button class="creatPalnBtn" v-on:click="CreatId()">创建云规划</button>
+        <div class="PlansearchBox">
+            <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
+            <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
         </div>
-         </div>
+    </div>
+    <!-- <div>象限图</div> -->
+    <div class="result-echarts" id="main"></div>
+    <table id="example" class="table table-striped table-bordered planlist-table" border="1">
+        <thead>
+            <tr style="margin-top:50px; text-align:center" id="tryes">
+                <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
+                <th class="col-md-1 text-center">应用名称</th>
+                <th class="col-md-3 text-center">上云分析名称</th>
+                <th class="col-md-2 text-center">云定性</th>
+                <th class="col-md-3 text-center">云收益度</th>
+                <th class="col-md-1 text-center">云亲和度</th>
+                <th class="col-md-1 text-center">操作</th>
+            </tr>
+        </thead>
+        <tbody id="myTable" >
+            <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
+                <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
+                <td >{{sp.appname}}</td>
+                <td >{{sp.proname}}</td>
+                <td  v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>                
+                <td  v-else></td>
+                <td  v-if="null!=sp.appResults[1]">{{sp.appResults[1].result}}</td>
+                <td  v-else></td>
+                <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
+                <td  v-else></td>
+                <td ><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
+            </tr>
+        </tbody>    
+    </table>
+</div>
+</div>
 </template>
 
 <style>
@@ -56,89 +50,58 @@
   margin: 0px;
   padding: 0px;
 }
-.table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
-    border-bottom-width:0px;
-    padding:0px;
+.planList{
+    min-height:500px; background:#fff; padding:0 15px;
 }
-.ls {
-  margin-top: 20px;
+.palnList-search{
+    background:#ffffff; box-shadow:0 1px 1px 0 rgba(222,222,222,0.50); width:100%; height:57px;border-bottom:1px solid #e5e5e5;
 }
-td {
-  line-height: 20px;
+.creatPalnBtn{
+    background:#da121a; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
+line-height:30px; float:left; margin-top:13px;
 }
-.lookCom{
-  color:#337ab7;
+.PlansearchBox{
+    float:right; padding-top:13px;
 }
-#tryes th{
-   line-height:60px;
-    color:#2b2b2b;
+#myInput{
+    border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
 }
-tr th input{
-    width:16px;
-    height:16px;
-    
+.PlansearchBtn{
+   background:#da121a; width:42px; height:30px; color:#fff; float:right;
 }
-#trs td{
-    font-size:14px;
-color:#2b2b2b;
-line-height:60px;
-text-align:center;
-}
-tr td input{
-    width:16px;
-    height:16px;
-}
-table{
-border:1px solid #e5e5e5;
-}
-tr td a{
-    font-size:14px;
-color:#2eabf5;
-text-align:center;
-}
-.CRe div{
-    float:left;
-}
-.CRe{
-    width:100%;
-    
-    background:#ffffff;
-box-shadow:0 1px 1px 0 rgba(222,222,222,0.50);
+.planlist-table{
 
+}
+.planlist-table>thead>tr>th{
+    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#2b2b2b;font-weight:normal; border-right:1px solid #e5e5e5; vertical-align: middle;
+}
+.planlist-table>tbody>tr>td{
+    font-size:14px;
+    color:#2b2b2b;
+    border-right:1px solid #e5e5e5;
+    background:#fff;
+}
+.planlist-table>tbody>tr:nth-child(2n)>td{
+    background:#f7f7f7;
+}
+.planlist-table tr th input,.planlist-table tr td input{
+    width:16px; height:16px; 
+}
+.planlist-table tr td a{
+    font-size:14px; color:#2b2b2b; text-align:center;
 }
 .CRe ul li{
-    float:left;
-    
+    float:left; 
 }
 .CRe ul li:nth-child(1){
-    background:#da121a;
-    width:114px;
-    height:30px;
-    background:#da121a;
-    width:114px;
-    height:30px;
-    color:#fff;
-    text-align:center;
-    line-height:30px;
-    margin:15px 15px;
-    display:inline-block
+    background:#da121a; width:114px; height:30px; color:#fff; text-align:center; line-height:30px; margin:15px 15px; display:inline-block
 }
 .CRe ul li:nth-child(2){
-    float:right;
-    margin-top:20px;
-    margin-right:38px;
-  
-
+    float:right; margin-top:20px; margin-right:38px;
 }
 .CRe ul li input{
-      border:2px solid #cccccc;
-    width:232px;
-    height:28px;
-   background:url("../../../../assets/souuo.png") no-repeat right;
-   
+    border:2px solid #cccccc; width:232px; height:28px; background:url("../../../../assets/souuo.png") no-repeat right;  
 }
-
-
 </style>
 
 
@@ -223,7 +186,7 @@ export default {
     //   this.checkboxModel=""
     // },
     idClick:function(sid){
-            this.$router.push({path:'/planResult',query:{id:sid}});
+            this.$router.push({path:'/planResult',query:{id:sid,type:'plan'}});
     },
     CreatId:function(){
         this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
@@ -359,8 +322,11 @@ export default {
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#3259B8'
+                        color: '#c2c2c2'
                     }
+                },
+                nameTextStyle:{
+                    color:'#333'
                 }
             },
             yAxis: {
@@ -377,8 +343,11 @@ export default {
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#3259B8'
+                        color: '#c2c2c2'
                     }
+                },
+                nameTextStyle:{
+                    color:'#333'
                 }
             },
             series: [{
@@ -398,7 +367,7 @@ export default {
                     },
                     data: [{
                         xAxis: 50,
-                        name: '营业额平均线',
+                        name: '',
                         itemStyle: {
                             normal: {
                                 color: "#b84a58",
@@ -406,7 +375,7 @@ export default {
                         }
                     }, {
                         yAxis: 50,
-                        name: '服务能力平均线',
+                        name: '',
                         itemStyle: {
                             normal: {
                                 color: "#b84a58",
@@ -418,10 +387,10 @@ export default {
                     silent: true,
                     data: [
                         [{
-                            name: '合适',
+                            name: '',//合适
                             itemStyle: {
                                 normal: {
-                                    color: '#E8FFC4'
+                                    color: '#e7faff'
                                 },
                             },
                             label: {
@@ -438,10 +407,10 @@ export default {
                             coord: [Number.MAX_VALUE, 0],
                         }],
                         [{
-                            name: '低',
+                            name: '',//低
                             itemStyle: {
                                 normal: {
-                                    color: '#844200',
+                                    color: '#efefef',
                                 },
                             },
                             label: {
@@ -458,10 +427,10 @@ export default {
                             coord: [50, 50],
                         }],
                         [{
-                            name: '高',
+                            name: '',//高
                             itemStyle: {
                                 normal: {
-                                    color: '#9AFF02',
+                                    color: '#ffe9ea',
                                 },
                             },
                             label: {
@@ -478,10 +447,10 @@ export default {
                             coord: [Number.MAX_VALUE, Number.MAX_VALUE],
                         }],
                         [{
-                            name: '一般',
+                            name: '',//一般
                             itemStyle: {
                                 normal: {
-                                    color: '#FFDCB9',
+                                    color: '#fff1e2',
                                 },
                             },
                             label: {

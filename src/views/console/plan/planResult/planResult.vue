@@ -2,9 +2,12 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 报表
+    <router-link class="zong" to="/consolePage">总览</router-link>
+    ><p class="comback" v-on:click="goBack('palnlist')">云规划</p>
+    ><p class="comback" v-on:click="goBack('planquestion')">选择标准</p>
+    ><p class="comback">云规划报表</p>
 </div>
-<child index="3" start="0" :type="queryType"></child>
+<child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="plan-box">
     <div class="compare-start">
         <button class="startbtn" v-on:click="compare()">开始云选型</button>
@@ -173,7 +176,7 @@ export default{
                         },
                         data: [{
                             xAxis: 50,
-                            name: '营业额平均线',
+                            name: '',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -181,7 +184,7 @@ export default{
                             }
                         }, {
                             yAxis: 50,
-                            name: '服务能力平均线',
+                            name: '',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -193,7 +196,7 @@ export default{
                         silent: true,
                         data: [
                             [{
-                                name: '合适',
+                                name: '',//合适
                                 itemStyle: {
                                     normal: {
                                         color: '#e7faff'
@@ -213,7 +216,7 @@ export default{
                                 coord: [Number.MAX_VALUE, 0],
                             }],
                             [{
-                                name: '低',
+                                name: '',//低
                                 itemStyle: {
                                     normal: {
                                         color: '#efefef',
@@ -233,7 +236,7 @@ export default{
                                 coord: [50, 50],
                             }],
                             [{
-                                name: '高',
+                                name: '',//高
                                 itemStyle: {
                                     normal: {
                                         color: '#ffe9ea',
@@ -253,10 +256,10 @@ export default{
                                 coord: [Number.MAX_VALUE, Number.MAX_VALUE],
                             }],
                             [{
-                                name: '一般',
+                                name: '',//一般
                                 itemStyle: {
                                     normal: {
-                                        color: '#cee7f2',
+                                        color: '#fff1e2',
                                     },
                                 },
                                 label: {
@@ -277,6 +280,13 @@ export default{
                 }]
                 //
             })
+        },
+        goBack:function(link){
+            if(link=='planlist'){
+                this.$router.push({path:'/planList'});
+            }else if(link=='planquestion'){
+                this.$router.push({path:'/planQuestion',query:{id:this.appId,name:'1'}});
+            }
         }
     },
     components:{

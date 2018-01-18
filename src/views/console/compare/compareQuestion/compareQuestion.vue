@@ -2,9 +2,11 @@
 <div class="total">
 <div class="total-header">
     <span></span>
-    <router-link to="/consolePage">总览</router-link> > 云规划
+    <router-link class="zong" to="/consolePage">总览</router-link>
+    ><p class="comback" v-on:click="goBack()">云选型</p>
+    ><p class="comback">选择标准</p>
 </div>
-<child index="4" start="0" :type="queryType"></child>
+<child index="4" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="compare-line"></div>
 <div class="compare-container">
     <div class="compare-title">比较标准</div>
@@ -146,13 +148,16 @@ export default{
             }
         },
         result:function(){
-            this.$router.push({path:'/compareResult',query:{id:this.appId}});
+            this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(){
             for(let i=0;i<this.typelist.length;i++){
                 this.typelist[i].selected=true;
                 this.questionList(this.typelist[i].id,true);
             }
+        },
+        goBack:function(){
+            this.$router.push({path:'/compareList'});
         }
     },
     components:{
