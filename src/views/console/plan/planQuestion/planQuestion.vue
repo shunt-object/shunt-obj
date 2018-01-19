@@ -158,7 +158,8 @@ export default{
                             this.affinityResult = response.data.data.appResults[i].result;
                         }
                     }
-                }   
+                } 
+                this.layerNotice(this.typeName);  
             }).catch((error)=>{
             })
         },
@@ -183,7 +184,7 @@ export default{
                     this.cloudName = response.data.data.sname;
                     this.serverce = response.data.data.id;
                     document.documentElement.scrollTop = 0;
-                    if(this.typeName==null ||this.typeName==undefined || this.typeName=='' ){
+                    if( qcode!=-1 || optcode!=-1 ){
                         this.whichShow(2);
                     }
                 }
@@ -324,6 +325,35 @@ export default{
         },
         goBack:function(){
             this.$router.push({path:'/planList'});
+        },
+        layerNotice:function(typeId){
+            if(typeId==2 || typeId==3){
+                if(this.cloudName==''){
+                    let that = this;
+                    let lay = this.$layer.open({
+                        type: 0,
+                        content: '您还未进行云定性测试，请前往测试',
+                        title: '温馨提示',
+                        btn: '我知道了',
+                        yes:function(){
+                            that.$layer.close(lay);
+                            that.whichShow(1);
+                        }
+                    });
+                }else if(this.profitReault==''){
+                    let that = this;
+                    let lay = this.$layer.open({
+                        type: 0,
+                        content: '您还未进行收益度测试，请前往测试',
+                        title: '温馨提示',
+                        btn: '我知道了',
+                        yes:function(){
+                            that.$layer.close(lay);
+                            that.whichShow(2);
+                        }
+                    });
+                }
+            }
         }
     },
     components:{

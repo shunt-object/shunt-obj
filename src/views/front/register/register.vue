@@ -2,7 +2,7 @@
 <div class="register">
     <div class="reg-header">
         <div class="reg-content">
-            <img class="logo" src="../../../assets/logo.png" alt="">
+            <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
         </div>
     </div>
     <div class="reg-from">

@@ -24,7 +24,7 @@
             </p>
         </div>
         <div class="col-md-3 clould-result" v-for="item in resultlist">
-            <p class="score">
+            <p class="score" :class="item.moduleId==1?'score-qualitative':item.moduleId==2?'score-profit':'score-affinity'">
                 <span class="score-name">{{item.moduleName}}</span>
                 <span class="score-val" v-if="item.moduleId!=1">{{item.result}}</span>
                 <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
@@ -101,8 +101,8 @@ export default{
                     text: this.result.proname+' '+this.result.appname +'云规划报告',
                     textStyle:{
                         color:'#333333',
-                        fontWeight:'normal',
-                        fontSize:'14'
+                        fontWeight:'bold',
+                        fontSize:'15'
                     },
                     left: 'center'
                 },

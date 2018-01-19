@@ -10,7 +10,7 @@
     <div class="resource">配置信息</div> 
     <div class="resourceCroup-list row">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
-            <img src="../../../../assets/resource.png" alt="">
+            <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
         </div>
         <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"></div>
@@ -33,7 +33,7 @@
     </div>
     <div class="resourceCroup-list row">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
-            <img src="../../../../assets/resource.png" alt="">
+            <img src="../../../../assets/overview/resource-group2.png" alt="">
             <h4>数据库服务</h4>
         </div>
         <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"></div>
@@ -56,8 +56,8 @@
     </div>
     <div class="resourceCroup-list row">  
         <div class=" col-md-2 head col-sm-12 col-xs-12">
-                <img src="../../../../assets/resource.png" alt="">
-                <h4 style="margin-bottom:50px;">网络</h4>
+            <img src="../../../../assets/overview/resource-group3.png" alt="">
+            <h4 style="margin-bottom:50px;">网络</h4>
         </div>
         <div class="col-md-3 text-left Inp "  ></div>
         <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
@@ -69,7 +69,7 @@
 
     <div class="resourceCroup-list row">
         <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
-            <img src="../../../../assets/resource.png" alt="">
+            <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
         </div>
         <div class="col-md-3 text-left Inp"  ></div>
@@ -79,7 +79,8 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
         </ul>
     </div>
-    <router-link to="" class="nex"><button class="resourcebtn" @click="btn()">下一步</button></router-link> 
+    <button class="jumpBnt" @click="jump()">跳过</button>
+    <button class="resourcebtn" @click="btn()">下一步</button 
     <div class="clear" style="margin-bottom:20px;"></div>
 
 </div>
@@ -139,6 +140,9 @@ a:hover{
 }
 .resourcebtn{
     float:right; margin:10px 0; background:#da121a; border-radius:2px; width:94px;  height:35px; border:none; font-size:14px; color:#f0f0f0;
+}
+.jumpBnt{
+    float:right; margin:10px; background:#fff; border-radius:2px; width:94px;  height:35px; border:1px solid #ccc; font-size:14px; color:#555;
 }
 </style>
 <script>
@@ -254,6 +258,9 @@ export default {
                
             
 
+      },
+      jump:function(){
+          this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
       }
   },
     components:{

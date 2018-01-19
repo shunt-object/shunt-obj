@@ -14,13 +14,13 @@
             <div class="slider">
                 <ul class="slider-main"> 
                     <li class="slider-panel"> 
-                        <div class="modle-title" ><h1>早上好！欢迎来到CloudBroker</h1></div>
-                        <a><img src="../../../../assets/welcome.png"></a> 
+                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
+                        <a><img src="../../../../assets/overview/welcome1.png"></a> 
                     </li> 
                     <li class="slider-panel"> 
-                        <div class="modle-title" ><h1>CloudBroker六步祝您轻松上云</h1></div>
-                        <a><img src="../../../../assets/welcome.png"></a>
-                        <a class="creatCloud" v-on:click="UpRoute">创建云分析</a>
+                        <div class="modle-title" ><h1>CloudBrokerspan<span>六步祝您轻松上云</span></h1></div>
+                        <a><img src="../../../../assets/overview/welcome2.png"></a>
+                        <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
                     </li> 
                 </ul>
                 <div class="slider-extra"> 
@@ -29,8 +29,8 @@
                         <li class="slider-item"></li> 
                     </ul> 
                     <div class="slider-page"> 
-                        <a class="slider-pre" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a> 
-                        <a class="slider-next" href="javascript:;;"><img src="../../../../assets/left.png" alt=""></a>
+                        <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
+                        <a class="slider-next gonext-high" href="javascript:;;"></a>
                     </div> 
                 </div>
             </div>
@@ -245,7 +245,13 @@ a:hover{
     margin:0px !important;
 }
 .modle-title{
-    width:408px; height:84px; text-align:center; font-size:32px; color:#ffffff; margin-left:15%;  margin-bottom:10px;  
+    width:610px; height:60px; text-align:center;  color:#ffffff;
+}
+.modle-title h1{
+    font-size:26px; font-weight:normal;
+}
+.modle-title h1 span{
+    letter-spacing:4px;
 }
 ul { 
  list-style: outside none none; 
@@ -261,6 +267,18 @@ ul {
  } 
  .slider .slider-pre{
      position: absolute;   right:100%; margin-right:42px;
+ }
+ .goprev-grev{
+     background:url('../../../../assets/overview/left1.png') no-repeat;
+ }
+ .goprev-high{
+     background:url('../../../../assets/overview/left2.png') no-repeat;
+ }
+.gonext-high{
+     background:url('../../../../assets/overview/right2.png') no-repeat;
+ }
+ .gonext-grev{
+     background:url('../../../../assets/overview/right1.png') no-repeat;
  }
  .slider .slider-next{
      position: absolute;  right:10%
@@ -293,7 +311,7 @@ ul {
 position: relative; width:100%;
 }
 .creatCloud{
-    background:#ee566b;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 105%; line-height:42px; font-size:18px; color:#ffffff; text-align:center; cursor: pointer; 
+    background:#ee566b;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 110%; line-height:42px; font-size:16px; color:#ffffff; text-align:center; cursor: pointer; 
 }
 </style>
 <script>
@@ -509,6 +527,13 @@ export default {
             * currentIndex 整数，翻到的那页 
             */
             function play(preIndex, currentIndex) { 
+                if(preIndex==0){
+                    $(".slider-next").removeClass("gonext-high").addClass("gonext-grev");
+                    $(".slider-pre").removeClass("goprev-grev").addClass("goprev-high");
+                }else{
+                    $(".slider-next").removeClass("gonext-grev").addClass("gonext-high");
+                    $(".slider-pre").removeClass("goprev-high").addClass("goprev-grev");
+                }
                 $('.slider-panel').eq(preIndex).fadeOut(500).parent().children().eq(currentIndex).fadeIn(1000); 
                 $('.slider-item').removeClass('slider-item-selected'); 
                 $('.slider-item').eq(currentIndex).addClass('slider-item-selected'); 

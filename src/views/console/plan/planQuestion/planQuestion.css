@@ -170,3 +170,10 @@ button{
     font-size:14px;
     color:#f0f0f0;
 }
+/*弹框*/
+#notification_1_alert h2{
+    margin-top:-20px !important;
+}
+.btn-small{
+    margin-bottom:20px !important;
+}

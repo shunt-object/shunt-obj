@@ -2,11 +2,10 @@
 <div class="login">
     <div class="login-header">
         <div class="login-content">
-            <img class="logo" src="../../../assets/logo.png" alt="">
+            <router-link to="/"><img class="login-logo" src="../../../assets/login-logo.png" alt=""></router-link>
         </div>
     </div>
     <div class="login-content login-main">
-        <img class="login-img" src="../../../assets/login-bg1.png" alt="">
         <div class="login-from">
             <div class="login-from-title">登录</div>
             <div class="login-from-list" :class="isaccount==true?'error':''">
@@ -34,7 +33,6 @@
         <p class="login-foot-list">© CopyRight 2017江苏京玉信息技术有限公司  版权所有    TEL:(0379）65112858 65112856</p>
         <p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="login-foot-list">京公网安备 11010802020326号</p>
-        <img src="../../../assets/login-bg2.png" alt="">
     </div>
     <router-view></router-view>
 </div>
@@ -95,6 +93,7 @@ export default{
                     console.log('login',res);
                     if(res.data.code=='1'){
                         this.$router.push({path:'/'});
+                        //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));
                     }else if(res.data.code=='0'){

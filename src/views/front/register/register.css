@@ -3,7 +3,7 @@
     height:100vh;
     overflow-x:hidden;
     box-sizing:border-box;
-    /*background:url('../../../assets/register-bg.png');*/
+    font-family:'Microsoft YaHei';
     background:#fff;
     background-size:100% 100%;
 }
@@ -19,11 +19,11 @@
     height:80px;
     margin-top:20px;
 }
-.logo{
+.reg-logo{
     float:left;
-    height:40px;
-    width:70px;
-    margin-top:20px;
+    height:24px;
+    width:178px;
+    margin-top:30px;
 }
 .reg-from{
     width:459px;
