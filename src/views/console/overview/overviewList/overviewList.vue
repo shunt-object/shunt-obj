@@ -20,7 +20,7 @@
                     <li class="slider-panel"> 
                         <div class="modle-title" ><h1>CloudBroker六步祝您轻松上云</h1></div>
                         <a><img src="../../../../assets/welcome.png"></a>
-                        <a class="creatCloud">创建云分析</a>
+                        <a class="creatCloud" v-on:click="UpRoute">创建云分析</a>
                     </li> 
                 </ul>
                 <div class="slider-extra"> 

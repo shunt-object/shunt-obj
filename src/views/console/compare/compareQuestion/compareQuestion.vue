@@ -151,6 +151,7 @@ export default{
             this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(){
+            this.typeCheck = [];
             for(let i=0;i<this.typelist.length;i++){
                 this.typelist[i].selected=true;
                 this.questionList(this.typelist[i].id,true);

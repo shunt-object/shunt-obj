@@ -79,7 +79,7 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
         </ul>
     </div>
-    <router-link to="" class="nex"><button class="btn btn-default resourcebtn" @click="btn()">下一步</button></router-link> 
+    <router-link to="" class="nex"><button class="resourcebtn" @click="btn()">下一步</button></router-link> 
     <div class="clear" style="margin-bottom:20px;"></div>
 
 </div>
@@ -98,9 +98,9 @@
 .resourceGroup img{
     width:90px; 
 }
-.nex{
+/*.nex{
     color:#000;
-}
+}*/
 a:hover{
     color:#000;
 }
@@ -137,12 +137,8 @@ a:hover{
 .head{
     margin-top:66px; padding-left:60px;
 }
-.btn{
-    margin-left:90%; margin-top:10px; background:#da121a; border-radius:2px; width:94px; height:35px;
-    font-size:14px; color:#f0f0f0; text-align:center;
-}
-.btn:hover{
-    background:#da121a; border-radius:2px; width:94px; height:35px; font-size:14px; color:#f0f0f0;  text-align:center;
+.resourcebtn{
+    float:right; margin:10px 0; background:#da121a; border-radius:2px; width:94px;  height:35px; border:none; font-size:14px; color:#f0f0f0;
 }
 </style>
 <script>
