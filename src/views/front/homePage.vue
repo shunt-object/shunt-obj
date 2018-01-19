@@ -27,7 +27,7 @@
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
               <li v-if="islogin==true">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle logoutbtn" data-toggle="dropdown"> {{realname}}</button>
+                  <span data-toggle="dropdown">{{realname}}<i class="realname-san"></i></span>
                   <ul class="dropdown-menu logout-ul" role="menu">
                     <li v-on:click="fn()" style="cursor:pointer;">退出</li>
                   </ul>
@@ -832,7 +832,18 @@ a:hover {
     text-decoration: none
 }
 .logoutbtn {
-    background: #fff; padding: 5px 20px !important;
+    padding: 5px 20px !important; border:none; color:#fff;
+}
+.realname-san{
+    width: 0;
+    height: 0;
+    margin-left: 8px;
+    display:inline-block;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
 }
 .logout-ul li {
     text-align: center; line-height: 30px;

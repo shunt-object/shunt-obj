@@ -163,13 +163,13 @@ line-height:30px; float:left; margin-top:13px;
     margin-top:20px;
 }
 .progress{
-    width:90%; margin:20px 0 0 0; height:6px; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
+    width:90%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
 } 
 .spc{
     margin-left:5px; color:#000;
 }
 .progress-bar{
-    background-color:#5db85b; border-radius:10px;
+    background-color:#5db85b !important; border-radius:10px !important;
 }
 *{ margin:0;padding:0 }
 ul li{
