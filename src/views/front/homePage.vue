@@ -560,7 +560,7 @@ ul,ol li {
 }
 /*悬浮框*/
 .fixed-box{
-    width:66px; height:140px; position:fixed; right:40px;; top:50%; z-index:10;
+    width:66px; height:140px; position:fixed; right:0px;; top:50%; z-index:10;
 }
 .fixed-ul li{
     background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:66px; height:66px; color:#fff;
