@@ -79,10 +79,12 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
         </ul>
     </div>
-    <button class="jumpBnt" @click="jump()">跳过</button>
-    <button class="resourcebtn" @click="btn()">下一步</button 
+    <div class="resourcebtn-box" style="margin-top:20px;">
+        <button class="jumpBnt" @click="jump()">跳过</button>
+        <button class="resourcebtn" @click="btn()">下一步</button>
+    </div>    
     <div class="clear" style="margin-bottom:20px;"></div>
-
+    
 </div>
 </div>
 </template>

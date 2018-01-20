@@ -265,7 +265,8 @@
     </div>
     <!-------------------------footer------------------------------------------>
     <div class=" obj-friend footer">
-      <div class="container">
+      <!--<div class="container"> -->
+      <div class="row" style="width:80%;margin:0 auto !important;">
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
           <p class="text-left footer-jx">联系我们</p>
           <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-030-8008</p>
@@ -640,7 +641,7 @@ ul,ol li {
     padding: 10px 15px;
 }
 .navbar-nav li {
-    line-height: 58px; padding-bottom: 0; padding-top: 10px
+    line-height: 48px; padding-bottom: 0; padding-top: 10px
 }
 .left,.right {
     width: 10%;
@@ -804,7 +805,7 @@ ul,ol li {
     padding: 50px;
 }
 .lun-rig img {
-    width: 426px; height: 303px;
+    /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
 .pder{
@@ -817,7 +818,7 @@ ul,ol li {
   right: 0; height:0%; position: absolute; bottom: 0
 }
 .lun-rig img {
-  width: 80%; height: 80%; margin-top: 50px;
+  /*width: 80%; height: 80%;*/ margin-top: 50px;
 }
 .dsg {
   padding: 0

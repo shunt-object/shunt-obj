@@ -63,7 +63,7 @@
                     <span class="col-md-6"></span>
                     <span class="col-md-2 removeIng">
                         <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
-                        <i class="toggle-clould" v-on:click="toggleShow(index)">+</i>
+                        <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
                     </span>
                 </li>
                 <li class="row spx active" v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
@@ -138,7 +138,8 @@ line-height:30px; float:left; margin-top:13px;
     font-size:20px; text-align:right;
 }
 .toggle-clould{
-    color:#e15e2d; margin-left:10px; cursor:pointer;
+    width: 0; height: 0; margin-left: 8px; display:inline-block; vertical-align: middle; border-top: 4px dashed; border-top: 4px solid; border-right: 4px solid transparent; border-left: 4px solid transparent; cursor:pointer;
+    /*color:#e15e2d; margin-left:10px; cursor:pointer;*/
 }
 .removeBtn{
     font-size:16px; color:#a8a8a8; cursor:pointer;
