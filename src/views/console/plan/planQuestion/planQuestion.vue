@@ -9,7 +9,7 @@
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="planquestion plan-input">
     <div class="plan-question-item row">
-        <div class="plan-type col-md-4" v-on:mouseenter="hoverStyle(1)" v-on:mouseleave="leaveStyle(1)">
+        <div class="plan-type col-md-4" id="tips" v-on:mouseenter="hoverStyle(1)" v-on:mouseleave="leaveStyle(1)">
             <p class="plan-step" :class="qualitative==true||hover[0].boolean==true?'qualitative-step':''">步骤1</p>
             <div class="common-block qualitative-ready" :class="qualitative==true||hover[0].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(1)">
                 <div class="plan-title">
@@ -99,6 +99,14 @@
 </div>
 </div>
 </template>
+<style>
+.notify-tips{
+    background:#da121a !important;
+}
+.notify-tips em{
+    border-color:#da121a !important;
+}
+</style>
 <script> 
 import child from '../../../../components/steps/steps.vue'
 import '../planQuestion/planQuestion.css'
@@ -184,9 +192,14 @@ export default{
                     this.quetionList = [];
                     this.cloudName = response.data.data.sname;
                     this.serverce = response.data.data.id;
-                    document.documentElement.scrollTop = 0;
                     if( qcode!=-1 || optcode!=-1 ){
+                        document.documentElement.scrollTop = 0;
+                        //您适合上XX云  请继续进行云收益度测试？
+                        this.$layer.tips('您适合上'+response.data.data.sname+'云  请继续进行云收益度测试', '#tips', {
+                            tips: [1]
+                        });
                         this.whichShow(2);
+                        //let id = this.$layer.tips("在很久很久以前", '#tips');
                     }
                 }
             }).catch((error)=>{
