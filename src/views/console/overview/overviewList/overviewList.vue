@@ -4,40 +4,40 @@
     <span></span>
     总览
 </div>
-<!-- 数据为空时显示 -->
-<div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
-    <div class="cals" style="width:100%;">
-        <div class="slider">
-            <ul class="slider-main"> 
-                <li class="slider-panel"> 
-                    <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
-                    <a><img src="../../../../assets/overview/welcome1.png"></a> 
-                </li> 
-                <li class="slider-panel"> 
-                    <div class="modle-title" ><h1>CloudBroker<span>六步祝您轻松上云</span></h1></div>
-                    <a><img src="../../../../assets/overview/welcome2.png"></a>
-                    <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
-                </li> 
-            </ul>
-            <div class="slider-extra"> 
-                <ul class="slider-nav"> 
-                    <li class="slider-item"></li> 
-                    <li class="slider-item"></li> 
-                </ul> 
-                <div class="slider-page"> 
-                    <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
-                    <a class="slider-next gonext-high" href="javascript:;;"></a>
-                </div> 
+<div class="overviewlist">
+    <div class="overviewSearch" v-if="this.flag!=true">
+        <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
+    </div>
+    <!-- 数据为空时显示 -->
+    <div class="modle col-xs-12 col-md-12 col-sm-12" v-if="this.flag==true">
+        <div class="cals" style="width:100%;">
+            <div class="slider">
+                <ul class="slider-main"> 
+                    <li class="slider-panel"> 
+                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
+                        <a><img src="../../../../assets/overview/welcome1.png"></a> 
+                    </li> 
+                    <li class="slider-panel"> 
+                        <div class="modle-title" ><h1>CloudBroker<span>六步祝您轻松上云</span></h1></div>
+                        <a><img src="../../../../assets/overview/welcome2.png"></a>
+                        <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
+                    </li> 
+                </ul>
+                <div class="slider-extra"> 
+                    <ul class="slider-nav"> 
+                        <li class="slider-item"></li> 
+                        <li class="slider-item"></li> 
+                    </ul> 
+                    <div class="slider-page"> 
+                        <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
+                        <a class="slider-next gonext-high" href="javascript:;;"></a>
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="overviewlist">
-    <div class="overviewSearch">
-        <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
-    </div>
     <!-- 数据为空结束 -->
-    <ul class="uls">
+    <ul class="uls" v-if="this.flag!=true">
         <li class="sps row">
             <span class="col-md-1"><input type="checkbox" class="text-center"></span>
             <span class="col-md-2 weight">云分析名称</span>
