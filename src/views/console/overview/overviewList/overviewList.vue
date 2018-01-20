@@ -480,7 +480,7 @@ export default {
             currentIndex = 0, 
             interval, 
             hasStarted = false, //是否已经开始轮播 
-            t = 3000; //轮播时间间隔 
+            t = 5000; //轮播时间间隔 
             length = $('.slider-panel').length; 
             //将除了第一张图片隐藏 
             $('.slider-panel:not(:first)').hide(); 

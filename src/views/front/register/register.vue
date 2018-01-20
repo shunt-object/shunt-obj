@@ -70,7 +70,8 @@
         <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
         <div class="reg-from-agreement">
             <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
-            <router-link to="/login">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>
+            <a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>
+            <!--<router-link to="">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>-->
         </div>
         <!--<div class="reg-from-null"></div>-->
         <div class="reg-from-notice">
@@ -137,7 +138,7 @@ export default{
             }
         },
         reg:function(dom){
-            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0-9]))\d{8}$/;
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
             let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
             if(dom=='phone'){
                 this.isnotice = 'phonefalse';
@@ -194,7 +195,16 @@ export default{
                 let that = this;
                 this.$this.post('/broker/auth/register',strObj).then((response)=>{
                     if(response.data.code=='1'){
-                         that.$router.push({path:'/login'});
+                        let lay = this.$layer.open({
+                            type: 0,
+                            content: '您已注册成功，请前去登录',
+                            title: '温馨提示',
+                            btn: '我知道了',
+                            yes:function(){
+                                that.$router.push({path:'/login'});
+                                that.$layer.close(lay);
+                            }
+                        });
                     }
                 }).catch((error)=>{
                     console.log(error);

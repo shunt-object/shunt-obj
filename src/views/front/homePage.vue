@@ -2,7 +2,7 @@
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">在线客服</li>
+            <li><img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                 <img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
                 <div v-show="phoneBox" class="phone-box"><img src="../../assets/homePage-hover-phone.png" alt=""></div>
@@ -291,8 +291,7 @@
         </div>
       </div>
       <div class="row text-center footer-last">       
-        <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有</p>
-        <p class="text-center thin">TEL:(0379）65112858 65112856</p>
+        <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有TEL:(0379）65112858 65112856</p>
       </div>
     </div>
   </div>
@@ -560,7 +559,7 @@ ul,ol li {
 }
 /*悬浮框*/
 .fixed-box{
-    width:66px; height:140px; position:fixed; right:0px;; top:50%; z-index:10;
+    width:66px; height:140px; position:fixed; right:0px;; bottom:100px; z-index:10;
 }
 .fixed-ul li{
     background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:66px; height:66px; color:#fff;
@@ -776,16 +775,16 @@ ul,ol li {
     width: 80%;
 }
 .footer {
-    background: #2b2b2b;
+    background: #2b2b2b; min-height:170px;
 }
 .footer .footer-ts {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .footer p {
-    font-size: 12px; color: #b3b3b3;
+    font-size: 12px; color: #b3b3b3; line-height:15px;
 }
 .footer-ts img {
-    width: 97px; height: 97px;
+    width: 59px; height: 59px;
 }
 .footer .container {
     width: 60%;
@@ -806,7 +805,7 @@ ul,ol li {
     font-size: 12px; color: #b3b3b3; text-indent:-50px; line-height:10px;
 }
 .footer .footer-last p:nth-child(1){
-    margin-top:30px;
+    margin-top:15px;
 }
 .footer {
     padding-bottom: 0;

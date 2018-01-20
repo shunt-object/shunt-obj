@@ -23,7 +23,7 @@
     </div>
     <div class="stepPlan-item step10">
         <span class="circle" :class="start==5?'finish-circle':'common-circle'">5</span>
-        <div class="stepPlan-name common-color" :class="start==5?'active-color':'common-color'">上云分析报告</div>
+        <div class="stepPlan-name common-color" :class="start==5?'active-color':'common-color'">综合报告</div>
     </div>
 </div>
 <!-- 创建云规划 -->
@@ -55,7 +55,7 @@
     </div>
     <div class="stepPlan-item step10">
         <span class="circle" :class="index==6?'finish-circle':'common-circle'">6</span>
-        <div class="stepPlan-name common-color" :class="index==6?'active-color':'common-color'">上云分析报告</div>
+        <div class="stepPlan-name common-color" :class="index==6?'active-color':'common-color'">综合报告</div>
     </div>
 </div>
 </template>
