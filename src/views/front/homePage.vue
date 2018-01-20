@@ -63,7 +63,7 @@
               <div class="col-md-7 lun-le">
                 <h1>中国的“RightScale”,助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
-                <p class="pBottom"><span class="pSpan">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig">  
                 <img src="../../assets/text.png" alt="">
@@ -79,7 +79,7 @@
                 <div class="col-md-7 lun-le">
                   <h1>中国的“RightScale”,助您轻松上云!</h1>
                   <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
-                  <p class="pBottom"><span class="pSpan">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                  <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
                 </div>
                 <div class="col-md-5 lun-rig">
                   <img src="../../assets/text.png" alt="">
@@ -309,7 +309,6 @@ export default {
       }
     },
     mounted: function() {
-        console.log('-------',sessionStorage.getItem("utype")=='null');
         function CanvasAnimate(Dom,options){
           options = options || {}
           this.Element = Dom
@@ -511,16 +510,7 @@ export default {
           this.phoneBox = false;
       },
       condole: function() {
-          if(sessionStorage.getItem("utype")=='4'){
-            this.$router.push({path: '/consolePage'});
-          }else if(sessionStorage.getItem("utype")=='3'){
-            this.$router.push({path: '/consolePage'});
-          }else if(sessionStorage.getItem("utype")=='null'){
-             this.$router.push({path: '/consolePage'});
-          }else{
-              this.$router.push({path: '/consolePage'});
-          }    
-       
+          this.$router.push({path: '/consolePage'});
       },
       reset: function() {
         this.$router.push({path: '/register'})
@@ -626,7 +616,7 @@ ul,ol li {
     padding: 10px 25px; border: 1px solid #ccc; color: #fff; font-size: 12px;
 }
 .lunmain .lun-le .pBottom .pSpan {
-    background: #da121a; border-color: #da121a;
+    background: #da121a; border-color: #da121a; cursor:pointer;
 }
 .Imgs {
     width: 144px; height: 19px;

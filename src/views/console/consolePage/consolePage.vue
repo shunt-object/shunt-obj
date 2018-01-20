@@ -69,7 +69,7 @@
                         <span>总览</span>
                     </a>
                 </li>
-                <li class="sub-menu">
+                <li class="sub-menu" v-if="utype!=3||utype!=4">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/fenxi.png" alt="">
@@ -102,7 +102,8 @@ export default{
     name:'consolePage',
     data(){
         return {
-            username:''
+            username:'',
+            utype:''
         }
     },
     mounted:function(){
@@ -148,6 +149,7 @@ export default{
             }
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
+        this.utype = sessionStorage.getItem("utype");
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{

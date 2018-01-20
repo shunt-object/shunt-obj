@@ -1,10 +1,18 @@
 <template>
 <div class="total Lists">
-<div class="total-header">
+<div class="total-header" v-if="utype!=3||utype!=4">
     <span></span>
     总览
 </div>
-<div class="overviewlist">
+<!-- 运营商 -->
+<div v-if="utype==3">
+    <img src="../../../../assets/yunying.png" alt="" style="width:100%;">
+</div>
+<!-- 政府 -->
+<div v-if="utype==4">
+    <img src="../../../../assets/zhengfu.png" alt="" style="width:100%;">
+</div>
+<div class="overviewlist" v-if="utype!=3||utype!=4">
     <div class="overviewSearch" v-if="this.flag!=true">
         <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
     </div>
@@ -332,7 +340,8 @@ export default {
             list:false,
             i:-1, 
             flag:false,
-            togglelist:[]
+            togglelist:[],
+            utype:''
             //{"ids":[1,2,3]}
         }
     },     
@@ -441,6 +450,7 @@ export default {
         }
     },
     created:function(){
+        this.utype =  sessionStorage.getItem("utype");
         this.$http.get('/broker/result/analysis').then((res)=>{
             this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
             //console.log(this.vpd);

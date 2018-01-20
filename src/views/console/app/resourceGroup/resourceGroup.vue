@@ -59,7 +59,7 @@
             <img src="../../../../assets/overview/resource-group3.png" alt="">
             <h4 style="margin-bottom:50px;">网络</h4>
         </div>
-        <div class="col-md-3 text-left Inp "  ></div>
+        <div class="col-md-3 text-left Inp col-sm-12" ></div>
         <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（GB/月）</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（GB/月）</li>
@@ -72,7 +72,7 @@
             <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
         </div>
-        <div class="col-md-3 text-left Inp"  ></div>
+        <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="num"></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>

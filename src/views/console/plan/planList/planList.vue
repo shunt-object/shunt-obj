@@ -14,7 +14,14 @@
     </div>
     <!-- <div>象限图</div> -->
     <div class="result-echarts" id="main"></div>
-    <table id="example" class="table table-striped table-bordered planlist-table" border="1">
+    <!-- 空白 -->
+    <div class="planList-nodata" v-if="sps.length<1">
+        <img src="../../../../assets/compare-nodata.png" alt="">
+        <br>
+        暂无数据
+    </div>
+    <!-- 有数据 -->
+    <table id="example" class="table table-striped table-bordered planlist-table" border="1" v-else>
         <thead>
             <tr style="margin-top:50px; text-align:center" id="tryes">
                 <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
@@ -49,6 +56,13 @@
 * {
   margin: 0px;
   padding: 0px;
+}
+/*暂无数据*/
+.planList-nodata{
+    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+}
+.planList-nodata img{
+    margin-top:200px;
 }
 .planList{
     min-height:500px; background:#fff; padding:0 15px;
