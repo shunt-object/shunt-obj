@@ -1,5 +1,14 @@
 <template>
   <div class="homepage">
+    <div class="fixed-box">
+        <ul class="fixed-ul">
+            <li><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">在线客服</li>
+            <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
+                <img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                <div v-show="phoneBox" class="phone-box"><img src="../../assets/homePage-hover-phone.png" alt=""></div>
+            </li>
+        </ul>
+    </div>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,7 +113,7 @@
           <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
           <div class="heng"></div>
         </div>
-        <div class="row text-center" style="margin-top:25px">
+        <div class="row text-center" style="margin-top:20px !important;">
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <img src="../../assets/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
@@ -134,13 +143,11 @@
     </div>
     <!---------------------我们的特点---------------------------->
     <div class="obj-what ourPoint phone-position">
-      <img src="../../assets/Group 32.png" alt="" class="RenGong">
-      <img src="../../assets/Group 40.png" alt="" class="phone">
       <div class="container obj-what-whew">
         <h2>我们的特点</h2>
         <p class="p-wha">科学权威上云分析</p>
         <div class="heng"></div>
-        <div class="col-xs-12 cla">
+        <div class="col-xs-12 cla" style="margin-top: 20px;">
           <div class="col-xs-12 col-sm-2">
             <img src="../../assets/a.png" alt="" class="tranImg">
             <h4>SaaS化</h4>
@@ -190,7 +197,7 @@
         <h2 class="lhat-td">为什么选择我们</h2>
         <p class="p-wha">云可能很复杂，但我们助您上云变得简单和轻松</p>
         <div class="heng"></div>
-        <ul class="row col-xs-12 uls-w">
+        <ul class="row col-xs-12 uls-w" style="margin-top:20px !important;">
           <li class="col-xs-12 col-sm-4">
             <div class=" li-fir"><img src="../../assets/pict-1.png" alt="" class="pict">
               <h2>省力</h2>
@@ -213,9 +220,9 @@
       </div>
     </div>
     <!-----------------------合作伙伴-------------------------------------->
-    <div class=" obj-what obj-friend" style="background:#fff;">
+    <div class=" obj-what obj-friend" style="background:#f7f7f7;">
       <div class="container">
-        <div class="row text-center jzWe jsFei">
+        <div class="row text-center jzWe jsFei" style="margin-bottom:20px !important;">
           <h1 class="text-center thin">合作伙伴</h1>
           <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态!</h3>
           <div class="he-su"></div>
@@ -261,19 +268,19 @@
       <div class="container">
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
           <p class="text-left footer-jx">联系我们</p>
-          <p class="text-left"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-030-8008</p>
-          <p class="text-left"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
+          <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-030-8008</p>
+          <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
         </div>
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
           <p class="text-left footer-jx">功能</p>
-          <p class="text-left">云规划</p>
-          <p class="text-left">云选型</p>
-          <p class="text-left">云管理</p>
+          <p class="text-left footer-list">云规划</p>
+          <p class="text-left footer-list">云选型</p>
+          <p class="text-left footer-list">云管理</p>
         </div>
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
           <p class="text-left footer-jx">服务支持</p>
-          <p class="text-left">帮助中心</p>
-          <p class="text-left">服务条款</p>
+          <p class="text-left footer-list">帮助中心</p>
+          <p class="text-left footer-list">服务条款</p>
         </div>
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
           <p class="footer-jx">易云管</p>
@@ -283,8 +290,9 @@
           </div>
         </div>
       </div>
-      <div class="row text-center footer-last">
-        <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有 TEL:(0379）65112858 65112856</p>
+      <div class="row text-center footer-last">       
+        <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有</p>
+        <p class="text-center thin">TEL:(0379）65112858 65112856</p>
       </div>
     </div>
   </div>
@@ -297,7 +305,8 @@ export default {
     data() {
       return {
         islogin: false,
-        realname: ''
+        realname: '',
+        phoneBox:false
       }
     },
     mounted: function() {
@@ -496,6 +505,12 @@ export default {
       loGog: function() {
         this.$router.push({path: '/login'});
       },
+      phoneEnter:function(){
+          this.phoneBox = true;
+      },
+      phoneleave:function(){
+          this.phoneBox = false;
+      },
       condole: function() {
           if(sessionStorage.getItem("utype")=='4'){
             this.$router.push({path: '/consolePage'});
@@ -541,8 +556,26 @@ ul,ol li {
     margin-bottom:0px !important;
 }
 .ourPoint{
-    background:#fff; padding-bottom: 30px;
+    background:#f7f7f7; padding-bottom: 30px;
 }
+/*悬浮框*/
+.fixed-box{
+    width:66px; height:140px; position:fixed; right:40px;; top:50%; z-index:10;
+}
+.fixed-ul li{
+    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:66px; height:66px; color:#fff;
+    padding-top:3px; line-height:5px; cursor:pointer;
+}
+.phone-li{
+    margin-top:7px; position:relative;
+}
+.phone-box{
+    width:185px; height:60px; position:absolute; right:68px; top:0;
+}
+.fixed-icon{
+    display:block; margin:10px auto; width:18px; height:18px;
+}
+/**/
 @media (min-width: 768px) {
   .pder{
       position:absolute; top:15%; left:35%;
@@ -645,10 +678,10 @@ ul,ol li {
     font-size: 18px; color: #da121a; text-align: right
 }
 .obj-main {
-    width: 100%; background: #f7f7f7;
+    width: 100%; background: #fff;
 }
 .obj-main h1 {
-    color: #333333; font-weight: 200; font-size:32px; text-align:center;
+    color: #333333; font-weight: 200; font-size:32px; text-align:center; padding-top:20px;
 }
 .obj-main h3 {
     font-size:16px; color:#777777; text-align:center;
@@ -676,7 +709,7 @@ ul,ol li {
     width: 100%; height: 100%;
 }
 .obj-what {
-    width: 100%;
+    width: 100%; margin-top:20px !important;
 }
 .obj-what .container {}
 .obj-what .container .jzWe {
@@ -743,7 +776,7 @@ ul,ol li {
     width: 80%;
 }
 .footer {
-    background: #000;
+    background: #2b2b2b;
 }
 .footer .footer-ts {
     margin-top: 40px;
@@ -757,17 +790,23 @@ ul,ol li {
 .footer .container {
     width: 60%;
 }
-.footer .footer-ke {
-    border-left: 4px solid #2e383e;
+.footer .footer-left {
+    border-left:1px solid #2e383e;
 }
 .footer .footer-jx {
-    font-weight: 900
+    font-weight: 200; font-size:14px; color:#fff;
+}
+.footer-list{
+    font-size:12px; color:#b3b3b3;
 }
 .footer .footer-last {
     margin-top: 20px; line-height: 62px;
 }
 .footer .footer-last p {
-    font-size: 12px; color: #b3b3b3;
+    font-size: 12px; color: #b3b3b3; text-indent:-50px; line-height:10px;
+}
+.footer .footer-last p:nth-child(1){
+    margin-top:30px;
 }
 .footer {
     padding-bottom: 0;
@@ -828,7 +867,7 @@ ul,ol li {
 .phone-position {
   position: relative
 }
-.RenGong {
+/*.RenGong {
     width: 66px; height: 66px; position: absolute; right: 0px; top: 0%;
 }
 .phone {
@@ -839,7 +878,7 @@ ul,ol li {
 }
 .phone:hover {
     background: red; cursor: pointer
-}
+}*/
 .router-link-d {
     color: #000;
 }
@@ -864,7 +903,7 @@ a:hover {
     text-align: center; line-height: 30px;
 }
 .bluar-ccc {
-    border: 1px solid #f7f7f7; background: #fff; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5;
+    border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
 }
 h2 {
     font-size: 20px;
@@ -897,7 +936,7 @@ h2 {
     color: #666666; display: block
 }
 .obj-lhat {
-    background: #f7f7f7;
+    background: #fff;
 }
 .obj-lhat .lhat-td {
     margin-top: 35px;

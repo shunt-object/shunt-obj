@@ -8,7 +8,7 @@
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
     <div class="resource">配置信息</div> 
-    <div class="resourceCroup-list row">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
@@ -31,7 +31,7 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
         </ul>
     </div>
-    <div class="resourceCroup-list row">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group2.png" alt="">
             <h4>数据库服务</h4>
@@ -54,7 +54,7 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
         </ul>
     </div>
-    <div class="resourceCroup-list row">  
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">  
         <div class=" col-md-2 head col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group3.png" alt="">
             <h4 style="margin-bottom:50px;">网络</h4>
@@ -67,7 +67,7 @@
         </ul>
     </div>   
 
-    <div class="resourceCroup-list row">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
         <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
             <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
