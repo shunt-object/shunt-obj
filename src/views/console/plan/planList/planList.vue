@@ -73,7 +73,7 @@ line-height:30px; float:left; margin-top:13px;
 
 }
 .planlist-table>thead>tr>th{
-    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#2b2b2b;font-weight:normal; border-right:1px solid #e5e5e5; vertical-align: middle;
+    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#2b2b2b; border-right:1px solid #e5e5e5; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
     font-size:14px;
@@ -87,7 +87,7 @@ line-height:30px; float:left; margin-top:13px;
 .planlist-table tr th input,.planlist-table tr td input{
     width:16px; height:16px; 
 }
-.planlist-table tr td a{
+.planlist-table tr td{
     font-size:14px; color:#2b2b2b; text-align:center;
 }
 .CRe ul li{

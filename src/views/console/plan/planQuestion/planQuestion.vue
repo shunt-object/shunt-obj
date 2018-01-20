@@ -9,9 +9,9 @@
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="planquestion plan-input">
     <div class="plan-question-item row">
-        <div class="plan-type col-md-4">
-            <p class="plan-step" :class="qualitative==true?'qualitative-step':''">步骤1</p>
-            <div class="common-block qualitative-ready" :class="qualitative==true?'activeBtn':'active-btn'" v-on:click="tab(1)">
+        <div class="plan-type col-md-4" v-on:mouseenter="hoverStyle(1)" v-on:mouseleave="leaveStyle(1)">
+            <p class="plan-step" :class="qualitative==true||hover[0].boolean==true?'qualitative-step':''">步骤1</p>
+            <div class="common-block qualitative-ready" :class="qualitative==true||hover[0].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(1)">
                 <div class="plan-title">
                     <p class="title1">云定性</p>
                     <p class="title2">Cloud qualitative</p>
@@ -19,11 +19,11 @@
                 </div>
                 <span>{{cloudName}}</span>
             </div>
-            <div class="qualitative-line" :class="qualitative==true?'active-line':'plan-line'"></div>
+            <div class="qualitative-line" :class="qualitative==true||hover[0].boolean==true?'active-line':'plan-line'"></div>
         </div>
-        <div class="plan-type col-md-4">
-            <p class="plan-step" :class="profit==true?'profit-step':''">步骤2</p>
-            <div class="common-block profit-ready" :class="profit==true?'activeBtn':'active-btn'" v-on:click="tab(2)">
+        <div class="plan-type col-md-4" v-on:mouseenter="hoverStyle(2)" v-on:mouseleave="leaveStyle(2)">
+            <p class="plan-step" :class="profit==true||hover[1].boolean==true?'profit-step':''">步骤2</p>
+            <div class="common-block profit-ready" :class="profit==true||hover[1].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(2)">
                 <div class="plan-title">
                     <p class="title1">云收益度</p>
                     <p class="title2">Cloud qualitative</p>
@@ -31,11 +31,11 @@
                 </div>
                 <span>{{profitReault}}</span>
             </div>
-            <div class="profit-line" :class="profit==true?'active-line':'plan-line'"></div>
+            <div class="profit-line" :class="profit==true||hover[1].boolean==true?'active-line':'plan-line'"></div>
         </div>
-        <div class="plan-type col-md-4">
-            <p class="plan-step" :class="affinity==true?'affinity-step':''">步骤3</p>
-            <div class="common-block affinity-ready" :class="affinity==true?'activeBtn':'active-btn'" v-on:click="tab(3)">
+        <div class="plan-type col-md-4" v-on:mouseenter="hoverStyle(3)" v-on:mouseleave="leaveStyle(3)">
+            <p class="plan-step" :class="affinity==true||hover[2].boolean==true?'affinity-step':''">步骤3</p>
+            <div class="common-block affinity-ready" :class="affinity==true||hover[2].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(3)">
                 <div class="plan-title">
                     <p class="title1">云亲和度</p>
                     <p class="title2">Cloud qualitative</p>
@@ -43,7 +43,7 @@
                 </div>
                 <span>{{affinityResult}}</span>
             </div>
-            <div class="affinity-line" :class="affinity==true?'active-line':'plan-line'"></div>
+            <div class="affinity-line" :class="affinity==true||hover[2].boolean==true?'active-line':'plan-line'"></div>
         </div>
     </div>
     <!--定性问题-->
@@ -61,7 +61,7 @@
         </div>
         <!-- -->
         <div class="question-block" v-if="quetionList!=''">
-            <p class="qualitative-list">Q{{quetionList.ordernum}}.{{quetionList.content}}</p>
+            <p class="qualitative-list">Q{{havedList.length+1}}.{{quetionList.content}}</p>
             <p class="qualitative-list">
                 <span class="question-option question-type" v-for="item in quetionList.option">
                     <input type="radio" :name="quetionList.code" :checked="item.code==quetionList.selectOption" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
@@ -122,7 +122,8 @@ export default{
             queryType:'',
             typeName:'',
             havedList:[],//云定性已做的题，可编辑
-            editlist:[]
+            editlist:[],
+            hover:[{boolean:false},{boolean:false},{boolean:false}]
         }
     },
     mounted:function(){
@@ -286,14 +287,18 @@ export default{
                     this.whichShow(2);
                     this.getLiang(this.appId,2);
                 }else{
-                    this.$layer.msg("不能点击");
+                    this.$layer.msg("请先进行云定性测试");
                 }
             }else if(typeId==3){
                 if(this.profitReault!=''){
                     this.whichShow(3);
                     this.getLiang(this.appId,3);
                 }else{
-                    this.$layer.msg("no");
+                    if(this.cloudName!=''){
+                        this.$layer.msg("请先进行云收益度测试");
+                    }else{
+                       this.$layer.msg("请先进行云定性测试"); 
+                    }                    
                 }
             }
         },
@@ -354,6 +359,12 @@ export default{
                     });
                 }
             }
+        },
+        hoverStyle:function(I){
+            this.hover[I-1].boolean = true;
+        },
+        leaveStyle:function(I){
+            this.hover[I-1].boolean = false;
         }
     },
     components:{

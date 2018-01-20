@@ -4,45 +4,45 @@
     <span></span>
     总览
 </div>
+<!-- 数据为空时显示 -->
+<div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
+    <div class="cals" style="width:100%;">
+        <div class="slider">
+            <ul class="slider-main"> 
+                <li class="slider-panel"> 
+                    <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
+                    <a><img src="../../../../assets/overview/welcome1.png"></a> 
+                </li> 
+                <li class="slider-panel"> 
+                    <div class="modle-title" ><h1>CloudBroker<span>六步祝您轻松上云</span></h1></div>
+                    <a><img src="../../../../assets/overview/welcome2.png"></a>
+                    <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
+                </li> 
+            </ul>
+            <div class="slider-extra"> 
+                <ul class="slider-nav"> 
+                    <li class="slider-item"></li> 
+                    <li class="slider-item"></li> 
+                </ul> 
+                <div class="slider-page"> 
+                    <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
+                    <a class="slider-next gonext-high" href="javascript:;;"></a>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
 <div class="overviewlist">
     <div class="overviewSearch">
         <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
-    </div>
-    <!-- 数据为空时显示 -->
-    <div class="modle col-xs-12 col-md-12 col-sm-12" v-show="this.flag">
-        <div class="cals" style="width:100%;">
-            <div class="slider">
-                <ul class="slider-main"> 
-                    <li class="slider-panel"> 
-                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
-                        <a><img src="../../../../assets/overview/welcome1.png"></a> 
-                    </li> 
-                    <li class="slider-panel"> 
-                        <div class="modle-title" ><h1>CloudBrokerspan<span>六步祝您轻松上云</span></h1></div>
-                        <a><img src="../../../../assets/overview/welcome2.png"></a>
-                        <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
-                    </li> 
-                </ul>
-                <div class="slider-extra"> 
-                    <ul class="slider-nav"> 
-                        <li class="slider-item"></li> 
-                        <li class="slider-item"></li> 
-                    </ul> 
-                    <div class="slider-page"> 
-                        <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
-                        <a class="slider-next gonext-high" href="javascript:;;"></a>
-                    </div> 
-                </div>
-            </div>
-        </div>
     </div>
     <!-- 数据为空结束 -->
     <ul class="uls">
         <li class="sps row">
             <span class="col-md-1"><input type="checkbox" class="text-center"></span>
-            <span class="col-md-2">云分析名称</span>
-            <span class="col-md-1">应用负载名称</span>
-            <span class="col-md-7">进度</span>
+            <span class="col-md-2 weight">云分析名称</span>
+            <span class="col-md-1 weight">应用负载名称</span>
+            <span class="col-md-7 weight">进度</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
@@ -119,8 +119,11 @@ i{
      width:100%; height:57px;
 }
 .creatAll{
-    background:#da121a; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
+    background:#e41e2b; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
 line-height:30px; float:left; margin-top:13px;
+}
+.weight{
+    font-weight:bold;
 }
 /**/
 .removeIng{
@@ -402,6 +405,7 @@ export default {
                     console.log(error);
                 })
             },function(){
+                 that.$layer.close(con);
                  return ;
             });
         },
@@ -476,7 +480,7 @@ export default {
             currentIndex = 0, 
             interval, 
             hasStarted = false, //是否已经开始轮播 
-            t = 5000; //轮播时间间隔 
+            t = 3000; //轮播时间间隔 
             length = $('.slider-panel').length; 
             //将除了第一张图片隐藏 
             $('.slider-panel:not(:first)').hide(); 

@@ -95,6 +95,7 @@
 }
 .row{
     width:100%;
+    margin: 0 0 10px 0!important;
 }
 .resourceGroup img{
     width:90px; 
@@ -118,7 +119,7 @@ a:hover{
     font-size:14px; color:#333333;      
 }  
 .ulss li{
-    margin-bottom:10px; font-size:12px; color:#333333;
+    margin-bottom:10px; font-size:14px; color:#333333;
 }
 .ulis{
     margin-top:30px;

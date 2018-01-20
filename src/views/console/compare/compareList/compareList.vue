@@ -13,14 +13,21 @@
                 <button class="searchBtn"><i class="fa fa-search"></i></button>
             </div>
         </div>
-       <table id="example" class="table table-striped table-bordered compareList-table" border="1">
+        <!-- 空白 -->
+        <div class="compareList-nodata" v-if="res.length<1">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无数据
+        </div>
+        <!--有数据-->
+       <table id="example" class="table table-striped table-bordered compareList-table" border="1" v-else>
              <thead>
                 <tr class="text-center">
-                    <td class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></td>
-                    <td class="col-md-1">应用名称</td>
-                    <td class="col-md-1">云分析名称</td>
-                    <td class="col-md-3">对比供应商</td>
-                    <td class="col-md-1">操作</td>
+                    <th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>
+                    <th class="col-md-1">应用名称</th>
+                    <th class="col-md-1">云分析名称</th>
+                    <th class="col-md-3">对比供应商</th>
+                    <th class="col-md-1">操作</th>
                 </tr>
             </thead>
             <tbody  id="myTable" >
@@ -76,13 +83,10 @@ line-height:30px; float:left; margin-top:13px;
     vertical-align:middle !important;
 }
 .table>tbody>tr>td{
-    line-height:30px;
-    background:#fff;
-    color:#2b2b2b;
+    line-height:30px; background:#fff; color:#2b2b2b;
 }
-.table>thead>tr>td{
-    background:#ebebeb;
-    color:#2b2b2b;
+.table>thead>tr>th{
+    background:#ebebeb; color:#2b2b2b; height:60px; text-align:center;
 }
 .table>tbody>tr:nth-child(2n)>td{
     background:#f7f7f7;
@@ -92,6 +96,13 @@ line-height:30px; float:left; margin-top:13px;
 }
 .firm-score{
     text-align:left; text-indent:-40px;
+}
+/*暂无数据*/
+.compareList-nodata{
+    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+}
+.compareList-nodata img{
+    margin-top:200px;
 }
 *{
     margin:0px;
@@ -120,7 +131,7 @@ line-height:30px; float:left; margin-top:13px;
          getData:function(){                       //获取数据
                 this.$this.get("/broker/result/compare/list").then((res)=>{
                     this.res = res.data.data;
-                    console.log(this.res)
+                    //console.log('-----',this.res)
                 
             },(err)=>{
               

@@ -90,7 +90,7 @@
     <!--------------------------------公告------------------------------------------------>  
     <div class="announce">
       <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
-        <li class="col-md-3 annou  col-xs-5"><img src="../../assets/paba.svg" alt="" style="width:18px;height:18px">公告信息</li>
+        <li class="col-md-3 annou  col-xs-5"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
         <li class="col-md-7 col-xs-7 lis" style="text-align:center">
           <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp CSB²再出重磅服务:“智能机器人小易”</marquee>
         </li>
@@ -109,7 +109,7 @@
             <img src="../../assets/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span>通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云?精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
+              <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云?精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
             </div>
             <span class="obj-cta">查看更多</span>
           </div>
@@ -117,7 +117,7 @@
             <img src="../../assets/Page 1.png" alt="" class="Yunimg">
             <h2>云选型</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span>建立在您设计的业务场景之上，通过易云管提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
+              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过易云管提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
             </div>
             <span class="obj-cta">查看更多</span>
           </div>
@@ -125,7 +125,7 @@
             <img src="../../assets/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
-              <p class="text-left"><span>基于云选型设计的业务场景，通过易云管提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
+              <p class="text-left"><span class="color_999">基于云选型设计的业务场景，通过易云管提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
             </div>
             <p><span class="obj-cta">查看更多</span></p>
           </div>
@@ -133,7 +133,7 @@
       </div>
     </div>
     <!---------------------我们的特点---------------------------->
-    <div class="obj-what phone-position">
+    <div class="obj-what ourPoint phone-position">
       <img src="../../assets/Group 32.png" alt="" class="RenGong">
       <img src="../../assets/Group 40.png" alt="" class="phone">
       <div class="container obj-what-whew">
@@ -213,7 +213,7 @@
       </div>
     </div>
     <!-----------------------合作伙伴-------------------------------------->
-    <div class=" obj-what obj-friend" style="background:#f7f7f7;">
+    <div class=" obj-what obj-friend" style="background:#fff;">
       <div class="container">
         <div class="row text-center jzWe jsFei">
           <h1 class="text-center thin">合作伙伴</h1>
@@ -301,6 +301,7 @@ export default {
       }
     },
     mounted: function() {
+        console.log('-------',sessionStorage.getItem("utype")=='null');
         function CanvasAnimate(Dom,options){
           options = options || {}
           this.Element = Dom
@@ -496,7 +497,16 @@ export default {
         this.$router.push({path: '/login'});
       },
       condole: function() {
-        this.$router.push({path: '/consolePage'});
+          if(sessionStorage.getItem("utype")=='4'){
+            this.$router.push({path: '/consolePage'});
+          }else if(sessionStorage.getItem("utype")=='3'){
+            this.$router.push({path: '/consolePage'});
+          }else if(sessionStorage.getItem("utype")=='null'){
+             this.$router.push({path: '/consolePage'});
+          }else{
+              this.$router.push({path: '/consolePage'});
+          }    
+       
       },
       reset: function() {
         this.$router.push({path: '/register'})
@@ -526,7 +536,12 @@ ul,ol li {
 }
 .navbar {
     background: #2b2b2b; border: none
-  
+}
+.carousel-inner{
+    margin-bottom:0px !important;
+}
+.ourPoint{
+    background:#fff; padding-bottom: 30px;
 }
 @media (min-width: 768px) {
   .pder{
@@ -563,7 +578,7 @@ ul,ol li {
       border-bottom: 1px solid #fff; cursor: pointer;
   }
   .carousel-inner .item img {
-      display: inline-block; vertical-align: baseline
+      display: inline-block; vertical-align: baseline;
   }
 }
 .lunmain .lun-le h1 {
@@ -630,7 +645,7 @@ ul,ol li {
     font-size: 18px; color: #da121a; text-align: right
 }
 .obj-main {
-    width: 100%; background: #fff
+    width: 100%; background: #f7f7f7;
 }
 .obj-main h1 {
     color: #333333; font-weight: 200; font-size:32px; text-align:center;
@@ -639,10 +654,10 @@ ul,ol li {
     font-size:16px; color:#777777; text-align:center;
 }
 .obj-main .Yunimg {
-    width: 120px; height: 75px;
+    /*width: 120px; height: 75px;*/
 }
 .obj-main .obj-cta {
-    padding: 5px 20px; background: #da121a; border: 1px solid #da121a; margin-top: 5px; display: inline-block; color: #ffffff;
+    width:120px; height:35px; line-height:35px; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
   font-size: 14px;
 }
 .obj-main p {
@@ -661,7 +676,7 @@ ul,ol li {
     width: 100%; height: 100%;
 }
 .obj-what {
-    width: 100%; margin-bottom: 30px;
+    width: 100%;
 }
 .obj-what .container {}
 .obj-what .container .jzWe {
@@ -849,7 +864,7 @@ a:hover {
     text-align: center; line-height: 30px;
 }
 .bluar-ccc {
-    border: 1px solid #f7f7f7; background: #ccc; color: #666666; background: #f7f7f7; border-radius: 2px; height: 120px; font-size: 14px; padding: 10px 10px;
+    border: 1px solid #f7f7f7; background: #fff; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5;
 }
 h2 {
     font-size: 20px;
@@ -867,7 +882,10 @@ h2 {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;
 }
 .pS {
-    font-weight: 600;
+    color:#666;
+}
+.color_999{
+    color:#999;
 }
 .mainPd {
     margin-top: 20px; color: #666666; display: block
@@ -879,7 +897,7 @@ h2 {
     color: #666666; display: block
 }
 .obj-lhat {
-    background: #fff
+    background: #f7f7f7;
 }
 .obj-lhat .lhat-td {
     margin-top: 35px;

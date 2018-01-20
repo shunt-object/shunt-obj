@@ -75,11 +75,25 @@ export default{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 this.typelist = response.data.data;
+                let arr =[];
                 for(let n=0;n<response.data.data.length;n++){
                     if(response.data.data[n].selected==true){
+                        arr.push(response.data.data[n].selected);
                         this.questionList(response.data.data[n].id,true);
                     }
-                }            
+                }  
+                if(arr.length<1){
+                    let that = this;
+                    let lay = this.$layer.open({
+                        type: 0,
+                        content: '请选择场景进行答题',
+                        title: '温馨提示',
+                        btn: ['我知道了'],
+                        yes:function(){
+                            that.$layer.close(lay);
+                        }
+                    });
+                }          
             }).catch((error)=>{
                 
             })
@@ -118,6 +132,7 @@ export default{
                             }
                         }
                     }
+                    
                 }else{
                     for(let i=0;i<this.typeCheck.length;i++){
                         if(this.typeCheck[i].type.id==Id){
