@@ -35,7 +35,7 @@
               <li><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
               <li v-if="islogin==true">
-                <div class="btn-group dropdown">
+                <div class="btn-group ">
                   <span data-toggle="dropdown" id="mydropdownmenu" class=" dropdown-toggle" v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
                   <ul class="dropdown-menu logout-ul" role="menu" aria-labelledby="mydropdownmenu" >
                     <li v-on:click="fn()" style="cursor:pointer; background:#fff">退出</li>
@@ -50,12 +50,16 @@
       <!-- /.container-fluid -->
     </nav>  
     <!--  nav end--> 
+
+    <!-------------------------------banner------------------------------------------>
+
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!--<ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      </ol>-->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        </ol>
       <div class="carousel-inner">
+        
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
             <img src="../../assets/tu.png" alt="" class="tuPa">
@@ -71,8 +75,8 @@
             </div>
           </div>
         </div>
+       
        <!-- <div class="item" style="width:100%;min-width:100%;height:100%;">
-        <div class="item" style="width:100%;min-width:100%;height:100%;">
           <div class="lunmain">
             <img src="../../assets/tu.png" alt="" class="tuPa">
             <div class="container">
@@ -89,18 +93,19 @@
             </div>
           </div>
         </div> 
-        </div>
-        </div>
+        
 
-        </div> 
-        <a class="carousel-control left" href="next" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="prev" data-slide="next" style="height:100%">&rsaquo;</a> -->
-      </div> 
+
+    </div>-->
+   
+   </div>
       <!-- Controls -->
-      <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;"></a>-->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;"></a>
   
     <!-------------------------------轮播结束------------------------------------------>
+   
+   
     <!--------------------------------公告------------------------------------------------>  
     <div class="announce">
       <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
