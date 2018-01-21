@@ -50,7 +50,7 @@
         </div>
     </div>
     <!-- 数据为空结束 -->
-    <ul class="uls" v-if="this.flag!=true">
+    <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4">
         <li class="sps row">
             <span class="col-md-1"><input type="checkbox" class="text-center"></span>
             <span class="col-md-2 weight">云分析名称</span>
