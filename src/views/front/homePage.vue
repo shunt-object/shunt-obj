@@ -90,13 +90,16 @@
           </div>
         </div> 
         </div>
+        </div>
+
+        </div> 
         <a class="carousel-control left" href="next" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="prev" data-slide="next" style="height:100%">&rsaquo;</a> -->
       </div> 
       <!-- Controls -->
       <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
       <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;"></a>-->
-    </div>
+  
     <!-------------------------------轮播结束------------------------------------------>
     <!--------------------------------公告------------------------------------------------>  
     <div class="announce">
