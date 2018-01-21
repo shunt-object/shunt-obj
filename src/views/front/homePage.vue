@@ -935,7 +935,7 @@ a:hover {
     background:#fff;
 }
 .logout-ul li {
-    width:100%;text-align: left; line-height: 20px;
+    width:100%;text-align: center; line-height: 20px;
 }
 .bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
