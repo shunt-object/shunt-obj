@@ -177,3 +177,7 @@ button{
 .btn-small{
     margin-bottom:20px !important;
 }
+.btn-primary{
+    background:#da121a !important;
+    border:none !important;
+}

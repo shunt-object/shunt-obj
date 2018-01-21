@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
             <ul class="notice-list">
-                <li>CSB²V1.0版本正式上线<span class="notice-time">2017-12-05</span></li>
+                <li> CSB²再出重磅服务:“智能机器人小易”<span class="notice-time"></span></li>
             </ul>
         </div>
          <!--用户信息-->
@@ -48,11 +48,11 @@
                         <i class="icon-envelope-alt"></i>通知中心
                     </a>                    
                 </li>
-                <li id="header_notification_bar" class="dropdown">
+                <!--<li id="header_notification_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="icon-bell-alt"></i>在线咨询
                     </a>                    
-                </li>
+                </li>-->
             </ul>
         </div>
        

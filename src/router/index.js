@@ -13,6 +13,7 @@ import planList from '@/views/console/plan/planList/planList'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
 import compareList from '@/views/console/compare/compareList/compareList'
 import planResult from '@/views/console/plan/planResult/planResult'
+import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 
 
 
@@ -104,6 +105,9 @@ export default new Router({
         {
           path:'/planResult',
           name:'planResult',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
           component:planResult
         },
         {
@@ -113,6 +117,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:compareResult
+        },
+        {
+          path:'/colligateReport',
+          name:'colligateReport',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:colligateReport
         },
       ]
     }

@@ -71,11 +71,8 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
        <!-- <div class="item" style="width:100%;min-width:100%;height:100%;">
-=======
-        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
->>>>>>> 69f3f5fc7873ef2c1fdb6b2a4893ab1f2d0d19ba
+        <div class="item" style="width:100%;min-width:100%;height:100%;">
           <div class="lunmain">
             <img src="../../assets/tu.png" alt="" class="tuPa">
             <div class="container">
@@ -91,11 +88,8 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-        </div>  -->
-=======
         </div> 
->>>>>>> 69f3f5fc7873ef2c1fdb6b2a4893ab1f2d0d19ba
+        </div>
         <a class="carousel-control left" href="next" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="prev" data-slide="next" style="height:100%">&rsaquo;</a> -->
       </div> 
