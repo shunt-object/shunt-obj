@@ -36,10 +36,9 @@
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
               <li v-if="islogin==true">
                 <div class="btn-group">
-                  <span data-toggle="dropdown">{{realname}}<i class="realname-san"></i></span>
-                  <ul class="dropdown-menu logout-ul" role="menu">
-                    <li v-on:click="fn()" style="cursor:pointer;">退出</li>
-                  </ul>
+                  <span data-toggle="dropdown" class=" dropdown-toggle" v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
+                  
+                    <p v-on:click="fn()" style="cursor:pointer;background:#fff; ">退出</p>
                 </div>
               </li>
             </ul>
@@ -315,6 +314,12 @@ export default {
       }
     },
     mounted: function() {
+        if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
+          this.islogin = false;
+        } else {
+          this.islogin = true;
+          this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
+        };
         function CanvasAnimate(Dom,options){
           options = options || {}
           this.Element = Dom
@@ -493,15 +498,15 @@ export default {
       }
       var root = document.querySelector("#root")
         var a = new CanvasAnimate(root,{length:50,clicked:true,moveon:true})
-            a.Run()     
-        if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
-          this.islogin = false;
-        } else {
-          this.islogin = true;
-          this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
-        }  
+            a.Run()   ;
+
+          
     },
     methods: {
+        asd:function(){
+                
+                   console.log(this.islogin)
+        },
       fn: function() {
         this.logout();
         this.islogin = false;
