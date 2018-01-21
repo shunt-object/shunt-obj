@@ -35,10 +35,11 @@
               <li><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
               <li v-if="islogin==true">
-                <div class="btn-group">
-                  <span data-toggle="dropdown" class=" dropdown-toggle" v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
-                  
-                    <p v-on:click="fn()" style="cursor:pointer;background:#fff; ">退出</p>
+                <div class="btn-group dropdown">
+                  <span data-toggle="dropdown" id="mydropdownmenu" class=" dropdown-toggle" v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
+                  <ul class="dropdown-menu logout-ul" role="menu" aria-labelledby="mydropdownmenu" >
+                    <li v-on:click="fn()" style="cursor:pointer; background:#fff">退出</li>
+                  </ul>
                 </div>
               </li>
             </ul>
@@ -314,6 +315,7 @@ export default {
       }
     },
     mounted: function() {
+        $('.dropdown-toggle').dropdown();
         if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
           this.islogin = false;
         } else {

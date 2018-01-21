@@ -15,6 +15,10 @@
 <div class="overviewlist" v-if="utype!=3||utype!=4">
     <div class="overviewSearch" v-if="this.flag!=true">
         <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
+          <div class="PlansearchBox">
+             <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
+            <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
+        </div>
     </div>
     <!-- 数据为空时显示 -->
     <div class="modle col-xs-12 col-md-12 col-sm-12" v-if="this.flag==true">
@@ -29,6 +33,7 @@
                         <div class="modle-title" ><h1>CloudBroker<span>六步祝您轻松上云</span></h1></div>
                         <a><img src="../../../../assets/overview/welcome2.png"></a>
                         <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
+                          
                     </li> 
                 </ul>
                 <div class="slider-extra"> 
@@ -113,6 +118,15 @@
 </div>   
 </template>
 <style>
+.PlansearchBox{
+    float:right; padding-top:13px;
+}
+#myInput{
+    border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
+}
+.PlansearchBtn{
+   background:#da121a; width:42px; height:30px; color:#fff; float:right;
+}
 i{
     font-style:normal;
 }
@@ -327,7 +341,12 @@ position: relative; width:100%;
 }
 </style>
 <script>
-  
+    function myFuun(){
+    var $sea=$('#myInput').val();
+    //先隐藏全部，再把符合筛选条件的值显示
+    console.log($sea);
+        $('ul li').hide().filter(':contains('+$sea+')').show();
+    };
 export default {
     name:"overviewList",
     data (){
@@ -347,6 +366,9 @@ export default {
         }
     },     
     methods:{
+        myFun:function(){
+            myFuun()
+        },
         // onm:function(index){
             
         //      this.i = index
