@@ -34,13 +34,14 @@
             <ul class="nav navbar-nav " id="navright">
               <li><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
-              <li v-if="islogin==true">
-                <div class="btn-group ">
-                  <span data-toggle="dropdown" id="mydropdownmenu" class=" dropdown-toggle" v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
-                  <ul class="dropdown-menu logout-ul" role="menu" aria-labelledby="mydropdownmenu" >
-                    <li v-on:click="fn()" style="cursor:pointer; background:#fff">退出</li>
-                  </ul>
-                </div>
+
+
+               <li v-if="islogin==true" class="logout-box">
+                <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
+                <ul class="logout-ul" v-show="logoutlist">
+                    <li v-on:click="fn()" style="cursor:pointer;">退出</li>
+                </ul>
+         
               </li>
             </ul>
           </div>
@@ -316,7 +317,8 @@ export default {
       return {
         islogin: false,
         realname: '',
-        phoneBox:false
+        phoneBox:false,
+        logoutlist:false
       }
     },
     mounted: function() {
@@ -511,7 +513,7 @@ export default {
     },
     methods: {
         asd:function(){
-                
+            this.logoutlist = true;
                    console.log(this.islogin)
         },
       fn: function() {
@@ -538,10 +540,9 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-*{
-   
-    overflow:hidden
-}
+/**{
+   overflow:hidden
+}*/
 
 .homepage {
     background: #f8f8f8;
@@ -922,8 +923,19 @@ a:hover {
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
+.logout-box{
+    position:relative;
+}
+.logout-ul{
+    position:absolute;
+    width:100px;
+    height:40px;
+    right:0;
+    top:50px;
+    background:#fff;
+}
 .logout-ul li {
-    text-align: center; line-height: 30px;
+    width:100%;text-align: left; line-height: 20px;
 }
 .bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
