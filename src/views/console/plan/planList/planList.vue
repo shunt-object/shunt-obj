@@ -13,7 +13,7 @@
         </div>
     </div>
     <!-- <div>象限图</div> -->
-    <div class="result-echarts" id="main"></div>
+    <div class="result-echarts" id="main" v-if="sps.length>0"></div>
     <!-- 空白 -->
     <div class="planList-nodata" v-if="sps.length<1">
         <img src="../../../../assets/compare-nodata.png" alt="">
