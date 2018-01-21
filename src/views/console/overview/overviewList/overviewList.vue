@@ -394,6 +394,7 @@ export default {
                     console.log(error);
                 });
             },function(){
+                 that.$layer.close(con);
                     return ;
             });
         },
