@@ -10,7 +10,7 @@
             <div class="login-from-title">登录</div>
             <div class="login-from-list" :class="isaccount==true?'error':''">
                 <i class="fa fa-user"></i>
-                <input type="text" placeholder="手机号／邮箱" v-model="account" v-on:blur="PhoneReg('account')">
+                <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
             </div>
             <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
             <div class="login-from-list" :class="ishave==true?'error':''">
@@ -65,17 +65,18 @@ export default{
             }
         });
         this.nextTo = this.$route.query.redirect;
-        console.log('------',this.$route.query.redirect);
+        //console.log('------',this.$route.query.redirect);
     },
     methods:{
         PhoneReg:function(dom){
-             let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+             //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+             let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
              if(dom=='account'){
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入账号信息';
+                    this.accountText = '请输入邮箱';
                 }else{
-                    phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确账号'
+                    phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
                 }
              }else if(dom=='password'){
                 this.password==''?this.ishave=true:this.ishave=false
@@ -117,7 +118,7 @@ export default{
             }else{
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入账号信息';
+                    this.accountText = '请输入邮箱';
                 }
                 if(this.password==''){
                     this.ishave=true;
