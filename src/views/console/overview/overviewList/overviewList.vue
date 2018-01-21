@@ -485,7 +485,7 @@ export default {
             console.log("不好意思")
         })
     },
-    mounted:function(){
+    updated:function(){
         $(document).ready(function() { 
             var length, 
             currentIndex = 0, 

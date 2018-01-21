@@ -2,7 +2,7 @@
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li><img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+                <li> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                 <img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
                 <div v-show="phoneBox" class="phone-box"><img src="../../assets/homePage-hover-phone.png" alt=""></div>
@@ -24,10 +24,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li><a class="page-scroll" href="#contact">首页</a></li>
-            <li><a class="page-scroll" href="#contact">功能</a></li>
-            <li><a class="page-scroll" href="#contact">帮助</a></li>
-            <li><a class="page-scroll" href="#contact">联系我们</a></li>
+            <li><a class="page-scroll" href="javascript:;">首页</a></li>
+            <li><a class="page-scroll" href="javascript:;">功能</a></li>
+            <li><a class="page-scroll" href="javascript:;">帮助</a></li>
+            <li><a class="page-scroll" href="javascript:;">联系我们</a></li>
             <li><a class="page-scroll" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-        <div class="item" style="width:100%;min-width:100%;height:100%;">
+       <!-- <div class="item" style="width:100%;min-width:100%;height:100%;">
           <div class="lunmain">
             <img src="../../assets/tu.png" alt="" class="tuPa">
             <div class="container">
@@ -87,7 +87,7 @@
               </div>
             </div>
           </div>
-        </div>  
+        </div>  -->
         <a class="carousel-control left" href="next" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="prev" data-slide="next" style="height:100%">&rsaquo;</a>
       </div> 
@@ -107,7 +107,7 @@
     </div>
     <!----------------------------main-start---------------------------------->
     <div class="obj-main">
-      <div class="container">
+      <div class="container whyContainer">
         <div class="row text-center">
           <h1 class="text-center thin ths">Saas化云服务</h1>
           <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
@@ -221,7 +221,7 @@
     </div>
     <!-----------------------合作伙伴-------------------------------------->
     <div class=" obj-what obj-friend" style="background:#f7f7f7;">
-      <div class="container">
+      <div class="container friendContainer">
         <div class="row text-center jzWe jsFei" style="margin-bottom:20px !important;">
           <h1 class="text-center thin">合作伙伴</h1>
           <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态!</h3>
@@ -254,10 +254,10 @@
       </div>
     </div>
     <!------------------------感言------------------------------------------>
-    <div class=" obj-frees"   style="height:210px;position:relative">
+    <div class=" obj-frees"   style="height:200px;position:relative">
       <div class="pder">
         <p class="text-center">
-          这一路走来，我们经历过坎坷、经历过风雨;<br/>为此，我们曾经彷徨过、迷茫过、哭过、笑过;</br>但我们从未放弃、倔强而努力;</br>因为我们坚信:<br/>我们每前进小一步，都将为您带来更好的云上体验!
+          现在注册用户，全面免费体验
         </p>
         <span>立即体验</span>
       </div>
@@ -266,7 +266,7 @@
     <!-------------------------footer------------------------------------------>
     <div class=" obj-friend footer">
       <!--<div class="container"> -->
-      <div class="row" style="width:80%;margin:0 auto !important;">
+      <div class="row" style="width:73%;margin:0 auto !important;">
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
           <p class="text-left footer-jx">联系我们</p>
           <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-030-8008</p>
@@ -342,13 +342,13 @@ export default {
       }
       CanvasAnimate.prototype.getLength=function(){
           let arr = []
-          for(let i=0;i< this.length ;i++){
+          for(let i=0;i< 30 ;i++){
               let obj = {}
                   obj.x = parseInt( Math.random() * this.width )
                   obj.y = parseInt( Math.random() * this.height )
-                  obj.r = parseInt( Math.random()*6 ) //圆球大小  
+                  obj.r = parseInt( Math.random()*5 ) //圆球大小  
                   obj.controlX = parseInt( Math.random()*10 ) > 5 ? "left":"right"
-                  obj.controlY = parseInt( Math.random()*10 ) > 5 ? "bottom":"top"
+                  obj.controlY = parseInt( Math.random()*10 ) > 6 ? "bottom":"top"
               arr.push(obj)
           }
           return arr
@@ -521,6 +521,11 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+*{
+   
+    overflow:hidden
+}
+
 .homepage {
     background: #f8f8f8;
 }
@@ -532,6 +537,12 @@ h3{
 }
 * {
   font-family: "Microsoft YaHei";
+}
+.whyContainer{
+    width:77%;
+}
+.friendContainer{
+    width:78%;
 }
 ul,ol li {
   list-style: none
@@ -550,7 +561,7 @@ ul,ol li {
 }
 /*悬浮框*/
 .fixed-box{
-    width:66px; height:140px; position:fixed; right:0px;; bottom:100px; z-index:10;
+    width:66px; height:140px; position:fixed; right:0px;; bottom:100px;z-index:10;
 }
 .fixed-ul li{
     background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:66px; height:66px; color:#fff;
@@ -568,7 +579,7 @@ ul,ol li {
 /**/
 @media (min-width: 768px) {
   .pder{
-      position:absolute; top:15%; left:35%;
+      position:absolute; top:30%;left:38%
   }
   .uls-w li {
       width: 33.333%;
@@ -741,6 +752,7 @@ ul,ol li {
 .obj-chat {
     margin-top: 50px;
 }
+
 .obj-friend {
     background: #f8f8f8; width: 100%; padding-bottom: 50px; margin: 0;
 }
@@ -809,8 +821,12 @@ ul,ol li {
 }
 @media (max-width: 768px) {
 .pder{
-   position:absolute; top:15%; left:10%;
-}
+  
+      
+      position:absolute; top:30%;left:8%;
+  }
+
+
 .lunmain .container {
   width: 100%; margin-top: 10%;
 }
@@ -933,6 +949,7 @@ h2 {
 }
 .obj-lhat .expru {
     padding-bottom: 40px;
+    width:80%;
 }
 .he-su {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;
@@ -988,7 +1005,7 @@ h2 {
     width: 100%; background: #da121a; background-size: cover; height: auto;
 }
 .obj-frees p {
-    font-size:14px; color:#ffffff; line-height:22px; text-align:center;
+    font-size:24px; color:#ffffff;  text-align:center;font-weight:200;
 }
 .obj-frees span {
     border: 1px solid #fff; display:inline-block; font-size: 14px; margin-top:10px; color: #ffffff; cursor:pointer;  transition: all .25s ease; padding: 4px 20px;
