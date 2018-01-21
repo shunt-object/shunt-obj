@@ -9,7 +9,8 @@
         <div class="reg-from-title">欢迎注册CSB²</div>
         <div class="reg-from-list" :class="isphone==true?'error':''">
             <i class="xing">*</i>
-            <span class="reg-from-key">手机号码：</span>
+            <!-- <span class="reg-from-key">手机号码：</span> -->
+            <span class="reg-from-key">邮箱：</span>
             <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
             <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
                 <li v-for="item in noticeWord">{{item.text}}</li>
@@ -112,13 +113,13 @@ export default{
         }
     },
     mounted:function(){
-        
     },
     methods:{
         notice:function(dom){
             if(dom=='phone'){
                 this.isnotice = 'phonetrue';
-                this.noticeWord = [{text:'请输入您的手机号码'}];
+                //this.noticeWord = [{text:'请输入您的手机号码'}];
+                this.noticeWord = [{text:'请输入您的邮箱'}];
             }else if(dom=='password'){
                 this.isnotice = 'passwordtrue';
                 this.noticeWord = [
@@ -138,13 +139,15 @@ export default{
             }
         },
         reg:function(dom){
-            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+            let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
+            //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
             let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
             if(dom=='phone'){
                 this.isnotice = 'phonefalse';
                 if(phoneReg.test(this.phone)==false){
                     this.isphone = true;
-                    this.phoneError = '请输入正确的手机格式';
+                    //this.phoneError = '请输入正确的手机格式';
+                    this.phoneError = '请输入正确的邮箱格式';
                 }else{
                     let that = this;
                     this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
@@ -153,7 +156,8 @@ export default{
                             that.isphone = false;
                         }else{
                             that.isphone = true;
-                            that.phoneError = '您的手机号已被注册';
+                            //that.phoneError = '您的手机号已被注册';
+                            that.phoneError = '您的邮箱已被注册';
                         }
                     }).catch((error)=> {
                         console.log(error);
@@ -187,7 +191,7 @@ export default{
             if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true){
                 let obj = {
                     "password": this.password,
-                    "phone": this.phone,
+                    "email": this.phone,
                     "realname": this.username,
                     "tenant": this.confirm
                 };
@@ -210,7 +214,8 @@ export default{
                     console.log(error);
                 })
             }else{
-                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                //this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
                 if(this.password==''){
                     this.passError = '请输入您的密码';
                     this.ispassword=true;
