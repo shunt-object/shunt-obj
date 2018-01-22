@@ -13,15 +13,9 @@
         </div>
     </div>
     <!-- <div>象限图</div> -->
-    <div class="result-echarts" id="main" v-if="sps.length>0"></div>
-    <!-- 空白 -->
-    <div class="planList-nodata" v-if="sps.length<1">
-        <img src="../../../../assets/compare-nodata.png" alt="">
-        <br>
-        暂无数据
-    </div>
+    <div class="result-echarts" id="main"></div>
     <!-- 有数据 -->
-    <table id="example" class="table table-striped table-bordered planlist-table" border="1" v-else>
+    <table id="example" class="table table-striped table-bordered planlist-table" border="1">
         <thead>
             <tr style="margin-top:50px; text-align:center" id="tryes">
                 <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
@@ -33,7 +27,7 @@
                 <th class="col-md-1 text-center">操作</th>
             </tr>
         </thead>
-        <tbody id="myTable" >
+        <tbody id="myTable" v-if="sps.length>0" >
             <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
                 <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
                 <td >{{sp.appname}}</td>
@@ -48,6 +42,12 @@
             </tr>
         </tbody>    
     </table>
+    <!-- 空白 -->
+    <div class="planList-nodata" v-if="sps.length<1">
+        <img src="../../../../assets/compare-nodata.png" alt="">
+        <br>
+        暂无数据
+    </div>
 </div>
 </div>
 </template>
@@ -87,7 +87,7 @@ line-height:30px; float:left; margin-top:13px;
 
 }
 .planlist-table>thead>tr>th{
-    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#2b2b2b; border-right:1px solid #e5e5e5; vertical-align: middle;
+    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
     font-size:14px;

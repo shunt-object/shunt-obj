@@ -71,7 +71,7 @@ button{
 .score-name{
     float:left;
     margin:8px;
-    font-size:12px;
+    font-size:13px;
 }
 .score-val{
     line-height:42px;
@@ -110,7 +110,7 @@ button{
 }
 .clould-desc-main{
     text-align:left;
-    font-size:12px;
+    font-size:14px;
     color:#666;
     line-height:1.5;
     text-indent:2em;

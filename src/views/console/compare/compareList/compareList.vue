@@ -13,14 +13,9 @@
                 <button class="searchBtn"><i class="fa fa-search"></i></button>
             </div>
         </div>
-        <!-- 空白 -->
-        <div class="compareList-nodata" v-if="res.length<1">
-            <img src="../../../../assets/compare-nodata.png" alt="">
-            <br>
-            暂无数据
-        </div>
+        
         <!--有数据-->
-       <table id="example" class="table table-striped table-bordered compareList-table" border="1" v-else>
+       <table id="example" class="table table-striped table-bordered compareList-table" border="1">
              <thead>
                 <tr class="text-center">
                     <th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>
@@ -30,7 +25,7 @@
                     <th class="col-md-1">操作</th>
                 </tr>
             </thead>
-            <tbody  id="myTable" >
+            <tbody  id="myTable" v-if="res.length>0" >
                 <tr width="100%" v-for="re in res">
                     <td><input type="checkbox" name="checkbox" :data-id="re.id"></td>
                     <td>{{re.appname}}</td>
@@ -50,6 +45,12 @@
                 </tr>
             </tbody>
         </table>
+        <!-- 空白 -->
+        <div class="compareList-nodata" v-if="res.length<1">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无数据
+        </div>
     </div>
 </div>
 </template>
@@ -86,7 +87,7 @@ line-height:30px; float:left; margin-top:13px;
     line-height:30px; background:#fff; color:#2b2b2b;
 }
 .table>thead>tr>th{
-    background:#ebebeb; color:#2b2b2b; height:60px; text-align:center;
+    background:#ebebeb; color:#555; height:60px; text-align:center;
 }
 .table>tbody>tr:nth-child(2n)>td{
     background:#f7f7f7;
@@ -99,10 +100,10 @@ line-height:30px; float:left; margin-top:13px;
 }
 /*暂无数据*/
 .compareList-nodata{
-    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+    background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
 }
 .compareList-nodata img{
-    margin-top:200px;
+    margin-top:20%;
 }
 *{
     margin:0px;
