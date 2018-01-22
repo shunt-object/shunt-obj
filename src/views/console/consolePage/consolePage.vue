@@ -103,12 +103,7 @@ import '../consolePage/consoleFrame.css'
 import '../consolePage/style-responsive.css'
 import '../consolePage/font-awesome/css/font-awesome.css'
 
-$(document).ready(function(){ 
-        $("#xiaowei").click(function(){
-            window.open("http://xiaowei.io/chat/pc/index.html?appid=3311");
-        });
-        
-}); 
+
 
 
 export default{
@@ -120,6 +115,12 @@ export default{
         }
     },
     mounted:function(){
+
+        $("#xiaowei").click(function(){
+            window.open("http://xiaowei.io/chat/pc/index.html?appid=3311","_blank","height=300,width=500,resizable=no,location=no,status=no");
+        });
+        
+
         $('#sidebar .sub-menu > a').click(function () {
             var last = $('.sub-menu.open', $('#sidebar'));
             last.removeClass("open");

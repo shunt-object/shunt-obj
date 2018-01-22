@@ -53,7 +53,7 @@
     <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4">
         <li class="sps row">
             <span class="col-md-1"><input type="checkbox" class="text-center"></span>
-            <span class="col-md-2 weight">云分析名称</span>
+            <span class="col-md-1 weight">云分析名称</span>
             <span class="col-md-1 weight">应用负载名称</span>
             <span class="col-md-7 weight">进度</span>
             <!--<span class="col-md-3">云选型进度</span>-->
@@ -63,7 +63,7 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall" >
                     <span class="col-md-1"><input type="checkbox"></span>
-                    <span class="col-md-2">{{vp.proname}}</span>
+                    <span class="col-md-1">{{vp.proname}}</span>
                     <span class="col-md-1"></span>
                     <span class="col-md-6"></span>
                     <span class="col-md-2 removeIng">
@@ -74,8 +74,8 @@
                 <li class="row spx active" v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
                     <span class="col-md-1 bn"></span>
                     <span class="col-md-1 bn"></span>
-                    <span class="col-md-3 bn">{{item.appname}}</span>
-                    <span class="col-md-6 text-left">
+                    <span class="col-md-1 bn">{{item.appname}}</span>
+                    <span class="col-md-7 text-left">
                         <p class="rate">
                             <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
                                 <p class="ratelist" v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
@@ -106,8 +106,9 @@
                         </div>
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
-                    <span class="col-md-1 cs" v-on:click="remYy(item.id)">
-                        <i class="fa fa-trash-o"></i>
+                    <span class="col-md-1 cs" >
+                        <i class="fa fa-trash-o Jips"  v-on:click="remYy(item.id)" title="删除应用"></i>
+                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" title="查看综合报告" v-on:click="Jips(item.id)">
                     </span>
                 </li>
             </ul>
@@ -159,7 +160,7 @@ line-height:30px; float:left; margin-top:13px;
     font-size:16px; color:#a8a8a8; cursor:pointer;
 }
 .modle{
-    position:absolute; left:0; top:0px; width:100%; height:768px; opacity:0.94; background:#49494b; z-index:999;
+    position:absolute; left:0; top:0px; width:100%; height:1000px; opacity:0.94; background:#49494b; z-index:999;
 }
 .modle input{
     width:15%; height:15%; margin:25% 40%; text-align:center; color:#000; font-weight:900
@@ -319,7 +320,7 @@ ul {
     position: relative; 
  } 
  .slider-nav { 
-    margin-left: -51px;  position: absolute;  left: 55%;  bottom: -35%; 
+    margin-left: -51px;  position: absolute;  left: 55%;  bottom: -20%; 
  } 
  .slider-nav li { 
     background:#a70f1d; border-radius: 100%;  color: #fff;  cursor: pointer;  margin: 0 2px;   overflow: hidden;  text-align: center; display: inline-block;  width:13px; height:13px; line-height: 18px; 
@@ -339,8 +340,12 @@ position: relative; width:100%;
 .creatCloud{
     background:#ee566b;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 110%; line-height:42px; font-size:16px; color:#ffffff; text-align:center; cursor: pointer; 
 }
+.Jips:hover{
+      transform: scale(1.4);
+}
 </style>
 <script>
+
     function myFuun(){
     var $sea=$('#myInput').val();
     //先隐藏全部，再把符合筛选条件的值显示
@@ -368,6 +373,10 @@ export default {
     methods:{
         myFun:function(){
             myFuun()
+        },
+        Jips:function(even){
+            console.log(even)
+            this.$router.push({path:'/colligateReport',query:{id:even}});
         },
         // onm:function(index){
             
@@ -462,6 +471,7 @@ export default {
                 //}
             }
         },
+       
         UpRoute:function(){
             this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
         },
@@ -477,7 +487,7 @@ export default {
         this.utype =  sessionStorage.getItem("utype");
         this.$http.get('/broker/result/analysis').then((res)=>{
             this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
-            //console.log(this.vpd);
+        console.log(this.vpd);
             if(this.vpd.length==0){
                 this.flag=true
             }else{
