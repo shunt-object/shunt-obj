@@ -14,7 +14,7 @@
             <div class="common-block qualitative-ready" :class="qualitative==true||hover[0].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(1)">
                 <div class="plan-title">
                     <p class="title1">云定性</p>
-                    <p class="title2">Cloud qualitative</p>
+                    <p class="title2">Cloud Target</p>
                     <p class="title-line"></p>
                 </div>
                 <span>{{cloudName}}</span>
@@ -26,7 +26,7 @@
             <div class="common-block profit-ready" :class="profit==true||hover[1].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(2)">
                 <div class="plan-title">
                     <p class="title1">云收益度</p>
-                    <p class="title2">Cloud qualitative</p>
+                    <p class="title2">Cloud Benefit</p>
                     <p class="title-line"></p>
                 </div>
                 <span>{{profitReault}}</span>
@@ -38,7 +38,7 @@
             <div class="common-block affinity-ready" :class="affinity==true||hover[2].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(3)">
                 <div class="plan-title">
                     <p class="title1">云亲和度</p>
-                    <p class="title2">Cloud qualitative</p>
+                    <p class="title2">Cloud readiness</p>
                     <p class="title-line"></p>
                 </div>
                 <span>{{affinityResult}}</span>
@@ -50,9 +50,11 @@
     <div class="question-list" v-show="qualitative">
         <!-- 历史记录 -->
         <div class="question-heaved">
-            <div class="question-heaved-list" v-for="(item,index) in havedList" v-on:click="edit(index)">Q{{index+1}}.{{item.content}}
+            <div class="question-heaved-list" v-for="(item,index) in havedList" v-on:click="edit(index)">
+                <span class="questionNum grey">Q</span><!--{{index+1}} -->
+                {{item.content}}
                 <span v-for="ia in item.option" v-show="ia.code==item.selectOption">{{ia.content}}</span>
-                <p class="qualitative-list" style="margin:0;" v-if="editlist[index].boolean==true">
+                <p class="qualitative-list pt10" style="margin:0;" v-if="editlist[index].boolean==true">
                     <span class="question-option question-type" v-for="o in item.option">
                         <input type="radio" :name="item.code" :checked="o.code==item.selectOption" v-on:click="fn(item.code,o.code,index)">{{o.content}}
                     </span>
@@ -61,8 +63,11 @@
         </div>
         <!-- -->
         <div class="question-block" v-if="quetionList!=''">
-            <p class="qualitative-list">Q{{havedList.length+1}}.{{quetionList.content}}</p>
-            <p class="qualitative-list">
+            <p class="qualitative-list weight-bold">
+                <span class="questionNum orange">Q</span><!--{{havedList.length+1}} -->
+                {{quetionList.content}}
+            </p>
+            <p class="qualitative-list weight-normal pt10">
                 <span class="question-option question-type" v-for="item in quetionList.option">
                     <input type="radio" :name="quetionList.code" :checked="item.code==quetionList.selectOption" v-on:click="fn(quetionList.code,item.code)">{{item.content}}
                 </span>
@@ -71,7 +76,9 @@
     </div>
     <!--定量问题 收益度-->
     <div class="question-list" v-show="profit">
-        <div class="question-list-item" v-for="(i,index) in qinhe">Q{{index+1}}.{{i.content}}
+        <div class="question-list-item" v-for="(i,index) in qinhe">
+            <span class="questionNum orange">Q</span><!--{{index+1}} -->
+            {{i.content}}
             <p>
                 <span class="question-option" v-for="(item,itemIndex) in i.option">
                     <input type="radio" :name="i.code" v-if="i.qtype==1" v-on:click="qin(index,i.qtype,i.code,item.code,2)" :checked="i.selectOption==item.code?true:false">
@@ -85,7 +92,9 @@
     </div>
     <!--定量问题 亲和度-->
     <div class="question-list" v-show="affinity">
-        <div class="question-list-item" v-for="(i,index) in shouyi">Q{{index+1}}.{{i.content}}
+        <div class="question-list-item" v-for="(i,index) in shouyi">
+            <span class="questionNum orange">Q</span><!--{{index+1}} -->
+            {{i.content}}
             <p>
                 <span class="question-option" v-for="(item,itemIndex) in i.option">
                     <input type="radio" :checked="i.selectOption==item.code?true:false" :name="i.code" v-if="i.qtype==1" v-on:click="qin(i.selectOption,i.qtype,i.code,item.code,3)">
@@ -278,6 +287,7 @@ export default{
                     this.profitReault =  response.data.data+'分';
                     document.documentElement.scrollTop = 0;
                 }else{
+                    document.documentElement.scrollTop = 0;
                     this.affinityResult = response.data.data+'分';
                     this.$router.push({path:'/planResult',query:{id:this.appId}});
                 }              

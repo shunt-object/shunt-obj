@@ -96,6 +96,7 @@
     background:url('../../../assets/phone-bg.png');
     background-size:100% 100%;
     line-height:48px;
+    text-indent:30px;
 }
 .reg-password{
     height:94px;
@@ -103,6 +104,7 @@
     background-size:100% 100%;
     line-height:25px;
     padding-top:13px;
+    text-indent:30px;
 }
 .reg-from-val{
     width:250px;

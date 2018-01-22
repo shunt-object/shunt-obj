@@ -18,10 +18,12 @@
                         <li v-for="item in existing" v-on:click="changeExist(item.proname,item.id)">{{item.proname}}</li>
                     </ul>
                 </label>
+                <span class="example">例如：ERP系统上云分析</span>
             </div>
             <div class="CreateAnalysis_from_list">
                 <span class="CreateAnalysis_key">工作负载名称：</span>
                 <input type="text" class="CreateAnalysis_input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入工作负载名称">
+                <span class="example">例如：用户管理</span>
             </div>
             <div class="CreateAnalysis_from_list">
                 <span class="CreateAnalysis_key">工作负载类型：</span>
