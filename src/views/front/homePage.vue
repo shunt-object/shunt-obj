@@ -631,8 +631,6 @@ ul,ol li {
 .fixed-box .scrollUp{
     position:fixed;
     right:0px;
-    
-    bottom:70px;
     display:none;
 }
 .fixed-ul li{
@@ -752,7 +750,7 @@ ul,ol li {
 .left,.right {
     width: 5%;
     height:100%;
-   background:rgba(255,255,255,0.8)
+    background:none;
 }
 .navbar-nav li a:hover {
     border-bottom: 1px solid #fff

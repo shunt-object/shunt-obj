@@ -112,7 +112,7 @@
                     </span>
                     <span class="col-md-1 cs" >
                         <i class="fa fa-trash-o Jips"  v-on:click="remYy(item.id)" title="删除应用"></i>
-                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" v-on:click="Jips(item.id)" v-on:mouseover="treeTip">
+                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" ><!--v-on:mouseover="treeTip()"-->
                     </span>
                 </li>
             </ul>
@@ -184,7 +184,7 @@ line-height:30px; float:left; margin-top:13px;
     height:40px; background:#f6f9fd; text-align:center; font-size:14px; color:#2b2b2b;line-height:40px;
 }
 .cs{
-    margin-top:40px; cursor:pointer; color:#a8a8a8; font-size:16px;
+    margin-top:40px; cursor:pointer; color:#a8a8a8; font-size:16px;position:relative
 }
 .spx{ 
    height:200px; 
@@ -349,6 +349,16 @@ position: relative; width:100%;
 .Jips:hover{
       transform: scale(1.4);
 }
+   #tplink{border:1px solid red; background:red;
+         position:absolute;
+          padding:1px;
+          color:red;
+          display:none;
+        border-radius: 3px;
+     }
+     #Jips{
+         position:relative
+     }
 </style>
 <script>
 
@@ -384,10 +394,23 @@ export default {
             console.log(even)
             this.$router.push({path:'/colligateReport',query:{id:even}});
         },
-        treeTip:function(){
-            this.$layer.tips('您适合上,请继续进行云收益度测试', '.Jips', {
-                            tips: [1]});
-        },
+        // treeTip:function(e){
+        //         var x=-210;
+        //         var y=-160;
+        //         this.myTitle=this.title;
+        //         console.log(this.myTitle)
+        //         this.title="123";
+        //         var tooltip="<div id='tplink'>"+this.title+"</div>";   //创建DIV元素
+        //         $(".cs").append(tooltip);     //追加到文档中
+        //         $("#tplink").css({"top":"20px","left": "20px"}).show();    //设置X  Y坐标， 并且显示
+           
+        //         // this.title=this.myTitle;
+        //         // $("#tplink").remove();    //移除
+        //     // }).mousemove(function(e){
+        //     //     $("#tplink").css({"top": (e.pageY+y) + "px","left": (e.pageX+x) + "px"});
+            
+    
+        // },
         // onm:function(index){
             
         //      this.i = index
