@@ -102,7 +102,7 @@
    </div>
       <!-- Controls -->
     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="height:100%;"></a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"></a>
   
     <!-------------------------------轮播结束------------------------------------------>
    
@@ -674,6 +674,8 @@ ul,ol li {
 }
 .left,.right {
     width: 10%;
+    height:20%;
+    background:#2b2b2b;
 }
 .navbar-nav li a:hover {
     border-bottom: 1px solid #fff
