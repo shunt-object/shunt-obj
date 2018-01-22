@@ -121,7 +121,7 @@ a:hover{
     margin-bottom:10px !important; background:#ffffff; 
 }
 .resourceCroup-list h4{
-    font-size:14px; color:#333333;      
+    font-size:16px; color:#333333;      
 }  
 .ulss li{
     margin-bottom:10px; font-size:14px; color:#333333;

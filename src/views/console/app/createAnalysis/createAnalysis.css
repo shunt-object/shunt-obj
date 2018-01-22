@@ -24,6 +24,9 @@
     margin-right: 5px !important;
     cursor:pointer;
 }
+.comback:hover,zong:hover{
+    color:#000;
+}
 .zong{
     color:#333;
     margin-right:5px;
