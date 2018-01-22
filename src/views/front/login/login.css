@@ -26,7 +26,7 @@
     padding-left:50px;
 }
 .login-main{
-    min-height:370px;
+    min-height:500px;
     background:url('../../../assets/login-img.png') no-repeat 10% center;
     background-size:517px 356px;
     position:relative;
