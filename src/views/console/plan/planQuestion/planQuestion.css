@@ -143,11 +143,12 @@ button{
     font-size:14px;
     text-align:left;
     color:#555;
-    background:#eff3f9;
+    /*background:#eff3f9;*/
     padding:10px;
-    margin-bottom:5px;
+    /*margin-bottom:5px;*/
     line-height:30px;
     font-weight:bold;
+    border-bottom:1px solid #f2f2f2;
 }
 .question-list-item p{
     color:#666;

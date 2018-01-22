@@ -207,9 +207,7 @@ export default{
                         
                         //您适合上XX云  请继续进行云收益度测试？
                         this.$layer.tips('您适合上'+response.data.data.sname+',请继续进行云收益度测试', '#tips', {
-                            tips: [1],
-                            time:3000
-                        });
+                            tips: [1]});
                         this.whichShow(2);
                         //let id = this.$layer.tips("在很久很久以前", '#tips');
                     }
