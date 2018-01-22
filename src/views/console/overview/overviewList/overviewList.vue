@@ -166,7 +166,7 @@ line-height:30px; float:left; margin-top:13px;
     font-size:16px; color:#a8a8a8; cursor:pointer;
 }
 .modle{
-    position:absolute; left:0; top:0px; width:100%;height:100%;opacity:0.94; background:#49494b; z-index:999;
+    position:absolute !important; left:0; top:0px; width:100%;height:100%;opacity:0.94; background:#49494b; z-index:999;
 }
 .modle input{
     width:15%; height:15%; margin:25% 40%; text-align:center; color:#000; font-weight:900
