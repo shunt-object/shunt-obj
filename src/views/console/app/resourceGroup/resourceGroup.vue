@@ -13,7 +13,7 @@
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
         </div>
-        <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"></div>
+        <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"><span class="write-num">填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 text-left ulss col-sm-12">
             <li class=" col-sm-12"><input type="number" v-model="cores" min="1">&nbsp&nbspvCPU</li>
             <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频（Ghz）</li>
@@ -36,7 +36,7 @@
             <img src="../../../../assets/overview/resource-group2.png" alt="">
             <h4>数据库服务</h4>
         </div>
-        <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"></div>
+        <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"><span class="write-num">填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="coresq">&nbsp&nbspvCPU</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（Ghz）</li>
@@ -72,7 +72,7 @@
             <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
         </div>
-        <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="num"></div>
+        <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="num"><span class="write-num">填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
@@ -91,6 +91,9 @@
 <style>
 *{
     padding:0
+}
+.write-num{
+    color:#999; font-size:12px; margin-left:10px;
 }
 .reourceContent{
     width:100%; height:100%;background:#f8fafd; padding:12px 25px; border-top:1px solid #e9e9e9;

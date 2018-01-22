@@ -194,6 +194,7 @@ export default{
             this.$this.get('/broker/plan/questions/analysis/'+appId+'/'+qcode+'/'+optcode+'').then((response)=>{
                 //console.log(response);
                 if(response.data.code=='1'){
+                     document.documentElement.scrollTop = document.documentElement.scrollTop+50;
                     this.quetionList = response.data.data;
                     this.getLiang(this.appId,1); 
                     $(".question-type input").prop("checked",false); 
@@ -203,6 +204,7 @@ export default{
                     this.serverce = response.data.data.id;
                     if( qcode!=-1 || optcode!=-1 ){
                         document.documentElement.scrollTop = 0;
+                        
                         //您适合上XX云  请继续进行云收益度测试？
                         this.$layer.tips('您适合上'+response.data.data.sname+',请继续进行云收益度测试', '#tips', {
                             tips: [1],

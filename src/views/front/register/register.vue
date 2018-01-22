@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="reg-footer">
-        <p class="reg-foot-list">© CopyRight 2017江苏京玉信息技术有限公司  版权所有    TEL:(0379）65112858 65112856</p>
+        <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
         <p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="reg-foot-list">京公网安备 11010802020326号</p>
     </div>

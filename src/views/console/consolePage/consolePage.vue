@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
             <ul class="notice-list">
-                <li> CSB²再出重磅服务:“智能机器人小易”<span class="notice-time"></span></li>
+                <li> 智多星再出重磅服务:“将推出云实测功能”<span class="notice-time"></span></li>
             </ul>
         </div>
          <!--用户信息-->
@@ -40,13 +40,13 @@
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" id="xiaowei">
-                        <i class="icon-tasks"></i>帮助中心
+                    <a data-toggle="dropdown" class="dropdown-toggle navli" id="xiaowei">
+                        <i class="icon-tasks color_999"></i>帮助中心
                     </a>                    
                 </li>
                 <li id="header_inbox_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-envelope-alt"></i>通知中心
+                    <a data-toggle="dropdown" class="dropdown-toggle navli" href="#">
+                        <i class="icon-envelope-alt color_999"></i>通知中心
                     </a>                    
                 </li>
                 <!--<li id="header_notification_bar" class="dropdown">
@@ -70,7 +70,7 @@
                         <span>总览</span>
                     </a>
                 </li>
-                <li class="sub-menu" v-if="utype!=3||utype!=4">
+                <li class="sub-menu" v-if="utype!=3&&utype!=4">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/fenxi.png" alt="">

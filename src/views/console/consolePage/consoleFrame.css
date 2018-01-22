@@ -11,6 +11,12 @@ Website: http://thevectorlab.net/
 .notice{
     float:left;
 }
+.color_999{
+    color:#999;
+}
+.navli:hover{
+    color:#da121a !important;
+}
 .notice-img{
     font-size:14px;
     color:#da121a;
@@ -456,7 +462,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     text-decoration: none;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    color: #2E2E2E !important;
+    /*color: #2E2E2E !important;*/
 }
 
 .notify-row .badge {

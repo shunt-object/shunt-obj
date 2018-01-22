@@ -17,8 +17,8 @@
                     <ul class="analysis_name" v-show="analysis_list">
                         <li v-for="item in existing" v-on:click="changeExist(item.proname,item.id)">{{item.proname}}</li>
                     </ul>
-                </label>
-                <span class="example">例如：ERP系统上云分析</span>
+                </label>   
+                <span class="example">例如：ERP系统上云分析</span>             
             </div>
             <div class="CreateAnalysis_from_list">
                 <span class="CreateAnalysis_key">工作负载名称：</span>
