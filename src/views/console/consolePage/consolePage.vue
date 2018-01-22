@@ -39,7 +39,7 @@
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <a data-toggle="dropdown" class="dropdown-toggle" id="xiaowei">
                         <i class="icon-tasks"></i>帮助中心
                     </a>                    
                 </li>
@@ -93,10 +93,23 @@
     </section>
 </div>
 </template>
+<style>
+    #xiaowei:hover{
+        cursor:pointer
+    }
+</style>
 <script>
 import '../consolePage/consoleFrame.css'
 import '../consolePage/style-responsive.css'
 import '../consolePage/font-awesome/css/font-awesome.css'
+
+$(document).ready(function(){ 
+        $("#xiaowei").click(function(){
+            window.open("http://xiaowei.io/chat/pc/index.html?appid=3311");
+        });
+        
+}); 
+
 
 export default{
     name:'consolePage',
