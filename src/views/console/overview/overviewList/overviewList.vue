@@ -141,7 +141,7 @@ i{
 }
 /**/
 .overviewlist{
-    min-height:500px; background:#fff; padding:0 15px;
+    /*min-height:500px;*/ height:100vh; background:#fff; padding:0 15px;
 }
 .overviewSearch{
      width:100%; height:57px;
