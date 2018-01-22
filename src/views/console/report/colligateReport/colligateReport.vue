@@ -11,7 +11,7 @@
     <div class="colligate-heade">综合报告</div>
     <div class="colligateReport" style="background:#fff;padding:20px;">
         <!-- 基本信息 -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-advise.png" alt="">基本信息</div>
+        <div class="colligate-title"><img src="../../../../assets/report/report-information.png" alt="">基本信息</div>
         <div class="colligate-list">
             <table class="information-table">
                 <thead>
