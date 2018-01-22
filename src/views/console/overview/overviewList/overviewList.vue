@@ -1,8 +1,12 @@
 <template>
 <div class="total Lists">
-<div class="total-header" v-if="utype!=3||utype!=4">
+<div class="total-header" v-if="utype!=3&&utype!=4">
     <span></span>
     总览
+</div>
+<div class="total-header" v-if="utype==3||utype==4">
+    <span></span>
+    分析报告
 </div>
 <!-- 运营商 -->
 <div v-if="utype==3">
@@ -12,7 +16,7 @@
 <div v-if="utype==4">
     <img src="../../../../assets/zhengfu.png" alt="" style="width:100%;">
 </div>
-<div class="overviewlist" v-if="utype!=3||utype!=4">
+<div class="overviewlist" v-if="utype!=3&&utype!=4">
     <div class="overviewSearch" v-if="this.flag!=true">
         <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
           <div class="PlansearchBox">
@@ -21,16 +25,16 @@
         </div>
     </div>
     <!-- 数据为空时显示 -->
-    <div class="modle col-xs-12 col-md-12 col-sm-12" v-if="this.flag==true">
+    <div class="modle col-xs-12 col-md-12 col-sm-12" v-if="this.flag==true" >
         <div class="cals" style="width:100%;">
             <div class="slider">
                 <ul class="slider-main"> 
                     <li class="slider-panel"> 
-                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker</h1></div>
+                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker<sup style="font-size:8px;top:-2em;">2</sup></h1></div>
                         <a><img src="../../../../assets/overview/welcome1.png"></a> 
                     </li> 
                     <li class="slider-panel"> 
-                        <div class="modle-title" ><h1>CloudBroker<span>六步祝您轻松上云</span></h1></div>
+                        <div class="modle-title" ><h1>CloudBroker<sup style="font-size:8px;top:-2em">2</sup><span>六步祝您轻松上云</span></h1></div>
                         <a><img src="../../../../assets/overview/welcome2.png"></a>
                         <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
                           
@@ -119,6 +123,7 @@
 </div>   
 </template>
 <style>
+
 .PlansearchBox{
     float:right; padding-top:13px;
 }
@@ -147,6 +152,7 @@ line-height:30px; float:left; margin-top:13px;
 }
 .weight{
     font-weight:bold;
+    color:#555;
 }
 /**/
 .removeIng{
@@ -160,7 +166,7 @@ line-height:30px; float:left; margin-top:13px;
     font-size:16px; color:#a8a8a8; cursor:pointer;
 }
 .modle{
-    position:absolute; left:0; top:0px; width:100%; height:1000px; opacity:0.94; background:#49494b; z-index:999;
+    position:absolute; left:0; top:0px; width:100%;height:100%;  opacity:0.94; background:#49494b; z-index:999;
 }
 .modle input{
     width:15%; height:15%; margin:25% 40%; text-align:center; color:#000; font-weight:900
@@ -190,7 +196,7 @@ line-height:30px; float:left; margin-top:13px;
     margin-top:20px;
 }
 .progress{
-    width:90%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
+    width:83%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
 } 
 .spc{
     margin-left:5px; color:#000;
@@ -326,7 +332,7 @@ ul {
     background:#a70f1d; border-radius: 100%;  color: #fff;  cursor: pointer;  margin: 0 2px;   overflow: hidden;  text-align: center; display: inline-block;  width:13px; height:13px; line-height: 18px; 
  } 
  .slider-nav .slider-item-selected { 
- background:#ffd2d6; width:13px; height:13px; border-radius:100%;
+ background:#da121a; width:13px; height:13px; border-radius:100%;
  } 
  .slider-page a{ 
  width: 42px;  height: 42px;  position: absolute; top:74%; 
@@ -338,7 +344,7 @@ ul {
 position: relative; width:100%;
 }
 .creatCloud{
-    background:#ee566b;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 110%; line-height:42px; font-size:16px; color:#ffffff; text-align:center; cursor: pointer; 
+    background:#da121a;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 110%; line-height:42px; font-size:16px; color:#ffffff; text-align:center; cursor: pointer; 
 }
 .Jips:hover{
       transform: scale(1.4);

@@ -40,9 +40,9 @@
 
                <li v-if="islogin==true" class="logout-box">
                 <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
-                <ul class="logout-ul" v-show="logoutlist">
-                    <li v-on:click="fn()" style="cursor:pointer;">退出</li>
-                </ul>
+                <p class="logout-ul" v-show="logoutlist">
+                    <span v-on:click="fn()" style="cursor:pointer;color:#000">退出</span>
+                </p>
          
               </li>
             </ul>
@@ -84,13 +84,13 @@
                  <div class=" lumain">
                
                     <div class="container">
-                    <div class="col-md-7 lun-le">
+                    <div class="col-md-5 lun-le">
                         <h1>提供360°保姆式咨询服务</h1>
                         <p class="pCenter">上云规划从未如此简单</p>
                         <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
                         
                     </div>
-                        <div class="posiAbout"><img src="../../assets/td.png" alt=""></div>
+                    <div class="col-md-7" style="padding-top:5%"><img src="../../assets/wei.png" alt="" style="width:90%;height:90%;"></div>
                     </div>
             </div>
 
@@ -265,9 +265,9 @@
     <!------------------------感言------------------------------------------>
     <div class=" obj-frees"   style="height:200px;position:relative">
       <div class="pder">
-        <p class="text-center">
+        <h4 class="text-center">
           现在注册用户，全面免费体验
-        </p>
+        </h4>
         <span class="PlanLj" v-on:click="PlanLj">立即体验</span>
       </div>
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
@@ -293,7 +293,7 @@
           <p class="text-left footer-list">服务条款</p>
         </div>
         <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
-          <p class="footer-jx">CloudBroker<sup>2</sup></p>
+          <p class="footer-jx">CloudBroker<sup style="font-size:8px;">2</sup></p>
           <div class="footer-ke">
             <p>您的专属上云顾问</p>
             <img src="../../assets/weichat.png" alt="">
@@ -301,7 +301,7 @@
         </div>
       </div>
       <div class="row text-center footer-last">       
-        <p class="text-center thin">© CopyRight 2017江苏京玉信息技术有限公司 版权所有TEL:(0379）65112858 65112856</p>
+        <p class="text-center thin">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
       </div>
     </div>
   </div>
@@ -542,8 +542,7 @@ export default {
              this.$router.push({path: '/register'});
         },
         asd:function(){
-            this.logoutlist = true;
-                   console.log(this.islogin)
+            this.logoutlist==true?this.logoutlist=false:this.logoutlist=true;
         },
       fn: function() {
         this.logout();
@@ -604,7 +603,7 @@ ul,ol li {
     background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; position: relative;
 }
 .lumain{
-    background: url('../../assets/li.png') no-repeat; background-size:100% 100%;width:100%; height: 600px;position: relative
+    background: url('../../assets/li.png') no-repeat; background-size:100% 600px;width:100%; height: 600px;position: relative
 }
 .lumain .posiAbout{
 
@@ -627,18 +626,19 @@ ul,ol li {
 }
 /*悬浮框*/
 .fixed-box{
-    width:66px; height:140px; position:fixed;right:0;bottom:100px;z-index:10;
+ width:55px; position:fixed;right:0;bottom:100px;z-index:10;
 }
 .fixed-box .scrollUp{
     position:fixed;
     right:0px;
+    
     bottom:70px;
     display:none;
 }
 .fixed-ul li{
     background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:50px; height:50px; color:#fff;
     padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:12px;
+    font-size:10px;
 }
 .phone-li{
     margin-top:7px; position:relative;
@@ -651,9 +651,7 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
-  .pder{
-      position:absolute; top:30%;left:38%
-  }
+
   .uls-w li {
       width: 33.333%;
   }
@@ -919,11 +917,7 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
-.pder{
-  
-      
-      position:absolute; top:30%;left:8%;
-  }
+
 
 .right{
     height:100%;
@@ -1011,8 +1005,8 @@ a:hover {
 }
 .logout-ul{
     position:absolute;
-    width:100px;
-    height:40px;
+    width:80px;
+   
     right:0;
     top:50px;
     background:#fff;
@@ -1131,5 +1125,14 @@ h2 {
 .jsFei h3{
     font-size:16px; color:#777777; text-align:center;
 }
+  .pder{
+      position:absolute; top:0%;left:0%;
+      width:100%;
+  }
+  .pder h4{
+          font-size: 32px;
+         margin: 50px 0 25px;
+         color:#fff;
+  }
 </style>
 
