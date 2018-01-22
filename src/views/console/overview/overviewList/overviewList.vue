@@ -112,7 +112,7 @@
                     </span>
                     <span class="col-md-1 cs" >
                         <i class="fa fa-trash-o Jips"  v-on:click="remYy(item.id)" title="删除应用"></i>
-                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" title="查看综合报告" v-on:click="Jips(item.id)">
+                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" v-on:click="Jips(item.id)" v-on:mouseover="treeTip">
                     </span>
                 </li>
             </ul>
@@ -383,6 +383,10 @@ export default {
         Jips:function(even){
             console.log(even)
             this.$router.push({path:'/colligateReport',query:{id:even}});
+        },
+        treeTip:function(){
+            this.$layer.tips('您适合上,请继续进行云收益度测试', '.Jips', {
+                            tips: [1]});
         },
         // onm:function(index){
             
