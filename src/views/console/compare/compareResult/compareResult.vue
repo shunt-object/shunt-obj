@@ -84,7 +84,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="compareResult-btn">
+    <div class="compareResult-btn" style="margin-top:20px;">
         <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">下一步</button>
         <button class="compare-btn compare-prevBtn" v-on:click="prev()">上一步</button>        
     </div>
