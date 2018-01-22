@@ -19,8 +19,8 @@
     width:10%;
 }
 .circle{
-    width:24px;
-    height:24px;
+    width:26px;
+    height:26px;
     border-radius:50%;
     z-index:2;
     position:absolute;
@@ -32,22 +32,17 @@
 }
 .stepPlan-line{
     width:95%;
-    height:1px;
+    height:2px;
     position:absolute;
     right:-20px;
-    top:35px;
+    top:38px;
     z-index:1;
 }
 .stepPlan-name{
     margin-top:50px;
     text-align:left;
     font-size:12px;
-}
-.textIndent-20{
-    text-indent:-20px;
-}
-.textIndent10{
-    text-indent:10px;
+    line-height:20px;
 }
 .common-color{
     color:#999999;
@@ -79,4 +74,13 @@
 .finish-line{
     height:1px !important;
     background:#5db75b;
+}
+.int10{
+    text-indent:10px;
+}
+.int13{
+    text-indent:13px;
+}
+.int-20{
+    text-indent:-20px;
 }

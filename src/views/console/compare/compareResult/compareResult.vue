@@ -85,7 +85,7 @@
         </tbody>
     </table>
     <div class="compareResult-btn">
-        <button class="compare-btn compare-nextBtn">下一步</button>
+        <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">下一步</button>
         <button class="compare-btn compare-prevBtn" v-on:click="prev()">上一步</button>        
     </div>
     <div class="clear"></div>
@@ -132,8 +132,11 @@ export default{
             if(link=='comparelist'){
                 this.$router.push({path:'/compareList'});
             }else if(link=='comparequestion'){
-                this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+                this.$router.push({path:'/compareQuestion',query:{id:this.appId,type:this.queryType}});
             }
+        },
+        nextgo:function(){
+            this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
         }
     },
     components:{

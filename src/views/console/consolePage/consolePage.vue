@@ -25,6 +25,7 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img src="../../../assets/login-user.png" class="login-user" style="width:18px;" alt="">
                         <span class="username">{{username}}</span>
                         <b class="caret"></b>
                     </a>
