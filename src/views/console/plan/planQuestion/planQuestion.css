@@ -217,10 +217,12 @@ button{
 .orange{
     background:#f7a72c;
     color:#fff;
+    margin-right: 5px;
 }
 .grey{
     background:#ccc;
     color:#666;
+    margin-right: 5px;
 }
 .pt10{
     padding-left:10px;

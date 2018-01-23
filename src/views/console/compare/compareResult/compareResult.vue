@@ -86,7 +86,7 @@
     </table>
     <div class="compareResult-btn" style="margin-top:20px;">
         <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">下一步</button>
-        <button class="compare-btn compare-prevBtn" v-on:click="prev()">上一步</button>        
+        <button class="compare-prevBtn" v-on:click="prev()">上一步</button>        
     </div>
     <div class="clear"></div>
 </div>
@@ -113,6 +113,9 @@ export default{
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.getdata();
+        this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
+               
+        }).catch((error)=>{})
     },
     methods:{
         getdata:function(){
