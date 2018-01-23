@@ -1,12 +1,10 @@
 <template>
 <div class="register">
     <div class="reg-header">
-        <div class="reg-content">
-            <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
-        </div>
+        <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
     </div>
     <div class="reg-from">
-        <div class="reg-from-title">欢迎注册CSB²</div>
+        <div class="reg-from-title">欢迎注册ClouldBroker²</div>
         <div class="reg-from-list" :class="isphone==true?'error':''">
             <i class="xing">*</i>
             <!-- <span class="reg-from-key">手机号码：</span> -->
@@ -71,12 +69,12 @@
         <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
         <div class="reg-from-agreement">
             <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
-            <a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>
-            <!--<router-link to="">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>-->
+            <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
+            <router-link target="_blank" to="/agreenment">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>
         </div>
         <!--<div class="reg-from-null"></div>-->
         <div class="reg-from-notice">
-            已有CSB²账号?
+            已有ClouldBroker²账号?
             <router-link class="placego" to="/login">请登录</router-link>
         </div>
     </div>
