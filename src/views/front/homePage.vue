@@ -2,7 +2,7 @@
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li id="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+            <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                 <img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
                 <div v-show="phoneBox" class="phone-box"><img src="../../assets/homePage-hover-phone.png" alt=""></div>
@@ -55,7 +55,7 @@
     <!--  nav end--> 
 
     <!-------------------------------banner------------------------------------------>
-
+<div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
                        <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -65,8 +65,9 @@
         
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
-            <img src="../../assets/tu.png" alt="" class="tuPa">
-            <div class="container">
+            
+            <div class="container" style="position:relative">
+                <img src="../../assets/tu.png" alt="" class="tuPa">
               <div class="col-md-7 lun-le">
                 <h1>中国的“RightScale”,助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
@@ -79,23 +80,23 @@
           </div>
         </div>
        
-        <div class="item" style="width:100%;min-width:100%;height:100%;">
+        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
   
                  <div class=" lumain">
                
                     <div class="container">
-                    <div class="col-md-5 lun-le">
-                        <h1>提供360°保姆式咨询服务</h1>
-                        <p class="pCenter">上云规划从未如此简单</p>
-                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
-                        
+                        <div class="col-md-5 lun-le">
+                            <h1>提供360°保姆式咨询服务</h1>
+                            <p class="pCenter">上云规划从未如此简单</p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                            
+                        </div>
+                        <div class="col-md-7" style="padding-top:5%"><img src="../../assets/wei.png" alt="" style="width:90%;height:90%;"></div>
                     </div>
-                    <div class="col-md-7" style="padding-top:5%"><img src="../../assets/wei.png" alt="" style="width:90%;height:90%;"></div>
-                    </div>
-            </div>
+                </div>
 
 
-         </div>
+         </div>-->
    
    </div>
      
@@ -107,18 +108,20 @@
    
     <!--------------------------------公告------------------------------------------------>  
     <div class="announce">
-      <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
-        <li class="col-md-3 annou  col-xs-5"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
-        <li class="col-md-7 col-xs-7 lis" style="text-align:center">
-          <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp CSB²再出重磅服务:“智能机器人小易”</marquee>
-        </li>
-      </ul>
+        <div class="container">
+            <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <li class="col-md-2 annou  col-xs-10"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
+                <li class="col-md-10 col-xs-10 lis" style="text-align:center">
+                <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp CSB²再出重磅服务:“智能机器人小易”</marquee>
+                </li>
+            </ul>
+      </div>
     </div>
     <!----------------------------main-start---------------------------------->
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
-          <h1 class="text-center thin ths">Saas化云服务</h1>
+          <h1 class="text-center thin ths">SaaS化云服务</h1>
           <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
           <div class="heng"></div>
         </div>
@@ -157,7 +160,7 @@
         <p class="p-wha">科学权威上云分析</p>
         <div class="heng"></div>
         <div class="col-xs-12 cla" style="margin-top: 20px;">
-          <div class="col-xs-12 col-sm-2">
+          <div class="col-xs-12 col-sm-2" style="padding-left:1px;">
             <img src="../../assets/a.png" alt="" class="tranImg">
             <h4>SaaS化</h4>
             <div class="mainpa">
@@ -274,34 +277,36 @@
     </div>
     <!-------------------------footer------------------------------------------>
     <div class=" obj-friend footer">
+        <div>
       <!--<div class="container"> -->
-      <div class="row" style="width:73%;margin:0 auto !important;">
-        <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-          <p class="text-left footer-jx">联系我们</p>
-          <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>
-          <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
+        <div class="row" style="width:73%;margin:0 auto !important; padding-left:8%">
+            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+            <p class="text-left footer-jx">联系我们</p>
+            <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>
+            <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
+            </div>
+            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+            <p class="text-left footer-jx">功能</p>
+            <p class="text-left footer-list">云规划</p>
+            <p class="text-left footer-list">云选型</p>
+            <p class="text-left footer-list">云实测</p>
+            </div>
+            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+            <p class="text-left footer-jx">服务支持</p>
+            <p class="text-left footer-list">帮助中心</p>
+            <p class="text-left footer-list">服务条款</p>
+            </div>
+            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
+            <p class="footer-jx">CloudBroker<sup style="font-size:8px;">2</sup></p>
+            <div class="footer-ke">
+                <p>您的专属上云顾问</p>
+                <img src="../../assets/weichat.png" alt="">
+            </div>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-          <p class="text-left footer-jx">功能</p>
-          <p class="text-left footer-list">云规划</p>
-          <p class="text-left footer-list">云选型</p>
-          <p class="text-left footer-list">云实测</p>
-        </div>
-        <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-          <p class="text-left footer-jx">服务支持</p>
-          <p class="text-left footer-list">帮助中心</p>
-          <p class="text-left footer-list">服务条款</p>
-        </div>
-        <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
-          <p class="footer-jx">CloudBroker<sup style="font-size:8px;">2</sup></p>
-          <div class="footer-ke">
-            <p>您的专属上云顾问</p>
-            <img src="../../assets/weichat.png" alt="">
-          </div>
-        </div>
-      </div>
       <div class="row text-center footer-last">       
         <p class="text-center thin">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
+      </div>
       </div>
     </div>
   </div>
@@ -325,9 +330,7 @@ export default {
     },
     mounted: function() {
         $(document).ready(function(){ 
-            $("#xiaowei").click(function(){
-                window.open("http://xiaowei.io/chat/pc/index.html?appid=3311","_blank","height=300,width=500,resizable=no,location=no,status=no");
-            });
+          
             
             //$('.scrollUp').hide();        
             $(window).scroll(function(){
@@ -538,6 +541,12 @@ export default {
           
     },
     methods: {
+        xiaowei:function(){
+
+                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311","_blank","height=500,width=400","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+                     
+        },
+         
         PlanLj:function(){
              this.$router.push({path: '/register'});
         },
@@ -571,24 +580,27 @@ export default {
 /**{
    overflow:hidden
 }*/
+.container{ 
+    max-width: 1090px;
+}
+.row{
+    margin-right:66px;
+    margin-left:66px;
+}
 .lis-hov:hover{
     filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
 }
 .homepage {
     background: #f8f8f8;
 }
-.row {
-    margin-left: 0; margin-right: 0px;  
-}
+
 h3{
   margin-top:0;
 }
 * {
   font-family: "Microsoft YaHei";
 }
-.whyContainer{
-    width:77%;
-}
+
 .friendContainer{
     width:78%;
 }
@@ -600,7 +612,7 @@ ul,ol li {
     height:600px;
 }
 .lunmain {
-    background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; position: relative;
+    background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; 
 }
 .lumain{
     background: url('../../assets/li.png') no-repeat; background-size:100% 600px;width:100%; height: 600px;position: relative
@@ -650,38 +662,33 @@ ul,ol li {
 /**/
 @media (min-width: 768px) {
 
-  .uls-w li {
-      width: 33.333%;
-  }
+ 
   .tuPa {
-      right: 10%; height: 288px; position: absolute; bottom: 0
+      left: 2%; height: 288px; position: absolute; bottom: -14%
   }
   .cla {
       margin-left: 8%;
   }
   .cl {
-      margin-left: 300px;
+      margin-left: 40%;
   }
   .log {
       margin-right: 20px;
   }
   .lunmain .lun-le {
-      padding-top: 180px; padding-left: 136px; text-align: left;
+      padding-top: 180px; padding-left: 48px; text-align: left;
   }
   .lumain .lun-le {
       padding-top: 180px; padding-left: 136px; text-align: left;
   }
   .lunmain .lun-rig {
-      padding-top: 150px; padding-right: 50px
+      padding-top: 150px; padding-left: 50px
   }
    .lumain .lun-rig {
       padding-top: 150px; padding-right: 50px
   }
   .Imgs {
-      margin-left: 90px; margin-top: 15px;
-  }
-  .navbar-right {
-      margin-right: 85px;
+     margin-top: 15px;
   }
   .navbar ul li a:hover {
       border-bottom: 1px solid #fff; cursor: pointer;
@@ -771,7 +778,7 @@ ul,ol li {
     background: #f2f2f2; line-height: 58px; height: 58px;
 }
 .annou {
-    font-size: 18px; color: #da121a; text-align: right
+    font-size: 18px; color: #da121a; text-align: left
 }
 .obj-main {
     width: 100%; background: #fff;
@@ -1053,7 +1060,7 @@ h2 {
 }
 .obj-lhat .expru {
     padding-bottom: 40px;
-    width:80%;
+   
 }
 .he-su {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;
