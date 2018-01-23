@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import homePage from '@/views/front/homePage'
 import register from '@/views/front/register/register'
 import login from '@/views/front/login/login'
+import activate from '@/views/front/activate/activate'
+import agreenment from '@/views/front/agreenment/agreenment'
 import consolePage from '@/views/console/consolePage/consolePage'
 import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
@@ -33,6 +35,16 @@ export default new Router({
       name:'register',
       component:register
     },   
+    {
+      path:'/activate',
+      name:'activate',
+      component:activate
+    },
+    {
+      path:'/agreenment',
+      name:'agreenment',
+      component:agreenment
+    },
     {
       path:'/login',
       name:'login',

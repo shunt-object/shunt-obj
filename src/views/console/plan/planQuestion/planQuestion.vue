@@ -88,6 +88,7 @@
             </p>
         </div>
         <button class="planbtn" v-on:click="result(2)">下一步</button>
+        <button class="planprev" v-on:click="Planprev(1)">上一步</button>
         <div class="clear"></div>
     </div>
     <!--定量问题 亲和度-->
@@ -103,6 +104,7 @@
             </p>
         </div>
         <button class="planbtn" v-on:click="result(3)">下一步</button>
+        <button class="planprev" v-on:click="Planprev(2)">上一步</button>
         <div class="clear"></div>
     </div>
 </div>
@@ -333,6 +335,9 @@ export default{
                 this.editlist[index].boolean = true;
             }
         },
+        Planprev:function(I){
+            this.whichShow(I);
+        },
         whichShow:function(typeName){
             if(typeName==1){
                 this.qualitative = true;//定性问题是否显示
@@ -352,6 +357,7 @@ export default{
                 this.affinity = false;//亲和度问题是否显示 
             }
         },
+        
         goBack:function(){
             this.$router.push({path:'/planList'});
         },

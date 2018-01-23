@@ -9,8 +9,9 @@
 </div>
 <child index="4" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="compare-line"></div>
-<div class="compare-container">
+<div class="compareResult-box">
     <div class="compare-title">对比供应商</div>
+    <div class="compare-cate">云供应对比结果</div>
     <table class="table-score">
         <thead>
             <tr>
@@ -27,6 +28,36 @@
             </tr>
         </tbody>
     </table>
+    <div class="compare-cate">云供应商标准差异</div>
+    <div style="height:600px;overflow:auto;">
+        <table class="comdetails-table">
+            <thead>
+                <tr>
+                    <th class="obliqueline" colspan="3">
+                        <span class="clould-profirm">云供应商</span>
+                        <span class="clould-details">场景</span>
+                    </th>
+                    <th v-for="firm in confirm">{{firm.service}}</th>
+                </tr>
+            </thead>
+            <tbody v-for="(item,index) in details">
+                <tr class="comdetails-tab-title">
+                    <td :colspan="length">{{index}}</td>
+                </tr>
+                <tr class="comdetails-tab-list" v-for="list in item">
+                    <td style="width:10%;"></td>
+                    <td class="textleft">{{list.feature}}</td>
+                    <td>{{list.servers[0].compareopt}}</td>
+                    <td v-for="aa in list.servers">
+                        <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
+                        <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
+                    </td>
+                    <!--aa.type=1是有 0 是没有 -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="compare-cate">上云工作负载配置信息详情</div>
     <table class="table-score resourGroup-table">
         <thead>
             <tr>
@@ -106,7 +137,10 @@ export default{
             appServer:[],
             dbServer:[],
             network:[],
-            storage:[]
+            storage:[],
+            details:[],
+            confirm:[],
+            length:''
         }
     },
     mounted:function(){
@@ -114,7 +148,11 @@ export default{
         this.appId = this.$route.query.id;
         this.getdata();
         this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
-               
+            this.details =  response.data.data;
+            for(let variable  in this.details){   //variable 为属性名
+                this.confirm = this.details[variable][0].servers;
+            }
+            this.length = this.confirm.length+3;
         }).catch((error)=>{})
     },
     methods:{
