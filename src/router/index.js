@@ -14,6 +14,7 @@ import overviewList from '@/views/console/overview/overviewList/overviewList'
 import compareList from '@/views/console/compare/compareList/compareList'
 import planResult from '@/views/console/plan/planResult/planResult'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
+import wei from '@/views/front/wei'
 
 
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/',
       name: 'homePage',
       component: homePage
+    },
+    {
+      path: '/wei',
+      name: 'wei',
+      component: wei
     },
     {
       path:'/register',

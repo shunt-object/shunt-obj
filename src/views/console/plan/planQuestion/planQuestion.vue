@@ -38,7 +38,7 @@
             <div class="common-block affinity-ready" :class="affinity==true||hover[2].boolean==true?'activeBtn':'active-btn'" v-on:click="tab(3)">
                 <div class="plan-title">
                     <p class="title1">云亲和度</p>
-                    <p class="title2">Cloud readiness</p>
+                    <p class="title2">Cloud Readiness</p>
                     <p class="title-line"></p>
                 </div>
                 <span>{{affinityResult}}</span>

@@ -29,27 +29,19 @@
         <div class="cals" style="width:100%;">
             <div class="slider">
                 <ul class="slider-main"> 
-                    <li class="slider-panel"> 
-                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker<sup style="font-size:8px;top:-2em;">2</sup></h1></div>
+                    <li class="slider-panel" v-show="!welcom"> 
+                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker<sup style="font-size:8px;top:-12px;">2</sup></h1></div>
                         <a><img src="../../../../assets/overview/welcome1.png"></a> 
+                        <span class="creatCloud" v-on:click="upDown">下一步</span>
                     </li> 
-                    <li class="slider-panel"> 
-                        <div class="modle-title" ><h1>CloudBroker<sup style="font-size:8px;top:-2em">2</sup><span>六步祝您轻松上云</span></h1></div>
+                    <li class="slider-panel" v-show="this.welco"> 
+                        <div class="modle-title" ><h1>CloudBroker<sup style="font-size:8px;top:-12px">2</sup><span>六步祝您轻松上云</span></h1></div>
                         <a><img src="../../../../assets/overview/welcome2.png"></a>
                         <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
                           
                     </li> 
                 </ul>
-                <div class="slider-extra"> 
-                    <ul class="slider-nav"> 
-                        <li class="slider-item"></li> 
-                        <li class="slider-item"></li> 
-                    </ul> 
-                    <div class="slider-page"> 
-                        <a class="slider-pre goprev-grev" href="javascript:;;"></a> 
-                        <a class="slider-next gonext-high" href="javascript:;;"></a>
-                    </div> 
-                </div>
+            
             </div>
         </div>
     </div>
@@ -382,13 +374,23 @@ export default {
             i:-1, 
             flag:false,
             togglelist:[],
-            utype:''
+            utype:'',
+            welco:false,
+            welcom:false
             //{"ids":[1,2,3]}
         }
     },     
     methods:{
         myFun:function(){
             myFuun()
+        },
+        upDown:function(){
+            this.welco = true;
+            this.welcom = true;
+            // if("WebSocket" in window){
+            //     alert("您的浏览器支持WebSocket")
+            // }
+              
         },
         Jips:function(even){
             console.log(even)
@@ -550,90 +552,5 @@ export default {
         },(err)=>{
             console.log("不好意思")
         })
-    },
-    updated:function(){
-        $(document).ready(function() { 
-            var length, 
-            currentIndex = 0, 
-            interval, 
-            hasStarted = false, //是否已经开始轮播 
-            t = 5000; //轮播时间间隔 
-            length = $('.slider-panel').length; 
-            //将除了第一张图片隐藏 
-            $('.slider-panel:not(:first)').hide(); 
-            //将第一个slider-item设为激活状态 
-            $('.slider-item:first').addClass('slider-item-selected'); 
-            //隐藏向前、向后翻按钮 
-            //  $('.slider-page').hide(); 
-            //鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动 
-            $('.slider-panel, .slider-pre, .slider-next').hover(function() { 
-                stop(); 
-                $('.slider-page').show(); 
-            }, function() { 
-                //   $('.slider-page').hide(); 
-                start(); 
-            }); 
-            $('.slider-item').click(function(e) { 
-                stop(); 
-                var preIndex = $(".slider-item").filter(".slider-item-selected").index(); 
-                currentIndex = $(this).index(); 
-                play(preIndex, currentIndex);
-            });
-            //  }, function() { 
-            //   start(); 
-            //  }); 
-            $('.slider-pre').unbind('click'); 
-            $('.slider-pre').bind('click', function() { 
-                pre(); 
-            }); 
-            $('.slider-next').unbind('click'); 
-            $('.slider-next').bind('click', function() { 
-                next(); 
-            }); 
-            /**  向前翻页 */
-            function pre() { 
-                var preIndex = currentIndex; 
-                currentIndex = (--currentIndex + length) % length; 
-                play(preIndex, currentIndex); 
-            } 
-            /**  向后翻页 */
-            function next() { 
-                var preIndex = currentIndex; 
-                currentIndex = ++currentIndex % length; 
-                play(preIndex, currentIndex); 
-            } 
-            /** 
-            * 从preIndex页翻到currentIndex页 
-            * preIndex 整数，翻页的起始页 
-            * currentIndex 整数，翻到的那页 
-            */
-            function play(preIndex, currentIndex) { 
-                if(preIndex==0){
-                    $(".slider-next").removeClass("gonext-high").addClass("gonext-grev");
-                    $(".slider-pre").removeClass("goprev-grev").addClass("goprev-high");
-                }else{
-                    $(".slider-next").removeClass("gonext-grev").addClass("gonext-high");
-                    $(".slider-pre").removeClass("goprev-high").addClass("goprev-grev");
-                }
-                $('.slider-panel').eq(preIndex).fadeOut(500).parent().children().eq(currentIndex).fadeIn(1000); 
-                $('.slider-item').removeClass('slider-item-selected'); 
-                $('.slider-item').eq(currentIndex).addClass('slider-item-selected'); 
-            } 
-            /**  开始轮播 */
-            function start() { 
-                if(!hasStarted) { 
-                    hasStarted = true; 
-                    interval = setInterval(next, t); 
-                } 
-            } 
-            /** 停止轮播 */
-            function stop() { 
-                clearInterval(interval); 
-                hasStarted = false; 
-            } 
-            //开始轮播 
-            start(); 
-        }); 
-    }
-}
+    }}
 </script>

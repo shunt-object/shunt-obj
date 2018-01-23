@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
             <ul class="notice-list">
-                <li> 智多星再出重磅服务:“将推出云实测功能”<span class="notice-time"></span></li>
+                <li> CSB<sup style="font-size:8px;top:-6px;">2</sup>计划在春节前推出云实测服务<span class="notice-time"></span></li>
             </ul>
         </div>
          <!--用户信息-->
@@ -118,7 +118,9 @@ export default{
     mounted:function(){
 
         $("#xiaowei").click(function(){
-            window.open("http://xiaowei.io/chat/pc/index.html?appid=3311","_blank","height=300,width=500,resizable=no,location=no,status=no");
+            var that = this; 
+                   
+            var win = window.open("http://localhost/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
         });
         
 

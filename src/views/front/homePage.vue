@@ -1,4 +1,4 @@
-<template>
+<template style="position:relative">
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
@@ -112,7 +112,7 @@
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <li class="col-md-2 annou  col-xs-10"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
                 <li class="col-md-10 col-xs-10 lis" style="text-align:center">
-                <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp CSB²再出重磅服务:“智能机器人小易”</marquee>
+                <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 智多星再出重磅服务:“将推出云实测功能”</marquee>
                 </li>
             </ul>
       </div>
@@ -307,6 +307,8 @@
       <div class="row text-center footer-last">       
         <p class="text-center thin">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
       </div>
+    
+      
       </div>
     </div>
   </div>
@@ -314,12 +316,15 @@
 </div>
 </template>
 <script>
-
+ import wei from '../front/wei.vue';
 
 
 
 export default {
     name: 'homePage',
+    components:{
+        wei
+    },
     data() {
       return {
         islogin: false,
@@ -542,9 +547,11 @@ export default {
     },
     methods: {
         xiaowei:function(){
-
-                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311","_blank","height=500,width=400","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
-                     
+            
+            var that = this; 
+                   
+            var win = window.open("http://localhost/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+                  
         },
          
         PlanLj:function(){
@@ -592,6 +599,7 @@ export default {
 }
 .homepage {
     background: #f8f8f8;
+    
 }
 
 h3{
@@ -898,7 +906,7 @@ ul,ol li {
     border-left:1px solid #2e383e;
 }
 .footer .footer-jx {
-    font-weight: 200; font-size:14px; color:#fff;
+    font-weight: 200; font-size:14px; color:#ccc;
 }
 .footer-list{
     font-size:12px; color:#b3b3b3;
@@ -1139,5 +1147,6 @@ h2 {
          margin: 50px 0 25px;
          color:#fff;
   }
+
 </style>
 

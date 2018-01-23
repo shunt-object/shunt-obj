@@ -16,7 +16,7 @@
         <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"><span class="write-num">填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 text-left ulss col-sm-12">
             <li class=" col-sm-12"><input type="number" v-model="cores" min="1">&nbsp&nbspvCPU</li>
-            <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频（Ghz）</li>
+            <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频(GHZ)</li>
             <li class=" col-sm-12"><input type="number" v-model="ram" min="1">&nbsp&nbsp内存(GB)</li>
             <li class=" col-sm-12"><input type="number" v-model="localDisk" min="1">&nbsp&nbsp系统盘(GB)</li>
             <li class=" col-sm-12">
@@ -39,7 +39,7 @@
         <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"><span class="write-num">填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="coresq">&nbsp&nbspvCPU</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（Ghz）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（GHZ）</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ramq">&nbsp&nbsp内存(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
             <li class=" col-sm-12">
