@@ -120,7 +120,7 @@ export default{
         $("#xiaowei").click(function(){
             var that = this; 
                    
-            var win = window.open("http://localhost/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            var win = window.open("http://118.244.227.150:22080/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
         });
         
 
