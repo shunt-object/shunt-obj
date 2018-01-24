@@ -90,7 +90,7 @@ line-height:30px; float:left; margin-top:13px;
     line-height:30px; background:#fff; color:#2b2b2b;
 }
 .table>thead>tr>th{
-    background:#ebebeb; color:#555; height:60px; text-align:center;
+    background:#ebebeb; color:#555; height:50px; text-align:center;
 }
 .table>tbody>tr:nth-child(2n)>td{
     background:#f7f7f7;

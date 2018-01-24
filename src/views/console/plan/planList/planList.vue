@@ -87,7 +87,7 @@ line-height:30px; float:left; margin-top:13px;
 
 }
 .planlist-table>thead>tr>th{
-    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5; vertical-align: middle;
+    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
     font-size:14px;

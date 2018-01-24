@@ -91,12 +91,12 @@
                         <td>{{appServer.num}}</td>
                         <td>应用程序</td>
                         <td>
-                            <p><span class="labelRed">{{appServer.cores}}</span>Vcpu</p>
+                            <p><span class="labelRed">{{appServer.cores}}</span>vCPU</p>
                             <p><span class="labelRed">{{appServer.ghz}}</span>处理器主频（Ghz）</p>
                             <p><span class="labelRed">{{appServer.ram}}</span>内存(GB)</p>
                             <p><span class="labelRed">{{appServer.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{appServer.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{appServer.computeMappingFactor}}</span>计算机映射因子</p>
+                            <p><span class="labelRed">{{appServer.computeMappingFactor}}</span>平均计算合并率</p>
                             <p><span class="labelRed">{{appServer.monthlyUsage}}</span>每个月用量（天/月）</p>
                             <p><span class="labelRed">{{appServer.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
@@ -105,12 +105,12 @@
                         <td>{{dbServer.num}}</td>
                         <td>数据库服务</td>
                         <td>
-                            <p><span class="labelRed">{{dbServer.cores}}</span>Vcpu</p>
+                            <p><span class="labelRed">{{dbServer.cores}}</span>vCPU</p>
                             <p><span class="labelRed">{{dbServer.ghz}}</span>处理器主频（Ghz）</p>
                             <p><span class="labelRed">{{dbServer.ram}}</span>内存(GB)</p>
                             <p><span class="labelRed">{{dbServer.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{dbServer.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{dbServer.computeMappingFactor}}</span>计算机映射因子</p>
+                            <p><span class="labelRed">{{dbServer.computeMappingFactor}}</span>平均计算合并率</p>
                             <p><span class="labelRed">{{dbServer.monthlyUsage}}</span>每个月用量（天/月）</p>
                             <p><span class="labelRed">{{dbServer.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
