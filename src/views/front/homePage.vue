@@ -835,7 +835,7 @@ ul,ol li {
 .left,.right {
     width: 5%;
     height:100%;
-    background:none;
+    background:none !important;
 }
 .navbar-nav li a:hover {
     border-bottom: 1px solid #fff
