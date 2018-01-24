@@ -21,16 +21,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
       		</button>
-          <a class="navbar-brand page-scroll" href="#page-top"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs"></a>
+          <a class="navbar-brand page-scroll" href="#page-top"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs animated rotateIn"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li><a class="page-scroll" href="javascript:;">首页</a></li>
-            <li><a class="page-scroll" href="javascript:;">功能</a></li>
-            <li><a class="page-scroll" href="javascript:;">帮助</a></li>
-            <li><a class="page-scroll" href="javascript:;">联系我们</a></li>
-            <li><a class="page-scroll" v-on:click="condole">控制台</a></li>
+            <li><a class="page-scroll animated fadeInLeft" href="javascript:;">首页</a></li>
+            <li><a class="page-scroll animated fadeInDown" href="javascript:;">功能</a></li>
+            <li><a class="page-scroll animated bounceIn" href="javascript:;">帮助</a></li>
+            <li><a class="page-scroll animated fadeInUp" href="javascript:;">联系我们</a></li>
+            <li><a class="page-scroll animated fadeInRight" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -67,36 +67,37 @@
           <div class=" lunmain">
             
             <div class="container" style="position:relative">
-                <img src="../../assets/tu.png" alt="" class="tuPa">
-              <div class="col-md-7 lun-le">
+                <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
+              <div class="col-md-7 lun-le animated rollIn">
                 <h1>中国的“RightScale”,助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
               </div>
-              <div class="col-md-5 col-sx-12 lun-rig">  
-                <img src="../../assets/text.png" alt="">
+              <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
+                <img src="../../assets/text.png" alt="" class="tranimg">
               </div>
             </div>
           </div>
         </div>
        
-        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
+       
+        <div class="item" style="width:100%;min-width:100%;height:100%;">
   
                  <div class=" lumain">
                
                     <div class="container">
-                        <div class="col-md-5 lun-le">
+                        <div class="col-md-5 lun-le animated rollIn">
                             <h1>提供360°保姆式咨询服务</h1>
-                            <p class="pCenter">上云规划从未如此简单</p>
+                            <p class="pCenter" style="font-weight:600">上云规划从未如此简单</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
                             
                         </div>
-                        <div class="col-md-7" style="padding-top:5%"><img src="../../assets/wei.png" alt="" style="width:90%;height:90%;"></div>
+                        <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
                     </div>
                 </div>
 
 
-         </div>-->
+         </div>
    
    </div>
      
@@ -121,11 +122,11 @@
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
-          <h1 class="text-center thin ths">SaaS化云服务</h1>
+          <h1 class="text-center thin ths animated tada">SaaS化云服务</h1>
           <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
           <div class="heng"></div>
         </div>
-        <div class="row text-center" style="margin-top:20px !important;">
+        <div class="row text-center">
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <img src="../../assets/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
@@ -138,7 +139,7 @@
             <img src="../../assets/Page 1.png" alt="" class="Yunimg">
             <h2>云选型</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过易云管提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
+              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
             </div>
             <span class="obj-cta">查看更多</span>
           </div>
@@ -146,9 +147,9 @@
             <img src="../../assets/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">基于云选型设计的业务场景，通过易云管提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
+              <p class="text-left"><span class="color_999">基于云选型设计的业务场景，通过CloudBroker²提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
             </div>
-            <p><span class="obj-cta">查看更多</span></p>
+           <span class="obj-cta">查看更多</span>
           </div>
         </div>
       </div>
@@ -159,8 +160,8 @@
         <h2>我们的特点</h2>
         <p class="p-wha">科学权威上云分析</p>
         <div class="heng"></div>
-        <div class="col-xs-12 cla" style="margin-top: 20px;">
-          <div class="col-xs-12 col-sm-2" style="padding-left:1px;">
+        <div class="col-xs-12 cla">
+          <div class="col-xs-12 col-sm-2 claes" style="padding-left:1px;">
             <img src="../../assets/a.png" alt="" class="tranImg">
             <h4>SaaS化</h4>
             <div class="mainpa">
@@ -168,7 +169,7 @@
               <p>打造国内领先的S级产品</p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-2">
+          <div class="col-xs-12 col-sm-2 claes">
             <img src="../../assets/b.png" alt="" class="tranImg">
             <h4>保姆化</h4>
             <div class="mainpa">
@@ -176,7 +177,7 @@
               <p>提供一站化体验</p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-2">
+          <div class="col-xs-12 col-sm-2 claes">
             <img src="../../assets/c.png" alt="" class="tranImg">
             <h4>权威化</h4>
             <div class="mainpa">
@@ -184,7 +185,7 @@
               <p>提供科学化上云规划</p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-2">
+          <div class="col-xs-12 col-sm-2 claes">
             <img src="../../assets/e.png" alt="" class="tranImg">
             <h4>可视化</h4>
             <div class="mainpa">
@@ -192,7 +193,7 @@
               <p>提供可视化数据展现</p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-2">
+          <div class="col-xs-12 col-sm-2 claes">
             <img src="../../assets/5.png" alt="" class="tranImg">
             <h4>实测化</h4>
             <div class="mainpa">
@@ -210,19 +211,19 @@
         <p class="p-wha">云可能很复杂，但我们助您上云变得简单和轻松</p>
         <div class="heng"></div>
         <ul class="row col-xs-12 uls-w" style="margin-top:20px !important;">
-          <li class="col-xs-12 col-sm-4">
+          <li class="col-xs-12 col-sm-4 pictes">
             <div class=" li-fir lis-hov"><img src="../../assets/pict-1.png" alt="" class="pict">
               <h2>省力</h2>
               <p style="padding-top:44%">为您减少50%的上云规划时间</p>
             </div>
           </li>
-          <li class="col-xs-12 col-sm-4 ">
+          <li class="col-xs-12 col-sm-4 pictes">
             <div class="li-sec lis-hov"><img src="../../assets/pict-3.png" alt="" class="picts">
               <h2>专业</h2>
               <p style="padding-top:40%">集结上百位专家心血，<br/> 为了您提供科学规划和上云</p>
             </div>
           </li>
-          <li class="col-xs-12 col-sm-4 ">
+          <li class="col-xs-12 col-sm-4 pictes">
             <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
             <h2>省钱</h2>
               <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
@@ -240,28 +241,28 @@
           <div class="he-su"></div>
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 29.png" alt="">
-          <img src="../../assets/Group 39.png" alt="">
+          <img src="../../assets/Group 29.png" alt="" class="jz-img">
+          <img src="../../assets/Group 39.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 30.png" alt="">
-          <img src="../../assets/Group 41.png" alt="">
+          <img src="../../assets/Group 30.png" alt=""  class="jz-img">
+          <img src="../../assets/Group 41.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 34.png" alt="">
-          <img src="../../assets/Group 42.png" alt="">
+          <img src="../../assets/Group 34.png" alt=""  class="jz-img">
+          <img src="../../assets/Group 42.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 36.png" alt="">
-          <img src="../../assets/Group 43.png" alt="">
+          <img src="../../assets/Group 36.png" alt=""  class="jz-img">
+          <img src="../../assets/Group 43.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 37.png" alt="">
-          <img src="../../assets/Group 44.png" alt="">
+          <img src="../../assets/Group 37.png" alt=""  class="jz-img">
+          <img src="../../assets/Group 44.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 38.png" alt="">
-          <img src="../../assets/Group 45.png" alt="">
+          <img src="../../assets/Group 38.png" alt=""  class="jz-img">
+          <img src="../../assets/Group 45.png" alt=""  class="jz-img">
         </div>
       </div>
     </div>
@@ -297,17 +298,18 @@
             <p class="text-left footer-list">服务条款</p>
             </div>
             <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
-            <p class="footer-jx">CloudBroker<sup style="font-size:8px;">2</sup></p>
+            <p class="footer-jx">CloudBroker²</p>
             <div class="footer-ke">
                 <p>您的专属上云顾问</p>
                 <img src="../../assets/weichat.png" alt="">
             </div>
             </div>
         </div>
+           <div class="footer-inert"></div>
       <div class="row text-center footer-last">       
         <p class="text-center thin">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
       </div>
-    
+ 
       
       </div>
     </div>
@@ -317,7 +319,7 @@
 </template>
 <script>
  import wei from '../front/wei.vue';
-
+ import "../front/animate.min.css"
 
 
 export default {
@@ -334,20 +336,84 @@ export default {
       }
     },
     mounted: function() {
-        $(document).ready(function(){ 
           
+
+        $(document).ready(function(){ 
+           
             
+               
+                     $.fn.extend({
+                        animateCss: function (animationName) {
+                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                            $(this).removeClass('animated ' + animationName);
+                            });
+                        }           
+                    });
+                    //   $(".blurb-cta")(function(){
+                    //      console.log(i)
+                    //   })
+                        $('.blurb-cta').hover(function(){
+                            $(this).find("img").animateCss('flip');
+                        },function(){
+                            $(this).find("img").removeClass("flip")
+
+                        });
+                        $(".lis-hov").mouseover(function(){
+                            $(this).find(".pict").css("transform", "scale(1.4)")
+                             $(this).find(".picts").css("transform", "scale(1.4)")
+                             $(this).find("p").css({"transform":"scale(1.3)","color":"#8288ff","padding-top":"35%"})
+                            //  $(this).css("position","relative");
+                            //  var res = "<div class='dnsery'></div>";
+                            //  $(".dnsery").css({"position":"absolute","top":0,"width":"273px","height":"376px","opacity":0.2,"background":"#1f2745"})
+ 
+                            //  $(this).append(res);
+                        });
+                        $('.lis-hov').mouseout(function(){
+                            $(this).find(".pict").css("transform", "scale(1.0)")
+                             $(this).find(".picts").css("transform", "scale(1.0)")
+                             $(this).find("p").css({"transform":"scale(1.0)","color":"#ffffff","padding-top":"44%"})
+                        });
+                
+                        $(".jz-img").hover(function(){
+                            $(this).css("transform", "scale(1.4)")
+                        },function(){
+                            $(this).css("transform", "scale(1.0)")
+                        })
+                        //  $(".obj-frees").hover(function(){
+                        //         $(this).find(".PlanLj").animateCss('shake');
+                        //  },function(){
+                        //      $(this).find(".PlanLj").remoteClass('flash');
+                        //  })10px 10px 1px 2px #ccc"
+                        $(".blurb-cta").hover(function(){
+                            $(this).css({"box-shadow":"10px 10px 1px 2px #ccc","background":"#f4f4f4"});
+                        },function(){
+                           $(this).css({"box-shadow":"","background":""});;
+                        });
+                        $(".claes").hover(function(){
+                           $(this).css({"box-shadow":"10px 10px 1px 2px #ccc","background":"#f4f4f4"});
+                           //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
+                           var a = $(this).find(".tranImg");
+                            a.addClass("imgAnimation");
+                            
+                          
+                        },function(){
+                              $(this).css({"box-shadow":"","background":""});;
+                              var a = $(this).find(".tranImg");
+                             a.css({opacity:'1'});
+                              a.removeClass("imgAnimation");
+                        })
             //$('.scrollUp').hide();        
             $(window).scroll(function(){
                 // console.log($(this).scrollTop());
     
                 //当window的scrolltop距离大于1时，go to 
-                if($(this).scrollTop() > 600){
+                if($(this).scrollTop() > 550){
                     $('.scrollUp').css("display","block")
-                }else{
-                    $('.scrollUp').fadeOut();
-                }
-            });
+                    }else{
+                            $('.scrollUp').fadeOut();
+                         }
+                });
     
             $(".scrollUp").click(function(){
                 $('html ,body').animate({scrollTop: 0}, 300);
@@ -596,7 +662,9 @@ export default {
 }
 .lis-hov:hover{
     filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
+    /*background:#1f2745*/
 }
+
 .homepage {
     background: #f8f8f8;
     
@@ -611,7 +679,9 @@ h3{
 
 .friendContainer{
     width:78%;
+    padding:20px 0 20px 0;
 }
+.
 ul,ol li {
   list-style: none
 }
@@ -687,7 +757,7 @@ ul,ol li {
       padding-top: 180px; padding-left: 48px; text-align: left;
   }
   .lumain .lun-le {
-      padding-top: 180px; padding-left: 136px; text-align: left;
+      padding-top: 180px; padding-left: 48px; text-align: left;
   }
   .lunmain .lun-rig {
       padding-top: 150px; padding-left: 50px
@@ -776,6 +846,9 @@ ul,ol li {
 .headroom {
     -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; -o-transition: all 0.4s ease-out; transition: all 0.4s ease-out;
 }
+.jz-img{
+     -webkit-transition: all 0.6s ease-out; -moz-transition: all 0.6s ease-out; -o-transition: all 0.6s ease-out; transition: all 0.6s ease-out;
+}
 .navbar-inverse {
     height: 80px; border: none
 }
@@ -820,7 +893,7 @@ ul,ol li {
     width: 100%; height: 100%;
 }
 .obj-what {
-    width: 100%; margin-top:20px !important;
+    width: 100%;
 }
 .obj-what .container {}
 .obj-what .container .jzWe {
@@ -1036,6 +1109,9 @@ h2 {
 .obj-what container {
     background: #f7f7f7;
 }
+.obj-what-whew{
+    padding:20px 0 20px 0;
+}
 .obj-what-whew h2 {
     font-size: 32px; font-weight:200; color: #333333;
 }
@@ -1073,7 +1149,7 @@ h2 {
 .he-su {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;
 }
-@-webkit-keyframes rotation {
+/*@-webkit-keyframes rotation {
   from {
     -webkit-transform: rotate(0deg);
   }
@@ -1081,9 +1157,12 @@ h2 {
     -webkit-transform: rotate(360deg);
   }
 }
-.tranImg:hover { 
-    -webkit-transform: rotate(360deg); animation: rotation 2s linear infinite; -moz-animation: rotation 2s linear infinite; -webkit-animation: rotation 2s linear infinite; -o-animation: rotation 2s linear infinite;
-}
+.tranImg:hover{
+   
+   -moz-animation:rotation 2s linear infinite; 
+    -webkit-animation:rotation 2s linear infinite;
+    -o-animation:rotation 2s linear infinite
+}*/
 .ths {
     font-size: 36px;
 }
@@ -1102,6 +1181,15 @@ h2 {
 .picts {
     width: 70px; height: 60px; transition: all 0.6s;  margin-top: 30%; margin-left: 4%;
 }
+.pictes .dnsery{
+    position:absolute;
+    left:0;
+    top:0;
+    width:273px;
+    height:376px;
+     filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
+    background:#1f2745
+}
 .li-fir,.li-sec,.li-the p {
     font-size: 14px; color: #e5e5e5; text-align: center;
 }
@@ -1114,12 +1202,9 @@ h2 {
 .li-the h2{
     font-size:20px; color:#ffffff; text-align:center; font-size:20px;
 }
-.pict:hover{
-    transform: scale(1.4);
-}
-.picts:hover{
-    transform: scale(1.4);
-}
+
+
+
 .obj-frees{
     width: 100%; background: #da121a; background-size: cover; height: auto;
 }
@@ -1147,6 +1232,105 @@ h2 {
          margin: 50px 0 25px;
          color:#fff;
   }
+.footer-inert{
+    width:100vw;
+    height:2px;
+    background:#2e383e;
+    margin-top:20px;
+}
+.tranimg:hover{
+      transform: scale(1.2);
+        -webkit-transition: all 0.6s ease-out; -moz-transition: all 0.6s ease-out; -o-transition: all 0.6s ease-out; transition: all 0.6s ease-out;
 
+}
+.PlanLj{cursor:pointer;-webkit-animation: scaleout 1s infinite ease-in-out;animation: scaleout 1.5s infinite ease-in-out;}
+@-webkit-keyframes scaleout{
+    0% { -webkit-transform: scale(1.0) }
+    10%{-webkit-transform: scale(1.05);
+        opacity: 0.9;
+    }
+    25%{
+        -webkit-transform: scale(1.1);
+        opacity: 0.8;
+    } 
+    40%{-webkit-transform: scale(1.15);
+        opacity: 0.7;
+    }
+    50%{
+        -webkit-transform: scale(1.2);
+        opacity: 0.6;
+    }
+    65%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.7;
+    }
+    75%{
+        -webkit-transform: scale(1.1);
+        opacity: 0.8;
+    }
+    90%{
+        -webkit-transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }
+      
+}
+@keyframes scaleout {
+    0% { -webkit-transform: scale(1.0) }
+    10%{-webkit-transform: scale(1.05);
+        opacity: 0.9;
+    }
+    25%{
+        -webkit-transform: scale(1.1);
+        opacity: 0.8;
+    } 
+    40%{-webkit-transform: scale(1.15);
+        opacity: 0.7;
+    }
+    50%{
+        -webkit-transform: scale(1.2);
+        opacity: 0.6;
+    }
+    65%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.7;
+    }
+    75%{
+        -webkit-transform: scale(1.1);
+        opacity: 0.8;
+    }
+    90%{
+        -webkit-transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }opacity: 0.5;
+      
+}
+.blurb-cta{
+    padding-top:20px
+}
+.blurb-cta span{
+    margin-bottom:20px;
+}
+.claes{
+    padding:20px 0 20px 0 ;
+}
+ .imgAnimation{  
+      animation-name: imgAnimation;  
+      animation: imgAnimation 2s infinite  linear  ;
+      -webkit-animation: imgAnimation 2s infinite  linear ;  
+      -moz-animation: imgAnimation 2s infinite  linear ;  
+ }  
+ @-webkit-keyframes imgAnimation{  
+    from{ -webkit-transform: rotate(0deg)}  
+    to{ -webkit-transform: rotate(360deg)  
+   }  
+ }  
 </style>
 

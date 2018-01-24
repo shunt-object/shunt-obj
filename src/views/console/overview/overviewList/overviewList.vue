@@ -30,12 +30,12 @@
             <div class="slider">
                 <ul class="slider-main"> 
                     <li class="slider-panel" v-show="!welcom"> 
-                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker<sup style="font-size:8px;top:-12px;">2</sup></h1></div>
+                        <div class="modle-title" ><h1><span>欢迎来到</span>CloudBroker²</h1></div>
                         <a><img src="../../../../assets/overview/welcome1.png"></a> 
                         <span class="creatCloud" v-on:click="upDown">下一步</span>
                     </li> 
                     <li class="slider-panel" v-show="this.welco"> 
-                        <div class="modle-title" ><h1>CloudBroker<sup style="font-size:8px;top:-12px">2</sup><span>六步祝您轻松上云</span></h1></div>
+                        <div class="modle-title" ><h1>ClouldBroker²<span>六步祝您轻松上云</span></h1></div>
                         <a><img src="../../../../assets/overview/welcome2.png"></a>
                         <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
                           

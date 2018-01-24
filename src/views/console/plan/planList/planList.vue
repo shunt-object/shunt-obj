@@ -38,7 +38,7 @@
                 <td  v-else></td>
                 <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                 <td  v-else></td>
-                <td ><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
+                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
             </tr>
         </tbody>    
     </table>

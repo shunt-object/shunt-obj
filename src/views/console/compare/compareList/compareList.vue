@@ -33,9 +33,9 @@
                     <td v-if="re.appResults[0]!=null" >
                         <ul>
                             <li class="row" v-for="ic in JSON.parse(re.appResults[0].result)">
-                                <span class="col-md-4"></span>
-                                <span class="firm-name col-md-4">{{ic.serverName}}</span>
-                                <span class="firm-score col-md-4">{{ic.scope}}分</span>
+                                <span class="col-md-4 spana"></span>
+                                <span class="firm-name col-md-4 spana">{{ic.serverName}}</span>
+                                <span class="firm-score col-md-4 spana">{{ic.scope}}分</span>
                                 <!--<span></span>-->
                             </li>
                         </ul>
@@ -55,6 +55,9 @@
 </div>
 </template>
 <style>
+.spana{
+    line-height:50px;
+}
 .compareList{
     min-height:500px; background:#fff; padding:0 15px;
 }
