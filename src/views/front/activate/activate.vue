@@ -15,7 +15,7 @@
         <div class="activate-desc" v-show="fail">
             用户激活失败，可能是您的激活链接已经失效或者链接不完整，请点击<span class="again" v-on:click="sendagain()">重新发送</span>验证邮件。
         </div>
-        <router-link to="/" v-show="success"><button class="successBtn">立即登录</button></router-link>
+        <router-link to="/login" v-show="success"><button class="successBtn">立即登录</button></router-link>
     </div>
     <div class="activate-footer">
         <p class="activate-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
