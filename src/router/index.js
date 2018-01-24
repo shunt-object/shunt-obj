@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/views/front/homePage'
 import register from '@/views/front/register/register'
+import sendEmail from '@/views/front/register/sendEmail'
 import login from '@/views/front/login/login'
 import activate from '@/views/front/activate/activate'
 import agreenment from '@/views/front/agreenment/agreenment'
@@ -41,6 +42,11 @@ export default new Router({
       name:'register',
       component:register
     },   
+    {
+      path:'/sendEmail',
+      name:'sendEmail',
+      component:sendEmail
+    },
     {
       path:'/activate',
       name:'activate',

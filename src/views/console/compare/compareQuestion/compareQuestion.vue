@@ -34,7 +34,10 @@
         </div>
         <ul class="compare-question-list" v-if="item.boolean==true">
             <li class="row" v-for="(list,i) in item.data">
-                <p class="col-md-6">Q{{i+1}}.{{list.content}}</p>
+                <p class="col-md-6">
+                    <span class="compare-num">Q</span><!-- Q{{i+1}}. -->
+                    {{list.content}}
+                </p>
                 <p class="col-md-6">
                     <select class="compare-select" v-model="valuelist[list.id]" v-on:change="changeSelect(list)">
                         <option :value="option" v-for="option in optionlist">{{option.name}}</option>

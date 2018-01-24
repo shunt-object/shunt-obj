@@ -5,26 +5,28 @@
             <router-link to="/"><img class="login-logo" src="../../../assets/login-logo.png" alt=""></router-link>
         </div>
     </div>
-    <div class="login-content login-main">
-        <div class="login-from">
+    <div class="login-content login-main row">
+        <div class="login-from col-md-4">
             <div class="login-from-title">登录</div>
-            <div class="login-from-list" :class="isaccount==true?'error':''">
-                <i class="fa fa-user"></i>
-                <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
-            </div>
-            <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
-            <div class="login-from-list" :class="ishave==true?'error':''">
-                <i class="fa fa-lock"></i>
-                <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
-            </div>
-            <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
-            <button class="login-from-btn" v-on:click="login()">登录</button>
-            <div class="login-from-remember">
-                <div class="login-from-left">
-                    <input type="checkbox" v-model="remember">记住密码
+            <div style="padding:0 20px;">
+                <div class="login-from-list" :class="isaccount==true?'error':''">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
                 </div>
-                <div class="login-from-right">
-                    <router-link to="/register">立即注册</router-link> | 忘记密码
+                <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
+                <div class="login-from-list" :class="ishave==true?'error':''">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
+                </div>
+                <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
+                <button class="login-from-btn" v-on:click="login()">登录</button>
+                <div class="login-from-remember">
+                    <div class="login-from-left">
+                        <input type="checkbox" v-model="remember">记住密码
+                    </div>
+                    <div class="login-from-right">
+                        <router-link to="/register" class="linkto">立即注册</router-link> | 忘记密码
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,6 +41,7 @@
 </template>
 <script>
 import '../login/login.css'
+import activate from '../login/loginActivate.vue'
 export default{
     name:'login',
     data(){
@@ -65,6 +68,7 @@ export default{
             }
         });
         this.nextTo = this.$route.query.redirect;
+        
         //console.log('------',this.$route.query.redirect);
     },
     methods:{
@@ -106,6 +110,19 @@ export default{
                         this.ishave=true;
                         this.accountText = '用户名不正确';
                         this.passwordText = '密码不正确';
+                    }else if(res.data.code=='-1'){//邮箱未激活
+                        this.$layer.iframe({
+                            content: {
+                                content: activate, //传递的组件对象
+                                parent: this,//当前的vue对象
+                                data:{
+                                    username:res.data.msg,
+                                    email:this.account
+                                }//props
+                            },
+                            area:['50%','400px'],
+                            title:'温馨提示'
+                        });
                     }
                 }).catch((error)=>{
                     console.log(error);
@@ -126,6 +143,9 @@ export default{
                 }
             }
         }
+    },
+    component:{
+        activate
     }
 }
 </script>

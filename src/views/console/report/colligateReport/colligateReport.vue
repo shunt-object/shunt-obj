@@ -3,8 +3,6 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
-    ><p class="comback" v-on:click="goBack('comparelist')">云选型</p>
-    ><p class="comback" v-on:click="goBack('comparequestion')">选择标准</p>
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>

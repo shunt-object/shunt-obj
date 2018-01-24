@@ -123,6 +123,20 @@
     border:none;
     float:right;
 }
+/*题号*/
+.compare-num{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    display:inline-block;
+    font-size:12px;
+    line-height:22px;
+    text-align:center;
+    font-weight: normal;
+    background:#f7a72c;
+    color:#fff;
+    margin-right: 5px;
+}
 /*没有数据*/
 .nodata{
     background:#ffffff;

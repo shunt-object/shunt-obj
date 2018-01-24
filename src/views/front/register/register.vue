@@ -70,7 +70,7 @@
         <div class="reg-from-agreement">
             <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
             <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
-            <router-link target="_blank" to="/agreenment">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</router-link>
+            <router-link target="_blank" to="/agreenment">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
         </div>
         <!--<div class="reg-from-null"></div>-->
         <div class="reg-from-notice">
@@ -111,6 +111,10 @@ export default{
         }
     },
     mounted:function(){
+        // this.$this.get('/broker/mail/send/validCode/15711213074@qq.com').then((response)=>{
+        //     console.log('------',response);
+        // }).catch((error)=>{
+        // })
     },
     methods:{
         notice:function(dom){
@@ -197,16 +201,17 @@ export default{
                 let that = this;
                 this.$this.post('/broker/auth/register',strObj).then((response)=>{
                     if(response.data.code=='1'){
-                        let lay = this.$layer.open({
-                            type: 0,
-                            content: '您已注册成功，请前去登录',
-                            title: '温馨提示',
-                            btn: '我知道了',
-                            yes:function(){
-                                that.$router.push({path:'/login'});
-                                that.$layer.close(lay);
-                            }
-                        });
+                        // let lay = this.$layer.open({
+                        //     type: 0,
+                        //     content: '您已注册成功，请前去登录',
+                        //     title: '温馨提示',
+                        //     btn: '我知道了',
+                        //     yes:function(){
+                        //         that.$router.push({path:'/login'});
+                        //         that.$layer.close(lay);
+                        //     }
+                        // });
+                        this.sendEmail(response.data.data.username);                    
                     }
                 }).catch((error)=>{
                     console.log(error);
@@ -227,7 +232,16 @@ export default{
                     this.$layer.msg('请阅读服务协议');
                 }
             }
+        },
+        sendEmail:function(username){
+            this.$this.get('/broker/mail/send/validCode/'+username).then((response)=>{
+                //console.log('------',response);
+                this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});
+            }).catch((error)=>{
+            })   
         }
+    },
+    component:{
     }
 }
 

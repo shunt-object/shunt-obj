@@ -27,16 +27,17 @@
 }
 .login-main{
     min-height:500px;
-    background:url('../../../assets/login-img.png') no-repeat 10% center;
+    background:url('../../../assets/login-img.png') no-repeat 10% 55%;
     background-size:517px 356px;
-    position:relative;
+    position:relative !important;
 }
 .login-from{
-    width:384px;
-    height:368px;
+    /*width:384px;*/
+    /*height:368px;*/
+    padding:0 0 50px 0 !important;
     border-radius:5px;
     background:#fff;
-    position:absolute;
+    position:absolute !important;
     right:5%;
     top:20%;
     border:1px solid #efefef;
@@ -109,6 +110,9 @@
 }
 .login-from-right{
     float:right;
+}
+.login-from-right .linkto{
+    margin:0 !important;
 }
 .login-footer{
     margin-bottom:44px;
