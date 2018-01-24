@@ -1206,7 +1206,7 @@ h2 {
 
 
 .obj-frees{
-    width: 100%; background: #da121a; background-size: cover; height: auto;
+    width: 100%; background: #e41e2b; background-size: cover; height: auto;
 }
 .obj-frees p {
     font-size:24px; color:#ffffff;  text-align:center;font-weight:200;
