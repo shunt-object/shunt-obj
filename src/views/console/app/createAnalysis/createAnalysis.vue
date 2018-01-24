@@ -8,7 +8,7 @@
 <div class="outbox" style="background:#fff;">
     <child index="1" start="1" id="0" :type="$route.query.type"></child>
     <div class="CreateAnalysis_from_box">
-        <div class="new-built">创建上云分析信息</div>
+        <div class="new-built">创建云分析信息</div>
         <div class="CreateAnalysis_from">
             <div class="CreateAnalysis_from_list">
                 <span class="CreateAnalysis_key">上云分析名称：</span>
