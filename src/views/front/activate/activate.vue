@@ -37,6 +37,7 @@ export default{
         }
     },
     mounted:function(){
+        this.$layer.closeAll(2);
         let arr = 'http://118.244.227.150:22080/activate/810878628';
         let urlList = document.location.href.split('/');
         this.usernme = urlList[urlList.length-1];

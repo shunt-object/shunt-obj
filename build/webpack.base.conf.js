@@ -11,12 +11,12 @@ function resolve (dir) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    'babel-polyfill': 'babel-polyfill',
-    'app': './src/main.js'
+  entry:{
+    app: './src/main.js'
   },
   //  {
-  //   app: './src/main.js'
+  //   'babel-polyfill': 'babel-polyfill',
+  //   'app': './src/main.js'
   // },
   output: {
     path: config.build.assetsRoot,

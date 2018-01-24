@@ -28,13 +28,16 @@ export default{
         }
     },
     mounted:function(){
+        //console.log(this.username,this.email);
         //console.log(this.username);
     },
     methods:{
         sendagain:function(){
             this.$this.get('/broker/mail/send/validCode/'+this.username).then((response)=>{
-                //console.log('------',response);
+                console.log('------',response);
+                //this.$router.push({path:'/'});
                 this.$router.push({path:'/sendEmail',query:{email:this.email,username:this.username}});
+                //this.$router.push({path:'/activate',query:{email:this.email,username:this.username}});
             }).catch((error)=>{
             })
         }

@@ -137,7 +137,7 @@
             </table>
         </div>
         <!-- 上云分析建议  -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-advise.png" alt="">云选型报告详情</div>
+        <div class="colligate-title"><img src="../../../../assets/report/report-advise.png" alt="">上云分析建议</div>
         <div class="planList-nodata colligate-advise">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>

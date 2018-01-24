@@ -15,7 +15,7 @@
                 <div class="col-md-8">
                     <p class="sendEmail-list">没有收到邮件？</p>
                     <p class="sendEmail-list">1、请检查您的邮件垃圾箱，激活邮件有可能被误认为是广告</p>
-                    <p class="sendEmail-list">2、若仍未找到激活邮件，请尝试<span class="sendEmail-again" v-oon:click="sendEmail()">重新发送</span></p>
+                    <p class="sendEmail-list">2、若仍未找到激活邮件，请尝试<span class="sendEmail-again" v-oon:click="sends()">重新发送</span></p>
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -112,17 +112,17 @@ export default{
         };  
         this.email = this.$route.query.email;
         this.username = this.$route.query.username;
-        let str = this.email.split('@')[1];
-        if(hash[str]==undefined){
-            this.btn = false;
-        }else{
-            this.btn = true;
-            this.url = hash[str];
-        }
+        // let str = this.email.split('@')[1];
+        // if(hash[str]==undefined){
+        //     this.btn = false;
+        // }else{
+        //     this.btn = true;
+        //     this.url = hash[str];
+        // }
     },
     methods:{
-        sendEmail:function(){
-            this.$this.get('/broker/mail/send/validCode/'+this.username).then((response)=>{
+        sends:function(){
+            this.$this.get('/broker/mail/send/validCode/'+this.$route.query.username+'').then((response)=>{
             }).catch((error)=>{
             })
         }

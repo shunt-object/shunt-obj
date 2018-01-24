@@ -211,7 +211,7 @@ export default{
                         //         that.$layer.close(lay);
                         //     }
                         // });
-                        this.sendEmail(response.data.data.username);                    
+                        this.send(response.data.data.username);                    
                     }
                 }).catch((error)=>{
                     console.log(error);
@@ -233,7 +233,7 @@ export default{
                 }
             }
         },
-        sendEmail:function(username){
+        send:function(username){
             this.$this.get('/broker/mail/send/validCode/'+username).then((response)=>{
                 //console.log('------',response);
                 this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});

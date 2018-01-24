@@ -123,6 +123,7 @@ export default{
                             area:['50%','400px'],
                             title:'温馨提示'
                         });
+                        // this.$router.push({path:'/activate',query:{email:this.account,username:res.data.msg}});
                     }
                 }).catch((error)=>{
                     console.log(error);
