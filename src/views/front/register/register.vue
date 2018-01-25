@@ -78,6 +78,7 @@
             <router-link class="placego" to="/login">请登录</router-link>
         </div>
     </div>
+    <div style="width:100%;height:150px;"></div>
     <div class="reg-footer">
         <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
         <p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>

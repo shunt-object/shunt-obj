@@ -51,7 +51,8 @@ export default{
             result:{},
             queryType:'',
             resultlist:[],
-            desc:''
+            desc:'',
+            isclick:''
         }
     },
     mounted:function(){
@@ -76,6 +77,7 @@ export default{
                 }
                 if(response.data.data.appResults[i].moduleId==1){
                     this.desc = JSON.parse(response.data.data.appResults[i].result).description;
+                    this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
                 }
             }
             this.opiniondata =  [{
@@ -85,13 +87,16 @@ export default{
             this.$nextTick(function() {
                 this.drawPie('main')
             })
-            console.log(this.opiniondata);         
+            //console.log(this.opiniondata);         
         }).catch((error)=>{
         }) 
     },
     methods:{
         compare:function(){
-            this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            //alert(this.isclick);
+            if( this.isclick!=1 && this.isclick!=2 ){
+                this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            }            
         },
         drawPie:function(id){
             console.log(this.opiniondata);

@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <div class="compare-cate">云供应商标准差异</div>
-    <div style="height:600px;overflow:auto;">
+    <div style="max-height:600px;overflow:auto;">
         <table class="comdetails-table">
             <thead>
                 <tr>
@@ -71,7 +71,7 @@
                 <td>{{appServer.num}}</td>
                 <td>应用程序</td>
                 <td>
-                    <p><span class="labelRed">{{appServer.cores}}</span>vCPU</p>
+                    <p><span class="labelRed">{{appServer.cores}}</span>(v)CPU</p>
                     <p><span class="labelRed">{{appServer.ghz}}</span>处理器主频（Ghz）</p>
                     <p><span class="labelRed">{{appServer.ram}}</span>内存(GB)</p>
                     <p><span class="labelRed">{{appServer.localDisk}}</span>系统盘(GB)</p>
@@ -85,7 +85,7 @@
                 <td>{{dbServer.num}}</td>
                 <td>数据库服务</td>
                 <td>
-                    <p><span class="labelRed">{{dbServer.cores}}</span>vCPU</p>
+                    <p><span class="labelRed">{{dbServer.cores}}</span>(v)CPU</p>
                     <p><span class="labelRed">{{dbServer.ghz}}</span>处理器主频（Ghz）</p>
                     <p><span class="labelRed">{{dbServer.ram}}</span>内存(GB)</p>
                     <p><span class="labelRed">{{dbServer.localDisk}}</span>系统盘(GB)</p>

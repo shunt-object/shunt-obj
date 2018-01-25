@@ -68,7 +68,8 @@ export default{
     return {
         resource:'',
         clould:'',
-        compare:[]
+        compare:[],
+        isnot:''
     }
   },
   mounted:function(){
@@ -85,6 +86,7 @@ export default{
             for(let i=0;i<response.data.data.appResults.length;i++){
                 if(response.data.data.appResults[i].moduleId==1){
                    arr.push(response.data.data.appResults[i].moduleId);
+                   this.isnot =  JSON.parse(response.data.data.appResults[i].result).id;
                 }
                 if(response.data.data.appResults[i].moduleId==2){
                    arr.push(response.data.data.appResults[i].moduleId);
@@ -110,9 +112,13 @@ export default{
             }else if(I==2){
                 this.$router.push({path:'/resourceGroup',query:{type:'compare',id:this.id}});
             }else if(I==3){
-                this.$router.push({path:'/compareQuestion',query:{type:'compare',id:this.id}});
+                if( this.isnot!=1 && this.isnot!=2 ){
+                    this.$router.push({path:'/compareQuestion',query:{type:'compare',id:this.id}});
+                }
             }else if(I==5){
-                this.$router.push({path:'/colligateReport',query:{type:'compare',id:this.id}});
+                if( this.isnot!=1 && this.isnot!=2 ){
+                    this.$router.push({path:'/colligateReport',query:{type:'compare',id:this.id}});
+                }
             }
         }
     },
@@ -131,9 +137,13 @@ export default{
             }else if(I==3){
                 this.$router.push({path:'/planQuestion',query:{type:'plan',id:this.id,name:'1'}});
             }else if(I==4){
-                this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
+                if( this.isnot!=1 && this.isnot!=2 ){
+                    this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
+                }                
             }else if(I==6){
-                this.$router.push({path:'/colligateReport',query:{type:'plan',id:this.id}});
+                if( this.isnot!=1 && this.isnot!=2 ){
+                    this.$router.push({path:'/colligateReport',query:{type:'plan',id:this.id}});
+                } 
             }
         }
     }

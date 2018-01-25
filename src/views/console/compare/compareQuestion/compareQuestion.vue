@@ -32,26 +32,33 @@
 
     </div>
     <!-- 做题 -->
-    <div class="compare-box" v-else v-for="(item,index) in typeCheck">
-        <div class="compare-question-title">
-            <span>{{item.name}}</span>
-            <span class="add-toggle" v-on:click="toggle(item,index)">+</span>
+    <div v-for="(out,i) in typelist" v-else style="margin-top:20px;">
+        <div class="compare-question-title" v-if="out.selected==true" style="background:#dedede;">
+            <span>{{out.gname}}</span>
+            <span class="add-toggle" v-on:click="zong(i)">+</span>
         </div>
-        <ul class="compare-question-list" v-if="item.boolean==true">
-            <li class="row" v-for="(list,i) in item.data">
-                <p class="col-md-6">
-                    <span class="compare-num">Q</span><!-- Q{{i+1}}. -->
-                    {{list.content}}
-                </p>
-                <p class="col-md-6">
-                    <select class="compare-select" v-model="valuelist[list.id]" v-on:change="changeSelect(list)">
-                        <option :value="option" v-for="option in optionlist">{{option.name}}</option>
-                    </select>
-                </p>
-            </li>
-        </ul>
+        <div v-if="numlist[i].boolean==true">
+            <div class="compare-box" v-for="(item,index) in typeCheck" v-if="item.type.gname==out.gname">
+                <div class="compare-question-title">
+                    <span>{{item.name}}</span>
+                    <span class="add-toggle" v-on:click="toggle(item,index)">+</span>
+                </div>
+                <ul class="compare-question-list" v-if="item.boolean==true">
+                    <li class="row" v-for="(list,i) in item.data">
+                        <p class="col-md-6">
+                            <span class="compare-num">Q</span><!-- Q{{i+1}}. -->
+                            {{list.content}}
+                        </p>
+                        <p class="col-md-6">
+                            <select class="compare-select" v-model="valuelist[list.id]" v-on:change="changeSelect(list)">
+                                <option :value="option" v-for="option in optionlist">{{option.name}}</option>
+                            </select>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
     <button class="comparebtn" v-on:click="result()">开始比较</button>
     <div class="clear"></div>
 
@@ -72,7 +79,8 @@ export default{
             optionlist:[],
             valuelist:[],
             togglelist:[],
-
+            havelist:[],
+            numlist:[]
         }
     },
     mounted:function(){
@@ -85,14 +93,17 @@ export default{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 this.typelist = response.data.data;
+                this.havelist = response.data.data;
                 //console.log(this.typelist)
                 let arr =[];
                 let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
+                    this.numlist.push({boolean:true});
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
                         if(response.data.data[n].childGroups[i].selected==true){
                             arr.push(response.data.data[n].childGroups[i].selected);
-                            this.questionList(response.data.data[n].childGroups[i].id,true,n); 
+                            this.questionList(response.data.data[n].childGroups[i].id,true,n);
+                            this.numlist[i].boolean = true;
                         }
                     }
                 }  
@@ -120,6 +131,13 @@ export default{
                 
             })
         },
+        zong:function(ind){
+            if(this.numlist[ind].boolean == false){
+                this.numlist[ind].boolean=true;
+            }else{
+                this.numlist[ind].boolean=false;
+            }
+        },
         changeType:function(Ind,index){
             //console.log('-----',this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
@@ -129,10 +147,20 @@ export default{
                 this.typelist[Ind].childGroups[index].selected=false;
                 this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
             }
+            for(let i=0;i<this.havelist.length;i++){
+                this.typelist[i].selected = this.havelist.selected;
+            }
+            for(let i=0;i<this.typelist.length;i++){
+                for(let n=0;n<this.typelist[i].childGroups.length;n++){
+                    if(this.typelist[i].childGroups[n].selected==true){
+                        this.typelist[i].selected = true;
+                    }
+                }
+            }
         },
         questionList:function(Id,boolean,Index){
             let ax;
-            console.log(Id);
+            //console.log(Id);
             for(let j=0;j<this.typelist.length;j++){
                 for(let a=0;a<this.typelist[j].childGroups.length;a++){
                     if(this.typelist[j].childGroups[a].id==Id){

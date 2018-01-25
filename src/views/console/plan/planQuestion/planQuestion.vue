@@ -218,7 +218,8 @@ export default{
             })
         },
         getLiang:function(appId,type){//type=1云定性记录 type=2 云受益；type=3 亲和度
-            this.$this.get('/broker/plan/questions/'+appId+'/{type}?type='+type+'').then((response)=>{
+            let time = new Date().getTime();
+            this.$this.get('/broker/plan/questions/'+appId+'/'+type+'?time='+time).then((response)=>{
                 if(type==1){
                     this.editlist = [];
                     this.havedList = response.data.data;
