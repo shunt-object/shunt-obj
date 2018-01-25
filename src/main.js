@@ -23,7 +23,7 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
 
 let load;
-Vue.http.interceptors.push((request, next) => {  
+/* Vue.http.interceptors.push((request, next) => {  
     　load = layer(Vue).loading(2, {
             time: 0
         });
@@ -33,21 +33,21 @@ Vue.http.interceptors.push((request, next) => {
         }
 　　　　return response;  
  }); 
-});
+}); */
 
 
 axios.interceptors.request.use(
   config=>{
-    load = layer(Vue).loading(2, {
+    /* load = layer(Vue).loading(2, {
         time: 0
-    });
+    }); */
     return config;
   }  
 )
 axios.interceptors.response.use(
     response => {
         if(response.status==200){
-            layer(Vue).close(load);
+            //layer(Vue).close(load);
         }
         return response;
     },
