@@ -8,6 +8,9 @@
     padding:17px 23px;
 }
 /*标题*/
+.ulas li{
+    float: left
+}
 .compare-title{
     background:#da121a;
     border-radius:2px;
@@ -52,7 +55,7 @@
     line-height:26px;
     text-align:center;
     cursor:pointer;
-    float:left;
+    
     margin-right:20px;
     margin-bottom:10px;
 }

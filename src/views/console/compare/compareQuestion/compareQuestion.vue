@@ -14,9 +14,14 @@
     <div class="compare-change row">
         <div class="change-name col-md-1">场景选择：</div>
         <div class="change-list col-md-11 row">
-            <p class="change-all col-md-1" v-on:click="allSelect()">全选</p>
-            <ul class="all-list col-md-11">
-                <li class="default" :class="types.selected==true?'active-change':''" v-on:click="changeType(index)" v-for="(types,index) in typelist">{{types.gname}}</li>
+           
+            
+          <ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
+                <li class="default">
+                    {{types.gname}}
+               </li>
+                <li class="change-all col-md-1" v-on:click="allSelect(index)">全选</li>
+               <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(typeChild,indexes,typeChild.id)">{{typeChild.gname}}</li>
             </ul>
         </div>
     </div>
@@ -29,7 +34,7 @@
     <!-- 做题 -->
     <div class="compare-box" v-else v-for="(item,index) in typeCheck">
         <div class="compare-question-title">
-            {{item.type.gname}}
+            <!--{{item.type.gname}}-->
             <span class="add-toggle" v-on:click="toggle(item,index)">+</span>
         </div>
         <ul class="compare-question-list" v-if="item.boolean==true">
@@ -62,6 +67,7 @@ export default{
         return {
             queryType:'',
             typelist:[],
+            groups:[],
             typeCheck:[],
             optionlist:[],
             valuelist:[],
@@ -78,13 +84,21 @@ export default{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 this.typelist = response.data.data;
+              
+                
+                console.log(this.typelist)
                 let arr =[];
+                let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
                     if(response.data.data[n].selected==true){
                         arr.push(response.data.data[n].selected);
                         this.questionList(response.data.data[n].id,true);
+                         
                     }
+                    
+                    
                 }  
+              
                 if(arr.length<1){
                     let that = this;
                     let lay = this.$layer.open({
@@ -109,23 +123,28 @@ export default{
                 
             })
         },
-        changeType:function(Index){
-            if(this.typelist[Index].selected==true){
-                this.typelist[Index].selected=false;
-                this.questionList(this.typelist[Index].id,false);
-            }else{
-                this.typelist[Index].selected=true;
-                this.questionList(this.typelist[Index].id,true);
+        changeType:function(childSelect,Indexes,ids){
+            console.log(childSelect)
+            console.log(ids)
+            if(childSelect.selected==true){
+               
+                childSelect.selected=false;
+                //this.questionList(this.typelist[Indexes].id,false);
+            }else if(childSelect.selected==false){
+               childSelect.selected=true;
+               this.questionList(ids,true,childSelect);
             }
         },
-        questionList:function(Id,boolean){
+        questionList:function(Id,boolean,childSelect){
             this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
+                console.log(response.data.data)
+                
                 if(boolean==true){
-                    for(let i=0;i<this.typelist.length;i++){
-                        if(this.typelist[i].id==Id){
-                            this.typeCheck.push({boolean:true,type:this.typelist[i],data:response.data.data});
+                   
+                        if(Id==Id){
+                            this.typeCheck.push({boolean:true,type:childSelect,data:response.data.data});
                         }
-                    }
+                    
                     for(let n=0;n<this.typeCheck.length;n++){
                         for(let v=0;v<this.typeCheck[n].data.length;v++){
                             this.valuelist.push(this.typeCheck[n].data[v].id);
@@ -138,7 +157,7 @@ export default{
                     
                 }else{
                     for(let i=0;i<this.typeCheck.length;i++){
-                        if(this.typeCheck[i].type.id==Id){
+                        if(childSelect.type.id==Id){
                             this.typeCheck.splice(i,1);
                         }
                     }
@@ -168,11 +187,12 @@ export default{
         result:function(){
             this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
-        allSelect:function(){
-            this.typeCheck = [];
-            for(let i=0;i<this.typelist.length;i++){
-                this.typelist[i].selected=true;
-                this.questionList(this.typelist[i].id,true);
+        allSelect:function(e){
+            console.log(e)
+            // this.typeCheck = [];
+            for(let i=0;i<this.typelist[e].childGroups.length;i++){
+                 this.typelist[e].childGroups[i].selected=true;
+                //this.questionList(this.typelist[i].id,true);
             }
         },
         goBack:function(){

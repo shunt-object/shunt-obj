@@ -15,6 +15,7 @@ import compareResult from '@/views/console/compare/compareResult/compareResult'
 import planList from '@/views/console/plan/planList/planList'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
 import compareList from '@/views/console/compare/compareList/compareList'
+import measured from '@/views/console/measured/measured'
 import planResult from '@/views/console/plan/planResult/planResult'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import wei from '@/views/front/wei'
@@ -93,6 +94,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:planList
+        },
+        {
+          path:'/measured',
+          name:'measured',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:measured
         },
         {
             path:'/createAnalysis',
