@@ -29,7 +29,9 @@
     <div class="nodata" v-if="typeCheck.length<1">
         <img src="../../../../assets/compare-nodata.png" alt="">
         <br>
+        
         暂无数据
+
     </div>
     <!-- 做题 -->
     <div class="compare-box" v-else v-for="(item,index) in typeCheck">
