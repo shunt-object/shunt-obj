@@ -18,8 +18,8 @@
 </div>
 <div class="overviewlist" v-if="utype!=3&&utype!=4">
     <div class="overviewSearch row" v-if="this.flag!=true">
-        <button class="creatAll col-xs-12"  v-on:click="UpRoute">创建云分析</button>
-          <div class="PlansearchBox cpl-xs-12">
+        <button class="creatAll col-xs-12 col-md-2"  v-on:click="UpRoute">创建云分析</button>
+          <div class="PlansearchBox">
              <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
         </div>
