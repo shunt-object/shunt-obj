@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
             <ul class="notice-list">
-                <li>CSB² 计 划 在 春 节 前 推 出 云 实 测 服 务<span class="notice-time"></span></li>
+                <li style="letter-spacing: 0.1em;">CSB²计划在春节前推出云实测服务<span class="notice-time"></span></li>
             </ul>
         </div>
          <!--用户信息-->

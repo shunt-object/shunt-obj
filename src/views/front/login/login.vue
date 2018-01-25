@@ -100,7 +100,7 @@ export default{
                 this.$this.post('/broker/auth/login',str).then((res)=>{
                     console.log('login',res);
                     if(res.data.code=='1'){
-                        this.$router.push({path:'/'});                      
+                        this.$router.push({path:'/consolePage'});                      
                         //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);

@@ -17,9 +17,9 @@
     <img src="../../../../assets/zhengfu.png" alt="" style="width:100%;">
 </div>
 <div class="overviewlist" v-if="utype!=3&&utype!=4">
-    <div class="overviewSearch" v-if="this.flag!=true">
-        <button class="creatAll"  v-on:click="UpRoute">创建云分析</button>
-          <div class="PlansearchBox">
+    <div class="overviewSearch row" v-if="this.flag!=true">
+        <button class="creatAll col-xs-12"  v-on:click="UpRoute">创建云分析</button>
+          <div class="PlansearchBox cpl-xs-12">
              <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
         </div>
@@ -46,31 +46,31 @@
         </div>
     </div>
     <!-- 数据为空结束 -->
-    <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4">
+    <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4" >
         <li class="sps row">
             <span class="col-md-1 col-xs-1"><input type="checkbox" class="text-center"></span>
-            <span class="col-md-1 weight col-xs-2">云分析名称</span>
-            <span class="col-md-1 weight col-xs-2">应用负载名称</span>
-            <span class="col-md-7 weight col-xs-7" >进度</span>
+            <span class="col-md-1 weight  weigh col-xs-2">云分析名称</span>
+            <span class="col-md-1 weight  weigh col-xs-2">应用负载名称</span>
+            <span class="col-md-7 weight col-xs-4" >进度</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
-            <ul class="container">
+            <ul>
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <span class="col-md-1 col-xs-1">{{vp.proname}}</span>
+                    <span class="col-md-1 col-xs-1 proanmes">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-8 removeIng col-xs-8">
                         <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
                     </span>
                 </li>
-                <li class="row spx active" v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
+                <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
                     <span class="col-md-1 bn col-xs-1"></span>
                     <span class="col-md-1 bn col-xs-1"></span>
-                    <span class="col-md-1 bn col-xs-2">{{item.appname}}</span>
-                    <span class="col-md-7 text-left col-xs-7">
+                    <span class="col-md-1 bn col-xs-4 pnormal">{{item.appname}}</span>
+                    <span class="col-md-7 text-left col-xs-3">
                         <p class="rate ">
                             <a v-for="(im,index) in item.appResults" id="as" class="col-xs-7" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
                                 <p class="ratelist " v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
@@ -101,9 +101,10 @@
                         </div>
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
-                    <span class="col-md-1 col-xs-1 cs" >
-                        <i class="fa fa-trash-o Jips"  v-on:click="remYy(item.id)" title="删除应用"></i>
-                        <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" ><!--v-on:mouseover="treeTip()"-->
+                     <span class="col-md-2 cs col-xs-3 remn" >
+                        <input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
+                        <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" >  
+                        <!--v-on:mouseover="treeTip()"-->
                     </span>
                 </li>
             </ul>
@@ -114,14 +115,120 @@
 </div>   
 </template>
 <style>
+@media (max-width:1025px){
+    p{
+        margin:0 !important;
+    }
+    .ratelist span {
+    display: inline-block;
+
+    color: #666666;
+}
+  .weigh{
+        text-align:left;
+        width:75px;
+         overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    }  
+}
 @media (max-width: 768px) {
+    .remn{
+        text-align:right;
+    }
+    .ratelist span{
+        display: inline-block; padding-top:35px; color:#666666;
+    }
+    p{
+        margin:0 !important;
+    }
+    .weigh{
+        text-align:left;
+        width:60px;
+         overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    }
+    .pnormal{
+        width:80px;
+          overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-align:right    
+    }
+   .proanmes{
+       overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width:40px;
+   }
+   .Jips{
+    font-size:10px;
+    text-align:center;
+}
     .weight{
         font-size:10px;
     }
-    .group-null{
-        background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
-        background-size:80%;
-    }
+    .clould-ing{
+    background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
+    background-size:60%;
+}
+.clould-ed{
+    background:url('../../../../assets/overview/overview-clould-ed.png') no-repeat top center;
+    background-size:60%;
+}
+.clould-null{
+    background:url('../../../../assets/overview/overview-clould-null.png') no-repeat top center;
+    background-size:60%;
+}
+.profit-ing{
+    background:url('../../../../assets/overview/overview-profit-ing.png') no-repeat top center;
+    background-size:60%;
+}
+.profit-ed{
+    background:url('../../../../assets/overview/overview-profit-ed.png') no-repeat top center;
+    background-size:60%;
+}
+.profit-null{
+    background:url('../../../../assets/overview/overview-profit-null.png') no-repeat top center;
+    background-size:60%;
+}
+.affine-ing{
+    background:url('../../../../assets/overview/overview-affine-ing.png') no-repeat top center;
+    background-size:60%;
+}
+.affine-ed{
+    background:url('../../../../assets/overview/overview-affine-ed.png') no-repeat top center;
+    background-size:60%;
+}
+.affine-null{
+    background:url('../../../../assets/overview/overview-affine-null.png') no-repeat top center;
+    background-size:60%;
+}
+.compare-ing{
+    background:url('../../../../assets/overview/overview-compare-ing.png') no-repeat top center;
+    background-size:60%;
+}
+.compare-ed{
+    background:url('../../../../assets/overview/overview-compare-ed.png') no-repeat top center;
+    background-size:60%;
+}
+.compare-null{
+    background:url('../../../../assets/overview/overview-compare-null.png') no-repeat top center;
+    background-size:60%;
+}
+.group-ing{
+    background:url('../../../../assets/overview/overview-group-ing.png') no-repeat top center;
+    background-size:60%;
+}
+.group-ed{
+    background:url('../../../../assets/overview/overview-group-ed.png') no-repeat top center;
+    background-size:60%;
+}
+.group-null{
+    background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
+    background-size:60%;
+}
 }
 .PlansearchBox{
     float:right; padding-top:13px;
@@ -143,10 +250,10 @@ i{
     /*min-height:500px;*/ height:100vh; background:#fff; padding:0 15px;
 }
 .overviewSearch{
-     width:100%; height:57px;
+     width:100%; 
 }
 .creatAll{
-    background:#e41e2b; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
+    background:#e41e2b;  height:30px; font-size:14px; color:#ffffff; text-align:center;
 line-height:30px; float:left; margin-top:13px;
 }
 .weight{
@@ -172,6 +279,10 @@ line-height:30px; float:left; margin-top:13px;
 }
 .active{
     display:block;
+  
+}
+.activs{
+  border-bottom:1px solid #ccc;
 }
 #pol{
     display:BLOCK;
@@ -216,16 +327,34 @@ a:hover{
 .row a{
     display:inline-block; text-align:left; width:90px; margin:0 10px 0 0; text-align:center; 
 }
-.ratelist{
-    height:70px;
-}
-.ratelist span{
+
+/*.ratelist span{
     display: inline-block; padding-top:60px; color:#666666;
-}
+}*/
 .satatus{
     color:#666666; font-size:12px;
 }
 @media (min-width: 768px) {
+    .ratelist{
+    height:70px;
+}
+/*.ratelist span{
+    padding-top:20px;
+    }*/
+.ratelist span{
+    display: inline-block; padding-top:55px; color:#666666;
+}
+.Jips{
+    font-size:12px;
+    text-align:center;
+}
+.overviewSearch{
+        height:57px;
+
+}
+.creatAll{
+    width:114px;
+}
 .clould-ing{
     background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
 }
@@ -351,7 +480,7 @@ position: relative; width:100%;
       transform: scale(1.4);
 }*/
 
-.Jips{cursor:pointer;-webkit-animation: scaleout 1s infinite ease-in-out;animation: scaleout 1.5s infinite ease-in-out;}
+/*.Jips{cursor:pointer;-webkit-animation: scaleout 1s infinite ease-in-out;animation: scaleout 1.5s infinite ease-in-out;}
 @-webkit-keyframes scaleout{
     0% { -webkit-transform: scale(1.0) }
     10%{-webkit-transform: scale(1.1);
@@ -419,7 +548,7 @@ position: relative; width:100%;
         opacity: 1;
     }opacity: 0.5;
       
-}
+}*/
 
    #tplink{border:1px solid red; background:red;
          position:absolute;
@@ -612,7 +741,11 @@ export default {
                 this.ssd = this.vpd[i].projectApps;
                 this.togglelist.push({boolean:true});                            
                 // app   5个
-                //console.log(this.ssd);
+                console.log(this.ssd.length);
+                if(this.ssd.length>1){
+           
+                    $(".active").addClass("activs")
+                }
                 // for(let e = 0;e<this.ds.length;e++){
                 //         console.log(this.ds[e])
                 // }  
@@ -620,11 +753,11 @@ export default {
                     // console.log('appname-----',this.ssd[j].appname);
                     // this.df.push(this.ssd[j].appname);
                     this.dg = this.ssd[j].appResults;
-                    //console.log(this.dg);
+                    console.log(this.dg);
                     for(let c = 0;c<this.dg.length;c++){
                         this.gv = this.dg[c].result;
-                        console.log(eval("("+ this.gv +")") );
-                        console.log(this.gv )
+                 //       console.log(eval("("+ this.gv +")") );
+                   //     console.log(this.gv )
 
                     }
                 }

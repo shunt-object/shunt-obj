@@ -2,9 +2,9 @@
         <div class="total">
             <div class="total-header">
                 <span></span>
-                云规划
+                云实测
             </div> 
-            <div class="title"><div class="animated swing">正在开发中。。。</div></div>      
+            <div class="title"><div class="animated swing">正在开发中...</div></div>      
         </div>
 </template>
 <style>
