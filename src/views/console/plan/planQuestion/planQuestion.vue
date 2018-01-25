@@ -4,7 +4,7 @@
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
     ><p class="comback" v-on:click="goBack()">云规划</p>
-    ><p class="comback">选择标准</p>
+    
 </div>
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="planquestion plan-input">

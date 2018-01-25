@@ -5,19 +5,19 @@
 </template>
 
 <script>
-    var that = this;
-     window.onresize = function() {
-        var window_width = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
+    // var that = this;
+    //  window.onresize = function() {
+    //     var window_width = window.innerWidth
+    //         || document.documentElement.clientWidth
+    //         || document.body.clientWidth;
                                     
-        if(window_width > 500) {
+    //     if(window_width > 500) {
             
-                window.resizeTo(500, 600);
-                window.moveTo(0, 0);
+    //             window.resizeTo(500, 600);
+    //             window.moveTo(0, 0);
             
-        }
-    }; 
+    //     }
+    // }; 
 </script>
 
 
