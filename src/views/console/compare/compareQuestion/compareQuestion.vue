@@ -14,14 +14,12 @@
     <div class="compare-change row">
         <div class="change-name col-md-1">场景选择：</div>
         <div class="change-list col-md-11 row">
-           
-            
           <ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
                 <li class="default">
                     {{types.gname}}
                </li>
                 <li class="change-all col-md-1" v-on:click="allSelect(index)">全选</li>
-               <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(typeChild,indexes,typeChild.id)">{{typeChild.gname}}</li>
+               <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
             </ul>
         </div>
     </div>
@@ -36,7 +34,7 @@
     <!-- 做题 -->
     <div class="compare-box" v-else v-for="(item,index) in typeCheck">
         <div class="compare-question-title">
-            <!--{{item.type.gname}}-->
+            <span>{{item.name}}</span>
             <span class="add-toggle" v-on:click="toggle(item,index)">+</span>
         </div>
         <ul class="compare-question-list" v-if="item.boolean==true">
@@ -73,7 +71,8 @@ export default{
             typeCheck:[],
             optionlist:[],
             valuelist:[],
-            togglelist:[]
+            togglelist:[],
+
         }
     },
     mounted:function(){
@@ -86,21 +85,17 @@ export default{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 this.typelist = response.data.data;
-              
-                
-                console.log(this.typelist)
+                //console.log(this.typelist)
                 let arr =[];
                 let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
-                    if(response.data.data[n].selected==true){
-                        arr.push(response.data.data[n].selected);
-                        this.questionList(response.data.data[n].id,true);
-                         
+                    for(let i=0;i<response.data.data[n].childGroups.length;i++){
+                        if(response.data.data[n].childGroups[i].selected==true){
+                            arr.push(response.data.data[n].childGroups[i].selected);
+                            this.questionList(response.data.data[n].childGroups[i].id,true,n); 
+                        }
                     }
-                    
-                    
                 }  
-              
                 if(arr.length<1){
                     let that = this;
                     let lay = this.$layer.open({
@@ -125,28 +120,30 @@ export default{
                 
             })
         },
-        changeType:function(childSelect,Indexes,ids){
-            console.log(childSelect)
-            console.log(ids)
-            if(childSelect.selected==true){
-               
-                childSelect.selected=false;
-                //this.questionList(this.typelist[Indexes].id,false);
-            }else if(childSelect.selected==false){
-               childSelect.selected=true;
-               this.questionList(ids,true,childSelect);
+        changeType:function(Ind,index){
+            //console.log('-----',this.typelist[Ind].childGroups[index]);
+            if(this.typelist[Ind].childGroups[index].selected==false){
+                this.typelist[Ind].childGroups[index].selected=true;
+                this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind);
+            }else{
+                this.typelist[Ind].childGroups[index].selected=false;
+                this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
             }
         },
-        questionList:function(Id,boolean,childSelect){
+        questionList:function(Id,boolean,Index){
+            let ax;
+            console.log(Id);
+            for(let j=0;j<this.typelist.length;j++){
+                for(let a=0;a<this.typelist[j].childGroups.length;a++){
+                    if(this.typelist[j].childGroups[a].id==Id){
+                        ax = a;
+                    }                    
+                }
+            }
             this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
-                console.log(response.data.data)
-                
+                //console.log(response.data.data)
                 if(boolean==true){
-                   
-                        if(Id==Id){
-                            this.typeCheck.push({boolean:true,type:childSelect,data:response.data.data});
-                        }
-                    
+                    this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
                     for(let n=0;n<this.typeCheck.length;n++){
                         for(let v=0;v<this.typeCheck[n].data.length;v++){
                             this.valuelist.push(this.typeCheck[n].data[v].id);
@@ -159,8 +156,10 @@ export default{
                     
                 }else{
                     for(let i=0;i<this.typeCheck.length;i++){
-                        if(childSelect.type.id==Id){
-                            this.typeCheck.splice(i,1);
+                        for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
+                            if(this.typeCheck[i].type.childGroups[k].id==Id){
+                                this.typeCheck.splice(i,1);
+                            }
                         }
                     }
                 }
@@ -190,11 +189,12 @@ export default{
             this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(e){
-            console.log(e)
             // this.typeCheck = [];
             for(let i=0;i<this.typelist[e].childGroups.length;i++){
-                 this.typelist[e].childGroups[i].selected=true;
-                //this.questionList(this.typelist[i].id,true);
+                 if(this.typelist[e].childGroups[i].selected==false){
+                    this.questionList(this.typelist[e].childGroups[i].id,true,e);
+                    this.typelist[e].childGroups[i].selected=true;
+                 }
             }
         },
         goBack:function(){
