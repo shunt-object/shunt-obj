@@ -48,33 +48,32 @@
     <!-- 数据为空结束 -->
     <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4">
         <li class="sps row">
-            <span class="col-md-1"><input type="checkbox" class="text-center"></span>
-            <span class="col-md-1 weight">云分析名称</span>
-            <span class="col-md-1 weight">应用负载名称</span>
-            <span class="col-md-7 weight">进度</span>
+            <span class="col-md-1 col-xs-1"><input type="checkbox" class="text-center"></span>
+            <span class="col-md-1 weight col-xs-2">云分析名称</span>
+            <span class="col-md-1 weight col-xs-2">应用负载名称</span>
+            <span class="col-md-7 weight col-xs-7" >进度</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
-            <ul >
+            <ul class="container">
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall" >
-                    <span class="col-md-1"><input type="checkbox"></span>
-                    <span class="col-md-1">{{vp.proname}}</span>
-                    <span class="col-md-1"></span>
-                    <span class="col-md-6"></span>
-                    <span class="col-md-2 removeIng">
+                    <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
+                    <span class="col-md-1 col-xs-1">{{vp.proname}}</span>
+                    <span class="col-md-1 col-xs-1"></span>
+                    <span class="col-md-8 removeIng col-xs-8">
                         <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
                     </span>
                 </li>
                 <li class="row spx active" v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
-                    <span class="col-md-1 bn"></span>
-                    <span class="col-md-1 bn"></span>
-                    <span class="col-md-1 bn">{{item.appname}}</span>
-                    <span class="col-md-7 text-left">
-                        <p class="rate">
-                            <a v-for="(im,index) in item.appResults" id="as" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
-                                <p class="ratelist" v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
+                    <span class="col-md-1 bn col-xs-1"></span>
+                    <span class="col-md-1 bn col-xs-1"></span>
+                    <span class="col-md-1 bn col-xs-2">{{item.appname}}</span>
+                    <span class="col-md-7 text-left col-xs-7">
+                        <p class="rate ">
+                            <a v-for="(im,index) in item.appResults" id="as" class="col-xs-7" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
+                                <p class="ratelist " v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
                                 <p class="ratelist" v-if="im.moduleId==2" :class="im.taskStatus==2?'profit-ed':((im.taskStatus==1)?'profit-ing':'profit-null')" >
@@ -102,7 +101,7 @@
                         </div>
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
-                    <span class="col-md-1 cs" >
+                    <span class="col-md-1 col-xs-1 cs" >
                         <i class="fa fa-trash-o Jips"  v-on:click="remYy(item.id)" title="删除应用"></i>
                         <img src="../../../../assets/rel.svg" alt="" style="padding-left:10px;" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" ><!--v-on:mouseover="treeTip()"-->
                     </span>
@@ -115,7 +114,15 @@
 </div>   
 </template>
 <style>
-
+@media (max-width: 768px) {
+    .weight{
+        font-size:10px;
+    }
+    .group-null{
+        background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
+        background-size:80%;
+    }
+}
 .PlansearchBox{
     float:right; padding-top:13px;
 }
@@ -178,9 +185,9 @@ line-height:30px; float:left; margin-top:13px;
 .cs{
     margin-top:40px; cursor:pointer; color:#a8a8a8; font-size:16px;position:relative
 }
-.spx{ 
+/*.spx{ 
    height:200px; 
-}
+}*/
 .spx .bn{
     line-height:200px
 }
@@ -218,6 +225,7 @@ a:hover{
 .satatus{
     color:#666666; font-size:12px;
 }
+@media (min-width: 768px) {
 .clould-ing{
     background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
 }
@@ -262,7 +270,8 @@ a:hover{
 }
 .group-null{
     background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
-}
+    
+}}
 .ad{
     width:100px; margin-right:10px;
 }
@@ -338,9 +347,80 @@ position: relative; width:100%;
 .creatCloud{
     background:#da121a;  border-radius:2px;  width:159px; height:42px; position:absolute; left: 36%; top: 110%; line-height:42px; font-size:16px; color:#ffffff; text-align:center; cursor: pointer; 
 }
-.Jips:hover{
+/*.Jips:hover{
       transform: scale(1.4);
+}*/
+
+.Jips{cursor:pointer;-webkit-animation: scaleout 1s infinite ease-in-out;animation: scaleout 1.5s infinite ease-in-out;}
+@-webkit-keyframes scaleout{
+    0% { -webkit-transform: scale(1.0) }
+    10%{-webkit-transform: scale(1.1);
+        opacity: 0.9;
+    }
+    25%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.8;
+    } 
+    40%{-webkit-transform: scale(1.2);
+        opacity: 0.7;
+    }
+    50%{
+        -webkit-transform: scale(1.3);
+        opacity: 0.6;
+    }
+    65%{
+        -webkit-transform: scale(1.2);
+        opacity: 0.7;
+    }
+    75%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.8;
+    }
+    90%{
+        -webkit-transform: scale(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }
+      
 }
+@keyframes scaleout {
+    0% { -webkit-transform: scale(1.0) }
+    10%{-webkit-transform: scale(1.1);
+        opacity: 0.9;
+    }
+    25%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.8;
+    } 
+    40%{-webkit-transform: scale(1.2);
+        opacity: 0.7;
+    }
+    50%{
+        -webkit-transform: scale(1.3);
+        opacity: 0.6;
+    }
+    65%{
+        -webkit-transform: scale(1.2);
+        opacity: 0.7;
+    }
+    75%{
+        -webkit-transform: scale(1.15);
+        opacity: 0.8;
+    }
+    90%{
+        -webkit-transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 1;
+    }opacity: 0.5;
+      
+}
+
    #tplink{border:1px solid red; background:red;
          position:absolute;
           padding:1px;

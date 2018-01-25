@@ -80,7 +80,7 @@
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
-                        <li><a href="javascript:;">云实测</a></li>
+                        <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
                     </ul>
                 </li>
             </ul>
@@ -175,6 +175,9 @@ export default{
         },
         compare:function(){
             this.$router.push({path:'/compareList'});
+        },
+        measure:function(){
+             this.$router.push({path:'/measured'});
         },
         responsiveView:function () {
             var wSize = $(window).width();
