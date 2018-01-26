@@ -63,7 +63,7 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
-                <li class="active" v-on:click="index()">
+                <li class="active" v-on:click="index()" style="border-bottom:none !important;">
                     <a class="" href="javascript:;">
                         <!--<i class="icon-dashboard"></i>-->
                         <img src="../../../assets/zong.png" alt="">

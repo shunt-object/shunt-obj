@@ -116,9 +116,7 @@ export default{
                     this.$router.push({path:'/compareQuestion',query:{type:'compare',id:this.id}});
                 }
             }else if(I==5){
-                if( this.isnot!=1 && this.isnot!=2 ){
-                    this.$router.push({path:'/colligateReport',query:{type:'compare',id:this.id}});
-                }
+                this.$router.push({path:'/colligateReport',query:{type:'compare',id:this.id}});
             }
         }
     },
@@ -141,9 +139,7 @@ export default{
                     this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
                 }                
             }else if(I==6){
-                if( this.isnot!=1 && this.isnot!=2 ){
-                    this.$router.push({path:'/colligateReport',query:{type:'plan',id:this.id}});
-                } 
+                this.$router.push({path:'/colligateReport',query:{type:'plan',id:this.id}});
             }
         }
     }

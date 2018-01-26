@@ -1,6 +1,6 @@
 .register{
     width:100vm;
-    height:100vh;
+    min-height:100vh;
     overflow-x:hidden;
     box-sizing:border-box;
     font-family:'Microsoft YaHei';

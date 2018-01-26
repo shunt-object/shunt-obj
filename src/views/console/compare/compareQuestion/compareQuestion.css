@@ -61,7 +61,7 @@
 }
 .default{
     border:1px solid #ebebeb;
-    color:#666;
+    /*background:#dedede;*/
 }
 .active-change{
     border:1px solid #f7a72c;
@@ -153,4 +153,7 @@
 }
 .nodata img{
     margin-top:200px;
+}
+.col-md-11{
+    padding:0 !important;
 }

@@ -14,13 +14,20 @@
     <div class="compare-change row">
         <div class="change-name col-md-1">场景选择：</div>
         <div class="change-list col-md-11 row">
-          <ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
+            <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
+                <div class="col-md-1">{{types.gname}}：</div>
+                <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
+                <ul class="col-md-10">
+                    <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
+                </ul>
+            </div>
+          <!--<ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
                 <li class="default">
-                    {{types.gname}}
+                    {{types.gname}}：
                </li>
                 <li class="change-all col-md-1" v-on:click="allSelect(index)">全选</li>
                <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
-            </ul>
+            </ul>-->
         </div>
     </div>
     <!-- 空白 -->
