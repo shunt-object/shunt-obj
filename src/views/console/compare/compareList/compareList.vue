@@ -7,7 +7,7 @@
 </div>
     <div class="compareList">
         <div class="compareList-search">
-            <button class="creatCompareBtn" v-on:click="CreatCom">创建云选型</button><!--<input type="button" value="删除" id="rems" v-on:click="remsveily">-->
+            <button class="creatCompareBtn" v-on:click="CreatCom"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云选型</button><!--<input type="button" value="删除" id="rems" v-on:click="remsveily">-->
             <div class="searchBox">
                 <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索" >
                 <button class="searchBtn"><i class="fa fa-search"></i></button>

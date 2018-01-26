@@ -6,7 +6,7 @@
 </div>       
 <div class="CRe row planList" >
     <div class="palnList-search">
-        <button class="creatPalnBtn" v-on:click="CreatId()">创建云规划</button>
+        <button class="creatPalnBtn" v-on:click="CreatId()"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云规划</button>
         <div class="PlansearchBox">
             <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>

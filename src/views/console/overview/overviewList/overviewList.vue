@@ -18,7 +18,7 @@
 </div>
 <div class="overviewlist" v-if="utype!=3&&utype!=4">
     <div class="overviewSearch row" v-if="this.flag!=true">
-        <button class="creatAll col-xs-12 col-md-2"  v-on:click="UpRoute">创建云分析</button>
+        <button class="creatAll col-xs-12 col-md-2"  v-on:click="UpRoute"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云分析</button>
           <div class="PlansearchBox">
              <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
@@ -102,8 +102,10 @@
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
-                        <input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
-                        <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" >  
+                        <i class="iconfont icon-shanchu" style="font-size:20px !important;" v-on:click="remYy(item.id)"></i>
+                        <i class="iconfont icon-tijianbaogaochaxun" style="font-size:22px !important;"  v-on:click="Jips(item.id)"></i>
+                        <!--<input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
+                        <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" > --> 
                         <!--v-on:mouseover="treeTip()"-->
                     </span>
                 </li>
@@ -353,7 +355,7 @@ a:hover{
 
 }
 .creatAll{
-    width:114px;
+    width:130px;
 }
 .clould-ing{
     background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;

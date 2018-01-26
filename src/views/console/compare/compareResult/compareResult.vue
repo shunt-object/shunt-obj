@@ -24,7 +24,7 @@
             <tr v-for="item in compareResultList">
                 <td>{{item.serverName}}</td>
                 <td>{{item.scope}}</td>
-                <td>--</td>
+                <td><a target="_blank" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''">查看价格</a></td>
             </tr>
         </tbody>
     </table>
@@ -57,8 +57,8 @@
             </tbody>
         </table>
     </div>
-    <div class="compare-cate">上云工作负载配置信息详情</div>
-    <table class="table-score resourGroup-table">
+    <div class="compare-cate" v-if="res==true">上云工作负载配置信息详情</div>
+    <table class="table-score resourGroup-table" v-if="res==true">
         <thead>
             <tr>
                 <th>数量</th>
@@ -69,7 +69,7 @@
         <tbody>
             <tr v-for="item in appServer">
                 <td>{{item.num}}</td>
-                <td>应用程序</td>
+                <td>应用服务</td>
                 <td>
                     <p><span class="labelRed">{{item.cores}}</span>(v)CPU</p>
                     <p><span class="labelRed">{{item.ghz}}</span>处理器主频（Ghz）</p>
@@ -95,13 +95,13 @@
                     <p><span class="labelRed">{{db.dailyUsage}}</span>每天用量（小时/天）</p>
                 </td>
             </tr>
-            <tr v-for="net in network">
+            <tr>
                 <td></td>
                 <td>网络存储</td>
                 <td>
-                    <p><span class="labelRed">{{net.bandwidth}}</span>带宽（GB/月）</p>
-                    <p><span class="labelRed">{{net.inbound}}</span>入站（GB/月）</p>
-                    <p><span class="labelRed">{{net.outbound}}</span>出站（GB/月）</p>
+                    <p><span class="labelRed">{{network.bandwidth}}</span>带宽（GB/月）</p>
+                    <p><span class="labelRed">{{network.inbound}}</span>入站（GB/月）</p>
+                    <p><span class="labelRed">{{network.outbound}}</span>出站（GB/月）</p>
                 </td>
             </tr>
             <tr v-for="stro in storage">
@@ -140,7 +140,9 @@ export default{
             storage:[],
             details:[],
             confirm:[],
-            length:''
+            length:'',
+            res:false,
+            pricelink:''
         }
     },
     mounted:function(){
@@ -158,12 +160,17 @@ export default{
     methods:{
         getdata:function(){
             this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
+                //console.log('-----',response.data.data.res==null);
+                if(response.data.data.res!=null){
+                    this.res = true;
+                }
                 this.compareResultList = response.data.data.datas;
                 this.appServer = JSON.parse(response.data.data.res.appServer);
                 this.dbServer = JSON.parse(response.data.data.res.dbServer);
                 this.network = JSON.parse(response.data.data.res.network);
                 this.storage = JSON.parse(response.data.data.res.storage);
-                //console.log(this.appServer); 
+                //console.log('-----',this.dbServer);
+                 
             }).catch((error)=>{})
         },
         prev:function(){
