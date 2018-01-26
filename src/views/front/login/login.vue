@@ -6,9 +6,11 @@
         </div>
     </div>
     <div class="login-content login-main row">
-        <div class="login-from col-md-4">
-            <div class="login-from-title">登录</div>
-            <div style="padding:0 20px;">
+        <div class="col-md-3"></div>
+        <div class="login-from col-md-6">
+            <div class="login-from-title">用户登录</div>
+            <div class="login-fu-title">欢迎使用Clould Broker</div>
+            <div style="padding:0 20px;margin-top:20px;">
                 <div class="login-from-list" :class="isaccount==true?'error':''">
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
@@ -30,11 +32,12 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
     <div class="login-footer">
         <p class="login-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
-        <p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="login-foot-list">京公网安备 11010802020326号</p>
+        <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
+        <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
     <router-view></router-view>
 </div>

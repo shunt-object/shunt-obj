@@ -67,50 +67,50 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{appServer.num}}</td>
+            <tr v-for="item in appServer">
+                <td>{{item.num}}</td>
                 <td>应用程序</td>
                 <td>
-                    <p><span class="labelRed">{{appServer.cores}}</span>(v)CPU</p>
-                    <p><span class="labelRed">{{appServer.ghz}}</span>处理器主频（Ghz）</p>
-                    <p><span class="labelRed">{{appServer.ram}}</span>内存(GB)</p>
-                    <p><span class="labelRed">{{appServer.localDisk}}</span>系统盘(GB)</p>
-                    <p><span class="labelRed">{{appServer.os}}</span>操作系统</p>
-                    <p><span class="labelRed">{{appServer.computeMappingFactor}}</span>平均计算合并率</p>
-                    <p><span class="labelRed">{{appServer.monthlyUsage}}</span>每个月用量（天/月）</p>
-                    <p><span class="labelRed">{{appServer.dailyUsage}}</span>每天用量（小时/天）</p>
+                    <p><span class="labelRed">{{item.cores}}</span>(v)CPU</p>
+                    <p><span class="labelRed">{{item.ghz}}</span>处理器主频（Ghz）</p>
+                    <p><span class="labelRed">{{item.ram}}</span>内存(GB)</p>
+                    <p><span class="labelRed">{{item.localDisk}}</span>系统盘(GB)</p>
+                    <p><span class="labelRed">{{item.os}}</span>操作系统</p>
+                    <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
+                    <p><span class="labelRed">{{item.monthlyUsage}}</span>每个月用量（天/月）</p>
+                    <p><span class="labelRed">{{item.dailyUsage}}</span>每天用量（小时/天）</p>
                 </td>
             </tr>
-            <tr>
-                <td>{{dbServer.num}}</td>
+            <tr v-for="db in dbServer">
+                <td>{{db.num}}</td>
                 <td>数据库服务</td>
                 <td>
-                    <p><span class="labelRed">{{dbServer.cores}}</span>(v)CPU</p>
-                    <p><span class="labelRed">{{dbServer.ghz}}</span>处理器主频（Ghz）</p>
-                    <p><span class="labelRed">{{dbServer.ram}}</span>内存(GB)</p>
-                    <p><span class="labelRed">{{dbServer.localDisk}}</span>系统盘(GB)</p>
-                    <p><span class="labelRed">{{dbServer.os}}</span>操作系统</p>
-                    <p><span class="labelRed">{{dbServer.computeMappingFactor}}</span>平均计算合并率</p>
-                    <p><span class="labelRed">{{dbServer.monthlyUsage}}</span>每个月用量（天/月）</p>
-                    <p><span class="labelRed">{{dbServer.dailyUsage}}</span>每天用量（小时/天）</p>
+                    <p><span class="labelRed">{{db.cores}}</span>(v)CPU</p>
+                    <p><span class="labelRed">{{db.ghz}}</span>处理器主频（Ghz）</p>
+                    <p><span class="labelRed">{{db.ram}}</span>内存(GB)</p>
+                    <p><span class="labelRed">{{db.localDisk}}</span>系统盘(GB)</p>
+                    <p><span class="labelRed">{{db.os}}</span>操作系统</p>
+                    <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
+                    <p><span class="labelRed">{{db.monthlyUsage}}</span>每个月用量（天/月）</p>
+                    <p><span class="labelRed">{{db.dailyUsage}}</span>每天用量（小时/天）</p>
                 </td>
             </tr>
-            <tr>
+            <tr v-for="net in network">
                 <td></td>
                 <td>网络存储</td>
                 <td>
-                    <p><span class="labelRed">{{network.bandwidth}}</span>带宽（GB/月）</p>
-                    <p><span class="labelRed">{{network.inbound}}</span>入站（GB/月）</p>
-                    <p><span class="labelRed">{{network.outbound}}</span>出站（GB/月）</p>
+                    <p><span class="labelRed">{{net.bandwidth}}</span>带宽（GB/月）</p>
+                    <p><span class="labelRed">{{net.inbound}}</span>入站（GB/月）</p>
+                    <p><span class="labelRed">{{net.outbound}}</span>出站（GB/月）</p>
                 </td>
             </tr>
-            <tr>
-                <td>{{storage.num}}</td>
+            <tr v-for="stro in storage">
+                <td>{{stro.num}}</td>
                 <td>存储</td>
                 <td>
-                    <p><span class="labelRed">{{storage.sna}}</span>共享存储(SAN)(GB)</p>
-                    <p><span class="labelRed">{{storage.nsa}}</span>网络存储(NAS)(GB)</p>
-                    <p><span class="labelRed">{{storage.cloudStorage}}</span>云存储(GB)</p>
+                    <p><span class="labelRed">{{stro.sna}}</span>共享存储(SAN)(GB)</p>
+                    <p><span class="labelRed">{{stro.nsa}}</span>网络存储(NAS)(GB)</p>
+                    <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储(GB)</p>
                 </td>
             </tr>
         </tbody>

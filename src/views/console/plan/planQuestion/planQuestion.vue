@@ -161,7 +161,8 @@ export default{
     methods:{
         defaultValue:function(){//获取已有的答案
             this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
-                //console.log('结果',response);    
+                //console.log('结果',response.data.data); 
+                this.layerNotice(this.typeName,response.data.data);    
                 for(let i=0;i<response.data.data.appResults.length;i++){
                     if(response.data.data.appResults[i].moduleId==1){
                         if(response.data.data.appResults[i].result!=''){
@@ -178,8 +179,7 @@ export default{
                             this.affinityResult = response.data.data.appResults[i].result;
                         }
                     }
-                } 
-                this.layerNotice(this.typeName);  
+                }  
             }).catch((error)=>{
             })
         },
@@ -285,7 +285,7 @@ export default{
         result:function(type){
             //type=2 云受益；type=3 亲和度
            this.$this.get('/broker/plan/questions/result/'+this.appId+'/'+this.serverce+'/{type}?type='+type+'').then((response)=>{
-                console.log('result',response); 
+                //console.log('result',response); 
                 if(type==2){
                     this.whichShow(3);
                     this.profitReault =  response.data.data+'分';
@@ -362,32 +362,38 @@ export default{
         goBack:function(){
             this.$router.push({path:'/planList'});
         },
-        layerNotice:function(typeId){
+        layerNotice:function(typeId,data){
             if(typeId==2 || typeId==3){
-                if(this.cloudName==''){
-                    let that = this;
-                    let lay = this.$layer.open({
-                        type: 0,
-                        content: '您还未进行云定性测试，请前往测试',
-                        title: '温馨提示',
-                        btn: '我知道了',
-                        yes:function(){
-                            that.$layer.close(lay);
-                            that.whichShow(1);
+                for(let i=0;i<data.appResults.length;i++){
+                    if(data.appResults[i].moduleId==1){
+                        if(data.appResults[i].result==null){
+                            let that = this;
+                            let lay = this.$layer.open({
+                                type: 0,
+                                content: '您还未进行云定性测试，请前往测试',
+                                title: '温馨提示',
+                                btn: '我知道了',
+                                yes:function(){
+                                    that.$layer.close(lay);
+                                    that.whichShow(1);
+                                }
+                            });
                         }
-                    });
-                }else if(this.profitReault==''){
-                    let that = this;
-                    let lay = this.$layer.open({
-                        type: 0,
-                        content: '您还未进行收益度测试，请前往测试',
-                        title: '温馨提示',
-                        btn: '我知道了',
-                        yes:function(){
-                            that.$layer.close(lay);
-                            that.whichShow(2);
+                    }else if(data.appResults[i].moduleId==2){
+                        if(data.appResults[i].result==null){
+                            let that = this;
+                            let lay = this.$layer.open({
+                                type: 0,
+                                content: '您还未进行收益度测试，请前往测试',
+                                title: '温馨提示',
+                                btn: '我知道了',
+                                yes:function(){
+                                    that.$layer.close(lay);
+                                    that.whichShow(2);
+                                }
+                            });
                         }
-                    });
+                    }
                 }
             }
         },

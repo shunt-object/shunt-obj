@@ -7,6 +7,18 @@
     margin-bottom:2px;
     margin-top:20px;
     font-size:16px;
+    position:relative;
+}
+.exportBtn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:100px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    background:#fff;
+    color:#999;
 }
 .colligate-title{
     text-align:left;
@@ -20,10 +32,28 @@
 .colligate-list{
     margin-bottom:10px;
 }
+.advise-box{
+    position:relative;
+}
+.not-advise{
+    width:100px;
+    position:absolute;
+    left:50%;
+    margin-left:-50px;
+    top:50%;
+    margin-top:40px;
+    color:#ccc;
+}
 .colligate-advise{
     border:1px solid #e5e5e5;
     height:500px;
-    color:#ccc;
+    color:#666;
+    width:100%;
+    outline:none;
+    padding:20px;
+}
+.advise-bg{
+    background:url('../../../../assets/compare-nodata.png') no-repeat center center;
 }
 .colligate-advise img{
     margin-top:200px;

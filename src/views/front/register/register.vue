@@ -3,86 +3,90 @@
     <div class="reg-header">
         <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
     </div>
-    <div class="reg-from">
-        <div class="reg-from-title">欢迎注册ClouldBroker²</div>
-        <div class="reg-from-list" :class="isphone==true?'error':''">
-            <i class="xing">*</i>
-            <!-- <span class="reg-from-key">手机号码：</span> -->
-            <span class="reg-from-key">邮箱：</span>
-            <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
-            <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
-                <li v-for="item in noticeWord">{{item.text}}</li>
-            </ul>
-            <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
-            <div :class="isphone==false?'right':'null'">
-                <img class="svg" src="../../../assets/right.svg" alt="">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="reg-from col-md-4">
+            <div class="reg-from-title">欢迎注册ClouldBroker²</div>
+            <div class="reg-from-list" :class="isphone==true?'error':''">
+                <i class="xing">*</i>
+                <!-- <span class="reg-from-key">手机号码：</span> -->
+                <span class="reg-from-key">邮箱：</span>
+                <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
+                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
+                    <li v-for="item in noticeWord">{{item.text}}</li>
+                </ul>
+                <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
+                <div :class="isphone==false?'right':'null'">
+                    <img class="svg" src="../../../assets/right.svg" alt="">
+                </div>
+            </div>
+            <div class="reg-from-list" :class="ispassword==true?'error':''">
+                <i class="xing">*</i>
+                <span class="reg-from-key">设定密码：</span>
+                <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
+                <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
+                    <li v-for="item in noticeWord">{{item.text}}</li>
+                </ul>
+                <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
+                <div :class="ispassword==false?'right':'null'">
+                    <img class="svg" src="../../../assets/right.svg" alt="">
+                </div>
+            </div>
+            <div class="reg-from-list" :class="isagainPas==true?'error':''">
+                <i class="xing">*</i>
+                <span class="reg-from-key">确认密码：</span>
+                <input type="password" class="reg-from-val" v-model="againPassword" v-on:focus="notice('againPassword')" v-on:blur="reg('againPassword')">
+                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='againPasswordtrue'">
+                    <li v-for="item in noticeWord">{{item.text}}</li>
+                </ul>
+                <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
+                <div :class="isagainPas==false?'right':'null'">
+                    <img class="svg" src="../../../assets/right.svg" alt="">
+                </div>
+            </div>
+            <div class="reg-from-list" :class="isconfirm==true?'error':''">
+                <i class="xing">*</i>
+                <span class="reg-from-key">公司名称：</span>
+                <input type="text" class="reg-from-val" v-model="confirm" v-on:focus="notice('confirm')" v-on:blur="reg('confirm')">
+                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='confirmtrue'">
+                    <li v-for="item in noticeWord">{{item.text}}</li>
+                </ul>
+                <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
+                <div :class="isconfirm==false?'right':'null'">
+                    <img class="svg" src="../../../assets/right.svg" alt="">
+                </div>
+            </div>
+            <div class="reg-from-list" :class="isusername==true?'error':''">
+                <i class="xing">*</i>
+                <span class="reg-from-key">姓名：</span>
+                <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
+                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
+                    <li v-for="item in noticeWord">{{item.text}}</li>
+                </ul>
+                <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
+                <div :class="isusername==false?'right':'null'">
+                    <img class="svg" src="../../../assets/right.svg" alt="">
+                </div>
+            </div>
+            <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
+            <div class="reg-from-agreement">
+                <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
+                <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
+                <router-link target="_blank" to="/agreenment">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
+            </div>
+            <!--<div class="reg-from-null"></div>-->
+            <div class="reg-from-notice">
+                已有ClouldBroker²账号?
+                <router-link class="placego" to="/login">请登录</router-link>
             </div>
         </div>
-        <div class="reg-from-list" :class="ispassword==true?'error':''">
-            <i class="xing">*</i>
-            <span class="reg-from-key">设定密码：</span>
-            <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
-            <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
-                <li v-for="item in noticeWord">{{item.text}}</li>
-            </ul>
-            <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
-            <div :class="ispassword==false?'right':'null'">
-                <img class="svg" src="../../../assets/right.svg" alt="">
-            </div>
-        </div>
-        <div class="reg-from-list" :class="isagainPas==true?'error':''">
-            <i class="xing">*</i>
-            <span class="reg-from-key">确认密码：</span>
-            <input type="password" class="reg-from-val" v-model="againPassword" v-on:focus="notice('againPassword')" v-on:blur="reg('againPassword')">
-            <ul class="reg-from-prompt reg-phone" v-show="isnotice=='againPasswordtrue'">
-                <li v-for="item in noticeWord">{{item.text}}</li>
-            </ul>
-            <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
-            <div :class="isagainPas==false?'right':'null'">
-                <img class="svg" src="../../../assets/right.svg" alt="">
-            </div>
-        </div>
-        <div class="reg-from-list" :class="isconfirm==true?'error':''">
-            <i class="xing">*</i>
-            <span class="reg-from-key">公司名称：</span>
-            <input type="text" class="reg-from-val" v-model="confirm" v-on:focus="notice('confirm')" v-on:blur="reg('confirm')">
-            <ul class="reg-from-prompt reg-phone" v-show="isnotice=='confirmtrue'">
-                <li v-for="item in noticeWord">{{item.text}}</li>
-            </ul>
-            <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
-            <div :class="isconfirm==false?'right':'null'">
-                <img class="svg" src="../../../assets/right.svg" alt="">
-            </div>
-        </div>
-        <div class="reg-from-list" :class="isusername==true?'error':''">
-            <i class="xing">*</i>
-            <span class="reg-from-key">姓名：</span>
-            <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
-            <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
-                <li v-for="item in noticeWord">{{item.text}}</li>
-            </ul>
-            <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
-            <div :class="isusername==false?'right':'null'">
-                <img class="svg" src="../../../assets/right.svg" alt="">
-            </div>
-        </div>
-        <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
-        <div class="reg-from-agreement">
-            <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
-            <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
-            <router-link target="_blank" to="/agreenment">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
-        </div>
-        <!--<div class="reg-from-null"></div>-->
-        <div class="reg-from-notice">
-            已有ClouldBroker²账号?
-            <router-link class="placego" to="/login">请登录</router-link>
-        </div>
+        <div class="col-md-4"></div>
     </div>
     <div style="width:100%;height:150px;"></div>
     <div class="reg-footer">
         <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
-        <p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="reg-foot-list">京公网安备 11010802020326号</p>
+        <!--<p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
+        <p class="reg-foot-list">京公网安备 11010802020326号</p>-->
     </div>
     <router-view></router-view>
 </div>

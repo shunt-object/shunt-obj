@@ -6,8 +6,10 @@
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
-    <div class="colligate-heade">综合报告</div>
-    <div class="colligateReport" style="background:#fff;padding:20px;">
+    <div class="colligate-heade">
+        综合报告<button class="exportBtn" v-on:click="getPdf()"><img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt="">导出</button>
+    </div>
+    <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
         <!-- 基本信息 -->
         <div class="colligate-title"><img src="../../../../assets/report/report-information.png" alt="">基本信息</div>
         <div class="colligate-list">
@@ -96,7 +98,7 @@
                             <p><span class="labelRed">{{appServer.ram}}</span>内存(GB)</p>
                             <p><span class="labelRed">{{appServer.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{appServer.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{appServer.computeMappingFactor}}</span>平均计算合并率</p>
+                            <p><span class="labelRed">{{appServer.computeMappingFactor}}</span>资源平均利用率</p>
                             <p><span class="labelRed">{{appServer.monthlyUsage}}</span>每个月用量（天/月）</p>
                             <p><span class="labelRed">{{appServer.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
@@ -110,7 +112,7 @@
                             <p><span class="labelRed">{{dbServer.ram}}</span>内存(GB)</p>
                             <p><span class="labelRed">{{dbServer.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{dbServer.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{dbServer.computeMappingFactor}}</span>平均计算合并率</p>
+                            <p><span class="labelRed">{{dbServer.computeMappingFactor}}</span>资源平均利用率</p>
                             <p><span class="labelRed">{{dbServer.monthlyUsage}}</span>每个月用量（天/月）</p>
                             <p><span class="labelRed">{{dbServer.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
@@ -138,10 +140,13 @@
         </div>
         <!-- 上云分析建议  -->
         <div class="colligate-title"><img src="../../../../assets/report/report-advise.png" alt="">上云分析建议</div>
-        <div class="planList-nodata colligate-advise">
-            <img src="../../../../assets/compare-nodata.png" alt="">
+          <!--<img src="../../../../assets/compare-nodata.png" alt="">
             <br>
-            暂无建议
+            暂无建议-->
+        <div class="advise-box">
+            <textarea class="planList-nodata colligate-advise" v-model="advise" :class="advise==''?'advise-bg':''">
+            </textarea>
+            <span class="not-advise" v-if="advise==''">暂无建议</span>
         </div>
     </div>
 </div>
@@ -150,6 +155,9 @@
 import child from '../../../../components/steps/steps.vue'
 import '../colligateReport/colligateReport.css'
 import echarts from 'echarts'
+import '../../../../components/pdf/html2canvas.js'
+import jsPDF from 'jspdf/dist/jspdf.debug.js'
+
 export default{
     name:'colligateReport',
     data(){
@@ -166,7 +174,8 @@ export default{
             dbServer:[],
             network:[],
             storage:[],
-            information:{}
+            information:{},
+            advise:''
         }
     },
     mounted:function(){
@@ -417,6 +426,19 @@ export default{
                 this.storage = JSON.parse(response.data.data.res.storage);
                 //console.log(this.appServer); 
             }).catch((error)=>{})
+        },
+        getPdf:function(){
+            let date = new Date();
+            let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+            var pdf = new jsPDF('p', 'pt','a4');
+            pdf.internal.scaleFactor = 1;
+            var options = {
+                pagesplit: true
+            };
+            pdf.addHTML($("#titBody"), options, function() {
+                //console.log(pdf);
+                pdf.save('综合报告'+time+'.pdf');
+            });
         }
     },
     components:{

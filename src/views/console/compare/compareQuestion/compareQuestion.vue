@@ -87,7 +87,8 @@ export default{
             valuelist:[],
             togglelist:[],
             havelist:[],
-            numlist:[]
+            numlist:[],
+            allLsit:[]
         }
     },
     mounted:function(){
@@ -106,6 +107,7 @@ export default{
                 let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
                     this.numlist.push({boolean:true});
+                    this.allLsit.push({boolean:false});
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
                         if(response.data.data[n].childGroups[i].selected==true){
                             arr.push(response.data.data[n].childGroups[i].selected);
@@ -154,9 +156,9 @@ export default{
                 this.typelist[Ind].childGroups[index].selected=false;
                 this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
             }
-            for(let i=0;i<this.havelist.length;i++){
-                this.typelist[i].selected = this.havelist.selected;
-            }
+            // for(let i=0;i<this.havelist.length;i++){
+            //     this.typelist[i].selected = this.havelist[i].selected;
+            // }
             for(let i=0;i<this.typelist.length;i++){
                 for(let n=0;n<this.typelist[i].childGroups.length;n++){
                     if(this.typelist[i].childGroups[n].selected==true){
@@ -225,12 +227,26 @@ export default{
         },
         allSelect:function(e){
             // this.typeCheck = [];
-            for(let i=0;i<this.typelist[e].childGroups.length;i++){
+            if(this.allLsit[e].boolean==false){
+                this.allLsit[e].boolean=true;
+                this.typelist[e].selected = true;
+                for(let i=0;i<this.typelist[e].childGroups.length;i++){
                  if(this.typelist[e].childGroups[i].selected==false){
                     this.questionList(this.typelist[e].childGroups[i].id,true,e);
                     this.typelist[e].childGroups[i].selected=true;
                  }
+                }
+            }else{
+                this.allLsit[e].boolean=false;
+                this.typelist[e].selected = false;
+                for(let i=0;i<this.typelist[e].childGroups.length;i++){
+                 if(this.typelist[e].childGroups[i].selected==true){
+                    this.questionList(this.typelist[e].childGroups[i].id,false,e);
+                    this.typelist[e].childGroups[i].selected=false;
+                 }
+                }
             }
+            
         },
         goBack:function(){
             this.$router.push({path:'/compareList'});

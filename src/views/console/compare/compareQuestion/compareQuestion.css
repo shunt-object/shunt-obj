@@ -125,6 +125,7 @@
     outline:none;
     border:none;
     float:right;
+    margin-top:20px;
 }
 /*题号*/
 .compare-num{
