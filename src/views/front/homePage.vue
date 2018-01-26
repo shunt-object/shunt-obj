@@ -11,47 +11,7 @@
         </ul>
         <img src="../../assets/scroll.png" alt="" class="scrollUp">
     </div>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-      		</button>
-          <a class="navbar-brand page-scroll" href="#page-top"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs animated rotateIn"></a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav cl">
-            <li><a class="page-scroll animated fadeInLeft" href="javascript:;">首页</a></li>
-            <li><a class="page-scroll animated fadeInDown" href="javascript:;">功能</a></li>
-            <li><a class="page-scroll animated bounceIn" href="javascript:;">帮助</a></li>
-            <li><a class="page-scroll animated fadeInUp" href="javascript:;">联系我们</a></li>
-            <li><a class="page-scroll animated fadeInRight" v-on:click="condole">控制台</a></li>
-          </ul>
-          <div class="navbar-right clearfix">
-            <ul class="nav navbar-nav " id="navright">
-              <li><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
-              <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
-
-
-               <li v-if="islogin==true" class="logout-box">
-                <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
-                <p class="logout-ul" v-show="logoutlist">
-                    <span v-on:click="fn()" style="cursor:pointer;color:#000">退出</span>
-                </p>
-         
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>  
+    <Sec></Sec>
     <!--  nav end--> 
 
     <!-------------------------------banner------------------------------------------>
@@ -277,41 +237,7 @@
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
     <!-------------------------footer------------------------------------------>
-    <div class=" obj-friend footer">
-        <div>
-      <!--<div class="container"> -->
-        <div class="row" style="width:73%;margin:0 auto !important; padding-left:8%">
-            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-            <p class="text-left footer-jx">联系我们</p>
-            <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>
-            <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
-            </div>
-            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-            <p class="text-left footer-jx">功能</p>
-            <p class="text-left footer-list">云规划</p>
-            <p class="text-left footer-list">云选型</p>
-            <p class="text-left footer-list">云实测</p>
-            </div>
-            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-            <p class="text-left footer-jx">服务支持</p>
-            <p class="text-left footer-list">帮助中心</p>
-            <p class="text-left footer-list">服务条款</p>
-            </div>
-            <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
-            <p class="footer-jx">CloudBroker²</p>
-            <div class="footer-ke">
-                <p>您的专属上云顾问</p>
-                <img src="../../assets/weichat.png" alt="">
-            </div>
-            </div>
-        </div>
-           <div class="footer-inert"></div>
-      <div class="row text-center footer-last">       
-        <p class="text-center thin">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
-      </div>
- 
-      
-      </div>
+    <Sex></Sex>
     </div>
   </div>
   </div>
@@ -320,12 +246,14 @@
 <script>
  import wei from '../front/wei.vue';
  import "../front/animate.min.css"
-
-
+ import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
+ import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
 export default {
     name: 'homePage',
     components:{
-        wei
+        wei,
+        Sec,
+        Sex
     },
     data() {
       return {
@@ -386,12 +314,12 @@ export default {
                         //      $(this).find(".PlanLj").remoteClass('flash');
                         //  })10px 10px 1px 2px #ccc"
                         $(".blurb-cta").hover(function(){
-                            $(this).css({"box-shadow":"10px 10px 1px 2px #ccc","background":"#f4f4f4"});
+                            $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
                         },function(){
                            $(this).css({"box-shadow":"","background":""});;
                         });
                         $(".claes").hover(function(){
-                           $(this).css({"box-shadow":"10px 10px 1px 2px #ccc","background":"#f4f4f4"});
+                           $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
                            //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
                            var a = $(this).find(".tranImg");
                             a.addClass("imgAnimation");
@@ -653,6 +581,20 @@ export default {
 /**{
    overflow:hidden
 }*/
+.lis-hov p{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.blurb-cta{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
 .container{ 
     max-width: 1090px;
 }
@@ -829,9 +771,7 @@ ul,ol li {
 .navbar-brand {
     padding: 10px 15px;
 }
-.navbar-nav li {
-    line-height: 48px; padding-bottom: 0; padding-top: 10px
-}
+
 .left,.right {
     width: 5%;
     height:100%;
@@ -1320,6 +1260,13 @@ h2 {
 }
 .claes{
     padding:20px 0 20px 0 ;
+   
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
 }
  .imgAnimation{  
       animation-name: imgAnimation;  

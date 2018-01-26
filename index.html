@@ -8,9 +8,32 @@
     <title>broker</title>
   </head>
 <!-- <link rel="shortcut icon"type="image/x-icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">-->
-  <body>
-
+  <body  oncopy = "return false" onselectstart = "return false" onload="disableInfo()"> 
+    <!--oncontextmenu="return false"禁止右键-->
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+    <script>
+           function disableInfo() {  
+              document.onkeydown = function() {  
+                  var e = window.event || arguments[0];  
+                  //屏蔽F12  
+                  // if(e.keyCode == 123) {  
+                  //     return false;  
+                  //     //屏蔽Ctrl+Shift+I  
+                  // } else 
+                  
+                  if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  
+                      return false;  
+                      //屏蔽Shift+F10  
+                  } else if((e.shiftKey) && (e.keyCode == 121)){  
+                      return false;  
+                  }  else if((e.ctrlKey) && (e.keyCode == 85)){
+                     return false; 
+                  }
+              };  
+   
+        }  
+
+    </script>
+  </bod>
 </html>

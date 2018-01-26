@@ -7,51 +7,68 @@
 </div>
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
-    <div class="resource">配置信息</div> 
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
+    <div class="resource">当前工作负载配置信息</div> 
+    <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;" v-for="(jl,index) in cores">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
         </div>
-        <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="num"><span class="write-num">请填写数量</span></div>
+        <div class="col-md-3 text-left Inp col-sm-12 col-xs-12" > <input type="number" min="1" v-model="cores[index].num"><span class="write-num">请填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 text-left ulss col-sm-12">
-            <li class=" col-sm-12"><input type="number" v-model="cores" min="1">&nbsp&nbsp(v)CPU</li>
-            <li class=" col-sm-12"><input type="number" v-model="ghz" min="1">&nbsp&nbsp处理器主频(GHZ)</li>
-            <li class=" col-sm-12"><input type="number" v-model="ram" min="1">&nbsp&nbsp内存(GB)</li>
-            <li class=" col-sm-12"><input type="number" v-model="localDisk" min="1">&nbsp&nbsp系统盘(GB)</li>
+            <li class=" col-sm-12"><input type="number" v-model="cores[index].cores" min="1">&nbsp&nbsp(v)CPU</li>
+            <li class=" col-sm-12"><input type="number" v-model="cores[index].ghz" min="1">&nbsp&nbsp处理器主频(GHZ)</li>
+            <li class=" col-sm-12"><input type="number" v-model="cores[index].ram" min="1">&nbsp&nbsp内存(GB)</li>
+            <li class=" col-sm-12"><input type="number" v-model="cores[index].localDisk" min="1">&nbsp&nbsp系统盘(GB)</li>
             <li class=" col-sm-12">
-                <select name="" id="sele" v-model="os">
+                <select name="" id="sele" v-model="cores[index].os">
                     <option value="Linux">Linux</option>
                     <option value="Window">Window</option>
                     <option value="Unix">Unix</option>
                 </select>&nbsp&nbsp操作系统
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactor">&nbsp&nbsp平均计算合并率</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsage">&nbsp&nbsp每个月用量（天/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
+                   
+            <li class=" col-sm-12">
+                <select v-model="cores[index].computeMappingFactor">
+                    <option value="<30%"><30%</option>
+                    <option value="30%-60%">30%-60%</option>
+                    <option value="60%-90%">60%-90%</option>
+                    <option value="≥90%">≥90%</option>
+                </select>&nbsp&nbsp资源平均利用率
+            </li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量（天/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
+            <li class="col-sm-12 creadIng"  v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</li>
         </ul>
     </div>
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;"  v-for="(ine,index) in ines">
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group2.png" alt="">
             <h4>数据库服务</h4>
         </div>
-        <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="num"><span class="write-num">请填写数量</span></div>
+        <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="ines[index].num"><span class="write-num">请填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
-            <li class=" col-sm-12"><input type="number" min="1" v-model="coresq">&nbsp&nbsp(v)CPU</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ghzq">&nbsp&nbsp处理器主频（GHZ）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ramq">&nbsp&nbsp内存(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].coresq">&nbsp&nbsp(v)CPU</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ghzq">&nbsp&nbsp处理器主频（GHZ）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ramq">&nbsp&nbsp内存(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
             <li class=" col-sm-12">
-                <select name="" id="selet" v-model="osq">
+                <select name="" id="selet" v-model="ines[index].osq">
                     <option value="Linux">Linux</option>
                     <option value="Window">Window</option>
                     <option value="Unix">Unix</option>
                 </select>&nbsp&nbsp操作系统
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="computeMappingFactorq">&nbsp&nbsp平均计算合并率</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="monthlyUsageq">&nbsp&nbsp每个月用量（天/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
+            <li class="col-sm-12">
+                <select v-model="ines[index].computeMappingFactorq">
+                    <option value="<30%"><30%</option>
+                    <option value="30%-60%">30%-60%</option>
+                    <option value="60%-90%">60%-90%</option>
+                    <option value="≥90%">≥90%</option>
+                </select>&nbsp&nbsp资源平均利用率
+            </li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量（天/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
+            <li class="col-sm-12 creadIng"   v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</li>
         </ul>
     </div>
     <div class="resourceCroup-list row" style="margin-bottom:10px !important;">  
@@ -61,22 +78,23 @@
         </div>
         <div class="col-md-3 text-left Inp col-sm-12" ></div>
         <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
-            <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（GB/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（GB/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站（GB/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（Mbps/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（Mbps/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站（Mbps/月）</li>
         </ul>
     </div>   
 
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;"  v-for="(inu,index) in inus">
         <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
             <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
         </div>
-        <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="num" style="margin-top:118px !important"><span class="write-num">请填写数量</span></div>
+        <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="inus[index].num" style="margin-top:118px !important"><span class="write-num">请填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
-            <li class=" col-sm-12"><input type="number" min="1" v-model="sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="cloudStorage">&nbsp&nbsp云存储(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
+            <li class="col-sm-12 creadIng" v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</li>
         </ul>
     </div>
     <div class="resourcebtn-box" style="margin-top:20px;">
@@ -161,34 +179,42 @@ export default {
   data () {
     return {
     //    appId:"",
+            cores:[{
+                    cores:"",
+                    ghz:"",
+                    ram:"",
+                    computeMappingFactor:"",
+                    localDisk:"",
+                    os:"",
+                    monthlyUsage:"",
+                    dailyUsage:"",
+                    num:"1",
+            }],
        
-       cores:"",
-       ghz:"",
-       ram:"",
-       computeMappingFactor:"",
-       localDisk:"",
-       os:"",
-       monthlyUsage:"",
-       dailyUsage:"",
-       num:"1",
-       nume:"1",
-       nums:"1",
-       coresq:"",
-       ghzq:"",
-       ramq:"",
-       computeMappingFactorq:"", 
-       localDiskq:"",
-       osq:"",
-       monthlyUsageq:"",
-       dailyUsageq:"",
+       ines:[{
+        num:"1",    
+        coresq:"",
+        ghzq:"",
+        ramq:"",
+        computeMappingFactorq:"", 
+        localDiskq:"",
+        osq:"",
+        monthlyUsageq:"",
+        dailyUsageq:""
+      }],
 
        bandwidth:"",
        inbound:"",
        outbound:"",
        
-       sna:"",
-       nsa:"",
-       cloudStorage:"",
+     inus:[ 
+         { 
+          num:"1",
+          sna:"",
+          nsa:"",
+          cloudStorage:""
+        }
+    ],
 
        appId:"",
        queryType:''
@@ -201,7 +227,59 @@ export default {
       console.log("="+this.appId) 
   },
   methods:{
-      
+      creadIng:function(e){
+          this.cores.push(
+              {
+                    cores:"",
+                    ghz:"",
+                    ram:"",
+                    computeMappingFactor:"",
+                    localDisk:"",
+                    os:"",
+                    monthlyUsage:"",
+                    dailyUsage:"",
+                    num:"1"
+            }
+          )
+          console.log(this.cores)
+            // this.lias.push(
+            //     {
+            //         cores:cores[index].cores,
+            //         ghz:cores[index].ghz,
+            //         ram:cores[index].ram,
+            //         computeMappingFactor:cores[index].computeMappingFactor,
+            //         localDisk:tcores[index]his.localDisk,
+            //         os:cores[index].os,
+            //         monthlyUsage:cores[index].monthlyUsage,
+            //         dailyUsage:cores[index].dailyUsage,
+            //         num:cores[index].num
+            //     }
+            // )
+           
+      },
+      creadIn:function(){
+         this.ines.push({
+            num:"1",    
+            coresq:"",
+            ghzq:"",
+            ramq:"",
+            computeMappingFactorq:"", 
+            localDiskq:"",
+            osq:"",
+            monthlyUsageq:"",
+            dailyUsageq:""
+        })
+      },
+      creadI:function(){
+         this.inus.push(
+             { 
+                num:"1",
+                sna:"",
+                nsa:"",
+                cloudStorage:""
+            }
+         )
+      },
       btn:function(){
            //console.log(this.os);
             // if(){
@@ -214,44 +292,19 @@ export default {
             // let valueey = $("#selet").val();
             // console.log(this.appId);
             let obj ={
-                
-                    "appId":this.appId,
-                    "appServer": {
-                        "computeMappingFactor":this.computeMappingFactor,
-                        "cores": this.cores,
-                        "dailyUsage": this.dailyUsage,
-                        "ghz": this.ghz,
-                        "localDisk": this.localDisk,
-                        "monthlyUsage":this.monthlyUsage ,
-                        "num":this.num,
-                        "os": this.os,
-                        "ram": this.ram
-                    },
-                    "dbServer": {
-                        "computeMappingFactor": this.computeMappingFactorq,
-                        "cores":  this.coresq,
-                        "dailyUsage": this.dailyUsageq,
-                        "ghz": this.ghzq,
-                        "localDisk": this.localDiskq,
-                        "monthlyUsage": this.monthlyUsageq,
-                        "num":this.nume,
-                        "os": this.osq,
-                        "ram": this.ramq
-                    },
+                    "appId": this.appId,
+                    "appServer": this.cores,
+                    "dbServer": this.ines,
                     "network": {
                         "bandwidth": this.bandwidth,
                         "inbound": this.inbound,
                         "outbound": this.outbound
                     },
-                    "storage": {
-                        "cloudStorage": this.cloudStorage,
-                        "nsa": this.nsa,
-                        "num":this.nums,
-                        "sna": this.sna
-                    }
+                    "storage":this.inus
 
+                   
               };
-            
+            console.log(obj)
             this.$this.post('/broker/app/resource/group',obj).then((res)=>{
                     console.log(res+"chengg");
                      //this.$router.push({path:'/login'});/planQuestion
@@ -266,10 +319,11 @@ export default {
                       });
                
             
-
+                      
       },
       jump:function(){
-          this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
+        //   this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
+         console.log(this.cores)
       }
   },
     components:{
