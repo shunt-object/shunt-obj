@@ -8,9 +8,8 @@
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
     <div class="resource">当前工作负载配置信息</div> 
-    <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;" v-for="(jl,index) in cores">
-    <div class="col-md-1">{{index}}</div>
-        <div class="resourceCroup-list-head col-md-1 col-sm-12 col-xs-12">
+    <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(jl,index) in cores"  :class="index==j?'bounceInDown':''" >
+        <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
         </div>
@@ -41,7 +40,7 @@
             <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
         </ul>
     </div>
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;"  v-for="(ine,index) in ines">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;!important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(ine,index) in ines"  :class="index==s?'bounceInDown':''" >
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group2.png" alt="">
             <h4>数据库服务</h4>
@@ -72,7 +71,7 @@
             <li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
         </ul>
     </div>
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;">  
+    <div class="resourceCroup-list row bounceInDown" style="margin-bottom:10px !important; !important;animation-duration:0.3s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" >  
         <div class=" col-md-2 head col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group3.png" alt="">
             <h4 style="margin-bottom:50px;">网络</h4>
@@ -85,16 +84,17 @@
         </ul>
     </div>   
 
-    <div class="resourceCroup-list row" style="margin-bottom:10px !important;"  v-for="(inu,index) in inus">
+    <div class="resourceCroup-list row" style="margin-bottom:10px !important;animation-duration:0.3s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(inu,index) in inus" :class="index==k?'bounceInDown':''"  >
         <div class="resourceCroup-list-head col-md-2 head col-sm-12 col-xs-12">  
             <img src="../../../../assets/overview/resource-group4.png" alt="">
             <h4 style="margin-bottom:50px;">存储</h4>
         </div>
         <div class="col-md-3 text-left Inp"  > <input type="number" min="1" v-model="inus[index].num" style="margin-top:118px !important"><span class="write-num">请填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss ulis text-left  col-sm-12">
-            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
+            <li class="Mainli"><span class="col-md-3 col-xs-12"><input type="checkbox" style="width:30px;height:15px;" @click="isga(index)">共享存储(SAN)(GB)</span><span class="col-md-3 col-xs-12"><input type="checkbox" style="width:30px;height:15px;" @click="isda(index)">网络存储(NAS)(GB)</span><span class="col-md-3 col-xs-12"><input type="checkbox" style="width:30px;height:15px;" @click="isfa(index)" >云存储(GB)</span></li>
+                <li class=" col-sm-12" v-show="inusList[index].isgas" style="margin-top:15px;"><input type="number" min="1" v-model="inus[index].sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
+                <li class=" col-sm-12" v-show="inusList[index].isdas"><input type="number" min="1" v-model="inus[index].nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
+                <li class=" col-sm-12" v-show="inusList[index].isfas"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
             <li class="col-sm-12 creadIng"><span v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</span><span @click="removeAs(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除存储</span></li>
         </ul>
     </div>
@@ -159,6 +159,17 @@ a:hover{
 .ulis{
     margin-top:30px;
 }
+
+.clickli{
+    width:100%;
+    height:25px;
+    line-height:25px;
+}
+.clickli:hover{
+    width:100%;
+    
+    background:#ccc;
+}
 .ulss li:nth-child(1){
     margin-top:30px;
 }
@@ -180,6 +191,9 @@ a:hover{
 .jumpBnt{
     float:right; margin:10px; background:#f7a72c; border-radius:2px; width:94px;  height:35px; /*border:1px solid #ccc;*/ font-size:14px; color:#fff;
 }
+.Mainli span{
+    margin-right:5px;
+}
 </style>
 <script>
 import sds from '../../../../components/steps/steps.vue'
@@ -188,6 +202,20 @@ export default {
   data () {
     return {
     //    appId:"",
+    // isfas:false,
+    // isdas:false,
+    // isgas:false,
+    valus:"",
+    k:0,
+    j:0,
+    s:0,
+    v:0,
+    inusList:[{ isfas:false,
+                isdas:false,
+                isgas:false
+             }],
+   
+    a:true,
             cores:[{
                     cores:"",
                     ghz:"",
@@ -251,7 +279,9 @@ export default {
                     num:"1"
             }
           )
-          console.log(this.cores)
+            this.j++;
+           console.log(j,index);
+          console.log(this.cores);
             // this.lias.push(
             //     {
             //         cores:cores[index].cores,
@@ -267,7 +297,9 @@ export default {
             // )
            
       },
-      creadIn:function(){
+      creadIn:function(index){
+         
+        this.s++;
          this.ines.push({
             num:"1",    
             coresq:"",
@@ -278,9 +310,11 @@ export default {
             osq:"",
             monthlyUsageq:"",
             dailyUsageq:""
-        })
+        });
+       
       },
       creadI:function(){
+          console.log(this.inusList);
          this.inus.push(
              { 
                 num:"1",
@@ -288,7 +322,15 @@ export default {
                 nsa:"",
                 cloudStorage:""
             }
-         )
+         );
+         this.inusList.push({
+             isfas:false,
+             isdas:false,
+             isgas:false
+         });
+        this.k++;
+         
+         
       },
 
     //   -----删除---
@@ -314,9 +356,32 @@ export default {
              this.$layer.alert("注意：此为最后一个数据库服务，不可删除");
         }
     },
+    isga:function(index){
+        //console.log(this.inusList[index].isgas)
+        if(this.inusList[index].isgas==false){
+            this.inusList[index].isgas=true;
+        }else{
+            this.inusList[index].isgas=false;
+        };
 
 
-      btn:function(){
+    },
+    isda:function(index){
+         if(this.inusList[index].isdas==false){
+            this.inusList[index].isdas=true;
+        }else{
+            this.inusList[index].isdas=false;
+        }
+    },
+    isfa:function(index){
+        if(this.inusList[index].isfas==false){
+            this.inusList[index].isfas=true;
+        }else{
+            this.inusList[index].isfas=false;
+        }
+    },
+
+    btn:function(){
            //console.log(this.os);
             // if(){
 
@@ -352,7 +417,7 @@ export default {
                      
                      },(err)=>{
                          console.log("不好意思")
-                      });
+                     });
                
             
                       
@@ -360,7 +425,45 @@ export default {
       jump:function(){
         //   this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
          console.log(this.cores)
-      }
+      },
+    //   lis:function(){
+    //       if(this.isfa==false){
+    //           $("ol").css("background","#f4f4f4");
+    //           $(".lis").css("border","1px solid #ccc");
+    //           this.isfa = true;
+    //           this.isda = true;
+    //       }else{
+    //            $("ol").css("background","none");
+    //           $(".lis").css("border","none");
+    //           this.isfa = false;
+    //           this.isda = false;
+    //       }
+          
+    //   },
+    //   selectlis:function(){
+        
+    //       if(this.a){
+    //         var valies = $(".liSec").html();
+    //         //console.log(valis);
+    //          this.valus += valies; 
+             
+    //           $(".liFir").html( this.valus);
+                
+    //           this.a=!this.a;
+    //         }
+           
+    //   },
+    //   selectlie:function(){
+      
+    //         var valies = $(".liThe").html();
+           
+    //         this.valus += valies; 
+
+    //         $(".liFir").html( this.valus);
+           
+        
+    //   }
+
   },
     components:{
         sds
