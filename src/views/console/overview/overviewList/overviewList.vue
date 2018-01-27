@@ -103,7 +103,7 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <i class="iconfont icon-shanchu" style="font-size:20px !important;" v-on:click="remYy(item.id)"></i>
-                        <i class="iconfont icon-tijianbaogaochaxun" style="font-size:22px !important;"  v-on:click="Jips(item.id)"></i>
+                        <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
                         <!--<input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
                         <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" > --> 
                         <!--v-on:mouseover="treeTip()"-->
