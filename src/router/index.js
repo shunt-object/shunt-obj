@@ -29,7 +29,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/homePage',
+      path: '/',
       name: 'homePage',
       component: homePage
     },

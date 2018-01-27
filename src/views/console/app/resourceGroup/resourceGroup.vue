@@ -53,7 +53,7 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ramq">&nbsp&nbsp内存(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].localDiskq">&nbsp&nbsp本地磁盘(GB)</li>
             <li class=" col-sm-12">
-                <select name="" id="selet" v-model="ines[index].osq">
+            <select id="selet" v-model="ines[index].osq">
                     <option value="Linux">Linux</option>
                     <option value="Window">Window</option>
                     <option value="Unix">Unix</option>
@@ -232,6 +232,7 @@ export default {
       //this.$layer.msg("注意：以下全为必填项");
       this.appId = this.$route.query.id;
       console.log("="+this.appId) 
+   
   },
   methods:{
       creadIng:function(e){
