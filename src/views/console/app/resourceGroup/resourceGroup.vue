@@ -35,8 +35,8 @@
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量(天/月)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量(小时/天)</li>
+            <!--<li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量(天/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量(小时/天)</li>-->
             <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
         </ul>
     </div>
@@ -66,8 +66,8 @@
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量(天/月)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量(小时/天)</li>
+           <!-- <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量(天/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量(小时/天)</li>-->
             <li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
         </ul>
     </div>
@@ -423,7 +423,7 @@ export default {
                       
       },
       jump:function(){
-        //   this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
+        this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
          console.log(this.cores)
       },
     //   lis:function(){
