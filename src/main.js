@@ -13,6 +13,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import "datatables/media/css/jquery.dataTables.min.css"
 import "datatables/media/js/jquery.dataTables.min.js"
 import '../src/components/fontCss/icon.css'
+import animate from 'animate.css'
 
 
 
