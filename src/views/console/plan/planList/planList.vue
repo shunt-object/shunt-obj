@@ -22,9 +22,9 @@
                 <th class="col-md-1 text-center">应用名称</th>
                 <th class="col-md-3 text-center">上云分析名称</th>
                 <th class="col-md-2 text-center">云定性</th>
-                <th class="col-md-3 text-center">云收益度</th>
+                <th class="col-md-2 text-center">云收益度</th>
                 <th class="col-md-1 text-center">云亲和度</th>
-                <th class="col-md-1 text-center">操作</th>
+                <th class="col-md-2 text-center">操作</th>
             </tr>
         </thead>
         <tbody id="myTable" v-if="sps.length>0" >
@@ -38,7 +38,7 @@
                 <td  v-else></td>
                 <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                 <td  v-else></td>
-                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom">查看报告</a></td>
+                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
             </tr>
         </tbody>    
     </table>
