@@ -41,7 +41,7 @@
                         </ul>
                     </td>
                     <td v-else></td>
-                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7">查看报告</a></td>
+                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7 !important;"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
                 </tr>
             </tbody>
         </table>

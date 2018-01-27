@@ -73,7 +73,7 @@
                 </span>
             </p>
         </div>
-        <div style="margin-top:20px;">
+        <!--<div style="margin-top:20px;">
             <button class="planbtn" v-on:click="clouldNext()">
                 下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
             </button>
@@ -81,7 +81,7 @@
                 <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
             </button>
         </div>
-        <div class="clear"></div>
+        <div class="clear"></div>-->
     </div>
     <!--定量问题 收益度-->
     <div class="question-list" v-show="profit">
@@ -326,6 +326,7 @@ export default{
             }).catch((error)=>{}) 
         },
         tab:function(typeId){
+            this.getLiang(this.appId,typeId);
             if(typeId==1){
                 if(this.profit==true || this.affinity==true){
                     this.whichShow(1);
