@@ -51,6 +51,7 @@
     width:100%;
     outline:none;
     padding:20px;
+    text-align:left;
 }
 .advise-bg{
     background:url('../../../../assets/compare-nodata.png') no-repeat center center;

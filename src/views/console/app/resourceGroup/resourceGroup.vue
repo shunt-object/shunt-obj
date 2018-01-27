@@ -100,8 +100,9 @@
     </div>
     <div class="resourcebtn-box" style="margin-top:20px;">
         <button class="jumpBnt" @click="jump()">跳过</button>
-        <button class="resourcebtn" @click="btn()">下一步<i class="iconfont icon-xiayibu" style="margin-left:5px; color:#fff;" ></i>
-</button>
+        <button class="resourcebtn" @click="btn()">                                                  
+            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+        </button>
     </div>    
     <div class="clear" style="margin-bottom:20px;"></div>
     
@@ -175,7 +176,7 @@ a:hover{
     float:right; margin:10px 0; background:#da121a; border-radius:2px; width:94px;  height:35px; border:none; font-size:14px; color:#f0f0f0;
 }
 .jumpBnt{
-    float:right; margin:10px; background:#fff; border-radius:2px; width:94px;  height:35px; border:1px solid #ccc; font-size:14px; color:#555;
+    float:right; margin:10px; background:#f7a72c; border-radius:2px; width:94px;  height:35px; border:1px solid #ccc; font-size:14px; color:#555;
 }
 </style>
 <script>

@@ -33,7 +33,15 @@
         </div>
     </div>
     <div class="clould-desc" v-html="desc"></div>
-
+    <div class="planResult-btn" style="margin-top:20px;">
+        <button class="planbtn" v-on:click="compare()">
+            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+        </button>
+        <button class="planprev" v-on:click="prev()">
+            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+        </button>
+    </div>
+    <div class="clear"></div>
 </div>
 </div>
 </template>
@@ -293,6 +301,9 @@ export default{
             }else if(link=='planquestion'){
                 this.$router.push({path:'/planQuestion',query:{id:this.appId,name:'1'}});
             }
+        },
+        prev:function(){
+            this.$router.push({path:'/planQuestion',query:{id:this.appId,name:'1'}});
         }
     },
     components:{

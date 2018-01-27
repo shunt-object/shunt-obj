@@ -74,13 +74,13 @@
 }
 .error{
     border:1px solid red;
-    margin-bottom:0;
+    /*margin-bottom:0;*/
 }
 .phone-notice{
     color:red;
     font-size:12px;
     text-align:left;
-    text-indent:80px;
+   /* text-indent:80px;*/
     line-height:20px;
 }
 .login-from-list i{

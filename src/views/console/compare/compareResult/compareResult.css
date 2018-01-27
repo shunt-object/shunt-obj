@@ -68,8 +68,15 @@
     width:100%;
     border:1px solid #ccc;
     margin-bottom:20px;
-    /*height:300px;
-    overflow-y:scroll;*/
+    max-height:300px;
+    overflow:auto;
+    float:left;
+}
+.comdetails-table tbody{
+    width:100%;
+    max-height:200px;
+    overflow:auto;
+    /*display:block;*/
 }
 .comdetails-table thead tr{
     background:#ebebeb;

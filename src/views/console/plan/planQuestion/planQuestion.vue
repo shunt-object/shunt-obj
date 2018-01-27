@@ -73,6 +73,15 @@
                 </span>
             </p>
         </div>
+        <div style="margin-top:20px;">
+            <button class="planbtn" v-on:click="clouldNext()">
+                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            </button>
+            <button class="planprev" v-on:click="goResource()">
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+            </button>
+        </div>
+        <div class="clear"></div>
     </div>
     <!--定量问题 收益度-->
     <div class="question-list" v-show="profit">
@@ -87,9 +96,15 @@
                 </span>
             </p>
         </div>
-        <button class="planbtn" v-on:click="result(2)">下一步</button>
-        <button class="planprev" v-on:click="Planprev(1)">上一步</button>
-        <div class="clear"></div>
+        <div style="margin-top:20px;">
+            <button class="planbtn" v-on:click="result(2)">
+                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            </button>
+            <button class="planprev" v-on:click="Planprev(1)">
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+            </button>
+        </div>
+        <div class="clear"></div>        
     </div>
     <!--定量问题 亲和度-->
     <div class="question-list" v-show="affinity">
@@ -103,8 +118,14 @@
                 </span>
             </p>
         </div>
-        <button class="planbtn" v-on:click="result(3)">下一步</button>
-        <button class="planprev" v-on:click="Planprev(2)">上一步</button>
+        <div style="margin-top:20px;">
+             <button class="planbtn" v-on:click="result(3)">
+                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            </button>
+            <button class="planprev" v-on:click="Planprev(2)">
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+            </button>
+        </div>       
         <div class="clear"></div>
     </div>
 </div>
@@ -402,6 +423,16 @@ export default{
         },
         leaveStyle:function(I){
             this.hover[I-1].boolean = false;
+        },
+        goResource:function(){
+            this.$router.push({path:'/resourceGroup',query:{id:this.appId}});
+        },
+        clouldNext:function(){
+            if(this.cloudName!=''){
+                this.whichShow(2);
+            }else{
+                this.$layer.msg("请先完成云定性测试。");
+            }
         }
     },
     components:{

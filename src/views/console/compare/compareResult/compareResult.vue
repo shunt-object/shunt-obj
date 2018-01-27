@@ -24,7 +24,9 @@
             <tr v-for="item in compareResultList">
                 <td>{{item.serverName}}</td>
                 <td>{{item.scope}}</td>
-                <td><a target="_blank" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''">查看价格</a></td>
+                <td>
+                    <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -116,8 +118,12 @@
         </tbody>
     </table>
     <div class="compareResult-btn" style="margin-top:20px;">
-        <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">下一步</button>
-        <button class="compare-prevBtn" v-on:click="prev()">上一步</button>        
+        <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">
+            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+        </button>
+        <button class="compare-prevBtn" v-on:click="prev()">
+            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+        </button>        
     </div>
     <div class="clear"></div>
 </div>

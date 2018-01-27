@@ -9,18 +9,19 @@
         <div class="col-md-3"></div>
         <div class="login-from col-md-6">
             <div class="login-from-title">用户登录</div>
-            <div class="login-fu-title">欢迎使用Clould Broker</div>
+            <div class="login-fu-title">欢迎使用ClouldBroker²</div>
             <div style="padding:0 20px;margin-top:20px;">
                 <div class="login-from-list" :class="isaccount==true?'error':''">
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
+                    <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
                 </div>
-                <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
+                
                 <div class="login-from-list" :class="ishave==true?'error':''">
                     <i class="fa fa-lock"></i>
                     <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
-                </div>
-                <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
+                    <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
+                </div>                
                 <button class="login-from-btn" v-on:click="login()">登录</button>
                 <div class="login-from-remember">
                     <div class="login-from-left">

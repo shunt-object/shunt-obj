@@ -66,7 +66,14 @@
             </div>
         </div>
     </div>
-    <button class="comparebtn" v-on:click="result()">开始比较</button>
+    <div class="comparebnt-box">
+        <button class="comparebtn" v-on:click="result()">
+            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+        </button>
+        <button class="planprev" v-on:click="prev()">
+            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+        </button>
+    </div>
     <div class="clear"></div>
 
 </div>
@@ -120,7 +127,7 @@ export default{
                     let that = this;
                     let lay = this.$layer.open({
                         type: 0,
-                        content: '请选择场景进行答题',
+                        content: '请选择场景进行答题。',
                         title: '温馨提示',
                         btn: ['我知道了'],
                         yes:function(){
@@ -250,6 +257,9 @@ export default{
         },
         goBack:function(){
             this.$router.push({path:'/compareList'});
+        },
+        prev:function(){
+            this.$router.push({path:'/planResult',query:{id:this.appId}});
         }
     },
     components:{
