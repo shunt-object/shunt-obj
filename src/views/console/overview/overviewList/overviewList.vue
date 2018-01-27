@@ -346,6 +346,11 @@ a:hover{
 .ratelist span{
     display: inline-block; padding-top:55px; color:#666666;
 }
+.pnormal{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+ }
 .Jips{
     font-size:12px;
     text-align:center;

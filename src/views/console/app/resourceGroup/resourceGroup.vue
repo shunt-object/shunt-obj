@@ -9,7 +9,8 @@
 <div class="reourceContent">        
     <div class="resource">当前工作负载配置信息</div> 
     <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;" v-for="(jl,index) in cores">
-        <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
+    <div class="col-md-1">{{index}}</div>
+        <div class="resourceCroup-list-head col-md-1 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
         </div>
@@ -29,7 +30,7 @@
                    
             <li class=" col-sm-12">
                 <select v-model="cores[index].computeMappingFactor">
-                    <option value="<30%"><30%</option>
+                    <option value="≤30%">≤30%</option>
                     <option value="30%-60%">30%-60%</option>
                     <option value="60%-90%">60%-90%</option>
                     <option value="≥90%">≥90%</option>
@@ -60,7 +61,7 @@
             </li>
             <li class="col-sm-12">
                 <select v-model="ines[index].computeMappingFactorq">
-                    <option value="<30%"><30%</option>
+                    <option value="≤30%">≤30%</option>
                     <option value="30%-60%">30%-60%</option>
                     <option value="60%-90%">60%-90%</option>
                     <option value="≥90%">≥90%</option>
@@ -99,7 +100,8 @@
     </div>
     <div class="resourcebtn-box" style="margin-top:20px;">
         <button class="jumpBnt" @click="jump()">跳过</button>
-        <button class="resourcebtn" @click="btn()">下一步</button>
+        <button class="resourcebtn" @click="btn()">下一步<i class="iconfont icon-xiayibu" style="margin-left:5px; color:#fff;" ></i>
+</button>
     </div>    
     <div class="clear" style="margin-bottom:20px;"></div>
     

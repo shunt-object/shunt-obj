@@ -34,7 +34,7 @@ export default new Router({
       component: homePage
     },
     {
-      path:"/",
+      path:"/seleconefirst",
       name:"seleconefirst",
       component: seleconefirst
     },
