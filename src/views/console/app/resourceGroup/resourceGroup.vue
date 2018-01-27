@@ -35,9 +35,9 @@
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量（天/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量（小时/天）</li>
-            <li class="col-sm-12 creadIng"  v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量(天/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量(小时/天)</li>
+            <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row" style="margin-bottom:10px !important;"  v-for="(ine,index) in ines">
@@ -48,9 +48,9 @@
         <div class="col-md-3 text-left Inp col-sm-12" > <input type="number" min="1" v-model="ines[index].num"><span class="write-num">请填写数量</span></div>
         <ul class="resourceCroup-list-ul col-md-7 ulss text-left col-sm-12">
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].coresq">&nbsp&nbsp(v)CPU</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ghzq">&nbsp&nbsp处理器主频（GHZ）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ghzq">&nbsp&nbsp处理器主频(GHZ)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].ramq">&nbsp&nbsp内存(GB)</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].localDiskq">&nbsp&nbsp本地磁盘 (GB)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].localDiskq">&nbsp&nbsp本地磁盘(GB)</li>
             <li class=" col-sm-12">
                 <select name="" id="selet" v-model="ines[index].osq">
                     <option value="Linux">Linux</option>
@@ -66,9 +66,9 @@
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
             </li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量（天/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量（小时/天）</li>
-            <li class="col-sm-12 creadIng"   v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量(天/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量(小时/天)</li>
+            <li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row" style="margin-bottom:10px !important;">  
@@ -78,9 +78,9 @@
         </div>
         <div class="col-md-3 text-left Inp col-sm-12" ></div>
         <ul class="resourceCroup-list-ul ulis ulss col-md-7 text-left col-sm-12">
-            <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽（Mbps/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站（Mbps/月）</li>
-            <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站（Mbps/月）</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="bandwidth ">&nbsp&nbsp带宽(Mbps/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="inbound">&nbsp&nbsp入站(Mbps/月)</li>
+            <li class=" col-sm-12"><input type="number" min="1" v-model="outbound">&nbsp&nbsp出站(Mbps/月)</li>
         </ul>
     </div>   
 
@@ -94,7 +94,7 @@
             <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].sna" id="Gx">&nbsp&nbsp共享存储(SAN)(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].nsa" id="Ine">&nbsp&nbsp网络存储(NAS)(GB)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
-            <li class="col-sm-12 creadIng" v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</li>
+            <li class="col-sm-12 creadIng"><span v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</span><span @click="removeAs(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除存储</span></li>
         </ul>
     </div>
     <div class="resourcebtn-box" style="margin-top:20px;">
@@ -109,6 +109,10 @@
 <style>
 *{
     padding:0
+}
+.creadIng span{
+    cursor:pointer;
+    padding-right:20px;
 }
 .write-num{
     color:#999; font-size:12px; margin-left:10px;
@@ -280,6 +284,32 @@ export default {
             }
          )
       },
+
+    //   -----删除---
+
+    removeAl:function(index){
+        if(this.cores.length>1){
+            this.cores.splice(index, 1); 
+        }else{
+             this.$layer.alert("注意：此为最后一个应用服务，不可删除");
+        }
+    },
+    removeAs:function(index){
+        if(this.inus.length>1){
+            this.inus.splice(index, 1);
+        }else{
+            this.$layer.alert("注意：此为最后一个存储服务，不可删除");
+        }
+    },
+    removeAe:function(index){
+        if(this.ines.length>1){
+            this.ines.splice(index, 1); 
+        }else{
+             this.$layer.alert("注意：此为最后一个数据库服务，不可删除");
+        }
+    },
+
+
       btn:function(){
            //console.log(this.os);
             // if(){

@@ -19,7 +19,7 @@ import measured from '@/views/console/measured/measured'
 import planResult from '@/views/console/plan/planResult/planResult'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import wei from '@/views/front/wei'
-
+import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 
 
 
@@ -29,9 +29,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'homePage',
       component: homePage
+    },
+    {
+      path:"/",
+      name:"seleconefirst",
+      component: seleconefirst
     },
     {
       path: '/wei',

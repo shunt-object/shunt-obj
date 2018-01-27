@@ -4,7 +4,7 @@
                 <span></span>
                 云实测
             </div> 
-            <div class="title"><div class="animated swing">正在开发中...</div></div>      
+            <div class="title"><div class="animated swing"><img src="../../../assets/jqqd.jpg" alt=""></div></div>      
         </div>
 </template>
 <style>

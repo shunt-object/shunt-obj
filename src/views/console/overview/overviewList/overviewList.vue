@@ -18,7 +18,7 @@
 </div>
 <div class="overviewlist" v-if="utype!=3&&utype!=4">
     <div class="overviewSearch row" v-if="this.flag!=true">
-        <button class="creatAll col-xs-12 col-md-2"  v-on:click="UpRoute"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云分析</button>
+        <button class="creatAll col-xs-12 col-md-1"  v-on:click="UpRoute"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云分析</button>
           <div class="PlansearchBox">
              <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
@@ -89,8 +89,8 @@
                                     <span>{{im.moduleName}}</span>
                                 </p>
                                 <span class="satatus" v-if="im.taskStatus==2">(已完成)</span>    
-                                <span class="satatus" v-if="im.taskStatus==1">(未完成)</span>   
-                                <span class="satatus" v-if="im.taskStatus==0">(未做)</span>             <!--0=未做；1=已做未完成；2=已完成-->
+                                <span class="satatus" v-if="im.taskStatus==1">(分析中)</span>   
+                                <span class="satatus" v-if="im.taskStatus==0">(未完成)</span>             <!--0=未做；1=已做未完成；2=已完成-->
                                 <!--1云定性 2收益度 3亲和度 4比较标准 5资源配置 -->
                             </a>
                         </p>
