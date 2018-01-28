@@ -53,20 +53,49 @@
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:0;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:70%;height:70%;"></div>
                     </div>
-                    <p class="col-xs-12" style="margin-top:40px;margin-bottom:40px;"><span style="width:120px;height:31px;border:1px solid #e41e2b;font-size:14px;color:#e41e2b;padding:5px 10px;display:inline-block;text-align:center;">立即体验</span></p>
+                    <p class="col-xs-12" style="margin-top:40px;margin-bottom:40px;"><span style="border:1px solid #e41e2b;font-size:14px;color:#e41e2b;padding:10px 50px;display:inline-block;text-align:center;">立即体验</span></p>
                 </div>
             </div>
-            <div style="background:#ededed;width:100%;height:96px;">
+            <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                        <div>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                    <div class="container">
+                        <div class="col-md-4 col-xs-12 footer-laster">
+                            <dl>
+                                <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
+                                <dd class="dds">
+                                    <ul>
+                                        <li class="dds-li">保姆化</li>
+                                        <li class="dds-lis">1V1顾问支持</li>
+                                        <li class="dds-lis">提供一站化体验</li>
+                                    </ul>
+                                </dd>
+                            </dl>
                         </div>
-                        <div></div>
-                        <div></div>
+                        <div class="col-md-4 col-xs-12  footer-laster">
+                              <dl>
+                                <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
+                                <dd class="dds">
+                                    <ul>
+                                        <li class="dds-li">权威化</li>
+                                        <li class="dds-lis">云集百位专家</li>
+                                        <li class="dds-lis">提供科学化上云规划</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-4 col-xs-12 footer-laster">
+                              <dl>
+                                <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
+                                <dd class="dds">
+                                    <ul>
+                                        <li class="dds-li">可视化</li>
+                                        <li class="dds-lis">多维报表分析</li>
+                                        <li class="dds-lis">提供可视化数据展现</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </div>
     </div>
@@ -80,6 +109,27 @@
      
         max-width: 1090px;
 
+   }
+   .footer-laster{
+       padding-left:100px;
+       margin-top:20px;
+   }
+   dl .dts{
+        float:left;
+        margin-top:10px;
+        margin-right:10px;
+   }
+   dl .dds{
+       text-align:left;
+   }
+   .dds-li{
+       font-size:14px;
+       color:#333333;
+   }
+   .dds-lis{
+       font-size:12px;
+       color:#666666;
+       margin-top:5px;
    }
    *{margin:0px;padding:0px;}
    .seleconeMain-banner{background:url("../../../assets/seclecone-one.png") no-repeat;height:450px;text-align:center}

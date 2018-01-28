@@ -29,12 +29,12 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'homePage',
       component: homePage
     },
     {
-      path:"/seleconefirst",
+      path:"/",
       name:"seleconefirst",
       component: seleconefirst
     },
