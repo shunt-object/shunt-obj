@@ -104,6 +104,8 @@ export default{
             //alert(this.isclick);
             if( this.isclick!=1 && this.isclick!=2 ){
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            }else{
+               this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
             }            
         },
         drawPie:function(id){

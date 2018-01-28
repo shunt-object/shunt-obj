@@ -178,7 +178,8 @@ export default{
             storage:[],
             information:{},
             advise:'',
-            reslist:false
+            reslist:false,
+            isclick:''
         }
     },
     mounted:function(){
@@ -208,8 +209,12 @@ export default{
                 }
                 if(response.data.data.appResults[i].moduleId==1){
                     this.desc = JSON.parse(response.data.data.appResults[i].result).description;
+                    this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
                 }
             }
+             if( this.isclick==1 && this.isclick==2 ){
+                this.$layer.msg(" 因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。");
+             }
             this.opiniondata =  [{
                 name:response.data.data.appname,
                 value:[shouyi,qinhe]
