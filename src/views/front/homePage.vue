@@ -109,7 +109,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">基于云选型设计的业务场景，通过CloudBroker²提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
             </div>
-           <span class="obj-cta">查看更多</span>
+           <span class="obj-cta" @click="ctaClound()">查看更多</span>
           </div>
         </div>
       </div>
@@ -572,6 +572,10 @@ export default {
       },
       reset: function() {
         this.$router.push({path: '/register'})
+      },
+      ctaClound:function(){
+          this.$router.push({path: '/seleconefirst'});
+            $('html ,body').animate({scrollTop: 0},0);
       }
     }
   }

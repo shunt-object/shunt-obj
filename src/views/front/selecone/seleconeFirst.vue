@@ -53,7 +53,7 @@
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:0;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:70%;height:70%;"></div>
                     </div>
-                    <p class="col-xs-12" style="margin-top:40px;margin-bottom:40px;"><span style="border:1px solid #e41e2b;font-size:14px;color:#e41e2b;padding:10px 50px;display:inline-block;text-align:center;">立即体验</span></p>
+                    <p class="col-xs-12" style="margin-top:40px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
@@ -251,6 +251,14 @@
        color:#333333;
        text-align:center;
     }
+    .spanTy{
+        border:1px solid #e41e2b;font-size:14px;color:#e41e2b;padding:10px 50px;display:inline-block;text-align:center;
+    }
+    .spanTy:hover{
+        cursor:pointer;
+        background:red;
+        color:#fff;
+    }
 </style>
 <script>
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
@@ -259,6 +267,11 @@
         components:{
             Sec,
             Sex
+        },
+        methods:{
+            spanTy:function(){
+                this.$router.push({path: '/login'});
+            }
         }
     }
 </script>
