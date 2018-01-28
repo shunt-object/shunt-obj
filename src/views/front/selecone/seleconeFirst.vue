@@ -59,7 +59,7 @@
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container">
-                        <div class="col-md-4 col-xs-12 footer-laster">
+                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
                             <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -71,7 +71,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12  footer-laster">
+                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:100px;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -83,7 +83,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12 footer-laster">
+                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -111,7 +111,7 @@
 
    }
    .footer-laster{
-       padding-left:100px;
+       
        margin-top:20px;
    }
    dl .dts{
