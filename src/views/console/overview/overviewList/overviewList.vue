@@ -62,8 +62,12 @@
                     <span class="col-md-1 col-xs-1 proanmes">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-8 removeIng col-xs-8">
-                        <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
-                        <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
+                        <el-tooltip content="删除此云分析" placement="top" effect="light">
+                            <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
+                        </el-tooltip>
+                        <el-tooltip content="菜单操作：折叠or打开" placement="top" effect="light">
+                            <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
+                        </el-tooltip>
                     </span>
                 </li>
                 <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
@@ -102,8 +106,12 @@
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
-                        <i class="iconfont icon-shanchu" style="font-size:20px !important;" v-on:click="remYy(item.id)"></i>
-                        <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
+                        <el-tooltip content="删除此应用" placement="top" effect="light">
+                            <i class="iconfont icon-shanchu" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" v-popover:popover1></i>
+                        </el-tooltip>
+                        <el-tooltip content="查看综合报表" placement="top" effect="light">   
+                            <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
+                         </el-tooltip>
                         <!--<input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
                         <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" > --> 
                         <!--v-on:mouseover="treeTip()"-->
@@ -249,7 +257,7 @@ i{
 }
 /**/
 .overviewlist{
-    /*min-height:500px;*/ height:100vh; background:#fff; padding:0 15px;
+    /*min-height:500px;*/  background:#fff; padding:0 15px;
 }
 .overviewSearch{
      width:100%; 
@@ -592,7 +600,8 @@ export default {
             togglelist:[],
             utype:'',
             welco:false,
-            welcom:false
+            welcom:false,
+           
             //{"ids":[1,2,3]}
         }
     },     
@@ -728,8 +737,10 @@ export default {
         },
         toggleShow:function(index){
             if(this.togglelist[index].boolean==true){
+              
                 this.togglelist[index].boolean=false;
             }else{
+                
                 this.togglelist[index].boolean=true;
             }
         }
