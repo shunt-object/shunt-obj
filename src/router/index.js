@@ -9,6 +9,8 @@ import agreenment from '@/views/front/agreenment/agreenment'
 import consolePage from '@/views/console/consolePage/consolePage'
 import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
+import accountInformation from '@/views/console/app/accountInformation/accountInformation'
+import safeSetting from '@/views/console/app/safeSetting/safeSetting'
 import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
 import compareQuestion from '@/views/console/compare/compareQuestion/compareQuestion'
 import compareResult from '@/views/console/compare/compareResult/compareResult'
@@ -89,6 +91,22 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:overviewList
+        },
+        {
+          path:'/accountInformation',
+          name:'accountInformation',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:accountInformation
+        },
+        {
+          path:'/safeSetting',
+          name:'safeSetting',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:safeSetting
         },
         {
           path:'/compareList',
