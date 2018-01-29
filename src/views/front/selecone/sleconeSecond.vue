@@ -1,40 +1,39 @@
-<!--云选型-->
-
-<template>   
+<!--云规划-->
+<template>
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
             <div class="seleconeMain-banner row">
                 <div class="seleconeMain-mainfir col-xs-12">
-                    <p class="selecone-pfir">云选型<span>——我们应该上哪家云呢?</span></p>
+                    <p class="selecone-pfir">云规划<span>——我可以上云吗?上哪种类型的云?</span></p>
                     <div class="seclone-dv">
-                        <h3>六大场景 近二百多个标准</h3>
+                        <h3>三步让您科学上云</h3>
                         <p>有没有一个简单的应用，可以科学的告诉我结果呢?</p>
                     </div>
-                      <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
+                     <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
             </div>
             <div class="seleconeMain-charts container">
-                <h4>当前企业上云情况</h4>
-                <P>上云成为主流和多云变为趋势</P>
+                <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
+                <h4 class="h4Firer">众多用户纷纷选择上云</h4>
+                <P style="font-size:16px">企业关注的也不再是上不上云，而是:我的工作负载适合上云吗?适合上哪种类型的云?</P>
                 <div class="col-md-12 seleconeMain-img">
-                    <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
+                    <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
                  </div>
             </div>
             <div style="background:#f9fafb;width:100%;">
                 <div class="seleconeMain-shrts container" >
-                    <h4>现实中真实困惑</h4>
-                    <P>面对诸多的云厂商，不知如何选择？</P>
+                    <h4 class="shrts-h4">集结上百位专家心血</h4>
+                    <h4 class="shrts-h4er">为您提供科学规划和上云</h4>
+                    <P>解决工作负载是否适合上云?适合上哪种类型的云?</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
-                            <ul>
-                                <li><span class="sp1">1</span><span class="sp4">政府扶持</span></li>
-                                <li><span class="sp3">2</span><span class="sp4">战略选型</span></li>
-                                <li><span class="sp2">3</span><span class="sp4">财务决策</span></li>
-                                <li><span class="sp1">4</span><span class="sp4">技术选型</span></li>
-                                <li><span class="sp3">5</span><span class="sp4">安全合规</span></li>
-                                <li><span class="sp1">6</span><span class="sp4">运维支撑能力</span></li>
+                            <ul class="Main-ul">
+                                <li>只需三步，即刻测试查看</li>
+                                <li class="Main-li"><img src="../../../assets/Group 81.png" alt=""><span class="sp4">云定性</span></li>
+                                <li><img src="../../../assets/Group 82.png" alt=""><span class="sp4">云收益度</span></li>
+                                <li><img src="../../../assets/83.png" alt=""><span class="sp4">云亲和度</span></li>
                             </ul>
                         </div>
                     </div>
@@ -56,7 +55,7 @@
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:60px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
-                   
+                  
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
@@ -146,9 +145,6 @@
        font-weight:100;
        color:#ccc;
    }
-   .selecone-psec{
-
-   }
    .seclone-dv h3{
        font-size:32px;
        color:#ffffff;
@@ -166,26 +162,44 @@
        font-size:28px;
        color:#333333;
        text-align:center;
-       margin-top:50px;
+   }
+   .seleconeMain-charts .h4Fir{
+         margin-top:50px;
+   }
+   .Main-ul li img{
+       width:47px;
+       height:47px;
+   }
+   .seleconeMain-charts .h4Firer{
+       margin-top:20px;
+       margin-bottom:30px;
    }
    .seleconeMain-charts p{
-       font-size:28px;
+       font-size:16px;
        color:#333333;
        text-align:center;
    }
    .seleconeMain-img img{
-       width:80%;
-       height:80%;
+       width:50%;
+       height:50%;
+       
    }
    .seleconeMain-img{
        margin-top:60px;
-       margin-bottom:160px;
+       margin-bottom:100px;
    }
    .seleconeMain-shrts h4{
        font-size:28px;
        color:#333333;
        text-align:center;
-       margin-top:50px;
+     
+   }
+   .seleconeMain-shrts .shrts-h4{
+      margin-top:50px;
+   }
+   .seleconeMain-shrts .shrts-h4er{
+       margin-top:20px;
+       margin-bottom:30px;
    }
    .seleconeMain-shrts p{
        font-size:16px;
@@ -199,6 +213,12 @@
    .seleconeMain-simg img{
        width:80%;
        height:80%;
+   }
+   .Main-ul{
+       padding-left:20px;
+   }
+   .Main-li{
+       margin-top:20px;
    }
    .seleconeMain-simg ul li .sp4{
        font-size:14px;
@@ -258,7 +278,7 @@
        text-align:center;
     }
     .spanTy{
-        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:5px 40px;display:inline-block;text-align:center;background:#e41e2b
+        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:10px 50px;display:inline-block;text-align:center;background:#e41e2b;
     }
     .spanTy:hover{
         cursor:pointer;

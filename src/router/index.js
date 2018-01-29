@@ -20,6 +20,7 @@ import planResult from '@/views/console/plan/planResult/planResult'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import wei from '@/views/front/wei'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
+import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 
 
 
@@ -37,6 +38,11 @@ export default new Router({
       path:"/seleconefirst",
       name:"seleconefirst",
       component: seleconefirst
+    },
+    {
+      path:"/sleconesecond",
+      name:"sleconesecond",
+      component:sleconesecond
     },
     {
       path: '/wei',
