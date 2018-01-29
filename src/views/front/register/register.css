@@ -43,7 +43,8 @@
 .reg-from-list{
     border:1px solid #e9e9e9;
     border-radius:4px;
-    width:360px;
+    /*width:360px;*/
+    width:100%;
     height:37px;
     margin:20px auto;
     line-height:30px;
@@ -107,7 +108,8 @@
     text-indent:30px;
 }
 .reg-from-val{
-    width:250px;
+    /*width:250px;*/
+    width:68%;
     border:none;
     outline:none;
 }
@@ -117,12 +119,14 @@
 .reg-from-btn{
     background:#da121a;
     border-radius:4px;
-    width:360px;
+    /*width:360px;*/
+    width:100%;
     height:37px;
     color:#fff;
 }
 .reg-from-agreement{
-    width:330px;
+    /*width:330px;*/
+    width:100%;
     margin:10px auto;
     font-size:12px;
     color:#0983f6;
@@ -155,7 +159,7 @@
 .reg-foot-list{
     font-size:12px;
     color:#969696;
-    line-height:10px;
+    line-height:20px;
     text-align:center;
 }
 .placego{

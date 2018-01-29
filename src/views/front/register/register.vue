@@ -3,7 +3,7 @@
     <div class="reg-header">
         <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
     </div>
-    <div class="row">
+    <div class="row" style="padding-bottom:100px;">
         <div class="col-md-4"></div>
         <div class="reg-from col-md-4">
             <div class="reg-from-title">欢迎注册ClouldBroker²</div>
@@ -72,8 +72,9 @@
             <div class="reg-from-agreement">
                 <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
                 <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
-                <router-link target="_blank" to="/agreenment">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
+                <router-link target="_blank" to="/agreenment" style="float:left;width:90% !important;text-align:left;">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
             </div>
+            <div class="clear"></div>
             <!--<div class="reg-from-null"></div>-->
             <div class="reg-from-notice">
                 已有ClouldBroker²账号?
@@ -82,7 +83,7 @@
         </div>
         <div class="col-md-4"></div>
     </div>
-    <div style="width:100%;height:150px;"></div>
+    <!--<div style="width:100%;height:150px;"></div>-->
     <div class="reg-footer">
         <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
         <!--<p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>

@@ -526,7 +526,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li a {
-    padding: 15px 10px !important;
+    padding: 10px 10px !important;
     width: 100%;
     display: inline-block;
 }
@@ -602,9 +602,10 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended.logout > li {
-    float: left;
+    /*float: left;*/
     text-align: center;
-    width: 33.3%;
+    /*width: 33.3%;*/
+    width:100%;
 }
 
 .dropdown-menu.extended.logout > li:last-child {
@@ -616,7 +617,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended.logout > li:last-child > a, .dropdown-menu.extended.logout > li:last-child > a:hover {
-    color: #333;
+    color: #337ab7;
     border-bottom: none !important;
     text-transform: uppercase;
 }
@@ -626,13 +627,13 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended.logout > li > a {
-    color: #a4abbb;
+    color: #333 !important;
     border-bottom: none !important;
 }
 
 .dropdown-menu.extended.logout > li > a:hover {
     background: none !important;
-    color: #50c8ea;
+    color: #337ab7;
 }
 
 .dropdown-menu.extended.logout > li > a:hover i {
