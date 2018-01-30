@@ -22,6 +22,8 @@
 </div>
 </div>
 </template>
+<style>
+</style>
 <script>
 export default{
     name:'safeSetting',
@@ -29,6 +31,8 @@ export default{
         return {
             
         }
+    },
+    mounted:function(){
     }
 }
 </script>

@@ -226,8 +226,7 @@ export default{
                     this.cloudName = response.data.data.sname;
                     this.serverce = response.data.data.id;
                     if( qcode!=-1 || optcode!=-1 ){
-                        document.documentElement.scrollTop = 0;
-                        
+                        document.documentElement.scrollTop = 0;                        
                         //您适合上XX云  请继续进行云收益度测试？
                         this.$layer.tips('您适合上'+response.data.data.sname+',请继续进行云收益度测试', '#tips', {
                             tips: [1]});
@@ -385,39 +384,77 @@ export default{
             this.$router.push({path:'/planList'});
         },
         layerNotice:function(typeId,data){
-            if(typeId==2 || typeId==3){
-                for(let i=0;i<data.appResults.length;i++){
-                    if(data.appResults[i].moduleId==1){
-                        if(data.appResults[i].result==null){
-                            let that = this;
-                            let lay = this.$layer.open({
-                                type: 0,
-                                content: '您还未进行云定性测试，请前往测试',
-                                title: '温馨提示',
-                                btn: '我知道了',
-                                yes:function(){
-                                    that.$layer.close(lay);
-                                    that.whichShow(1);
-                                }
-                            });
+            let that = this;
+            if(typeId==2||typeId==3){
+                if(data.appResults.length==0){
+                    this.$alert('您还未进行云定性测试，请前往测试。', '温馨提示', {
+                        confirmButtonText: '我知道了',
+                        showClose:false,
+                        confirmButtonClass:'lay-btn-red',
+                        callback:function(action){
+                            that.whichShow(1);
                         }
-                    }else if(data.appResults[i].moduleId==2){
-                        if(data.appResults[i].result==null){
-                            let that = this;
-                            let lay = this.$layer.open({
-                                type: 0,
-                                content: '您还未进行收益度测试，请前往测试',
-                                title: '温馨提示',
-                                btn: '我知道了',
-                                yes:function(){
-                                    that.$layer.close(lay);
-                                    that.whichShow(2);
+                    });
+                }else if(data.appResults.length==1&&data.appResults[0].moduleId==5){
+                    this.$alert('您还未进行云定性测试，请前往测试。', '温馨提示', {
+                        confirmButtonText: '我知道了',
+                        showClose:false,
+                        confirmButtonClass:'lay-btn-red',
+                        callback:function(action){
+                            that.whichShow(1);
+                        }
+                    });
+                }else{
+                
+                    for(let i=0;i<data.appResults.length;i++){
+                        if(data.appResults[i].moduleId==1){
+                            if(typeId==2&&data.appResults[i].result!=null){
+                                that.whichShow(2);
+                            }else if(typeId==3&&data.appResults[i].result!=null){
+                                if(data.appResults.length>2){
+                                   that.whichShow(typeId); 
+                                }else{
+                                    this.$alert('您还未进行收益度测试，请前往测试。', '温馨提示', {
+                                        confirmButtonText: '我知道了',
+                                        showClose:false,
+                                        confirmButtonClass:'lay-btn-red',
+                                        callback:function(action){
+                                            that.whichShow(2);
+                                        }
+                                    });
                                 }
-                            });
+                                
+                            }else{
+                                this.$alert('您还未进行云定性测试，请前往测试。', '温馨提示', {
+                                    confirmButtonText: '我知道了',
+                                    showClose:false,
+                                    confirmButtonClass:'lay-btn-red',
+                                    callback:function(action){
+                                        that.whichShow(1);
+                                    }
+                                });
+                            }
+                        }else if(data.appResults[i].moduleId==2){
+                            if( typeId==2 && data.appResults[i].result==null ){
+                                that.whichShow(2);
+                            }else if( typeId==3 && data.appResults[i].result==null ){
+                                 this.$alert('您还未进行收益度测试，请前往测试。', '温馨提示', {
+                                    confirmButtonText: '我知道了',
+                                    showClose:false,
+                                    confirmButtonClass:'lay-btn-red',
+                                    callback:function(action){
+                                        that.whichShow(2);
+                                    }
+                                });
+                            }else if( typeId==3 && data.appResults[i].result!=null ){
+                                that.whichShow(3);
+                            }
                         }
                     }
+
                 }
             }
+
         },
         hoverStyle:function(I){
             this.hover[I-1].boolean = true;

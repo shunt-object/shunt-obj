@@ -105,7 +105,16 @@ export default{
             if( this.isclick!=1 && this.isclick!=2 ){
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
             }else{
-               this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
+                let that = this;
+                this.$alert('因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    confirmButtonClass:'lay-btn-red',
+                    callback:function(action){
+                        that.$router.push({path:'/colligateReport',query:{id:that.appId,type:that.queryType}});
+                    }
+                });
+                
             }            
         },
         drawPie:function(id){
