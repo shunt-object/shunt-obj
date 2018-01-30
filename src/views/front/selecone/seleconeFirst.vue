@@ -4,7 +4,7 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row">
+            <div class="seleconeMain-banner row animated bounceInLeft">
                 <div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir">云选型<span>——我们应该上哪家云呢?</span></p>
                     <div class="seclone-dv">
@@ -21,7 +21,7 @@
                     <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
                  </div>
             </div>
-            <div style="background:#f9fafb;width:100%;">
+            <div style="background:#f9fafb;width:100%;" class="broundRi">
                 <div class="seleconeMain-shrts container" >
                     <h4>现实中真实困惑</h4>
                     <P>面对诸多的云厂商，不知如何选择？</P>
@@ -40,20 +40,20 @@
                     </div>
                 </div>
             </div>
-            <div style="background:#ffffff;width:100%">
-                <div class="seleconeMain-echarts container">
-                    <p class="child-p text-center">多维报表分析</p>
-                    <p class="child-ps text-center">提供可视化数据展现</p>
-                    <P class="child-pl text-center">海量数据 分析报告</P>
+            <div style="background:#ffffff;width:100%" >
+                <div class="seleconeMain-echarts broundDow container">
+                    <h4 class="child-p text-center">多维报表分析</h4>
+                    <h4 class="child-ps text-center">提供可视化数据展现</h4>
+                    <P class="child-pl text-center" style="margin-top:26px;color:#777777">海量数据 分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
                 </div>
             </div>
              <div style="background:#f6f7f8;width:100%">
-                <div class="seleconeMain-echarts container">
+                <div class="seleconeMain-echarts broundU container">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
-                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:60px;">
+                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
                    
@@ -61,8 +61,8 @@
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container">
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
+                    <div class="container" style="width:60%;">
+                        <div class="col-md-4 col-xs-12 footer-laster">
                             <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -74,7 +74,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:100px;">
+                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:6%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
                                 <dd class="dds">
@@ -86,7 +86,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
+                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:8%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
                                 <dd class="dds">
@@ -108,6 +108,21 @@
 
 </template>
 <style>
+.seleconeMain-banner{
+   animation-duration:2s;
+}
+.seleconeMain-shrts{
+    animation-duration:2s;
+}
+.seleconeMain-charts{
+     animation-duration:2s;
+}
+.broundU{
+    animation-duration:2s;
+}
+.broundDow{
+    animation-duration:2s; 
+}
    .container{
      
         max-width: 1090px;
@@ -161,6 +176,7 @@
    }
    .seleconeMain-charts{
        width:100%;
+       animation-duration:2s;
    }
    .seleconeMain-charts H4{
        font-size:28px;
@@ -179,7 +195,7 @@
    }
    .seleconeMain-img{
        margin-top:60px;
-       margin-bottom:160px;
+       margin-bottom:100px;
    }
    .seleconeMain-shrts h4{
        font-size:28px;
@@ -189,12 +205,12 @@
    }
    .seleconeMain-shrts p{
        font-size:16px;
-       color:#333333;
+       color:#777777;
        text-align:center;  
    }
    .seleconeMain-simg{
         margin-top:60px;
-       margin-bottom:60px;
+       margin-bottom:100px;
    }
    .seleconeMain-simg img{
        width:80%;
@@ -279,6 +295,50 @@
             spanTy:function(){
                 this.$router.push({path: '/login'});
             }
-        }
+        },
+        mounted:function(){
+            $(document).ready(function(){ 
+                       $.fn.extend({
+                        animateCss: function (animationName) {
+                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                            $(this).removeClass('animated ' + animationName);
+                            });
+                        }           
+                    });
+          
+           
+             $(window).scroll(function(){
+               
+               
+                   if($(this).scrollTop()>300&&$(this).scrollTop()<450){
+                          $(".seleconeMain-charts").animateCss('bounceInLeft');
+                    }else if($(this).scrollTop()>800&&$(this).scrollTop()<850){
+                        
+                         $(".seleconeMain-shrts").animateCss('bounceInRight');
+                         
+                    }else if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
+                        $(".broundDow").animateCss('bounceInDown');
+                    }else if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
+                        $(".broundU").animateCss('bounceInUp');
+                        
+                    };
+                    
+                 
+                  
+                    
+                    
+                   
+                 //console.log($(this).scrollTop());
+            })
+                //当window的scrolltop距离大于1时，go to 
+                // if($(this).scrollTop() > 550){
+                //     $('.scrollUp').css("display","block")
+                //     }else{
+                //             $('.scrollUp').fadeOut();
+                //          }
+                // });
+        })
     }
+}
 </script>

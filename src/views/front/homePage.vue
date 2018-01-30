@@ -31,7 +31,7 @@
               <div class="col-md-7 lun-le animated rollIn">
                 <h1>业界领先上云服务,助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
                 <img src="../../assets/text.png" alt="" class="tranimg">
@@ -49,7 +49,7 @@
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>提供360°保姆式咨询服务</h1>
                             <p class="pCenter" style="font-weight:600">上云规划从未如此简单</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
                         <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
@@ -290,7 +290,7 @@ export default {
                         $(".lis-hov").mouseover(function(){
                             $(this).find(".pict").css("transform", "scale(1.4)")
                              $(this).find(".picts").css("transform", "scale(1.4)")
-                             $(this).find("p").css({"transform":"scale(1.3)","color":"#8288ff","padding-top":"35%"})
+                             $(this).find("p").css({"transform":"scale(1.3)","color":"#fff","padding-top":"35%"})
                             //  $(this).css("position","relative");
                             //  var res = "<div class='dnsery'></div>";
                             //  $(".dnsery").css({"position":"absolute","top":0,"width":"273px","height":"376px","opacity":0.2,"background":"#1f2745"})
@@ -589,6 +589,9 @@ export default {
 /**{
    overflow:hidden
 }*/
+.hoverSapn:hover{
+    cursor:pointer;
+}
 .lis-hov p{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;

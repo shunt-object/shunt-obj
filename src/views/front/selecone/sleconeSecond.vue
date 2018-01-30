@@ -13,13 +13,15 @@
                      <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
             </div>
-            <div class="seleconeMain-charts container">
-                <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
-                <h4 class="h4Firer">众多用户纷纷选择上云</h4>
-                <P style="font-size:16px">企业关注的也不再是上不上云，而是:我的工作负载适合上云吗?适合上哪种类型的云?</P>
-                <div class="col-md-12 seleconeMain-img">
-                    <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
-                 </div>
+             <div style="background:#ffffff;width:100%">
+                <div class="seleconeMain-charts container">
+                    <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
+                    <h4 class="h4Firer">众多用户纷纷选择上云</h4>
+                    <P style="font-size:16px">企业关注的也不再是上不上云，而是:我的工作负载适合上云吗?适合上哪种类型的云?</P>
+                    <div class="col-md-12 seleconeMain-img">
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
+                    </div>
+                </div>
             </div>
             <div style="background:#f9fafb;width:100%;">
                 <div class="seleconeMain-shrts container" >
@@ -41,9 +43,9 @@
             </div>
             <div style="background:#ffffff;width:100%">
                 <div class="seleconeMain-echarts container">
-                    <p class="child-p text-center">多维报表分析</p>
-                    <p class="child-ps text-center">提供可视化数据展现</p>
-                    <P class="child-pl text-center">海量数据 分析报告</P>
+                    <h4 class="shrts-h4">多维报表分析</h4>
+                    <h4 class="shrts-h4er">提供可视化数据展现</h4>
+                    <P>海量数据 分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
@@ -52,7 +54,7 @@
              <div style="background:#f6f7f8;width:100%">
                 <div class="seleconeMain-echarts container">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
-                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:60px;">
+                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
                   
@@ -60,8 +62,8 @@
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container">
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
+                    <div class="container" style="width:60%;">
+                        <div class="col-md-4 col-xs-12 footer-laster" >
                             <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -73,7 +75,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:100px;">
+                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:6%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
                                 <dd class="dds">
@@ -85,7 +87,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:100px;">
+                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:8%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
                                 <dd class="dds">
@@ -171,12 +173,25 @@
        height:47px;
    }
    .seleconeMain-charts .h4Firer{
-       margin-top:20px;
+       margin-top:10px;
        margin-bottom:30px;
    }
+   .seleconeMain-echarts .shrts-h4{
+       margin-top: 50px;
+           font-size: 28px;
+    color: #333333;
+    text-align: center;
+   }
+   .seleconeMain-echarts .shrts-h4er{
+       margin-top: 10px;
+    margin-bottom: 30px;
+        font-size: 28px;
+    color: rgb(51, 51, 51);
+    text-align: center;
+    }
    .seleconeMain-charts p{
        font-size:16px;
-       color:#333333;
+       color:#777777;
        text-align:center;
    }
    .seleconeMain-img img{
@@ -198,17 +213,17 @@
       margin-top:50px;
    }
    .seleconeMain-shrts .shrts-h4er{
-       margin-top:20px;
+       margin-top:10px;
        margin-bottom:30px;
    }
    .seleconeMain-shrts p{
        font-size:16px;
-       color:#333333;
+       color:#777777;
        text-align:center;  
    }
    .seleconeMain-simg{
         margin-top:60px;
-       margin-bottom:60px;
+       margin-bottom:100px;
    }
    .seleconeMain-simg img{
        width:80%;
@@ -260,6 +275,11 @@
      }
     .seleconeMain-simg ul li{
         margin-bottom:10px;
+    }
+    .seleconeMain-echarts p{
+    font-size: 16px;
+    color: rgb(119, 119, 119);
+    text-align: center;
     }
     .seleconeMain-echarts .child-p{
         font-size:28px;
