@@ -287,6 +287,7 @@ export default {
                             $(this).find("img").removeClass("flip")
 
                         });
+                       
                         $(".lis-hov").mouseover(function(){
                             $(this).find(".pict").css("transform", "scale(1.4)")
                              $(this).find(".picts").css("transform", "scale(1.4)")
@@ -319,17 +320,18 @@ export default {
                            $(this).css({"box-shadow":"","background":""});;
                         });
                         $(".claes").hover(function(){
-                           $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
-                           //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
-                           var a = $(this).find(".tranImg");
-                            a.addClass("imgAnimation");
-                            
+                            $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
+                        //    //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
+                        //    var a = $(this).find(".tranImg");
+                        //     a.addClass("imgAnimation");
+                            $(this).find("img").animateCss('flip'); 
                           
                         },function(){
-                              $(this).css({"box-shadow":"","background":""});;
-                              var a = $(this).find(".tranImg");
-                             a.css({opacity:'1'});
-                              a.removeClass("imgAnimation");
+                             $(this).css({"box-shadow":"","background":""});;
+                            //   var a = $(this).find(".tranImg");
+                            //  a.css({opacity:'1'});
+                            //   a.removeClass("imgAnimation");
+                              $(this).find("img").removeClass("flip");
                         })
             //$('.scrollUp').hide();        
             $(window).scroll(function(){

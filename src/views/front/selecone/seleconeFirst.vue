@@ -291,6 +291,11 @@
             Sec,
             Sex
         },
+        data(){
+            return{
+                arrs:true
+            }
+        },
         methods:{
             spanTy:function(){
                 this.$router.push({path: '/login'});
@@ -306,38 +311,35 @@
                             });
                         }           
                     });
-          
-           
+             var index=0;
+             var isn = true;
              $(window).scroll(function(){
-               
-               
-                   if($(this).scrollTop()>300&&$(this).scrollTop()<450){
-                          $(".seleconeMain-charts").animateCss('bounceInLeft');
-                    }else if($(this).scrollTop()>800&&$(this).scrollTop()<850){
-                        
-                         $(".seleconeMain-shrts").animateCss('bounceInRight');
-                         
-                    }else if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
-                        $(".broundDow").animateCss('bounceInDown');
-                    }else if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
-                        $(".broundU").animateCss('bounceInUp');
-                        
+              
+               if(isn==true){
+                    if($(this).scrollTop()>300&&$(this).scrollTop()<450){
+                      $(".seleconeMain-charts").animateCss('bounceInLeft');
+                     
                     };
-                    
-                 
+                    if($(this).scrollTop()>800&&$(this).scrollTop()<850){
+                        $(".seleconeMain-shrts").animateCss('bounceInLeft');
+                     
+                    };
+                    if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
+                        $(".broundDow").animateCss('bounceInLeft');
+                       
+                    };
+                    if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
+                        $(".broundU").animateCss('bounceInLeft');
+                        index=1;
+                    };
+               }
+                if(index==1){
+                   isn = false;
+               }
                   
-                    
-                    
-                   
-                 //console.log($(this).scrollTop());
-            })
-                //当window的scrolltop距离大于1时，go to 
-                // if($(this).scrollTop() > 550){
-                //     $('.scrollUp').css("display","block")
-                //     }else{
-                //             $('.scrollUp').fadeOut();
-                //          }
-                // });
+        })
+             
+               
         })
     }
 }

@@ -7,8 +7,264 @@
 </div>
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
-    <div class="resource">当前工作负载配置信息</div> 
-    <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(jl,index) in cores"  :class="index==j?'bounceInDown':''" >
+    <div class="resource">输入工作负载配置信息</div> 
+    <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
+        <el-form :model="form">
+            <el-form-item label="配置类型" :label-width="formLabelWidth">
+                <el-select v-model="regionter" placeholder="请选择配置类型" @change="peiType">
+                    <el-option label="应用服务" value="应用服务"></el-option>
+                    <el-option label="数据库服务" value="数据库服务"></el-option>
+                    <el-option label="网络服务" value="网络服务"></el-option>
+                    <el-option label="存储服务" value="存储服务"></el-option>
+                </el-select>
+            </el-form-item>
+            <div class="yibazi" v-show="yingy">
+                <el-form-item label="数量" :label-width="formLabelWidth">
+                    <el-input v-model="cores.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="(v)Cpu" :label-width="formLabelWidth">
+                    <el-input v-model="cores.cores" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth">
+                    <el-input v-model="cores.ghz" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="内存(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="cores.ram" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="系统盘(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="cores.localDisk" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="操作系统" :label-width="formLabelWidth">
+                    <el-select v-model="cores.os" placeholder="请选择">
+                        <el-option value="Linux">Linux</el-option>
+                        <el-option value="Window">Window</el-option>
+                        <el-option value="Unix">Unix</el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth">
+                    <el-select v-model="cores.computeMappingFactor" placeholder="请选择">
+                        <el-option value="≤30%">≤30%</el-option>
+                        <el-option value="30%-60%">30%-60%</el-option>
+                        <el-option value="60%-90%">60%-90%</el-option>
+                        <el-option value="≥90%">≥90%</el-option>
+                    </el-select>
+                </el-form-item>
+           </div>
+
+           <!--数据库服务-->
+           <div class="yibazo" v-show="shuj">
+                <el-form-item label="数量" :label-width="formLabelWidth">
+                    <el-input v-model="ines.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="(v)Cpu" :label-width="formLabelWidth">
+                    <el-input v-model="ines.coresq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth">
+                    <el-input v-model="ines.ghzq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="内存(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="ines.ramq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="本地磁盘(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="ines.localDiskq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="操作系统" :label-width="formLabelWidth">
+                    <el-select v-model="ines.osq" placeholder="请选择">
+                        <el-option value="Linux">Linux</el-option>
+                        <el-option value="Window">Window</el-option>
+                        <el-option value="Unix">Unix</el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth">
+                    <el-select v-model="ines.computeMappingFactorq" placeholder="请选择">
+                        <el-option value="≤30%">≤30%</el-option>
+                        <el-option value="30%-60%">30%-60%</el-option>
+                        <el-option value="60%-90%">60%-90%</el-option>
+                        <el-option value="≥90%">≥90%</el-option>
+                    </el-select>
+                </el-form-item>
+           </div>
+           
+           <!--网络-->
+           <div class="yibanzp" v-show="wangl">
+                <el-form-item label="带宽(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="bandwidth" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="入站(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="inbound" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="出站(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="outbound" auto-complete="off"></el-input>
+                </el-form-item>
+           </div>
+
+          <!--存储-->
+           <div class="yibanzp" v-show="cunc">
+                <el-form-item  label="数量" :label-width="formLabelWidth" >
+                    <el-input v-model="inus.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="" :label-width="formLabelWidth">
+                    <el-checkbox v-model="checked" v-on:change="lookw()">共享存储(SAN)(GB)</el-checkbox>
+                    <el-checkbox v-model="checkeder" v-on:change="lookq()">网络存储(NAS)(GB)</el-checkbox>
+                    <el-checkbox v-model="checkedes" v-on:change="looke()">云存储(GB)</el-checkbox>
+                </el-form-item>
+                <el-form-item label="共享存储(SAN)(GB)" :label-width="formLabelWidth" v-show="qer">
+                    <el-input v-model="inus.sna" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="网络存储(NAS)(GB)" :label-width="formLabelWidth" v-show="wer">
+                    <el-input v-model="inus.nsa" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="云存储(GB)" :label-width="formLabelWidth" v-show="ret">
+                    <el-select v-model="awsClound" placeholder="请选择厂商">
+                        <el-option value="AWS">AWS</el-option>
+                        <el-option value="Azure">Azure</el-option>
+                        <el-option value="阿里云">阿里云</el-option>
+                        <el-option value="腾讯云">腾讯云</el-option>
+                        <el-option value="金山云">金山云</el-option>
+                        <el-option value="电信云">电信云</el-option>
+                        <el-option value="UCloud">UCloud</el-option>
+                        <el-option value="华为云">华为云</el-option>
+                        <el-option value="沃云">沃云</el-option>
+                        <el-option value="其它">其它</el-option>
+                    </el-select>
+                    <el-input v-model="inus.cloudStorage" auto-complete="off" style="width:40%" placeholder="请输入云存储的大小"></el-input>
+                </el-form-item>
+           </div>
+         </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFor()">确定</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">取消</el-button>
+        </div>
+  </el-dialog>
+  <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+  <div>
+        <div class="col-md-6" style="padding:5px 5px 0 0;">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:28px;margin:0;background:#ccc;padding:5px 0 5px 5px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji"></i>&nbsp&nbsp<i class="iconfont icon-cuohao"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group1.png" alt="">
+                    <h4>应用服务</h4>
+                    <p><span>{{this.cores.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>vCPU</li>
+                        <li>{{}}</li>
+                        <li>系统盘(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>处理器主频(GHZ)</li>
+                        <li>{{}}</li>
+                        <li>操作系统</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>内存(GB)</li>
+                        <li>{{}}</li>
+                        <li>资源平均利用率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-6" style="padding:5px 5px 0 0;">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:28px;margin:0;background:#ccc;padding:5px 0 5px 5px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji"></i>&nbsp&nbsp<i class="iconfont icon-cuohao"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group2.png" alt="">
+                    <h4>数据库服务</h4>
+                    <p><span>{{this.ines.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>vCPU</li>
+                        <li>{{}}</li>
+                        <li>本地磁盘(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>处理器主频(GHZ)</li>
+                        <li>{{}}</li>
+                        <li>操作系统</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>内存(GB)</li>
+                        <li>{{}}</li>
+                        <li>资源平均利用率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <div class="col-md-6" style="padding:5px 5px 0 0;">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:28px;margin:0;background:#ccc;padding:5px 0 5px 5px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji"></i>&nbsp&nbsp<i class="iconfont icon-cuohao"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group3.png" alt="">
+                    <h4>网络服务</h4>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" >
+                    <ul>
+                        <li>{{}}</li>
+                        <li>带宽(Mbps/月)</li>
+                     
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>入站(Mbps/月)</li>
+                      
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>出站</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding:5px 5px 0 0;">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:28px;margin:0;background:#ccc;padding:5px 0 5px 5px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji"></i>&nbsp&nbsp<i class="iconfont icon-cuohao"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group1.png" alt="">
+                    <h4>存储服务</h4>
+                    <p><span>{{this.cores.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" v-show="this.qer">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>共享存储(SAN)(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" v-show="this.wer">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>网络存储(NAS)(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" v-show="this.ret">
+                    <ul>
+                        <li>{{}}</li>
+                        <li>云存储(GB)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+  </div>
+    <!--<div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(jl,index) in cores"  :class="index==j?'bounceInDown':''" >
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
@@ -34,10 +290,10 @@
                     <option value="60%-90%">60%-90%</option>
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
-            </li>
+            </li>-->
             <!--<li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量(天/月)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量(小时/天)</li>-->
-            <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
+           <!-- <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row" style="margin-bottom:10px !important;!important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(ine,index) in ines"  :class="index==s?'bounceInDown':''" >
@@ -68,7 +324,7 @@
             </li>
            <!-- <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量(天/月)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量(小时/天)</li>-->
-            <li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
+            <!--<li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row bounceInDown" style="margin-bottom:10px !important; !important;animation-duration:0.3s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" >  
@@ -97,7 +353,7 @@
                 <li class=" col-sm-12" v-show="inusList[index].isfas"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
             <li class="col-sm-12 creadIng"><span v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</span><span @click="removeAs(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除存储</span></li>
         </ul>
-    </div>
+    </div>-->
     <div class="resourcebtn-box" style="margin-top:20px;">
         <button class="jumpBnt" @click="jump()">
             跳过<i class="iconfont icon-jiantou4" style="margin-left:5px;"></i>
@@ -115,6 +371,15 @@
 *{
     padding:0
 }
+.el-input{
+
+}
+.Pei ul li{
+    line-height:40px;
+};
+.Pei{
+    margin-top:20px;
+};
 .creadIng span{
     cursor:pointer;
     padding-right:20px;
@@ -201,6 +466,31 @@ export default {
   name: 'ResourceGroup',
   data () {
     return {
+        dialogTableVisible: false,
+        dialogFormVisible: false,
+        qer:false,
+        wer:false,
+        ret:false,
+        yingy:false,
+        shuj:false,
+        wangl:false,
+        cunc:false,
+        form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+         formLabelWidth: '120px',
+         regionter:"",
+          checked: false,
+          checkeder: false,
+          checkedes: false,
+          awsClound:"",
     //    appId:"",
     // isfas:false,
     // isdas:false,
@@ -265,6 +555,53 @@ export default {
    
   },
   methods:{
+      lookw:function(){
+        if(this.qer==false){
+            this.qer=true
+        }else{
+            this.qer=false
+        }
+      },
+      peiType:function(){
+         if(this.regionter=="应用服务"){
+             this.yingy = true;
+              this.shuj = false;
+             this.wangl = false;
+             this.cunc = false;
+         }else if(this.regionter=="数据库服务"){
+             this.shuj = true;
+             this.cunc = false;
+             this.wangl = false;
+             this.yingy = false;
+         }else if(this.regionter=="网络服务"){
+             this.wangl = true;
+              this.shuj = false;
+             this.yingy = false;
+             this.cunc = false;
+         }else if(this.regionter=="存储服务"){
+             this.cunc =true;
+             this.yingy = false;
+             this.shuj = false;
+             this.wangl =false;
+         }
+      },
+      dialogFor:function(){
+            alert(1)
+      },
+      lookq:function(){
+        if(this.wer==false){
+            this.wer=true
+        }else{
+            this.wer=false
+        }
+      },
+      looke:function(){
+        if(this.ret==false){
+            this.ret=true
+        }else{
+            this.ret=false
+        }
+      },
       creadIng:function(e){
           this.cores.push(
               {

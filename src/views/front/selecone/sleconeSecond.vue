@@ -3,7 +3,7 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row">
+            <div class="seleconeMain-banner row animated bounceInLeft">
                 <div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir">云规划<span>——我可以上云吗?上哪种类型的云?</span></p>
                     <div class="seclone-dv">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div style="background:#ffffff;width:100%">
-                <div class="seleconeMain-echarts container">
+                <div class="seleconeMain-echarts container broundDow">
                     <h4 class="shrts-h4">多维报表分析</h4>
                     <h4 class="shrts-h4er">提供可视化数据展现</h4>
                     <P>海量数据 分析报告</P>
@@ -52,7 +52,7 @@
                 </div>
             </div>
              <div style="background:#f6f7f8;width:100%">
-                <div class="seleconeMain-echarts container">
+                <div class="seleconeMain-echarts container broundU">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
@@ -319,6 +319,44 @@
             spanTy:function(){
                 this.$router.push({path: '/login'});
             }
-        }
+        },
+        mounted:function(){
+            $(document).ready(function(){ 
+                       $.fn.extend({
+                        animateCss: function (animationName) {
+                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                            $(this).removeClass('animated ' + animationName);
+                            });
+                        }           
+                    });
+             var index=0;
+             var isn = true;
+             $(window).scroll(function(){
+              
+               if(isn==true){
+                    if($(this).scrollTop()>300&&$(this).scrollTop()<450){
+                      $(".seleconeMain-charts").animateCss('bounceInLeft');
+                    };
+                    if($(this).scrollTop()>800&&$(this).scrollTop()<850){
+                        $(".seleconeMain-shrts").animateCss('bounceInLeft');
+                    };
+                    if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
+                        $(".broundDow").animateCss('bounceInLeft');
+                    };
+                    if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
+                        $(".broundU").animateCss('bounceInLeft');
+                        index=1;
+                    };
+               }
+                if(index==1){
+                   isn = false;
+               }
+                  
+        })
+             
+               
+        })
+    }
     }
 </script>
