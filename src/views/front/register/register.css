@@ -40,12 +40,29 @@
     text-align:center;
     /*margin-top:20px;*/
 }
+.reg-from-tab{
+    height:50px;
+}
+.reg-tab-list{
+    width:50%;
+    height:50px;
+    float:left;
+    line-height:50px;
+    text-align:center;
+    cursor:pointer;
+}
+.border-default{
+    border-bottom:2px solid #ccc;
+}
+.border-active{
+    border-bottom:2px solid #da121a;
+}
 .reg-from-list{
     border:1px solid #e9e9e9;
     border-radius:4px;
     /*width:360px;*/
     width:100%;
-    height:37px;
+    min-height:37px;
     margin:20px auto;
     line-height:30px;
     padding:0 10px;
@@ -53,6 +70,21 @@
     color:#333;
     font-size:14px;
     position:relative;
+}
+.cede-input{
+    width:50%;
+    border:none;
+}
+.getcode-btn{
+    width:100px;
+    height:30px;
+    border-radius:20px;
+    line-height:30px;
+    float:right;
+    margin:3px 0;
+    font-size:12px;
+    color:#fff;
+    background:#da121a;
 }
 .right{
     width:20px;

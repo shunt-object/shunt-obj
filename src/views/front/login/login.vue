@@ -108,11 +108,20 @@ export default{
                 this.$this.post('/broker/auth/login',str).then((res)=>{
                     console.log('login',res);
                     if(res.data.code=='1'){
-                        this.$router.push({path:'/consolePage'});                      
+                        // if(this.$route.query.redirect==undefined){
+                        //     this.$router.push({path:'/'});
+                        // }else{
+                        //     this.$router.push({path:'/consolePage'});  
+                        // }
+                        //console.log(this.$route.query.redirect);
+                                             
                         //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));
+                        if(sessionStorage.getItem("accountId")){
+                            this.$router.push({path:'/consolePage'}); 
+                        }
                     }else if(res.data.code=='0'){
                         this.isaccount=true;
                         this.ishave=true;

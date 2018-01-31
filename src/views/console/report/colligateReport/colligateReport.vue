@@ -456,8 +456,9 @@ export default{
             var pdf = new jsPDF('p', 'pt','a4');
             pdf.internal.scaleFactor = 1;
             var options = {
-                pagesplit: true
+                pagesplit: true              
             };
+            //$('#titBody').css({"page-break-after":"avoid","page-break-inside":"avoid"})
             pdf.addHTML($("#titBody"), options, function() {
                 //console.log(pdf);
                 pdf.save('综合报告'+time+'.pdf');

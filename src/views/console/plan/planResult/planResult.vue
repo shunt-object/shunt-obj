@@ -14,6 +14,24 @@
             <!--<button class="btn btn-default importbtn">导出</button>-->
         <div class="clear"></div>
     </div>
+    <div class="legend" style="float:right;margin-bottom:-20px;">     
+        <div class="legend-list">
+            <span class="legend-block legend-heshi"></span>
+            合适
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-yib"></span>
+            一般
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-high"></span>
+            高
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-di"></span>
+            低
+        </div>
+    </div>
     <div class="result-echarts" id="main"></div>
     <div class="echarts-desc">工作负载分布图</div>
     <div class="row">
