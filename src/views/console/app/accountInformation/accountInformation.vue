@@ -8,31 +8,51 @@
 <div class="accountInfor-box">
     <div class="accountInfor-title">基本资料</div>
     <div class="accountInfor-list">
-        <span class="accountInfor-list-key">用户账号：</span>
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-yonghu-tianchong"></i></span>用户账号：
+        </span>
         <span class="accountInfor-list-val">{{information.username}}</span>
     </div>
     <div class="accountInfor-list">
-        <span class="accountInfor-list-key">用户姓名：</span>
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-yonghu"></i></span>用户姓名：
+        </span>
         <span class="accountInfor-list-val" v-if="edit==false">{{information.realname}}</span>
         <input class="input-updata" type="text" v-model="information.realname" v-if="edit==true">
-        <button class="edit-btn" v-on:click="updata('user')" v-if="edit==false">编辑</button>
-        <button class="edit-btn" v-if="edit==true" v-on:click="saveuser()">保存</button>
-        <button class="edit-btn" v-if="edit==true" v-on:click="updata('user')">取消</button>
+        <button class="edit-btn" v-on:click="updata('user')" v-if="edit==false">
+            <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
+        </button>
+        <button class="account-save-btn" v-if="edit==true" v-on:click="saveuser()">
+            <i class="iconfont icon-duihao2"></i>保存
+        </button>
+        <button class="account-cel-btn" v-if="edit==true" v-on:click="updata('user')">
+            <i class="iconfont icon-shanchuguanbicha2"></i>取消
+        </button>
     </div>
     <div class="accountInfor-list">
-        <span class="accountInfor-list-key">企业名称：</span>
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-qiyeguanli"></i></span>企业名称：
+        </span>
         <span class="accountInfor-list-val" v-if="company==false">{{information.tenant}}</span>
         <input class="input-updata" type="text" v-model="information.tenant" v-if="company==true">
-        <button class="edit-btn" v-on:click="updata('company')" v-if="company==false">编辑</button>
-        <button class="edit-btn" v-if="company==true" v-on:click="savecompany()">保存</button>
-        <button class="edit-btn" v-if="company==true" v-on:click="updata('company')">取消</button>
+        <button class="edit-btn" v-on:click="updata('company')" v-if="company==false">
+            <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
+        </button>
+        <button class="account-save-btn" v-if="company==true" v-on:click="savecompany()">
+            <i class="iconfont icon-duihao2"></i>保存
+        </button>
+        <button class="account-cel-btn" v-if="company==true" v-on:click="updata('company')">
+            <i class="iconfont icon-shanchuguanbicha2"></i>取消
+        </button>
     </div>
     <div class="accountInfor-list">
-        <span class="accountInfor-list-key">用户类型：</span>
-        <span class="accountInfor-list-val" v-if="information.utype==null">个人</span>
-        <span class="accountInfor-list-val" v-if="information.utype==2">企业</span>
-        <span class="accountInfor-list-val" v-if="information.utype==3">运营商</span>
-        <span class="accountInfor-list-val" v-if="information.utype==4">政府</span>
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>用户类型：
+        </span>
+        <span class="accountInfor-list-val-type" v-if="information.utype==null">个人</span>
+        <span class="accountInfor-list-val-type" v-if="information.utype==2">企业</span>
+        <span class="accountInfor-list-val-type" v-if="information.utype==3">运营商</span>
+        <span class="accountInfor-list-val-type" v-if="information.utype==4">政府</span>
     </div>
 </div>
 </div>

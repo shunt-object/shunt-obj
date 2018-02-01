@@ -1,3 +1,12 @@
+.accountInfor-list-key>span{
+    margin:0 10px;
+}
+.safe-icon-right{
+    color:#5DB75B;
+}
+.safe-icon-gan{
+    color:#da121a;
+}
 .dialog-notice{
     width:100%;
     border:1px solid #ccc;
