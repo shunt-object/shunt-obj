@@ -7,3 +7,7 @@
 .el-message-box__title{
     font-size:16px !important;
 }
+.loading .el-loading-spinner .el-icon-loading{
+    color:#ccc !important;
+    font-size:50px;
+}

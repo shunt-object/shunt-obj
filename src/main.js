@@ -26,9 +26,9 @@ Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
-Vue.use(ElementUI)
-
+Vue.use(ElementUI);
 let load;
+let loading;
 /* Vue.http.interceptors.push((request, next) => {  
     　load = layer(Vue).loading(2, {
             time: 0
@@ -40,6 +40,20 @@ let load;
 　　　　return response;  
  }); 
 }); */
+Vue.http.interceptors.push((request, next) => {  
+    loading = Vue.prototype.$loading({
+          lock: true,
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)',
+          customClass:'loading'
+    });
+　　next((response) => {
+    if(response.status==200){
+        loading.close();
+    }
+　　　return response;  
+ }); 
+}); 
 
 
 axios.interceptors.request.use(
@@ -47,6 +61,12 @@ axios.interceptors.request.use(
     /* load = layer(Vue).loading(2, {
         time: 0
     }); */
+    loading = Vue.prototype.$loading({
+          lock: true,
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)',
+          customClass:'loading'
+    });
     return config;
   }  
 )
@@ -54,6 +74,7 @@ axios.interceptors.response.use(
     response => {
         if(response.status==200){
             //layer(Vue).close(load);
+            loading.close();
         }
         return response;
     },
