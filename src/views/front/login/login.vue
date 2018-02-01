@@ -82,14 +82,15 @@ export default{
     methods:{
         PhoneReg:function(dom){
              //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
-             let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
+             //let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
              if(dom=='account'){
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入邮箱';
-                }else{
-                    phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
+                    this.accountText = '请输入账号';
                 }
+                // else{
+                //     phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
+                // }
              }else if(dom=='password'){
                 this.password==''?this.ishave=true:this.ishave=false
                 if(this.ishave==true){
@@ -153,7 +154,7 @@ export default{
             }else{
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入邮箱';
+                    this.accountText = '请输入账号';
                 }
                 if(this.password==''){
                     this.ishave=true;

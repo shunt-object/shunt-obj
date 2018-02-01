@@ -6,6 +6,7 @@ import login from '@/views/front/login/login'
 import activate from '@/views/front/activate/activate'
 import sendEmail from '@/views/front/send/sendEmail'
 import agreenment from '@/views/front/agreenment/agreenment'
+import forgetPassword from '@/views/front/forgetPassword/forgetPassword'
 import consolePage from '@/views/console/consolePage/consolePage'
 import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
@@ -60,6 +61,11 @@ export default new Router({
       path:'/sendEmail',
       name:'sendEmail',
       component:sendEmail
+    },
+    {
+      path:'/forgetPassword',
+      name:'forgetPassword',
+      component:forgetPassword
     },
     {
       path:'/activate',
