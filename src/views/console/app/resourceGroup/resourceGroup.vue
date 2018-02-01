@@ -68,7 +68,7 @@
                 <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth" prop="ghzq">
                     <el-input v-model="inesShj.ghzq" auto-complete="off" type="number"></el-input>
                 </el-form-item>
-                <el-form-item label="内存(GB)" :label-width="formLabelWidth" prop="ncs">
+                <el-form-item label="内存(GB)" :label-width="formLabelWidth" prop="ramq">
                     <el-input v-model="inesShj.ramq" auto-complete="off" type="number"></el-input>
                 </el-form-item>
                 <el-form-item label="本地磁盘(GB)" :label-width="formLabelWidth" prop="localDiskq">
@@ -453,14 +453,14 @@ export default {
             ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghz:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
             localDisk:[{required: true, message: '请输入系统盘大小', trigger: 'blur'}],
-            os:[{required: true, message: '请选择操作系统', trigger: 'blur'}],
-            computeMappingFactor:[{required: true, message: '请选择资源平均利用率', trigger: 'blur'}],
+            os:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+            computeMappingFactor:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             coresq: [{ required: true, message: '请输入(v)Cpu', trigger: 'blur' }],
             ramq:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghzq:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
            
-            osq:[{required: true, message: '请选择操作系统', trigger: 'blur'}],
-            computeMappingFactorq:[{required: true, message: '请选择资源平均利用率', trigger: 'blur'}],
+            osq:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+            computeMappingFactorq:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             localDiskq:[{required: true, message: '请输入本地磁盘大小', trigger: 'blur'}],
             bandwidth:[{required: true, message: '请输入带宽', trigger: 'blur'}],
             inbound:[{required: true, message: '请输入入站大小', trigger: 'blur'}],
@@ -471,9 +471,9 @@ export default {
              cpus: [{ required: true, message: '请输入(v)Cpu', trigger: 'blur' }],
             ncs:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghzs:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
-            wins:[{required: true, message: '请选择操作系统', trigger: 'blur'}],
-            ziyuans:[{required: true, message: '请选择资源平均利用率', trigger: 'blur'}],
-            type: [ { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' } ]
+            wins:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+            ziyuans:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
+            //type: [ { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' } ]
            
          
          },
@@ -580,7 +580,22 @@ export default {
       //this.$layer.msg("注意：以下全为必填项");
       this.appId = this.$route.query.id;
       console.log("="+this.appId) 
-   
+      this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
+                    
+                    this.result =  res.data.data; 
+                    console.log( this.result);
+                     //this.$router.push({path:'/login'});/planQuestion
+                     this.netRule=this.result.network;
+                     //console.log(this.netRule);
+                     this.wangl =true;
+                     this.cores=this.result.appServer;
+                     this.ines = this.result.dbServer;
+                     this.inus = this.result.storage;
+                     },(err)=>{
+                         console.log("不好意思")
+                     });
+  
+                    
   },
   methods:{
       lookw:function(){
@@ -672,7 +687,7 @@ export default {
                                     this.ines.push(
                                         {
                                             num:"1",    
-                                            coresq:this.inesShj.croesq,
+                                            coresq:this.inesShj.coresq,
                                             ghzq:this.inesShj.ghzq,
                                             ramq:this.inesShj.ramq,
                                             computeMappingFactorq:this.inesShj.computeMappingFactorq, 
@@ -686,7 +701,7 @@ export default {
                                     this.ines.push(
                                         {
                                             num:this.inesShj.num,    
-                                            coresq:this.inesShj.croesq,
+                                            coresq:this.inesShj.coresq,
                                             ghzq:this.inesShj.ghzq,
                                             ramq:this.inesShj.ramq,
                                             computeMappingFactorq:this.inesShj.computeMappingFactorq, 
@@ -701,13 +716,14 @@ export default {
                                 console.log('error 出现问题!!');
                                 return false;
                             }
+                            this.k++;
+                            this.col = 2; 
+                            //console.log(this.ines);
+                            this.inesShj={};
+                            this.regionter="";
+                            this.dialogFormVisible =false;
                         });
-                         this.k++;
-                         this.col = 2; 
-                        //console.log(this.ines);
-                         this.inesShj={};
-                         this.regionter="";
-                         this.dialogFormVisible =false;
+                        
                     }else if(this.regionter=="net"){
                           this.$refs["netRule"].validate((valid) => {
                             if (valid) {
