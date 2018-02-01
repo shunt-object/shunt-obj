@@ -244,7 +244,7 @@
                     <h4>网络服务</h4>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;" >
-                    <ul>
+                    <ul class="cuncul">
                         <li v-if="this.netRule.bandwidth==undefined||this.netRule.bandwidth==''">--</li>
                         <li v-else>{{this.netRule.bandwidth}}</li>
                         <li>带宽(Mbps/月)</li>
@@ -252,7 +252,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
-                    <ul>
+                    <ul class="cuncul">
                         <li v-if="this.netRule.inbound==undefined||this.netRule.inbound==''">--</li>
                         <li v-else>{{this.netRule.inbound}}</li>
                         <li>入站(Mbps/月)</li>
@@ -260,7 +260,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
-                    <ul>
+                    <ul class="cuncul">
                         <li v-if="this.netRule.outbound==undefined||this.netRule.outbound==''">--</li>
                         <li v-else>{{this.netRule.outbound}}</li>
                         <li>出站</li>
@@ -1085,21 +1085,33 @@ export default {
 
                    
                  };
-            console.log(obj)
-            this.$this.post('/broker/app/resource/group',obj).then((res)=>{
-                    console.log(res);
-                     //this.$router.push({path:'/login'});/planQuestion
-                     if(this.queryType=='compare'){
-                        this.$router.push({path:'/compareQuestion',query:{type:this.queryType,id:this.appId}});
-                     }else{
-                        this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
-                     }
-                     
-                     },(err)=>{
-                         console.log("不好意思")
-                     });
+                 if(obj.network.inbound==""&&obj.network.outbound==""&&obj.network.bandwidth==""&&obj.appServer.length==0&&obj.dbServer.length==0&&obj.storage.length==0){
+                          this.$alert('您还没有添加任何配置，请添加配置点击下一步（更详细的配置分析结果也会更加准确）。如果您不想填写那么请点击跳过。', '温馨提示', {
+                            confirmButtonText: '确定',
+                             confirmButtonClass:'lay-btn-red',
+                            callback: action => {
+                                this.$message({
+                                type: 'info',
+                                message: `action: ${ action }`
+                                });
+                            }
+                        });
+                }else{
+                    console.log(obj)
+                    this.$this.post('/broker/app/resource/group',obj).then((res)=>{
+                        console.log(res);
+                        //this.$router.push({path:'/login'});/planQuestion
+                        if(this.queryType=='compare'){
+                            this.$router.push({path:'/compareQuestion',query:{type:this.queryType,id:this.appId}});
+                        }else{
+                            this.$router.push({path:'/planQuestion',query:{type:this.queryType,id:this.appId}});
+                        }
+                        
+                        },(err)=>{
+                            console.log("不好意思")
+                        });
                
-            
+                }
        // }              
       },
       jump:function(){
