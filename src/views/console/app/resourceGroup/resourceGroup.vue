@@ -1090,10 +1090,7 @@ export default {
                             confirmButtonText: '确定',
                              confirmButtonClass:'lay-btn-red',
                             callback: action => {
-                                this.$message({
-                                type: 'info',
-                                message: `action: ${ action }`
-                                });
+                               
                             }
                         });
                 }else{
