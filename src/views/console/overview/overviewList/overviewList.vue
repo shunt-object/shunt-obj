@@ -282,7 +282,7 @@ line-height:30px; float:left; margin-top:13px;
     font-size:16px; color:#a8a8a8; cursor:pointer;
 }
 .modle{
-    position:absolute !important; left:0; top:0px; width:100%;height:100%;opacity:0.94; background:#49494b; z-index:999;
+    position:absolute !important; left:0; top:0px; width:100%;height:100vh;opacity:0.94; background:#49494b; z-index:999;
 }
 .modle input{
     width:15%; height:15%; margin:25% 40%; text-align:center; color:#000; font-weight:900
@@ -669,47 +669,65 @@ export default {
         // },            
         rems:function(e){
             var that = this;
-            var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
-                let ids=[];
-                ids.push(e);
-                var asf = {"ids":ids};
-                //console.log(asf);
-                that.$this({
-                    method: "delete",
-                    url: "/broker/app/analysis",
-                    data: asf
-                }).then(function(response) {
-                    that.$layer.close(con);
-                    window.location.reload();
-                }).catch(function(error) {
-                    console.log(error);
-                });
-            },function(){
-                 that.$layer.close(con);
-                    return ;
-            });
+            this.$confirm('您确定要删除该云分析下的所有应用吗？', '温馨提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    confirmButtonClass:'lay-btn-red',
+                    type: 'warning',
+                    center: false
+                    }).then(() => {
+                        let ids=[];
+                        ids.push(e);
+                        var asf = {"ids":ids};
+                        window.location.reload();
+                        //console.log(asf);
+                        that.$this({
+                            method: "delete",
+                            url: "/broker/app/analysis",
+                            data: asf
+                        }).then(function(response) {
+                            that.$layer.close(con);
+                            
+                        }).catch(function(error) {
+                            console.log(error);
+                        });
+                    }).catch(() => {
+              }); 
+            // var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
+               
+            // },function(){
+            //      that.$layer.close(con);
+            //         return ;
+            // });
         },
         remYy:function(id){
             //console.log(id)
             var that = this;
-            var con = this.$layer.confirm("您确定要删除该应用吗?", async function () {
-                var ida = [];
-                ida.push(id); //=也ok
-                var asg = {"ids":ida};
-                that.$this({
-                    method: "delete",
-                    url: "/broker/app/applications",
-                    data: asg
-                }).then(function(response) {
-                        that.$layer.close(con);
-                    window.location.reload();
-                }).catch(function(error) {
-                    console.log(error);
-                })
-            },function(){
-                 that.$layer.close(con);
-                 return ;
-            });
+             this.$confirm('您确定要删除该应用吗？', '温馨提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    confirmButtonClass:'lay-btn-red',
+                    type: 'warning',
+                    center: false
+                    }).then(() => {
+                       var ida = [];
+                        window.location.reload();
+                        ida.push(id); //=也ok
+                        var asg = {"ids":ida};
+                        that.$this({
+                            method: "delete",
+                            url: "/broker/app/applications",
+                            data: asg
+                        }).then(function(response) {
+                                that.$layer.close(con);
+                            
+                        }).catch(function(error) {
+                            console.log(error);
+                        })
+                    }).catch(() => {
+              });   
+            
+           
         },
         onm:function(n,o,b){
             //this.$router.push({path:'/',query:{id:n}});
