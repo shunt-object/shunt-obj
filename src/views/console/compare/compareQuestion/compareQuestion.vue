@@ -91,7 +91,7 @@ export default{
             groups:[],
             typeCheck:[],
             optionlist:[],
-            valuelist:[],
+            valuelist:{},
             togglelist:[],
             havelist:[],
             numlist:[],
@@ -185,14 +185,15 @@ export default{
                     this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
                     for(let n=0;n<this.typeCheck.length;n++){
                         for(let v=0;v<this.typeCheck[n].data.length;v++){
-                            this.valuelist.push(this.typeCheck[n].data[v].id);
+                            //this.valuelist.push(this.typeCheck[n].data[v].id);
+                            this.valuelist[this.typeCheck[n].data[v].id] = '';
                             // 默认选中
                             if(this.typeCheck[n].data[v].selectOptId!=null){
-                                this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
+                                //this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
+                                this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId-1];
                             }
                         }
                     }
-                    
                 }else{
                     for(let i=0;i<this.typeCheck.length;i++){
                         for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){

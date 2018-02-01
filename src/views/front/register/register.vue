@@ -199,7 +199,6 @@ export default{
         }
     },
     mounted:function(){
-        this.$router.push({path:'/activate?phone'});
     },
     methods:{
         notice:function(dom){

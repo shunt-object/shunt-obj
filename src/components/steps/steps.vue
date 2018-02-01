@@ -7,7 +7,7 @@
         <div class="stepPlan-line" :class="start==1?'common-line':start==2?'active-line':resource==0?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step22">
-        <span class="circle" :class="start==2?'active-circle':resource==0?'common-circle':'finish-circle'" v-on:click="comparePrev(2)">2</span>
+        <span class="circle" :class="start==2?'active-circle':resource==0||resource==undefined?'common-circle':'finish-circle'" v-on:click="comparePrev(2)">2</span>
         <div class="stepPlan-name common-color int-20" :class="start==2?'active-color':'common-color'">上云工作负载信息</div>
         <div class="stepPlan-line" :class="start==2&&compare==undefined?'common-line':start==3?'active-line':compare!=undefined?'finish-line':'common-line'"></div>
     </div>
@@ -34,7 +34,7 @@
         <div class="stepPlan-line" :class="index==1?'common-line':index==2?'active-line':resource==0?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step18">
-        <span class="circle" :class="index==2?'active-circle':resource==0?'common-circle':'finish-circle'" v-on:click="planPrev(2)">2</span>
+        <span class="circle" :class="index==2?'active-circle':resource==0||resource==undefined?'common-circle':'finish-circle'" v-on:click="planPrev(2)">2</span>
         <div class="stepPlan-name common-color int-20" :class="index==2?'active-color':'common-color'">上云工作负载信息</div>
         <div class="stepPlan-line" :class="index==2&&clould!='true'?'common-line':index==3?'active-line':clould=='true'?'finish-line':'common-line'"></div>
     </div>
@@ -76,7 +76,7 @@ export default{
         //资源配置
         this.$this.get('/broker/app/resource/group/'+this.id).then((response)=>{ 
             //console.log('aaaaaa',response); code=0无数据code=1有数据 
-            this.resource =  response.data.data.code;      
+            this.resource =  response.data.data.code;     
         }).catch((error)=>{ 
         })
         //云规划
@@ -98,10 +98,19 @@ export default{
             arr.length==3?this.clould='true':this.clould='false'
         }).catch((error)=>{ 
         })
+        if(this.index==4||this.start==3){
+            // 云选型
+            this.$this.get('/broker/compare/result/'+this.id).then((response)=>{ 
+                this.compare = response.data.data.datas;
+            }).catch((error)=>{ 
+                this.compare = undefined;
+            })
+        }
         // 云选型
         this.$this.get('/broker/compare/result/'+this.id).then((response)=>{ 
             this.compare = response.data.data.datas;
         }).catch((error)=>{ 
+            this.compare = undefined;
         })
   },
   methods:{
