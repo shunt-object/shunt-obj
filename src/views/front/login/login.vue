@@ -99,7 +99,8 @@ export default{
              }
         },
         login:function(){
-            if( this.account!=''&&this.isaccount==false && this.password!=''&&this.ishave==false ){//请求接口
+            // if( this.account!=''&&this.isaccount==false && this.password!=''&&this.ishave==false ){//请求接口
+             if( this.account!=''&& this.password!=''){//请求接口
                 let obj = {
                     "password": this.password,
                     "username": this.account
@@ -129,6 +130,10 @@ export default{
                         this.accountText = '用户名不正确';
                         this.passwordText = '密码不正确';
                     }else if(res.data.code=='-1'){//邮箱未激活
+                        this.isaccount=true;
+                        this.ishave=true;
+                        this.accountText = '该用户不存在';
+                        this.passwordText = '';
                         this.$layer.iframe({
                             content: {
                                 content: activate, //传递的组件对象

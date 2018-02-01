@@ -175,7 +175,7 @@ export default{
     data () {
         return {
             phone:'',
-            checkbox:false,
+            checkbox:true,
             password:'',
             againPassword:'',
             confirm:'',
@@ -193,12 +193,13 @@ export default{
             selectTab:true,
             codeNum:'',
             code:'获取验证码',
-            codeI:60,
+            codeI:120,
             iscodeNum:false,
             codenotice:''
         }
     },
     mounted:function(){
+        this.$router.push({path:'/activate?phone'});
     },
     methods:{
         notice:function(dom){
@@ -309,24 +310,39 @@ export default{
                 this.restting();
             }else{
                 this.selectTab = false;
-                this.iscodeNum = null;
+                this.iscodeNum = '';
                 this.restting();
             }
         },
         getCode:function(){
-            let self = this;
-            let clear = setInterval(function(){
-                self.codeI--;
-                self.code = self.codeI+'s';
-                if(self.codeI==0){
-                    clearInterval(clear);
-                    self.codeI = 60;
-                    self.code = '重新获取验证码';
-                }
-            },1000)
+            if(this.isphone==false){
+                let self = this;
+                this.codeHttp();
+                let clear = setInterval(function(){
+                    self.codeI--;
+                    self.code = self.codeI+'s';
+                    if(self.codeI==0){
+                        clearInterval(clear);
+                        self.codeI = 120;
+                        self.code = '重新获取验证码';
+                    }
+                },1000)
+            }
+        },
+        codeHttp:function(){
+            let obj = {
+                    mobile: this.phone,
+                    type: '',
+                    username: '',
+                    validCode: ''
+                };
+            let str = JSON.stringify(obj);
+            this.$this.post('/broker/sms/send/code/register',str).then((reponse)=>{
+                console.log('手机验证码',reponse);
+            }).catch((error)=>{})
         },
         registerEmail:function(){
-            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true && this.iscodeNum==false){
+            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true){
                let obj = {
                         "password": this.password,
                         "email": this.phone,
@@ -337,7 +353,8 @@ export default{
                 let that = this;
                 this.$this.post('/broker/auth/register/email',strObj).then((response)=>{
                     if(response.data.code=='1'){
-                        this.send(response.data.data.username);                    
+                        //this.send(response.data.data.username);
+                        this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});                    
                     }
                 }).catch((error)=>{
                     console.log(error);
@@ -350,12 +367,6 @@ export default{
                 }else{
                     this.ispassword=false;
                 }
-                // if(this.codeNum==''){
-                //     this.codenotice = '请输入验证码';
-                //     this.iscodeNum = true;
-                // }else{
-                //     this.iscodeNum = false;
-                // }
                 this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
                 this.username==''?this.isusername=true:this.isusername=false;
@@ -365,7 +376,46 @@ export default{
             }
         },
         registerPhone:function(){
-
+            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true && this.iscodeNum == false){
+               let obj = {
+                        "password": this.password,
+                        "phone": this.phone,
+                        "realname": this.username,
+                        "tenant": this.confirm
+                };
+                let strObj = JSON.stringify(obj);
+                let that = this;
+                this.$this.post('/broker/auth/register/mobile/'+this.codeNum,strObj).then((response)=>{
+                    //console.log('phone',response);
+                    if(response.data.code==1){
+                       this.$router.push({path:'/activate?phone'});  
+                    }else if(response.data.code==0){
+                        this.codenotice = '您输入的验证码不正确';
+                        this.iscodeNum = true;
+                    }
+                }).catch((error)=>{
+                })
+            }else{
+                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                if(this.password==''){
+                    this.passError = '请输入您的密码';
+                    this.ispassword=true;
+                }else{
+                    this.ispassword=false;
+                }
+                if(this.codeNum==''){
+                    this.codenotice = '请输入验证码';
+                    this.iscodeNum = true;
+                }else{
+                    this.iscodeNum = false;
+                }
+                this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
+                this.confirm==''?this.isconfirm=true:this.isconfirm=false;
+                this.username==''?this.isusername=true:this.isusername=false;
+                if(this.checkbox==false){
+                    this.$layer.msg('请阅读服务协议');
+                }
+            }
         },
         send:function(username){
             this.$this.get('/broker/mail/send/validCode/'+username).then((response)=>{
@@ -376,7 +426,7 @@ export default{
         },
         restting:function(){
             this.phone='';
-            this.checkbox=false;
+            this.checkbox=true;
             this.password='';
             this.againPassword='';
             this.confirm='';
