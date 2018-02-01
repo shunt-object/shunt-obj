@@ -13,7 +13,10 @@ import 'font-awesome/css/font-awesome.min.css'
 import "datatables/media/css/jquery.dataTables.min.css"
 import "datatables/media/js/jquery.dataTables.min.js"
 import '../src/components/fontCss/icon.css'
+import '../src/components/fontCss/common.css'
 import animate from 'animate.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 
 
@@ -23,6 +26,7 @@ Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
+Vue.use(ElementUI)
 
 let load;
 /* Vue.http.interceptors.push((request, next) => {  

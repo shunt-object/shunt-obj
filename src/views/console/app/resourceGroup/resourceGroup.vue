@@ -7,8 +7,274 @@
 </div>
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
-    <div class="resource">当前工作负载配置信息</div> 
-    <div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(jl,index) in cores"  :class="index==j?'bounceInDown':''" >
+    <div class="resource">输入工作负载配置信息</div> 
+    <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
+        
+        <el-form :model="form"><p style="color:red;" v-show="alertTitle">注意：网络资源只能配置一个，再次配置为修改。</p>
+            <el-form-item label="配置类型" :label-width="formLabelWidth">
+                <el-select v-model="regionter" placeholder="请选择配置类型" @change="alertTitler()">
+                    <el-option label="应用服务" value="应用服务"></el-option>
+                    <el-option label="数据库服务" value="数据库服务"></el-option>
+                    <el-option label="网络服务" value="网络服务"></el-option>
+                    <el-option label="存储服务" value="存储服务"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <!--应用服务-->
+            <div class="yibazi" v-if="regionter=='应用服务'">
+                <el-form-item label="数量" :label-width="formLabelWidth">
+                    <el-input v-model="coresShj.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="(v)Cpu" :label-width="formLabelWidth">
+                    <el-input v-model="coresShj.cores" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth">
+                    <el-input v-model="coresShj.ghz" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="内存(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="coresShj.ram" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="系统盘(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="coresShj.localDisk" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="操作系统" :label-width="formLabelWidth">
+                    <el-select v-model="coresShj.os" placeholder="请选择">
+                        <el-option value="Linux">Linux</el-option>
+                        <el-option value="Window">Window</el-option>
+                        <el-option value="Unix">Unix</el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth">
+                    <el-select v-model="coresShj.computeMappingFactor" placeholder="请选择">
+                        <el-option value="≤30%">≤30%</el-option>
+                        <el-option value="30%-60%">30%-60%</el-option>
+                        <el-option value="60%-90%">60%-90%</el-option>
+                        <el-option value="≥90%">≥90%</el-option>
+                    </el-select>
+                </el-form-item>
+           </div>
+
+           <!--数据库服务-->
+           <div class="yibazo" v-if="regionter=='数据库服务'">
+                <el-form-item label="数量" :label-width="formLabelWidth">
+                    <el-input v-model="inesShj.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="(v)Cpu" :label-width="formLabelWidth">
+                    <el-input v-model="inesShj.coresq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth">
+                    <el-input v-model="inesShj.ghzq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="内存(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="inesShj.ramq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="本地磁盘(GB)" :label-width="formLabelWidth">
+                    <el-input v-model="inesShj.localDiskq" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="操作系统" :label-width="formLabelWidth">
+                    <el-select v-model="inesShj.osq" placeholder="请选择">
+                        <el-option value="Linux">Linux</el-option>
+                        <el-option value="Window">Window</el-option>
+                        <el-option value="Unix">Unix</el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth">
+                    <el-select v-model="inesShj.computeMappingFactorq" placeholder="请选择">
+                        <el-option value="≤30%">≤30%</el-option>
+                        <el-option value="30%-60%">30%-60%</el-option>
+                        <el-option value="60%-90%">60%-90%</el-option>
+                        <el-option value="≥90%">≥90%</el-option>
+                    </el-select>
+                </el-form-item>
+           </div>
+           
+           <!--网络-->
+           <div class="yibanzp" v-if="regionter=='网络服务'">
+                <el-form-item label="带宽(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="bandwidth" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="入站(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="inbound" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="出站(Mbps/月)" :label-width="formLabelWidth">
+                    <el-input v-model="outbound" auto-complete="off"></el-input>
+                </el-form-item>
+           </div>
+
+          <!--存储-->
+           <div class="yibanzp" v-if="this.regionter=='存储服务'">
+                <el-form-item  label="数量" :label-width="formLabelWidth" >
+                    <el-input v-model="inusShj.num" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="" :label-width="formLabelWidth">
+                    <el-checkbox  v-on:change="lookw()" id="chec">共享存储(SAN)(GB)</el-checkbox>
+                    <el-checkbox  v-on:change="lookq()">网络存储(NAS)(GB)</el-checkbox>
+                    <el-checkbox  v-on:change="looke()">云存储(GB)</el-checkbox>
+                </el-form-item>
+                <el-form-item label="共享存储(SAN)(GB)" :label-width="formLabelWidth" v-if="this.checked==true">
+                    <el-input v-model="inusShj.sna" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="网络存储(NAS)(GB)" :label-width="formLabelWidth" v-if="this.checkeder==true">
+                    <el-input v-model="inusShj.nsa" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="云存储(GB)" :label-width="formLabelWidth" v-if="this.checkedes==true">
+                    <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
+                        <el-option value="AWS">AWS</el-option>
+                        <el-option value="Azure">Azure</el-option>
+                        <el-option value="阿里云">阿里云</el-option>
+                        <el-option value="腾讯云">腾讯云</el-option>
+                        <el-option value="金山云">金山云</el-option>
+                        <el-option value="电信云">电信云</el-option>
+                        <el-option value="UCloud">UCloud</el-option>
+                        <el-option value="华为云">华为云</el-option>
+                        <el-option value="沃云">沃云</el-option>
+                        <el-option value="其它">其它</el-option>
+                    </el-select>
+                    <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%" placeholder="请输入云存储的大小"></el-input>
+                </el-form-item>
+           </div>
+         </el-form>
+        <div slot="footer" class="dialog-footer" v-show="CreadCenter">
+            <el-button @click="dialogFor()">确定</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">取消</el-button>
+        </div>
+        <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
+            <el-button @click="dialogFormVisible = false">确定</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">取消</el-button>
+        </div>
+  </el-dialog>
+ 
+  <div>
+        <div class="col-md-6" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" :class="index=j?'bounceInDown':''" >
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:20px;margin:0;background:#ccc;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(index)"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group1.png" alt="">
+                    <h4>应用服务</h4>
+                    <p><span>{{jl.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{jl.cores}}</li>
+                        <li>vCPU</li>
+                        <li>{{jl.localDisk}}</li>
+                        <li>系统盘(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{jl.ghz}}</li>
+                        <li>处理器主频(GHZ)</li>
+                        <li>{{jl.os}}</li>
+                        <li>操作系统</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{jl.ram}}</li>
+                        <li>内存(GB)</li>
+                        <li>{{jl.computeMappingFactor}}</li>
+                        <li>资源平均利用率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-6" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines"  :class="index=k?'bounceInDown':''" >
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:20px;margin:0;background:#ccc;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(index)"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group2.png" alt="">
+                    <h4>数据库服务</h4>
+                    <p><span>{{ins.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{ins.coresq}}</li>
+                        <li>vCPU</li>
+                        <li>{{ins.localDiskq}}</li>
+                        <li>本地磁盘(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{ins.ghzq}}</li>
+                        <li>处理器主频(GHZ)</li>
+                        <li>{{ins.osq}}</li>
+                        <li>操作系统</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{ins.ramq}}</li>
+                        <li>内存(GB)</li>
+                        <li>{{ins.computeMappingFactorq}}</li>
+                        <li>资源平均利用率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <div class="col-md-6 animated bounceInDown" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:20px;margin:0;background:#ccc;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;margin-bottom:29px;">
+                    <img src="../../../../assets/overview/resource-group3.png" alt="">
+                    <h4>网络服务</h4>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" >
+                    <ul>
+                        <li>{{this.bandwidth}}</li>
+                        <li>带宽(Mbps/月)</li>
+                     
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{this.inbound}}</li>
+                        <li>入站(Mbps/月)</li>
+                      
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;">
+                    <ul>
+                        <li>{{this.outbound}}</li>
+                        <li>出站</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus" :class="index=v?'bounceInDown':''">
+            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
+                <h2 class="text-left" style="font-size:20px;margin:0;background:#ccc;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(index)"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;">
+                    <img src="../../../../assets/overview/resource-group1.png" alt="">
+                    <h4>存储服务</h4>
+                    <p><span>{{inu.num}}</span>个(相同配置)</p>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" >
+                    <ul>
+                        <li>{{inu.sna}}</li>
+                        <li>共享存储(SAN)(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" >
+                    <ul>
+                        <li>{{inu.nsa}}</li>
+                        <li>网络存储(NAS)(GB)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:20px;" >
+                    <ul>
+                        <li>{{inu.cloudStorage}}</li>
+                        <li>云存储(GB)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div :class="this.col!=0?'col-md-6':'col-md-12' " style="padding: 5px 5px 0px 0px;" v-show="creads">
+                <p  class="col-md-12 pds" @click="dialogFormVisibler" style="border:1px solid #ccc;line-height:228px;color:#ccc">点击吉添加配置</p>
+        </div>
+  </div>
+    <!--<div class="resourceCroup-list row clsa" style="margin-bottom:10px !important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(jl,index) in cores"  :class="index==j?'bounceInDown':''" >
         <div class="resourceCroup-list-head col-md-2 col-sm-12 col-xs-12">
             <img src="../../../../assets/overview/resource-group1.png" alt="">
             <h4>应用服务</h4>
@@ -34,10 +300,10 @@
                     <option value="60%-90%">60%-90%</option>
                     <option value="≥90%">≥90%</option>
                 </select>&nbsp&nbsp资源平均利用率
-            </li>
+            </li>-->
             <!--<li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].monthlyUsage">&nbsp&nbsp每个月用量(天/月)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="cores[index].dailyUsage">&nbsp&nbsp每天用量(小时/天)</li>-->
-            <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
+           <!-- <li class="col-sm-12 creadIng"  ><span v-on:click="creadIng(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加应用服务</span><span v-on:click="removeAl(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除此应用服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row" style="margin-bottom:10px !important;!important;animation-duration:1s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(ine,index) in ines"  :class="index==s?'bounceInDown':''" >
@@ -68,7 +334,7 @@
             </li>
            <!-- <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].monthlyUsageq">&nbsp&nbsp每个月用量(天/月)</li>
             <li class=" col-sm-12"><input type="number" min="1" v-model="ines[index].dailyUsageq">&nbsp&nbsp每天用量(小时/天)</li>-->
-            <li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
+            <!--<li class="col-sm-12 creadIng" ><span  v-on:click="creadIn(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加数据库服务</span><span @click="removeAe(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除数据库服务</span></li>
         </ul>
     </div>
     <div class="resourceCroup-list row bounceInDown" style="margin-bottom:10px !important; !important;animation-duration:0.3s;animation-delay:0.5s;animation-iteration-count:1;animation-fill-mode:both;" >  
@@ -97,8 +363,8 @@
                 <li class=" col-sm-12" v-show="inusList[index].isfas"><input type="number" min="1" v-model="inus[index].cloudStorage">&nbsp&nbsp云存储(GB)</li>
             <li class="col-sm-12 creadIng"><span v-on:click="creadI(index)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp添加存储</span><span @click="removeAs(index)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp删除存储</span></li>
         </ul>
-    </div>
-    <div class="resourcebtn-box" style="margin-top:20px;">
+    </div>-->
+    <div class="resourcebtn-box col-md-12" style="margin-top:20px;" >
         <button class="jumpBnt" @click="jump()">
             跳过<i class="iconfont icon-jiantou4" style="margin-left:5px;"></i>
         </button>
@@ -115,6 +381,34 @@
 *{
     padding:0
 }
+
+@media (max-width: 768px) {
+    .el-form-item__label{
+        width:70px !important;
+        text-align:left !important;
+    }
+    .resourceGroup input{
+        width:50px !important;
+    }
+    .el-form-item__content{
+        margin-left:0px !important;
+    }
+}
+
+.pds:hover{
+    cursor:pointer;
+    color:#000;
+}
+.el-input{
+
+}
+.Pei ul li{
+    margin-top:18px;
+    height:10px;
+};
+.Pei{
+    margin-top:20px;
+};
 .creadIng span{
     cursor:pointer;
     padding-right:20px;
@@ -201,6 +495,40 @@ export default {
   name: 'ResourceGroup',
   data () {
     return {
+        CreadCenter:false,
+        orCreadCenter:false,
+        dialogTableVisible: false,
+        dialogFormVisible: false,
+        alertTitle:false,
+        qer:false,
+        wer:false,
+        ret:false,
+        yingy:false,
+        shuj:false,
+        wangl:false,
+        cunc:false,
+        yingyo:true,
+        shuju:true,
+        wanglu:true,
+        cunch:true,
+        creads:true,
+        form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+         formLabelWidth: '120px',
+         regionter:"",
+          checked: false,
+          checkeder: false,
+          checkedes: false,
+          awsClound:"",
+
     //    appId:"",
     // isfas:false,
     // isdas:false,
@@ -210,13 +538,15 @@ export default {
     j:0,
     s:0,
     v:0,
+    col:0,
     inusList:[{ isfas:false,
                 isdas:false,
                 isgas:false
              }],
    
     a:true,
-            cores:[{
+            cores:[],
+          coresShj:{
                     cores:"",
                     ghz:"",
                     ram:"",
@@ -226,32 +556,34 @@ export default {
                     monthlyUsage:"",
                     dailyUsage:"",
                     num:"1",
-            }],
+          },     
        
-       ines:[{
-        num:"1",    
-        coresq:"",
-        ghzq:"",
-        ramq:"",
-        computeMappingFactorq:"", 
-        localDiskq:"",
-        osq:"",
-        monthlyUsageq:"",
-        dailyUsageq:""
-      }],
+       ines:[],
+       inesShj:{
+            num:"1",    
+            coresq:"",
+            ghzq:"",
+            ramq:"",
+            computeMappingFactorq:"", 
+            localDiskq:"",
+            osq:"",
+            monthlyUsageq:"",
+            dailyUsageq:"",
+            
+      },
 
        bandwidth:"",
        inbound:"",
        outbound:"",
        
-     inus:[ 
-         { 
+     inus:[],
+     inusShj: { 
           num:"1",
           sna:"",
           nsa:"",
-          cloudStorage:""
-        }
-    ],
+          cloudStorage:"",
+          serverName:""
+        },
 
        appId:"",
        queryType:''
@@ -265,6 +597,143 @@ export default {
    
   },
   methods:{
+      lookw:function(){
+        if(this.checked==false){
+            this.checked=true
+        }else{
+             this.checked=false
+        }
+      },
+     dialogFormVisibler:function(){
+        this.dialogFormVisible = true;
+        this.CreadCenter = true;
+        this.orCreadCenter = false;
+         this.regionter = "";
+         this.coresShj = {};
+         this.inesShj={};
+         this.inusShj = {};  
+     },
+     alertTitler:function(){
+        if(this.regionter=='网络服务'&&this.bandwidth!=''||this.inbound!=''||this.outbound!=''){
+            this.alertTitle = true;
+        }
+     },
+      dialogFor:function(){
+        //   this.regionter==""
+            if(this.regionter=="应用服务"){
+                 this.cores.push(
+                        {
+                                cores:this.coresShj.cores,
+                                ghz:this.coresShj.ghz,
+                                ram:this.coresShj.ram,
+                                computeMappingFactor:this.coresShj.computeMappingFactor,
+                                localDisk:this.coresShj.localDisk,
+                                os:this.coresShj.os,
+                                monthlyUsage:this.coresShj.monthlyUsage,
+                                dailyUsage:this.coresShj.dailyUsage,
+                                num:this.coresShj.num
+                        }
+                 );
+                 this.j++;
+                 this.col = 1;
+                 this.coresShj = {};
+                 this.regionter = "";
+                 this.dialogFormVisible =false;
+            }else if(this.regionter=="数据库服务"){
+                this.ines.push(
+                    {
+                        num:this.inesShj.num,    
+                        coresq:this.inesShj.croesq,
+                        ghzq:this.inesShj.ghzq,
+                        ramq:this.inesShj.ramq,
+                        computeMappingFactorq:this.inesShj.computeMappingFactorq, 
+                        localDiskq:this.inesShj.localDiskq,
+                        osq:this.inesShj.osq,
+                        monthlyUsageq:this.inesShj.monthlyUsageq,
+                        dailyUsageq:this.inesShj.dailyUsageq
+                    }
+                );
+                this.k++;
+                this.col = 2; 
+                console.log(this.ines);
+                 this.inesShj={};
+                this.regionter="";
+                this.dialogFormVisible =false;
+               
+            }else if(this.regionter=="网络服务"){
+               
+                    this.wangl = true;
+                    this.dialogFormVisible =false;
+                    this.regionter="";
+                    this.col = 3;
+
+            }else if(this.regionter=="存储服务"){
+                this.inus.push(
+                     { 
+                        num:"1",
+                        sna:this.inusShj.sna,
+                        nsa:this.inusShj.nsa,
+                        cloudStorage:this.inusShj.cloudStorage,
+                       serverName:this.inusShj.serverName
+                    }
+                );
+                this.v++;
+                this.col = 4;
+                 this.dialogFormVisible =false;
+                  this.regionter="";
+                  this.inusShj = {};
+                  this.checked = false;
+                  this.checkeder = false;
+                  this.checkedes = false;
+            }
+    },
+    yybian:function(e){
+         this.dialogFormVisible =true;
+         this.CreadCenter = false;
+        this.orCreadCenter = true;
+          this.regionter = "应用服务";
+          this.coresShj = this.cores[e];
+
+          // console.log(    this.coresShj);
+    },
+    sjbian:function(e){
+        this.dialogFormVisible = true;
+        this.CreadCenter = false;
+        this.orCreadCenter = true;
+        this.inesShj = this.ines[e]
+        this.regionter = "数据库服务";
+    },
+    wlbian:function(){
+        this.CreadCenter = false;
+        this.orCreadCenter = true;
+         this.regionter = "网络服务";
+         this.dialogFormVisible = true;
+         
+    },
+    cuncbian:function(e){
+        this.regionter = "存储服务";
+         this.dialogFormVisible = true;
+         this.CreadCenter = false;
+        this.orCreadCenter = true;
+        this.inusShj = this.inus[e]
+        if(this.inusShj.sna!=""){
+            $("#chec").attr("checked",true) ; 
+        }
+    },
+      lookq:function(){
+        if(this.checkeder==false){
+            this.checkeder=true
+        }else{
+            this.checkeder=false
+        }
+      },
+      looke:function(){
+        if(this.checkedes==false){
+            this.checkedes=true
+        }else{
+            this.checkedes=false
+        }
+      },
       creadIng:function(e){
           this.cores.push(
               {
@@ -279,9 +748,9 @@ export default {
                     num:"1"
             }
           )
-            this.j++;
-           console.log(j,index);
-          console.log(this.cores);
+        //     this.j++;
+        //    console.log(j,index);
+        //   console.log(this.cores);
             // this.lias.push(
             //     {
             //         cores:cores[index].cores,
@@ -336,50 +805,112 @@ export default {
     //   -----删除---
 
     removeAl:function(index){
-        if(this.cores.length>1){
+        
+           // this.cores.splice(index, 1); 
+         
+        this.$confirm('删除后，如需恢复需要重新添。确认删除？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
             this.cores.splice(index, 1); 
-        }else{
-             this.$layer.alert("注意：此为最后一个应用服务，不可删除");
-        }
+          this.$message({
+            type: 'success',
+            message: '删除成功!',
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+
+            
     },
     removeAs:function(index){
-        if(this.inus.length>1){
-            this.inus.splice(index, 1);
-        }else{
-            this.$layer.alert("注意：此为最后一个存储服务，不可删除");
-        }
+       this.$confirm('删除后，如需恢复需要重新添。确认删除？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            this.ines.splice(index, 1); 
+          this.$message({
+            type: 'success',
+            message: '删除成功!',
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+           
+      
     },
     removeAe:function(index){
-        if(this.ines.length>1){
-            this.ines.splice(index, 1); 
-        }else{
-             this.$layer.alert("注意：此为最后一个数据库服务，不可删除");
-        }
+        this.$confirm('删除后，如需恢复需要重新添。确认删除？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+           this.wangl = false;
+           this.bandwidth="";
+           this.inbound="";
+           this.outbound="";
+          this.$message({
+            type: 'success',
+            message: '删除成功!',
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+      
     },
-    isga:function(index){
-        //console.log(this.inusList[index].isgas)
-        if(this.inusList[index].isgas==false){
-            this.inusList[index].isgas=true;
-        }else{
-            this.inusList[index].isgas=false;
-        };
+    removeAw:function(index){
+        this.$confirm('删除后，如需恢复需要重新添。确认删除？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.inus.splice(index, 1); 
+          this.$message({
+            type: 'success',
+            message: '删除成功!',
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+    },
+    // isga:function(index){
+    //     //console.log(this.inusList[index].isgas)
+    //     if(this.inusList[index].isgas==false){
+    //         this.inusList[index].isgas=true;
+    //     }else{
+    //         this.inusList[index].isgas=false;
+    //     };
 
 
-    },
-    isda:function(index){
-         if(this.inusList[index].isdas==false){
-            this.inusList[index].isdas=true;
-        }else{
-            this.inusList[index].isdas=false;
-        }
-    },
-    isfa:function(index){
-        if(this.inusList[index].isfas==false){
-            this.inusList[index].isfas=true;
-        }else{
-            this.inusList[index].isfas=false;
-        }
-    },
+    // },
+    // isda:function(index){
+    //      if(this.inusList[index].isdas==false){
+    //         this.inusList[index].isdas=true;
+    //     }else{
+    //         this.inusList[index].isdas=false;
+    //     }
+    // },
+    // isfa:function(index){
+    //     if(this.inusList[index].isfas==false){
+    //         this.inusList[index].isfas=true;
+    //     }else{
+    //         this.inusList[index].isfas=false;
+    //     }
+    // },
 
     btn:function(){
            //console.log(this.os);
@@ -407,7 +938,7 @@ export default {
               };
             console.log(obj)
             this.$this.post('/broker/app/resource/group',obj).then((res)=>{
-                    console.log(res+"chengg");
+                    console.log(res);
                      //this.$router.push({path:'/login'});/planQuestion
                      if(this.queryType=='compare'){
                         this.$router.push({path:'/compareQuestion',query:{type:this.queryType,id:this.appId}});

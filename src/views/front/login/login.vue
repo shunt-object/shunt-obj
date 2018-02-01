@@ -7,30 +7,34 @@
     </div>
     <div class="login-content login-main row">
         <div class="col-md-3"></div>
-        <div class="login-from col-md-6">
-            <div class="login-from-title">用户登录</div>
-            <div class="login-fu-title">欢迎使用ClouldBroker²</div>
-            <div style="padding:0 20px;margin-top:20px;">
-                <div class="login-from-list" :class="isaccount==true?'error':''">
-                    <i class="fa fa-user"></i>
-                    <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
-                    <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
-                </div>
-                
-                <div class="login-from-list" :class="ishave==true?'error':''">
-                    <i class="fa fa-lock"></i>
-                    <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
-                    <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
-                </div>                
-                <button class="login-from-btn" v-on:click="login()">登录</button>
-                <div class="login-from-remember">
-                    <div class="login-from-left">
-                        <input type="checkbox" v-model="remember">记住密码
+        <div class="login-from col-md-6 row" style="margin-top:50px !important;">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="login-from-title">用户登录</div>
+                <div class="login-fu-title">欢迎使用ClouldBroker²</div>
+                <div style="padding:0 20px;margin-top:20px;">
+                    <div class="login-from-list" :class="isaccount==true?'error':''">
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
+                        <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
                     </div>
-                    <div class="login-from-right">
-                        <router-link to="/register" class="linkto">立即注册</router-link> | 忘记密码
+                    
+                    <div class="login-from-list" :class="ishave==true?'error':''">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
+                        <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
+                    </div>                
+                    <button class="login-from-btn" v-on:click="login()">登录</button>
+                    <div class="login-from-remember">
+                        <div class="login-from-left">
+                            <input type="checkbox" v-model="remember">记住密码
+                        </div>
+                        <div class="login-from-right">
+                            <router-link to="/register" class="linkto">立即注册</router-link> | 忘记密码
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
         </div>
         <div class="col-md-3"></div>
@@ -78,14 +82,15 @@ export default{
     methods:{
         PhoneReg:function(dom){
              //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
-             let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
+             //let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
              if(dom=='account'){
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入邮箱';
-                }else{
-                    phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
+                    this.accountText = '请输入账号';
                 }
+                // else{
+                //     phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
+                // }
              }else if(dom=='password'){
                 this.password==''?this.ishave=true:this.ishave=false
                 if(this.ishave==true){
@@ -104,11 +109,20 @@ export default{
                 this.$this.post('/broker/auth/login',str).then((res)=>{
                     console.log('login',res);
                     if(res.data.code=='1'){
-                        this.$router.push({path:'/consolePage'});                      
+                        // if(this.$route.query.redirect==undefined){
+                        //     this.$router.push({path:'/'});
+                        // }else{
+                        //     this.$router.push({path:'/consolePage'});  
+                        // }
+                        //console.log(this.$route.query.redirect);
+                                             
                         //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));
+                        if(sessionStorage.getItem("accountId")){
+                            this.$router.push({path:'/consolePage'}); 
+                        }
                     }else if(res.data.code=='0'){
                         this.isaccount=true;
                         this.ishave=true;
@@ -140,7 +154,7 @@ export default{
             }else{
                 if(this.account==''){
                     this.isaccount=true;
-                    this.accountText = '请输入邮箱';
+                    this.accountText = '请输入账号';
                 }
                 if(this.password==''){
                     this.ishave=true;

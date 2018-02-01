@@ -1,0 +1,30 @@
+.accountInfor-list-key>span{
+    margin:0 10px;
+}
+.safe-icon-right{
+    color:#5DB75B;
+}
+.safe-icon-gan{
+    color:#da121a;
+}
+.dialog-notice{
+    width:100%;
+    border:1px solid #ccc;
+    text-align:left;
+    padding:20px;
+}
+.validata-type{
+    text-align:left;
+    margin:15px 0;
+}
+.email-code{
+    text-align:left;
+    margin:10px 0;
+}
+.email-btn{
+    text-align:center;
+    margin-top:20px;
+}
+.error{
+    border:1px solid red;
+}

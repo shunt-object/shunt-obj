@@ -9,7 +9,64 @@
     <child index="1" start="1" id="0" :type="$route.query.type"></child>
     <div class="CreateAnalysis_from_box">
         <div class="new-built">创建云分析信息</div>
-        <div class="CreateAnalysis_from">
+        <div class="row createAnalysis-box">
+            <div class="col-md-4">
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">1</span>
+                        上云分析名称：
+                    </div>
+                    <div class="create-yun">
+                        <div class="create-radio">
+                            <input type="radio" name="aaa" class="create-radio-input" v-on:click="clickI(1)">
+                            请输入新上云分析名称
+                        </div>
+                        <input type="text" id="input" style="margin:10px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
+                    </div>   
+                    <div class="clear"></div>                 
+                    <div class="create-yun">
+                        <div class="create-radio">
+                            <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">
+                            请选择上云分析名称
+                        </div>
+                        <select id="select" style="margin:10px 30px;" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
+                            <option :value="item" v-for="item in existing">{{item.proname}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">2</span>
+                        请输入工作负载名称：
+                    </div>
+                    <input type="text" class="create-input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入工作负载名称">
+                </div>
+                <div class="clear"></div>
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">3</span>
+                        请选择工作负载类型：
+                    </div>
+                    <select class="create-select" v-model="type" :class="istype==false?'error':''" >
+                        <option :value="item.id" v-for="item in typeList">{{item.gname}}</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">4</span>
+                        请选择工作负载架构：
+                    </div>
+                    <select class="create-select" v-model="frame" :class="isframe==false?'error':''" >
+                        <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+        <!--<div class="CreateAnalysis_from">
             <div class="CreateAnalysis_from_list">
                 <span class="CreateAnalysis_key">上云分析名称：</span>
                 <label class="label">
@@ -37,7 +94,7 @@
                     <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
                 </select>
             </div>
-        </div>
+        </div>-->
         <button class="nextbtn" v-on:click="submit()">下一步</button>
         <div class="clear"></div>
     </div>
@@ -65,7 +122,13 @@ export default{
             isframe:true,
             isappName:true,
             proId:'',
-            queryType:''
+            queryType:'',
+            changeyun:'',
+            isproName:true,
+            proName:'',
+            ischangeyun:true,
+            radio1:false,
+            radio2:false
         }
     },
     mounted:function(){
@@ -84,48 +147,133 @@ export default{
         //获取所有云分析名称
         this.$this.get('/broker/app/analysis').then((response)=>{
             this.existing = response.data.data;
+            console.log('aaa',response.data.data);
         }).catch((error)=>{
             console.log(error);
         })
     },
     methods:{
         submit:function(){
-            if(this.proId==''){
-                this.proId = 0;
+            let proid,analysisName;
+            if(this.changeyun==''){
+                //this.proId = 0;
+                proid = 0;
+                analysisName = this.proName;
+            }else{
+                proid = this.changeyun.id;
+                analysisName = this.changeyun.proname; 
             }
+            console.log(this.changeyun);
             let obj = {
-                "analysisName": this.analysisName,
+                "analysisName": analysisName,
                 "appFrame": this.frame,
                 "appName": this.appName,
                 "appType": this.type,
-                "proId":this.proId
+                "proId":proid
             };
-            let str = JSON.stringify(obj);
             let that = this;
-            console.log(this.frame);
-            if(this.analysisName!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
-                this.isanalysis = true;
+            let str = JSON.stringify(obj);
+            console.log(this.radio1,'----',this.radio2);
+            if(this.radio2==true){
+                //console.log(this.changeyun.proname);
+                this.reg2(str);
+            }else if(this.radio1==true){
+                this.reg1(str);
+            }else{
+                this.regall();
+            }
+            //this.$router.push({path:'/resourceGroup'});
+        },
+        reg1:function(str){
+            if(this.proName!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
+                this.isproName = true;
                 this.istype = true;
                 this.isframe = true;
                 this.isappName = true;
-                this.$this.post('/broker/app/analysis',str).then((response)=>{
-                    sessionStorage.setItem('appId',response.data.data);
-                    this.$router.push({path:'/resourceGroup',query:{type:this.queryType,id:response.data.data}});
-                }).catch((error)=>{
-                    console.log(error);
-                })
+                this.push(str);
             }else{
-                this.analysisName == ''?this.isanalysis = false:this.isanalysis = true;
+                this.proName == ''?this.isproName = false:this.isproName = true;
                 this.type == ''?this.istype = false:this.istype = true;
                 this.frame == ''?this.isframe = false:this.isframe = true;
                 this.appName ==''?this.isappName = false:this.isappName = true;  
             }
-            //this.$router.push({path:'/resourceGroup'});
+        },
+        reg2:function(str){
+            if(this.changeyun!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
+                this.ischangeyun = true;
+                this.istype = true;
+                this.isframe = true;
+                this.isappName = true;
+                this.push(str);
+            }else{
+                this.changeyun == ''?this.ischangeyun = false:this.ischangeyun = true;
+                this.type == ''?this.istype = false:this.istype = true;
+                this.frame == ''?this.isframe = false:this.isframe = true;
+                this.appName ==''?this.isappName = false:this.isappName = true;  
+            }
+        },
+        regall:function(){
+            if(this.proName!=''&&this.ischangeyun!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
+                this.ischangeyun = true;
+                this.isproName = true;
+                this.istype = true;
+                this.isframe = true;
+                this.isappName = true;
+            }else{
+                this.changeyun == ''?this.ischangeyun = false:this.ischangeyun = true;
+                this.proName == ''?this.isproName = false:this.isproName = true;
+                this.type == ''?this.istype = false:this.istype = true;
+                this.frame == ''?this.isframe = false:this.isframe = true;
+                this.appName ==''?this.isappName = false:this.isappName = true;  
+            }
+        },
+        clickI:function(ind){
+            if(ind==1){
+                if(this.radio1==false){
+                    this.radio1=true;
+                    this.radio2=false;
+                    this.ischangeyun = true;
+                    $("#select").attr("disabled",true);
+                     $("#input").attr("disabled",false);
+                }else{
+                    this.radio1=false;
+                    this.radio2=true;
+                    this.isproName = true;
+                    $("#input").attr("disabled",true);
+                    $("#select").attr("disabled",false);
+                }
+            }else{
+                if(this.radio2==false){
+                    this.radio2=true;
+                    this.radio1=false;
+                    this.isproName = true;
+                    $("#select").attr("disabled",false);
+                    $("#input").attr("disabled",true);
+                }else{
+                    this.radio2=false;
+                    this.radio1=true;
+                    this.ischangeyun = true;
+                    $("#input").attr("disabled",false);
+                    $("#select").attr("disabled",true);
+                }
+            }
+        },
+        push:function(str){
+            this.$this.post('/broker/app/analysis',str).then((response)=>{
+                sessionStorage.setItem('appId',response.data.data);
+                this.$router.push({path:'/resourceGroup',query:{type:this.queryType,id:response.data.data}});
+            }).catch((error)=>{
+                console.log(error);
+            })
         },
         changeExist:function(name,id){//选择已有的云分析
             this.analysis_list = false;
             this.analysisName = name;
             this.proId = id;
+        },
+        changeclould:function(item){
+            this.proId = item.id;
+            this.analysisName = item.proname;
         }
     },
     components:{

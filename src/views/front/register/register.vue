@@ -3,77 +3,157 @@
     <div class="reg-header">
         <router-link to="/"><img class="reg-logo" src="../../../assets/login-logo.png" alt=""></router-link>
     </div>
-    <div class="row">
+    <div class="row" style="padding-bottom:100px;">
         <div class="col-md-4"></div>
         <div class="reg-from col-md-4">
-            <div class="reg-from-title">欢迎注册ClouldBroker²</div>
-            <div class="reg-from-list" :class="isphone==true?'error':''">
-                <i class="xing">*</i>
-                <!-- <span class="reg-from-key">手机号码：</span> -->
-                <span class="reg-from-key">邮箱：</span>
-                <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
-                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
-                    <li v-for="item in noticeWord">{{item.text}}</li>
-                </ul>
-                <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
-                <div :class="isphone==false?'right':'null'">
-                    <img class="svg" src="../../../assets/right.svg" alt="">
+            <!--<div class="reg-from-title">欢迎注册ClouldBroker²</div>-->
+            <div class="reg-from-tab">
+                <div class="reg-tab-list" :class="selectTab==true?'border-active':'border-default'" v-on:click="Tab('email')">邮箱注册</div>
+                <div class="reg-tab-list" :class="selectTab==false?'border-active':'border-default'" v-on:click="Tab('phone')">手机注册</div>
+            </div>
+            <!-- 邮箱注册 -->
+            <div class="tab-box" v-if="selectTab==true">
+                <div class="reg-from-list" :class="isphone==true?'error':''">
+                    <i class="xing">*</i>
+                    <!-- <span class="reg-from-key">手机号码：</span> -->
+                    <span class="reg-from-key">邮箱：</span>
+                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
+                    <div :class="isphone==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="ispassword==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">设定密码：</span>
+                    <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
+                    <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
+                    <div :class="ispassword==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isagainPas==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">确认密码：</span>
+                    <input type="password" class="reg-from-val" v-model="againPassword" v-on:focus="notice('againPassword')" v-on:blur="reg('againPassword')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='againPasswordtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
+                    <div :class="isagainPas==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isconfirm==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">公司名称：</span>
+                    <input type="text" class="reg-from-val" v-model="confirm" v-on:focus="notice('confirm')" v-on:blur="reg('confirm')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='confirmtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
+                    <div :class="isconfirm==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isusername==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">姓名：</span>
+                    <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
+                    <div :class="isusername==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="reg-from-list" :class="ispassword==true?'error':''">
-                <i class="xing">*</i>
-                <span class="reg-from-key">设定密码：</span>
-                <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
-                <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
-                    <li v-for="item in noticeWord">{{item.text}}</li>
-                </ul>
-                <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
-                <div :class="ispassword==false?'right':'null'">
-                    <img class="svg" src="../../../assets/right.svg" alt="">
+            <!-- 手机注册 -->
+            <div class="tab-box" v-else>
+                <div class="reg-from-list" :class="isphone==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">手机号码：</span>
+                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
+                    <div :class="isphone==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="iscodeNum==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">验证码：</span>
+                    <input type="text" class="cede-input" v-model="codeNum">
+                    <button class="getcode-btn" v-on:click="getCode()">{{code}}</button>
+                    <div class="clear"></div>
+                    <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
+                </div>
+                <div class="reg-from-list" :class="ispassword==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">设定密码：</span>
+                    <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
+                    <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="ispassword">{{passError}}</div>
+                    <div :class="ispassword==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isagainPas==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">确认密码：</span>
+                    <input type="password" class="reg-from-val" v-model="againPassword" v-on:focus="notice('againPassword')" v-on:blur="reg('againPassword')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='againPasswordtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
+                    <div :class="isagainPas==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isconfirm==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">公司名称：</span>
+                    <input type="text" class="reg-from-val" v-model="confirm" v-on:focus="notice('confirm')" v-on:blur="reg('confirm')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='confirmtrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
+                    <div :class="isconfirm==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isusername==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">姓名：</span>
+                    <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
+                    <div :class="isusername==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="reg-from-list" :class="isagainPas==true?'error':''">
-                <i class="xing">*</i>
-                <span class="reg-from-key">确认密码：</span>
-                <input type="password" class="reg-from-val" v-model="againPassword" v-on:focus="notice('againPassword')" v-on:blur="reg('againPassword')">
-                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='againPasswordtrue'">
-                    <li v-for="item in noticeWord">{{item.text}}</li>
-                </ul>
-                <div class="error-color error-notice" v-show="isagainPas">{{againPassError}}</div>
-                <div :class="isagainPas==false?'right':'null'">
-                    <img class="svg" src="../../../assets/right.svg" alt="">
-                </div>
-            </div>
-            <div class="reg-from-list" :class="isconfirm==true?'error':''">
-                <i class="xing">*</i>
-                <span class="reg-from-key">公司名称：</span>
-                <input type="text" class="reg-from-val" v-model="confirm" v-on:focus="notice('confirm')" v-on:blur="reg('confirm')">
-                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='confirmtrue'">
-                    <li v-for="item in noticeWord">{{item.text}}</li>
-                </ul>
-                <div class="error-color error-notice" v-show="isconfirm">请输入您的公司名称</div>
-                <div :class="isconfirm==false?'right':'null'">
-                    <img class="svg" src="../../../assets/right.svg" alt="">
-                </div>
-            </div>
-            <div class="reg-from-list" :class="isusername==true?'error':''">
-                <i class="xing">*</i>
-                <span class="reg-from-key">姓名：</span>
-                <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
-                <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
-                    <li v-for="item in noticeWord">{{item.text}}</li>
-                </ul>
-                <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
-                <div :class="isusername==false?'right':'null'">
-                    <img class="svg" src="../../../assets/right.svg" alt="">
-                </div>
-            </div>
+            <!--  -->
             <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
             <div class="reg-from-agreement">
                 <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
                 <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
-                <router-link target="_blank" to="/agreenment">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
+                <router-link target="_blank" to="/agreenment" style="float:left;width:90% !important;text-align:left;">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
             </div>
+            <div class="clear"></div>
             <!--<div class="reg-from-null"></div>-->
             <div class="reg-from-notice">
                 已有ClouldBroker²账号?
@@ -82,11 +162,8 @@
         </div>
         <div class="col-md-4"></div>
     </div>
-    <div style="width:100%;height:150px;"></div>
     <div class="reg-footer">
         <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
-        <!--<p class="reg-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="reg-foot-list">京公网安备 11010802020326号</p>-->
     </div>
     <router-view></router-view>
 </div>
@@ -112,21 +189,26 @@ export default{
             isusername:null,
             phoneError:'',
             passError:'',
-            againPassError:''
+            againPassError:'',
+            selectTab:true,
+            codeNum:'',
+            code:'获取验证码',
+            codeI:60,
+            iscodeNum:false,
+            codenotice:''
         }
     },
     mounted:function(){
-        // this.$this.get('/broker/mail/send/validCode/15711213074@qq.com').then((response)=>{
-        //     console.log('------',response);
-        // }).catch((error)=>{
-        // })
     },
     methods:{
         notice:function(dom){
             if(dom=='phone'){
                 this.isnotice = 'phonetrue';
-                //this.noticeWord = [{text:'请输入您的手机号码'}];
-                this.noticeWord = [{text:'请输入您的邮箱'}];
+                if(this.selectTab==true){
+                     this.noticeWord = [{text:'请输入您的邮箱'}];
+                }else{
+                    this.noticeWord = [{text:'请输入您的手机号码'}];
+                }
             }else if(dom=='password'){
                 this.isnotice = 'passwordtrue';
                 this.noticeWord = [
@@ -146,29 +228,48 @@ export default{
             }
         },
         reg:function(dom){
-            let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
-            //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+            let emailReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
             let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
             if(dom=='phone'){
                 this.isnotice = 'phonefalse';
-                if(phoneReg.test(this.phone)==false){
-                    this.isphone = true;
-                    //this.phoneError = '请输入正确的手机格式';
-                    this.phoneError = '请输入正确的邮箱格式';
+                if(this.selectTab==true){
+                    if(emailReg.test(this.phone)==false){
+                        this.isphone = true;
+                        this.phoneError = '请输入正确的邮箱格式';
+                    }else{
+                        let that = this;
+                        this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
+                            //console.log(response);
+                            if(response.data.data==true){
+                                that.isphone = false;
+                            }else{
+                                that.isphone = true;
+                                //that.phoneError = '您的手机号已被注册';
+                                that.phoneError = '您的邮箱已被注册';
+                            }
+                        }).catch((error)=> {
+                            console.log(error);
+                        });
+                    }
                 }else{
-                    let that = this;
-                    this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
-                        //console.log(response);
-                        if(response.data.data==true){
-                            that.isphone = false;
-                        }else{
-                            that.isphone = true;
-                            //that.phoneError = '您的手机号已被注册';
-                            that.phoneError = '您的邮箱已被注册';
-                        }
-                    }).catch((error)=> {
-                        console.log(error);
-                    });
+                    if(phoneReg.test(this.phone)==false){
+                        this.isphone = true;
+                        this.phoneError = '请输入正确的手机格式';
+                    }else{
+                        let that = this;
+                        this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
+                            //console.log(response);
+                            if(response.data.data==true){
+                                that.isphone = false;
+                            }else{
+                                that.isphone = true;
+                                that.phoneError = '您的手机号已被注册';
+                            }
+                        }).catch((error)=> {
+                            console.log(error);
+                        });
+                    }
                 }
             }else if(dom=='password'){
                 this.isnotice = 'passwordfalse';
@@ -195,13 +296,23 @@ export default{
             }
         },
         agree:function(){
-            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true){
-                let obj = {
-                    "password": this.password,
-                    "email": this.phone,
-                    "realname": this.username,
-                    "tenant": this.confirm
-                };
+            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true && this.iscodeNum==false){
+                let obj;
+                if(this.selectTab==true){
+                    obj = {
+                        "password": this.password,
+                        "email": this.phone,
+                        "realname": this.username,
+                        "tenant": this.confirm
+                    };
+                }else{
+                    obj = {
+                        "password": this.password,
+                        "phone": this.phone,
+                        "realname": this.username,
+                        "tenant": this.confirm
+                    };
+                }
                 let strObj = JSON.stringify(obj);
                 let that = this;
                 this.$this.post('/broker/auth/register',strObj).then((response)=>{
@@ -222,13 +333,22 @@ export default{
                     console.log(error);
                 })
             }else{
-                //this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
-                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
+                if(this.selectTab==true){
+                    this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
+                }else{
+                    this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                }
                 if(this.password==''){
                     this.passError = '请输入您的密码';
                     this.ispassword=true;
                 }else{
                     this.ispassword=false;
+                }
+                if(this.codeNum==''){
+                    this.codenotice = '请输入验证码';
+                    this.iscodeNum = true;
+                }else{
+                    this.iscodeNum = false;
                 }
                 this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
@@ -244,6 +364,50 @@ export default{
                 this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});
             }).catch((error)=>{
             })   
+        },
+        Tab:function(dom){
+            if(dom=='email'){
+                this.selectTab = true;
+                this.iscodeNum = false;
+                this.restting();
+            }else{
+                this.selectTab = false;
+                this.iscodeNum = null;
+                this.restting();
+            }
+        },
+        getCode:function(){
+            let self = this;
+            let clear = setInterval(function(){
+                self.codeI--;
+                self.code = self.codeI+'s';
+                if(self.codeI==0){
+                    clearInterval(clear);
+                    self.codeI = 60;
+                    self.code = '重新获取验证码';
+                }
+            },1000)
+        },
+        restting:function(){
+            this.phone='';
+            this.checkbox=false;
+            this.password='';
+            this.againPassword='';
+            this.confirm='';
+            this.username='';
+            this.isnotice='';
+            this.noticeWord=[];
+            this.isphone=null;
+            this.ispassword=null;
+            this.isagainPas=null;
+            this.isconfirm=null;
+            this.isusername=null;
+            this.phoneError='';
+            this.passError='';
+            this.againPassError='';
+            this.codeNum='';
+            this.code='获取验证码';
+            this.codeI=60;
         }
     },
     component:{

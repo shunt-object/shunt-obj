@@ -14,6 +14,24 @@
             <!--<button class="btn btn-default importbtn">导出</button>-->
         <div class="clear"></div>
     </div>
+    <div class="legend" style="float:right;margin-bottom:-20px;">     
+        <div class="legend-list">
+            <span class="legend-block legend-heshi"></span>
+            合适
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-yib"></span>
+            一般
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-high"></span>
+            高
+        </div>
+        <div class="legend-list">
+            <span class="legend-block legend-di"></span>
+            低
+        </div>
+    </div>
     <div class="result-echarts" id="main"></div>
     <div class="echarts-desc">工作负载分布图</div>
     <div class="row">
@@ -104,6 +122,17 @@ export default{
             //alert(this.isclick);
             if( this.isclick!=1 && this.isclick!=2 ){
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            }else{
+                let that = this;
+                this.$alert('因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    confirmButtonClass:'lay-btn-red',
+                    callback:function(action){
+                        that.$router.push({path:'/colligateReport',query:{id:that.appId,type:that.queryType}});
+                    }
+                });
+                
             }            
         },
         drawPie:function(id){

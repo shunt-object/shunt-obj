@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
             <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
-                <li>CSB²计划在春节前推出云实测服务<span class="notice-time"></span></li>
+                <li><marquee direction="left">CSB²计划在春节前推出云实测服务<span class="notice-time"></span></marquee></li>
             </ul>
         </div>
          <!--用户信息-->
@@ -31,6 +31,8 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
+                        <li><router-link to="/accountInformation">账号信息</router-link></li>
+                        <li><router-link to="/safeSetting">安全设置</router-link></li>
                         <li v-on:click="logout()"><a href="javascript:;"><i class="icon-key"></i>退出</a></li>
                     </ul>
                 </li>

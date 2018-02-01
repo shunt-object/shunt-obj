@@ -1,68 +1,69 @@
-<!--云选型-->
-
-<template>   
+<!--云规划-->
+<template>
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
             <div class="seleconeMain-banner row animated bounceInLeft">
                 <div class="seleconeMain-mainfir col-xs-12">
-                    <p class="selecone-pfir">云选型<span>——我们应该上哪家云呢?</span></p>
+                    <p class="selecone-pfir">云规划<span>——我可以上云吗?上哪种类型的云?</span></p>
                     <div class="seclone-dv">
-                        <h3>六大场景 近二百多个标准</h3>
+                        <h3>三步让您科学上云</h3>
                         <p>有没有一个简单的应用，可以科学的告诉我结果呢?</p>
                     </div>
-                      <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
+                     <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
             </div>
-            <div class="seleconeMain-charts container">
-                <h4>当前企业上云情况</h4>
-                <P>上云成为主流和多云变为趋势</P>
-                <div class="col-md-12 seleconeMain-img">
-                    <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
-                 </div>
+             <div style="background:#ffffff;width:100%">
+                <div class="seleconeMain-charts container">
+                    <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
+                    <h4 class="h4Firer">众多用户纷纷选择上云</h4>
+                    <P style="font-size:16px">企业关注的也不再是上不上云，而是:我的工作负载适合上云吗?适合上哪种类型的云?</P>
+                    <div class="col-md-12 seleconeMain-img">
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
+                    </div>
+                </div>
             </div>
-            <div style="background:#f9fafb;width:100%;" class="broundRi">
+            <div style="background:#f9fafb;width:100%;">
                 <div class="seleconeMain-shrts container" >
-                    <h4>现实中真实困惑</h4>
-                    <P>面对诸多的云厂商，不知如何选择？</P>
+                    <h4 class="shrts-h4">集结上百位专家心血</h4>
+                    <h4 class="shrts-h4er">为您提供科学规划和上云</h4>
+                    <P>解决工作负载是否适合上云?适合上哪种类型的云?</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
-                            <ul>
-                                <li><span class="sp1">1</span><span class="sp4">政府扶持</span></li>
-                                <li><span class="sp3">2</span><span class="sp4">战略选型</span></li>
-                                <li><span class="sp2">3</span><span class="sp4">财务决策</span></li>
-                                <li><span class="sp1">4</span><span class="sp4">技术选型</span></li>
-                                <li><span class="sp3">5</span><span class="sp4">安全合规</span></li>
-                                <li><span class="sp1">6</span><span class="sp4">运维支撑能力</span></li>
+                            <ul class="Main-ul">
+                                <li>只需三步，即刻测试查看</li>
+                                <li class="Main-li"><img src="../../../assets/Group 81.png" alt=""><span class="sp4">云定性</span></li>
+                                <li><img src="../../../assets/Group 82.png" alt=""><span class="sp4">云收益度</span></li>
+                                <li><img src="../../../assets/83.png" alt=""><span class="sp4">云亲和度</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="background:#ffffff;width:100%" >
-                <div class="seleconeMain-echarts broundDow container">
-                    <h4 class="child-p text-center">多维报表分析</h4>
-                    <h4 class="child-ps text-center">提供可视化数据展现</h4>
-                    <P class="child-pl text-center" style="margin-top:26px;color:#777777">海量数据 分析报告</P>
+            <div style="background:#ffffff;width:100%">
+                <div class="seleconeMain-echarts container broundDow">
+                    <h4 class="shrts-h4">多维报表分析</h4>
+                    <h4 class="shrts-h4er">提供可视化数据展现</h4>
+                    <P>海量数据 分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
                 </div>
             </div>
              <div style="background:#f6f7f8;width:100%">
-                <div class="seleconeMain-echarts broundU container">
+                <div class="seleconeMain-echarts container broundU">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
-                   
+                  
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container" style="width:60%;">
-                        <div class="col-md-4 col-xs-12 footer-laster">
+                        <div class="col-md-4 col-xs-12 footer-laster" >
                             <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
@@ -108,21 +109,6 @@
 
 </template>
 <style>
-.seleconeMain-banner{
-   animation-duration:2s;
-}
-.seleconeMain-shrts{
-    animation-duration:2s;
-}
-.seleconeMain-charts{
-     animation-duration:2s;
-}
-.broundU{
-    animation-duration:2s;
-}
-.broundDow{
-    animation-duration:2s; 
-}
    .container{
      
         max-width: 1090px;
@@ -161,9 +147,6 @@
        font-weight:100;
        color:#ccc;
    }
-   .selecone-psec{
-
-   }
    .seclone-dv h3{
        font-size:32px;
        color:#ffffff;
@@ -176,22 +159,45 @@
    }
    .seleconeMain-charts{
        width:100%;
-       animation-duration:2s;
    }
    .seleconeMain-charts H4{
        font-size:28px;
        color:#333333;
        text-align:center;
-       margin-top:50px;
    }
+   .seleconeMain-charts .h4Fir{
+         margin-top:50px;
+   }
+   .Main-ul li img{
+       width:47px;
+       height:47px;
+   }
+   .seleconeMain-charts .h4Firer{
+       margin-top:10px;
+       margin-bottom:30px;
+   }
+   .seleconeMain-echarts .shrts-h4{
+       margin-top: 50px;
+           font-size: 28px;
+    color: #333333;
+    text-align: center;
+   }
+   .seleconeMain-echarts .shrts-h4er{
+       margin-top: 10px;
+    margin-bottom: 30px;
+        font-size: 28px;
+    color: rgb(51, 51, 51);
+    text-align: center;
+    }
    .seleconeMain-charts p{
-       font-size:28px;
-       color:#333333;
+       font-size:16px;
+       color:#777777;
        text-align:center;
    }
    .seleconeMain-img img{
-       width:80%;
-       height:80%;
+       width:50%;
+       height:50%;
+       
    }
    .seleconeMain-img{
        margin-top:60px;
@@ -201,7 +207,14 @@
        font-size:28px;
        color:#333333;
        text-align:center;
-       margin-top:50px;
+     
+   }
+   .seleconeMain-shrts .shrts-h4{
+      margin-top:50px;
+   }
+   .seleconeMain-shrts .shrts-h4er{
+       margin-top:10px;
+       margin-bottom:30px;
    }
    .seleconeMain-shrts p{
        font-size:16px;
@@ -215,6 +228,12 @@
    .seleconeMain-simg img{
        width:80%;
        height:80%;
+   }
+   .Main-ul{
+       padding-left:20px;
+   }
+   .Main-li{
+       margin-top:20px;
    }
    .seleconeMain-simg ul li .sp4{
        font-size:14px;
@@ -257,6 +276,11 @@
     .seleconeMain-simg ul li{
         margin-bottom:10px;
     }
+    .seleconeMain-echarts p{
+    font-size: 16px;
+    color: rgb(119, 119, 119);
+    text-align: center;
+    }
     .seleconeMain-echarts .child-p{
         font-size:28px;
        color:#333333;
@@ -274,7 +298,7 @@
        text-align:center;
     }
     .spanTy{
-        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:5px 40px;display:inline-block;text-align:center;background:#e41e2b
+        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:10px 50px;display:inline-block;text-align:center;background:#e41e2b;
     }
     .spanTy:hover{
         cursor:pointer;
@@ -290,11 +314,6 @@
         components:{
             Sec,
             Sex
-        },
-        data(){
-            return{
-                arrs:true
-            }
         },
         methods:{
             spanTy:function(){
@@ -318,15 +337,12 @@
                if(isn==true){
                     if($(this).scrollTop()>300&&$(this).scrollTop()<450){
                       $(".seleconeMain-charts").animateCss('bounceInLeft');
-                     
                     };
                     if($(this).scrollTop()>800&&$(this).scrollTop()<850){
                         $(".seleconeMain-shrts").animateCss('bounceInLeft');
-                     
                     };
                     if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
                         $(".broundDow").animateCss('bounceInLeft');
-                       
                     };
                     if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
                         $(".broundU").animateCss('bounceInLeft');
@@ -342,5 +358,5 @@
                
         })
     }
-}
+    }
 </script>

@@ -117,3 +117,27 @@ button{
     text-indent:2em;
 }
 /*结束*/
+/*图例*/
+.legend-list{
+    float:right;
+    font-size:12px;
+    color:#666;
+    margin-right:20px;
+}
+.legend-block{
+    width:12px;
+    height:12px;
+    display:inline-block;
+}
+.legend-di{
+    background:#efefef;
+}
+.legend-high{
+    background:#ffe9ea;
+}
+.legend-heshi{
+    background:#e7faff;
+}
+.legend-yib{
+    background:#fff1e2;
+}

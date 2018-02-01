@@ -1,8 +1,8 @@
 <template>
     <div class=" obj-friend footer">
-        <div>
+        <div class="container">
       <!--<div class="container"> -->
-        <div class="row" style="width:73%;margin:0 auto !important; padding-left:8%">
+        <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
                 <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>

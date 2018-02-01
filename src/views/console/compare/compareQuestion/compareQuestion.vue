@@ -124,15 +124,10 @@ export default{
                     }
                 }  
                 if(arr.length<1){
-                    let that = this;
-                    let lay = this.$layer.open({
-                        type: 0,
-                        content: '请选择场景进行答题。',
-                        title: '温馨提示',
-                        btn: ['我知道了'],
-                        yes:function(){
-                            that.$layer.close(lay);
-                        }
+                    this.$alert('请选择场景进行答题。', '温馨提示', {
+                        confirmButtonText: '我知道了',
+                        showClose:false,
+                        confirmButtonClass:'lay-btn-red'
                     });
                 }          
             }).catch((error)=>{

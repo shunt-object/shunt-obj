@@ -11,7 +11,10 @@
     </div>
     <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
         <!-- 基本信息 -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-information.png" alt="">基本信息</div>
+        <div class="colligate-title">
+            <img src="../../../../assets/report/report-information.png" alt="">
+            基本信息
+        </div>
         <div class="colligate-list">
             <table class="information-table">
                 <thead>
@@ -39,7 +42,10 @@
             </table>
         </div>
         <!-- 云规划报告 -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-plan.png" alt="">云规划报告详情</div>
+        <div class="colligate-title">
+            <img src="../../../../assets/report/report-plan.png" alt="">
+            云规划报告详情
+        </div>
         <div class="colligate-list">
             <div class="result-echarts" id="main"></div>
             <div class="echarts-desc">工作负载分布图</div>
@@ -62,7 +68,10 @@
             <div class="clould-desc" v-html="desc"></div>
         </div> 
         <!-- 云选型 -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-compare.png" alt="">云选型报告详情</div>
+        <div class="colligate-title">
+            <img src="../../../../assets/report/report-compare.png" alt="">
+            云选型报告详情
+        </div>
         <div class="colligate-list">
             <table class="table-score colligate-tables">
                 <thead>
@@ -141,7 +150,10 @@
             </table>
         </div>
         <!-- 上云分析建议  -->
-        <div class="colligate-title"><img src="../../../../assets/report/report-advise.png" alt="">上云分析建议</div>
+        <div class="colligate-title">
+           <img src="../../../../assets/report/report-advise.png" alt="">
+            上云分析建议
+        </div>
           <!--<img src="../../../../assets/compare-nodata.png" alt="">
             <br>
             暂无建议-->
@@ -178,7 +190,8 @@ export default{
             storage:[],
             information:{},
             advise:'',
-            reslist:false
+            reslist:false,
+            isclick:''
         }
     },
     mounted:function(){
@@ -208,8 +221,12 @@ export default{
                 }
                 if(response.data.data.appResults[i].moduleId==1){
                     this.desc = JSON.parse(response.data.data.appResults[i].result).description;
+                    this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
                 }
             }
+            //  if( this.isclick==1 && this.isclick==2 ){
+            //     this.$layer.msg(" 因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。");
+            //  }
             this.opiniondata =  [{
                 name:response.data.data.appname,
                 value:[shouyi,qinhe]
@@ -439,8 +456,9 @@ export default{
             var pdf = new jsPDF('p', 'pt','a4');
             pdf.internal.scaleFactor = 1;
             var options = {
-                pagesplit: true
+                pagesplit: true              
             };
+            //$('#titBody').css({"page-break-after":"avoid","page-break-inside":"avoid"})
             pdf.addHTML($("#titBody"), options, function() {
                 //console.log(pdf);
                 pdf.save('综合报告'+time+'.pdf');

@@ -1,0 +1,71 @@
+.accountInfor-box{
+    width:100%;
+    height:100%;
+    background:#fff;
+    padding:20px 30px 100px 30px;
+}
+.accountInfor-title{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    text-align:left;
+    font-size:14px;
+    color:#333;
+    margin-bottom:30px;
+}
+.accountInfor-list{
+    width:95%;
+    margin:0 auto;
+    text-align:left;
+    line-height:68px;
+    font-size:13px;
+    color:#666;
+    border-bottom:1px solid #d8d8d8;
+}
+.accountInfor-list-key{
+    font-size:16px;
+    color:#666666;
+}
+.account-icon{
+    margin:0 10px;
+    color:#f7a72c;
+}
+.accountInfor-list-val{
+    color:#333;
+    margin-left:10px;
+    font-size:14px;
+}
+.accountInfor-list-val-type{
+    color:#999;
+    margin-left:10px;
+    font-size:14px;
+}
+.input-updata{
+    width:220px;
+    height:30px;
+    padding:0 10px;
+}
+.edit-btn{
+    margin-left:80px;
+    background:#fff;
+    color:#2eabf5;
+    font-size:14px;
+}
+.account-icon-edit{
+    color:#666;
+    margin-right:5px;
+}
+.account-save-btn,.account-cel-btn{
+    font-size:14px;
+    background:#fff;
+    margin:0 20px;
+}
+.account-save-btn i,.account-cel-btn i{
+    margin-right:5px;
+}
+.account-save-btn i{
+    color:#5DB75B;
+}
+.account-cel-btn i{
+    color:#da121a;
+}

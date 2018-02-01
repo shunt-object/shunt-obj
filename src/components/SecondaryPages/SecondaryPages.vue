@@ -10,13 +10,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
       		</button>
-          <a class="navbar-brand page-scroll" href="#page-top"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs animated rotateIn"></a>
+          <a class="navbar-brand page-scroll" href="#page-top" @click="homePager()"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs animated rotateIn"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px"><a class="page-scroll animated fadeInLeft" href="javascript:;">首页</a></li>
-            <li><a class="page-scroll animated fadeInDown" href="javascript:;">功能</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll animated fadeInLeft" href="javascript:;">首页</a></li>
+            <li class="dropdown">
+                <a class="page-scroll animated fadeInDown alist" href="javascript:;">功能</a>
+                 <div class="dropdown-content">
+                    <a style="color:#000 !important;" @click="cloundPlan">云规划</a>
+                    <a style="color:#000 !important;" @click="cloundPlen">云选型</a>
+                    <a style="color:#000 !important;" >云实测</a>
+                </div>    
+            </li>
             <li><a class="page-scroll animated bounceIn" href="javascript:;">帮助</a></li>
             <li><a class="page-scroll animated fadeInUp" href="javascript:;">联系我们</a></li>
             <li><a class="page-scroll animated fadeInRight" v-on:click="condole">控制台</a></li>
@@ -91,14 +98,51 @@ export default {
       },
       reset: function() {
         this.$router.push({path: '/register'})
+      },
+      cloundPlan:function(){
+           this.$router.push({path: '/sleconesecond'})
+      },
+      cloundPlen:function(){
+          this.$router.push({path: '/seleconefirst'})
+      },
+      homePager:function(){
+           this.$router.push({path: '/'})
       }
     }
   }
 </script>
 
 <style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-    .container{ 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 60px;
+}
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {background-color: #ccc}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.dropdown-content p:hover{
+    cursor:pointer;
+    background:#000;
+}
+
+ .container{ 
     max-width: 1090px;
 }
 .row{
@@ -215,6 +259,9 @@ ul,ol li {
   }
   .navbar ul li a:hover {
       border-bottom: 1px solid #fff; cursor: pointer;
+  }
+  .navbar ul li .alist:hover {
+      border:none;
   }
   .carousel-inner .item img {
       display: inline-block; vertical-align: baseline;

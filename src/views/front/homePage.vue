@@ -31,7 +31,7 @@
               <div class="col-md-7 lun-le animated rollIn">
                 <h1>业界领先上云服务,助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
                 <img src="../../assets/text.png" alt="" class="tranimg">
@@ -49,7 +49,7 @@
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>提供360°保姆式咨询服务</h1>
                             <p class="pCenter" style="font-weight:600">上云规划从未如此简单</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span>了解更多</span></p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
                         <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
@@ -93,7 +93,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云?精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
             </div>
-            <span class="obj-cta">查看更多</span>
+            <span class="obj-cta" @click="ctaCloundCsb()">查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <img src="../../assets/Page 1.png" alt="" class="Yunimg">
@@ -101,7 +101,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
             </div>
-            <span class="obj-cta">查看更多</span>
+            <span class="obj-cta"  @click="ctaClound()">查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <img src="../../assets/12.png" alt="" class="Yunimg">
@@ -287,10 +287,11 @@ export default {
                             $(this).find("img").removeClass("flip")
 
                         });
+                       
                         $(".lis-hov").mouseover(function(){
                             $(this).find(".pict").css("transform", "scale(1.4)")
                              $(this).find(".picts").css("transform", "scale(1.4)")
-                             $(this).find("p").css({"transform":"scale(1.3)","color":"#8288ff","padding-top":"35%"})
+                             $(this).find("p").css({"transform":"scale(1.3)","color":"#fff","padding-top":"35%"})
                             //  $(this).css("position","relative");
                             //  var res = "<div class='dnsery'></div>";
                             //  $(".dnsery").css({"position":"absolute","top":0,"width":"273px","height":"376px","opacity":0.2,"background":"#1f2745"})
@@ -319,17 +320,18 @@ export default {
                            $(this).css({"box-shadow":"","background":""});;
                         });
                         $(".claes").hover(function(){
-                           $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
-                           //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
-                           var a = $(this).find(".tranImg");
-                            a.addClass("imgAnimation");
-                            
+                            $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
+                        //    //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
+                        //    var a = $(this).find(".tranImg");
+                        //     a.addClass("imgAnimation");
+                            $(this).find("img").animateCss('flip'); 
                           
                         },function(){
-                              $(this).css({"box-shadow":"","background":""});;
-                              var a = $(this).find(".tranImg");
-                             a.css({opacity:'1'});
-                              a.removeClass("imgAnimation");
+                             $(this).css({"box-shadow":"","background":""});;
+                            //   var a = $(this).find(".tranImg");
+                            //  a.css({opacity:'1'});
+                            //   a.removeClass("imgAnimation");
+                              $(this).find("img").removeClass("flip");
                         })
             //$('.scrollUp').hide();        
             $(window).scroll(function(){
@@ -572,6 +574,14 @@ export default {
       },
       reset: function() {
         this.$router.push({path: '/register'})
+      },
+      ctaClound:function(){
+          this.$router.push({path: '/seleconefirst'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      ctaCloundCsb:function(){
+          this.$router.push({path: '/sleconesecond'});
+            $('html ,body').animate({scrollTop: 0},0);
       }
     }
   }
@@ -581,6 +591,9 @@ export default {
 /**{
    overflow:hidden
 }*/
+.hoverSapn:hover{
+    cursor:pointer;
+}
 .lis-hov p{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;

@@ -1,0 +1,9 @@
+.lay-btn-red{
+    background:#da121a !important; border:none !important;
+}
+.lay-btn-red:hover{
+    background:#da121a !important;
+}
+.el-message-box__title{
+    font-size:16px !important;
+}
