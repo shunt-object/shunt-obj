@@ -107,7 +107,7 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <el-tooltip content="删除此应用" placement="top" effect="light">
-                            <i class="iconfont icon-shanchu" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" v-popover:popover1></i>
+                            <i class="iconfont icon-shanchu" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" ></i>
                         </el-tooltip>
                         <el-tooltip content="查看综合报表" placement="top" effect="light">   
                             <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
