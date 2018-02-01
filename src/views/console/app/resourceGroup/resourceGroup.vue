@@ -327,7 +327,12 @@
 *{
     padding:0
 }
-
+.el-form-item{
+    width:500px;
+}
+.el-button--primary{
+    background:#ccc !important;
+}
 @media (max-width: 768px) {
     .el-form-item__label{
         width:70px !important;
@@ -585,12 +590,20 @@ export default {
                     this.result =  res.data.data; 
                     console.log( this.result);
                      //this.$router.push({path:'/login'});/planQuestion
-                     this.netRule=this.result.network;
-                     //console.log(this.netRule);
-                     this.wangl =true;
+                     
+                     if(this.result.network.bandwidth==null&&this.result.network.inbound==null&&this.result.network.outbound==null){
+                        this.wangl =false;
+                     }else if(this.result.network.bandwidth!=null&&this.result.network.inbound!=null&&this.result.network.outbound!=null){
+                         this.netRule=this.result.network;
+                         this.wangl=true;
+                     }
+                    
+                     
+                    
                      this.cores=this.result.appServer;
                      this.ines = this.result.dbServer;
                      this.inus = this.result.storage;
+                     console.log(this.result.dbServer);
                      },(err)=>{
                          console.log("不好意思")
                      });
