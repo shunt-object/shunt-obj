@@ -77,18 +77,6 @@
             </div>
             <!-- 手机注册 -->
             <div class="tab-box" v-else>
-                <div class="reg-from-list" :class="isphone==true?'error':''">
-                    <i class="xing">*</i>
-                    <span class="reg-from-key">手机号码：</span>
-                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
-                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
-                        <li v-for="item in noticeWord">{{item.text}}</li>
-                    </ul>
-                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
-                    <div :class="isphone==false?'right':'null'">
-                        <img class="svg" src="../../../assets/right.svg" alt="">
-                    </div>
-                </div>
                 <div class="reg-from-list" :class="ispassword==true?'error':''">
                     <i class="xing">*</i>
                     <span class="reg-from-key">设定密码：</span>
@@ -134,6 +122,18 @@
                     </ul>
                     <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
                     <div :class="isusername==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="reg-from-list" :class="isphone==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">手机号码：</span>
+                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
+                    <div :class="isphone==false?'right':'null'">
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>

@@ -30,7 +30,7 @@
                             <input type="checkbox" v-model="remember">记住密码
                         </div>
                         <div class="login-from-right">
-                            <router-link to="/register" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto">忘记密码</router-link>
+                            <router-link to="/register" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
                         </div>
                     </div>
                 </div>
