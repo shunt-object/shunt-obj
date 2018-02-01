@@ -116,9 +116,8 @@ export default{
         this.safe = JSON.parse(sessionStorage.getItem("account"));
         JSON.parse(sessionStorage.getItem("account")).email ==null?this.type='true':this.type='false';
         JSON.parse(sessionStorage.getItem("account")).phone ==null?this.phonetype='true':this.phonetype='false';
-        this.isemail = JSON.parse(sessionStorage.getItem("account")).eamil;
+        this.isemail = JSON.parse(sessionStorage.getItem("account")).email;
         this.isphone = JSON.parse(sessionStorage.getItem("account")).phone;
-        console.log(this.safe);
     },
     methods:{
         undialog:function(){
@@ -235,11 +234,19 @@ export default{
                         this.dialogUnbing = false;
                         if(this.type=='true'){
                             let string = JSON.stringify(this.safe);
-                            sessionStorage.setItem("account",string)
+                            sessionStorage.setItem("account",string);
+                            this.$message({
+                                message: '您已成功绑定邮箱',
+                                type: 'success'
+                            });
                         }else{
                             this.safe.email = null;
                             let string = JSON.stringify(this.safe);
                             sessionStorage.setItem("account",string);
+                            this.$message({
+                                message: '您已成功解除绑定',
+                                type: 'success'
+                            });
                         }
                         this.emailnum = '';
                     }
@@ -276,11 +283,19 @@ export default{
                         this.dialogUnbing = false;
                         if(this.phonetype=='true'){
                             let string = JSON.stringify(this.safe);
-                            sessionStorage.setItem("account",string)
+                            sessionStorage.setItem("account",string);
+                            this.$message({
+                                message: '您已成功绑定手机',
+                                type: 'success'
+                            });
                         }else{
                             this.safe.phone = null;
                             let string = JSON.stringify(this.safe);
                             sessionStorage.setItem("account",string)
+                            this.$message({
+                                message: '您已成功解除绑定',
+                                type: 'success'
+                            });
                         }
                         this.phonenum = '';
                     }

@@ -115,7 +115,7 @@ select,input{
 }
 .create-radio{
     text-align:left;
-    margin-left:30px;
+    margin:10px 30px;
 }
 .create-radio-input{
     float:left;

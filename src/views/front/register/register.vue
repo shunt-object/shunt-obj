@@ -89,14 +89,6 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
-                <div class="reg-from-list" :class="iscodeNum==true?'error':''">
-                    <i class="xing">*</i>
-                    <span class="reg-from-key">验证码：</span>
-                    <input type="text" class="cede-input" v-model="codeNum">
-                    <button class="getcode-btn" v-on:click="getCode()">{{code}}</button>
-                    <div class="clear"></div>
-                    <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
-                </div>
                 <div class="reg-from-list" :class="ispassword==true?'error':''">
                     <i class="xing">*</i>
                     <span class="reg-from-key">设定密码：</span>
@@ -144,6 +136,14 @@
                     <div :class="isusername==false?'right':'null'">
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
+                </div>
+                <div class="reg-from-list" :class="iscodeNum==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">验证码：</span>
+                    <input type="text" class="cede-input" v-model="codeNum">
+                    <button class="getcode-btn" v-on:click="getCode()">{{code}}</button>
+                    <div class="clear"></div>
+                    <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
                 </div>
             </div>
             <!--  -->
@@ -351,9 +351,11 @@ export default{
                 let strObj = JSON.stringify(obj);
                 let that = this;
                 this.$this.post('/broker/auth/register/email',strObj).then((response)=>{
-                    if(response.data.code=='1'){
+                    //console.log(response);
+                    if(response.data.code==1){
+                        //console.log(11111);
                         //this.send(response.data.data.username);
-                        this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});                    
+                        this.$router.push({path:'/sendEmail',query:{email:this.phone,username:response.data.data.username}});                    
                     }
                 }).catch((error)=>{
                     console.log(error);

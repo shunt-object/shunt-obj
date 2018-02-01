@@ -92,7 +92,7 @@
                 </tbody>
             </table>
             <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
-                <thead>
+                <thead v-if="appServer.length>0||dbServer>0||network.inbound||storage.length>0">
                     <tr>
                         <th>数量</th>
                         <th>资源</th>
@@ -110,8 +110,6 @@
                             <p><span class="labelRed">{{item.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{item.os}}</span>操作系统</p>
                             <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
-                            <p><span class="labelRed">{{item.monthlyUsage}}</span>每个月用量（天/月）</p>
-                            <p><span class="labelRed">{{item.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
                     </tr>
                     <tr v-for="db in dbServer">
@@ -124,11 +122,9 @@
                             <p><span class="labelRed">{{db.localDisk}}</span>系统盘(GB)</p>
                             <p><span class="labelRed">{{db.os}}</span>操作系统</p>
                             <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
-                            <p><span class="labelRed">{{db.monthlyUsage}}</span>每个月用量（天/月）</p>
-                            <p><span class="labelRed">{{db.dailyUsage}}</span>每天用量（小时/天）</p>
                         </td>
                     </tr>
-                    <tr>
+                    <tr v-if="network.inbound">
                         <td></td>
                         <td>网络存储</td>
                         <td>

@@ -146,12 +146,16 @@ export default{
         if(this.id!=0){
             if(I==1){
                 let that = this;
-                let self = this.$layer.confirm("您确定要重新再创建一个云分析吗？", async function () {
-                    that.$layer.close(self);
-                    that.$router.push({path:'/createAnalysis',query:{type:'plan'}});
-                }, function () {
-                    that.$layer.close(self);
-                });          
+                this.$confirm('您确定要重新再创建一个云分析吗？', '温馨提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    confirmButtonClass:'lay-btn-red',
+                    type: 'warning',
+                    center: false
+                    }).then(() => {
+                        that.$router.push({path:'/createAnalysis',query:{type:'plan'}});
+                    }).catch(() => {
+                    });         
             }else if(I==2){
                 this.$router.push({path:'/resourceGroup',query:{type:'plan',id:this.id}});
             }else if(I==3){

@@ -21,7 +21,7 @@
                             <input type="radio" name="aaa" class="create-radio-input" v-on:click="clickI(1)">
                             请输入新上云分析名称
                         </div>
-                        <input type="text" disabled="true" id="input" style="margin:10px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
+                        <!--<input type="text" disabled="true" id="input" style="margin:10px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">-->
                     </div>   
                     <div class="clear"></div>                 
                     <div class="create-yun">
@@ -29,9 +29,10 @@
                             <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">
                             请选择上云分析名称
                         </div>
-                        <select id="select" style="margin:10px 30px;" class="create-select" v-model="changeyun" disabled="true" :class="ischangeyun==false?'error':''">
+                        <select v-if="radio2==true" id="select" style="margin:10px 30px;" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
                             <option :value="item" v-for="item in existing">{{item.proname}}</option>
                         </select>
+                         <input v-if="radio1==true" type="text" id="input" style="margin:10px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
                     </div>
                 </div>
                 <div class="clear"></div>

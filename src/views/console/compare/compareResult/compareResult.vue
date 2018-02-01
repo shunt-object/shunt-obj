@@ -61,7 +61,7 @@
     </div>
     <div class="compare-cate" v-if="res==true">上云工作负载配置信息详情</div>
     <table class="table-score resourGroup-table" v-if="res==true">
-        <thead>
+        <thead v-if="appServer.length>0||dbServer>0||network.inbound||storage.length>0">
             <tr>
                 <th>数量</th>
                 <th>资源</th>
@@ -79,8 +79,6 @@
                     <p><span class="labelRed">{{item.localDisk}}</span>系统盘(GB)</p>
                     <p><span class="labelRed">{{item.os}}</span>操作系统</p>
                     <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
-                    <p><span class="labelRed">{{item.monthlyUsage}}</span>每个月用量（天/月）</p>
-                    <p><span class="labelRed">{{item.dailyUsage}}</span>每天用量（小时/天）</p>
                 </td>
             </tr>
             <tr v-for="db in dbServer">
@@ -93,11 +91,9 @@
                     <p><span class="labelRed">{{db.localDisk}}</span>系统盘(GB)</p>
                     <p><span class="labelRed">{{db.os}}</span>操作系统</p>
                     <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
-                    <p><span class="labelRed">{{db.monthlyUsage}}</span>每个月用量（天/月）</p>
-                    <p><span class="labelRed">{{db.dailyUsage}}</span>每天用量（小时/天）</p>
                 </td>
             </tr>
-            <tr>
+            <tr v-if="network.inbound">
                 <td></td>
                 <td>网络存储</td>
                 <td>
@@ -165,8 +161,9 @@ export default{
     },
     methods:{
         getdata:function(){
+            console.log(1111);
             this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-                //console.log('-----',response.data.data.res==null);
+                console.log('=====',response.data.data.res==null);
                 if(response.data.data.res!=null){
                     this.res = true;
                 }
@@ -175,7 +172,7 @@ export default{
                 this.dbServer = JSON.parse(response.data.data.res.dbServer);
                 this.network = JSON.parse(response.data.data.res.network);
                 this.storage = JSON.parse(response.data.data.res.storage);
-                //console.log('-----',this.dbServer);
+                console.log('-----',this.network);
                  
             }).catch((error)=>{})
         },

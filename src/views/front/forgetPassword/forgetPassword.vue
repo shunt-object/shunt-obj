@@ -29,9 +29,9 @@
             </div>
             <div class="forget-content">
                 <div class="forget-list" v-if="index==0||index==1">
-                    <div class="forget-username" v-if="index==0">
+                    <div class="forget-username" v-if="index==0" :class="isRegister==true?'error':''">
                         <input type="text" class="username-input" v-model="useraccount">
-                        <button class="username-btn">确认</button>
+                        <button class="username-btn" v-on:click="check()">确认</button>
                     </div>
                     <div class="forget-type" v-if="index==1">
                         <p class="forget-desc">您正在为<span class="color">{{accountNum}}</span></p>
@@ -72,11 +72,11 @@
                 <div class="forget-list" v-if="index==3">
                     <div class="forget-code" :class="isone==true?'error':''">
                         <span class="passkey">新密码：</span>
-                        <input type="text" class="code-input" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
+                        <input type="password" class="code-input" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
                     </div>
                     <div class="forget-code" :class="istwo==true?'error':''">
                         <span class="passkey">确认新密码：</span>
-                        <input type="text" class="code-input" v-model="passwordA" v-on:foucs="enter('two')" v-on:blur="leave('two')">
+                        <input type="password" class="code-input" v-model="passwordA" v-on:foucs="enter('two')" v-on:blur="leave('two')">
                     </div>
                     <button class="forget-type-btn mt-50" v-on:click="passwordyes()">确认</button>
                 </div>
@@ -118,7 +118,8 @@ export default{
             isphonenum:false,
             isemailnum:false,
             isone:false,
-            istwo:false
+            istwo:false,
+            isRegister:false
         }
     },
     mounted:function(){
@@ -135,13 +136,37 @@ export default{
             }
         }else{//找回密码
             this.index = 0;
-            this.accountNum = this.useraccount;
         }
     },
     methods:{
         test:function(dom){
             this.or = dom;
             this.index=2;
+        },
+        check:function(){
+            this.$this.get('/broker/auth/check/'+this.useraccount+'/').then((response)=> {
+                //console.log(response);
+                if(response.data.data==true){
+                    this.isRegister=true;
+                    this.$message.error('您的账号还未注册');
+                    
+                }else{
+                    this.isRegister=false;
+                    this.index=1;
+                    this.accountNum = this.useraccount;
+                    let emailReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
+                    let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+                    if(emailReg.test(this.useraccount)==true){
+                        this.typeE = true;
+                        this.typeP = false;
+                    }else if(phoneReg.test(this.useraccount)==true){
+                        this.typeE = false;
+                        this.typeP = true;
+                    }
+                }
+            }).catch((error)=> {
+                console.log(error);
+            });
         },
         phoneCode:function(){
             if(this.phonenum==''){

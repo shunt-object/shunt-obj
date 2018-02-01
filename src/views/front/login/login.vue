@@ -15,7 +15,7 @@
                 <div style="padding:0 20px;margin-top:20px;">
                     <div class="login-from-list" :class="isaccount==true?'error':''">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="邮箱" v-model="account" v-on:blur="PhoneReg('account')">
+                        <input type="text" placeholder="手机/邮箱/账号" v-model="account" v-on:blur="PhoneReg('account')">
                         <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
                     </div>
                     
@@ -30,7 +30,7 @@
                             <input type="checkbox" v-model="remember">记住密码
                         </div>
                         <div class="login-from-right">
-                            <router-link to="/register" class="linkto">立即注册</router-link> | 忘记密码
+                            <router-link to="/register" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto">忘记密码</router-link>
                         </div>
                     </div>
                 </div>
