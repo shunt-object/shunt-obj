@@ -296,74 +296,11 @@ export default{
             }
         },
         agree:function(){
-            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true && this.iscodeNum==false){
-                let obj;
-                if(this.selectTab==true){
-                    obj = {
-                        "password": this.password,
-                        "email": this.phone,
-                        "realname": this.username,
-                        "tenant": this.confirm
-                    };
-                }else{
-                    obj = {
-                        "password": this.password,
-                        "phone": this.phone,
-                        "realname": this.username,
-                        "tenant": this.confirm
-                    };
-                }
-                let strObj = JSON.stringify(obj);
-                let that = this;
-                this.$this.post('/broker/auth/register',strObj).then((response)=>{
-                    if(response.data.code=='1'){
-                        // let lay = this.$layer.open({
-                        //     type: 0,
-                        //     content: '您已注册成功，请前去登录',
-                        //     title: '温馨提示',
-                        //     btn: '我知道了',
-                        //     yes:function(){
-                        //         that.$router.push({path:'/login'});
-                        //         that.$layer.close(lay);
-                        //     }
-                        // });
-                        this.send(response.data.data.username);                    
-                    }
-                }).catch((error)=>{
-                    console.log(error);
-                })
+            if(this.selectTab == true){
+                this.registerEmail();
             }else{
-                if(this.selectTab==true){
-                    this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
-                }else{
-                    this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
-                }
-                if(this.password==''){
-                    this.passError = '请输入您的密码';
-                    this.ispassword=true;
-                }else{
-                    this.ispassword=false;
-                }
-                if(this.codeNum==''){
-                    this.codenotice = '请输入验证码';
-                    this.iscodeNum = true;
-                }else{
-                    this.iscodeNum = false;
-                }
-                this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
-                this.confirm==''?this.isconfirm=true:this.isconfirm=false;
-                this.username==''?this.isusername=true:this.isusername=false;
-                if(this.checkbox==false){
-                    this.$layer.msg('请阅读服务协议');
-                }
+                this.registerPhone();
             }
-        },
-        send:function(username){
-            this.$this.get('/broker/mail/send/validCode/'+username).then((response)=>{
-                //console.log('------',response);
-                this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});
-            }).catch((error)=>{
-            })   
         },
         Tab:function(dom){
             if(dom=='email'){
@@ -387,6 +324,55 @@ export default{
                     self.code = '重新获取验证码';
                 }
             },1000)
+        },
+        registerEmail:function(){
+            if( this.isphone==false && this.ispassword==false && this.isagainPas==false && this.isconfirm==false && this.isusername==false && this.checkbox==true && this.iscodeNum==false){
+               let obj = {
+                        "password": this.password,
+                        "email": this.phone,
+                        "realname": this.username,
+                        "tenant": this.confirm
+                };
+                let strObj = JSON.stringify(obj);
+                let that = this;
+                this.$this.post('/broker/auth/register/email',strObj).then((response)=>{
+                    if(response.data.code=='1'){
+                        this.send(response.data.data.username);                    
+                    }
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            }else{
+                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
+                if(this.password==''){
+                    this.passError = '请输入您的密码';
+                    this.ispassword=true;
+                }else{
+                    this.ispassword=false;
+                }
+                // if(this.codeNum==''){
+                //     this.codenotice = '请输入验证码';
+                //     this.iscodeNum = true;
+                // }else{
+                //     this.iscodeNum = false;
+                // }
+                this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
+                this.confirm==''?this.isconfirm=true:this.isconfirm=false;
+                this.username==''?this.isusername=true:this.isusername=false;
+                if(this.checkbox==false){
+                    this.$layer.msg('请阅读服务协议');
+                }
+            }
+        },
+        registerPhone:function(){
+
+        },
+        send:function(username){
+            this.$this.get('/broker/mail/send/validCode/'+username).then((response)=>{
+                //console.log('------',response);
+                this.$router.push({path:'/sendEmail',query:{email:this.phone,username:username}});
+            }).catch((error)=>{
+            })   
         },
         restting:function(){
             this.phone='';

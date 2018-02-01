@@ -52,29 +52,37 @@
     <div class="dialog-notice">为了您的账号安全，进行敏感操作前先验证身份。</div>
     <!-- 邮箱验证 -->
     <div v-if="updataname=='email'">
-        <div class="validata-type">验证方式：邮箱验证</div>
-        <div class="validata-type">绑定邮箱：
+        <div class="validata-type"><span class="safe-key">验证方式</span>邮箱验证</div>
+        <div class="validata-type">
+            <span class="safe-key">绑定邮箱</span>
             <span v-if="isemail!=null">{{safe.email}}</span>
             <input class="intemail" type="text" v-else v-model="safe.email" :class="safe.email==''?'error':''">
         </div>
-        <div class="email-code">邮箱验证码：<input type="text" :class="isemailnum==true?'error':''" v-model="emailnum"><button v-on:click="emailCode()" :disabled="dis">{{second}}</button></div>
+        <div class="email-code">
+            <span class="safe-key">邮箱验证码</span>
+            <input type="text" class="intemail" :class="isemailnum==true?'error':''" v-model="emailnum">
+            <button v-on:click="emailCode()" :disabled="dis" class="safe-send-btn">{{second}}</button>
+        </div>
     </div>
     <!-- 手机验证 -->
     <div v-if="updataname=='phone'">
-        <div class="validata-type">验证方式：手机验证</div>
-        <div class="validata-type">绑定手机：
+        <div class="validata-type">
+            <span class="safe-key">验证方式</span>手机验证</div>
+        <div class="validata-type">
+            <span class="safe-key">绑定手机</span>
             <span v-if="isphone!=null">{{safe.phone}}</span>
             <input class="intemail" type="text" v-else v-model="safe.phone" :class="safe.phone==''?'error':''">
         </div>
-        <div class="email-code">手机验证码：
-            <input type="text" :class="isphonenum==true?'error':''" v-model="phonenum">
-            <button v-on:click="phoneCode()" :disabled="phonedis">{{count}}</button>
+        <div class="email-code">
+            <span class="safe-key">手机验证码</span>
+            <input class="intemail" type="text" :class="isphonenum==true?'error':''" v-model="phonenum">
+            <button v-on:click="phoneCode()" :disabled="phonedis" class="safe-send-btn">{{count}}</button>
         </div>
     </div>
     <!-- -->
     <div class="email-btn">
-        <el-button v-on:click="undialog()">取 消</el-button>
-        <el-button type="primary" v-on:click="success()">确 定</el-button>
+        <button class="safe-save-btn" v-on:click="success()">保存</button>
+        <button class="safe-cel-btn" v-on:click="undialog()">取 消</button>
     </div>    
 </el-dialog>
 </div>
@@ -130,7 +138,7 @@ export default{
                 this.safe.email = '';
                 this.$message.error('请输入邮箱');
             }else{
-                this.second = 10;
+                this.second = 300;
                 this.dis = true;
                 let that = this;
                 this.sendEmail();
@@ -163,7 +171,7 @@ export default{
                 this.safe.phone = '';
                 this.$message.error('请输入手机号');
             }else{
-                this.count = 60;
+                this.count = 300;
                 this.phonedis = true;
                 let that = this;
                 this.sendPhone();

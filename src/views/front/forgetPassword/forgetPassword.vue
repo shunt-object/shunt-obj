@@ -30,56 +30,60 @@
             <div class="forget-content">
                 <div class="forget-list" v-if="index==0||index==1">
                     <div class="forget-username" v-if="index==0">
-                        <input type="text" class="username-input">
+                        <input type="text" class="username-input" v-model="useraccount">
                         <button class="username-btn">确认</button>
                     </div>
                     <div class="forget-type" v-if="index==1">
-                        <p class="forget-desc">您正在为<span class="color">{{information.realname}}</span></p>
-                        <p class="forget-desc">找回密码，请选择身份验证方式。</p>
-                        <button class="forget-type-btn" v-on:click="test('phone')">通过您的手机验证</button>
-                        <button class="forget-type-btn" v-on:click="test('email')">通过您的邮箱验证</button>
+                        <p class="forget-desc">您正在为<span class="color">{{accountNum}}</span></p>
+                        <p class="forget-desc">修改密码，请选择身份验证方式。</p>
+                        <button class="forget-type-btn" v-on:click="test('phone')" v-if="typeP==true">通过您的手机验证</button>
+                        <button class="forget-type-btn" v-on:click="test('email')" v-if="typeE==true">通过您的邮箱验证</button>
                     </div>
                 </div>
                 <div class="forget-list" v-if="index==2">
                     <div v-if="or=='phone'">
-                        <div class="forget-code" :class="phonezhang==''?'error':''">
-                            <span>手机号码：</span>
-                            <input type="text" class="code-input" v-model="phonezhang">
-                        </div>
                         <div class="forget-code" :class="isphonenum==false?'':'error'">
-                            <span>验&nbsp;证&nbsp;&nbsp;码：</span>
+                            <span>手机号码：</span>
                             <input type="text" class="code-input" v-model="phonenum">
-                            <button class="code-btn" :disabled="disP" v-on:click="phoneCode()">{{countP}}</button>
+                        </div>
+                        <div class="forget-code" :class="isphonecode==false?'':'error'">
+                            <span>验&nbsp;证&nbsp;&nbsp;码：</span>
+                            <input type="text" class="code-input" v-model="phonecode">
+                            <button class="code-btn" :disabled="disabledP" v-on:click="phoneCode()">
+                                {{countP}}<span v-if="countP!='发送验证码'&&countP!='重新发送'">s</span>
+                            </button>
                         </div>
                     </div>
                     <div v-if="or=='email'">
-                        <div class="forget-code" :class="emailzhang==''?'error':''">
-                            <span>邮箱账号：</span>
-                            <input type="text" class="code-input" v-model="emailzhang">
-                        </div>
                         <div class="forget-code" :class="isemailnum==false?'':'error'">
-                            <span>验&nbsp;证&nbsp;&nbsp;码：</span>
+                            <span>邮箱账号：</span>
                             <input type="text" class="code-input" v-model="emailnum">
-                            <button class="code-btn" :disabled="disE" v-on:click="emailCode()">{{countE}}</button>
+                        </div>
+                        <div class="forget-code" :class="isemailcode==false?'':'error'">
+                            <span>验&nbsp;证&nbsp;&nbsp;码：</span>
+                            <input type="text" class="code-input" v-model="emailcode">
+                            <button class="code-btn" :disabled="disabledE" v-on:click="emailCode()">
+                                {{countE}} <span v-if="countE!='发送验证码'&&countE!='重新发送'">s</span>
+                            </button>
                         </div>
                     </div>
-                    <button class="forget-type-btn mt-50" v-on:click="codeSuccess()">确认</button>
+                    <button class="forget-type-btn mt-50" v-on:click="confirm()">确认</button>
                 </div>
                 <div class="forget-list" v-if="index==3">
-                    <div class="forget-code">
+                    <div class="forget-code" :class="isone==true?'error':''">
                         <span class="passkey">新密码：</span>
-                        <input type="text" class="code-input" v-model="password">
+                        <input type="text" class="code-input" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
                     </div>
-                    <div class="forget-code">
+                    <div class="forget-code" :class="istwo==true?'error':''">
                         <span class="passkey">确认新密码：</span>
-                        <input type="text" class="code-input" v-model="passwordA">
+                        <input type="text" class="code-input" v-model="passwordA" v-on:foucs="enter('two')" v-on:blur="leave('two')">
                     </div>
                     <button class="forget-type-btn mt-50" v-on:click="passwordyes()">确认</button>
                 </div>
                 <div class="forget-list" v-if="index==4">
                     <img src="../../../assets/front/activate-success.png" class="activate-img for-success-img" alt="">
                     <div class="forget-success">密码更改成功</div>
-                    <router-link to="/" class="forget-type-btn mt-50">立即登录</router-link>
+                    <router-link to="/login" class="forget-type-btn mt-50">立即登录</router-link>
                 </div>
             </div>
         </div>
@@ -94,166 +98,252 @@ export default{
     data(){
         return {
             index:'',
-            information:'',
-            or:'',
-            countE:'获取验证码',
-            countP:'获取验证码',
-            disE:false,
-            disP:false,
-            typeE:'',
+            disabledE:false,
+            disabledP:false,
+            useraccount:'',
+            phonenum:'',
+            phonecode:'',
+            isphonecode:false,
             emailnum:'',
-            isemailnum:false,
+            isemailcode:'',
+            emailcode:'',
             password:'',
             passwordA:'',
-            emailzhang:null,
-            phonenum:'',
-            isphonenum:false
+            or:'',
+            countE:'发送验证码',
+            countP:'发送验证码',
+            typeE:'',
+            typeP:'',
+            accountNum:'',
+            isphonenum:false,
+            isemailnum:false,
+            isone:false,
+            istwo:false
         }
     },
     mounted:function(){
-        this.information = JSON.parse(sessionStorage.getItem("account"));
-        if(JSON.parse(sessionStorage.getItem("account")).username){
+        if(JSON.parse(sessionStorage.getItem("account")).username){//修改密码
             this.index = 1;
-        }else{
-            this.index = 0; 
+            this.typeE = true;
+            this.typeP = true;
+            if(JSON.parse(sessionStorage.getItem("account")).email!=null){
+                this.accountNum = JSON.parse(sessionStorage.getItem("account")).email;
+            }else if(JSON.parse(sessionStorage.getItem("account")).phone!=null){
+                this.accountNum = JSON.parse(sessionStorage.getItem("account")).phone;
+            }else{
+                this.accountNum = JSON.parse(sessionStorage.getItem("account")).realname;
+            }
+        }else{//找回密码
+            this.index = 0;
+            this.accountNum = this.useraccount;
         }
-        //JSON.parse(sessionStorage.getItem("account")).email ==null?this.typeE='true':this.typeE='false';
-        //console.log('====',JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
         test:function(dom){
             this.or = dom;
-            this.index = 2;
+            this.index=2;
         },
         phoneCode:function(){
-            this.countP = 300;
-            this.disP = true;
-            let that = this;
-            this.phoneHttp();
-            let timer = setInterval(function(){
-                that.countP--;
-                if(that.countP==0){
-                    clearInterval(timer);
-                    that.countP = '重新发送';
-                    that.disP = false;
-                }
-            },1000)
-        },
-        emailCode:function(){
-            this.countE = 300;
-            this.disE = true;
-            let that = this;
-            this.emailHttp();
-            let timer = setInterval(function(){
-                that.countE--;
-                if(that.countE==0){
-                    clearInterval(timer);
-                    that.countE = '重新发送';
-                    that.disE = false;
-                }
-            },1000)
-        },
-        emailHttp:function(){
-            let bind = this.typeE=='true'?bind='bind':bind='unbind';
-            let obj = {
-                email:this.emailzhang,
-                type:'',
-                username:this.information.username,
-                validCode:''
-            };
-            let str = JSON.stringify(obj);
-            this.$this.post('/broker/mail/send/code/forget',str).then((response)=>{
-                //console.log('----',response);
-            }).catch((error)=>{
-            })
+            if(this.phonenum==''){
+                this.isphonenum=true;
+                this.$message.error('请输入手机号');
+            }else{
+                this.isphonenum=false;
+                this.countP = 300;
+                this.disabledP = true;
+                let that = this;
+                this.phoneHttp();
+                let timer = setInterval(function(){
+                    that.countP--;
+                    if(that.countP==0){
+                        clearInterval(timer);
+                        that.countP = '重新发送';
+                        that.disabledP = false;
+                    }
+                },1000)
+            }            
         },
         phoneHttp:function(){
-            //let bind = this.phonetype=='true'?bind='bind':bind='unbind';
             let obj = {
-                mobile:this.information.phone,
+                mobile:'',
                 type:'',
-                username:this.information.username,
+                username:'',
                 validCode:''
             };
+            if(this.useraccount==''){
+                obj.mobile = JSON.parse(sessionStorage.getItem("account")).phone;
+            }else{
+                obj.mobile = this.useraccount;
+            }
             let str = JSON.stringify(obj);
             this.$this.post('/broker/sms/send/code/forget',str).then((response)=>{
                 //console.log('----',response);
             }).catch((error)=>{
             })
         },
-        codeSuccess:function(){
-            if(this.or=='email'){
-                this.emailSuccess();
+        emailCode:function(){
+            if(this.emailnum==''){
+                this.isemailnum=true;
+                this.$message.error('请输入邮箱');
             }else{
-                this.phoneSuccess();
-            }
-        },
-        emailSuccess:function(){
-            if(this.emailzhang==null||this.emailnum==''){
-                if(this.emailzhang==null){
-                    this.emailzhang = '';
-                    this.$message.error('请输入邮箱');
-                }
-                if(this.emailnum==''){
-                    this.isemailnum = true;
-                    this.$message.error('请输入验证码');
-                }
-            }else{
-                this.isemailnum = false;
-                let obj = {
-                    email:this.information.email,
-                    type:'',
-                    username:this.information.username,
-                    validCode:this.emailnum
-                };
-                let str = JSON.stringify(obj);
-                this.$this.post('/broker/user/setting/email',str).then((response)=>{
-                    //console.log('解绑',response);
-                    if(response.data.code==-1){//验证码已超时
-                        this.isemailnum = true;
-                        this.$message('验证码请求超时，请重新发送验证码。');
-                    }else{
-                        this.isemailnum = false;
-                        this.index=3;
+                this.isemailnum=false;
+                this.countE = 300;
+                this.disabledE = true;
+                let that = this;
+                this.emailHttp();
+                let timer = setInterval(function(){
+                    that.countE--
+                    if(that.countE==0){
+                        clearInterval(timer);
+                        that.countE = '重新发送';
+                        that.disabledE = false;
                     }
-                }).catch((error)=>{
-                })
+                },1000)
             }
+            
         },
-        phoneSuccess:function(){
-            if(this.emailzhang==null||this.emailnum==''){
-                if(this.emailzhang==null){
-                    this.emailzhang = '';
-                    this.$message.error('请输入邮箱');
-                }
-                if(this.phonenum==''){
-                    this.isphonenum = true;
-                    this.$message.error('请输入手机号');
-                }
+        emailHttp:function(){
+            let obj = {
+                email:'',
+                type:'',
+                username:'',
+                validCode:''
+            };
+            if(this.useraccount==''){
+                obj.email = JSON.parse(sessionStorage.getItem("account")).email;
             }else{
-                this.isphonenum = false;
-                let obj = {
-                    mobile:this.phonezhang,
-                    type:'',
-                    username:this.information.username,
-                    validCode:this.phonenum
-                };
-                let str = JSON.stringify(obj);
-                this.$this.post('/broker/user/setting/mobile',str).then((response)=>{
-                    //console.log('解绑',response);
-                    if(response.data.code==-1){//验证码已超时
+                obj.email = this.useraccount;
+            }
+            let str = JSON.stringify(obj);
+            this.$this.post('/broker/mail/send/code/forget',str).then((response)=>{
+                //console.log('----',response);
+                if(response.data.code==0){
+                    this.$message.error("该用户的邮箱未绑定");
+                    this.isemailnum=true;
+                }else if(response.data.code==1){
+                    this.isemailnum=false;
+                }
+            }).catch((error)=>{
+            })
+        },
+        confirm:function(){
+            let code,contact;
+            if(this.or=='phone'){
+                if(this.phonenum==''||this.phonecode==''){
+                    if(this.phonenum==''){
                         this.isphonenum = true;
-                        this.$message('验证码请求超时，请重新发送验证码。');
-                    }else if(response.data.code==1){
-                        this.isphonenum = false;
-                        this.index=3;
+                        this.$message.error('请输入手机号');
                     }
-                }).catch((error)=>{
-                })
+                    if(this.phonecode==''){
+                        this.isphonecode = true;
+                        this.$message.error('请输入验证码');
+                    }
+                }else{
+                    code = this.phonecode; 
+                    contact=this.phonenum;
+                    this.isphonecode = false;
+                    this.isphonenum = false;
+                    this.checkCode(contact,code);
+                }
+            }else{
+                if(this.emailnum==''||this.emailcode==''){
+                    if(this.emailnum==''){
+                        this.isemailnum=true;
+                        this.$message.error('请输入邮箱');
+                    }
+                    if(this.emailcode==''){
+                        this.isemailcode = true;
+                        this.$message.error('请输入验证码');
+                    }
+                }else{
+                    code = this.emailcode;
+                    contact=this.emailnum;
+                    this.isemailcode = false;
+                    this.isemailnum=false;
+                    this.checkCode(contact,code);
+                }
+            }
+            
+        },
+        checkCode:function(contact,code){
+            this.$this.get('/broker/user/forget/check/code/'+contact+'/'+code).then((response)=>{
+                //console.log('yanzhengma',response);
+                if(response.data.code=1){
+                    this.index=3;
+                }
+            }).catch((error)=>{
+
+            })
+        },
+        enter:function(dom){
+            let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
+        },
+        leave:function(dom){
+            let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
+            if(dom=='one'){
+                if(this.password==''){
+                    this.isone = true;
+                    this.$message.error('请输入新密码');
+                }else{                
+                    if(passwordReg.test(this.password)==false){
+                        this.isone = true;
+                        this.$message.error('请输入正确的密码格式');
+                    }else{
+                        this.isone = false;
+                    }
+                }
+            }else{
+                if(this.passwordA==''){
+                    this.istwo = true;
+                    this.$message.error('请再次输入密码');
+                }else{
+                    if(passwordReg.test(this.passwordA)==false){
+                        this.istwo = true;
+                        this.$message.error('请输入正确的密码格式');
+                    }else{
+                        if(this.passwordA==this.password){
+                            this.istwo = false;
+                        }else{
+                            this.istwo = true;
+                            this.$message.error('两次密码输入不一致');
+                        }
+                    }
+                }
+                
             }
         },
         passwordyes:function(){
-
+            if(this.isone==true||this.istwo==true){
+                if(this.isone==true){
+                    this.isone = true;
+                    this.$message.error('请输入新密码');
+                }
+                if(this.istwo==true){
+                    this.istwo = true;
+                    this.$message.error('请再次输入密码');
+                }
+            }else{
+                let obj = {
+                    contact:'',
+                    password:this.password
+                };
+                if(this.or=='phone'){
+                    obj.contact = this.phonenum;
+                }else{
+                    obj.contact = this.emailnum;
+                }
+                let str = JSON.stringify(obj);
+                this.$this.post('/broker/user/forget/updatepwd',str).then((response)=>{
+                    console.log(response);
+                    if(response.data.code==-1){
+                        this.$message.error('修改密码超时');
+                    }else if(response.data.code==1){
+                        this.index = 4;
+                    }
+                }).catch((error)=>{
+                })
+            }
+            
         }
     }
 }
