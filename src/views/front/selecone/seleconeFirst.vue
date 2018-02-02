@@ -46,7 +46,7 @@
                 <div class="seleconeMain-echarts broundDow container">
                     <h4 class="child-p text-center">多维报表分析</h4>
                     <h4 class="child-ps text-center">提供可视化数据展现</h4>
-                    <P class="child-pl text-center" style="margin-top:30px;color:#777777">海量数据 分析报告</P>
+                    <P class="child-pl text-center" style="margin-top:30px;color:#777777">海量数据、分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>

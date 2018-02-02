@@ -17,14 +17,17 @@
           <ul class="nav navbar-nav cl">
             <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll animated fadeInLeft hovers" href="javascript:;">首页</a></li>
             <li class="dropdown">
-                <a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品服务</a>
-                 <div class="dropdown-content">
+               <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
+               <!-- <div class="dropdown-content">
                     <a style="color:#000 !important;" @click="cloundPlan">云规划</a>
                     <a style="color:#000 !important;" @click="cloundPlen">云选型</a>
                     <a style="color:#000 !important;" >云实测</a>
-                </div>    
+                </div>-->    
             </li>
-            <li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>
+            <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers" href="javascript:;">云规划</a></li>
+            <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers" href="javascript:;">云选型</a></li>
+            <li><a class="page-scroll animated bounceIn hovers" href="javascript:;">云实测</a></li>
+            <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
             <li><a class="page-scroll animated fadeInUp hovers" href="javascript:;">联系我们</a></li>
             <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
           </ul>
@@ -119,7 +122,7 @@ export default {
 }
 
 .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     background-color: #fff;
     min-width: 100%;
@@ -237,7 +240,7 @@ ul,ol li {
       margin-left: 8%;
   }
   .cl {
-      margin-left: 36% !important;
+      margin-left: 30% !important;
   }
   .log {
       margin-right: 20px;
@@ -259,6 +262,10 @@ ul,ol li {
   }
   .navbar ul li .hovers:hover {
       border-bottom: 1px solid #fff; cursor: pointer;
+      background:none;
+  }
+  .navbar ul li .hovers:visited {
+      
       background:none;
   }
   .navbar ul li .alist:hover {

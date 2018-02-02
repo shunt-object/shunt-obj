@@ -5,11 +5,11 @@
         <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
-                <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>
-                <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">help@csb-china.com</p>
+                <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-612-218</p>
+                <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-                <p class="text-left footer-jx">功能</p>
+                <p class="text-left footer-jx">产品功能</p>
                 <p class="text-left footer-list" @click="cloundPlan">云规划</p>
                 <p class="text-left footer-list" @click="cloundSelect">云选型</p>
                 <p class="text-left footer-list">云实测</p>
@@ -23,15 +23,19 @@
                 <p class="footer-jx">CloudBroker²</p>
                     <div class="footer-ke">
                         <p>您的专属上云顾问</p>
-                        <img src="../../assets/weichat.png" alt="">
+                        <img src="../../assets/erweima.png" alt="">
                     </div>
                 </div>
         </div>
+            
+ 
+        </div>
+        <div>
             <div class="footer-inert"></div>
             <div class="row text-center footer-last" >       
-                <p class="text-center thin col-xs-12">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
+                <p class="text-center thin col-xs-12">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号</p>
+                
             </div>
- 
         </div>
       </div>
 </template>
@@ -612,7 +616,7 @@ h2 {
          color:#fff;
   }
 .footer-inert{
-    width:100vw;
+    width:100%;
     height:2px;
     background:#2e383e;
     margin-top:20px;

@@ -29,8 +29,8 @@
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
-                <h1>业界领先上云服务，助您轻松上云!</h1>
-                <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
+                <h1>业界领先上云服务，助您轻松上云！</h1>
+                <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析；</br>打造了“从工作负载是否可上云？上哪种类型的云服务？如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
@@ -48,7 +48,7 @@
                     <div class="container">
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>提供360°保姆式咨询服务</h1>
-                            <p class="pCenter" style="font-weight:600">上云规划从未如此简单</p>
+                            <p class="pCenter" style="font-weight:100">上云规划从未如此简单</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
@@ -73,7 +73,7 @@
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <li class="col-md-2 annou  col-xs-10"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
                 <li class="col-md-10 col-xs-10 lis" style="text-align:center">
-                <marquee direction="left">关于未备案网站核查处理公告 11-28 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 智多星再出重磅服务:“将推出云实测功能”</marquee>
+                <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 智多星再出重磅服务:“将推出云实测功能”</marquee>
                 </li>
             </ul>
       </div>
@@ -229,8 +229,8 @@
     <!------------------------感言------------------------------------------>
     <div class=" obj-frees"   style="height:200px;position:relative">
       <div class="pder">
-        <h4 class="text-center">
-          现在注册用户，全面免费体验
+        <h4 class="text-center" style="font-weight:100">
+          现在开启您的上云分析之旅
         </h4>
         <span class="PlanLj" v-on:click="PlanLj">立即体验</span>
       </div>
@@ -1181,8 +1181,8 @@ h2 {
       width:100%;
   }
   .pder h4{
-          font-size: 32px;
-         margin: 50px 0 25px;
+          font-size: 26px;
+         margin: 63px 0 25px;
          color:#fff;
   }
 .footer-inert{
