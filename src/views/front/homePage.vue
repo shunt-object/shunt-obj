@@ -29,7 +29,7 @@
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
-                <h1>业界领先上云服务,助您轻松上云!</h1>
+                <h1>业界领先上云服务，助您轻松上云!</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析，</br>打造了“从工作负载是否可上云?上哪种类型的云服务?如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
