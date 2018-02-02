@@ -154,7 +154,7 @@
             <br>
             暂无建议-->
         <div class="advise-box">
-            <textarea class="colligate-advise" v-model="advise" :class="advise==''?'advise-bg':''">
+            <textarea class="colligate-advise" placeholder="请输入上云分析建议" v-model="advise" :class="advise==''?'advise-bg':''">
             </textarea>
             <span class="not-advise" v-if="advise==''">暂无建议</span>
         </div>

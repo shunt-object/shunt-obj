@@ -31,9 +31,9 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li><router-link to="/accountInformation">账号信息</router-link></li>
-                        <li><router-link to="/safeSetting">安全设置</router-link></li>
-                        <li v-on:click="logout()"><a href="javascript:;"><i class="icon-key"></i>退出</a></li>
+                        <li><router-link to="/accountInformation"><i class="iconfont icon-zhanghaoguanli"></i>账号信息</router-link></li>
+                        <li><router-link to="/safeSetting"><i class="iconfont icon-anquan"></i>安全设置</router-link></li>
+                        <li v-on:click="logout()"><a href="javascript:;"><i class="iconfont icon-tuichu"></i>退出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,6 +84,13 @@
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
                     </ul>
+                </li>
+                <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
+                    <a href="javascript:;" class="">
+                        <!--<i class="icon-book"></i>-->
+                        <img src="../../../assets/shuju.png" alt="">
+                        <span>数据决策</span>
+                    </a>
                 </li>
             </ul>
             <!-- sidebar menu end-->

@@ -31,7 +31,7 @@
         </tbody>
     </table>
     <div class="compare-cate">云供应商标准差异</div>
-    <div style="max-height:600px;overflow:auto;">
+    <div class="difference-box">
         <table class="comdetails-table">
             <thead>
                 <tr>

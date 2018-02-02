@@ -72,10 +72,13 @@ select,input{
 }
 .createAnalysis-box{
     background:#fff;
-    padding:20px 30px;
+    padding:50px 30px;
 }
 .createAnalysis-list{
-    margin:20px 0;
+    margin-top:30px;
+}
+.createAnalysis-list:nth-child(1){
+    margin-top:0px;
 }
 .createAnalysis-list-title{
     width:100%;
@@ -83,6 +86,7 @@ select,input{
     color:#555;
     text-align:left;
     margin:15px 0;
+    font-weight:bold;
 }
 .createAnalysis-fang{
     width:20px;

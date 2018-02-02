@@ -24,6 +24,7 @@ import colligateReport from '@/views/console/report/colligateReport/colligateRep
 import wei from '@/views/front/wei'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
+import dataDcision from '@/views/console/app/dataDcision/dataDcision'
 
 
 
@@ -97,6 +98,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:overviewList
+        },
+        {
+          path:'/dataDcision',
+          name:'dataDcision',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:dataDcision
         },
         {
           path:'/accountInformation',

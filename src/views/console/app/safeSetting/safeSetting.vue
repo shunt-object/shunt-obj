@@ -9,9 +9,10 @@
     <div class="accountInfor-title">安全信息</div>
     <div class="accountInfor-list">
         <span class="accountInfor-list-key">
-            <span class="safe-icon-right"><i class="iconfont icon-duihao2"></i></span>密码设置：
+            <span class="safe-icon-right"><i class="iconfont icon-duihao2"></i></span>
+            密码设置：
         </span>
-        <span class="accountInfor-list-val">aaaaa</span>
+        <span class="accountInfor-list-val">******</span>
         <router-link target="_blank" to="/forgetPassword" style="margin-left:80px;color:#2eabf5;">
             <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>修改密码
         </router-link>
@@ -56,11 +57,11 @@
         <div class="validata-type">
             <span class="safe-key">绑定邮箱</span>
             <span v-if="isemail!=null">{{safe.email}}</span>
-            <input class="intemail" type="text" v-else v-model="safe.email" :class="safe.email==''?'error':''">
+            <input class="intemail" placeholder="请输入邮箱" type="text" v-else v-model="safe.email" :class="safe.email==''?'error':''">
         </div>
         <div class="email-code">
             <span class="safe-key">邮箱验证码</span>
-            <input type="text" class="intemail" :class="isemailnum==true?'error':''" v-model="emailnum">
+            <input type="text" class="intemail" placeholder="请输入验证码" :class="isemailnum==true?'error':''" v-model="emailnum">
             <button v-on:click="emailCode()" :disabled="dis" class="safe-send-btn">{{second}}</button>
         </div>
     </div>
@@ -71,12 +72,12 @@
         <div class="validata-type">
             <span class="safe-key">绑定手机</span>
             <span v-if="isphone!=null">{{safe.phone}}</span>
-            <input class="intemail" type="text" v-else v-model="safe.phone" :class="safe.phone==''?'error':''">
+            <input class="intemail" placeholder="请输入手机号" type="text" v-else v-model="safe.phone" :class="safe.phone==''?'error':''">
         </div>
         <div class="email-code">
             <span class="safe-key">手机验证码</span>
             <input class="intemail" type="text" :class="isphonenum==true?'error':''" v-model="phonenum">
-            <button v-on:click="phoneCode()" :disabled="phonedis" class="safe-send-btn">{{count}}</button>
+            <button v-on:click="phoneCode()" placeholder="请输入验证码" :disabled="phonedis" class="safe-send-btn">{{count}}</button>
         </div>
     </div>
     <!-- -->
@@ -206,6 +207,7 @@ export default{
             }
         },
         emailconfirm:function(){
+            let emailReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
             if(this.emailnum==''||this.safe.email==null){
                 if(this.emailnum==''){
                     this.isemailnum = true;
@@ -214,6 +216,11 @@ export default{
                 if(this.safe.email==null){
                     this.safe.email='';
                     this.$message.error('请输入邮箱');
+                }else{
+                    if(emailReg.test(this.safe.email)==false){
+                        this.safe.email='';
+                        this.$message.error('请输入正确的邮箱格式');
+                    }
                 }
             }else{
                 this.isemailnum = false;
@@ -255,10 +262,16 @@ export default{
             }
         },
         phoneconfirm:function(){
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
             if(this.phonenum==''||this.safe.phone==null){
                 if(this.safe.phone==null){
                     this.safe.phone = '';
                     this.$message.error('请输入手机号');
+                }else{
+                    if(emailReg.test(this.safe.phone)==false){
+                        this.safe.phone='';
+                        this.$message.error('请输入正确的手机号码格式');
+                    }
                 }
                 if(this.phonenum==''){
                     this.isphonenum = true;

@@ -4,6 +4,9 @@
 .lay-btn-red:hover{
     background:#da121a !important;
 }
+.el-message-box__header{
+    border-bottom:1px solid #dfdfdf;
+}
 .el-message-box__title{
     font-size:16px !important;
 }

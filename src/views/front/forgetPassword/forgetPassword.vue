@@ -44,11 +44,11 @@
                     <div v-if="or=='phone'">
                         <div class="forget-code" :class="isphonenum==false?'':'error'">
                             <span>手机号码：</span>
-                            <input type="text" class="code-input" v-model="phonenum">
+                            <input type="text" v-on:blur="regPhone()" placeholder="请输入手机号" class="code-input" v-model="phonenum">
                         </div>
                         <div class="forget-code" :class="isphonecode==false?'':'error'">
                             <span>验&nbsp;证&nbsp;&nbsp;码：</span>
-                            <input type="text" class="code-input" v-model="phonecode">
+                            <input type="text" placeholder="请输入验证码" class="code-input" v-model="phonecode">
                             <button class="code-btn" :disabled="disabledP" v-on:click="phoneCode()">
                                 {{countP}}<span v-if="countP!='发送验证码'&&countP!='重新发送'">s</span>
                             </button>
@@ -57,11 +57,11 @@
                     <div v-if="or=='email'">
                         <div class="forget-code" :class="isemailnum==false?'':'error'">
                             <span>邮箱账号：</span>
-                            <input type="text" class="code-input" v-model="emailnum">
+                            <input type="text" placeholder="请输入邮箱" v-on:blur="regEmail()" class="code-input" v-model="emailnum">
                         </div>
                         <div class="forget-code" :class="isemailcode==false?'':'error'">
                             <span>验&nbsp;证&nbsp;&nbsp;码：</span>
-                            <input type="text" class="code-input" v-model="emailcode">
+                            <input type="text" placeholder="请输入验证码" class="code-input" v-model="emailcode">
                             <button class="code-btn" :disabled="disabledE" v-on:click="emailCode()">
                                 {{countE}} <span v-if="countE!='发送验证码'&&countE!='重新发送'">s</span>
                             </button>
@@ -71,8 +71,8 @@
                 </div>
                 <div class="forget-list" v-if="index==3">
                     <div class="forget-code" :class="isone==true?'error':''">
-                        <span class="passkey">新密码：</span>
-                        <input type="password" class="code-input" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
+                        <span class="passkey" placeholder="6-16位字母、数字和标点符号包含2种">新密码：</span>
+                        <input type="password" class="code-input" placeholder="密码为6-16个字符,字母、数字和标点符号至少包含2种" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
                     </div>
                     <div class="forget-code" :class="istwo==true?'error':''">
                         <span class="passkey">确认新密码：</span>
@@ -167,6 +167,20 @@ export default{
             }).catch((error)=> {
                 console.log(error);
             });
+        },
+        regEmail:function(){
+            let emailReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
+            if(emailReg.test(this.emailnum)==false){
+                this.isemailnum=true;
+                this.$message.error('请输入正确的邮箱格式');
+            }
+        },
+        regPhone:function(){
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+            if(phoneReg.test(this.phonenum)==false){
+                this.isphonenum=true;
+                this.$message.error('请输入正确的手机号码格式');
+            }
         },
         phoneCode:function(){
             if(this.phonenum==''){

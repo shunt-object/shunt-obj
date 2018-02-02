@@ -7,15 +7,15 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 sendEmil-box">
             <div class="sendEmail-title">激活您的ClouldBroker²账号</div>
-            <div class="sendEmail-num">激活邮件已发送至您的注册邮箱：请查看邮件并激活您的账号</div>
+            <div class="sendEmail-num">激活邮件已发送至您的注册邮箱：请查看邮件并激活您的账号；</div>
             <button class="sendEmail-btn" v-show="btn"><a :href="url"  target="_blank" style="color:#fff;">前往邮箱</a></button>
             <div class="sendEmail-line"></div>
             <div class="sendEmsil-not row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <p class="sendEmail-list">没有收到邮件？</p>
-                    <p class="sendEmail-list">1、请检查您的邮件垃圾箱，激活邮件有可能被误认为是广告</p>
-                    <p class="sendEmail-list">2、若仍未找到激活邮件，请尝试<span class="sendEmail-again" v-on:click="sends()">重新发送</span></p>
+                    <p class="sendEmail-list">1、请检查您的邮件垃圾箱，激活邮件有可能被误认为是广告；</p>
+                    <p class="sendEmail-list">2、若仍未找到激活邮件，请尝试<span class="sendEmail-again" v-on:click="sends()">重新发送</span>。</p>
                 </div>
                 <div class="col-md-2"></div>
             </div>

@@ -64,6 +64,9 @@
     font-size:15px;
 }
 /*云供应商标准*/
+.difference-box{
+    max-height:600px;overflow:auto;position:relative;
+}
 .comdetails-table{
     width:100%;
     border:1px solid #ccc;

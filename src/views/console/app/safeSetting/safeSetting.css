@@ -7,6 +7,9 @@
 .safe-icon-gan{
     color:#da121a;
 }
+.safe-icon-gan .iconfont{
+    font-size:18px !important;
+}
 .dialog-notice{
     width:100%;
     background:#fff1dc;

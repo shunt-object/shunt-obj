@@ -8,6 +8,7 @@
     margin-top:20px;
     font-size:16px;
     position:relative;
+    font-weight:bold;
 }
 .exportBtn{
     position:absolute;
@@ -43,11 +44,11 @@
     margin-left:-50px;
     top:50%;
     margin-top:40px;
-    color:#ccc;
+    color:#999;
 }
 .colligate-advise{
     border:1px solid #e5e5e5;
-    height:500px;
+    height:300px;
     color:#666;
     width:100%;
     outline:none;
