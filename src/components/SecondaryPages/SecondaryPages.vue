@@ -237,7 +237,7 @@ ul,ol li {
       margin-left: 8%;
   }
   .cl {
-      margin-left: 40% !important;
+      margin-left: 36% !important;
   }
   .log {
       margin-right: 20px;

@@ -679,7 +679,7 @@ export default {
                         let ids=[];
                         ids.push(e);
                         var asf = {"ids":ids};
-                        window.location.reload();
+                        
                         //console.log(asf);
                         that.$this({
                             method: "delete",
@@ -687,7 +687,7 @@ export default {
                             data: asf
                         }).then(function(response) {
                             that.$layer.close(con);
-                            
+                            window.location.reload();
                         }).catch(function(error) {
                             console.log(error);
                         });
