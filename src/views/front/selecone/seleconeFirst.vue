@@ -8,8 +8,8 @@
                 <div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir" style="font-weight:100;">我们应该上哪家云呢？</span></p>
                     <div class="seclone-dv">
-                        <h3>六大场景 近二百多个标准</h3>
-                        <p>有没有一个简单的应用，可以科学的告诉我结果呢？</p>
+                        <h3 style="font-size:24px;font-weight:100">六大场景和近二百个标准</h3>
+                        <p style="font-weight:100;">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
                     </div>
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
