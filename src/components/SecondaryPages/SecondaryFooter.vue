@@ -6,12 +6,12 @@
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
                 <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">400-612-218</p>
-                <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">1259709119@qq.com</p>
+                <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">help@csb-china.com</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">功能</p>
-                <p class="text-left footer-list">云规划</p>
-                <p class="text-left footer-list">云选型</p>
+                <p class="text-left footer-list" @click="cloundPlan">云规划</p>
+                <p class="text-left footer-list" @click="cloundSelect">云选型</p>
                 <p class="text-left footer-list">云实测</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
@@ -39,6 +39,12 @@
 /**{
    overflow:hidden
 }*/
+.footer-jx:hover{
+   cursor:pointer;
+}
+.footer-list:hover{
+     cursor:pointer;
+}
 .container{ 
     max-width: 1090px;
 }
@@ -438,18 +444,7 @@ ul,ol li {
 .phone-position {
   position: relative
 }
-/*.RenGong {
-    width: 66px; height: 66px; position: absolute; right: 0px; top: 0%;
-}
-.phone {
-    width: 66px; height: 66px; position: absolute; right: 0px; top: 30%;
-}
-.RenGong:hover {
-    background: blue; cursor: pointer;
-}
-.phone:hover {
-    background: red; cursor: pointer
-}*/
+
 .router-link-d {
     color: #000;
 }
@@ -717,3 +712,17 @@ h2 {
    }  
  }  
 </style>
+<script>
+    export default{
+        methods:{
+            cloundPlan:function(){
+                  this.$router.push({path: '/sleconesecond'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            cloundSelect:function(){
+                  this.$router.push({path: '/seleconefirst'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            }
+        }
+    }
+</script>

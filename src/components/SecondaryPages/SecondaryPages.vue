@@ -15,18 +15,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll animated fadeInLeft" href="javascript:;">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll animated fadeInLeft hovers" href="javascript:;">首页</a></li>
             <li class="dropdown">
-                <a class="page-scroll animated fadeInDown alist" href="javascript:;">功能</a>
+                <a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品服务</a>
                  <div class="dropdown-content">
                     <a style="color:#000 !important;" @click="cloundPlan">云规划</a>
                     <a style="color:#000 !important;" @click="cloundPlen">云选型</a>
                     <a style="color:#000 !important;" >云实测</a>
                 </div>    
             </li>
-            <li><a class="page-scroll animated bounceIn" href="javascript:;">帮助</a></li>
-            <li><a class="page-scroll animated fadeInUp" href="javascript:;">联系我们</a></li>
-            <li><a class="page-scroll animated fadeInRight" v-on:click="condole">控制台</a></li>
+            <li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>
+            <li><a class="page-scroll animated fadeInUp hovers" href="javascript:;">联系我们</a></li>
+            <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -122,13 +122,13 @@ export default {
     display: none;
     position: absolute;
     background-color: #fff;
-    min-width: 60px;
+    min-width: 100%;
 }
 .dropdown-content a {
     text-decoration: none;
     display: block;
 }
-.dropdown-content a:hover {background-color: #ccc}
+.dropdown-content a:hover {background-color: #ccc;cursor:pointer;}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -257,8 +257,9 @@ ul,ol li {
   .Imgs {
      margin-top: 15px;
   }
-  .navbar ul li a:hover {
+  .navbar ul li .hovers:hover {
       border-bottom: 1px solid #fff; cursor: pointer;
+      background:none;
   }
   .navbar ul li .alist:hover {
       border:none;

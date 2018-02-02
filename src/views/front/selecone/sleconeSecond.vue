@@ -33,9 +33,9 @@
                         <div class="col-md-5 col-xs-12 text-left">
                             <ul class="Main-ul">
                                 <li>只需三步，即刻测试查看</li>
-                                <li class="Main-li"><img src="../../../assets/Group 81.png" alt=""><span class="sp4">云定性</span></li>
-                                <li><img src="../../../assets/Group 82.png" alt=""><span class="sp4">云收益度</span></li>
-                                <li><img src="../../../assets/83.png" alt=""><span class="sp4">云亲和度</span></li>
+                                <li class="Main-li"><img src="../../../assets/Group 81.png" alt="" class="iconer-img"><span class="sp4">云定性</span></li>
+                                <li><img src="../../../assets/Group 82.png" alt="" class="iconer-img"><span class="sp4 ">云收益度</span></li>
+                                <li><img src="../../../assets/83.png" alt="" class="iconer-img"><span class="sp4 ">云亲和度</span></li>
                             </ul>
                         </div>
                     </div>
@@ -234,6 +234,9 @@
    }
    .Main-li{
        margin-top:20px;
+   }
+   .iconer-img{
+       margin-right:15px;
    }
    .seleconeMain-simg ul li .sp4{
        font-size:14px;

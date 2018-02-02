@@ -14,17 +14,19 @@
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
             </div>
-            <div class="seleconeMain-charts container">
-                <h4>当前企业上云情况</h4>
-                <P>上云成为主流和多云变为趋势</P>
-                <div class="col-md-12 seleconeMain-img">
-                    <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
-                 </div>
+            <div style="background:#fff;width:100%">
+                <div class="seleconeMain-charts container">
+                    <h4>当前企业上云情况</h4>
+                    <P style="margin-top:30px">上云成为主流和多云变为趋势</P>
+                    <div class="col-md-12 seleconeMain-img">
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
+                    </div>
+                </div>
             </div>
             <div style="background:#f9fafb;width:100%;" class="broundRi">
                 <div class="seleconeMain-shrts container" >
                     <h4>现实中真实困惑</h4>
-                    <P>面对诸多的云厂商，不知如何选择？</P>
+                    <P style="margin-top:30px;">面对诸多的云厂商，不知如何选择？</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
@@ -44,7 +46,7 @@
                 <div class="seleconeMain-echarts broundDow container">
                     <h4 class="child-p text-center">多维报表分析</h4>
                     <h4 class="child-ps text-center">提供可视化数据展现</h4>
-                    <P class="child-pl text-center" style="margin-top:26px;color:#777777">海量数据 分析报告</P>
+                    <P class="child-pl text-center" style="margin-top:30px;color:#777777">海量数据 分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
@@ -74,7 +76,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:6%;">
+                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:8%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
                                 <dd class="dds">
@@ -86,7 +88,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:8%;">
+                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:13%;">
                               <dl>
                                 <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
                                 <dd class="dds">
