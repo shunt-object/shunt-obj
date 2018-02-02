@@ -809,10 +809,10 @@ ul,ol li {
     color: #fff;
 }
 .announce {
-    background: #f2f2f2; line-height: 58px; height: 58px;
+    background: #f2f2f2; line-height: 48px; height: 48px;
 }
 .annou {
-    font-size: 18px; color: #da121a; text-align: left
+    font-size: 16px; color: #da121a; text-align: left
 }
 .obj-main {
     width: 100%; background: #fff;
