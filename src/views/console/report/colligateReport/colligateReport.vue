@@ -92,7 +92,7 @@
                 </tbody>
             </table>
             <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
-                <thead v-if="appServer.length>0||dbServer>0||network.inbound||storage.length>0">
+                <thead v-if="appServer.length>0||dbServer.length>0||network.inbound||storage.length>0">
                     <tr>
                         <th>数量</th>
                         <th>资源</th>
@@ -105,9 +105,9 @@
                         <td>应用服务</td>
                         <td>
                             <p><span class="labelRed">{{item.cores}}</span>vCPU</p>
-                            <p><span class="labelRed">{{item.ghz}}</span>处理器主频（Ghz）</p>
-                            <p><span class="labelRed">{{item.ram}}</span>内存(GB)</p>
-                            <p><span class="labelRed">{{item.localDisk}}</span>系统盘(GB)</p>
+                            <p><span class="labelRed">{{item.ghz}}</span>处理器主频（GHZ）</p>
+                            <p><span class="labelRed">{{item.ram}}</span>内存（GB）</p>
+                            <p><span class="labelRed">{{item.localDisk}}</span>系统盘（GB）</p>
                             <p><span class="labelRed">{{item.os}}</span>操作系统</p>
                             <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
                         </td>
@@ -117,9 +117,9 @@
                         <td>数据库服务</td>
                         <td>
                             <p><span class="labelRed">{{db.cores}}</span>vCPU</p>
-                            <p><span class="labelRed">{{db.ghz}}</span>处理器主频（Ghz）</p>
-                            <p><span class="labelRed">{{db.ram}}</span>内存(GB)</p>
-                            <p><span class="labelRed">{{db.localDisk}}</span>系统盘(GB)</p>
+                            <p><span class="labelRed">{{db.ghz}}</span>处理器主频（GHZ）</p>
+                            <p><span class="labelRed">{{db.ram}}</span>内存（GB）</p>
+                            <p><span class="labelRed">{{db.localDisk}}</span>系统盘（GB）</p>
                             <p><span class="labelRed">{{db.os}}</span>操作系统</p>
                             <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
                         </td>
@@ -137,9 +137,9 @@
                         <td>{{stro.num}}</td>
                         <td>存储</td>
                         <td>
-                            <p><span class="labelRed">{{stro.sna}}</span>共享存储(SAN)(GB)</p>
-                            <p><span class="labelRed">{{stro.nsa}}</span>网络存储(NAS)(GB)</p>
-                            <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储(GB)</p>
+                            <p><span class="labelRed">{{stro.sna}}</span>共享存储（SAN）（GB）</p>
+                            <p><span class="labelRed">{{stro.nsa}}</span>网络存储（NAS）（GB）</p>
+                            <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储（GB）</p>
                         </td>
                     </tr>
                 </tbody>
