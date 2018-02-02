@@ -151,19 +151,19 @@
             <div class="reg-from-agreement">
                 <input type="checkbox" class="reg-from-checkoux" v-model="checkbox">
                 <!--<a href="javascript:;">勾选，即表示您阅读切统一同意我们的《 CSB服务协议》</a>-->
-                <router-link target="_blank" to="/agreenment" style="float:left;width:90% !important;text-align:left;">勾选，即表示您阅读且统一同意我们的《 CSB²服务协议》</router-link>
+                <router-link target="_blank" to="/agreenment" style="float:left;width:90% !important;text-align:left;">勾选，即表示您阅读且统一同意我们的《CSB²服务协议》</router-link>
             </div>
             <div class="clear"></div>
             <!--<div class="reg-from-null"></div>-->
             <div class="reg-from-notice">
-                已有ClouldBroker²账号?
+                已有ClouldBroker²账号？
                 <router-link class="placego" to="/login">请登录</router-link>
             </div>
         </div>
         <div class="col-md-4"></div>
     </div>
     <div class="reg-footer">
-        <p class="reg-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
+        <p class="reg-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号TEL：400-612-218</p>
     </div>
     <router-view></router-view>
 </div>
