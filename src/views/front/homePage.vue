@@ -91,7 +91,7 @@
             <img src="../../assets/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云?精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
+              <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云？精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
             </div>
             <span class="obj-cta" @click="ctaCloundCsb()">查看更多</span>
           </div>
@@ -99,7 +99,7 @@
             <img src="../../assets/Page 1.png" alt="" class="Yunimg">
             <h2>云选型</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现 公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
+              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
             </div>
             <span class="obj-cta"  @click="ctaClound()">查看更多</span>
           </div>
@@ -197,7 +197,7 @@
       <div class="container friendContainer">
         <div class="row text-center jzWe jsFei" style="margin-bottom:20px !important;">
           <h1 class="text-center thin">合作伙伴</h1>
-          <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态!</h3>
+          <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态</h3>
           <div class="he-su"></div>
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
