@@ -6,10 +6,10 @@
     <div class="selecMain ">
             <div class="seleconeMain-banner row animated bounceInLeft">
                 <div class="seleconeMain-mainfir col-xs-12">
-                    <p class="selecone-pfir">云选型<span>——我们应该上哪家云呢?</span></p>
+                    <p class="selecone-pfir" style="font-weight:100;">我们应该上哪家云呢？</span></p>
                     <div class="seclone-dv">
                         <h3>六大场景 近二百多个标准</h3>
-                        <p>有没有一个简单的应用，可以科学的告诉我结果呢?</p>
+                        <p>有没有一个简单的应用，可以科学的告诉我结果呢？</p>
                     </div>
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
@@ -17,7 +17,7 @@
             <div style="background:#fff;width:100%">
                 <div class="seleconeMain-charts container">
                     <h4>当前企业上云情况</h4>
-                    <P style="margin-top:30px">上云成为主流和多云变为趋势</P>
+                    <P style="margin-top:30px">上云成为主流、多云变为趋势</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
                     </div>

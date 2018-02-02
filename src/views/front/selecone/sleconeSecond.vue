@@ -5,10 +5,10 @@
     <div class="selecMain ">
             <div class="seleconeMain-banner row animated bounceInLeft">
                 <div class="seleconeMain-mainfir col-xs-12">
-                    <p class="selecone-pfir">云规划<span>——我可以上云吗?上哪种类型的云?</span></p>
+                    <p class="selecone-pfir" style="font-weight:100;">我可以上云吗？上哪种类型的云？</span></p>
                     <div class="seclone-dv">
-                        <h3>三步让您科学上云</h3>
-                        <p>有没有一个简单的应用，可以科学的告诉我结果呢?</p>
+                        <h3 class="selecone-pfir" style="font-weight:100;">三步让您科学上云</h3>
+                        <p style="font-weight:100;">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
                     </div>
                      <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>
@@ -17,7 +17,7 @@
                 <div class="seleconeMain-charts container">
                     <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
                     <h4 class="h4Firer">众多用户纷纷选择上云</h4>
-                    <P style="font-size:16px">企业关注的也不再是上不上云，而是:我的工作负载适合上云吗?适合上哪种类型的云?</P>
+                    <P style="font-size:16px">企业关注的也不再是上不上云，而是我的工作负载适合上云吗？适合上哪种类型的云？</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
                     </div>
@@ -27,7 +27,7 @@
                 <div class="seleconeMain-shrts container" >
                     <h4 class="shrts-h4">集结上百位专家心血</h4>
                     <h4 class="shrts-h4er">为您提供科学规划和上云</h4>
-                    <P>解决工作负载是否适合上云?适合上哪种类型的云?</P>
+                    <P>解决工作负载是否适合上云？适合上哪种类型的云？</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
@@ -45,7 +45,7 @@
                 <div class="seleconeMain-echarts container broundDow">
                     <h4 class="shrts-h4">多维报表分析</h4>
                     <h4 class="shrts-h4er">提供可视化数据展现</h4>
-                    <P>海量数据 分析报告</P>
+                    <P>海量数据、分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
