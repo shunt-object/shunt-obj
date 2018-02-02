@@ -391,6 +391,7 @@ export default{
                         confirmButtonText: '我知道了',
                         showClose:false,
                         confirmButtonClass:'lay-btn-red',
+                        type: 'warning',
                         callback:function(action){
                             that.whichShow(1);
                         }
@@ -399,6 +400,7 @@ export default{
                     this.$alert('您还未进行云定性测试，请前往测试。', '温馨提示', {
                         confirmButtonText: '我知道了',
                         showClose:false,
+                        type: 'warning',
                         confirmButtonClass:'lay-btn-red',
                         callback:function(action){
                             that.whichShow(1);
@@ -417,6 +419,7 @@ export default{
                                     this.$alert('您还未进行收益度测试，请前往测试。', '温馨提示', {
                                         confirmButtonText: '我知道了',
                                         showClose:false,
+                                        type: 'warning',
                                         confirmButtonClass:'lay-btn-red',
                                         callback:function(action){
                                             that.whichShow(2);
@@ -428,6 +431,7 @@ export default{
                                 this.$alert('您还未进行云定性测试，请前往测试。', '温馨提示', {
                                     confirmButtonText: '我知道了',
                                     showClose:false,
+                                    type: 'warning',
                                     confirmButtonClass:'lay-btn-red',
                                     callback:function(action){
                                         that.whichShow(1);
@@ -441,6 +445,7 @@ export default{
                                  this.$alert('您还未进行收益度测试，请前往测试。', '温馨提示', {
                                     confirmButtonText: '我知道了',
                                     showClose:false,
+                                    type: 'warning',
                                     confirmButtonClass:'lay-btn-red',
                                     callback:function(action){
                                         that.whichShow(2);
