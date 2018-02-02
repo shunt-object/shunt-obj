@@ -95,7 +95,7 @@
                                     <ul>
                                         <li class="dds-li">可视化</li>
                                         <li class="dds-lis">多维报表分析</li>
-                                        <li class="dds-lis">提供可视化数据展现</li>
+                                        <li class="dds-lis">提供可视化数据</li>
                                     </ul>
                                 </dd>
                             </dl>

@@ -67,7 +67,7 @@
                             <dl>
                                 <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
                                 <dd class="dds">
-                                    <ul style="text-align:center">
+                                    <ul>
                                         <li class="dds-li">保姆化</li>
                                         <li class="dds-lis">1V1顾问支持</li>
                                         <li class="dds-lis">提供一站化体验</li>
@@ -79,7 +79,7 @@
                               <dl>
                                 <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
                                 <dd class="dds">
-                                    <ul style="text-align:center">
+                                    <ul>
                                         <li class="dds-li">权威化</li>
                                         <li class="dds-lis">云集百位专家</li>
                                         <li class="dds-lis">提供科学化上云规划</li>
@@ -91,10 +91,10 @@
                               <dl>
                                 <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
                                 <dd class="dds">
-                                    <ul style="text-align:center">
+                                    <ul>
                                         <li class="dds-li">可视化</li>
                                         <li class="dds-lis">多维报表分析</li>
-                                        <li class="dds-lis">提供可视化数据展现</li>
+                                        <li class="dds-lis">提供可视化数据</li>
                                     </ul>
                                 </dd>
                             </dl>
