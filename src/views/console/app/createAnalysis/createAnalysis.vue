@@ -29,8 +29,8 @@
                             <!--<input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">
                             关联已有云分析-->
                             <select class="create-select" :class="ischangeyun==false||isproName==false?'error':''" v-model="selectId" v-on:change="clickI(selectId)">
-                                <option value="1">关联已有云分析</option>
-                                <option value="2">创建新的云分析</option>
+                                <option value="2">关联已有云分析</option>
+                                <option value="1">创建新的云分析</option>
                             </select>
                         <!--</div>-->
                         <select v-if="radio2==true" id="select" style="margin:20px 30px;" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
