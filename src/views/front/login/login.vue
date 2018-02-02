@@ -40,7 +40,7 @@
         <div class="col-md-3"></div>
     </div>
     <div class="login-footer">
-        <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号TEL：400-612-218</p>
+        <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号&nbsp&nbspTEL：400-612-218</p>
         <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>

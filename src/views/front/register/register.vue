@@ -163,7 +163,7 @@
         <div class="col-md-4"></div>
     </div>
     <div class="reg-footer">
-        <p class="reg-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号TEL：400-612-218</p>
+        <p class="reg-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号&nbsp&nbspTEL：400-612-218</p>
     </div>
     <router-view></router-view>
 </div>
