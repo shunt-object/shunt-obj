@@ -4,11 +4,36 @@
 .lay-btn-red:hover{
     background:#da121a !important;
 }
+.el-message-box{
+    border:none !important;
+}
 .el-message-box__header{
+<<<<<<< HEAD
     
+=======
+    background:#F7A72C !important;
+>>>>>>> c7b6dfb8db448b6289406c81fd6952178f9bd94c
 }
 .el-message-box__title{
     font-size:16px !important;
+    color:#fff !important;
+}
+.el-message-box__headerbtn i{
+    color:#fff !important;
+}
+.el-dialog{
+    border-radius: 4px;
+}
+.el-dialog__header{
+    background:#F7A72C !important; 
+    border-radius: 4px 4px 0 0;
+}
+.el-dialog__title{
+    font-size:16px !important;
+    color:#fff !important;
+}
+.el-dialog__headerbtn i{
+    color:#fff !important;
 }
 .loading .el-loading-spinner .el-icon-loading{
     color:#ccc !important;
