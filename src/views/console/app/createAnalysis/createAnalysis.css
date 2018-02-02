@@ -86,7 +86,7 @@ select,input{
     color:#555;
     text-align:left;
     margin:15px 0;
-    font-weight:bold;
+    /*font-weight:bold;*/
 }
 .createAnalysis-fang{
     width:20px;

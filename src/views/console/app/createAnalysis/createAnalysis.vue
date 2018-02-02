@@ -71,7 +71,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4"></div>
         </div>
-        <button class="nextbtn" v-on:click="submit()">下一步</button>
+        <button class="nextbtn" v-on:click="submit()">下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
         <div class="clear"></div>
     </div>
         

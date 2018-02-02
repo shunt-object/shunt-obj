@@ -192,7 +192,7 @@ export default{
             againPassError:'',
             selectTab:true,
             codeNum:'',
-            code:'获取验证码',
+            code:'获取手机验证码',
             codeI:120,
             iscodeNum:false,
             codenotice:''
@@ -443,7 +443,7 @@ export default{
             this.passError='';
             this.againPassError='';
             this.codeNum='';
-            this.code='获取验证码';
+            this.code='获取手机验证码';
             this.codeI=60;
         }
     },

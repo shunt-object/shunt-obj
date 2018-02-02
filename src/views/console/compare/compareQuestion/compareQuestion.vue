@@ -127,7 +127,6 @@ export default{
                     this.$alert('请选择场景进行答题。', '温馨提示', {
                         confirmButtonText: '我知道了',
                         showClose:false,
-                        type: 'warning',
                         confirmButtonClass:'lay-btn-red'
                     });
                 }          
