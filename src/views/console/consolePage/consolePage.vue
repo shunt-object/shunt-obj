@@ -201,6 +201,9 @@ export default{
         },
         index:function(){
             this.$router.push({path:'/consolePage'});
+        },
+        datadcis:function(){
+            this.$router.push({path:'/dataDcision'});
         }
     }
 }
