@@ -91,6 +91,7 @@
                     </tr>
                 </tbody>
             </table>
+            
             <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
                 <thead v-if="appServer.length>0||dbServer.length>0||network.inbound||storage.length>0">
                     <tr>
@@ -144,6 +145,34 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="difference-box" style="margin-bottom:20px;">
+                <table class="comdetails-table">
+                    <thead>
+                        <tr>
+                            <th class="obliqueline" colspan="3">
+                                <span class="clould-profirm">云供应商</span>
+                                <span class="clould-details">场景</span>
+                            </th>
+                            <th v-for="firm in confirm">{{firm.service}}</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="(item,index) in details">
+                        <tr class="comdetails-tab-title">
+                            <td :colspan="length">{{index}}</td>
+                        </tr>
+                        <tr class="comdetails-tab-list" v-for="list in item">
+                            <td style="width:10%;"></td>
+                            <td class="textleft">{{list.feature}}</td>
+                            <td>{{list.servers[0].compareopt}}</td>
+                            <td v-for="aa in list.servers">
+                                <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
+                                <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
+                            </td>
+                            <!--aa.type=1是有 0 是没有 -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- 上云分析建议  -->
         <div class="colligate-title">
@@ -187,7 +216,10 @@ export default{
             information:{},
             advise:'',
             reslist:false,
-            isclick:''
+            isclick:'',
+            details:[],
+            confirm:[],
+            length:''
         }
     },
     mounted:function(){
@@ -235,6 +267,13 @@ export default{
         }) 
         // 云选型
         this.getdata();
+        this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
+            this.details =  response.data.data;
+            for(let variable  in this.details){   //variable 为属性名
+                this.confirm = this.details[variable][0].servers;
+            }
+            this.length = this.confirm.length+3;
+        }).catch((error)=>{})
     },
     methods:{
         goBack:function(link){

@@ -629,9 +629,15 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .dropdown-menu.extended.logout > li > a {
     color: #333 !important;
     border-bottom: none !important;
+    text-align:left;
+    width:100px;
 }
 
 .dropdown-menu.extended.logout > li > a:hover {
+    background: #ccc !important;
+    /*color: #337ab7;*/
+}
+.dropdown-menu.extended.logout > li:hover {
     background: #ccc !important;
     /*color: #337ab7;*/
 }
