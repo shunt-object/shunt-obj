@@ -23,7 +23,7 @@
     border-bottom:1px solid #d8d8d8;
 }
 .accountInfor-list-key{
-    font-size:16px;
+    font-size:15px;
     color:#666666;
 }
 .account-icon{
@@ -33,12 +33,12 @@
 .accountInfor-list-val{
     color:#333;
     margin-left:10px;
-    font-size:16px;
+    font-size:15px;
 }
 .accountInfor-list-val-type{
     color:#999;
     margin-left:10px;
-    font-size:16px;
+    font-size:15px;
 }
 .input-updata{
     width:220px;
