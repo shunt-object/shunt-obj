@@ -361,9 +361,7 @@
 .el-message-box__content{
     padding:30px 15px;
 }
-.reourceContent{
-    padding:0 !important;
-}
+
 .iconfont{
     margin-right:10px;
 }
@@ -505,6 +503,9 @@ a:hover{
 }
 .el-form-item__error{
     left:220px !important;
+}
+.iconfont:hover{
+    cursor:pointer;
 }
 </style>
 <script>

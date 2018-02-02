@@ -8,11 +8,9 @@
     border:none !important;
 }
 .el-message-box__header{
-<<<<<<< HEAD
-    
-=======
+
     background:#F7A72C !important;
->>>>>>> c7b6dfb8db448b6289406c81fd6952178f9bd94c
+
 }
 .el-message-box__title{
     font-size:16px !important;
