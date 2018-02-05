@@ -327,7 +327,7 @@
     border-radius:4px;
 }
 .el-dialog__header{
-    background:#F7A72C ;
+    background:none ;
     border-radius:4px 4px 0 0;
    
 }

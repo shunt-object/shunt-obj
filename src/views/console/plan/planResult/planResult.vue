@@ -115,12 +115,10 @@ export default{
             this.$nextTick(function() {
                 this.drawPie('main')
             })
-            //console.log(this.opiniondata);         
+            //console.log('----',this.opiniondata);         
         }).catch((error)=>{
         }) 
-        let parmas = {
-
-        }
+        
     },
     methods:{
         compare:function(){

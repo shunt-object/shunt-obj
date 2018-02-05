@@ -25,15 +25,17 @@
     border-radius: 4px;
 }
 .el-dialog__header{
-    background:#F7A72C !important; 
+    border:1px solid #ebebeb !important;
     border-radius: 4px 4px 0 0;
+    background:none;
 }
 .el-dialog__title{
+    color:#000 !important;
     font-size:16px !important;
-    color:#fff !important;
+    font-weight:bold;
 }
 .el-dialog__headerbtn i{
-    color:#fff !important;
+    color:#000 !important;
 }
 .loading .el-loading-spinner .el-icon-loading{
     color:#ccc !important;

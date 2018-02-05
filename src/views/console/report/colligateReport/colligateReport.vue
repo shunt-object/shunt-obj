@@ -326,7 +326,8 @@ export default{
                             type: 'dashed',
                             width: 1
                         }                        
-                    }
+                    },
+                    formatter:this.opiniondata[0].name+'：'+this.opiniondata[0].value[0]+'，'+this.opiniondata[0].value[1]
                 },
                 xAxis: {
                     name: '收益度',
