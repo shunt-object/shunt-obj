@@ -19,7 +19,19 @@
                     <h4>当前企业上云情况</h4>
                     <P style="margin-top:30px">上云成为主流、多云变为趋势</P>
                     <div class="col-md-12 seleconeMain-img">
-                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/charts.png" alt=""></div>
+                        <div class="col-md-4 col-xs-12 text-center">
+                            <div id="main" :style="{width: '500px', height: '300px'}"></div>
+                        </div>
+                        <div class="col-md-8 text-center col-xs-12" style="padding-left:200px;padding-top:34px;">
+                            <ul>
+                                <li class="liwen"><span class="li-spa">48%</span><span class="li-spm">混合云</span></li>
+                                <li class="bigLi bigLione"></li>
+                                <li class="liwen"><span class="li-spa">15%</span><span class="li-spm">多私有云</span></li>
+                                <li class="bigLi bigLitwo"></li>
+                                <li class="liwen"><span class="li-spa">11%</span><span class="li-spm">Multi-private</span></li>
+                                <li class="bigLi bigLithree"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,6 +122,34 @@
 
 </template>
 <style>
+.bigLi{
+    height:20px;
+    background:#f35825;
+    margin:8px 0 18px 0 ;
+}
+.liwen{
+    text-align:left;
+}
+.liwen span{
+    margin-left:10px;
+}
+.li-spm{
+    font-size:18px;
+    color:#a5a5a5;
+}
+.bigLione{
+    width:388px;
+}
+.bigLitwo{
+    width:282px;
+}
+.bigLithree{
+    width:214px;
+}
+.li-spa{
+    font-size:18px;
+    color:#333333;
+}
 .seleconeMain-banner{
    animation-duration:2s;
 }
@@ -288,6 +328,11 @@
 <script>
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
+ import echarts from 'echarts'
+
+
+
+
     export default{
         components:{
             Sec,
@@ -295,54 +340,107 @@
         },
         data(){
             return{
-                arrs:true
+                arrs:true,
+                charts:""
             }
         },
+        mounted() {
+ /*ECharts图表*/
+            var myChart = echarts.init(document.getElementById('main'));
+            myChart.setOption({
+                 title : {  
+                    text: '74%',  
+                    subtext:"多公有云",
+                    x:'center',
+                    top:"45%"
+                },  
+                  
+                series : [
+                    {
+                        type: 'pie',
+                         legendHoverLink:false,
+                        hoverAnimation:false,
+                        radius : ['65%','70'],
+                        label:{            //饼图图形上的文本标签
+                            normal:{
+                                show:true,
+                                textStyle: {
+                                    color: '#333333',
+                                    fontSize:18,
+                                },
+                                 rich: {
+                                        a: {
+                                            color: '#333',
+                                            fontSize: 12,
+                                            lineHeight: 20
+                                        },
+                                        b: {
+                                            fontSize: 12,
+                                            lineHeight: 20,
+                                            color: '#333'
+                                        }
+                                    }
+                                }
+                            },
+                        labelLine: {
+                        normal: {
+                            length: 10,
+                            length2: 40,
+                            lineStyle: {
+                                color: '#fff'
+                            }
+                        }
+
+                    },
+                     
+                        data:[
+                        {
+                            value:18, 
+                            name:"单一公有云 13%",
+                            itemStyle:{
+                                normal:{
+                                    color:'#c4c2c2'
+                                }
+                            }
+                        },
+                        {
+                            value:9, 
+                            name:"未规划 4%",
+                            itemStyle:{
+                                normal:{
+                                    color:'#e3e3e3'
+                                }
+                            }
+                        },
+                        {
+                            value:14, 
+                            name:"单一私有云 9%",
+                            itemStyle:{
+                                normal:{
+                                    color:'#d6d6d6'
+                                }
+                            }
+                        },
+                        {
+                            value:55, 
+                           
+                            itemStyle:{
+                                normal:{
+                                    color:'#e41e2b'
+                                }
+                            }
+                        },
+                        ]
+                    }
+                ]
+            })
+ },
         methods:{
             spanTy:function(){
                 this.$router.push({path: '/login'});
-            }
-        },
-        mounted:function(){
-            $(document).ready(function(){ 
-                       $.fn.extend({
-                        animateCss: function (animationName) {
-                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-                            $(this).removeClass('animated ' + animationName);
-                            });
-                        }           
-                    });
-             var index=0;
-             var isn = true;
-             $(window).scroll(function(){
-              
-               if(isn==true){
-                    if($(this).scrollTop()>300&&$(this).scrollTop()<450){
-                      $(".seleconeMain-charts").animateCss('bounceInLeft');
-                     
-                    };
-                    if($(this).scrollTop()>800&&$(this).scrollTop()<850){
-                        $(".seleconeMain-shrts").animateCss('bounceInLeft');
-                     
-                    };
-                    if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
-                        $(".broundDow").animateCss('bounceInLeft');
-                       
-                    };
-                    if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
-                        $(".broundU").animateCss('bounceInLeft');
-                        index=1;
-                    };
-               }
-                if(index==1){
-                   isn = false;
-               }
-                  
-        })
+            },
              
-               
-        })
+        }
+        
     }
-}
 </script>

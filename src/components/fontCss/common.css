@@ -15,6 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 .icon-wangpanxinjianwenjianjia-copy:before { content: "\e607"; }
 
 .icon-tijianbaogaochaxun:before { content: "\e64b"; }
@@ -69,3 +70,35 @@
 
 .icon-anquan:before { content: "\eb53"; }
 
+=======
+  border:1px solid #ebebeb !important;
+  color:#000 !important;
+  font-size:16px;
+  font-weight:bold;
+}
+.el-message-box__title{
+    font-size:16px !important;
+  
+}
+.el-message-box__headerbtn i{
+    color:#fff !important;
+}
+.el-dialog{
+    border-radius: 4px;
+}
+.el-dialog__header{
+    background:#F7A72C !important; 
+    border-radius: 4px 4px 0 0;
+}
+.el-dialog__title{
+    font-size:16px !important;
+    color:#fff !important;
+}
+.el-dialog__headerbtn i{
+    color:#fff !important;
+}
+.loading .el-loading-spinner .el-icon-loading{
+    color:#ccc !important;
+    font-size:50px;
+}
+>>>>>>> 2a3e2fa817552391b94bde329f8cf75dc4b62ef9

@@ -120,7 +120,9 @@ export default {
     position: relative;
     display: inline-block;
 }
-
+.navbar-nav{
+    margin:0 0 0 0 !important; 
+}
 .dropdown-content {
     display: block;
     position: absolute;
@@ -240,7 +242,7 @@ ul,ol li {
       margin-left: 8%;
   }
   .cl {
-      margin-left: 30% !important;
+      margin-left: 28% !important;
   }
   .log {
       margin-right: 20px;

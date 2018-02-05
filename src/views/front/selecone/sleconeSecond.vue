@@ -323,43 +323,43 @@
                 this.$router.push({path: '/login'});
             }
         },
-        mounted:function(){
-            $(document).ready(function(){ 
-                       $.fn.extend({
-                        animateCss: function (animationName) {
-                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-                            $(this).removeClass('animated ' + animationName);
-                            });
-                        }           
-                    });
-             var index=0;
-             var isn = true;
-             $(window).scroll(function(){
+    //     mounted:function(){
+    //         $(document).ready(function(){ 
+    //                    $.fn.extend({
+    //                     animateCss: function (animationName) {
+    //                         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    //                         $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+    //                         $(this).removeClass('animated ' + animationName);
+    //                         });
+    //                     }           
+    //                 });
+    //          var index=0;
+    //          var isn = true;
+    //          $(window).scroll(function(){
               
-               if(isn==true){
-                    if($(this).scrollTop()>300&&$(this).scrollTop()<450){
-                      $(".seleconeMain-charts").animateCss('bounceInLeft');
-                    };
-                    if($(this).scrollTop()>800&&$(this).scrollTop()<850){
-                        $(".seleconeMain-shrts").animateCss('bounceInLeft');
-                    };
-                    if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
-                        $(".broundDow").animateCss('bounceInLeft');
-                    };
-                    if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
-                        $(".broundU").animateCss('bounceInLeft');
-                        index=1;
-                    };
-               }
-                if(index==1){
-                   isn = false;
-               }
+    //            if(isn==true){
+    //                 if($(this).scrollTop()>300&&$(this).scrollTop()<450){
+    //                   $(".seleconeMain-charts").animateCss('bounceInLeft');
+    //                 };
+    //                 if($(this).scrollTop()>800&&$(this).scrollTop()<850){
+    //                     $(".seleconeMain-shrts").animateCss('bounceInLeft');
+    //                 };
+    //                 if($(this).scrollTop()>1300&&$(this).scrollTop()<1350){
+    //                     $(".broundDow").animateCss('bounceInLeft');
+    //                 };
+    //                 if($(this).scrollTop()>1750&&$(this).scrollTop()<1800){
+    //                     $(".broundU").animateCss('bounceInLeft');
+    //                     index=1;
+    //                 };
+    //            }
+    //             if(index==1){
+    //                isn = false;
+    //            }
                   
-        })
+    //     })
              
                
-        })
-    }
+    //     })
+    // }
     }
 </script>
