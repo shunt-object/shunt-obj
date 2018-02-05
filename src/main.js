@@ -40,56 +40,56 @@ let loading;
 　　　　return response;  
  }); 
 }); */
-Vue.http.interceptors.push((request, next) => {  
-    loading = Vue.prototype.$loading({
-          lock: true,
-          spinner: 'el-icon-loading',
-          background: 'rgba(0, 0, 0, 0.7)',
-          customClass:'loading'
-    });
-　　next((response) => {
-    if(response.status==200){
-        loading.close();
-    }
-　　　return response;  
- }); 
-}); 
+// Vue.http.interceptors.push((request, next) => {  
+//     loading = Vue.prototype.$loading({
+//           lock: true,
+//           spinner: 'el-icon-loading',
+//           background: 'rgba(0, 0, 0, 0.7)',
+//           customClass:'loading'
+//     });
+// 　　next((response) => {
+//     if(response.status==200){
+//         loading.close();
+//     }
+// 　　　return response;  
+//  }); 
+// }); 
 
 
-axios.interceptors.request.use(
-  config=>{
-    /* load = layer(Vue).loading(2, {
-        time: 0
-    }); */
-    loading = Vue.prototype.$loading({
-          lock: true,
-          spinner: 'el-icon-loading',
-          background: 'rgba(0, 0, 0, 0.7)',
-          customClass:'loading'
-    });
-    return config;
-  }  
-)
-axios.interceptors.response.use(
-    response => {
-        if(response.status==200){
-            //layer(Vue).close(load);
-            loading.close();
-        }
-        return response;
-    },
-    error => {
-        if (error.response) {
-            switch (error.response.status) {
-                case 403:
-                    router.replace({
-                        path: '/login',
-                        query: {redirect: router.currentRoute.fullPath}
-                    })
-            }
-        }
-        return Promise.reject(error.response.data)   // 返回接口返回的错误信息
-    });
+// axios.interceptors.request.use(
+//   config=>{
+//     /* load = layer(Vue).loading(2, {
+//         time: 0
+//     }); */
+//     loading = Vue.prototype.$loading({
+//           lock: true,
+//           spinner: 'el-icon-loading',
+//           background: 'rgba(0, 0, 0, 0.7)',
+//           customClass:'loading'
+//     });
+//     return config;
+//   }  
+// )
+// axios.interceptors.response.use(
+//     response => {
+//         if(response.status==200){
+//             //layer(Vue).close(load);
+//             loading.close();
+//         }
+//         return response;
+//     },
+//     error => {
+//         if (error.response) {
+//             switch (error.response.status) {
+//                 case 403:
+//                     router.replace({
+//                         path: '/login',
+//                         query: {redirect: router.currentRoute.fullPath}
+//                     })
+//             }
+//         }
+//         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+//     });
 
 // 退出
 Vue.prototype.logout = function(){

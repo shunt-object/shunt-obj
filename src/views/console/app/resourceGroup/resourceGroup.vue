@@ -331,9 +331,7 @@
     border-radius:4px 4px 0 0;
    
 }
-.el-message-box__title{
-    color:#fff;
-}
+
 .el-message-box__close{
     color:#fff !important;
 }
@@ -352,9 +350,7 @@
 .el-select-dropdown__item.selected{
     color:#606266;
 }
-.el-message-box__header{
-    background:#F7A72C;
-}
+
 .el-message-box{
     border:none;
 }

@@ -669,6 +669,21 @@ export default {
         // },            
         rems:function(e){
             var that = this;
+            //   let ids=[];
+            //             ids.push(e);
+            //             var asf = {"ids":ids};
+                        
+            //             //console.log(asf);
+            //             that.$this({
+            //                 method: "delete",
+            //                 url: "/broker/app/analysis",
+            //                 data: asf
+            //             }).then(function(response) {
+                           
+            //                window.location.reload();
+            //             }).catch(function(error) {
+            //                 console.log(error);
+            //             });
             this.$confirm('您确定要删除该云分析下的所有应用吗？', '温馨提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -686,15 +701,16 @@ export default {
                             url: "/broker/app/analysis",
                             data: asf
                         }).then(function(response) {
-                            that.$layer.close(con);
-                            window.location.reload();
+                           
+                          //  window.location.reload();
                         }).catch(function(error) {
                             console.log(error);
                         });
                     }).catch(() => {
               }); 
             // var con = this.$layer.confirm("您确定要删除该云分析下的所有应用吗?", async function () {
-               
+            //    let ids=[];
+
             // },function(){
             //      that.$layer.close(con);
             //         return ;
