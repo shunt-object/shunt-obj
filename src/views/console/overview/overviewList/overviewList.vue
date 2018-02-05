@@ -702,7 +702,7 @@ export default {
                             data: asf
                         }).then(function(response) {
                            
-                          //  window.location.reload();
+                          window.location.reload();
                         }).catch(function(error) {
                             console.log(error);
                         });
@@ -781,6 +781,7 @@ export default {
     },
     created:function(){
         this.utype =  sessionStorage.getItem("utype");
+        
         this.$http.get('/broker/result/analysis').then((res)=>{
             this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
         console.log(this.vpd);
