@@ -15,10 +15,10 @@
     background:#fff1dc;
     border:1px solid #f7a72c;
     text-align:center;
-    height:40px;
-    line-height:40px;
+    line-height:20px;
     font-size:14px;
     color:#f7a72c;
+    padding:10px 0;
 }
 .validata-type{
     text-align:left;

@@ -7,17 +7,17 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 forget-box">
             <div class="forget-step">
-                <div class="move-block w-30">
+                <div class="move-block w-28">
                     <span class="move-circle cir-act">1</span>
                     <p class="move-title text-10">填写登录账号</p>
                     <span class="move-line" :class="index>0?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-30">
+                <div class="move-block w-25">
                     <span class="move-circle" :class="index>1?'cir-act':'cir-moren'">2</span>
                     <p class="move-title">验证身份</p>
                     <span class="move-line" :class="index>1?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-30">
+                <div class="move-block w-25">
                     <span class="move-circle" :class="index>2?'cir-act':'cir-moren'">3</span>
                     <p class="move-title">重置密码</p>
                     <span class="move-line" :class="index>2?'line-act':'line-moren'"></span>

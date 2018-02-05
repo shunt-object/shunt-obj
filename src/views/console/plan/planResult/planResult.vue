@@ -10,29 +10,31 @@
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="plan-box">
     <div class="compare-start">
-        <button class="startbtn" v-on:click="compare()">开始云选型</button>
+        <!--<button class="startbtn" v-on:click="compare()">开始云选型</button>-->
             <!--<button class="btn btn-default importbtn">导出</button>-->
         <div class="clear"></div>
     </div>
-    <div class="legend" style="float:right;margin-bottom:-20px;">     
-        <div class="legend-list">
-            <span class="legend-block legend-heshi"></span>
-            合适
+    <div class="legend-box">
+        <div class="legend">     
+            <div class="legend-list">
+                <span class="legend-block legend-heshi"></span>
+                合适
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-yib"></span>
+                一般
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-high"></span>
+                高
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-di"></span>
+                低
+            </div>
         </div>
-        <div class="legend-list">
-            <span class="legend-block legend-yib"></span>
-            一般
-        </div>
-        <div class="legend-list">
-            <span class="legend-block legend-high"></span>
-            高
-        </div>
-        <div class="legend-list">
-            <span class="legend-block legend-di"></span>
-            低
-        </div>
+        <div class="result-echarts" id="main"></div>
     </div>
-    <div class="result-echarts" id="main"></div>
     <div class="echarts-desc">工作负载分布图</div>
     <div class="row">
         <div class="col-md-3">
@@ -78,14 +80,14 @@ export default{
             queryType:'',
             resultlist:[],
             desc:'',
-            isclick:''
+            isclick:'',
         }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
         //this.appId = sessionStorage.getItem('appId');
         this.appId = this.$route.query.id;
-        console.log(this.appId);
+        //console.log(this.appId);
         //结果
         this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
             //console.log('结果',response);
@@ -116,6 +118,9 @@ export default{
             //console.log(this.opiniondata);         
         }).catch((error)=>{
         }) 
+        let parmas = {
+
+        }
     },
     methods:{
         compare:function(){
@@ -136,7 +141,7 @@ export default{
             }            
         },
         drawPie:function(id){
-            console.log(this.opiniondata);
+           // console.log(this.opiniondata);
             this.charts = echarts.init(document.getElementById(id));
             this.charts.setOption({
                 //backgroundColor:'#ccc',
@@ -167,7 +172,7 @@ export default{
                     min:0,
                     max:100,
                     axisLabel: {
-                        interval:20
+                        interval:0
                     },
                     splitLine: {
                         show: false

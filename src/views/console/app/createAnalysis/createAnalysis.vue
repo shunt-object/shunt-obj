@@ -8,35 +8,28 @@
 <div class="outbox" style="background:#fff;">
     <child index="1" start="1" id="0" :type="$route.query.type"></child>
     <div class="CreateAnalysis_from_box">
-        <div class="new-built">创建云分析信息</div>
+        <div class="new-built">创建分析</div>
         <div class="row createAnalysis-box">
             <div class="col-md-4">
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">1</span>
-                        上云分析名称：
-                    </div>
-                    <!--<div class="create-yun">
-                        <div class="create-radio">
-                            <input type="radio" name="aaa" class="create-radio-input" v-on:click="clickI(1)">
-                            创建新的云分析
-                        </div>
-                        <input type="text" disabled="true" id="input" style="margin:10px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
-                    </div>   
-                    <div class="clear"></div>-->                 
+                        请输入上云分析名称：
+                    </div>                
                     <div class="create-yun">
-                        <!--<div class="create-radio">-->
-                            <!--<input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">
-                            关联已有云分析-->
-                            <select class="create-select" :class="ischangeyun==false||isproName==false?'error':''" v-model="selectId" v-on:change="clickI(selectId)">
-                                <option value="2">关联已有云分析</option>
-                                <option value="1">创建新的云分析</option>
-                            </select>
-                        <!--</div>-->
-                        <select v-if="radio2==true" id="select" style="margin:20px 30px;" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
+                        <span class="create-radio-span">
+                            <input type="radio" name="aaa" checked class="create-radio-input" v-on:click="clickI(1)">新建应用
+                        </span>
+                        <span class="create-radio-span">
+                            <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">选用现有应用
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin-top:20px;" >
+                        <select v-if="radio2==true" id="select" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
                             <option :value="item" v-for="item in existing">{{item.proname}}</option>
                         </select>
-                         <input v-if="radio1==true" type="text" id="input" style="margin:20px 30px;" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
+                        <input v-if="radio1==true" type="text" id="input" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -103,9 +96,8 @@ export default{
             isproName:true,
             proName:'',
             ischangeyun:true,
-            radio1:false,
-            radio2:false,
-            selectId:''
+            radio1:true,
+            radio2:false
         }
     },
     mounted:function(){

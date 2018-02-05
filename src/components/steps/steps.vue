@@ -3,22 +3,22 @@
 <div class="stepPlan" v-if="type=='compare'">
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="comparePrev(1)">1</span>
-        <div class="stepPlan-name" :class="start==1?'active-color':'common-color'">创建云分析</div>
+        <div class="stepPlan-name int10" :class="start==1?'active-color':'common-color'">创建分析</div>
         <div class="stepPlan-line" :class="start==1?'common-line':start==2?'active-line':resource==false?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==2?'active-circle':resource==false?'common-circle':'finish-circle'" v-on:click="comparePrev(2)">2</span>
-        <div class="stepPlan-name common-color int-20" :class="start==2?'active-color':'common-color'">上云工作负载信息</div>
+        <div class="stepPlan-name common-color int15" :class="start==2?'active-color':'common-color'">资源组</div>
         <div class="stepPlan-line" :class="start==2&&compare==false?'common-line':start==3?'active-line':compare==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==3?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="comparePrev(3)">3</span>
-        <div class="stepPlan-name common-color int13" :class="start==3?'active-color':'common-color'">云选型</div>
+        <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云选型</div>
         <div class="stepPlan-line common-line"></div>
     </div>
     <div class="stepPlan-item step22">
         <span class="circle common-circle" v-on:click="comparePrev(4)">4</span>
-        <div class="stepPlan-name common-color int13">云实测</div>
+        <div class="stepPlan-name common-color int15">云实测</div>
         <div class="stepPlan-line" :class="start==5?'active-line':compare==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step10" v-on:click="comparePrev(5)">
@@ -30,27 +30,27 @@
 <div class="stepPlan" v-else>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="planPrev(1)">1</span>
-        <div class="stepPlan-name" :class="index==1?'active-color':'common-color'">创建云分析</div>
+        <div class="stepPlan-name int10" :class="index==1?'active-color':'common-color'">创建分析</div>
         <div class="stepPlan-line" :class="index==1?'common-line':index==2?'active-line':resource==false?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==2?'active-circle':resource==false?'common-circle':'finish-circle'" v-on:click="planPrev(2)">2</span>
-        <div class="stepPlan-name common-color int-20" :class="index==2?'active-color':'common-color'">上云工作负载信息</div>
+        <div class="stepPlan-name common-color int15" :class="index==2?'active-color':'common-color'">资源组</div>
         <div class="stepPlan-line" :class="index==2&&clould==false?'common-line':index==3?'active-line':clould==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==3?'active-circle':clould==true?'finish-circle':'common-circle'" v-on:click="planPrev(3)">3</span>
-        <div class="stepPlan-name common-color int10" :class="index==3?'active-color':'common-color'">云规划<span></span></div>
+        <div class="stepPlan-name common-color int15" :class="index==3?'active-color':'common-color'">云规划<span></span></div>
         <div class="stepPlan-line" :class="index==3&&compare==false?'common-line':index==4?'active-line':compare==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==4?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="planPrev(4)">4</span>
-        <div class="stepPlan-name common-color int13" :class="index==4?'active-color':'common-color'">云选型</div>
+        <div class="stepPlan-name common-color int15" :class="index==4?'active-color':'common-color'">云选型</div>
         <div class="stepPlan-line common-line"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle common-circle" v-on:click="planPrev(5)">5</span>
-        <div class="stepPlan-name common-color int13">云实测</div>
+        <div class="stepPlan-name common-color int15">云实测</div>
         <div class="stepPlan-line" :class="index==6?'active-line':compare==true&&clould==true?'finish-line':'common-line'"></div>
     </div>
       <div class="stepPlan-item step10" v-on:click="planPrev(6)">

@@ -117,13 +117,20 @@ select,input{
     border-radius:3px;
     background:#f3f3f3;
 }
-.create-radio{
-    text-align:left;
-    margin:10px 30px;
+.create-radio-span{
+    float:left;
+    margin-left:30px;
 }
 .create-radio-input{
-    float:left;
+    margin-right:5px !important;
 }
+/*.create-radio{
+    text-align:left;
+    margin:10px 30px;
+}*/
+/*.create-radio-input{
+    float:left;
+}*/
 
 
 

@@ -47,7 +47,27 @@
             云规划报告详情
         </div>
         <div class="colligate-list">
-            <div class="result-echarts" id="main"></div>
+            <div class="legend-box">
+                <div class="legend">     
+                    <div class="legend-list">
+                        <span class="legend-block legend-heshi"></span>
+                        合适
+                    </div>
+                    <div class="legend-list">
+                        <span class="legend-block legend-yib"></span>
+                        一般
+                    </div>
+                    <div class="legend-list">
+                        <span class="legend-block legend-high"></span>
+                        高
+                    </div>
+                    <div class="legend-list">
+                        <span class="legend-block legend-di"></span>
+                        低
+                    </div>
+                </div>
+                <div class="result-echarts" id="main"></div>
+            </div>
             <div class="echarts-desc">工作负载分布图</div>
             <div class="row">
                 <div class="col-md-3">

@@ -40,13 +40,16 @@ let loading;
 　　　　return response;  
  }); 
 }); */
-Vue.http.interceptors.push((request, next) => {  
+Vue.http.interceptors.push((request, next) => { 
     loading = Vue.prototype.$loading({
           lock: true,
           spinner: 'el-icon-loading',
           background: 'rgba(0, 0, 0, 0.7)',
           customClass:'loading'
     });
+    setTimeout(function(){
+        loading.close();
+    },3000) 
 　　next((response) => {
     if(response.status==200){
         loading.close();
@@ -67,6 +70,9 @@ axios.interceptors.request.use(
           background: 'rgba(0, 0, 0, 0.7)',
           customClass:'loading'
     });
+    setTimeout(function(){
+        loading.close();
+    },3000) 
     return config;
   }  
 )

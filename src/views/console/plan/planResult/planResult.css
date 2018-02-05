@@ -118,6 +118,14 @@ button{
 }
 /*结束*/
 /*图例*/
+.legend-box{
+    position:relative;
+}
+.legend{
+    position:absolute;
+    right:0;
+    top:28px;
+}
 .legend-list{
     float:right;
     font-size:12px;

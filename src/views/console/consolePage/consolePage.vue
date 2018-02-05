@@ -10,7 +10,7 @@
         </div>
         <!-- 公告信息 -->
         <div class="notice">
-            <p class="notice-img"><img src="../../../assets/notice.png" alt="">公告信息：</p>
+            <p class="notice-img"><i class="iconfont icon-gonggao"></i></p>
             <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
                 <li><marquee direction="left">CSB²计划在春节前推出云实测服务<span class="notice-time"></span></marquee></li>
             </ul>
@@ -25,7 +25,8 @@
                 <!--用户账号及退出-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img src="../../../assets/login-user.png" class="login-user" style="width:18px;" alt="">
+                        <!--<img src="../../../assets/login-user.png" class="login-user" style="width:18px;" alt="">-->
+                        <i class="iconfont icon-yonghu1"></i>
                         <span class="username">{{username}}</span>
                         <b class="caret"></b>
                     </a>
@@ -43,11 +44,18 @@
             <ul class="nav top-menu">
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle navli" id="xiaowei">
-                        <i class="icon-tasks color_999"></i>帮助中心
+                        <i class="icon-tasks color_999"></i>帮助台
                     </a>                    
                 </li>
                 <li id="header_inbox_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle navli" href="#">
+                    <el-popover
+                    ref="popover2"
+                    placement="bottom"
+                    trigger="hover" popper-class="notification">
+                        <i class="iconfont icon-xinxi" style="color:#ccc;"></i>
+                        <div style="font-size:12px !important;color:#ccc;">暂无消息</div>
+                    </el-popover>
+                    <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli" href="#">
                         <i class="icon-envelope-alt color_999"></i>通知中心
                     </a>                    
                 </li>
@@ -89,7 +97,7 @@
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/shuju.png" alt="">
-                        <span>数据决策</span>
+                        <span>数据分析</span>
                     </a>
                 </li>
             </ul>
@@ -129,7 +137,7 @@ export default{
         $("#xiaowei").click(function(){
             var that = this; 
                    
-            var win = window.open("http://118.244.227.150:22080/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            var win = window.open("http://csb.cloude2u.com/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
         });
         
 
