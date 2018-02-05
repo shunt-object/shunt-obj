@@ -24,11 +24,11 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers" href="javascript:;">云规划</a></li>
-            <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers" href="javascript:;">云选型</a></li>
-            <li><a class="page-scroll animated bounceIn hovers" href="javascript:;">云实测</a></li>
+            <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers">云规划</a></li>
+            <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers">云选型</a></li>
+            <li><a class="page-scroll animated bounceIn hovers">云实测</a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll animated fadeInUp hovers" href="javascript:;">联系我们</a></li>
+            <li><a class="page-scroll animated fadeInUp hovers">联系我们</a></li>
             <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
