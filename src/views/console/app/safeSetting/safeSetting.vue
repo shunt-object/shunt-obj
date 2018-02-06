@@ -82,8 +82,8 @@
     </div>
     <!-- -->
     <div class="email-btn">
-        <button class="safe-save-btn" v-on:click="success()">保存</button>
         <button class="safe-cel-btn" v-on:click="undialog()">取 消</button>
+        <button class="safe-save-btn" v-on:click="success()">保存</button>
     </div>    
 </el-dialog>
 </div>

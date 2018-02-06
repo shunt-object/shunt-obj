@@ -144,13 +144,13 @@
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="CreadCenter">
-            <el-button @click="dialogFor()" class="enterDing">确定</el-button>
             <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>
+            <el-button @click="dialogFor()" class="enterDing">确定</el-button>            
         </div>
         <!--编辑是触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
-            <el-button @click="dialogFormVis()" class="enterDing">确定</el-button>
             <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>
+            <el-button @click="dialogFormVis()" class="enterDing">确定</el-button>            
         </div>
   </el-dialog>
  

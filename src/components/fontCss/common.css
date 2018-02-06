@@ -11,11 +11,11 @@
 
   border:1px solid #ebebeb !important;
   color:#000 !important;
-  font-size:16px;
+  font-size:14px;
   font-weight:bold;
 }
 .el-message-box__title{
-    font-size:16px !important;
+    font-size:14px !important;
   
 }
 .el-message-box__headerbtn i{
@@ -31,7 +31,7 @@
 }
 .el-dialog__title{
     color:#000 !important;
-    font-size:16px !important;
+    font-size:14px !important;
     font-weight:bold;
 }
 .el-dialog__headerbtn i{

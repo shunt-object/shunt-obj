@@ -51,7 +51,7 @@
                     <el-popover
                     ref="popover2"
                     placement="bottom"
-                    trigger="hover" popper-class="notification">
+                    trigger="hover" popper-class="notification_hover">
                         <i class="iconfont icon-xinxi" style="color:#ccc;"></i>
                         <div style="font-size:12px !important;color:#ccc;">暂无消息</div>
                     </el-popover>

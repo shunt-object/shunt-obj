@@ -18,10 +18,10 @@
                     </div>                
                     <div class="create-yun">
                         <span class="create-radio-span">
-                            <input type="radio" name="aaa" checked class="create-radio-input" v-on:click="clickI(1)">新建应用
+                            <input type="radio" name="aaa" checked class="create-radio-input" v-on:click="clickI(1)">创建云分析
                         </span>
                         <span class="create-radio-span">
-                            <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">选用现有应用
+                            <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">选用现有云分析
                         </span>
                     </div>
                     <div class="clear"></div>
