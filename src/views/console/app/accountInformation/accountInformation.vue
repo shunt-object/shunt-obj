@@ -54,6 +54,52 @@
         <span class="accountInfor-list-val-type" v-if="information.utype==3">运营商</span>
         <span class="accountInfor-list-val-type" v-if="information.utype==4">政府</span>
     </div>
+    <!--<div class="accountInfor-list">
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>所属行业：
+        </span>
+        <span class="accountInfor-list-val" v-if="industry!=null&&isIndustry!=true">{{industry.name}}</span>
+        <button class="edit-btn" v-on:click="industryEdit()" v-if="industry!=null&&isIndustry!=true">
+            <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
+        </button>
+        <span class="accountInfor-list-val" v-if="industry==null&&isIndustry!=true" style="cursor:pointer;" v-on:click="industryEdit()">请选择所属的行业</span>
+        <select v-model='industry' v-if="isIndustry==true">
+            <option v-for="item in industryList" :value="item">{{item.name}}</option>
+        </select>
+        <button class="account-save-btn" v-if="isIndustry==true" v-on:click="industrySave()">
+            <i class="iconfont icon-duihao2"></i>保存
+        </button>
+        <button class="account-cel-btn" v-if="isIndustry==true" v-on:click="industryDel()">
+            <i class="iconfont icon-shanchuguanbicha2"></i>取消
+        </button>
+    </div>
+    <div class="accountInfor-list">
+        <span class="accountInfor-list-key">
+            <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>地区：
+        </span>
+        <span class="accountInfor-list-val"v-if="province!=null&&region!=true">
+            {{province.province}}&nbsp;<span v-if="city!=null">{{city.city}}</span>&nbsp;<span v-if="area!=null">{{area.area}}</span>
+        </span>
+        <button class="edit-btn" v-if="province!=null&&region!=true" v-on:click="regionEdit()">
+            <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
+        </button>
+        <span  v-if="province==null&&region!=true" style="cursor:pointer;" v-on:click="regionEdit()">请选择地区</span>
+        <select v-if="region==true" v-model="province" v-on:change="changeProvince(province)">
+            <option v-for="item in provinceList" :value="item">{{item.province}}</option>
+        </select>
+        <select v-if="region==true" v-model="city" v-on:change="changeCity(city)">
+            <option v-for="item in cityList" :value="item">{{item.city}}</option>
+        </select>
+        <select v-if="region==true" v-model="area">
+            <option v-for="item in areaList" :value="item">{{item.area}}</option>
+        </select>
+        <button class="account-save-btn" v-if="region==true" v-on:click="regionSave()">
+            <i class="iconfont icon-duihao2"></i>保存
+        </button>
+        <button class="account-cel-btn" v-if="region==true" v-on:click="regionDel()">
+            <i class="iconfont icon-shanchuguanbicha2"></i>取消
+        </button>
+    </div>-->
 </div>
 </div>
 </template>
@@ -65,12 +111,26 @@ export default{
         return {
             information:'',
             edit:false,
-            company:false
+            company:false,
+            industry:'',
+            isIndustry:false,
+            industryList:'',
+            province:'',
+            city:'',
+            area:'',
+            region:false,
+            provinceList:[],
+            areaList:[],
+            cityList:[]
         }
     },
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
-        console.log(this.information);
+        this.industry = JSON.parse(sessionStorage.getItem("account")).industryStr;
+        this.province = JSON.parse(sessionStorage.getItem("account")).province;
+        this.city = JSON.parse(sessionStorage.getItem("account")).city;
+        this.area = JSON.parse(sessionStorage.getItem("account")).area;
+        //console.log(this.information.industryStr.name);
     },
     methods:{
         updata:function(dom){
@@ -93,10 +153,19 @@ export default{
         },
         savecompany:function(){
             this.company==true?this.company=false:this.company=true;
+            this.setOption(this.information.id,this.information.realname,this.information.tenant);
+            //this.setOption(this.information.id,this.information.realname,this.information.tenant,this.information.provinceid,this.information.cityid,this.information.areaid,this.information.industry);
+        },
+        setOption:function(id,realname,tenant){
+            //id,realname,tenant,provinceid,cityid,areaid,industry
             let obj = {
-                id:this.information.id,
-                realname:this.information.realname,
-                tenant:this.information.tenant
+                id:id,
+                realname:realname,
+                tenant:tenant,
+                // provinceid:provinceid,
+                // cityid:cityid,
+                // areaid:areaid,
+                // industry:industry
             };
             this.gethttp(obj);
         },
@@ -108,6 +177,68 @@ export default{
             }).catch((error)=>{
 
             })
+        },
+        getIndustry:function(){
+            this.$this.get('/broker/prop/industry/').then((response)=>{
+                this.industryList = response.data.data;
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
+        industryEdit:function(){
+            this.isIndustry = true;
+            this.getIndustry();
+        },
+        industryDel:function(){
+            this.isIndustry = false;
+        },
+        industrySave:function(){
+            this.isIndustry = false;
+            this.setOption(this.information.id,this.information.realname,this.information.tenant,this.information.provinceid,this.information.cityid,this.information.areaid,this.industry.id);
+        },
+        regionEdit:function(){
+            this.region = true;
+            this.getProvince();
+            if(this.city!=null){
+                this.getCity(this.province.provinceid);
+            }
+            if(this.area!=null){
+                this.getArea(this.city.cityid);
+            }
+        },
+        getProvince:function(){
+            this.$this.get('/broker/prop/provinces/').then((response)=>{
+                this.provinceList = response.data.data;
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
+        getCity:function(provinceid){
+            this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
+                this.cityList = response.data.data;
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
+        getArea:function(cityid){
+            this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
+                this.areaList = response.data.data;
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
+        changeProvince:function(provinceid){
+            this.getCity(provinceid.provinceid);
+        },
+        changeCity:function(city){
+            this.getArea(city.cityid);
+        },
+        regionDel:function(){
+            this.region = false;
+        },
+        regionSave:function(){
+            this.region = false;
+            this.setOption(this.information.id,this.information.realname,this.information.tenant,this.province.provinceid,this.city.cityid,this.area.areaid,this.information.industry);
         }
     }
 }

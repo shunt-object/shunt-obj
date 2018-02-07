@@ -32,9 +32,9 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li><router-link to="/accountInformation"><i class="iconfont icon-zhanghaoguanli"></i>账号信息</router-link></li>
-                        <li><router-link to="/safeSetting"><i class="iconfont icon-anquan"></i>安全设置</router-link></li>
-                        <li v-on:click="logout()"><a href="javascript:;"><i class="iconfont icon-tuichu"></i>退出</a></li>
+                        <li><router-link to="/accountInformation"><i class="iconfont icon-zhanghaoguanli1"></i>账号信息</router-link></li>
+                        <li><router-link to="/safeSetting"><i class="iconfont icon-17"></i>安全设置</router-link></li>
+                        <li v-on:click="logout()"><a href="javascript:;"><i class="iconfont icon-tuichu1"></i>退出</a></li>
                     </ul>
                 </li>
             </ul>

@@ -16,7 +16,7 @@
                 <div class="reg-from-list" :class="isphone==true?'error':''">
                     <i class="xing">*</i>
                     <!-- <span class="reg-from-key">手机号码：</span> -->
-                    <span class="reg-from-key">邮箱：</span>
+                    <span class="reg-from-key">用户邮箱：</span>
                     <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
                     <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
                         <li v-for="item in noticeWord">{{item.text}}</li>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="reg-from-list" :class="ispassword==true?'error':''">
                     <i class="xing">*</i>
-                    <span class="reg-from-key">设定密码：</span>
+                    <span class="reg-from-key">设置密码：</span>
                     <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
                     <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
                         <li v-for="item in noticeWord">{{item.text}}</li>
@@ -62,16 +62,9 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
-                <div class="reg-from-list">
-                    <i class="xing" style="color:#fff !important;">*</i>
-                    <span class="reg-from-key">公司行业：</span>
-                    <select class="reg-from-val">
-                        <option value="">aaaaa</option>
-                    </select>
-                </div>
                 <div class="reg-from-list" :class="isusername==true?'error':''">
                     <i class="xing">*</i>
-                    <span class="reg-from-key">姓名：</span>
+                    <span class="reg-from-key">用户姓名：</span>
                     <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
                     <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
                         <li v-for="item in noticeWord">{{item.text}}</li>
@@ -81,29 +74,32 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <select name="" id="">
-                            <option value="">aaaaa</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <select name="" id="">
-                            <option value="">aaaaa</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <select name="" id="">
-                            <option value="">aaaaa</option>
-                        </select>
-                    </div>
+                <!--<div class="reg-from-list">
+                    <i class="xing" style="color:#fff !important;">*</i>
+                    <span class="reg-from-key">公司行业：</span>
+                    <select class="business" v-model="industry">
+                        <option v-for="item in industryList" :value="item">{{item.name}}</option>
+                    </select>
                 </div>
+                <div class="reg-from-list">
+                    <i class="xing" style="color:#fff !important;">*</i>
+                    <span class="reg-from-key">地区：</span>
+                    <select class="city_tab" v-model="province" v-on:change="changeProvince(province)">
+                        <option v-for="item in provinceList" :value="item">{{item.province}}</option>
+                    </select>
+                    <select v-model="city" class="city_tab" v-on:change="changeCity(city)">
+                        <option v-for="item in cityList" :value="item">{{item.city}}</option>
+                    </select>
+                    <select v-model="areas" class="city_tab">
+                        <option v-for="item in areasList" :value="item">{{item.area}}</option>
+                    </select>
+                </div>-->
             </div>
             <!-- 手机注册 -->
             <div class="tab-box" v-else>
                 <div class="reg-from-list" :class="ispassword==true?'error':''">
                     <i class="xing">*</i>
-                    <span class="reg-from-key">设定密码：</span>
+                    <span class="reg-from-key">设置密码：</span>
                     <input type="password" class="reg-from-val" v-model="password" v-on:focus="notice('password')" v-on:blur="reg('password')">
                     <ul class="reg-from-prompt reg-password" v-show="isnotice=='passwordtrue'">
                         <li v-for="item in noticeWord">{{item.text}}</li>
@@ -139,7 +135,7 @@
                 </div>
                 <div class="reg-from-list" :class="isusername==true?'error':''">
                     <i class="xing">*</i>
-                    <span class="reg-from-key">姓名：</span>
+                    <span class="reg-from-key">用户姓名：</span>
                     <input type="text" class="reg-from-val" v-model="username" v-on:focus="notice('username')" v-on:blur="reg('username')">
                     <ul class="reg-from-prompt reg-phone" v-show="isnotice=='usernametrue'">
                         <li v-for="item in noticeWord">{{item.text}}</li>
@@ -169,6 +165,26 @@
                     <div class="clear"></div>
                     <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
                 </div>
+                <!--<div class="reg-from-list">
+                    <i class="xing" style="color:#fff !important;">*</i>
+                    <span class="reg-from-key">公司行业：</span>
+                    <select class="business" v-model="industry">
+                        <option v-for="item in industryList" :value="item">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="reg-from-list">
+                    <i class="xing" style="color:#fff !important;">*</i>
+                    <span class="reg-from-key">地区：</span>
+                    <select class="city_tab" v-model="province" v-on:change="changeProvince(province)">
+                        <option v-for="item in provinceList" :value="item">{{item.province}}</option>
+                    </select>
+                    <select v-model="city" class="city_tab" v-on:change="changeCity(city)">
+                        <option v-for="item in cityList" :value="item">{{item.city}}</option>
+                    </select>
+                    <select v-model="areas" class="city_tab">
+                        <option v-for="item in areasList" :value="item">{{item.area}}</option>
+                    </select>
+                </div>-->
             </div>
             <!--  -->
             <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
@@ -219,12 +235,56 @@ export default{
             code:'获取手机验证码',
             codeI:120,
             iscodeNum:false,
-            codenotice:''
+            codenotice:'',
+            provinceList:[],
+            province:'',
+            cityList:[],
+            city:'',
+            areasList:[],
+            areas:'',
+            industry:'',
+            industryList:''
         }
     },
     mounted:function(){
+        this.getProvince();
+        this.getIndustry();
     },
     methods:{
+        getIndustry:function(){
+            this.$this.get('/broker/prop/industry/').then((response)=>{
+                this.industryList = response.data.data;
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
+        getProvince:function(){
+            this.$this.get('/broker/prop/provinces/').then((response)=>{
+                this.provinceList = response.data.data;
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
+        changeProvince:function(sheng){
+            this.getCity(sheng.provinceid);
+        },
+        getCity:function(provinceid){
+            this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
+                this.cityList = response.data.data;
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
+        changeCity:function(city){
+            this.getArea(city.cityid);
+        },
+        getArea:function(cityid){
+            this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
+                this.areasList = response.data.data;
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
         notice:function(dom){
             if(dom=='phone'){
                 this.isnotice = 'phonetrue';
@@ -370,7 +430,11 @@ export default{
                         "password": this.password,
                         "email": this.phone,
                         "realname": this.username,
-                        "tenant": this.confirm
+                        "tenant": this.confirm,
+                        // "areaid":this.areas.areaid,
+                        // "cityid":this.city.cityid,
+                        // "provinceid":this.province.provinceid,
+                        // "industry":this.industry.id
                 };
                 let strObj = JSON.stringify(obj);
                 let that = this;
@@ -406,7 +470,11 @@ export default{
                         "password": this.password,
                         "phone": this.phone,
                         "realname": this.username,
-                        "tenant": this.confirm
+                        "tenant": this.confirm,
+                        "areaid":this.areas.areaid,
+                        "cityid":this.city.cityid,
+                        "provinceid":this.province.provinceid,
+                        "industry":this.industry.id
                 };
                 let strObj = JSON.stringify(obj);
                 let that = this;
