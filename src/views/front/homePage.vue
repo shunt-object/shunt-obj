@@ -71,7 +71,7 @@
     <div class="announce">
         <div class="container">
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <li class="col-md-2 annou  col-xs-10"><img src="../../assets/paba.svg" alt="" style="width:24px;height:24px;margin-right:10px;">公告信息</li>
+                <li class="col-md-2 annou  col-xs-10"><i class="iconfont icon-gonggao"></i>公告信息</li>
                 <li class="col-md-10 col-xs-10 lis" style="text-align:center">
                 <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 智多星再出重磅服务:“将推出云实测功能”</marquee>
                 </li>
