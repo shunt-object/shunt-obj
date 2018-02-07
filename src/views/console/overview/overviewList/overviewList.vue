@@ -59,7 +59,7 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <span class="col-md-1 col-xs-1 proanmes">{{vp.proname}}</span>
+                    <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-8 removeIng col-xs-8">
                         <el-tooltip content="删除此云分析" placement="top" effect="light">
@@ -73,7 +73,7 @@
                 <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
                     <span class="col-md-1 bn col-xs-1"></span>
                     <span class="col-md-1 bn col-xs-1"></span>
-                    <span class="col-md-1 bn col-xs-4 pnormal">{{item.appname}}</span>
+                    <span class="col-md-1 bn col-xs-4 pnormal" :title="item.appname">{{item.appname}}</span>
                     <span class="col-md-7 text-left col-xs-3">
                         <p class="rate ">
                             <a v-for="(im,index) in item.appResults" id="as" class="col-xs-7" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
@@ -359,6 +359,11 @@ a:hover{
     text-overflow:ellipsis;
     white-space: nowrap;
  }
+    .proanmes{
+       overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+   }
 .Jips{
     font-size:12px;
     text-align:center;
