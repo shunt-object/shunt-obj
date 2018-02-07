@@ -26,7 +26,10 @@
             </li>
             <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers">云规划</a></li>
             <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers">云选型</a></li>
-            <li><a class="page-scroll animated bounceIn hovers">云实测</a></li>
+            <li class="lihovzan"><a class="page-scroll animated bounceIn hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
+                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
+                            <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
+                        </div> </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
             <li><a class="page-scroll animated fadeInUp hovers">联系我们</a></li>
             <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
@@ -54,6 +57,13 @@
 </div>
 </template>
 <script>
+$(document).ready(function(){ 
+ $(".lihovzan").hover(function(){
+    $(".xians").css("display","block")
+ },function(){
+      $(".xians").css("display","none")
+ })
+})
 export default {   
     data() {
       return {
