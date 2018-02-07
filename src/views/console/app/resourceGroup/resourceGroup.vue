@@ -301,7 +301,7 @@
             </div>
         </div>
         <div class="col-md-6" style="padding: 5px 5px 0px 0px;" v-show="creads">
-                <p  class="col-md-12 " style="border:1px solid #666666;line-height:196px;"><img src="../../../../assets/addition_fill.svg" style="width:5%;margin-right:10px;" alt=""><span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span></p>
+                <p  class="col-md-12 " style="border:1px solid #666666;line-height:196px;"><img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt=""><span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span></p>
         </div>
   </div>
     <div class="resourcebtn-box col-md-12 nextButton" style="margin-top:220px;" >

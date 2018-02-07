@@ -17,7 +17,7 @@
             <div style="background:#fff;width:100%">
                 <div class="seleconeMain-charts container">
                     <h4>当前企业上云情况</h4>
-                    <P style="margin-top:30px">上云成为主流、多云变为趋势</P>
+                    <P style="margin-top:30px">上云成为常态、多云变为主流</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-4 col-xs-12 text-center">
                             <div id="main" :style="{width: '500px', height: '300px'}"></div>
@@ -26,9 +26,9 @@
                             <ul>
                                 <li class="liwen"><span class="li-spa">48%</span><span class="li-spm">混合云</span></li>
                                 <li class="bigLi bigLione"></li>
-                                <li class="liwen"><span class="li-spa">15%</span><span class="li-spm">多私有云</span></li>
+                                <li class="liwen"><span class="li-spa">15%</span><span class="li-spm">多共有云</span></li>
                                 <li class="bigLi bigLitwo"></li>
-                                <li class="liwen"><span class="li-spa">11%</span><span class="li-spm">Multi-private</span></li>
+                                <li class="liwen"><span class="li-spa">11%</span><span class="li-spm">多私有云</span></li>
                                 <li class="bigLi bigLithree"></li>
                             </ul>
                         </div>

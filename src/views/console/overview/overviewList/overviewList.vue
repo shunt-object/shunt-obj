@@ -65,7 +65,7 @@
                         <el-tooltip content="删除此云分析" placement="top" effect="light">
                             <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
-                        <el-tooltip content="菜单操作：折叠or打开" placement="top" effect="light">
+                        <el-tooltip content="折叠或展开" placement="top" effect="light">
                             <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
                         </el-tooltip>
                     </span>
