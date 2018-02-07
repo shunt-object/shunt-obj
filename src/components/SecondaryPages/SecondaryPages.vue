@@ -31,7 +31,7 @@
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll animated fadeInUp hovers">联系我们</a></li>
+            <li><a class="page-scroll animated fadeInUp hovers">关于我们</a></li>
             <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
@@ -744,12 +744,7 @@ h2 {
          margin: 50px 0 25px;
          color:#fff;
   }
-.footer-inert{
-    width:100vw;
-    height:2px;
-    background:#2e383e;
-    margin-top:20px;
-}
+
 .tranimg:hover{
       transform: scale(1.2);
         -webkit-transition: all 0.6s ease-out; -moz-transition: all 0.6s ease-out; -o-transition: all 0.6s ease-out; transition: all 0.6s ease-out;

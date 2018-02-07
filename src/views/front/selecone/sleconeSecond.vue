@@ -3,7 +3,7 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row animated bounceInLeft">
+            <div class="seleconeMain-banner row ">
                 <div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir" style="font-weight:100;">我可以上云吗？上哪种类型的云？</span></p>
                     <div class="seclone-dv">
@@ -19,7 +19,7 @@
                     <h4 class="h4Firer">众多用户纷纷选择上云</h4>
                     <P style="font-size:16px">企业关注的也不再是上不上云，而是我的工作负载适合上云吗？适合上哪种类型的云？</P>
                     <div class="col-md-12 seleconeMain-img">
-                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt=""></div>
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt="" style="width:42%;height:42%;"></div>
                     </div>
                 </div>
             </div>
@@ -27,12 +27,12 @@
                 <div class="seleconeMain-shrts container" >
                     <h4 class="shrts-h4">集结上百位专家心血</h4>
                     <h4 class="shrts-h4er">为您提供科学规划和上云</h4>
-                    <P>解决工作负载是否适合上云？适合上哪种类型的云？</P>
+                    <P>判断工作负载是否适合上云？适合上哪种类型的云服务？</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
                             <ul class="Main-ul">
-                                <li>只需三步，即刻测试查看</li>
+                                <li>只需三步，即得报告</li>
                                 <li class="Main-li"><img src="../../../assets/Group 81.png" alt="" class="iconer-img"><span class="sp4">云定性</span></li>
                                 <li><img src="../../../assets/Group 82.png" alt="" class="iconer-img"><span class="sp4 ">云收益度</span></li>
                                 <li><img src="../../../assets/83.png" alt="" class="iconer-img"><span class="sp4 ">云亲和度</span></li>
@@ -54,51 +54,19 @@
              <div style="background:#f6f7f8;width:100%">
                 <div class="seleconeMain-echarts container broundU">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
-                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
-                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
+                    <div class="col-md-12 seleconeMain-img" >
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
                   
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container" style="width:60%;">
-                        <div class="col-md-4 col-xs-12 footer-laster" >
-                            <dl>
-                                <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">保姆化</li>
-                                        <li class="dds-lis">1V1顾问支持</li>
-                                        <li class="dds-lis">提供一站化体验</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:6%;">
-                              <dl>
-                                <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">权威化</li>
-                                        <li class="dds-lis">云集百位专家</li>
-                                        <li class="dds-lis">提供科学化上云规划</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:8%;">
-                              <dl>
-                                <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">可视化</li>
-                                        <li class="dds-lis">多维报表分析</li>
-                                        <li class="dds-lis">提供可视化数据</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
+                    <div class="container">
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -139,7 +107,7 @@
    .seleconeMain-banner{background:url("../../../assets/seclecone-one.png") no-repeat;height:450px;text-align:center}
    .seleconeMain-mainfir{margin-top:160px;}
    .seleconeMain-mainfir .selecone-pfir{
-        font-size:24px;
+        font-size:26px;
         color:#ffffff;
         text-align:center;
    }
@@ -147,13 +115,9 @@
        font-weight:100;
        color:#ccc;
    }
-   .seclone-dv h3{
-       font-size:32px;
-       color:#ffffff;
-       text-align:center;
-   }
+  
    .seclone-dv p{
-       font-size:20px;
+       font-size:14px;
        color:#fff;
        text-align:center;
    }
@@ -161,7 +125,7 @@
        width:100%;
    }
    .seleconeMain-charts H4{
-       font-size:28px;
+       font-size:26px;
        color:#333333;
        text-align:center;
    }
@@ -174,18 +138,18 @@
    }
    .seleconeMain-charts .h4Firer{
        margin-top:10px;
-       margin-bottom:30px;
+       margin-bottom:20px;
    }
    .seleconeMain-echarts .shrts-h4{
-       margin-top: 50px;
-           font-size: 28px;
+       margin-top: 40px;
+           font-size: 26px;
     color: #333333;
     text-align: center;
    }
    .seleconeMain-echarts .shrts-h4er{
        margin-top: 10px;
-    margin-bottom: 30px;
-        font-size: 28px;
+    margin-bottom: 20px;
+        font-size: 26px;
     color: rgb(51, 51, 51);
     text-align: center;
     }
@@ -195,16 +159,16 @@
        text-align:center;
    }
    .seleconeMain-img img{
-       width:50%;
-       height:50%;
+       width:42%;
+       height:42%;
        
    }
    .seleconeMain-img{
-       margin-top:60px;
-       margin-bottom:100px;
+       margin-top:25px;
+       margin-bottom:60px;
    }
    .seleconeMain-shrts h4{
-       font-size:28px;
+       font-size:26px;
        color:#333333;
        text-align:center;
      
@@ -214,7 +178,7 @@
    }
    .seleconeMain-shrts .shrts-h4er{
        margin-top:10px;
-       margin-bottom:30px;
+       margin-bottom:20px;
    }
    .seleconeMain-shrts p{
        font-size:16px;
@@ -222,8 +186,8 @@
        text-align:center;  
    }
    .seleconeMain-simg{
-        margin-top:60px;
-       margin-bottom:100px;
+        margin-top:25px;
+       margin-bottom:60px;
    }
    .seleconeMain-simg img{
        width:80%;
@@ -285,7 +249,7 @@
     text-align: center;
     }
     .seleconeMain-echarts .child-p{
-        font-size:28px;
+        font-size:26px;
        color:#333333;
        text-align:center;
        margin-top:50px; 

@@ -17,7 +17,7 @@
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">服务支持</p>
                 <p class="text-left footer-list">帮助中心</p>
-                <p class="text-left footer-list">服务条款</p>
+                <p class="text-left footer-list" @click="fuwuLook">服务条款</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
                 <p class="footer-jx">CloudBroker²</p>
@@ -616,7 +616,7 @@ h2 {
          color:#fff;
   }
 .footer-inert{
-    width:100%;
+    width:101.2%;
     height:2px;
     background:#2e383e;
     margin-top:20px;
@@ -726,6 +726,10 @@ h2 {
             cloundSelect:function(){
                   this.$router.push({path: '/seleconefirst'});
                     $('html ,body').animate({scrollTop: 0},0);
+            },
+            fuwuLook:function(){
+                  this.$router.push({path: '/agreenment'});
+                   $('html ,body').animate({scrollTop: 0},0);
             }
         }
     }

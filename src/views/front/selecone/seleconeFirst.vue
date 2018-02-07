@@ -4,11 +4,11 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row animated bounceInLeft">
+            <div class="seleconeMain-banner row ">
                 <div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir" style="font-weight:100;">我们应该上哪家云呢？</span></p>
                     <div class="seclone-dv">
-                        <h3 style="font-size:24px;font-weight:100">六大场景和近二百个标准</h3>
+                        <h3 style="font-size:26px;font-weight:100">六大场景和近二百个标准</h3>
                         <p style="font-weight:100;">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
                     </div>
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
@@ -17,12 +17,12 @@
             <div style="background:#fff;width:100%">
                 <div class="seleconeMain-charts container">
                     <h4>当前企业上云情况</h4>
-                    <P style="margin-top:30px">上云成为常态、多云变为主流</P>
-                    <div class="col-md-12 seleconeMain-img">
+                    <P style="margin-top:10px;font-size:16px;color:#333333;">上云成为常态、多云变为主流</P>
+                    <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
-                            <div id="main" :style="{width: '500px', height: '300px'}"></div>
+                            <div id="main"></div>
                         </div>
-                        <div class="col-md-8 text-center col-xs-12" style="padding-left:200px;padding-top:34px;">
+                        <div class="col-md-8 text-center col-xs-12" style="padding-top:48px;" id="charts-right">
                             <ul>
                                 <li class="liwen"><span class="li-spa">48%</span><span class="li-spm">混合云</span></li>
                                 <li class="bigLi bigLione"></li>
@@ -38,9 +38,9 @@
             <div style="background:#f9fafb;width:100%;" class="broundRi">
                 <div class="seleconeMain-shrts container" >
                     <h4>现实中真实困惑</h4>
-                    <P style="margin-top:30px;">面对诸多的云厂商，不知如何选择？</P>
+                    <P style="margin-top:10px;">面对诸多的云厂商，不知如何选择？</P>
                     <div class="col-md-12 seleconeMain-simg">
-                        <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
+                        <div class="col-md-7 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-5 col-xs-12 text-left">
                             <ul>
                                 <li><span class="sp1">1</span><span class="sp4">政府扶持</span></li>
@@ -58,7 +58,7 @@
                 <div class="seleconeMain-echarts broundDow container">
                     <h4 class="child-p text-center">多维报表分析</h4>
                     <h4 class="child-ps text-center">提供可视化数据展现</h4>
-                    <P class="child-pl text-center" style="margin-top:30px;color:#777777">海量数据、分析报告</P>
+                    <P class="child-pl text-center" style="margin-top:10px;color:#777777">海量数据、分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
                     </div>
@@ -67,51 +67,19 @@
              <div style="background:#f6f7f8;width:100%">
                 <div class="seleconeMain-echarts broundU container">
                     <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
-                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:100px;">
-                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/85.png" alt="" style="width:55%;height:55%;"></div>
+                    <div class="col-md-12 seleconeMain-img" style="margin-bottom:60px;">
+                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
                    
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container" style="width:60%;">
-                        <div class="col-md-4 col-xs-12 footer-laster">
-                            <dl>
-                                <dt class="dts"><img src="../../../assets/88.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">保姆化</li>
-                                        <li class="dds-lis">1V1顾问支持</li>
-                                        <li class="dds-lis">提供一站化体验</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 col-xs-12  footer-laster" style="padding-left:8%;">
-                              <dl>
-                                <dt class="dts"><img src="../../../assets/87.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">权威化</li>
-                                        <li class="dds-lis">云集百位专家</li>
-                                        <li class="dds-lis">提供科学化上云规划</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 col-xs-12 footer-laster" style="padding-left:13%;">
-                              <dl>
-                                <dt class="dts"><img src="../../../assets/86.png" alt=""></dt>
-                                <dd class="dds">
-                                    <ul>
-                                        <li class="dds-li">可视化</li>
-                                        <li class="dds-lis">多维报表分析</li>
-                                        <li class="dds-lis">提供可视化数据</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
+                    <div class="container">
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -127,6 +95,42 @@
     background:#f35825;
     margin:8px 0 18px 0 ;
 }
+@media (min-width: 768px) {
+    #main{
+        width:500px;
+        height:300px;
+    }
+    .bigLione{
+        width:388px;
+    }
+    #charts-right{
+        padding-left:200px;
+    }
+    .bigLitwo{
+        width:282px;
+    }
+    .bigLithree{
+        width:214px;
+    }
+}
+@media (max-width: 768px) {
+    #main{
+        width:300px;
+        height:200px;
+    }
+    #charts-right{
+        padding-left:0;
+    }
+    .bigLione{
+        width:200px;
+    }
+    .bigLitwo{
+        width:70px
+    }
+    .bigLithree{
+        width:50px;
+    }
+}
 .liwen{
     text-align:left;
 }
@@ -134,20 +138,14 @@
     margin-left:10px;
 }
 .li-spm{
-    font-size:18px;
+    font-size:14px;
     color:#a5a5a5;
 }
-.bigLione{
-    width:388px;
-}
-.bigLitwo{
-    width:282px;
-}
-.bigLithree{
-    width:214px;
-}
+
+
+
 .li-spa{
-    font-size:18px;
+    font-size:14px;
     color:#333333;
 }
 .seleconeMain-banner{
@@ -195,7 +193,7 @@
    .seleconeMain-banner{background:url("../../../assets/seclecone-one.png") no-repeat;height:450px;text-align:center}
    .seleconeMain-mainfir{margin-top:160px;}
    .seleconeMain-mainfir .selecone-pfir{
-        font-size:24px;
+        font-size:26px;
         color:#ffffff;
         text-align:center;
    }
@@ -212,7 +210,7 @@
        text-align:center;
    }
    .seclone-dv p{
-       font-size:20px;
+       font-size:14px;
        color:#fff;
        text-align:center;
    }
@@ -221,7 +219,7 @@
        animation-duration:2s;
    }
    .seleconeMain-charts H4{
-       font-size:28px;
+       font-size:26px;
        color:#333333;
        text-align:center;
        margin-top:50px;
@@ -236,11 +234,11 @@
        height:80%;
    }
    .seleconeMain-img{
-       margin-top:60px;
-       margin-bottom:100px;
+       margin-top:25px;
+       margin-bottom:60px;
    }
    .seleconeMain-shrts h4{
-       font-size:28px;
+       font-size:26px;
        color:#333333;
        text-align:center;
        margin-top:50px;
@@ -251,8 +249,8 @@
        text-align:center;  
    }
    .seleconeMain-simg{
-        margin-top:60px;
-       margin-bottom:100px;
+        margin-top:25px;
+       margin-bottom:60px;
    }
    .seleconeMain-simg img{
        width:80%;
@@ -300,13 +298,13 @@
         margin-bottom:10px;
     }
     .seleconeMain-echarts .child-p{
-        font-size:28px;
+        font-size:26px;
        color:#333333;
        text-align:center;
        margin-top:50px; 
     }
     .seleconeMain-echarts .child-ps{
-           font-size:28px;
+           font-size:26px;
        color:#333333;
        text-align:center;
     }
@@ -366,7 +364,7 @@
                                 show:true,
                                 textStyle: {
                                     color: '#333333',
-                                    fontSize:18,
+                                    fontSize:14,
                                 },
                                  rich: {
                                         a: {

@@ -29,12 +29,12 @@
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
-                <h1>业界领先上云服务，助您轻松上云！</h1>
+                <h1 style="font-size:26px !important;">业界领先上云服务，助您轻松上云！</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析；</br>打造了“从工作负载是否可上云？上哪种类型的云服务？如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
-                <img src="../../assets/text.png" alt="" class="tranimg">
+                <img src="../../assets/shouye.png" alt="" class="tranimg">
               </div>
             </div>
           </div>
@@ -47,8 +47,8 @@
                
                     <div class="container">
                         <div class="col-md-5 lun-le animated rollIn">
-                            <h1>提供360°保姆式咨询服务</h1>
-                            <p class="pCenter" style="font-weight:100">上云规划从未如此简单</p>
+                            <h1>360°专家咨询服务</h1>
+                            <p class="pCenter" style="font-weight:100">提供上云规划、选型、实测和综合报告全流程、一站式云服务，弹指间助您轻松上云</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
@@ -107,7 +107,7 @@
             <img src="../../assets/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">基于云选型设计的业务场景，通过CloudBroker²提供的应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
+              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型设计的业务场景，通过CloudBroker²提供的网络和应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
             </div>
            <span class="obj-cta">查看更多</span>
           </div>
@@ -131,10 +131,10 @@
           </div>
           <div class="col-xs-12 col-sm-2 claes">
             <img src="../../assets/b.png" alt="" class="tranImg">
-            <h4>保姆化</h4>
+            <h4>一站化</h4>
             <div class="mainpa">
               <p class="mainPd">1V1顾问支持</p>
-              <p>提供一站化体验</p>
+              <p>提供全生命周期服务体验</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-2 claes">
@@ -142,7 +142,7 @@
             <h4>权威化</h4>
             <div class="mainpa">
               <p class="mainPd">云集百位专家</p>
-              <p>提供科学化上云规划</p>
+              <p>提供科学化上云服务</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-2 claes">
@@ -197,33 +197,32 @@
       <div class="container friendContainer">
         <div class="row text-center jzWe jsFei" style="margin-bottom:20px !important;">
           <h1 class="text-center thin">合作伙伴</h1>
-          <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态</h3>
+          <h3 class="text-center thin">诚邀各行业优秀合作伙伴与我们共建云服务生态</h3>
           <div class="he-su"></div>
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 29.png" alt="" class="jz-img">
-          <img src="../../assets/Group 39.png" alt=""  class="jz-img">
-        </div>
-        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
           <img src="../../assets/Group 30.png" alt=""  class="jz-img">
+           <img src="../../assets/Group 43.png" alt=""  class="jz-img">
+          
+        </div>
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+           <img src="../../assets/Group 34.png" alt=""  class="jz-img">
           <img src="../../assets/Group 41.png" alt=""  class="jz-img">
-        </div>
-        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 34.png" alt=""  class="jz-img">
-          <img src="../../assets/Group 42.png" alt=""  class="jz-img">
-        </div>
-        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 36.png" alt=""  class="jz-img">
-          <img src="../../assets/Group 43.png" alt=""  class="jz-img">
-        </div>
-        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 37.png" alt=""  class="jz-img">
-          <img src="../../assets/Group 44.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
           <img src="../../assets/Group 38.png" alt=""  class="jz-img">
           <img src="../../assets/Group 45.png" alt=""  class="jz-img">
+         
         </div>
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+           <img src="../../assets/Group 39.png" alt=""  class="jz-img">
+           <img src="../../assets/Group 36.png" alt=""  class="jz-img">
+        </div>
+        <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+          <img src="../../assets/ali.png" alt="" class="jz-img">
+          <img src="../../assets/Group44.png" alt=""  class="jz-img">
+        </div>
+        
       </div>
     </div>
     <!------------------------感言------------------------------------------>
@@ -751,7 +750,7 @@ ul,ol li {
     font-weight:100;
 }
 .lumain .lun-le .pCenter {
-    color: #f0f0f0;   font-size:28px;
+    color: #f0f0f0;   font-size:14px;
 }
 .lumain .lun-le .pBottom {
     margin-top: 20px;
@@ -818,7 +817,7 @@ ul,ol li {
     width: 100%; background: #fff;
 }
 .obj-main h1 {
-    color: #333333; font-weight: 200; font-size:32px; text-align:center; padding-top:20px;
+    color: #333333; font-weight: 200; font-size:26px; text-align:center; padding-top:20px;
 }
 .obj-main h3 {
     font-size:16px; color:#777777; text-align:center;
@@ -834,7 +833,7 @@ ul,ol li {
     font-size: 14px; color: #666666;
 }
 .obj-main h2 {
-    font-size: 20px; color: #333333;
+    font-size: 18px; color: #333333;
 }
 .obj-main h4 {
     font-size: 18px; color: #333333;
@@ -900,6 +899,10 @@ ul,ol li {
 }
 .jzfei img {
     padding-bottom: 20px;
+}
+.jzfei{
+    padding-right:10px;
+    margin-left:26px
 }
 .obj-free {
     width: 100%; background: #da121a; background-size: cover; height: auto;
@@ -1066,7 +1069,7 @@ h2 {
     padding:20px 0 20px 0;
 }
 .obj-what-whew h2 {
-    font-size: 32px; font-weight:200; color: #333333;
+    font-size: 26px; font-weight:200; color: #333333;
 }
 .p-wha {
     font-size: 16px; color: #777777;
@@ -1171,7 +1174,7 @@ h2 {
     background:#fff; color:#da121a;
 }
 .jsFei h1{
-    font-size:32px; color:#333333; font-weight:200; text-align:center;
+    font-size:26px; color:#333333; font-weight:200; text-align:center;
 }
 .jsFei h3{
     font-size:16px; color:#777777; text-align:center;
@@ -1185,12 +1188,7 @@ h2 {
          margin: 63px 0 25px;
          color:#fff;
   }
-.footer-inert{
-    width:100vw;
-    height:2px;
-    background:#2e383e;
-    margin-top:20px;
-}
+
 .tranimg:hover{
       transform: scale(1.2);
         -webkit-transition: all 0.6s ease-out; -moz-transition: all 0.6s ease-out; -o-transition: all 0.6s ease-out; transition: all 0.6s ease-out;

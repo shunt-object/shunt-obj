@@ -4,7 +4,7 @@
                 <span></span>
                 云实测
             </div> 
-            <div class="title"><div class="animated swing"><img src="../../../assets/jqqd.jpg" alt=""></div></div>      
+            <div class="title"><div class="swing"><img src="../../../assets/jqqd.jpg" alt=""><p style="font-size:16px;">正在开发中，即将上线，敬请您的期待......</p></div></div>      
         </div>
 </template>
 <style>
@@ -16,8 +16,11 @@
         width:100%;
         background:#fff;
     }
-    .title div{padding-top:15%;color:#ccc;}
-
+    .title div{padding-top:10%;color:#ccc;}
+    .swing img{
+        width:30%;
+        height:50%;
+    }
 </style>
 <script>
 import "../measured/animate.min.css"
