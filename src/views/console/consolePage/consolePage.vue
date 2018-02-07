@@ -51,9 +51,11 @@
                     <el-popover
                     ref="popover2"
                     placement="bottom"
-                    trigger="hover" popper-class="notification_hover">
-                        <i class="iconfont icon-xinxi" style="color:#ccc;"></i>
-                        <div style="font-size:12px !important;color:#ccc;">暂无消息</div>
+                    trigger="click" popper-class="notification_hover">
+                        <div style="padding:20px 50px;">
+                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
+                            <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
+                        </div>                        
                     </el-popover>
                     <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli" href="#">
                         <i class="icon-envelope-alt color_999"></i>通知中心

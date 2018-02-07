@@ -8,8 +8,8 @@
         <div class="reg-from col-md-4">
             <!--<div class="reg-from-title">欢迎注册ClouldBroker²</div>-->
             <div class="reg-from-tab">
-                <div class="reg-tab-list" :class="selectTab==true?'border-active':'border-default'" v-on:click="Tab('email')">邮箱注册</div>
-                <div class="reg-tab-list" :class="selectTab==false?'border-active':'border-default'" v-on:click="Tab('phone')">手机注册</div>
+                <div class="reg-tab-list" :class="selectTab==true?'border-active':'border-default'" v-on:click="Tab('email')"><i class="iconfont icon-youxiang1" style="margin-right:5px;font-size:16px !important;"></i>邮箱注册</div>
+                <div class="reg-tab-list" :class="selectTab==false?'border-active':'border-default'" v-on:click="Tab('phone')"><i class="iconfont icon-shouji" style="margin-right:5px;"></i>手机注册</div>
             </div>
             <!-- 邮箱注册 -->
             <div class="tab-box" v-if="selectTab==true">
@@ -62,6 +62,13 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
+                <div class="reg-from-list">
+                    <i class="xing" style="color:#fff !important;">*</i>
+                    <span class="reg-from-key">公司行业：</span>
+                    <select class="reg-from-val">
+                        <option value="">aaaaa</option>
+                    </select>
+                </div>
                 <div class="reg-from-list" :class="isusername==true?'error':''">
                     <i class="xing">*</i>
                     <span class="reg-from-key">姓名：</span>
@@ -72,6 +79,23 @@
                     <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
                     <div :class="isusername==false?'right':'null'">
                         <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <select name="" id="">
+                            <option value="">aaaaa</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="" id="">
+                            <option value="">aaaaa</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="" id="">
+                            <option value="">aaaaa</option>
+                        </select>
                     </div>
                 </div>
             </div>
