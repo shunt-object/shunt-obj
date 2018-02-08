@@ -58,7 +58,7 @@
                         </div>                        
                     </el-popover>
                     <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli user-hover" href="#">
-                        <i class="iconfont icon-icon--" style="font-size:18px !important;"></i>通知中心
+                        <i class="iconfont icon-icon--" style="font-size:18px !important;float: left;"></i>通知中心
                     </a>                    
                 </li>
                 <!--<li id="header_notification_bar" class="dropdown">

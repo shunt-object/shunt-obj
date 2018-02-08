@@ -47,6 +47,7 @@
             <span>{{out.gname}}</span>
             <span class="add-toggle" v-on:click="zong(i)">+</span>
         </div>
+        <!-- v-if="numlist[i].boolean==true"-->
         <div v-if="numlist[i].boolean==true">
             <div class="compare-box" v-for="(item,index) in typeCheck" v-if="item.type.gname==out.gname">
                 <div class="compare-question-title">
@@ -98,7 +99,8 @@ export default{
             togglelist:[],
             havelist:[],
             numlist:[],
-            allLsit:[]
+            allLsit:[],
+            Ind:0,
         }
     },
     mounted:function(){
@@ -116,9 +118,11 @@ export default{
                 let arr =[];
                 let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
-                    this.numlist.push({boolean:true});
+                    //this.numlist.push({boolean:true});
+                    //console.log('=====',this.numlist);
                     this.allLsit.push({boolean:false});
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
+                        this.numlist.push({boolean:true});
                         if(response.data.data[n].childGroups[i].selected==true){
                             arr.push(response.data.data[n].childGroups[i].selected);
                             this.questionList(response.data.data[n].childGroups[i].id,true,n);
@@ -207,6 +211,7 @@ export default{
                         }
                     }
                 }
+                
             }).catch((error)=>{ 
             }) 
         },

@@ -4,13 +4,13 @@
     <span></span>
     数据决策
 </div>
-<!--<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">-->
-<div class="datadecision">
+<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">
+<!--<div class="datadecision">
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6"></div>
     </div>
-</div>
+</div>-->
 </div>
 </template>
 <script>
