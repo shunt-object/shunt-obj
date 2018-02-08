@@ -144,13 +144,13 @@
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="CreadCenter">
-            <el-button @click="dialogFor()" class="enterDing">确定</el-button> 
-            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>   
+            <el-button @click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
+            <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
-            <el-button @click="dialogFormVis()" class="enterDing">确定</el-button>
-            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>        
+            <el-button @click="dialogFormVis()" class="enterDing ResourceGroup-lay-btn">确定</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>        
         </div>
   </el-dialog>
  
@@ -322,6 +322,14 @@
 <style>
 *{
     padding:0
+}
+.ResourceGroup-lay-btn{
+    padding: 9px 15px !important;
+}
+.ResourceGroup-lay-del{
+    background: #fff !important;
+    border: 1px solid #dcdfe6 !important;
+    color: #606266 !important;
 }
 .el-dialog{
     width:40%;

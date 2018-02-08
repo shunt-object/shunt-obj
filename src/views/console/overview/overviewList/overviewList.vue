@@ -48,10 +48,11 @@
     <!-- 数据为空结束 -->
     <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4" >
         <li class="sps row">
-            <span class="col-md-1 col-xs-1"><input type="checkbox" class="text-center"></span>
-            <span class="col-md-1 weight  weigh col-xs-2">云分析名称</span>
-            <span class="col-md-1 weight  weigh col-xs-2">应用负载名称</span>
-            <span class="col-md-7 weight col-xs-4" >进度</span>
+            <span class="col-md-1 col-xs-1"><!--<input type="checkbox" class="text-center">--></span>
+            <span class="col-md-1 weight  weigh col-xs-2 spsmedia">云分析名称</span>
+            <span class="col-md-1 weight  weigh col-xs-2 spsmedia">应用负载名称</span>
+            <span class="col-md-7 weight col-xs-4" style="text-align: left; text-indent: 20%;" >进度</span>
+            <span class="col-md-2 weight col-xs-3" >操作</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
@@ -61,12 +62,20 @@
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
                     <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
-                    <span class="col-md-8 removeIng col-xs-8">
-                        <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
+                    <span class="col-md-7 removeIng col-xs-7">
+                        <!--<el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
                             <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
-                            <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;" v-on:click="toggleShow(index)"></i>
+                            <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;" v-on:click="toggleShow(index)"></i>
+                        </el-tooltip>-->
+                    </span>
+                    <span class="col-md-2 col-xs-2">
+                        <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
+                            <i class="fa fa-trash-o removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id)"></i>
+                        </el-tooltip>
+                        <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
+                            <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
                             <!-- toggle-clould -->
                         </el-tooltip>
                     </span>
@@ -354,10 +363,18 @@ a:hover{
 .satatus{
     color:#666666; font-size:12px;
 }
+@media (min-width: 992px) {
+    .spsmedia{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
 @media (min-width: 768px) {
     .ratelist{
     height:70px;
 }
+
 /*.ratelist span{
     padding-top:20px;
     }*/

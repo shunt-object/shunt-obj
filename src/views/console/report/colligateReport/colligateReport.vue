@@ -330,7 +330,7 @@ export default{
                     formatter:this.opiniondata[0].name+'：'+this.opiniondata[0].value[0]+'，'+this.opiniondata[0].value[1]
                 },
                 xAxis: {
-                    name: '收益度',
+                    name: '云收益度',
                     type: 'value',
                     scale: true,
                     min:0,
@@ -351,7 +351,7 @@ export default{
                     }
                 },
                 yAxis: {
-                    name: '亲和度',
+                    name: '云亲和度',
                     type: 'value',
                     scale: true,
                     min:0,
