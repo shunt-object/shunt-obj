@@ -31,7 +31,7 @@
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers">关于我们</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer">关于我们</a></li>
             <li><a class="page-scroll  hovers" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
@@ -124,6 +124,9 @@ export default {
       },
       cloundPlsn:function(){
            this.$router.push({path: '/seleconeThree'})
+      },
+      listwer:function(){
+           this.$router.push({path: '/seleconeFour'})
       }
     }
   }

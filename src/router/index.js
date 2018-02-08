@@ -25,6 +25,7 @@ import wei from '@/views/front/wei'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
+import seleconeFour from "../views/front/selecone/seleconeFour.vue"
 import dataDcision from '@/views/console/app/dataDcision/dataDcision'
 
 
@@ -53,6 +54,11 @@ export default new Router({
       path:"/seleconeThree",
       name:"seleconeThree",
       component:seleconeThree
+    },
+      {
+      path:"/seleconeFour",
+      name:"seleconeFour",
+      component:seleconeFour
     },
     {
       path: '/wei',
