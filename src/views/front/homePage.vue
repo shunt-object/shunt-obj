@@ -29,7 +29,7 @@
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
-                <h1 style="font-size:26px !important;">业界领先上云服务，助您轻松上云！</h1>
+                <h1 style="font-size:26px !important;font-weight:100">业界领先上云服务，助您轻松上云！</h1>
                 <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析；</br>打造了“从工作负载是否可上云？上哪种类型的云服务？如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
@@ -817,7 +817,7 @@ ul,ol li {
     width: 100%; background: #fff;
 }
 .obj-main h1 {
-    color: #333333; font-weight: 200; font-size:26px; text-align:center; padding-top:20px;
+    color: #333333; font-weight: 100; font-size:26px; text-align:center; padding-top:20px;
 }
 .obj-main h3 {
     font-size:16px; color:#777777; text-align:center;
@@ -1069,7 +1069,7 @@ h2 {
     padding:20px 0 20px 0;
 }
 .obj-what-whew h2 {
-    font-size: 26px; font-weight:200; color: #333333;
+    font-size: 26px; font-weight:100; color: #333333;
 }
 .p-wha {
     font-size: 16px; color: #777777;
@@ -1174,7 +1174,7 @@ h2 {
     background:#fff; color:#da121a;
 }
 .jsFei h1{
-    font-size:26px; color:#333333; font-weight:200; text-align:center;
+    font-size:26px; color:#333333; font-weight:100; text-align:center;
 }
 .jsFei h3{
     font-size:16px; color:#777777; text-align:center;

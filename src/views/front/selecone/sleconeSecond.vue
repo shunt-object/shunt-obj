@@ -15,8 +15,8 @@
             </div>
              <div style="background:#ffffff;width:100%">
                 <div class="seleconeMain-charts container">
-                    <h4 class="h4Fir">当前云计算已广泛深入人心</h4>
-                    <h4 class="h4Firer">众多用户纷纷选择上云</h4>
+                    <h4 class="h4Fir" style="font-weight:100">当前云计算已广泛深入人心</h4>
+                    <h4 class="h4Firer" style="font-weight:100">众多用户纷纷选择上云</h4>
                     <P style="font-size:16px">企业关注的也不再是上不上云，而是我的工作负载适合上云吗？适合上哪种类型的云？</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Group 16.png" alt="" style="width:42%;height:42%;"></div>
@@ -53,7 +53,7 @@
             </div>
              <div style="background:#f6f7f8;width:100%">
                 <div class="seleconeMain-echarts container broundU">
-                    <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
+                    <p class="child-p text-center col-xs-12" style="font-weight:100">提供一站式全流程用户体验</p>
                     <div class="col-md-12 seleconeMain-img" >
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
@@ -81,6 +81,12 @@
      
         max-width: 1090px;
 
+   }
+  .seleconeMain-shrts h4{
+       font-weight:100;
+   }
+   .seleconeMain-echarts h4{
+       font-weight:100;
    }
    .footer-laster{
        

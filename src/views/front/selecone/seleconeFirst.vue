@@ -20,7 +20,7 @@
                     <P style="margin-top:10px;font-size:16px;color:#333333;">上云成为常态、多云变为主流</P>
                     <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
-                            <div id="main"></div>
+                            <div id="mains"></div>
                         </div>
                         <div class="col-md-8 text-center col-xs-12" style="padding-top:48px;" id="charts-right">
                             <ul>
@@ -66,7 +66,7 @@
             </div>
              <div style="background:#f6f7f8;width:100%">
                 <div class="seleconeMain-echarts broundU container">
-                    <p class="child-p text-center col-xs-12">提供一站式全流程用户体验</p>
+                    <p class="child-p text-center col-xs-12" style="font-weight:100">提供一站式全流程用户体验</p>
                     <div class="col-md-12 seleconeMain-img" style="margin-bottom:60px;">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
@@ -96,7 +96,7 @@
     margin:8px 0 18px 0 ;
 }
 @media (min-width: 768px) {
-    #main{
+    #mains{
         width:500px;
         height:300px;
     }
@@ -114,7 +114,7 @@
     }
 }
 @media (max-width: 768px) {
-    #main{
+    #mains{
         width:300px;
         height:200px;
     }
@@ -344,7 +344,7 @@
         },
         mounted() {
  /*ECharts图表*/
-            var myChart = echarts.init(document.getElementById('main'));
+            var myChart = echarts.init(document.getElementById('mains'));
             myChart.setOption({
                  title : {  
                     text: '74%',  
