@@ -13,7 +13,27 @@
         </div>
     </div>
     <!-- <div>象限图</div> -->
-    <div class="result-echarts" id="main"></div>
+    <div class="legend-box">
+        <div class="legend">     
+            <div class="legend-list">
+                <span class="legend-block legend-heshi"></span>
+                合适
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-yib"></span>
+                一般
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-high"></span>
+                高
+            </div>
+            <div class="legend-list">
+                <span class="legend-block legend-di"></span>
+                低
+            </div>
+        </div>
+        <div class="result-echarts" id="main"></div>
+    </div>
     <!-- 有数据 -->
     <table id="example" class="table table-striped table-bordered planlist-table" border="1">
         <thead>
