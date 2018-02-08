@@ -24,6 +24,7 @@ import colligateReport from '@/views/console/report/colligateReport/colligateRep
 import wei from '@/views/front/wei'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
+import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import dataDcision from '@/views/console/app/dataDcision/dataDcision'
 
 
@@ -47,6 +48,11 @@ export default new Router({
       path:"/sleconesecond",
       name:"sleconesecond",
       component:sleconesecond
+    },
+    {
+      path:"/seleconeThree",
+      name:"seleconeThree",
+      component:seleconeThree
     },
     {
       path: '/wei',

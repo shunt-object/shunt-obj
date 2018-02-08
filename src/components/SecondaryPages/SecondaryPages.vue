@@ -26,7 +26,7 @@
             </li>
             <li @click="cloundPlan"><a class="page-scroll  hovers">云规划</a></li>
             <li @click="cloundPlen"><a class="page-scroll  hovers">云选型</a></li>
-            <li class="lihovzan"><a class="page-scroll  hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
+            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
@@ -58,13 +58,13 @@
 </div>
 </template>
 <script>
-$(document).ready(function(){ 
- $(".lihovzan").hover(function(){
-    $(".xians").css("display","block")
- },function(){
-      $(".xians").css("display","none")
- })
-})
+// $(document).ready(function(){ 
+//  $(".lihovzan").hover(function(){
+//     $(".xians").css("display","block")
+//  },function(){
+//       $(".xians").css("display","none")
+//  })
+// })
 export default {   
     data() {
       return {
@@ -122,7 +122,9 @@ export default {
       homePager:function(){
            this.$router.push({path: '/'})
       },
-     
+      cloundPlsn:function(){
+           this.$router.push({path: '/seleconeThree'})
+      }
     }
   }
 </script>
