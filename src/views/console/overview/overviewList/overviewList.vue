@@ -127,7 +127,7 @@
 </template>
 <style>
 .creatAll{
-    width:114px;
+    width:114px !important;
 }
 .page-login-toolTipClass{
     background:#FFF1DC !important;
