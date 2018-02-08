@@ -3,15 +3,18 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row ">
-                <div class="seleconeMain-mainfir col-xs-12">
-                    <p class="selecone-pfir" style="font-weight:100;">我可以上云吗？上哪种类型的云？</span></p>
-                    <div class="seclone-dv">
-                        <h3 class="selecone-pfir" style="font-weight:100;">三步让您科学上云</h3>
-                        <p style="font-weight:100;">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
-                    </div>
-                     <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
-                </div>
+            <div class="seleconeMain-banners selectHelp row ">
+                 <div class="container">
+                        <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px;color:#888888">我可以上云吗？上哪种类型的云？</span></p>
+                            <div class="seclone-dv">
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
+                                <p style="font-weight:100;text-align:left;font-size:20px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
+                            </div>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
+                        </div>
+                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/cloundPlan.png" alt=""></div>
+                 </div>
             </div>
              <div style="background:#ffffff;width:100%">
                 <div class="seleconeMain-charts container">
@@ -61,8 +64,8 @@
                 </div>
             </div>
             <div style="background:#ededed;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
-                    <div class="container">
+                <div class="seleconeMain-footer row" >
+                    <div class="container text-left" style="width:60%">
                             <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
@@ -110,8 +113,11 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   .seleconeMain-banner{background:url("../../../assets/seclecone-one.png") no-repeat;height:450px;text-align:center}
-   .seleconeMain-mainfir{margin-top:160px;}
+   .selectHelp{
+        background:url("../../../assets/445.png") no-repeat;text-align:center;background-size:100% 100%;
+   }
+
+   .seleconeMain-mainfir{margin-top:160px;margin-bottom:50px;}
    .seleconeMain-mainfir .selecone-pfir{
         font-size:26px;
         color:#ffffff;
@@ -271,7 +277,7 @@
        text-align:center;
     }
     .spanTy{
-        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:10px 50px;display:inline-block;text-align:center;background:#e41e2b;
+        border:1px solid #e41e2b;font-size:14px;color:#fff;padding:10px 25px;display:inline-block;text-align:center;background:#e41e2b;
     }
     .spanTy:hover{
         cursor:pointer;

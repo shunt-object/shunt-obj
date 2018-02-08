@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">服务支持</p>
-                <p class="text-left footer-list">帮助中心</p>
+                <p class="text-left footer-list" @click="helpCenter">帮助中心</p>
                 <p class="text-left footer-list" @click="fuwuLook">服务条款</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
@@ -249,9 +249,7 @@ ul,ol li {
 .navbar-nav li span {
     color: #fff;
 }
-.announce {
-    background: #f2f2f2; line-height: 58px; height: 58px;
-}
+
 .annou {
     font-size: 18px; color: #da121a; text-align: left
 }
@@ -426,9 +424,7 @@ ul,ol li {
 .obj-what-da {
   margin-bottom: 30px;
 }
-.announce ul .lis {
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 58px;
-}
+
 .annou {
   text-align: center;
 }
@@ -715,6 +711,7 @@ h2 {
     to{ -webkit-transform: rotate(360deg)  
    }  
  }  
+
 </style>
 <script>
     export default{
@@ -730,6 +727,10 @@ h2 {
             fuwuLook:function(){
                   this.$router.push({path: '/agreenment'});
                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            helpCenter:function(){
+                  var that = this; 
+                  var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
             }
         }
     }

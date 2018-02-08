@@ -26,7 +26,7 @@
             </li>
             <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers">云规划</a></li>
             <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers">云选型</a></li>
-            <li class="lihovzan"><a class="page-scroll animated bounceIn hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
+            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll animated bounceIn hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
@@ -43,6 +43,7 @@
                <li v-if="islogin==true" class="logout-box">
                 <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
                 <p class="logout-ul" v-show="logoutlist">
+                    <span style="color:#000">{{realname}}</span>
                     <span v-on:click="fn()" style="cursor:pointer;color:#000">退出</span>
                 </p>
          
@@ -120,6 +121,9 @@ export default {
       },
       homePager:function(){
            this.$router.push({path: '/'})
+      },
+      cloundPlsn:function(){
+            this.$router.push({path: '/measured'})
       }
     }
   }
@@ -367,9 +371,7 @@ ul,ol li {
 .navbar-nav li span {
     color: #fff;
 }
-.announce {
-    background: #f2f2f2; line-height: 58px; height: 58px;
-}
+
 .annou {
     font-size: 18px; color: #da121a; text-align: left
 }
@@ -544,9 +546,7 @@ ul,ol li {
 .obj-what-da {
   margin-bottom: 30px;
 }
-.announce ul .lis {
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; height: 58px;
-}
+
 .annou {
   text-align: center;
 }

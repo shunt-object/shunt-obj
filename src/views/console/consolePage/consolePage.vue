@@ -139,7 +139,7 @@ export default{
         $("#xiaowei").click(function(){
             var that = this; 
                    
-            var win = window.open("http://csb.cloude2u.com/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
         });
         
 
