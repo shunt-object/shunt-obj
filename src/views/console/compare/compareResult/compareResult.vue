@@ -11,13 +11,13 @@
 <div class="compare-line"></div>
 <div class="compareResult-box">
     <div class="compare-title">对比供应商</div>
-    <div class="compare-cate">云供应对比结果</div>
+    <div class="compare-cate">云供应商对比结果</div>
     <table class="table-score">
         <thead>
             <tr>
                 <th>云供应商</th>
                 <th>分数</th>
-                <th>区域价格范围</th>
+                <th>参考价格范围</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="compare-cate">云供应商标准差异</div>
+    <div class="compare-cate">云供应商标准比较差异</div>
     <div class="difference-box">
         <table class="comdetails-table">
             <thead>

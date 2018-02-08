@@ -24,10 +24,10 @@
                 </li>-->
                 <!--用户账号及退出-->
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <!--<img src="../../../assets/login-user.png" class="login-user" style="width:18px;" alt="">-->
                         <i class="iconfont icon-yonghu1"></i>
-                        <span class="username">{{username}}</span>
+                        <!--<span class="username">-->{{username}}<!--</span>-->
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -43,8 +43,8 @@
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle navli" id="xiaowei">
-                        <i class="icon-tasks color_999"></i>帮助台
+                    <a data-toggle="dropdown" class="dropdown-toggle navli user-hover" id="xiaowei">
+                        <i class="iconfont icon-kefu"></i>帮助台
                     </a>                    
                 </li>
                 <li id="header_inbox_bar" class="dropdown">
@@ -57,8 +57,8 @@
                             <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
                         </div>                        
                     </el-popover>
-                    <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli" href="#">
-                        <i class="icon-envelope-alt color_999"></i>通知中心
+                    <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli user-hover" href="#">
+                        <i class="iconfont icon-icon--" style="font-size:18px !important;"></i>通知中心
                     </a>                    
                 </li>
                 <!--<li id="header_notification_bar" class="dropdown">
