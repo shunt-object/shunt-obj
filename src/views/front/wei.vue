@@ -1,6 +1,6 @@
 <template>
        <div style="background:#ccc;background:#ccc">
-            <iframe id="embed"  frameborder="no"  name="abc" border="0"  src="http://xiaowei.io/chat/pc/index.html?appid=3311"   width="500" height="600"></iframe>
+            <iframe id="embed"  frameborder="no"  name="abc" border="0"  src="http://xiaowei.io/chat/pc/index.html?appid=3311&style=red"   width="500" height="600"></iframe>
        </div>
 </template>
 
