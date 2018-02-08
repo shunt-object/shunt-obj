@@ -23,12 +23,17 @@ export default{
         }
     },
     mounted:function(){
-        let groupid;
-        this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
+        // let groupid;
+        // this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
 
-        }).catch((error)=>{
+        // }).catch((error)=>{
 
-        })
+        // })
+        // this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
+            
+        // }).catch((error)=>{
+
+        // })
     },
     methods:{
 
