@@ -820,7 +820,7 @@ ul,ol li {
     width: 100%; background: #fff;
 }
 .obj-main h1 {
-    color: #333333; font-weight: 400; font-size:26px; text-align:center; padding-top:20px;
+    color: #333333; font-weight: 100; font-size:26px; text-align:center; padding-top:20px;
 }
 .obj-main h3 {
     font-size:16px; color:#777777; text-align:center;
@@ -1072,7 +1072,7 @@ h2 {
     padding:20px 0 20px 0;
 }
 .obj-what-whew h2 {
-    font-size: 26px; font-weight:400; color: #333333;
+    font-size: 26px; font-weight:100; color: #333333;
 }
 .p-wha {
     font-size: 16px; color: #777777;
@@ -1177,7 +1177,7 @@ h2 {
     background:#fff; color:#da121a;
 }
 .jsFei h1{
-    font-size:26px; color:#333333; font-weight:400; text-align:center;
+    font-size:26px; color:#333333; font-weight:100; text-align:center;
 }
 .jsFei h3{
     font-size:16px; color:#777777; text-align:center;

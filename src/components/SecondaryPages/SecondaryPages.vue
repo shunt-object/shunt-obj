@@ -10,12 +10,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
       		</button>
-          <a class="navbar-brand page-scroll" href="#page-top" @click="homePager()"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs animated rotateIn"></a>
+          <a class="navbar-brand page-scroll" href="#page-top" @click="homePager()"><img src="../../assets/logo.png" alt="Lattes theme logo" class="Imgs "></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll animated fadeInLeft hovers" href="javascript:;">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" href="javascript:;">首页</a></li>
             <li class="dropdown">
                <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
                <!-- <div class="dropdown-content">
@@ -24,15 +24,15 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li @click="cloundPlan"><a class="page-scroll animated bounceIn hovers">云规划</a></li>
-            <li @click="cloundPlen"><a class="page-scroll animated bounceIn hovers">云选型</a></li>
-            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll animated bounceIn hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
+            <li @click="cloundPlan"><a class="page-scroll  hovers">云规划</a></li>
+            <li @click="cloundPlen"><a class="page-scroll  hovers">云选型</a></li>
+            <li class="lihovzan"><a class="page-scroll  hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll animated fadeInUp hovers">关于我们</a></li>
-            <li><a class="page-scroll animated fadeInRight hovers" v-on:click="condole">控制台</a></li>
+            <li><a class="page-scroll  hovers">关于我们</a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -43,8 +43,8 @@
                <li v-if="islogin==true" class="logout-box">
                 <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
                 <p class="logout-ul" v-show="logoutlist">
-                    <span style="color:#000">{{realname}}</span>
-                    <span v-on:click="fn()" style="cursor:pointer;color:#000">退出</span>
+                  
+                    <span v-on:click="fn()" style="cursor:pointer;color:#000;font-size:12px;" >退出</span>
                 </p>
          
               </li>
@@ -122,9 +122,7 @@ export default {
       homePager:function(){
            this.$router.push({path: '/'})
       },
-      cloundPlsn:function(){
-            this.$router.push({path: '/measured'})
-      }
+     
     }
   }
 </script>

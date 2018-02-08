@@ -6,7 +6,7 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px;color:#888888">我可以上云吗？上哪种类型的云？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
                                 <p style="font-weight:100;text-align:left;font-size:20px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
@@ -114,7 +114,7 @@
    }
    *{margin:0px;padding:0px;}
    .selectHelp{
-        background:url("../../../assets/445.png") no-repeat;text-align:center;background-size:100% 100%;
+        background:#222222;text-align:center;background-size:100% 100%;
    }
 
    .seleconeMain-mainfir{margin-top:160px;margin-bottom:50px;}

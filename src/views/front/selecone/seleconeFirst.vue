@@ -29,7 +29,7 @@
             </div>
             <div style="background:#fff;width:100%">
                 <div class="seleconeMain-charts container">
-                    <h4>当前企业上云情况</h4>
+                    <h4 style="font-weight:100">当前企业上云情况</h4>
                     <P style="margin-top:10px;font-size:16px;color:#333333;">上云成为常态、多云变为主流</P>
                     <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
@@ -152,7 +152,7 @@
 }
 .li-spm{
     font-size:14px;
-    color:#a5a5a5;
+    color:#333333;
 }
 
 
@@ -203,7 +203,7 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   .seleconeMain-banner{background:url("../../../assets/445.png") no-repeat;text-align:center;background-size:100% 100%;}
+   .seleconeMain-banner{background:#222222;text-align:center;background-size:100% 100%;}
    .seleconeMain-mainfir{margin-top:160px;}
    .seleconeMain-mainfir .selecone-pfir{
         font-size:26px;
