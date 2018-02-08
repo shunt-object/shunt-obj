@@ -47,7 +47,10 @@ Website: http://thevectorlab.net/
     margin:12px auto 0 auto !important;
     background:#f7f7f7;
     border-radius:20px;
-    padding:3px 10px !important;
+    /*padding:3px 10px !important;*/
+    width:240px;
+    line-height:30px;
+    padding:0 10px !important;
 }
 .notice-list li .notice-time{
     margin-left:10px;

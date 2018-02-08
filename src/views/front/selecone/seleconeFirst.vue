@@ -24,7 +24,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/compare.png" alt=""></div>
+                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:75px;padding:0 !important;"><img src="../../../assets/compare.png" alt="" style="float:right;width: 400px;"></div>
                  </div>
             </div>
             <div style="background:#fff;width:100%">
@@ -53,8 +53,8 @@
                     <h4>现实中真实困惑</h4>
                     <P style="margin-top:10px;">面对诸多的云厂商，不知如何选择？</P>
                     <div class="col-md-12 seleconeMain-simg">
-                        <div class="col-md-7 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
-                        <div class="col-md-5 col-xs-12 text-left">
+                        <div class="col-md-9 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
+                        <div class="col-md-3 col-xs-12 text-left">
                             <ul>
                                 <li><span class="sp1">1</span><span class="sp4">政府扶持</span></li>
                                 <li><span class="sp3">2</span><span class="sp4">战略选型</span></li>
