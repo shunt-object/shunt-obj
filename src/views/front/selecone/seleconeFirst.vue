@@ -17,10 +17,10 @@
             <div class="seleconeMain-banner row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px">我们应该上哪家云呢？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px">我们应该上哪家云呢？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">六大场景和近二百个标准</h3>
-                                <p style="font-weight:100;text-align:left;font-size:20px">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
+                                <p style="font-weight:100;text-align:left;font-size:18px">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>

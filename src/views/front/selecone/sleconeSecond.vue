@@ -6,14 +6,14 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
-                                <p style="font-weight:100;text-align:left;font-size:20px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
+                                <p style="font-weight:100;text-align:left;font-size:18px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/cloundPlan.png" alt=""></div>
+                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;"></div>
                  </div>
             </div>
              <div style="background:#ffffff;width:100%">
@@ -32,8 +32,8 @@
                     <h4 class="shrts-h4er">为您提供科学规划和上云</h4>
                     <P>判断工作负载是否适合上云？适合上哪种类型的云服务？</P>
                     <div class="col-md-12 seleconeMain-simg">
-                        <div class="col-md-7 col-xs-12 text-right seleconeMain-"><img src="../../../assets/126.png" alt=""></div>
-                        <div class="col-md-5 col-xs-12 text-left">
+                        <div class="col-md-9 col-xs-12 text-right seleconeMain-"><img src="../../../assets/Selconetwo.png" alt=""></div>
+                        <div class="col-md-3 col-xs-12 text-left">
                             <ul class="Main-ul">
                                 <li>只需三步，即得报告</li>
                                 <li class="Main-li"><img src="../../../assets/Group 81.png" alt="" class="iconer-img"><span class="sp4">云定性</span></li>
