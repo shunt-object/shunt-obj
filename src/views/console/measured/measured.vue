@@ -16,7 +16,7 @@
         width:100%;
         background:#fff;
     }
-    .title div{padding-top:10%;color:#ccc;}
+    .title div{padding-top:15%;color:#ccc;}
     .swing img{
         width: 25%;
         height: 50%;

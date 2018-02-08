@@ -391,7 +391,7 @@
     border-color:#ccc !important;
 }
 .el-form-item__label{
-    width:178px !important;
+    width:190px !important;
    font-weight:200;
     color:#333333;
 }

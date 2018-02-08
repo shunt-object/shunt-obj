@@ -16,6 +16,17 @@
 <script>
 import '../dataDcision/dataDcision.css'
 export default{
-    name:'dataDcision'
+    name:'dataDcision',
+    data(){
+        return {
+
+        }
+    },
+    mounted:function(){
+        
+    },
+    methods:{
+
+    }
 }
 </script>
