@@ -71,8 +71,8 @@
     <div class="announce">
         <div class="container">
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <li class="col-md-2 annou  col-xs-10"><i class="iconfont icon-gonggao1"></i>公告信息</li>
-                <li class="col-md-10 col-xs-10 lis" style="text-align:center">
+                <li class="col-md-2 annou  col-xs-10" style="line-height:48px;"><p><i class="iconfont icon-gonggao1" style="font-size:19px"></i><span style="font-size:16px;">公告信息</span></p></li>
+                <li class="col-md-10 col-xs-10 lis" style="text-align:center;line-height:48px;">
                 <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 智多星再出重磅服务:“将推出云实测功能”</marquee>
                 </li>
             </ul>
@@ -545,7 +545,7 @@ export default {
             
             var that = this; 
                    
-            var win = window.open("http://csb.cloude2u.com/#/wei","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
                   
         },
          
@@ -734,10 +734,12 @@ ul,ol li {
     
 }
 .lunmain .lun-le .pCenter {
-    color: #f0f0f0; font-size: 14px
+    color: #f0f0f0; font-size: 14px;
+     margin-top: 12px;
 }
+
 .lunmain .lun-le .pBottom {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .lunmain .lun-le .pBottom span {
     padding: 10px 25px; border: 1px solid #ccc; color: #fff; font-size: 12px;
@@ -751,6 +753,7 @@ ul,ol li {
 }
 .lumain .lun-le .pCenter {
     color: #f0f0f0;   font-size:14px;
+      margin-top: 12px;
 }
 .lumain .lun-le .pBottom {
     margin-top: 20px;
@@ -808,7 +811,7 @@ ul,ol li {
     color: #fff;
 }
 .announce {
-    background: #f2f2f2; line-height: 48px; height: 48px;
+    background: #f2f2f2; height: 48px;
 }
 .annou {
     font-size: 16px; color: #da121a; text-align: left

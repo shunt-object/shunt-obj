@@ -4,19 +4,32 @@
 <div style="background:#eceef3">
     <Sec></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banner row ">
-                <div class="seleconeMain-mainfir col-xs-12">
+           
+                <!--<div class="seleconeMain-mainfir col-xs-12">
                     <p class="selecone-pfir" style="font-weight:100;">我们应该上哪家云呢？</span></p>
                     <div class="seclone-dv">
                         <h3 style="font-size:26px;font-weight:100">六大场景和近二百个标准</h3>
                         <p style="font-weight:100;">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
                     </div>
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
-                </div>
+                </div>-->
+           
+            <div class="seleconeMain-banner row ">
+                 <div class="container">
+                        <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:20px">我们应该上哪家云呢？</span></p>
+                            <div class="seclone-dv">
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">六大场景和近二百个标准</h3>
+                                <p style="font-weight:100;text-align:left;font-size:20px">有没有一个客观的选型，可以专业的告诉我结果呢？</p>
+                            </div>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
+                        </div>
+                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/compare.png" alt=""></div>
+                 </div>
             </div>
             <div style="background:#fff;width:100%">
                 <div class="seleconeMain-charts container">
-                    <h4>当前企业上云情况</h4>
+                    <h4 style="font-weight:100">当前企业上云情况</h4>
                     <P style="margin-top:10px;font-size:16px;color:#333333;">上云成为常态、多云变为主流</P>
                     <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
@@ -139,7 +152,7 @@
 }
 .li-spm{
     font-size:14px;
-    color:#a5a5a5;
+    color:#333333;
 }
 
 
@@ -190,7 +203,7 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   .seleconeMain-banner{background:url("../../../assets/seclecone-one.png") no-repeat;height:450px;text-align:center}
+   .seleconeMain-banner{background:#222222;text-align:center;background-size:100% 100%;}
    .seleconeMain-mainfir{margin-top:160px;}
    .seleconeMain-mainfir .selecone-pfir{
         font-size:26px;

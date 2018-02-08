@@ -24,19 +24,19 @@
             <div class="yibazi" v-if="regionter=='server'" >
               <el-form :model="coresShj" :rules="rules" ref="coresShj" >
                 <el-form-item label="数量" :label-width="formLabelWidth">
-                    <el-input v-model="coresShj.num" auto-complete="off" type="number" placeholder="1" ></el-input>
+                    <el-input v-model="coresShj.num" auto-complete="off" type="number" placeholder="1" min="1" ></el-input>
                 </el-form-item>
-                <el-form-item label="(v)CPU" :label-width="formLabelWidth" prop="cores">
-                    <el-input v-model="coresShj.cores" auto-complete="off" type="number"></el-input>
+                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
+                    <el-input v-model="coresShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number"></el-input>
+                <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
+                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存(GB)" :label-width="formLabelWidth" prop="ram">
-                    <el-input v-model="coresShj.ram" auto-complete="off" type="number"></el-input>
+                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                    <el-input v-model="coresShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="系统盘(GB)" :label-width="formLabelWidth" prop="localDisk">
-                    <el-input v-model="coresShj.localDisk" auto-complete="off" type="number"></el-input>
+                <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                    <el-input v-model="coresShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="coresShj.os" placeholder="请选择">
@@ -62,17 +62,17 @@
                 <el-form-item label="数量" :label-width="formLabelWidth">
                     <el-input v-model="inesShj.num" auto-complete="" type="text" placeholder="1"></el-input>
                 </el-form-item>
-                <el-form-item label="(v)CPU" :label-width="formLabelWidth" prop="cores">
-                    <el-input v-model="inesShj.cores" auto-complete="off" type="number"></el-input>
+                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
+                    <el-input v-model="inesShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="处理器主频(GHZ)" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number"></el-input>
+                <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
+                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存(GB)" :label-width="formLabelWidth" prop="ram">
-                    <el-input v-model="inesShj.ram" auto-complete="off" type="number"></el-input>
+                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                    <el-input v-model="inesShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="本地磁盘(GB)" :label-width="formLabelWidth" prop="localDisk">
-                    <el-input v-model="inesShj.localDisk" auto-complete="off" type="number"></el-input>
+                <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                    <el-input v-model="inesShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="inesShj.os" placeholder="请选择">
@@ -95,14 +95,14 @@
            <!--网络-->
            <div class="yibanzp" v-if="regionter=='net'">
               <el-form :model="netRule" :rules="rules" ref="netRule">
-                <el-form-item label="带宽(Mbps/月)" :label-width="formLabelWidth" prop="bandwidth">
-                    <el-input v-model="netRule.bandwidth" auto-complete="off" type="number"></el-input>
+                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandwidth">
+                    <el-input v-model="netRule.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="入站(Mbps/月)" :label-width="formLabelWidth" prop="inbound">
-                    <el-input v-model="netRule.inbound" auto-complete="off" type="number"></el-input>
+                <el-form-item label="入站（Mbps/月）" :label-width="formLabelWidth" prop="inbound">
+                    <el-input v-model="netRule.inbound" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="出站(Mbps/月)" :label-width="formLabelWidth" prop="outbound">
-                    <el-input v-model="netRule.outbound" auto-complete="off" type="number"></el-input>
+                <el-form-item label="出站（Mbps/月）" :label-width="formLabelWidth" prop="outbound">
+                    <el-input v-model="netRule.outbound" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
              </el-form>
            </div>
@@ -111,20 +111,20 @@
            <div class="yibanzp" v-if="this.regionter=='storage'">
              <el-form :model="inusShj" :rules="rules" ref="inusShj">
                 <el-form-item  label="数量" :label-width="formLabelWidth" >
-                    <el-input v-model="inusShj.num" auto-complete="off" type="number"  placeholder="1"></el-input>
+                    <el-input v-model="inusShj.num" auto-complete="off" type="number"  placeholder="1" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="" :label-width="formLabelWidth">
-                    <el-checkbox  v-on:change="lookw()" id="chec" v-model="asd">共享存储(SAN)(GB)</el-checkbox>
-                    <el-checkbox  v-on:change="lookq()" v-model="afd">网络存储(NAS)(GB)</el-checkbox>
-                    <el-checkbox  v-on:change="looke()" v-model="agd">云存储(GB)</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="lookw()" id="chec" v-model="asd">共享存储（SAN）（GB）</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="lookq()" v-model="afd">网络存储（NAS）（GB）</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="looke()" v-model="agd">云存储（GB）</el-checkbox>
                 </el-form-item>
-                <el-form-item label="共享存储(SAN)(GB)" :label-width="formLabelWidth" v-if="this.checked==true" prop="sna">
-                    <el-input v-model="inusShj.sna" auto-complete="off" type="number"></el-input>
+                <el-form-item label="共享存储（SAN）（GB）" :label-width="formLabelWidth" v-if="this.checked==true" prop="sna">
+                    <el-input v-model="inusShj.sna" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="网络存储(NAS)(GB)" :label-width="formLabelWidth" v-if="this.checkeder==true" prop="nsa">
-                    <el-input v-model="inusShj.nsa" auto-complete="off" type="number"></el-input>
+                <el-form-item label="网络存储（NAS）（GB）" :label-width="formLabelWidth" v-if="this.checkeder==true" prop="nsa">
+                    <el-input v-model="inusShj.nsa" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="云存储(GB)" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
+                <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
                     <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
                         <el-option value="AWS">AWS</el-option>
                         <el-option value="Azure">Azure</el-option>
@@ -137,48 +137,48 @@
                         <el-option value="沃云">沃云</el-option>
                         <el-option value="其它">其它</el-option>
                     </el-select>
-                    <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number"></el-input>
+                    <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
                 </el-form-item>
              </el-form>
            </div>
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="CreadCenter">
-            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>
-            <el-button @click="dialogFor()" class="enterDing">确定</el-button>            
+            <el-button @click="dialogFor()" class="enterDing">确定</el-button> 
+            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
-            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>
-            <el-button @click="dialogFormVis()" class="enterDing">确定</el-button>            
+            <el-button @click="dialogFormVis()" class="enterDing">确定</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false" class="suan">取消</el-button>        
         </div>
   </el-dialog>
  
   <div id="main">
-        <div class="col-md-6 animated bounceInDown" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" >
-            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#ccc;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(index)"></i></span></h2>
+        <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" >
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
-                    <h4 style="font-size:14px;">应用服务</h4>
-                    <p><span  style="color: #da121a">{{jl.num}}</span>个(相同配置)</p>
+                    <h4 style="font-size:12px;">应用服务</h4>
+                    <p><span  style="color: #da121a">{{jl.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
                     <ul>
                       
                         <li v-if="jl.cores==undefined||jl.cores==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.cores}}</li>
-                        <li class="liGe">(v)CPU</li>
+                        <li class="liGe">（v）CPU</li>
                         <li v-if="jl.localDisk==undefined||jl.localDisk==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.localDisk}}</li>
-                        <li>系统盘(GB)</li>
+                        <li>系统盘（GB）</li>
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="jl.ghz==undefined||jl.ghz==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.ghz}}</li>
-                        <li class="liGe">处理器主频(GHZ)</li>
+                        <li class="liGe">处理器主频（GHZ）</li>
                         <li v-if="jl.os==undefined||jl.os==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.os}}</li>
                         <li>操作系统</li>
@@ -188,7 +188,7 @@
                     <ul>
                         <li v-if="jl.ram==undefined||jl.ram==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.ram}}</li>
-                        <li class="liGe">内存(GB)</li>
+                        <li class="liGe">内存（GB）</li>
                         <li v-if="jl.computeMappingFactor==undefined||jl.computeMappingFactor==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.computeMappingFactor}}</li>
                         <li>资源平均利用率</li>
@@ -196,29 +196,29 @@
                 </div>
             </div>
         </div>
-         <div class="col-md-6 animated bounceInDown" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines">
-            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#ccc;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(index)"></i></span></h2>
+         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;">
                     <img src="../../../../assets/overview/resource-group2.png" alt="">
-                    <h4 style="font-size:14px;">数据库服务</h4>
-                    <p><span  style="color: #da121a">{{ins.num}}</span>个(相同配置)</p>
+                    <h4 style="font-size:12px;">数据库服务</h4>
+                    <p><span  style="color: #da121a">{{ins.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="ins.cores==undefined||ins.cores==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.cores}}</li>
-                        <li>(v)CPU</li>
+                        <li class="liGe">（v）CPU</li>
                         <li v-if="ins.localDisk==undefined||ins.localDisk==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.localDisk}}</li>
-                        <li>本地磁盘(GB)</li>
+                        <li>本地磁盘（GB）</li>
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="ins.ghz==undefined||ins.ghz==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ghz}}</li>
-                        <li>处理器主频(GHZ)</li>
+                        <li class="liGe">处理器主频（GHZ）</li>
                         <li v-if="ins.os==undefined||ins.os==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.os}}</li>
                         <li>操作系统</li>
@@ -228,7 +228,7 @@
                     <ul>
                         <li v-if="ins.ram==undefined||ins.ram==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ram}}</li>
-                        <li>内存(GB)</li>
+                        <li class="liGe">内存（GB）</li>
                         <li v-if="ins.computeMappingFactor==undefined||ins.computeMappingFactor==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.computeMappingFactor}}</li>
                         <li>资源平均利用率</li>
@@ -236,18 +236,18 @@
                 </div>
             </div>
         </div>
-       <div class="col-md-6 animated bounceInDown" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
-            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#ccc;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
+       <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:29px;">
                     <img src="../../../../assets/overview/resource-group3.png" alt="">
-                    <h4 style="font-size:14px;">网络服务</h4>
+                    <h4 style="font-size:12px;">网络服务</h4>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="this.netRule.bandwidth==undefined||this.netRule.bandwidth==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{this.netRule.bandwidth}}</li>
-                        <li>带宽(Mbps/月)</li>
+                        <li>带宽（Mbps/月）</li>
                      
                     </ul>
                 </div>
@@ -255,7 +255,7 @@
                     <ul class="cuncul">
                         <li v-if="this.netRule.inbound==undefined||this.netRule.inbound==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{this.netRule.inbound}}</li>
-                        <li>入站(Mbps/月)</li>
+                        <li>入站（Mbps/月）</li>
                       
                     </ul>
                 </div>
@@ -268,40 +268,42 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 animated bounceInDown" style="padding:5px 5px 0 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
-            <div style="border:1px solid #ccc;padding:0px;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#ccc;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(index)"></i></span></h2>
+        <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
-                    <h4 style="font-size:14px;">存储服务</h4>
-                    <p><span  style="color: #da121a">{{inu.num}}</span>个(相同配置)</p>
+                    <h4 style="font-size:12px;">存储服务</h4>
+                    <p><span  style="color: #da121a">{{inu.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="inu.sna==undefined||inu.sna==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{inu.sna}}</li>
-                        <li>共享存储(SAN)(GB)</li>
+                        <li>共享存储（SAN）（GB）</li>
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="inu.nsa==undefined||inu.nsa==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{inu.nsa}}</li>
-                        <li>网络存储(NAS)(GB)</li>
+                        <li>网络存储（NAS）（GB）</li>
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="inu.cloudStorage==undefined||inu.cloudStorage==''" style="color: #797979">--</li>
                         <li v-else style="color: #da121a">{{inu.cloudStorage}}</li>
-                        <li v-if="inu.serverName==undefined||inu.serverName==''"><span  style="color: #797979">(--)</span>云存储(GB)</li>
-                        <li v-else>(<span style="color: #da121a">{{inu.serverName}}</span>)云存储(GB)</li>
+                        <li v-if="inu.serverName==undefined||inu.serverName==''"><span  style="color: #797979">（--）</span>云存储（GB）</li>
+                        <li v-else>（<span style="color: #da121a">{{inu.serverName}}</span>）云存储（GB）</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-6" style="padding: 5px 5px 0px 0px;" v-show="creads">
-                <p  class="col-md-12 " style="border:1px solid #666666;line-height:196px;"><img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt=""><span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span></p>
+        <div class="col-md-6" style="padding:10px 20px 5px 0;" v-show="creads">
+                <p  class="col-md-12 " style="border:1px solid #ccc;line-height:182px;background:#fff;color:#555;text-align:left;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
+                <i class="iconfont icon-tianjia-yin" style="font-size:22px !important;float:left;line-height:182px;padding-left:30%"></i>
+                <span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span></p>
         </div>
   </div>
     <div class="resourcebtn-box col-md-12 nextButton" style="margin-top:220px;" >
@@ -391,6 +393,12 @@
 .el-form-item__content{
     margin:0 !important;
 }
+.el-checkbox__label{
+    padding-left:5px !important;
+}
+.el-check{
+    margin-left:8px !important;
+}
 @media (max-width: 768px) {
     .el-form-item__label{
         width:70px !important;
@@ -414,6 +422,8 @@
 .Pei ul li{
     margin-top:12px;
     height:10px;
+    font-size:12px;
+    color: #555;
 };
 .Pei{
     margin-top:20px;
@@ -433,7 +443,7 @@
     margin: 0 0 10px 0!important;
 }
 .resourceGroup img{
-    width:70px; 
+    width:60px; 
 }
 /*.nex{
     color:#000;
