@@ -62,11 +62,12 @@
                     <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-8 removeIng col-xs-8">
-                        <el-tooltip content="删除此云分析" placement="top" effect="light">
+                        <el-tooltip visible-arrow="false" content="删除此云分析" placement="top" effect="light">
                             <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
-                        <el-tooltip content="折叠或展开" placement="top" effect="light">
-                            <i class="toggle-clould" v-on:click="toggleShow(index)"></i>
+                        <el-tooltip visible-arrow="false" content="折叠或展开" placement="top" effect="light">
+                            <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;" v-on:click="toggleShow(index)"></i>
+                            <!-- toggle-clould -->
                         </el-tooltip>
                     </span>
                 </li>
@@ -106,10 +107,10 @@
                         <span class="spc">{{item.percent}}%</span>                            
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
-                        <el-tooltip content="删除此应用" placement="top" effect="light">
+                        <el-tooltip visible-arrow="false" content="删除此应用" placement="top" effect="light">
                             <i class="iconfont icon-shanchu" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" ></i>
                         </el-tooltip>
-                        <el-tooltip content="查看综合报表" placement="top" effect="light">   
+                        <el-tooltip visible-arrow="false" content="查看综合报表" placement="top" effect="light">   
                             <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
                          </el-tooltip>
                         <!--<input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
@@ -693,6 +694,7 @@ export default {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     confirmButtonClass:'lay-btn-red',
+                    cancelButtonClass:'lay-cancel-btn',
                     type: 'warning',
                     center: false
                     }).then(() => {
@@ -728,6 +730,7 @@ export default {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     confirmButtonClass:'lay-btn-red',
+                    cancelButtonClass:'lay-cancel-btn',
                     type: 'warning',
                     center: false
                     }).then(() => {

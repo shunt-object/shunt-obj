@@ -306,10 +306,10 @@
   </div>
     <div class="resourcebtn-box col-md-12 nextButton" style="margin-top:220px;" >
         <button class="jumpBnt" @click="jump()">
-            跳过<i class="iconfont icon-jiantou4" style="margin-left:5px;"></i>
+            <span class="pl-10">跳过</span><i class="iconfont icon-jiantou4" style="margin-left:5px;"></i>
         </button>
         <button class="resourcebtn" @click="btn()">                                         
-            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
         </button>
     </div>    
     <div class="clear" style="margin-bottom:20px;"></div>
@@ -999,6 +999,7 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           confirmButtonClass:'lay-btn-red',
+          cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
             this.cores.splice(index, 1); 
@@ -1020,6 +1021,7 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           confirmButtonClass:'lay-btn-red',
+          cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
             this.ines.splice(index, 1); 
@@ -1041,6 +1043,7 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           confirmButtonClass:'lay-btn-red',
+          cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
            this.wangl = false;
@@ -1064,6 +1067,7 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           confirmButtonClass:'lay-btn-red',
+          cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
           this.inus.splice(index, 1); 

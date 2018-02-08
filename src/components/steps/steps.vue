@@ -3,7 +3,7 @@
 <div class="stepPlan" v-if="type=='compare'">
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="comparePrev(1)">1</span>
-        <div class="stepPlan-name int10" :class="start==1?'active-color':'common-color'">创建分析</div>
+        <div class="stepPlan-name" :class="start==1?'active-color':'common-color'">创建云分析</div>
         <div class="stepPlan-line" :class="start==1?'common-line':start==2?'active-line':resource==false?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step22">
@@ -30,7 +30,7 @@
 <div class="stepPlan" v-else>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="planPrev(1)">1</span>
-        <div class="stepPlan-name int10" :class="index==1?'active-color':'common-color'">创建分析</div>
+        <div class="stepPlan-name" :class="index==1?'active-color':'common-color'">创建云分析</div>
         <div class="stepPlan-line" :class="index==1?'common-line':index==2?'active-line':resource==false?'common-line':'finish-line'"></div>
     </div>
     <div class="stepPlan-item step18">
@@ -147,9 +147,10 @@ export default{
             if(I==1){
                 let that = this;
                 this.$confirm('您确定要重新再创建一个云分析吗？', '温馨提示', {
-                    confirmButtonText: '确定',
                     cancelButtonText: '取消',
+                    confirmButtonText: '确定',
                     confirmButtonClass:'lay-btn-red',
+                    cancelButtonClass:'lay-cancel-btn',
                     type: 'warning',
                     center: false
                     }).then(() => {

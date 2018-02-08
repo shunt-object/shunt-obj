@@ -75,10 +75,10 @@
         </div>
         <!--<div style="margin-top:20px;">
             <button class="planbtn" v-on:click="clouldNext()">
-                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+                <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
             </button>
             <button class="planprev" v-on:click="goResource()">
-                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i><span class="pr-5">上一步</span>
             </button>
         </div>
         <div class="clear"></div>-->
@@ -98,10 +98,10 @@
         </div>
         <div style="margin-top:20px;">
             <button class="planbtn" v-on:click="result(2)">
-                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+                <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
             </button>
             <button class="planprev" v-on:click="Planprev(1)">
-                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i><span class="pr-5">上一步</span>
             </button>
         </div>
         <div class="clear"></div>        
@@ -120,10 +120,10 @@
         </div>
         <div style="margin-top:20px;">
              <button class="planbtn" v-on:click="result(3)">
-                下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+                <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
             </button>
             <button class="planprev" v-on:click="Planprev(2)">
-                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+                <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i><span class="pr-5">上一步</span>
             </button>
         </div>       
         <div class="clear"></div>
@@ -335,7 +335,12 @@ export default{
                     this.whichShow(2);
                     this.getLiang(this.appId,2);
                 }else{
-                    this.$layer.msg("请先进行云定性测试");
+                    //this.$layer.msg("请先进行云定性测试");
+                    this.$message({
+                        message: '请先进行云定性测试。',
+                        type: 'warning',
+                        customClass:'lay-msg'
+                    });
                 }
             }else if(typeId==3){
                 if(this.profitReault!=''){
@@ -343,9 +348,19 @@ export default{
                     this.getLiang(this.appId,3);
                 }else{
                     if(this.cloudName!=''){
-                        this.$layer.msg("请先进行云收益度测试");
+                        //this.$layer.msg("请先进行云收益度测试");
+                        this.$message({
+                            message: '请先进行云收益度测试。',
+                            type: 'warning',
+                            customClass:'lay-msg'
+                        });
                     }else{
-                       this.$layer.msg("请先进行云定性测试"); 
+                       //this.$layer.msg("请先进行云定性测试"); 
+                       this.$message({
+                            message: '请先进行云定性测试。',
+                            type: 'warning',
+                            customClass:'lay-msg'
+                        });
                     }                    
                 }
             }
@@ -474,7 +489,12 @@ export default{
             if(this.cloudName!=''){
                 this.whichShow(2);
             }else{
-                this.$layer.msg("请先完成云定性测试。");
+                //this.$layer.msg("请先完成云定性测试。");
+                this.$message({
+                    message: '请先完成云定性测试。',
+                    type: 'warning',
+                    customClass:'lay-msg'
+                });
             }
         }
     },

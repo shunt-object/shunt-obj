@@ -10,7 +10,7 @@
         </div>
         <!-- 公告信息 -->
         <div class="notice">
-            <p class="notice-img"><i class="iconfont icon-gonggao"></i></p>
+            <p class="notice-img"><i class="iconfont icon-gonggao2"></i>公告信息：</p>
             <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
                 <li><marquee direction="left">CSB²计划在春节前推出云实测服务<span class="notice-time"></span></marquee></li>
             </ul>
@@ -52,7 +52,7 @@
                     ref="popover2"
                     placement="bottom"
                     trigger="click" popper-class="notification_hover">
-                        <div style="padding:20px 50px;">
+                        <div style="padding:60px 100px;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
                         </div>                        

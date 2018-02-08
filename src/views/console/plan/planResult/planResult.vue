@@ -55,10 +55,10 @@
     <div class="clould-desc" v-html="desc"></div>
     <div class="planResult-btn" style="margin-top:20px;">
         <button class="planbtn" v-on:click="compare()">
-            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
         </button>
         <button class="planprev" v-on:click="prev()">
-            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i><span class="pr-5">上一步</span>
         </button>
     </div>
     <div class="clear"></div>

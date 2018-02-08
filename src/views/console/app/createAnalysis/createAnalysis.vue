@@ -8,7 +8,7 @@
 <div class="outbox" style="background:#fff;">
     <child index="1" start="1" id="0" :type="$route.query.type"></child>
     <div class="CreateAnalysis_from_box">
-        <div class="new-built">创建分析</div>
+        <div class="new-built">创建云分析</div>
         <div class="row createAnalysis-box">
             <div class="col-md-4">
                 <div class="createAnalysis-list">
@@ -64,7 +64,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4"></div>
         </div>
-        <button class="nextbtn" v-on:click="submit()">下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
+        <button class="nextbtn" v-on:click="submit()"><span class="pl-5">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
         <div class="clear"></div>
     </div>
         

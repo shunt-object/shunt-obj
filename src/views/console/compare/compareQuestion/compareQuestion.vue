@@ -11,23 +11,26 @@
 <div class="compare-container">
     <div class="compare-title">选择标准</div>
     <!-- 场景选择 -->
-    <div class="compare-change row">
-        <div class="change-name col-md-1">场景选择：</div>
-        <div class="change-list col-md-11 row">
-            <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
-                <div class="col-md-1">{{types.gname}}：</div>
-                <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
-                <ul class="col-md-10">
-                    <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
-                </ul>
+    <div class="compare-change">
+        <div class="change-select">场景选择：</div>
+        <div class="row">
+            <div class="change-name col-md-1"></div>
+            <div class="change-list col-md-11 row">
+                <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
+                    <div class="col-md-1">{{types.gname}}：</div>
+                    <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
+                    <ul class="col-md-10">
+                        <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
+                    </ul>
+                </div>
+            <!--<ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
+                    <li class="default">
+                        {{types.gname}}：
+                </li>
+                    <li class="change-all col-md-1" v-on:click="allSelect(index)">全选</li>
+                <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
+                </ul>-->
             </div>
-          <!--<ul class="all-list col-md-11 ulas"  v-for="(types,index) in typelist">
-                <li class="default">
-                    {{types.gname}}：
-               </li>
-                <li class="change-all col-md-1" v-on:click="allSelect(index)">全选</li>
-               <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':''" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
-            </ul>-->
         </div>
     </div>
     <!-- 空白 -->
@@ -68,10 +71,10 @@
     </div>
     <div class="comparebnt-box">
         <button class="comparebtn" v-on:click="result()">
-            下一步<i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
+            <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
         </button>
         <button class="planprev" v-on:click="prev()">
-            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i>上一步
+            <i class="iconfont icon-shangyibu1" style="margin-right:5px;"></i><span class="pr-5">上一步</span>
         </button>
     </div>
     <div class="clear"></div>
@@ -124,9 +127,10 @@ export default{
                     }
                 }  
                 if(arr.length<1){
-                    this.$alert('请选择场景进行答题。', '温馨提示', {
+                    this.$alert('请首先选择场景进行答题。', '温馨提示', {
                         confirmButtonText: '我知道了',
                         showClose:false,
+                        type: 'warning',
                         confirmButtonClass:'lay-btn-red'
                     });
                 }          

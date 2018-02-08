@@ -33,10 +33,11 @@ Website: http://thevectorlab.net/
     padding-top:15px;
     padding-left:10px;
     float:left;
-    margin-right:8px;
+    /*margin-right:8px;*/
 }
 .notice-img i{
-    font-size:20px !important;
+    /*font-size:20px !important;*/
+    margin-right:8px;
 }
 .notice-list{
     list-style:none;
@@ -236,7 +237,8 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 }
 
 ul.sidebar-menu {
-    margin-top: 61px;
+    /*margin-top: 61px;*/
+    margin-top: 50px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -260,7 +262,8 @@ ul.sidebar-menu li ul.sub li:last-child{
 }
 
 ul.sidebar-menu li ul.sub li a {
-    font-size: 12px;
+    /*font-size: 12px;*/
+    font-size: 14px;
     padding: 0 0 0 45px;
     line-height: 35px;
     height: 35px;
@@ -307,7 +310,8 @@ ul.sidebar-menu li a{
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 12px;
+    /*font-size: 12px;*/
+    font-size: 14px;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
