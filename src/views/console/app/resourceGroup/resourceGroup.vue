@@ -24,19 +24,19 @@
             <div class="yibazi" v-if="regionter=='server'" >
               <el-form :model="coresShj" :rules="rules" ref="coresShj" >
                 <el-form-item label="数量" :label-width="formLabelWidth">
-                    <el-input v-model="coresShj.num" auto-complete="off" type="number" placeholder="1" ></el-input>
+                    <el-input v-model="coresShj.num" auto-complete="off" type="number" placeholder="1" min="1" ></el-input>
                 </el-form-item>
                 <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
-                    <el-input v-model="coresShj.cores" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="coresShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
-                    <el-input v-model="coresShj.ram" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="coresShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
-                    <el-input v-model="coresShj.localDisk" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="coresShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="coresShj.os" placeholder="请选择">
@@ -63,16 +63,16 @@
                     <el-input v-model="inesShj.num" auto-complete="" type="text" placeholder="1"></el-input>
                 </el-form-item>
                 <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
-                    <el-input v-model="inesShj.cores" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inesShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
-                    <el-input v-model="inesShj.ram" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inesShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
-                    <el-input v-model="inesShj.localDisk" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inesShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="inesShj.os" placeholder="请选择">
@@ -96,13 +96,13 @@
            <div class="yibanzp" v-if="regionter=='net'">
               <el-form :model="netRule" :rules="rules" ref="netRule">
                 <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandwidth">
-                    <el-input v-model="netRule.bandwidth" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="netRule.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="入站（Mbps/月）" :label-width="formLabelWidth" prop="inbound">
-                    <el-input v-model="netRule.inbound" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="netRule.inbound" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="出站（Mbps/月）" :label-width="formLabelWidth" prop="outbound">
-                    <el-input v-model="netRule.outbound" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="netRule.outbound" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
              </el-form>
            </div>
@@ -111,18 +111,18 @@
            <div class="yibanzp" v-if="this.regionter=='storage'">
              <el-form :model="inusShj" :rules="rules" ref="inusShj">
                 <el-form-item  label="数量" :label-width="formLabelWidth" >
-                    <el-input v-model="inusShj.num" auto-complete="off" type="number"  placeholder="1"></el-input>
+                    <el-input v-model="inusShj.num" auto-complete="off" type="number"  placeholder="1" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="" :label-width="formLabelWidth">
-                    <el-checkbox  v-on:change="lookw()" id="chec" v-model="asd">共享存储（SAN）（GB）</el-checkbox>
-                    <el-checkbox  v-on:change="lookq()" v-model="afd">网络存储（NAS）（GB）</el-checkbox>
-                    <el-checkbox  v-on:change="looke()" v-model="agd">云存储（GB）</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="lookw()" id="chec" v-model="asd">共享存储（SAN）（GB）</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="lookq()" v-model="afd">网络存储（NAS）（GB）</el-checkbox>
+                    <el-checkbox class="el-check"  v-on:change="looke()" v-model="agd">云存储（GB）</el-checkbox>
                 </el-form-item>
                 <el-form-item label="共享存储（SAN）（GB）" :label-width="formLabelWidth" v-if="this.checked==true" prop="sna">
-                    <el-input v-model="inusShj.sna" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inusShj.sna" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="网络存储（NAS）（GB）" :label-width="formLabelWidth" v-if="this.checkeder==true" prop="nsa">
-                    <el-input v-model="inusShj.nsa" auto-complete="off" type="number"></el-input>
+                    <el-input v-model="inusShj.nsa" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
                     <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
@@ -137,7 +137,7 @@
                         <el-option value="沃云">沃云</el-option>
                         <el-option value="其它">其它</el-option>
                     </el-select>
-                    <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number"></el-input>
+                    <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
                 </el-form-item>
              </el-form>
            </div>
@@ -392,6 +392,12 @@
 }
 .el-form-item__content{
     margin:0 !important;
+}
+.el-checkbox__label{
+    padding-left:5px !important;
+}
+.el-check{
+    margin-left:8px !important;
 }
 @media (max-width: 768px) {
     .el-form-item__label{

@@ -131,6 +131,7 @@ export default{
                     confirmButtonText: '我知道了',
                     showClose:false,
                     confirmButtonClass:'lay-btn-red',
+                    type: 'warning',
                     callback:function(action){
                         that.$router.push({path:'/colligateReport',query:{id:that.appId,type:that.queryType}});
                     }

@@ -7,7 +7,7 @@
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
     <div class="colligate-heade">
-        综合报告<button class="exportBtn" v-on:click="getPdf()"><img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt="">导出</button>
+        综合报告<button class="exportBtn" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-"></i>导出</button>
     </div>
     <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
         <!-- 基本信息 -->
