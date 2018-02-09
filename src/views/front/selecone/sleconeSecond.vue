@@ -13,7 +13,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:100px"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;"></div>
+                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;width:100%"></div>
                  </div>
             </div>
              <div style="background:#ffffff;width:100%">
@@ -90,6 +90,23 @@
 
 </template>
 <style>
+@media (min-width: 768px) {
+    .lasilasi{
+        margin-top:84px;
+    }
+    .seleconeMain-mainfir{
+        margin-bottom:50px;
+    }
+}
+@media (max-width: 768px) {
+    .lasilasi{
+        margin-top:10px;
+        margin-bottom:20px;
+    }
+    .seleconeMain-mainfir{
+        margin-bottom:0px;
+    }
+}
    .container{
      
         max-width: 1090px;
@@ -127,7 +144,7 @@
         background:#222222;text-align:center;background-size:100% 100%;
    }
 
-   .seleconeMain-mainfir{margin-top:160px;margin-bottom:50px;}
+   .seleconeMain-mainfir{margin-top:160px;}
    .seleconeMain-mainfir .selecone-pfir{
         font-size:26px;
         color:#ffffff;

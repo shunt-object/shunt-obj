@@ -61,7 +61,7 @@
                      <div class="callme">
                         <div class="container">
                             <div class="callme-call">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()">北京总部</span><span v-on:click="hangzhouHover">杭州分部</span><span @click="wuxiHover">无锡分部</span></div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京总部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡分部</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -89,6 +89,16 @@
        .ulsMains{
            margin-left:82px;
        }
+       .cccspan{
+           width:316px;
+              display:inline-block;
+       }
+       .yellowSpan{
+            width:85px;
+       }
+       .yellowSpam{
+             width:85px;
+       }
        .divimger{
             display:block;
        }
@@ -104,6 +114,19 @@
        .ulsMains{
            margin-left:0px;
        }
+        .clound-dvs{
+            margin-top:0;
+        }
+        .cccspan{
+            width:150px;
+               display:inline;
+        }
+        .yellowSpan{
+            width:78px;
+        }
+        .yellowSpam{
+            width:78px;
+        }
        .divimger{
             display:none;
        }
@@ -121,24 +144,37 @@
         font-size:26px;
         color:#333333;
         margin-bottom:50px;
+        font-weight:100;
     }
-    .callme-dist span{
+    .callme-dist .mospan{
         padding:10px 40px;
         display:inline-block;
         background:#f7f7f7;
-border-radius:4px;
-    font-size:14px;
-color:#333333;
-margin-right:20px;
-margin-left:20px;
+        border-radius:4px;
+        font-size:14px;
+        color:#333333;
+        margin-right:20px;
+        margin-left:20px;
+    }
+    .moren{
+        padding:10px 40px;
+        display:inline-block;
+      
+        border-radius:4px;
+        font-size:14px;
+      
+        margin-right:20px;
+        margin-left:20px;
+        background:#f7a72c;
+        color:#fff;
+        
     }
     .callme-dist span:hover{
         cursor:pointer;
-        background:#f7a72c;
     }
     .yellowSpan{
-        display:inline-block;
-        width:85px;
+       
+       display:inline-block;
         height:41px;
         font-size:14px;
         color:#ffffff;
@@ -147,7 +183,7 @@ margin-left:20px;
     }
     .yellowSpam{
         display:inline-block;
-        width:85px;
+      
         height:41px;
         line-height:40px;
         font-size:14px;
@@ -160,8 +196,8 @@ margin-left:20px;
     }
     .cccspan{
         background:#f3f4f5;
-        display:inline-block;
-        width:316px;
+        
+        
         height:40px;
         font-size:14px;
         color:#666666;
@@ -211,7 +247,7 @@ margin-left:20px;
    }
    .clound-pa{
            font-weight: 100;
-           font-size: 26px;
+           font-size: 18px;
            color: rgb(248, 248, 248);
    }
    .clound-pd{
@@ -226,7 +262,7 @@ margin-left:20px;
            border: 1px solid #e41e2b;
             font-size: 14px;
             color: #fff;
-            padding: 5px 25px;
+            padding: 5px 40px;
             display: inline-block;
             text-align: center;
             background: #e41e2b;
@@ -252,17 +288,34 @@ margin-left:20px;
                  this.Asd=true;
                  this.Ais=false;
                  this.Sis=false;
+                 $("#bjs").addClass("moren");
+                 $("#bjs").removeClass("mospan");
+                 $("#hzs").removeClass("moren");
+                 $("#hzs").addClass("mospan");
+                 $("#wxs").removeClass("moren");
+                 $("#wxs").addClass("mospan");
+
                
             },
             hangzhouHover:function(){
-               
+                 $("#hzs").addClass("moren");
+                 $("#hzs").removeClass("mospan");
+                 $("#bjs").removeClass("moren");
+                 $("#wxs").removeClass("moren");
+                 $("#wxs").addClass("mospan");
+                 $("#bjs").addClass("mospan");
                  this.Asd=false;
                  this.Ais = true;
                  this.Sis=false;
                
             },
             wuxiHover:function(){
-               
+                 $("#hzs").addClass("mospan");
+                 $("#hzs").removeClass("moren");
+                 $("#bjs").removeClass("moren");
+                 $("#wxs").removeClass("mospan");
+                 $("#wxs").addClass("moren");
+                 $("#bjs").addClass("mospan");
                  this.Asd=false;
                   this.Ais = false;
                  this.Sis=true;

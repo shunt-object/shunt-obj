@@ -131,6 +131,7 @@
         width:300px;
         height:200px;
     }
+   
     #charts-right{
         padding-left:0;
     }
