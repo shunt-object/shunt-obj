@@ -74,7 +74,7 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
-                <!--<div class="reg-from-list">
+                <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
                     <span class="reg-from-key">公司行业：</span>
                     <select class="business" v-model="industry">
@@ -93,7 +93,7 @@
                     <select v-model="areas" class="city_tab">
                         <option v-for="item in areasList" :value="item">{{item.area}}</option>
                     </select>
-                </div>-->
+                </div>
             </div>
             <!-- 手机注册 -->
             <div class="tab-box" v-else>
@@ -165,7 +165,7 @@
                     <div class="clear"></div>
                     <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
                 </div>
-                <!--<div class="reg-from-list">
+                <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
                     <span class="reg-from-key">公司行业：</span>
                     <select class="business" v-model="industry">
@@ -184,7 +184,7 @@
                     <select v-model="areas" class="city_tab">
                         <option v-for="item in areasList" :value="item">{{item.area}}</option>
                     </select>
-                </div>-->
+                </div>
             </div>
             <!--  -->
             <button class="reg-from-btn" :class="isusername==true?'mt-20':''" v-on:click="agree()">同意并注册</button>
@@ -431,10 +431,10 @@ export default{
                         "email": this.phone,
                         "realname": this.username,
                         "tenant": this.confirm,
-                        // "areaid":this.areas.areaid,
-                        // "cityid":this.city.cityid,
-                        // "provinceid":this.province.provinceid,
-                        // "industry":this.industry.id
+                        "areaid":this.areas.areaid,
+                        "cityid":this.city.cityid,
+                        "provinceid":this.province.provinceid,
+                        "industry":this.industry.id
                 };
                 let strObj = JSON.stringify(obj);
                 let that = this;

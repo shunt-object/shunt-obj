@@ -54,7 +54,7 @@
         <span class="accountInfor-list-val-type" v-if="information.utype==3">运营商</span>
         <span class="accountInfor-list-val-type" v-if="information.utype==4">政府</span>
     </div>
-    <!--<div class="accountInfor-list">
+    <div class="accountInfor-list">
         <span class="accountInfor-list-key">
             <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>所属行业：
         </span>
@@ -99,7 +99,7 @@
         <button class="account-cel-btn" v-if="region==true" v-on:click="regionDel()">
             <i class="iconfont icon-shanchuguanbicha2"></i>取消
         </button>
-    </div>-->
+    </div>
 </div>
 </div>
 </template>
@@ -130,7 +130,7 @@ export default{
         this.province = JSON.parse(sessionStorage.getItem("account")).province;
         this.city = JSON.parse(sessionStorage.getItem("account")).city;
         this.area = JSON.parse(sessionStorage.getItem("account")).area;
-        //console.log(this.information.industryStr.name);
+        console.log(this.industry);
     },
     methods:{
         updata:function(dom){
@@ -153,19 +153,20 @@ export default{
         },
         savecompany:function(){
             this.company==true?this.company=false:this.company=true;
-            this.setOption(this.information.id,this.information.realname,this.information.tenant);
-            //this.setOption(this.information.id,this.information.realname,this.information.tenant,this.information.provinceid,this.information.cityid,this.information.areaid,this.information.industry);
+            //this.setOption(this.information.id,this.information.realname,this.information.tenant);
+            this.setOption(this.information.id,this.information.realname,this.information.tenant,this.information.provinceid,this.information.cityid,this.information.areaid,this.information.industry);
         },
-        setOption:function(id,realname,tenant){
+        setOption:function(id,realname,tenant,provinceid,cityid,areaid,industry){
+            console.log(1111);
             //id,realname,tenant,provinceid,cityid,areaid,industry
             let obj = {
                 id:id,
                 realname:realname,
                 tenant:tenant,
-                // provinceid:provinceid,
-                // cityid:cityid,
-                // areaid:areaid,
-                // industry:industry
+                provinceid:provinceid,
+                cityid:cityid,
+                areaid:areaid,
+                industry:industry
             };
             this.gethttp(obj);
         },
