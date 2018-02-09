@@ -744,6 +744,11 @@ ul,ol li {
 .lunmain .lun-le .pBottom span {
     padding: 10px 25px; border: 1px solid #ccc; color: #fff; font-size: 12px;
 }
+.lunmain .lun-le .pBottom span:hover{
+    background:#fff;
+    color:#da121a;
+    border:1px solid #fff;
+}
 .lunmain .lun-le .pBottom .pSpan {
     background: #da121a; border-color: #da121a; cursor:pointer;
 }

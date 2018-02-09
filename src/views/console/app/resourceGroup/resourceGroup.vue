@@ -239,7 +239,7 @@
        <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:29px;">
+                <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
                     <img src="../../../../assets/overview/resource-group3.png" alt="">
                     <h4 style="font-size:12px;">网络服务</h4>
                 </div>
@@ -301,9 +301,10 @@
             </div>
         </div>
         <div class="col-md-6" style="padding:10px 20px 5px 0;" v-show="creads">
-                <p  class="col-md-12 " style="border:1px solid #ccc;line-height:179.9px;background:#fff;color:#555;text-align:left;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
-                <i class="iconfont icon-tianjia-yin" style="font-size:22px !important;float:left;line-height:179.9px;padding-left:30%"></i>
-                <span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span></p>
+                <p  class="col-md-12 text-center" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:left;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
+                    <i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;float:left;line-height:200px;"></i>
+                    <span  @click="dialogFormVisibler" class="pds">添加工作负载配置信息</span>
+                </p>
         </div>
   </div>
     <div class="resourcebtn-box col-md-12 nextButton" style="margin-top:220px;" >
@@ -320,6 +321,13 @@
 </div>
 </template>
 <style>
+
+@media (min-width: 768px) {
+    .icon-tiam{padding-left:200px}
+}
+@media (max-width: 768px) {
+    .icon-tiam{padding-left:30px}
+}
 *{
     padding:0
 }

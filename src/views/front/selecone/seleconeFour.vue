@@ -8,7 +8,7 @@
                                 <p class="clound-ps">我们每前进小一步，都将为您带来更好的上云体验！</p>
                                 <p class="clound-pa">是致力于为更多公司和团队实现目标，</p>
                                 <p class="clound-pd">成为一家拥抱前沿领域、持续创新的好公司。</p>
-                                <p class="clound-pg" style="margin-bottom:110px;"><span>立即体验</span></p>
+                                <p class="clound-pg" style="margin-bottom:110px;"><span @click="tiyans">立即体验</span></p>
                             </div>
                         </div>
                     </div>
@@ -16,11 +16,14 @@
                         <div class="container">
                             <div class="cloundMains-main">
                                 <p style="margin-bottom:30px">关于我们</p>
-                                <div class="text-left" style="color:#666666;margin-bottom:40px">CloudBroker²是一站式专家云服务的践行者和倡导者，中国版的“Rightscale”。我们致力于上云和管云的创新、研制和应用，秉承“让您轻松面对上云和管云”的服务理念，帮助企业应用最新的信息化技术，提升应用系统敏捷性，降低管理与运营成本，增强业务的创新能力，从而帮助企业顺利实现数字化转型。</div>
-                                <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²总部坐落于北京，在无锡和杭州设立了分支机构，联合创世团队成员来自IBM、Microsoft、法电、腾讯、 神州数码等全球顶尖IT企业CloudBroker²  CloudBroker²目前研发中心坐落在北京麒麟社10号楼706。</div>
-                                <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²专注于上云咨询、云管理和云运维一站式服务，是国内在上云咨询线上化的践行者，是国内领先的上云规划、选型和实测的云服务平台提供商，提供阿波罗（上云服务）、阿瑞斯（云管理平台）、雅典娜（自动化运维）、维纳斯（云迁移工具）产品级服务和SaaS云服务。</div>
-                                <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²以“云”为核心，应用场景横跨了从上云咨询、云迁移、云运维，为数据中心及运维部门、决策部门实现服务的可视、可控和可管。有效的降低了IT上云和管云成本，帮助用户明明白白的看清楚多云 资源状态和成本，帮助用户实现“专业”、“省力”和“省钱”，呈现IT服务；为以“以IT服务”为业务的IT服务商（MSP）提供智能的业务管理，提升用户服务满意度，打造“MSP+”。</div>
-                                <div class="text-left" style="text-indent: 1cm">我们期待与您共同成长，共同打造云服务的未来！</div>
+                              
+                                    <div class="text-left" style="color:#666666;">CloudBroker²是一站式专家云服务的践行者和倡导者，中国版的“Rightscale”。我们致力于上云和管云的创新、研制和应用，秉承“让您轻松面对上云和管云”的服务理念，帮助企业应用最新的信息化技术，提升应用系统敏捷性，降低管理与运营成本，增强业务的创新能力，从而帮助企业顺利实现数字化转型。</div>
+                                      <div class="city" style="padding-top:40px;padding-bottom:30px">
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²总部坐落于北京，在无锡和杭州设立了分支机构，联合创世团队成员来自IBM、Microsoft、法电、腾讯、 神州数码等全球顶尖IT企业CloudBroker²  CloudBroker²目前研发中心坐落在北京麒麟社10号楼706。</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²专注于上云咨询、云管理和云运维一站式服务，是国内在上云咨询线上化的践行者，是国内领先的上云规划、选型和实测的云服务平台提供商，提供阿波罗（上云服务）、阿瑞斯（云管理平台）、雅典娜（自动化运维）、维纳斯（云迁移工具）产品级服务和SaaS云服务。</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²以“云”为核心，应用场景横跨了从上云咨询、云迁移、云运维，为数据中心及运维部门、决策部门实现服务的可视、可控和可管。有效的降低了IT上云和管云成本，帮助用户明明白白的看清楚多云 资源状态和成本，帮助用户实现“专业”、“省力”和“省钱”，呈现IT服务；为以“以IT服务”为业务的IT服务商（MSP）提供智能的业务管理，提升用户服务满意度，打造“MSP+”。</div>
+                                        <div class="text-left" style="text-indent: 1cm">我们期待与您共同成长，共同打造云服务的未来！</div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -49,9 +52,9 @@
                                                     <p>这一路走来，我们经历过坎坷、经历过风雨；</p>
                                                     <p>为此，我们曾经彷徨过、迷茫过、哭过、笑过；</p>
                                                     <p>但我们从未放弃、倔强而努力；</p>
-                                                    <p>因为我们坚信：</p>
-                                                    <p>我们每前进小一步，都将为您带来更好的云上体</p>
-                                                    <p>验！</p> 
+                                                    <p>我们从未停下脚步，为了明天朝阳；</p>
+                                                    <p>我们有我们的理想和目标，因为我们坚信：</p>
+                                                    <p>我们每前进小一步，都将为您带来更好的云上体验！</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
@@ -72,10 +75,10 @@
                      </div>
                      <div style="background:#ededed;width:100%;height:auto;">
                         <div class="seleconeMain-footer row" >
-                            <div class="container text-left" style="width:60%;padding-left:cd30px;">
+                            <div class="container text-left" style="width:60%;">
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;margin-left:20px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                             </div>
                         </div>
@@ -103,7 +106,7 @@
             display:block;
        }
         .callmain img{
-            height:440px;
+            height:auto;
             width:100%;
         }
         .werxin{
@@ -131,7 +134,7 @@
             display:none;
        }
        .callmain img{
-            height:100%;
+            height:auto;
             width:100%;
         }
        .werxin{
@@ -208,7 +211,7 @@
          
     }
     .cloundMains-go .wer{
-            margin-top:30px;
+                margin-top:20px;
              font-size: 26px;
             color: #333333;
             text-align: center;
@@ -245,6 +248,12 @@
             color: rgb(248, 248, 248);
             margin-top:20px;
    }
+   .clound-pg span:hover{
+       cursor:pointer;
+       background:#fff;
+       color:#e41e2b;
+       border:1px solid #fff;   
+   }
    .clound-pa{
            font-weight: 100;
            font-size: 18px;
@@ -260,12 +269,16 @@
    }
    .clound-pg span{
            border: 1px solid #e41e2b;
-            font-size: 14px;
+            font-size: 12px;
             color: #fff;
-            padding: 5px 40px;
+            padding: 10px 25px;
             display: inline-block;
+            
             text-align: center;
             background: #e41e2b;
+   }
+   .city{
+       background:url("../../../assets/city.png") no-repeat  center center;background-size:75%;
    }
 </style>
 <script>
@@ -320,6 +333,9 @@
                   this.Ais = false;
                  this.Sis=true;
                
+            },
+            tiyans:function(){
+                this.$router.push({path: '/login'});
             }
         }
     }
