@@ -60,6 +60,16 @@
                         <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
                     </select>
                 </div>
+                 <div class="clear"></div>
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">5</span>
+                        请选择所属行业：
+                    </div>
+                    <select class="create-select" v-model="industry">
+                        <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
+                    </select>
+                </div>
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4"></div>
@@ -97,7 +107,9 @@ export default{
             proName:'',
             ischangeyun:true,
             radio1:true,
-            radio2:false
+            radio2:false,
+            industryList:[],
+            industry:null
         }
     },
     mounted:function(){
@@ -120,8 +132,16 @@ export default{
         }).catch((error)=>{
             console.log(error);
         })
+        this.getIndustry();//行业
     },
     methods:{
+         getIndustry:function(){
+            this.$this.get('/broker/prop/industry/').then((response)=>{
+                this.industryList = response.data.data;
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
         submit:function(){
             let proid,analysisName;
             if(this.changeyun==''){
@@ -138,7 +158,8 @@ export default{
                 "appFrame": this.frame,
                 "appName": this.appName,
                 "appType": this.type,
-                "proId":proid
+                "proId":proid,
+                "industry":this.industry
             };
             let that = this;
             let str = JSON.stringify(obj);

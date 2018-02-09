@@ -56,14 +56,14 @@
     </div>
     <div class="accountInfor-list">
         <span class="accountInfor-list-key">
-            <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>所属行业：
+            <span class="account-icon"><i class="iconfont icon-xingye"></i></span>所属行业：
         </span>
         <span class="accountInfor-list-val" v-if="industry!=null&&isIndustry!=true">{{industry.name}}</span>
         <button class="edit-btn" v-on:click="industryEdit()" v-if="industry!=null&&isIndustry!=true">
             <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
         </button>
         <span class="accountInfor-list-val" v-if="industry==null&&isIndustry!=true" style="cursor:pointer;" v-on:click="industryEdit()">请选择所属的行业</span>
-        <select v-model='industry' v-if="isIndustry==true">
+        <select v-model='industry' v-if="isIndustry==true" class="regionClass">
             <option v-for="item in industryList" :value="item">{{item.name}}</option>
         </select>
         <button class="account-save-btn" v-if="isIndustry==true" v-on:click="industrySave()">
@@ -75,7 +75,7 @@
     </div>
     <div class="accountInfor-list">
         <span class="accountInfor-list-key">
-            <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>地区：
+            <span class="account-icon"><i class="iconfont icon-nationaarea"></i></span>地区：
         </span>
         <span class="accountInfor-list-val"v-if="province!=null&&region!=true">
             {{province.province}}&nbsp;<span v-if="city!=null">{{city.city}}</span>&nbsp;<span v-if="area!=null">{{area.area}}</span>
@@ -84,13 +84,13 @@
             <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>编辑
         </button>
         <span  v-if="province==null&&region!=true" style="cursor:pointer;" v-on:click="regionEdit()">请选择地区</span>
-        <select v-if="region==true" v-model="province" v-on:change="changeProvince(province)">
+        <select v-if="region==true" v-model="province" v-on:change="changeProvince(province)" class="regionClass">
             <option v-for="item in provinceList" :value="item">{{item.province}}</option>
         </select>
-        <select v-if="region==true" v-model="city" v-on:change="changeCity(city)">
+        <select v-if="region==true" v-model="city" v-on:change="changeCity(city)" class="regionClass">
             <option v-for="item in cityList" :value="item">{{item.city}}</option>
         </select>
-        <select v-if="region==true" v-model="area">
+        <select v-if="region==true" v-model="area" class="regionClass">
             <option v-for="item in areaList" :value="item">{{item.area}}</option>
         </select>
         <button class="account-save-btn" v-if="region==true" v-on:click="regionSave()">

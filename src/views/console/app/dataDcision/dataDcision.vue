@@ -4,14 +4,18 @@
     <span></span>
     数据决策
 </div>
-<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">
-<!--<div class="datadecision">
-    <div class="radar" id="radar" style="width:500px;height:500px;background:#ffffff;"></div>
+<!--<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">-->
+<div class="datadecision">
     <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-6" style="height:100%;background:#ffffff;">
+            <div class="typeslist">
+                <span class="" v-for="item in types" style="float:left;margin-left:10px;">{{item.gname}}</span>
+            </div>
+            <div class="radar" id="radar" style="width:100%;height:500px;background:#ffffff;"></div>
+        </div>
         <div class="col-md-6"></div>
     </div>
-</div>-->
+</div>
 </div>
 </template>
 <script>
@@ -21,21 +25,22 @@ export default{
     name:'dataDcision',
     data(){
         return {
-            charts:''
+            charts:'',
+            types:''
         }
     },
     mounted:function(){
-        // let groupid;
-        // this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
+        let groupid = 6;
+        this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
 
-        // }).catch((error)=>{
+        }).catch((error)=>{
 
-        // })
-        // this.$this.get('/broker/compare/parent/types').then((response)=>{
-            
-        // }).catch((error)=>{
+        })
+        this.$this.get('/broker/compare/parent/types').then((response)=>{
+            this.types = response.data.data;
+        }).catch((error)=>{
 
-        // })
+        })
         // this.$this.get('/broker/user/analysis/adviceServer/2').then((response)=>{
             
         // }).catch((error)=>{

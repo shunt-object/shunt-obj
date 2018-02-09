@@ -69,3 +69,7 @@
 .account-cel-btn i{
     color:#da121a;
 }
+.regionClass{
+    min-width:60px;
+    padding-left:10px;
+}
