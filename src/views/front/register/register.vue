@@ -76,14 +76,14 @@
                 </div>
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
-                    <span class="reg-from-key">公司行业：</span>
+                    <span class="reg-from-key">所属行业：</span>
                     <select class="business" v-model="industry">
                         <option v-for="item in industryList" :value="item">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
-                    <span class="reg-from-key">地区：</span>
+                    <span class="reg-from-key">区域：</span>
                     <select class="city_tab" v-model="province" v-on:change="changeProvince(province)">
                         <option v-for="item in provinceList" :value="item">{{item.province}}</option>
                     </select>
@@ -167,14 +167,14 @@
                 </div>
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
-                    <span class="reg-from-key">公司行业：</span>
+                    <span class="reg-from-key">所属行业：</span>
                     <select class="business" v-model="industry">
                         <option v-for="item in industryList" :value="item">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
-                    <span class="reg-from-key">地区：</span>
+                    <span class="reg-from-key">区域：</span>
                     <select class="city_tab" v-model="province" v-on:change="changeProvince(province)">
                         <option v-for="item in provinceList" :value="item">{{item.province}}</option>
                     </select>
@@ -253,6 +253,7 @@ export default{
     methods:{
         getIndustry:function(){
             this.$this.get('/broker/prop/industry/').then((response)=>{
+                this.industry = response.data.data[0];
                 this.industryList = response.data.data;
                 //console.log('province',response);
             }).catch((error)=>{
@@ -260,6 +261,8 @@ export default{
         },
         getProvince:function(){
             this.$this.get('/broker/prop/provinces/').then((response)=>{
+                this.province = response.data.data[0];
+                this.getCity(response.data.data[0].provinceid);
                 this.provinceList = response.data.data;
                 //console.log('province',response);
             }).catch((error)=>{
@@ -271,6 +274,8 @@ export default{
         getCity:function(provinceid){
             this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
                 this.cityList = response.data.data;
+                this.city = response.data.data[0];
+                this.getArea(response.data.data[0].cityid);
                 //console.log('city',response);
             }).catch((error)=>{
             })
@@ -280,6 +285,7 @@ export default{
         },
         getArea:function(cityid){
             this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
+                this.areas = response.data.data[0];
                 this.areasList = response.data.data;
                 //console.log('city',response);
             }).catch((error)=>{
@@ -444,6 +450,16 @@ export default{
                         //console.log(11111);
                         //this.send(response.data.data.username);
                         this.$router.push({path:'/sendEmail',query:{email:this.phone,username:response.data.data.username}});                    
+                    }else if(response.data.code==-1){
+                        this.$alert('您的邮箱已被注册，请更换邮箱。', '温馨提示', {
+                            confirmButtonText: '我知道了',
+                            showClose:false,
+                            confirmButtonClass:'lay-btn-red',
+                            type: 'warning',
+                            callback:function(action){
+                                this.isphone=true;
+                            }
+                        });
                     }
                 }).catch((error)=>{
                     console.log(error);
@@ -485,6 +501,16 @@ export default{
                     }else if(response.data.code==0){
                         this.codenotice = '您输入的验证码不正确';
                         this.iscodeNum = true;
+                    }else if(response.data.code==-1){
+                        this.$alert('您的手机号已被注册，请更换手机号。', '温馨提示', {
+                            confirmButtonText: '我知道了',
+                            showClose:false,
+                            confirmButtonClass:'lay-btn-red',
+                            type: 'warning',
+                            callback:function(action){
+                                this.isphone=true;
+                            }
+                        });
                     }
                 }).catch((error)=>{
                 })

@@ -109,10 +109,13 @@ export default{
             radio1:true,
             radio2:false,
             industryList:[],
-            industry:null
+            industry:'',
+            information:''
         }
     },
     mounted:function(){
+        this.information = JSON.parse(sessionStorage.getItem("account"));
+        this.industry = this.information.industry;
         this.queryType = this.$route.query.type;
         //console.log('type',this.queryType);
         this.$this.get('/broker/app/types').then((response)=>{

@@ -87,6 +87,13 @@
     border:none;
     padding-left:10px;
 }
+.city_tab option{
+    background:#fff !important;
+    -webkit-appearance:none;appearance:none;
+}
+.city_tab option:hover{
+    background:#da121a;
+}
 .business{
     width:68%;
     height:26px;
@@ -94,6 +101,9 @@
     background:#f7f7f7;
     border:none;
     padding-left:10px;
+}
+.business option{
+    background:#fff;
 }
 .cede-input{
     width:40%;

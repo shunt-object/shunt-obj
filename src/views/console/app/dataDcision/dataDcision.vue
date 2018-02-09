@@ -1,112 +1,16 @@
 <template>
-<div class="total">
-<div class="total-header">
+<div class="total detadcision-box">
+<div class="total-header detadcision-header">
     <span></span>
-    数据决策
+    数据分析
 </div>
-<!--<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">-->
-<div class="datadecision">
-    <div class="row">
-        <div class="col-md-6" style="height:100%;background:#ffffff;">
-            <div class="typeslist">
-                <span class="" v-for="item in types" style="float:left;margin-left:10px;">{{item.gname}}</span>
-            </div>
-            <div class="radar" id="radar" style="width:100%;height:500px;background:#ffffff;"></div>
-        </div>
-        <div class="col-md-6"></div>
-    </div>
-</div>
+<img src="../../../../assets/juece.jpg" alt="" style="width:100%;">
 </div>
 </template>
 <script>
 import echarts from 'echarts'
 import '../dataDcision/dataDcision.css'
 export default{
-    name:'dataDcision',
-    data(){
-        return {
-            charts:'',
-            types:''
-        }
-    },
-    mounted:function(){
-        let groupid = 6;
-        this.$this.get('/broker/user/analysis/types/'+groupid).then((response)=>{
-
-        }).catch((error)=>{
-
-        })
-        this.$this.get('/broker/compare/parent/types').then((response)=>{
-            this.types = response.data.data;
-        }).catch((error)=>{
-
-        })
-        // this.$this.get('/broker/user/analysis/adviceServer/2').then((response)=>{
-            
-        // }).catch((error)=>{
-
-        // })
-        // this.$nextTick(function() {
-        //     this.drawPie('radar')
-        // })
-    },
-    methods:{
-        drawPie:function(dom){
-            this.charts = echarts.init(document.getElementById(dom));
-            this.charts.setOption({
-                title : {
-                    text: '预算 vs 开销（Budget vs spending）',
-                    subtext: '纯属虚构'
-                },
-                tooltip : {
-                    trigger: 'axis'
-                },
-                legend: {
-                    orient : 'vertical',
-                    x : 'right',
-                    y : 'bottom',
-                    data:['预算分配','实际开销']
-                },
-                toolbox: {
-                    show : false,
-                    feature : {
-                        mark : {show: true},
-                        dataView : {show: true, readOnly: false},
-                        restore : {show: true},
-                        saveAsImage : {show: true}
-                    }
-                },
-                polar : [
-                {
-                    indicator : [
-                        { text: '销售', max: 6000},
-                        { text: '管理', max: 16000},
-                        { text: '信息技术', max: 30000},
-                        { text: '客服', max: 38000},
-                        { text: '研发', max: 52000},
-                        { text: '市场', max: 25000}
-                        ]
-                    }
-                ],
-                calculable : true,
-                series : [
-                    {
-                        name: '预算 vs 开销（Budget vs spending）',
-                        type: 'radar',
-                        data : [
-                            {
-                                value : [4300, 10000, 28000, 35000, 50000, 19000],
-                                name : '预算分配'
-                            },
-                            {
-                                value : [5000, 14000, 28000, 31000, 42000, 21000],
-                                name : '实际开销'
-                            }
-                        ]
-                    }
-                ]
-            })
-        }
-    }
+    name:'dataDcision' 
 }
 </script>
