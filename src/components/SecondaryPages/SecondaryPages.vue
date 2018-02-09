@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" href="javascript:;">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers">首页</a></li>
             <li class="dropdown">
                <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
                <!-- <div class="dropdown-content">

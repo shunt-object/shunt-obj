@@ -15,7 +15,7 @@
                     <div class="cloundMains">
                         <div class="container">
                             <div class="cloundMains-main">
-                                <p>关于我们</p>
+                                <p style="margin-bottom:30px">关于我们</p>
                                 <div class="text-left" style="color:#666666;margin-bottom:40px">CloudBroker²是一站式专家云服务的践行者和倡导者，中国版的“Rightscale”。我们致力于上云和管云的创新、研制和应用，秉承“让您轻松面对上云和管云”的服务理念，帮助企业应用最新的信息化技术，提升应用系统敏捷性，降低管理与运营成本，增强业务的创新能力，从而帮助企业顺利实现数字化转型。</div>
                                 <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²总部坐落于北京，在无锡和杭州设立了分支机构，联合创世团队成员来自IBM、Microsoft、法电、腾讯、 神州数码等全球顶尖IT企业CloudBroker²  CloudBroker²目前研发中心坐落在北京麒麟社10号楼706。</div>
                                 <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²专注于上云咨询、云管理和云运维一站式服务，是国内在上云咨询线上化的践行者，是国内领先的上云规划、选型和实测的云服务平台提供商，提供阿波罗（上云服务）、阿瑞斯（云管理平台）、雅典娜（自动化运维）、维纳斯（云迁移工具）产品级服务和SaaS云服务。</div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="belief" style="margin-bottom:40px;">
                                 <div class="container">
-                                    <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:30px;">我们的信念</div>
+                                    <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:40px;">我们的信念</div>
                                         <div style="background:#f8f8f8;height:440px;width:100%;">
                                             <div class="col-md-6 col-xs-12"   >
                                                 <div class=" werxin">
@@ -143,7 +143,7 @@
     .callme-call{
         font-size:26px;
         color:#333333;
-        margin-bottom:50px;
+        margin-bottom:40px;
         font-weight:100;
     }
     .callme-dist .mospan{
