@@ -1297,6 +1297,9 @@ h2 {
     from{ -webkit-transform: rotate(0deg)}  
     to{ -webkit-transform: rotate(360deg)  
    }  
- }  
+ } 
+ .scrollUp:hover{
+     cursor:pointer;
+ } 
 </style>
 

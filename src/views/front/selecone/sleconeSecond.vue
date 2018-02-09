@@ -1,6 +1,17 @@
 <!--云规划-->
 <template>
 <div style="background:#eceef3">
+        <div class="fixed-box">
+            <ul class="fixed-ul">
+                <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+                <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
+                    <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                    <div v-show="phoneBox" class="phone-box"><img src="../../../assets/homePage-hover-phone.png" alt=""></div>
+                </li>
+            
+            </ul>
+            <img src="../../../assets/scroll.png" alt="" class="scrollUp">
+        </div>
     <Sec></Sec>
     <div class="selecMain ">
             <div class="seleconeMain-banners selectHelp row ">
@@ -312,6 +323,9 @@
         color:#e41e2b;
         border:none;
     }
+     .scrollUp:hover{
+        cursor:pointer;
+    } 
 </style>
 <script>
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
@@ -321,11 +335,47 @@
             Sec,
             Sex
         },
+        data(){
+            return{
+                 phoneBox:false
+            }
+        },
         methods:{
             spanTy:function(){
                 this.$router.push({path: '/login'});
+            },
+             xiaowei:function(){
+                var that = this; 
+                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            },
+            phoneEnter:function(){
+                this.phoneBox = true;
+            },
+            phoneleave:function(){
+                    this.phoneBox = false;
             }
         },
+        mounted:function(){
+              $(document).ready(function(){ 
+                     $(window).scroll(function(){
+                    // console.log($(this).scrollTop());
+        
+                    //当window的scrolltop距离大于1时，go to 
+                        if($(this).scrollTop() > 550){
+                            $('.scrollUp').css("display","block")
+                            }else{
+                                    $('.scrollUp').fadeOut();
+                                }
+                    });
+            
+                    $(".scrollUp").click(function(){
+                        $('html ,body').animate({scrollTop: 0}, 300);
+                        return false;
+                    });
+
+
+              })
+        }
     //     mounted:function(){
     //         $(document).ready(function(){ 
     //                    $.fn.extend({
