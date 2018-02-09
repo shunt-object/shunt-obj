@@ -29,38 +29,39 @@
                             <div class="wer">我们的发展</div>
                             <div class="cccspans">
                                 <ul class="col-md-5 col-xs-12 ulsMains" style="padding-top:5px">
-                                    <li style="margin-top:15px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CloudBroker²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
-                                    <li style="margin-top:55px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">阿波罗（上云服务）v1.0正式发布</span><span class="yellowSpan">2018.02</span></p></li>
+                                    <li style="margin-top:13px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CloudBroker²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
+                                    <li style="margin-top:62px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">阿波罗（上云服务）v1.0正式发布</span><span class="yellowSpan">2018.02</span></p></li>
                                 </ul>
-                                <div class="col-md-1 divimger" style=" margin-bottom:50px;"><img src="../../../assets/shu.png" alt=""></div>
+                                <div class="col-md-1 divimger" style=" margin-bottom:50px;width:10px"><img src="../../../assets/shu.png" alt=""></div>
                                 <ul class="col-md-5 col-xs-12">
-                                    <li style="margin-top:75px"><p><span class="yellowSpam">2017.10</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿波罗（上云服务）v1.0正式研发</span></p></li>
-                                    <li style="margin-top:55px"><p><span class="yellowSpam">2018.02</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿瑞斯（云管理平台）v1.0正式研发</span></p></li>
+                                    <li style="margin-top:72px"><p><span class="yellowSpam">2017.10</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿波罗（上云服务）v1.0正式研发</span></p></li>
+                                    <li style="margin-top:62px"><p><span class="yellowSpam">2018.02</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿瑞斯（云管理平台）v1.0正式研发</span></p></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="belief" style="margin-bottom:60px;">
+                    <div class="belief" style="margin-bottom:40px;">
                                 <div class="container">
                                     <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:30px;">我们的信念</div>
-                                
-                                        <div class="col-md-6 col-xs-12"  style="background:#f8f8f8;height:440px" >
-                                            <div class="text-left" style="padding:106px 0px 172px 110px;font-size:16px;color:#666666;">
-                                                <p>这一路走来，我们经历过坎坷、经历过风雨；</p>
-                                                <p>为此，我们曾经彷徨过、迷茫过、哭过、笑过；</p>
-                                                <p>但我们从未放弃、倔强而努力；</p>
-                                                <p>因为我们坚信：</p>
-                                                <p>我们每前进小一步，都将为您带来更好的云上体</p>
-                                                <p>验！</p> 
+                                        <div style="background:#f8f8f8;height:440px;width:100%;">
+                                            <div class="col-md-6 col-xs-12"   >
+                                                <div class=" werxin">
+                                                    <p>这一路走来，我们经历过坎坷、经历过风雨；</p>
+                                                    <p>为此，我们曾经彷徨过、迷茫过、哭过、笑过；</p>
+                                                    <p>但我们从未放弃、倔强而努力；</p>
+                                                    <p>因为我们坚信：</p>
+                                                    <p>我们每前进小一步，都将为您带来更好的云上体</p>
+                                                    <p>验！</p> 
+                                                </div>
                                             </div>
+                                            <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
                                         </div>
-                                        <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:100%;"></div>
                                 </div>
                      </div>
                      <div class="callme">
                         <div class="container">
-                            <div class="callme-call">联系我们</div>
-                            <div class="callme-dist" style="margin-bottom:50px"><span v-on:mouseover="beijingHover()">北京总部</span><span v-on:mouseover="hangzhouHover">杭州分部</span><span @mouseover="wuxiHover">无锡分部</span></div>
+                            <div class="callme-call">我们在这里</div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()">北京总部</span><span v-on:click="hangzhouHover">杭州分部</span><span @click="wuxiHover">无锡分部</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -72,10 +73,10 @@
                      <div style="background:#ededed;width:100%;height:auto;">
                         <div class="seleconeMain-footer row" >
                             <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                                    <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                                    <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                                    <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                                    <div class="col-md-3 col-xs-6" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                                    <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                             </div>
                         </div>
                      </div>
@@ -86,11 +87,18 @@
 <style>
     @media (min-width: 768px) {
        .ulsMains{
-           margin-left:42px;
+           margin-left:82px;
        }
        .divimger{
             display:block;
        }
+        .callmain img{
+            height:440px;
+            width:100%;
+        }
+        .werxin{
+            padding:106px 0px 0px 110px;font-size:16px;color:#666666;text-align:left;
+        }
     }
     @media (max-width: 768px) {
        .ulsMains{
@@ -99,12 +107,16 @@
        .divimger{
             display:none;
        }
+       .callmain img{
+            height:100%;
+            width:100%;
+        }
+       .werxin{
+            padding:106px 0px 0px 0px;font-size:16px;color:#666666;text-align:center;
+        }
 
     }
-    .callmain img{
-        height:500px;
-        width:100%;
-    }
+   
     .callme-call{
         font-size:26px;
         color:#333333;
@@ -117,8 +129,8 @@
 border-radius:4px;
     font-size:14px;
 color:#333333;
-margin-right:30px;
-margin-left:30px;
+margin-right:20px;
+margin-left:20px;
     }
     .callme-dist span:hover{
         cursor:pointer;
@@ -189,12 +201,13 @@ margin-left:30px;
        background:url('../../../assets/compares.png') no-repeat;background-size:cover;   
    }
    .clound-dvs{
-       margin-top:189px;
+       margin-top:112px;
    }
    .clound-ps{
             font-weight: 100;
-            font-size: 20px;
+            font-size: 26px;
             color: rgb(248, 248, 248);
+            margin-top:20px;
    }
    .clound-pa{
            font-weight: 100;
@@ -204,7 +217,7 @@ margin-left:30px;
    .clound-pd{
            font-weight: 100;
            color: rgb(248, 248, 248);
-           font-size: 20px;
+           font-size: 18px;
    }
    .clound-pg{
        margin-top:30px;
