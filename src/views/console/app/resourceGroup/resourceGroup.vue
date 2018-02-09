@@ -30,7 +30,7 @@
                     <el-input v-model="coresShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number" min="1"></el-input>
+                    <el-input v-model="coresShj.ghz" auto-complete="off" type="number" min="1" max="5"></el-input>
                 </el-form-item>
                 <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input v-model="coresShj.ram" auto-complete="off" type="number" min="1"></el-input>
@@ -66,7 +66,7 @@
                     <el-input v-model="inesShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
-                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number" min="1"></el-input>
+                    <el-input v-model="inesShj.ghz" auto-complete="off" type="number" min="1" max="5"></el-input>
                 </el-form-item>
                 <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input v-model="inesShj.ram" auto-complete="off" type="number" min="1"></el-input>
@@ -95,14 +95,14 @@
            <!--网络-->
            <div class="yibanzp" v-if="regionter=='net'">
               <el-form :model="netRule" :rules="rules" ref="netRule">
-                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandwidth">
-                    <el-input v-model="netRule.bandwidth" auto-complete="off" type="number" min="1"></el-input>
-                </el-form-item>
                 <el-form-item label="入站（Mbps/月）" :label-width="formLabelWidth" prop="inbound">
-                    <el-input v-model="netRule.inbound" auto-complete="off" type="number" min="1"></el-input>
+                    <el-input v-model="netRule.inbound" auto-complete="off" type="number" min="1" @keyup.native="shows"></el-input>
                 </el-form-item>
                 <el-form-item label="出站（Mbps/月）" :label-width="formLabelWidth" prop="outbound">
-                    <el-input v-model="netRule.outbound" auto-complete="off" type="number" min="1"></el-input>
+                    <el-input v-model="netRule.outbound" auto-complete="off" type="number" min="1" @keyup.native="shows"></el-input>
+                </el-form-item>
+                <el-form-item label="总量（Mbps/月）" :label-width="formLabelWidth">
+                    <span style="margin-left:10px">{{netRule.bandwidth}}</span>
                 </el-form-item>
              </el-form>
            </div>
@@ -246,8 +246,8 @@
                 <div class="col-md-3 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="this.netRule.bandwidth==undefined||this.netRule.bandwidth==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.netRule.bandwidth}}</li>
-                        <li>带宽（Mbps/月）</li>
+                        <li v-else  style="color: #da121a">{{this.netRule.bandwidth}}</li>  
+                        <li>总量（Mbps/月）</li>
                      
                     </ul>
                 </div>
@@ -698,6 +698,10 @@ export default {
              this.checked=false
         }
       },
+      shows:function(){
+          
+          this.netRule.bandwidth=Number(this.netRule.inbound)+Number(this.netRule.outbound);
+      },
      dialogFormVisibler:function(){
            this.alertTitle = false; 
         this.dialogFormVisible = true;
@@ -821,6 +825,7 @@ export default {
                           this.$refs["netRule"].validate((valid) => {
                             if (valid) {
                                  this.wangl = true;
+                                 this.netRule.bandwidth=Number(this.netRule.inbound)+Number(this.netRule.outbound);
                                   this.dialogFormVisible =false;
                                     this.regionter="";
                                     this.col = 3;
