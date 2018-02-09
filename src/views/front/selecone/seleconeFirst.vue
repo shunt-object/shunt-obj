@@ -35,7 +35,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:75px;padding:0 !important;"><img src="../../../assets/compare.png" alt="" style="float:right;width: 400px;"></div>
+                        <div class="col-md-6 col-xs-12 text-left" style="margin-top:105px;padding:0 !important;"><img src="../../../assets/compare.png" alt="" style="float:right;width: 80%;"></div>
                  </div>
             </div>
             <div style="background:#fff;width:100%">

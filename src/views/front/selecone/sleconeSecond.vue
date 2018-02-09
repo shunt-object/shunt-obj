@@ -24,7 +24,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;width:100%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
              <div style="background:#ffffff;width:100%">
@@ -103,7 +103,7 @@
 <style>
 @media (min-width: 768px) {
     .lasilasi{
-        margin-top:84px;
+        margin-top:110px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
