@@ -15,8 +15,8 @@
                 </div>
             
                 <div class="colligate-heade">
-                    <button class="pointersd" @click="pointers()"><i class="iconfont icon-dayinji"></i>打印</button>
-                    <button class="exportBtn" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-"></i>导出</button>
+                    <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji"></i>打印</button>
+                    <button class="exportBtn buttHover" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
                     
                 </div>
                 <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
@@ -260,6 +260,7 @@ import '../colligateReport/colligateReport.css'
 import echarts from 'echarts'
 import '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
+
 export default{
     name:'colligateReport',
     data(){
@@ -572,7 +573,8 @@ export default{
                 pagesplit: true              
             };
             //$('#titBody').css({"page-break-after":"avoid","page-break-inside":"avoid"})
-            pdf.addHTML($("#tites"), options, function() {
+            $('#pdf-wrap').css({"background":"#fff"})
+            pdf.addHTML($("#pdf-wrap"), options, function() {
                 //console.log(pdf);
                 pdf.save('综合报告'+time+'.pdf');
             });

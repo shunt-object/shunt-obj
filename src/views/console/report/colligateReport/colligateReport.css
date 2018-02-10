@@ -171,5 +171,8 @@
 .from-headers{
         width: 100%;
         height: 100%;
-        padding: 12px 25px;
+        
+}
+.buttHover:hover{
+    color:#da121a;
 }
