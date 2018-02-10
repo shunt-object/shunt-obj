@@ -12,7 +12,7 @@
                 <p class="text-left footer-jx">产品功能</p>
                 <p class="text-left footer-list" @click="cloundPlan">云规划</p>
                 <p class="text-left footer-list" @click="cloundSelect">云选型</p>
-                <p class="text-left footer-list">云实测</p>
+                <p class="text-left footer-list" @click="cloundCe">云实测</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">服务支持</p>
@@ -722,6 +722,10 @@ h2 {
             },
             cloundSelect:function(){
                   this.$router.push({path: '/seleconefirst'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            cloundCe:function(){
+                  this.$router.push({path: '/seleconeThree'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             fuwuLook:function(){
