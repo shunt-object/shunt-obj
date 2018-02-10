@@ -112,14 +112,12 @@ export default{
     methods:{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
+                console.log('----',response.data.data);
                 this.typelist = response.data.data;
                 this.havelist = response.data.data;
-                //console.log(this.typelist)
                 let arr =[];
                 let arry = [];
                 for(let n=0;n<response.data.data.length;n++){
-                    //this.numlist.push({boolean:true});
-                    //console.log('=====',this.numlist);
                     this.allLsit.push({boolean:false});
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
                         this.numlist.push({boolean:true});
@@ -142,6 +140,25 @@ export default{
                 
             })
         },
+        getTwo:function(id){
+            this.typeCheck = [];
+            this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
+                for(let n=0;n<response.data.data.length;n++){
+                    this.allLsit.push({boolean:false});
+                    for(let i=0;i<response.data.data[n].childGroups.length;i++){
+                        this.numlist.push({boolean:true});
+                        if(response.data.data[n].childGroups[i].selected==true){
+                            if(response.data.data[n].childGroups[i].id!=id){
+                                this.questionList(response.data.data[n].childGroups[i].id,true,n);
+                                this.numlist[i].boolean = true;
+                            }                            
+                        }
+                    }
+                }         
+            }).catch((error)=>{
+                
+            })
+        },
         getOptions:function(){
             this.$this.get('/broker/compare/feature/option').then((response)=>{
                 //console.log('ccc',response);
@@ -158,11 +175,10 @@ export default{
             }
         },
         changeType:function(Ind,index){
-            console.log(3333);
-            //console.log('-----',this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
                 this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind);
+                this.getTwo(this.typelist[Ind].childGroups[index].id);
             }else{
                 this.typelist[Ind].childGroups[index].selected=false;
                 this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
@@ -180,7 +196,6 @@ export default{
         },
         questionList:function(Id,boolean,Index){
             let ax;
-            //console.log(Id);
             for(let j=0;j<this.typelist.length;j++){
                 for(let a=0;a<this.typelist[j].childGroups.length;a++){
                     if(this.typelist[j].childGroups[a].id==Id){
@@ -189,7 +204,6 @@ export default{
                 }
             }
             this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
-                //console.log(response.data.data)
                 if(boolean==true){
                     this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
                     for(let n=0;n<this.typeCheck.length;n++){
