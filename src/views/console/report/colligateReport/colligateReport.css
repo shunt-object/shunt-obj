@@ -4,7 +4,7 @@
     line-height:50px;
     text-align:center;
     background:#fff;
-    margin-top:15px;
+    margin-top:4px;
     border-top:1px solid #da121a; 
     font-size:16px;
     position:relative;
@@ -32,7 +32,7 @@
     color:#999;
 }
 .pointersd i{
-    font-size:24px !important;
+    font-size:18px !important;
     margin-top:2px;
 }
 .pointers{
