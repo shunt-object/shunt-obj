@@ -158,6 +158,7 @@ export default{
             }
         },
         changeType:function(Ind,index){
+            console.log(3333);
             //console.log('-----',this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
@@ -202,6 +203,7 @@ export default{
                             }
                         }
                     }
+                    //console.log('---',this.typeCheck);
                 }else{
                     for(let i=0;i<this.typeCheck.length;i++){
                         for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
@@ -211,7 +213,7 @@ export default{
                         }
                     }
                 }
-                
+                 //console.log('---',this.typeCheck);
             }).catch((error)=>{ 
             }) 
         },

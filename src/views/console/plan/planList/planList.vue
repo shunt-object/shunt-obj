@@ -14,7 +14,11 @@
     </div>
     <!-- <div>象限图</div> -->
     <div class="legend-box">
-        <div class="legend">     
+        <div class="legend">    
+            <div class="legend-list">
+                <span class="legend-block legend-high"></span>
+                高
+            </div> 
             <div class="legend-list">
                 <span class="legend-block legend-heshi"></span>
                 合适
@@ -22,11 +26,7 @@
             <div class="legend-list">
                 <span class="legend-block legend-yib"></span>
                 一般
-            </div>
-            <div class="legend-list">
-                <span class="legend-block legend-high"></span>
-                高
-            </div>
+            </div>            
             <div class="legend-list">
                 <span class="legend-block legend-di"></span>
                 低
