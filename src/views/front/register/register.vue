@@ -269,6 +269,8 @@ export default{
             })
         },
         changeProvince:function(sheng){
+            this.city = '';
+            this.area = '';
             this.getCity(sheng.provinceid);
         },
         getCity:function(provinceid){
@@ -281,6 +283,7 @@ export default{
             })
         },
         changeCity:function(city){
+            this.area = '';
             this.getArea(city.cityid);
         },
         getArea:function(cityid){

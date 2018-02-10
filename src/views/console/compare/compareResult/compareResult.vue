@@ -5,12 +5,12 @@
     <router-link class="zong" to="/consolePage">总览</router-link>
     ><p class="comback" v-on:click="goBack('comparelist')">云选型</p>
     ><p class="comback" v-on:click="goBack('comparequestion')">选择标准</p>
-    ><p class="comback">比较报告</p>
+    ><p class="comback">选型报告</p>
 </div>
 <child index="4" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="compare-line"></div>
 <div class="compareResult-box">
-    <div class="compare-title">对比供应商</div>
+    <div class="compare-title">分析供应商</div>
     <div class="compare-cate">云供应商选型结果</div>
     <table class="table-score">
         <thead>

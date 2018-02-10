@@ -8,15 +8,15 @@
 <div class="datadecision">
     <div class="row">
         <div class="col-md-7 padding10">
-            <div class="decision-title">工作负载分布图</div>
+            <div class="decision-title">工作负载分布统计分析</div>
             <div class="datadecision-list" style="padding-right:20px;">
                 <div class="work" id="work" style="width:100%;height:100%;"></div>
             </div>
         </div>
         <div class="col-md-5 padding10">
-            <div class="decision-title">云选场景倾向统计
-                <div class="types-input" v-on:click="Istypes()">场景选择<i class="iconfont icon-sanjiao" style="float:right;margin-right:10px;"></i></div>
-                <div class="types-select" v-show="istypeslist">
+            <div class="decision-title">云选型倾向性统计分析
+                <div class="types-input" v-on:click="Istypes()" id="types-input">场景选择<i class="iconfont icon-sanjiao" style="float:right;margin-right:10px;"></i></div>
+                <div class="types-select" id="types-select" v-show="istypeslist">
                     <p v-for="(item,index) in types" v-on:click="typesClick(index)"><input type="checkbox" v-model="item.boolean" class="types-checkbox">{{item.data.gname}}</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-7 padding10">
-            <div class="decision-title">行业上云趋势
+            <div class="decision-title">行业上云趋势统计分析
                 <select class="year-select" v-model="year" v-on:change="lineModel()">
                     <option v-for="item in yearList" :value="item">{{item}}</option>
                 </select>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col-md-5 padding10">
-            <div class="decision-title">云厂商占比统计
+            <div class="decision-title">云厂商倾向性占比分析
                 <select class="comm-select" v-model="pietab" v-on:change="pieModel()">
                     <option v-for="item in tradeTab" :value="item.id">{{item.name}}</option>
                 </select>
@@ -77,8 +77,8 @@ export default{
                 {id:'2',name:'行业'}
             ],
             pietab:'1',
-            yearList:['2017','2018'],
-            year:'2017',
+            yearList:['2018'],
+            year:'2018',
             linetab:'1',
             istypeslist:false
         }
@@ -95,11 +95,16 @@ export default{
         this.getTypes();  
         var that = this;
         $(document).click(function () {
-            //alert(aa);
-            //if(that.istypeslist == true){
-                //that.istypeslist = false;
-            //}
-        });        
+            if(that.istypeslist == true){
+                that.istypeslist = false;
+            }
+        });
+        $("#types-input").click(function(event){
+            event.stopPropagation();
+        });    
+        $("#types-select").click(function(event){
+            event.stopPropagation();
+        });   
     },
     methods:{
         Istypes:function(){
@@ -132,7 +137,7 @@ export default{
                 this.radarmax = [];
                 this.radarData(arr.join(','));
             }
-            console.log('----',arr.join(','));
+            //console.log('----',arr.join(','));
         },
         getTypes:function(){
             this.$this.get('/broker/compare/parent/types').then((response)=>{
@@ -242,6 +247,9 @@ export default{
         canversLine:function(dom){
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
+                    tooltip : {
+                        trigger: 'axis'
+                    },
                     xAxis: {
                         name:'月份',
                         type: 'category',
@@ -299,7 +307,7 @@ export default{
                     orient : 'vertical',
                     x : '10',
                     y : 'top',
-                    data:['aaa']
+                    data:[this.information.tenant]
                 },
                 toolbox: {
                     show : false,
@@ -323,7 +331,7 @@ export default{
                         data : [
                             {
                                 value :this.radardata,
-                                name :'aaa'
+                                name :this.information.tenant
                             }
                         ]
                     }

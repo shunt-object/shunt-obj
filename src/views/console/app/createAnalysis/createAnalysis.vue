@@ -203,9 +203,12 @@ export default{
             })
         },
         changeProvince:function(provinceid){
+            this.city = '';
+            this.area = '';
             this.getCity(provinceid.provinceid);
         },
         changeCity:function(city){
+            this.area = '';
             this.getArea(city.cityid);
         },
         submit:function(){
