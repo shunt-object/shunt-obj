@@ -183,7 +183,8 @@
                             </p>
                         </div>
                         <div class="clear"></div>
-                        <div class="difference-box" :class="isClass==true?'allheight':''" id="difference-box" style="margin-bottom:20px;">
+                        <div id="boxinnerHtml" ></div>
+                        <div class="difference-box" :class="isClass==true?'allheight':''" id="difference-box" style="margin-bottom:20px;" >
                             <table class="comdetails-table">
                                 <thead>
                                     <tr>
@@ -262,9 +263,12 @@ import '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 
 export default{
+
     name:'colligateReport',
     data(){
+ 
         return {
+            inds:0,
             charts:'',
             opiniondata:[],
             appId:'',
@@ -288,6 +292,13 @@ export default{
             Issystem:false,
             systemold:'',
             isClass:false
+        }
+    },
+    updated:function(){
+        if(this.inds = 1){
+            this.isClass = false;
+        }else if(this.inds = 0){
+             this.isClass = false;
         }
     },
     mounted:function(){
@@ -553,6 +564,7 @@ export default{
             })
         },
         getdata:function(){
+          
             this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
                 this.compareResultList = response.data.data.datas;
                 if(response.data.data.res!=null){
@@ -566,7 +578,7 @@ export default{
             }).catch((error)=>{})
         },
         getPdf:function(){
-            this.isClass = true;
+          
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
@@ -589,7 +601,17 @@ export default{
         //     // let codestr = document.getElementById("pdf-wrap").innerHTML;   //获取需要生成pdf页面的div代码
         //     // newWindow.document.write(codestr);   //向文档写入HTML表达式或者JavaScript代码
         //     // newWindow.document.close();     //关闭document的输出流, 显示选定的数据
+                var a =$("#difference-box").html();
+                 $("#boxinnerHtml").html(a);
+                 $("#difference-box").hide();
+          // this.isClass = true;
           window.print();   //打印当前窗口
+           $("#boxinnerHtml").html("");
+           $("#difference-box").show();
+        //   this.inds = 1;
+        //   this.getdata();
+            
+         console.log(a);
         //     //return true;
             
      }
