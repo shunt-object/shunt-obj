@@ -66,8 +66,6 @@ export default{
             pielegend:[],
             piedata:[],
             information:'',
-            lineX:[],
-            lineData:[],
             radardata:[],
             radarlegend:[],
             radarmax:[],
@@ -80,7 +78,8 @@ export default{
             yearList:['2018'],
             year:'2018',
             linetab:'1',
-            istypeslist:false
+            istypeslist:false,
+            linearr:[]
         }
     },
     mounted:function(){
@@ -191,11 +190,11 @@ export default{
         },
         getLine:function(obj){
             let str = JSON.stringify(obj);
+            let arr = [];
             // 折线图
             this.$this.post('/broker/user/analysis/putCloud/',str).then((reponse)=>{
                 for(let i=0;i<reponse.data.data.length;i++){//reponse.data.data[i].months
-                    this.lineX.push('0'+(i+1));
-                    this.lineData.push(reponse.data.data[i].num);
+                    this.linearr.push([reponse.data.data[i].months,reponse.data.data[i].num]);
                     this.$nextTick(function() {
                         this.canversLine('line')
                     })
@@ -246,23 +245,78 @@ export default{
         },
         canversLine:function(dom){
             this.charts = echarts.init(document.getElementById(dom));
-            this.charts.setOption({
-                    tooltip : {
-                        trigger: 'axis'
+            this.charts.setOption({              
+                    tooltip:{
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            crossStyle: {
+                                color: '#999'
+                            }
+                        }
                     },
-                    xAxis: {
+                    legend: {
+                        data: ['上云总数'],
+                        x:'79%',
+                        y:'10px'
+                    },
+                    xAxis: [{
                         name:'月份',
-                        type: 'category',
-                        data: this.lineX
-                    },
-                    yAxis: {
-                        name:'上云数量',
-                        type: 'value'
-                    },
+                        type:'category',
+                        data: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+                        axisPointer:{
+                            type:'shadow'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                    }],
+                    yAxis: [{
+                        type:'value',
+                        name:'数量',
+                        axisLabel: {
+                            formatter: '{value}个'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                    },{
+                        type:'value',
+                        name:'数量',
+                        axisLabel: {
+                            formatter: '{value}个'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                    }],
                     series: [{
-                        data: this.lineData,
-                        type: 'line'
+                        name:'上云总数',
+                        type:'bar',
+                        data:this.linearr,
+                        itemStyle:{
+                            normal:{
+                                color:'#f7a72c'
+                            }
+                        }
+                    },{
+                        name:'',
+                        type:'line',
+                        yAxisIndex: 1,
+                        data:this.linearr,
+                        lineStyle:{
+                            normal:{
+                                color:'#da121a'
+                            }
+                        }
                     }]
+
             })
         },
         canversPie:function(dom){
@@ -279,7 +333,8 @@ export default{
                 },
                 legend: {
                     orient : 'vertical',
-                    x : 'left',
+                    x : '79%',
+                    y:'10px',
                     data:this.pielegend
                 },
                 calculable : true,
@@ -289,7 +344,14 @@ export default{
                         type:'pie',
                         radius : '55%',
                         center: ['50%', '60%'],
-                        data:this.piedata
+                        data:this.piedata,
+                        itemStyle:{
+                            normal:{
+                                borderColor:'none',
+                                borderWidth:'0'
+                            }
+                        },
+                        center:['50%','45%']
                     }
                 ]
             })
@@ -305,8 +367,8 @@ export default{
                 },
                 legend: {
                     orient : 'vertical',
-                    x : '10',
-                    y : 'top',
+                    x : '79%',
+                    y:'10px',
                     data:[this.information.tenant]
                 },
                 toolbox: {
@@ -377,7 +439,7 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#bebebe'
+                            color: '#c0c0c0'
                         }
                     },
                     nameTextStyle:{
@@ -398,7 +460,7 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#bebebe'
+                            color: '#c0c0c0'
                         }
                     },
                     nameTextStyle:{
