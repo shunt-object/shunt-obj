@@ -101,6 +101,7 @@ export default{
             numlist:[],
             allLsit:[],
             Ind:0,
+            allindex:0,
         }
     },
     mounted:function(){
@@ -140,18 +141,26 @@ export default{
                 
             })
         },
-        getTwo:function(id){
-            this.typeCheck = [];
+        getTwo:function(id,all){//1 =单选 0=全选
+            let index = 0;
+            //this.typeCheck = [];
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 for(let n=0;n<response.data.data.length;n++){
                     this.allLsit.push({boolean:false});
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
                         this.numlist.push({boolean:true});
                         if(response.data.data[n].childGroups[i].selected==true){
-                            if(response.data.data[n].childGroups[i].id!=id){
+                            if(all==1&&response.data.data[n].childGroups[i].id!=id){
+                                this.typeCheck = [];
                                 this.questionList(response.data.data[n].childGroups[i].id,true,n);
                                 this.numlist[i].boolean = true;
-                            }                            
+                            }else{
+                                this.allindex++;
+                                if(this.allindex==1){
+                                    this.questionList(response.data.data[n].childGroups[i].id,true,n);
+                                    this.numlist[i].boolean = true;
+                                } 
+                            }                       
                         }
                     }
                 }         
@@ -178,7 +187,7 @@ export default{
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
                 this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind);
-                this.getTwo(this.typelist[Ind].childGroups[index].id);
+                this.getTwo(this.typelist[Ind].childGroups[index].id,1);
             }else{
                 this.typelist[Ind].childGroups[index].selected=false;
                 this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
@@ -262,6 +271,8 @@ export default{
                  if(this.typelist[e].childGroups[i].selected==false){
                     this.questionList(this.typelist[e].childGroups[i].id,true,e);
                     this.typelist[e].childGroups[i].selected=true;
+                    //console.log(this.typelist[e].childGroups[i].id);
+                    this.getTwo(this.typelist[e].childGroups[i].id,0);
                  }
                 }
             }else{
