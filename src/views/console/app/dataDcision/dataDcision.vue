@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-7 padding10">
-            <div class="decision-title">行业上云趋势统计分析
+            <div class="decision-title">上云趋势统计分析
                 <select class="year-select" v-model="year" v-on:change="lineModel()">
                     <option v-for="item in yearList" :value="item">{{item}}</option>
                 </select>
@@ -71,8 +71,8 @@ export default{
             radarmax:[],
             opiniondata:[],
             tradeTab:[
-                {id:'1',name:'区域'},
-                {id:'2',name:'行业'}
+                {id:'1',name:'所在区域'},
+                {id:'2',name:'所在区域'}
             ],
             pietab:'1',
             yearList:['2018'],

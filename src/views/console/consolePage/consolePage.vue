@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><i class="iconfont icon-gonggao2"></i>公告信息：</p>
             <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
-                <li><marquee direction="left">CSB²计划在春节前推出云实测服务<span class="notice-time"></span></marquee></li>
+                <li><marquee direction="left">CSB²计划在春节前推出数据分析服务<span class="notice-time"></span></marquee></li>
             </ul>
         </div>
          <!--用户信息-->
