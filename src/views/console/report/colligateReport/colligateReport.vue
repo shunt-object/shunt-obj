@@ -15,7 +15,7 @@
                 </div>
             
                 <div class="colligate-heade">
-                    <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji1"></i>打印</button>
+                    <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji1" style="margin-right: 2px !important;"></i>打印</button>
                     <button class="exportBtn buttHover" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
                     
                 </div>
