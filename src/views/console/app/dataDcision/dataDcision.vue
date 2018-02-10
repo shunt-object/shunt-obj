@@ -79,11 +79,17 @@ export default{
             year:'2018',
             linetab:'1',
             istypeslist:false,
-            linearr:[]
+            linearr:[],
+            radarTitle:''
         }
     },
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
+        if(this.information.tenant.length>3){
+            this.radarTitle = this.information.tenant.slice(0,3)+'...'
+        }else{
+            this.radarTitle = this.information.tenant;
+        }
         this.getPie(this.pietab);
         this.getWork();
         let obj = {
@@ -269,7 +275,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#c0c0c0'
+                                color: '#ccc'
                             }
                         },
                     }],
@@ -281,7 +287,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#c0c0c0'
+                                color: '#ccc'
                             }
                         },
                     },{
@@ -292,7 +298,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#c0c0c0'
+                                color: '#ccc'
                             }
                         },
                     }],
@@ -340,7 +346,7 @@ export default{
                 calculable : true,
                 series : [
                     {
-                        name:'访问来源',
+                        name:'占比来源',
                         type:'pie',
                         radius : '55%',
                         center: ['50%', '60%'],
@@ -369,7 +375,7 @@ export default{
                     orient : 'vertical',
                     x : '79%',
                     y:'10px',
-                    data:[this.information.tenant]
+                    data:[this.radarTitle]
                 },
                 toolbox: {
                     show : false,
@@ -439,7 +445,7 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#c0c0c0'
+                            color: '#dedede'
                         }
                     },
                     nameTextStyle:{
@@ -460,7 +466,7 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#c0c0c0'
+                            color: '#ccc'
                         }
                     },
                     nameTextStyle:{
