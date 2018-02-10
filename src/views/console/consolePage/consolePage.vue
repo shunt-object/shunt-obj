@@ -1,6 +1,6 @@
 <template>
-<div class="consolePage" id="container">
-    <header class="header white-bg">
+<div class="consolePage " id="container">
+    <header class="header white-bg not-print">
         <div class="header-logo">
             <div class="sidebar-toggle-box">
                 <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips" style="color:#fff;"></div>
@@ -72,7 +72,7 @@
     </header>
     <!--侧导航-->
     <aside>
-        <div id="sidebar"  class="nav-collapse ">
+        <div id="sidebar"  class="nav-collapse not-print">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active" v-on:click="index()" style="border-bottom:none !important;">

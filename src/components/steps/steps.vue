@@ -1,6 +1,6 @@
 <template>
 <!-- 创建云选型 -->
-<div class="stepPlan" v-if="type=='compare'">
+<div class="stepPlan not-print" v-if="type=='compare'">
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="comparePrev(1)">1</span>
         <div class="stepPlan-name" :class="start==1?'active-color':'common-color'">创建云分析</div>
@@ -27,7 +27,7 @@
     </div>
 </div>
 <!-- 创建云规划 -->
-<div class="stepPlan" v-else>
+<div class="stepPlan not-print" v-else>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==1?'active-circle':id!='0'?'finish-circle':'common-circle'" v-on:click="planPrev(1)">1</span>
         <div class="stepPlan-name" :class="index==1?'active-color':'common-color'">创建云分析</div>

@@ -5,13 +5,13 @@
     <router-link class="zong" to="/consolePage">总览</router-link>
     ><p class="comback" v-on:click="goBack('comparelist')">云选型</p>
     ><p class="comback" v-on:click="goBack('comparequestion')">选择标准</p>
-    ><p class="comback">比较报告</p>
+    ><p class="comback">选型报告</p>
 </div>
 <child index="4" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="compare-line"></div>
 <div class="compareResult-box">
-    <div class="compare-title">对比供应商</div>
-    <div class="compare-cate">云供应商对比结果</div>
+    <div class="compare-title">分析供应商</div>
+    <div class="compare-cate">云供应商选型结果</div>
     <table class="table-score">
         <thead>
             <tr>
@@ -30,7 +30,14 @@
             </tr>
         </tbody>
     </table>
-    <div class="compare-cate">云供应商标准比较差异</div>
+    <div class="compare-cate">云供应商标准选型差异</div>
+    <div>
+        <p class="explain">
+            <span><i class="iconfont icon-yuan high-ratio" style="margin-right:3px;"></i>高匹配</span>
+            <span><i class="iconfont icon-yuan low-ratio" style="margin-right:3px;"></i>低匹配</span>
+        </p>
+    </div>
+    <div class="clear"></div>
     <div class="difference-box">
         <table class="comdetails-table">
             <thead>
@@ -51,8 +58,10 @@
                     <td class="textleft">{{list.feature}}</td>
                     <td>{{list.servers[0].compareopt}}</td>
                     <td v-for="aa in list.servers">
-                        <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
-                        <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
+                        <i class="iconfont icon-yuan" :class="aa.type==1?'high-ratio':'low-ratio'"></i>
+                        <!--<i class="iconfont icon-yuan" v-else :class="aa.type!=1?'orange':''"></i>-->
+                        <!--<img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
+                        <img v-else src="../../../../assets/compare/compare-cha.png" alt="">-->
                     </td>
                     <!--aa.type=1是有 0 是没有 -->
                 </tr>

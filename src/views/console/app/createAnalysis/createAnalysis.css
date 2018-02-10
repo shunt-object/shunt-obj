@@ -99,7 +99,7 @@ select,input{
     text-align:center;
 }
 .create-input{
-    width:65%;
+    width:60%;
     height:30px;
     float:left;
     margin-left:30px;
@@ -109,7 +109,7 @@ select,input{
     background:#f3f3f3;
 }
 .create-select{
-    width:65%;
+    width:60%;
     height:30px;
     float:left;
     margin-left:30px;
@@ -117,6 +117,19 @@ select,input{
     border:1px solid #f3f3f3;
     border-radius:3px;
     background:#f3f3f3;
+}
+.city-select{
+    width:92%;
+    height:30px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    background:#f3f3f3;
+    float:left;
+    text-indent:10px;
+    margin-bottom:15px;
+}
+.city-select-one{
+    margin-left:30px !important;
 }
 .create-radio-span{
     float:left;

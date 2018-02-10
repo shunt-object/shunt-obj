@@ -10,7 +10,7 @@
     <div class="CreateAnalysis_from_box">
         <div class="new-built">创建云分析</div>
         <div class="row createAnalysis-box">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">1</span>
@@ -60,7 +60,7 @@
                         <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
                     </select>
                 </div>
-                 <div class="clear"></div>
+                <div class="clear"></div>
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">5</span>
@@ -70,9 +70,33 @@
                         <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
                     </select>
                 </div>
+                <div class="clear"></div>
+                <div class="createAnalysis-list">
+                    <div class="createAnalysis-list-title">
+                        <span class="createAnalysis-fang">5</span>
+                        请选择区域：
+                    </div>
+                    <div class="row" style="padding-left:30px;">
+                        <div class="col-md-4" style="padding:0 !important;">
+                            <select class="city-select" v-model="province" v-on:change="changeProvince(province)">
+                                <option v-for="item in provinceList" :value="item">{{item.province}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="padding:0 !important;">
+                            <select class="city-select" v-model="city" v-on:change="changeCity(city)">
+                                <option v-for="item in cityList" :value="item">{{item.city}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="padding:0 !important;">   
+                            <select class="city-select" v-model="area">
+                                <option v-for="item in areaList" :value="item">{{item.area}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
+            <div class="col-md-6"></div>
+            <!--<div class="col-md-4"></div>-->
         </div>
         <button class="nextbtn" v-on:click="submit()"><span class="pl-5">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
         <div class="clear"></div>
@@ -110,13 +134,23 @@ export default{
             radio2:false,
             industryList:[],
             industry:'',
-            information:''
+            information:'',
+            provinceList:[],
+            cityList:[],
+            areaList:[],
+            province:'',
+            city:'',
+            area:''
         }
     },
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
         this.industry = this.information.industry;
         this.queryType = this.$route.query.type;
+        this.province = JSON.parse(sessionStorage.getItem("account")).province;
+        this.city = JSON.parse(sessionStorage.getItem("account")).city;
+        this.area = JSON.parse(sessionStorage.getItem("account")).area;
+        this.getProvince();
         //console.log('type',this.queryType);
         this.$this.get('/broker/app/types').then((response)=>{
             this.typeList = response.data.data;
@@ -138,12 +172,44 @@ export default{
         this.getIndustry();//行业
     },
     methods:{
-         getIndustry:function(){
+        getIndustry:function(){
             this.$this.get('/broker/prop/industry/').then((response)=>{
                 this.industryList = response.data.data;
                 //console.log('province',response);
             }).catch((error)=>{
             })
+        },
+        getProvince:function(){
+            this.$this.get('/broker/prop/provinces/').then((response)=>{
+                this.provinceList = response.data.data;
+                this.getCity(this.province.provinceid);
+                //console.log('province',response);
+            }).catch((error)=>{
+            })
+        },
+        getCity:function(provinceid){
+            this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
+                this.cityList = response.data.data;
+                this.getArea(this.city.cityid);
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
+        getArea:function(cityid){
+            this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
+                this.areaList = response.data.data;
+                //console.log('city',response);
+            }).catch((error)=>{
+            })
+        },
+        changeProvince:function(provinceid){
+            this.city = '';
+            this.area = '';
+            this.getCity(provinceid.provinceid);
+        },
+        changeCity:function(city){
+            this.area = '';
+            this.getArea(city.cityid);
         },
         submit:function(){
             let proid,analysisName;
@@ -162,7 +228,10 @@ export default{
                 "appName": this.appName,
                 "appType": this.type,
                 "proId":proid,
-                "industry":this.industry
+                "industry":this.industry,
+                "provinceid":this.province.provinceid,
+                "cityid":this.city.cityid,
+                "areaid":this.area.areaid
             };
             let that = this;
             let str = JSON.stringify(obj);

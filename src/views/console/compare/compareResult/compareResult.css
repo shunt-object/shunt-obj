@@ -138,3 +138,18 @@
     color: #666;
     font-weight:bold;
 }
+.explain{
+    float:right;
+    margin-right:10px;
+    font-weight:normal;
+    font-size:12px;
+}
+.explain span{
+    margin-left:10px;
+}
+.high-ratio{
+    color:#da121a;
+}
+.low-ratio{
+    color:#f7a72c;
+}
