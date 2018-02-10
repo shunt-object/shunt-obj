@@ -72,7 +72,7 @@
                     </span>
                     <span class="col-md-2 col-xs-4">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
-                            <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id)"></i>
+                            <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
                             <i class="iconfont icon-zhediemianban" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
@@ -80,7 +80,7 @@
                         </el-tooltip>
                     </span>
                 </li>
-                <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="item in vp.projectApps">
+                <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="(item,appindex) in vp.projectApps">
                     <span class="col-md-1 bn col-xs-1"></span>
                     <span class="col-md-1 bn col-xs-1"></span>
                     <span class="col-md-1 bn col-xs-4 pnormal" :title="item.appname">{{item.appname}}</span>
@@ -117,7 +117,7 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <el-tooltip visible-arrow content="删除此应用" placement="top" effect="light"  :popper-class="toolTipClass">
-                            <i class="iconfont icon-shanchu-01" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" ></i>
+                            <i class="iconfont icon-shanchu-01" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id,index,appindex)" ></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="查看综合报表" placement="top" effect="light"  :popper-class="toolTipClass">   
                             <i class="iconfont icon-chakan" v-on:click="Jips(item.id)" style="font-size:19px !important"></i>
@@ -704,7 +704,7 @@ export default {
         // als:function(){
         //     this.$router.push({path:'/CreateAnalysis'});
         // },            
-        rems:function(e){
+        rems:function(e,index){
             var that = this;
             //   let ids=[];
             //             ids.push(e);
@@ -739,8 +739,7 @@ export default {
                             url: "/broker/app/analysis",
                             data: asf
                         }).then(function(response) {
-                           
-                          window.location.reload();
+                          that.vpd.splice(index,1);
                         }).catch(function(error) {
                             console.log(error);
                         });
@@ -754,7 +753,7 @@ export default {
             //         return ;
             // });
         },
-        remYy:function(id){
+        remYy:function(id,index,appindex){
             //console.log(id)
             var that = this;
              this.$confirm('您确定要删除该应用吗？', '温馨提示', {
@@ -766,7 +765,8 @@ export default {
                     center: false
                     }).then(() => {
                        var ida = [];
-                        window.location.reload();
+                        // window.location.reload();
+                        that.vpd[index].projectApps.splice(appindex,1);
                         ida.push(id); //=也ok
                         var asg = {"ids":ida};
                         that.$this({
