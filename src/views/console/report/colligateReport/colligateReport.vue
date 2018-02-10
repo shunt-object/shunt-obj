@@ -165,6 +165,14 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-gengduoneirong main-color"></i>云供应商标准选型差异</div>
+            <div>
+                <p class="explain">
+                    <span><i class="iconfont icon-yuan high-ratio" style="margin-right:3px;"></i>高匹配</span>
+                    <span><i class="iconfont icon-yuan low-ratio" style="margin-right:3px;"></i>低匹配</span>
+                </p>
+            </div>
+            <div class="clear"></div>
             <div class="difference-box" style="margin-bottom:20px;">
                 <table class="comdetails-table">
                     <thead>
@@ -185,8 +193,9 @@
                             <td class="textleft">{{list.feature}}</td>
                             <td>{{list.servers[0].compareopt}}</td>
                             <td v-for="aa in list.servers">
-                                <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
-                                <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
+                                <i class="iconfont icon-yuan" :class="aa.type==1?'high-ratio':'low-ratio'"></i>
+                                <!--<img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
+                                <img v-else src="../../../../assets/compare/compare-cha.png" alt="">-->
                             </td>
                             <!--aa.type=1是有 0 是没有 -->
                         </tr>
@@ -196,16 +205,36 @@
         </div>
         <!-- 上云分析建议  -->
         <div class="colligate-title">
-           <img src="../../../../assets/report/report-advise.png" alt="">
-            上云分析建议
+           <!--<img src="../../../../assets/report/report-advise.png" alt="">-->
+            <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
         </div>
           <!--<img src="../../../../assets/compare-nodata.png" alt="">
             <br>
             暂无建议-->
         <div class="advise-box">
-            <textarea class="colligate-advise" placeholder="请输入上云分析建议" v-model="advise" :class="advise==''?'advise-bg':''">
-            </textarea>
-            <span class="not-advise" v-if="advise==''">暂无建议</span>
+            <div class="system-advise">
+                <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>ClouldBroker²上云分析评估建议</p>
+                <p class="advise-content" v-if="Issystem==false">{{system}}
+                    <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#2eabf5;">编辑</span></span>
+                </p>
+                <div class="advise-system-input" v-show="Issystem">
+                    <textarea class="advise-system-text" v-model="system">{{system}}</textarea>
+                </div>
+                <div class="system-btn" v-show="Issystem">
+                    <button class="system-no" v-on:click="systemSave('no')"><i class="iconfont icon-shanchuguanbicha2"></i>取消</button>
+                    <button class="system-yes" v-on:click="systemSave('yes')"><i class="iconfont icon-duihao2"></i>保存</button>                    
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="self-advise">
+                <p class="advise-title"><i class="iconfont icon-jianyi main-color"></i>上云分析自我评估建议</p>
+                <div style="padding-left:2em;">
+                    <textarea class="colligate-advise" placeholder="请输入上云分析自我评估建议" v-model="advise" :class="advise==''?'advise-bg':''">
+                    </textarea>
+                    <span class="not-advise" v-if="advise==''">暂无评估</span>
+                </div>                
+            </div>
+            
         </div>
     </div>
 </div>
@@ -239,7 +268,10 @@ export default{
             isclick:'',
             details:[],
             confirm:[],
-            length:''
+            length:'',
+            system:'',
+            Issystem:false,
+            systemold:''
         }
     },
     mounted:function(){
@@ -268,6 +300,8 @@ export default{
                     qinhe = response.data.data.appResults[i].result;
                 }
                 if(response.data.data.appResults[i].moduleId==1){
+                    this.system = JSON.parse(response.data.data.appResults[i].result).advice;
+                    this.systemold = JSON.parse(response.data.data.appResults[i].result).advice;
                     this.desc = JSON.parse(response.data.data.appResults[i].result).description;
                     this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
                 }
@@ -301,6 +335,15 @@ export default{
                 this.$router.push({path:'/compareList'});
             }else if(link=='comparequestion'){
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId,type:this.queryType}});
+            }
+        },
+        systemEdit:function(){
+            this.Issystem = true;
+        },
+        systemSave:function(dom){
+            this.Issystem = false;
+            if(dom=='no'){
+                this.system = this.systemold;
             }
         },
         drawPie:function(id){

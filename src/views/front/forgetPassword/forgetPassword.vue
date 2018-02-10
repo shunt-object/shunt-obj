@@ -83,7 +83,7 @@
                 <div class="forget-list" v-if="index==4">
                     <img src="../../../assets/front/activate-success.png" class="activate-img for-success-img" alt="">
                     <div class="forget-success">密码更改成功</div>
-                    <router-link to="/login" class="forget-type-btn mt-50">立即登录</router-link>
+                    <router-link to="/login" class="forget-type-btn mt-70">立即登录</router-link>
                 </div>
             </div>
         </div>
