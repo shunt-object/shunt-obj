@@ -47,22 +47,22 @@
     </div>
     <!-- 数据为空结束 -->
     <ul class="uls" v-if="this.flag!=true&&utype!=3||utype!=4" >
-        <li class="sps row">
+        <li class="sps row col-xs-12">
             <span class="col-md-1 col-xs-1"><!--<input type="checkbox" class="text-center">--></span>
             <span class="col-md-1 weight  weigh col-xs-2 spsmedia">云分析名称</span>
             <span class="col-md-1 weight  weigh col-xs-2 spsmedia">应用负载名称</span>
-            <span class="col-md-7 weight col-xs-4" style="text-align: left; text-indent: 20%;" >进度</span>
+            <span class="col-md-7 weight col-xs-3" style="text-align: left;" >进度</span>
             <span class="col-md-2 weight col-xs-3" >操作</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
             <ul>
                 <!-- <li class="row sps" > -->
-                <li class="row sps-overall" >
+                <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
                     <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
-                    <span class="col-md-7 removeIng col-xs-7">
+                    <span class="col-md-7 removeIng col-xs-6">
                         <!--<el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
                             <i class="fa fa-trash-o removeBtn" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
@@ -70,7 +70,7 @@
                             <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;" v-on:click="toggleShow(index)"></i>
                         </el-tooltip>-->
                     </span>
-                    <span class="col-md-2 col-xs-2">
+                    <span class="col-md-2 col-xs-4">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
                             <i class="fa fa-trash-o removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
@@ -179,6 +179,7 @@
     white-space: nowrap;
     }
     .pnormal{
+        display:inline-block;
         width:80px;
           overflow: hidden;
     text-overflow:ellipsis;
@@ -186,6 +187,7 @@
     text-align:right    
     }
    .proanmes{
+       display:inline-block;
        overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;

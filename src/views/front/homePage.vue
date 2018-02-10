@@ -967,7 +967,9 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
-
+.pCenter{
+    padding-bottom:50px;
+}
 
 .right{
     height:100%;
@@ -1297,6 +1299,9 @@ h2 {
     from{ -webkit-transform: rotate(0deg)}  
     to{ -webkit-transform: rotate(360deg)  
    }  
- }  
+ } 
+ .scrollUp:hover{
+     cursor:pointer;
+ } 
 </style>
 

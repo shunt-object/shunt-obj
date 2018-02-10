@@ -1,5 +1,16 @@
 <template>
     <div>
+        <div class="fixed-box">
+            <ul class="fixed-ul">
+                <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+                <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
+                    <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                    <div v-show="phoneBox" class="phone-box"><img src="../../../assets/homePage-hover-phone.png" alt=""></div>
+                </li>
+            
+            </ul>
+            <img src="../../../assets/scroll.png" alt="" class="scrollUp">
+        </div>
             <Sec></Sec>
             <div class="cloundcompare">
                     <div class="cloundbanner">
@@ -51,9 +62,9 @@
                                                 <div class=" werxin">
                                                     <p>这一路走来，我们经历过坎坷、经历过风雨；</p>
                                                     <p>为此，我们曾经彷徨过、迷茫过、哭过、笑过；</p>
-                                                    <p>但我们从未放弃、倔强而努力；</p>
-                                                    <p>我们从未停下脚步，为了明天朝阳；</p>
-                                                    <p>我们有我们的理想和目标，因为我们坚信：</p>
+                                                    <p><span style="font-size:22px;color:#f7a72c">但</span>我们从未放弃、倔强而努力；</p>
+                                                    <p>我们从未停下脚步，为了明天的朝阳；</p>
+                                                    <p>我们有我们的<span style="font-size:22px;color:#f7a72c">理想</span>，因为我们坚信：</p>
                                                     <p>我们每前进小一步，都将为您带来更好的云上体验！</p>
                                                 </div>
                                             </div>
@@ -280,6 +291,9 @@
    .city{
        background:url("../../../assets/city.png") no-repeat  center center;background-size:75%;
    }
+    .scrollUp:hover{
+        cursor:pointer;
+    } 
 </style>
 <script>
         import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
@@ -293,7 +307,8 @@
             return {
                Ais:false,
                Sis:false,
-               Asd:true
+               Asd:true,
+               phoneBox:false
             }
         },
         methods:{
@@ -336,7 +351,38 @@
             },
             tiyans:function(){
                 this.$router.push({path: '/login'});
+            },
+            xiaowei:function(){
+                var that = this; 
+                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+            },
+            phoneEnter:function(){
+                this.phoneBox = true;
+            },
+            phoneleave:function(){
+                    this.phoneBox = false;
             }
+        },
+        mounted:function(){
+              $(document).ready(function(){ 
+                     $(window).scroll(function(){
+                    // console.log($(this).scrollTop());
+        
+                    //当window的scrolltop距离大于1时，go to 
+                        if($(this).scrollTop() > 550){
+                            $('.scrollUp').css("display","block")
+                            }else{
+                                    $('.scrollUp').fadeOut();
+                                }
+                    });
+            
+                    $(".scrollUp").click(function(){
+                        $('html ,body').animate({scrollTop: 0}, 300);
+                        return false;
+                    });
+
+
+              })
         }
     }
 </script>
