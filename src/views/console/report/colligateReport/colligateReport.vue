@@ -6,210 +6,214 @@
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
-    <div class="from-head" style="line-height:38px;color:#fff;">
-            <div style="float:left;padding-left:20px"><img src="../../../../assets/logoers.png" alt=""></div>
-            <div style="float:right;padding-right:20px">CloudBroker² 上云分析综合报告</div>
-    </div>
-    <div class="colligate-heade">
-        综合报告<button class="exportBtn" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-"></i>导出</button>
-    </div>
-    <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
-        <!-- 基本信息 -->
-        <div class="colligate-title">
-            <img src="../../../../assets/report/report-information.png" alt="">
-            基本信息
+    <div id="tits">
+        <div class="from-head" style="line-height:38px;color:#fff;">
+                <div style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""></div>
+                <div style="float:right;padding-right:2%">上云分析综合报告</div>
         </div>
-        <div class="colligate-list">
-            <table class="information-table">
-                <thead>
-                    <tr>
-                        <th>企业名称</th>
-                        <th>分析人</th>
-                        <th>云分析名称</th>
-                        <th>应用信息</th>
-                        <th>工作负载类型</th>
-                        <th>工作负载架构</th>
-                        <th>分析时间</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{information.realname}}</td>
-                        <td>{{information.tenant}}</td>
-                        <td>{{information.proname}}</td>
-                        <td>{{information.appname}}</td>
-                        <td>{{information.protypeStr}}</td>
-                        <td>{{information.frametypeStr}}</td>
-                        <td>{{information.createDt}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 云规划报告 -->
-        <div class="colligate-title">
-            <img src="../../../../assets/report/report-plan.png" alt="">
-            云规划报告详情
-        </div>
-        <div class="colligate-list">
-            <div class="legend-box">
-                <div class="legend">     
-                    <div class="legend-list">
-                        <span class="legend-block legend-heshi"></span>
-                        合适
-                    </div>
-                    <div class="legend-list">
-                        <span class="legend-block legend-yib"></span>
-                        一般
-                    </div>
-                    <div class="legend-list">
-                        <span class="legend-block legend-high"></span>
-                        高
-                    </div>
-                    <div class="legend-list">
-                        <span class="legend-block legend-di"></span>
-                        低
-                    </div>
-                </div>
-                <div class="result-echarts" id="main"></div>
-            </div>
-            <div class="echarts-desc">工作负载分布图</div>
-            <div class="row">
-                <div class="col-md-3">
-                    <p class="appname">
-                        <span>{{result.proname}}</span>
-                        <span>{{result.appname}}</span>
-                    </p>
-                </div>
-                <div class="col-md-3 clould-result" v-for="item in resultlist">
-                    <p class="score" :class="item.moduleId==1?'score-qualitative':item.moduleId==2?'score-profit':'score-affinity'">
-                        <span class="score-name" v-if="item.moduleId!=1">云{{item.moduleName}}</span>
-                        <span class="score-name" v-else>{{item.moduleName}}</span>
-                        <span class="score-val" v-if="item.moduleId!=1">{{item.result}}</span>
-                        <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
-                    </p>
-                </div>
-            </div>
-            <div class="clould-desc" v-html="desc"></div>
-        </div> 
-        <!-- 云选型 -->
-        <div class="colligate-title">
-            <img src="../../../../assets/report/report-compare.png" alt="">
-            云选型报告详情
-        </div>
-        <div class="colligate-list">
-            <table class="table-score colligate-tables">
-                <thead>
-                    <tr>
-                        <th>云供应商</th>
-                        <th>分数</th>
-                        <th>区域价格范围</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="item in compareResultList">
-                        <td>{{item.serverName}}</td>
-                        <td>{{item.scope}}</td>
-                        <td>
-                            <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="colligate-heade">
+            <button class="pointers" @click="getPointer()"><i class="iconfont icon-dayinji"></i>打印</button>
+            <button class="exportBtn" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-"></i>导出</button>
             
-            <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
-                <thead v-if="appServer.length>0||dbServer.length>0||network.inbound||storage.length>0">
-                    <tr>
-                        <th>数量</th>
-                        <th>资源</th>
-                        <th>规格</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="item in appServer">
-                        <td>{{item.num}}</td>
-                        <td>应用服务</td>
-                        <td>
-                            <p><span class="labelRed">{{item.cores}}</span>vCPU</p>
-                            <p><span class="labelRed">{{item.ghz}}</span>处理器主频（GHZ）</p>
-                            <p><span class="labelRed">{{item.ram}}</span>内存（GB）</p>
-                            <p><span class="labelRed">{{item.localDisk}}</span>系统盘（GB）</p>
-                            <p><span class="labelRed">{{item.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
-                        </td>
-                    </tr>
-                    <tr v-for="db in dbServer">
-                        <td>{{db.num}}</td>
-                        <td>数据库服务</td>
-                        <td>
-                            <p><span class="labelRed">{{db.cores}}</span>vCPU</p>
-                            <p><span class="labelRed">{{db.ghz}}</span>处理器主频（GHZ）</p>
-                            <p><span class="labelRed">{{db.ram}}</span>内存（GB）</p>
-                            <p><span class="labelRed">{{db.localDisk}}</span>系统盘（GB）</p>
-                            <p><span class="labelRed">{{db.os}}</span>操作系统</p>
-                            <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
-                        </td>
-                    </tr>
-                    <tr v-if="network.inbound">
-                        <td></td>
-                        <td>网络存储</td>
-                        <td>
-                            <p><span class="labelRed">{{network.bandwidth}}</span>带宽（GB/月）</p>
-                            <p><span class="labelRed">{{network.inbound}}</span>入站（GB/月）</p>
-                            <p><span class="labelRed">{{network.outbound}}</span>出站（GB/月）</p>
-                        </td>
-                    </tr>
-                    <tr v-for="stro in storage">
-                        <td>{{stro.num}}</td>
-                        <td>存储</td>
-                        <td>
-                            <p><span class="labelRed">{{stro.sna}}</span>共享存储（SAN）（GB）</p>
-                            <p><span class="labelRed">{{stro.nsa}}</span>网络存储（NAS）（GB）</p>
-                            <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储（GB）</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="difference-box" style="margin-bottom:20px;">
-                <table class="comdetails-table">
+        </div>
+        <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
+            <!-- 基本信息 -->
+            <div class="colligate-title">
+                <img src="../../../../assets/report/report-information.png" alt="">
+                基本信息
+            </div>
+            <div class="colligate-list">
+                <table class="information-table">
                     <thead>
                         <tr>
-                            <th class="obliqueline" colspan="3">
-                                <span class="clould-profirm">云供应商</span>
-                                <span class="clould-details">场景</span>
-                            </th>
-                            <th v-for="firm in confirm">{{firm.service}}</th>
+                            <th>企业名称</th>
+                            <th>分析人</th>
+                            <th>云分析名称</th>
+                            <th>应用信息</th>
+                            <th>工作负载类型</th>
+                            <th>工作负载架构</th>
+                            <th>分析时间</th>
                         </tr>
                     </thead>
-                    <tbody v-for="(item,index) in details">
-                        <tr class="comdetails-tab-title">
-                            <td :colspan="length">{{index}}</td>
-                        </tr>
-                        <tr class="comdetails-tab-list" v-for="list in item">
-                            <td style="width:10%;"></td>
-                            <td class="textleft">{{list.feature}}</td>
-                            <td>{{list.servers[0].compareopt}}</td>
-                            <td v-for="aa in list.servers">
-                                <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
-                                <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
-                            </td>
-                            <!--aa.type=1是有 0 是没有 -->
+                    <tbody>
+                        <tr>
+                            <td>{{information.realname}}</td>
+                            <td>{{information.tenant}}</td>
+                            <td>{{information.proname}}</td>
+                            <td>{{information.appname}}</td>
+                            <td>{{information.protypeStr}}</td>
+                            <td>{{information.frametypeStr}}</td>
+                            <td>{{information.createDt}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <!-- 上云分析建议  -->
-        <div class="colligate-title">
-           <img src="../../../../assets/report/report-advise.png" alt="">
-            上云分析建议
-        </div>
-          <!--<img src="../../../../assets/compare-nodata.png" alt="">
-            <br>
-            暂无建议-->
-        <div class="advise-box">
-            <textarea class="colligate-advise" placeholder="请输入上云分析建议" v-model="advise" :class="advise==''?'advise-bg':''">
-            </textarea>
-            <span class="not-advise" v-if="advise==''">暂无建议</span>
+            <!-- 云规划报告 -->
+            <div class="colligate-title">
+                <img src="../../../../assets/report/report-plan.png" alt="">
+                云规划报告详情
+            </div>
+            <div class="colligate-list">
+                <div class="legend-box">
+                    <div class="legend">     
+                        <div class="legend-list">
+                            <span class="legend-block legend-heshi"></span>
+                            合适
+                        </div>
+                        <div class="legend-list">
+                            <span class="legend-block legend-yib"></span>
+                            一般
+                        </div>
+                        <div class="legend-list">
+                            <span class="legend-block legend-high"></span>
+                            高
+                        </div>
+                        <div class="legend-list">
+                            <span class="legend-block legend-di"></span>
+                            低
+                        </div>
+                    </div>
+                    <div class="result-echarts" id="main"></div>
+                </div>
+                <div class="echarts-desc">工作负载分布图</div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="appname">
+                            <span>{{result.proname}}</span>
+                            <span>{{result.appname}}</span>
+                        </p>
+                    </div>
+                    <div class="col-md-3 clould-result" v-for="item in resultlist">
+                        <p class="score" :class="item.moduleId==1?'score-qualitative':item.moduleId==2?'score-profit':'score-affinity'">
+                            <span class="score-name" v-if="item.moduleId!=1">云{{item.moduleName}}</span>
+                            <span class="score-name" v-else>{{item.moduleName}}</span>
+                            <span class="score-val" v-if="item.moduleId!=1">{{item.result}}</span>
+                            <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="clould-desc" v-html="desc"></div>
+            </div> 
+            <!-- 云选型 -->
+            <div class="colligate-title">
+                <img src="../../../../assets/report/report-compare.png" alt="">
+                云选型报告详情
+            </div>
+            <div class="colligate-list">
+                <table class="table-score colligate-tables">
+                    <thead>
+                        <tr>
+                            <th>云供应商</th>
+                            <th>分数</th>
+                            <th>区域价格范围</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in compareResultList">
+                            <td>{{item.serverName}}</td>
+                            <td>{{item.scope}}</td>
+                            <td>
+                                <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
+                    <thead v-if="appServer.length>0||dbServer.length>0||network.inbound||storage.length>0">
+                        <tr>
+                            <th>数量</th>
+                            <th>资源</th>
+                            <th>规格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in appServer">
+                            <td>{{item.num}}</td>
+                            <td>应用服务</td>
+                            <td>
+                                <p><span class="labelRed">{{item.cores}}</span>vCPU</p>
+                                <p><span class="labelRed">{{item.ghz}}</span>处理器主频（GHZ）</p>
+                                <p><span class="labelRed">{{item.ram}}</span>内存（GB）</p>
+                                <p><span class="labelRed">{{item.localDisk}}</span>系统盘（GB）</p>
+                                <p><span class="labelRed">{{item.os}}</span>操作系统</p>
+                                <p><span class="labelRed">{{item.computeMappingFactor}}</span>资源平均利用率</p>
+                            </td>
+                        </tr>
+                        <tr v-for="db in dbServer">
+                            <td>{{db.num}}</td>
+                            <td>数据库服务</td>
+                            <td>
+                                <p><span class="labelRed">{{db.cores}}</span>vCPU</p>
+                                <p><span class="labelRed">{{db.ghz}}</span>处理器主频（GHZ）</p>
+                                <p><span class="labelRed">{{db.ram}}</span>内存（GB）</p>
+                                <p><span class="labelRed">{{db.localDisk}}</span>系统盘（GB）</p>
+                                <p><span class="labelRed">{{db.os}}</span>操作系统</p>
+                                <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
+                            </td>
+                        </tr>
+                        <tr v-if="network.inbound">
+                            <td></td>
+                            <td>网络存储</td>
+                            <td>
+                                <p><span class="labelRed">{{network.bandwidth}}</span>带宽（GB/月）</p>
+                                <p><span class="labelRed">{{network.inbound}}</span>入站（GB/月）</p>
+                                <p><span class="labelRed">{{network.outbound}}</span>出站（GB/月）</p>
+                            </td>
+                        </tr>
+                        <tr v-for="stro in storage">
+                            <td>{{stro.num}}</td>
+                            <td>存储</td>
+                            <td>
+                                <p><span class="labelRed">{{stro.sna}}</span>共享存储（SAN）（GB）</p>
+                                <p><span class="labelRed">{{stro.nsa}}</span>网络存储（NAS）（GB）</p>
+                                <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储（GB）</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="difference-box" style="margin-bottom:20px;">
+                    <table class="comdetails-table">
+                        <thead>
+                            <tr>
+                                <th class="obliqueline" colspan="3">
+                                    <span class="clould-profirm">云供应商</span>
+                                    <span class="clould-details">场景</span>
+                                </th>
+                                <th v-for="firm in confirm">{{firm.service}}</th>
+                            </tr>
+                        </thead>
+                        <tbody v-for="(item,index) in details">
+                            <tr class="comdetails-tab-title">
+                                <td :colspan="length">{{index}}</td>
+                            </tr>
+                            <tr class="comdetails-tab-list" v-for="list in item">
+                                <td style="width:10%;"></td>
+                                <td class="textleft">{{list.feature}}</td>
+                                <td>{{list.servers[0].compareopt}}</td>
+                                <td v-for="aa in list.servers">
+                                    <img v-if="aa.type==1" src="../../../../assets/compare/compare-right.png" alt="">
+                                    <img v-else src="../../../../assets/compare/compare-cha.png" alt="">
+                                </td>
+                                <!--aa.type=1是有 0 是没有 -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 上云分析建议  -->
+            <div class="colligate-title">
+            <img src="../../../../assets/report/report-advise.png" alt="">
+                上云分析建议
+            </div>
+            <!--<img src="../../../../assets/compare-nodata.png" alt="">
+                <br>
+                暂无建议-->
+            <div class="advise-box">
+                <textarea class="colligate-advise" placeholder="请输入上云分析建议" v-model="advise" :class="advise==''?'advise-bg':''">
+                </textarea>
+                <span class="not-advise" v-if="advise==''">暂无建议</span>
+            </div>
         </div>
     </div>
 </div>
@@ -518,9 +522,11 @@ export default{
             var options = {
                 pagesplit: true              
             };
+           
             //$('#titBody').css({"page-break-after":"avoid","page-break-inside":"avoid"})
-            pdf.addHTML($("#titBody"), options, function() {
+            pdf.addHTML($("#tits"), options, function() {
                 //console.log(pdf);
+              
                 pdf.save('综合报告'+time+'.pdf');
             });
         }

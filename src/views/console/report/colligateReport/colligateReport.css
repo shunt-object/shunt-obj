@@ -20,6 +20,17 @@
     background:#fff;
     color:#999;
 }
+.pointers{
+        position: absolute;
+        right: 76px;
+        top: 10px;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        background: #fff;
+        color: #999;
+}
 .colligate-title{
     text-align:left;
     height:40px;

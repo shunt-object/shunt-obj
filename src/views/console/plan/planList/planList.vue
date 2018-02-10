@@ -77,6 +77,17 @@
   margin: 0px;
   padding: 0px;
 }
+@media (max-width:768){
+    .result-echarts{
+        width:20% 
+    }
+}
+@media (min-width:768){
+    .result-echarts{
+        width:100% 
+    }
+}
+
 /*暂无数据*/
 .planList-nodata{
     background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
