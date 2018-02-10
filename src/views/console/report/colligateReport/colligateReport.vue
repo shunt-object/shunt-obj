@@ -6,6 +6,10 @@
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
+    <div class="from-head" style="line-height:38px;color:#fff;">
+            <div style="float:left;padding-left:20px"><img src="../../../../assets/logoers.png" alt=""></div>
+            <div style="float:right;padding-right:20px">CloudBroker² 上云分析综合报告</div>
+    </div>
     <div class="colligate-heade">
         综合报告<button class="exportBtn" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-"></i>导出</button>
     </div>

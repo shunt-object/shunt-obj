@@ -137,10 +137,17 @@
         width:214px;
     }
 }
-@media (max-width: 768px) {
-    #mains{
+@media (width: 767px){
+       #mains{
         width:300px;
-        height:200px;
+        height:150px;
+    }
+   
+}
+@media (max-width: 767px) {
+    #mains{
+        width:200px;
+        height:150px;
     }
    
     #charts-right{
