@@ -51,7 +51,7 @@
             <span class="col-md-1 col-xs-1"><!--<input type="checkbox" class="text-center">--></span>
             <span class="col-md-1 weight  weigh col-xs-2 spsmedia">云分析名称</span>
             <span class="col-md-1 weight  weigh col-xs-2 spsmedia">应用负载名称</span>
-            <span class="col-md-7 weight col-xs-3" style="text-align: left;" >进度</span>
+            <span class="col-md-7 weight col-xs-3 jinDus" style="text-align: left;" >进度</span>
             <span class="col-md-2 weight col-xs-3" >操作</span>
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
@@ -72,10 +72,10 @@
                     </span>
                     <span class="col-md-2 col-xs-4">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
-                            <i class="fa fa-trash-o removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id)"></i>
+                            <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id)"></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
-                            <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
+                            <i class="iconfont icon-zhediemianban" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
                             <!-- toggle-clould -->
                         </el-tooltip>
                     </span>
@@ -117,10 +117,10 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <el-tooltip visible-arrow content="删除此应用" placement="top" effect="light"  :popper-class="toolTipClass">
-                            <i class="iconfont icon-shanchu" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" ></i>
+                            <i class="iconfont icon-shanchu-01" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id)" ></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="查看综合报表" placement="top" effect="light"  :popper-class="toolTipClass">   
-                            <i class="iconfont icon-chakan" v-on:click="Jips(item.id)"></i>
+                            <i class="iconfont icon-chakan" v-on:click="Jips(item.id)" style="font-size:19px !important"></i>
                          </el-tooltip>
                         <!--<input type="button" value="删除应用" v-on:click="remYy(item.id)" title="删除应用" class="Jips"> 
                         <input type="button" value="查看综合报告" class="Jips" title="查看综合报告" id="Jips" v-on:click="Jips(item.id)" > --> 
@@ -164,6 +164,9 @@
 @media (max-width: 768px) {
     .remn{
         text-align:right;
+    }
+    .jinDus{
+        text-indent: 0%;
     }
     .ratelist span{
         display: inline-block; padding-top:35px; color:#666666;
@@ -374,9 +377,11 @@ a:hover{
 }
 @media (min-width: 768px) {
     .ratelist{
-    height:70px;
-}
-
+        height:70px;
+    }
+    .jinDus{
+        text-indent: 20%;
+    }
 /*.ratelist span{
     padding-top:20px;
     }*/

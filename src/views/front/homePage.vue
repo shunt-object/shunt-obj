@@ -968,7 +968,7 @@ ul,ol li {
 }
 @media (max-width: 768px) {
 .pCenter{
-    padding-bottom:50px;
+    padding-bottom:20px;
 }
 
 .right{
