@@ -7,7 +7,7 @@
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
         
-        <div class="tites" id="pdf-wrap">
+        <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
             <div class="from-headers">
                 <div class="from-head" style="line-height:38px;color:#fff;">
                         <div style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""></div>
@@ -568,14 +568,12 @@ export default{
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
-            pdf.internal.scaleFactor = 1;
+            pdf.internal.scaleFactor = 1.8;
             var options = {
                 pagesplit: true              
             };
-            //$('#titBody').css({"page-break-after":"avoid","page-break-inside":"avoid"})
             $('#pdf-wrap').css({"background":"#fff"})
             pdf.addHTML($("#pdf-wrap"), options, function() {
-                //console.log(pdf);
                 pdf.save('综合报告'+time+'.pdf');
             });
         },

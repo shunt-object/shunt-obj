@@ -267,7 +267,7 @@ export default{
                         y:'10px'
                     },
                     xAxis: [{
-                        name:'月份',
+                        name:'  月份',
                         type:'category',
                         data: ['01','02','03','04','05','06','07','08','09','10','11','12'],
                         axisPointer:{
@@ -278,12 +278,13 @@ export default{
                                 color: '#ccc'
                             }
                         },
+                        nameLocation:'end'
                     }],
                     yAxis: [{
                         type:'value',
                         name:'数量',
                         axisLabel: {
-                            formatter: '{value}个'
+                            formatter: '{value}'
                         },
                         axisLine: {
                             lineStyle: {
@@ -292,9 +293,9 @@ export default{
                         },
                     },{
                         type:'value',
-                        name:'数量',
+                        name:'',
                         axisLabel: {
-                            formatter: '{value}个'
+                            formatter: '{value}'
                         },
                         axisLine: {
                             lineStyle: {
