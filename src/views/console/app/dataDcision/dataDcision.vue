@@ -303,7 +303,7 @@ export default{
                         },
                     }],
                     series: [{
-                        name:'上云总数',
+                        name:'',
                         type:'bar',
                         data:this.linearr,
                         itemStyle:{
@@ -312,7 +312,7 @@ export default{
                             }
                         }
                     },{
-                        name:'',
+                        name:'上云总数',
                         type:'line',
                         yAxisIndex: 1,
                         data:this.linearr,
@@ -399,7 +399,7 @@ export default{
                         data : [
                             {
                                 value :this.radardata,
-                                name :this.information.tenant
+                                name :this.radarTitle
                             }
                         ]
                     }
