@@ -72,7 +72,7 @@ export default{
             opiniondata:[],
             tradeTab:[
                 {id:'1',name:'所在区域'},
-                {id:'2',name:'所在区域'}
+                {id:'2',name:'所在行业'}
             ],
             pietab:'1',
             yearList:['2018'],
