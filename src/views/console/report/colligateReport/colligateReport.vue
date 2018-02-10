@@ -76,7 +76,7 @@
                                     低
                                 </div>
                             </div>
-                           <!-- <div class="result-echarts" id="main"></div>-->
+                            <div class="result-echarts" id="main"></div>
                         </div>
                         <div class="echarts-desc">工作负载分布图</div>
                         <div class="row">
@@ -183,7 +183,7 @@
                             </p>
                         </div>
                         <div class="clear"></div>
-                        <div class="difference-box" style="margin-bottom:20px;">
+                        <div class="difference-box" :class="isClass==true?'allheight':''" id="difference-box" style="margin-bottom:20px;">
                             <table class="comdetails-table">
                                 <thead>
                                     <tr>
@@ -286,7 +286,8 @@ export default{
             length:'',
             system:'',
             Issystem:false,
-            systemold:''
+            systemold:'',
+            isClass:false
         }
     },
     mounted:function(){
@@ -565,6 +566,7 @@ export default{
             }).catch((error)=>{})
         },
         getPdf:function(){
+            this.isClass = true;
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
@@ -572,9 +574,12 @@ export default{
             var options = {
                 pagesplit: true              
             };
-            $('#pdf-wrap').css({"background":"#fff"})
+            $("#difference-box").css({"height":"100% !important"});
+            $('#pdf-wrap').css({"background":"#fff"});
+            let that = this;
             pdf.addHTML($("#pdf-wrap"), options, function() {
                 pdf.save('综合报告'+time+'.pdf');
+                that.isClass = false;
             });
         },
       pointers:function(){
