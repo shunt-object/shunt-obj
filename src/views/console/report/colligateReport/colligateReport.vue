@@ -76,7 +76,7 @@
                                     低
                                 </div>
                             </div>
-                            <div class="result-echarts" id="main"></div>
+                           <!-- <div class="result-echarts" id="main"></div>-->
                         </div>
                         <div class="echarts-desc">工作负载分布图</div>
                         <div class="row">

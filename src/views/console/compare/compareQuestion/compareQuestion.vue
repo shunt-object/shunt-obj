@@ -9,7 +9,7 @@
 <child index="4" start="3" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="compare-line"></div>
 <div class="compare-container">
-    <div class="compare-title">选择标准</div>
+    <div class="compare-title">选型标准</div>
     <!-- 场景选择 -->
     <div class="compare-change">
         <div class="change-select">场景选择：</div>

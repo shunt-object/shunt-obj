@@ -1,9 +1,21 @@
-.stepPlan{
+
+@media (max-width:768px){
+    .step10{width:17%};
+    .step18{
+    width:5%;
+   
+}
+.stepPlan-name{
+     font-size:10px;
+}
+    .stepPlan{
     width:100%;
     height:105px;
     background:#fff;
-    padding:20px;
+    padding:0px;
     /*position:relative;*/
+}
+
 }
 .stepPlan-item{
     float:left;
@@ -12,11 +24,24 @@
 .step22{
     width:22.5%;
 }
-.step18{
+
+@media (min-width:768px){
+    .step10{
+        width:10%;
+    }
+    .step18{
     width:18%;
 }
-.step10{
-    width:10%;
+.stepPlan-name{
+     font-size:12px;
+}
+    .stepPlan{
+    width:100%;
+    height:105px;
+    background:#fff;
+    padding:20px;
+    /*position:relative;*/
+}
 }
 .circle{
     width:26px;
@@ -41,7 +66,7 @@
 .stepPlan-name{
     margin-top:50px;
     text-align:left;
-    font-size:12px;
+   
     line-height:20px;
 }
 .common-color{
