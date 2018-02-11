@@ -301,11 +301,8 @@
             </div>
         </div>
         <div class="col-md-6 text-center" style="padding:10px 20px 5px 0;" v-show="creads">
-                <p  class="col-md-12 text-center" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:left;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
-                    <span @click="dialogFormVisibler" class="pds user-hover">
-                        <i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;float:left;line-height:200px;"></i>
-                        添加工作负载配置信息
-                    </span>
+                <p class="col-md-12 text-center" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:left;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
+                    <span @click="dialogFormVisibler" class="pds user-hover"><i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;float:left;line-height:200px;"></i>添加工作负载配置信息</span>
                 </p>
         </div>
   </div>
