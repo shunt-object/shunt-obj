@@ -18,7 +18,7 @@
             <div class="change-list col-md-11 row">
                 <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
                     <div class="col-md-1">{{types.gname}}：</div>
-                    <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
+                    <!--<div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>-->
                     <ul class="col-md-10">
                         <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
                     </ul>
@@ -203,9 +203,8 @@ export default{
                 }) 
             }else{
                 for(let i=0;i<this.typeCheck.length;i++){
-                    console.log('====',this.typeCheck[i].type.childGroups);
                     for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
-                        if(this.typeCheck[i].type.childGroups[k].id==18){
+                        if(this.typeCheck[i].type.childGroups[k].id==Id){
                             this.typeCheck.splice(i,1);
                         }
                     }
