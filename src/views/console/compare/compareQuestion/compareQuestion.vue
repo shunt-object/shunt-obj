@@ -113,7 +113,7 @@ export default{
     methods:{
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
-                console.log('----',response.data.data);
+                //console.log('----',response.data.data);
                 this.typelist = response.data.data;
                 this.havelist = response.data.data;
                 let arr =[];
@@ -141,33 +141,6 @@ export default{
                 
             })
         },
-        getTwo:function(id,all){//1 =单选 0=全选
-            let index = 0;
-            //this.typeCheck = [];
-            this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
-                for(let n=0;n<response.data.data.length;n++){
-                    this.allLsit.push({boolean:false});
-                    for(let i=0;i<response.data.data[n].childGroups.length;i++){
-                        this.numlist.push({boolean:true});
-                        if(response.data.data[n].childGroups[i].selected==true){
-                            if(all==1&&response.data.data[n].childGroups[i].id!=id){
-                                this.typeCheck = [];
-                                this.questionList(response.data.data[n].childGroups[i].id,true,n);
-                                this.numlist[i].boolean = true;
-                            }else{
-                                this.allindex++;
-                                if(this.allindex==1){
-                                    this.questionList(response.data.data[n].childGroups[i].id,true,n);
-                                    this.numlist[i].boolean = true;
-                                } 
-                            }                       
-                        }
-                    }
-                }         
-            }).catch((error)=>{
-                
-            })
-        },
         getOptions:function(){
             this.$this.get('/broker/compare/feature/option').then((response)=>{
                 //console.log('ccc',response);
@@ -184,10 +157,10 @@ export default{
             }
         },
         changeType:function(Ind,index){
+            console.log(this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
                 this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind);
-                this.getTwo(this.typelist[Ind].childGroups[index].id,1);
             }else{
                 this.typelist[Ind].childGroups[index].selected=false;
                 this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
@@ -212,33 +185,59 @@ export default{
                     }                    
                 }
             }
-            this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
-                if(boolean==true){
-                    this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
-                    for(let n=0;n<this.typeCheck.length;n++){
-                        for(let v=0;v<this.typeCheck[n].data.length;v++){
-                            //this.valuelist.push(this.typeCheck[n].data[v].id);
-                            this.valuelist[this.typeCheck[n].data[v].id] = '';
-                            // 默认选中
-                            if(this.typeCheck[n].data[v].selectOptId!=null){
-                                //this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
-                                this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId-1];
+            if(boolean==true){
+                this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
+                        this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
+                        for(let n=0;n<this.typeCheck.length;n++){
+                            for(let v=0;v<this.typeCheck[n].data.length;v++){
+                                //this.valuelist.push(this.typeCheck[n].data[v].id);
+                                //this.valuelist[this.typeCheck[n].data[v].id] = '';
+                                // 默认选中
+                                if(this.typeCheck[n].data[v].selectOptId!=null){
+                                    //this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
+                                    this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId-1];
+                                }
                             }
                         }
-                    }
-                    //console.log('---',this.typeCheck);
-                }else{
-                    for(let i=0;i<this.typeCheck.length;i++){
-                        for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
-                            if(this.typeCheck[i].type.childGroups[k].id==Id){
-                                this.typeCheck.splice(i,1);
-                            }
+                }).catch((error)=>{ 
+                }) 
+            }else{
+                for(let i=0;i<this.typeCheck.length;i++){
+                    console.log('====',this.typeCheck[i].type.childGroups);
+                    for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
+                        if(this.typeCheck[i].type.childGroups[k].id==18){
+                            this.typeCheck.splice(i,1);
                         }
                     }
                 }
-                 //console.log('---',this.typeCheck);
-            }).catch((error)=>{ 
-            }) 
+            }
+            // this.$this.get('/broker/compare/feature/'+this.appId+'/'+Id+'').then((response)=>{
+            //     if(boolean==true){
+            //         this.typeCheck.push({boolean:true,type:this.typelist[Index],data:response.data.data,name:this.typelist[Index].childGroups[ax].gname});                   
+            //         for(let n=0;n<this.typeCheck.length;n++){
+            //             for(let v=0;v<this.typeCheck[n].data.length;v++){
+            //                 //this.valuelist.push(this.typeCheck[n].data[v].id);
+            //                 //this.valuelist[this.typeCheck[n].data[v].id] = '';
+            //                 // 默认选中
+            //                 if(this.typeCheck[n].data[v].selectOptId!=null){
+            //                     //this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId];
+            //                     this.valuelist[this.typeCheck[n].data[v].id] = this.optionlist[this.typeCheck[n].data[v].selectOptId-1];
+            //                 }
+            //             }
+            //         }
+            //         console.log('---',this.typeCheck);
+            //     }else{
+            //         for(let i=0;i<this.typeCheck.length;i++){
+            //             for(let k=0;k<this.typeCheck[i].type.childGroups.length;k++){
+            //                 if(this.typeCheck[i].type.childGroups[k].id==Id){
+            //                     this.typeCheck.splice(i,1);
+            //                 }
+            //             }
+            //         }
+            //     }
+            //      //console.log('---',this.typeCheck);
+            // }).catch((error)=>{ 
+            // }) 
         },
         changeSelect:function(item){
             let obj = {
@@ -263,26 +262,23 @@ export default{
             this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(e){
-            // this.typeCheck = [];
             if(this.allLsit[e].boolean==false){
                 this.allLsit[e].boolean=true;
                 this.typelist[e].selected = true;
                 for(let i=0;i<this.typelist[e].childGroups.length;i++){
-                 if(this.typelist[e].childGroups[i].selected==false){
-                    this.questionList(this.typelist[e].childGroups[i].id,true,e);
-                    this.typelist[e].childGroups[i].selected=true;
-                    //console.log(this.typelist[e].childGroups[i].id);
-                    this.getTwo(this.typelist[e].childGroups[i].id,0);
-                 }
+                    if(this.typelist[e].childGroups[i].selected==false){
+                        this.questionList(this.typelist[e].childGroups[i].id,true,e);
+                        this.typelist[e].childGroups[i].selected=true;
+                    }
                 }
             }else{
                 this.allLsit[e].boolean=false;
                 this.typelist[e].selected = false;
                 for(let i=0;i<this.typelist[e].childGroups.length;i++){
-                 if(this.typelist[e].childGroups[i].selected==true){
-                    this.questionList(this.typelist[e].childGroups[i].id,false,e);
-                    this.typelist[e].childGroups[i].selected=false;
-                 }
+                    if(this.typelist[e].childGroups[i].selected==true){
+                        this.questionList(this.typelist[e].childGroups[i].id,false,e);
+                        this.typelist[e].childGroups[i].selected=false;
+                    }
                 }
             }
             
