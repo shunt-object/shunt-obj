@@ -33,8 +33,7 @@
         <div>
             <div class="footer-inert"></div>
             <div class="row text-center footer-last" >       
-                <p class="text-center thin col-xs-12">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp苏ICP备18002559号</p>
-                
+                <p class="text-center thin col-xs-12">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-1</a></p>
             </div>
         </div>
       </div>
