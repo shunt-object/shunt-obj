@@ -203,7 +203,7 @@
         <div class="col-md-4"></div>
     </div>
     <div class="reg-footer">
-        <p class="reg-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-1</a>&nbsp&nbspTEL：400-612-218</p>
+        <p class="reg-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a style="color:#969696" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-1</a>&nbsp&nbspTEL：400-612-218</p>
     </div>
     <router-view></router-view>
 </div>
