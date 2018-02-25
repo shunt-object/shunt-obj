@@ -446,7 +446,7 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#dedede'
+                            color: '#ccc'
                         }
                     },
                     nameTextStyle:{
