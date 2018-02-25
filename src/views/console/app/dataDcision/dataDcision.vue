@@ -278,6 +278,9 @@ export default{
                                 color: '#ccc'
                             }
                         },
+                        nameTextStyle:{
+                            color:'#999'
+                        },
                         nameLocation:'end'
                     }],
                     yAxis: [{
@@ -291,6 +294,9 @@ export default{
                                 color: '#ccc'
                             }
                         },
+                        nameTextStyle:{
+                            color:'#999'
+                        },
                     },{
                         type:'value',
                         name:'',
@@ -301,6 +307,9 @@ export default{
                             lineStyle: {
                                 color: '#ccc'
                             }
+                        },
+                        nameTextStyle:{
+                            color:'#999'
                         },
                     }],
                     series: [{
@@ -450,7 +459,7 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#333'
+                        color:'#999'
                     }
                 },
                 yAxis: {
@@ -471,7 +480,7 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#333'
+                        color:'#999'
                     }
                 },
                 series: [{

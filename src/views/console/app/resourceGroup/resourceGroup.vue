@@ -391,6 +391,7 @@
 .enterDing{
     background:#da121a !important;
     color:#fff !important;
+    border:none;
 }
 .suan{
     background:#ccc !important;
@@ -429,7 +430,8 @@
 
 .pds:hover{
     cursor:pointer;
-    color:#000;
+    /*color:#000;*/
+    color:#f7a72c !important;
 }
 .el-input{
 
@@ -527,6 +529,16 @@ a:hover{
 }
 .iconfont:hover{
     cursor:pointer;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background-color: #f7a72c !important;
+    border-color: #f7a72c !important;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+    color:#f7a72c !important;
+}
+.el-checkbox__inner:hover{
+    border-color: #f7a72c !important;
 }
 </style>
 <script>

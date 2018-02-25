@@ -295,11 +295,11 @@ export default{
         }
     },
     updated:function(){
-        if(this.inds = 1){
-            this.isClass = false;
-        }else if(this.inds = 0){
-             this.isClass = false;
-        }
+        // if(this.inds = 1){
+        //     this.isClass = false;
+        // }else if(this.inds = 0){
+        //      this.isClass = false;
+        // }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
@@ -589,6 +589,7 @@ export default{
             //$("#difference-box").css({"height":"100% !important"});
             $('#pdf-wrap').css({"background":"#fff"});
             let that = this;
+            this.isClass = true;
             pdf.addHTML($("#pdf-wrap"), options, function() {
                 pdf.save('综合报告'+time+'.pdf');
                 that.isClass = false;
