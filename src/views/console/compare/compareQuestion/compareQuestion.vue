@@ -157,13 +157,24 @@ export default{
             }
         },
         changeType:function(Ind,index){
-            console.log(this.typelist[Ind].childGroups[index]);
+            //console.log(this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
-                this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind);
+                this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind,this.typelist[Ind].childGroups[index].gname);
             }else{
                 this.typelist[Ind].childGroups[index].selected=false;
-                this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind);
+                let aindex = 0;
+                for(let i=0;i<this.typelist[Ind].childGroups.length;i++){
+                    if(this.typelist[Ind].childGroups[i].selected==true){
+                        aindex++;
+                    }
+                }
+                if(aindex>0){
+                    this.typelist[Ind].selected = true;
+                }else{
+                    this.typelist[Ind].selected = false;
+                }
+                this.questionList(this.typelist[Ind].childGroups[index].id,false,Ind,this.typelist[Ind].childGroups[index].gname);
             }
             // for(let i=0;i<this.havelist.length;i++){
             //     this.typelist[i].selected = this.havelist[i].selected;
@@ -176,7 +187,7 @@ export default{
                 }
             }
         },
-        questionList:function(Id,boolean,Index){
+        questionList:function(Id,boolean,Index,listname){
             let ax;
             for(let j=0;j<this.typelist.length;j++){
                 for(let a=0;a<this.typelist[j].childGroups.length;a++){
@@ -202,16 +213,12 @@ export default{
                 }).catch((error)=>{ 
                 }) 
             }else{
-                let that = this,arr= [];
+                let that = this;
                 this.typeCheck.forEach(function(value,index){
-                    value.type.childGroups.forEach(function(val,ind){
-                        if(val.id==Id){
-                            arr.push(value);
-                            arr.splice(index,1);
-                        }
-                    })
+                    if(value.name==listname){
+                        that.typeCheck.splice(index,1);
+                    }
                 })
-                that.typeCheck = arr;
             } 
         },
         changeSelect:function(item){
@@ -237,6 +244,7 @@ export default{
             this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(e){
+            //console.log(this.typelist);
             if(this.allLsit[e].boolean==false){
                 this.allLsit[e].boolean=true;
                 this.typelist[e].selected = true;
@@ -251,7 +259,7 @@ export default{
                 this.typelist[e].selected = false;
                 for(let i=0;i<this.typelist[e].childGroups.length;i++){
                     if(this.typelist[e].childGroups[i].selected==true){
-                        this.questionList(this.typelist[e].childGroups[i].id,false,e);
+                        this.questionList(this.typelist[e].childGroups[i].id,false,e,this.typelist[e].childGroups[i].gname);
                         this.typelist[e].childGroups[i].selected=false;
                     }
                 }

@@ -220,7 +220,8 @@
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
           <img src="../../assets/ali.png" alt="" class="jz-img">
-          <img src="../../assets/Group44.png" alt=""  class="jz-img">
+          <!--<img src="../../assets/Group44.png" alt=""  class="jz-img">-->
+          <img src="../../assets/Group44-new.png" alt=""  class="jz-img">
         </div>
         
       </div>

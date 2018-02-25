@@ -69,7 +69,7 @@
                 <div class="seleconeMain-echarts container broundU">
                     <p class="child-p text-center col-xs-12" style="font-weight:100">提供一站式全流程用户体验</p>
                     <div class="col-md-12 seleconeMain-img" >
-                        <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;"></div>
+                        <div class="col-md-12 col-xs-12 text-center"><!--<img src="../../../assets/zhenshi.png" alt="" style="width:55%;height:55%;">--><img src="../../../assets/zhenshi-new.png" alt="" style="width:55%;height:55%;"></div>
                     </div>
                   
                 </div>
