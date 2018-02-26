@@ -809,12 +809,20 @@ export default {
             this.$router.push({path:'/CreateAnalysis',query:{type:'plan'}});
         },
         toggleShow:function(index){
+          
+            
             if(this.togglelist[index].boolean==true){
               
                 this.togglelist[index].boolean=false;
+                var setBoolean;
+                setBoolean = JSON.stringify( this.togglelist );  //变字符串  存储里只能存字符串  把整个数组都存进去 而不是只存数组[index]的一个 
+                localStorage.setItem("as",setBoolean);
             }else{
                 
                 this.togglelist[index].boolean=true;
+                var setsBoolean;
+                setsBoolean =  JSON.stringify( this.togglelist );
+                localStorage.setItem("as",setsBoolean);
             }
         }
     },
@@ -829,33 +837,35 @@ export default {
             }else{
                 this.flag=false
             }
-            for(let i = 0;i<this.vpd.length;i++){            
-                this.ssd = this.vpd[i].projectApps;
-                this.togglelist.push({boolean:true});                            
-                // app   5个
-                console.log(this.ssd.length);
-                if(this.ssd.length>1){
-           
-                    $(".active").addClass("activs")
-                }
-                // for(let e = 0;e<this.ds.length;e++){
-                //         console.log(this.ds[e])
-                // }  
-                for(let j=0;j<this.ssd.length;j++){
-                    // console.log('appname-----',this.ssd[j].appname);
-                    // this.df.push(this.ssd[j].appname);
-                    this.dg = this.ssd[j].appResults;
-                    console.log(this.dg);
-                    for(let c = 0;c<this.dg.length;c++){
-                        this.gv = this.dg[c].result;
-                 //       console.log(eval("("+ this.gv +")") );
-                   //     console.log(this.gv )
-
+            if( localStorage.getItem("as")){
+                var setAms = JSON.parse(localStorage.getItem("as"));
+                this.togglelist = setAms;
+            }else{
+                for(let i = 0;i<this.vpd.length;i++){            
+                    this.ssd = this.vpd[i].projectApps;
+                    this.togglelist.push({boolean:true});              
+                    // app   5个
+                    console.log(this.ssd.length);
+                    if(this.ssd.length>1){
+            
+                        $(".active").addClass("activs")
                     }
-                }
-            }                        
-        },(err)=>{
-            console.log("不好意思")
+                console.log(this.ds[e])
+            
+                    for(let j=0;j<this.ssd.length;j++){
+                
+                        this.dg = this.ssd[j].appResults;
+                        console.log(this.dg);
+                        for(let c = 0;c<this.dg.length;c++){
+                            this.gv = this.dg[c].result;
+                
+
+                        }
+                    }
+                }    
+            }                    
+            },(err)=>{
+                console.log("不好意思")
         })
     }}
 </script>

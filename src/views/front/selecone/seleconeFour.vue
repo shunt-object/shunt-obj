@@ -248,7 +248,7 @@
         max-width: 1090px;
    }
    .cloundbanner{
-       background:url('../../../assets/compares.png') no-repeat;background-size:cover;   
+       background:url('../../../assets/compares.jpg') no-repeat;background-size:cover;   
    }
    .clound-dvs{
        margin-top:112px;

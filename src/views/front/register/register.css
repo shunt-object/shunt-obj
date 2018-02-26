@@ -251,3 +251,13 @@
 .btn-small{
     margin-bottom:20px !important;
 }
+.indus option{
+     -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+}
+.indus option:focus{
+     
+  background:#000 !important;
+  color:red;
+}

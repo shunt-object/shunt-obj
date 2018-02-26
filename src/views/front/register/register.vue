@@ -77,7 +77,7 @@
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
                     <span class="reg-from-key">所属行业：</span>
-                    <select class="business" v-model="industry">
+                    <select class="business indus" v-model="industry">
                         <option v-for="item in industryList" :value="item">{{item.name}}</option>
                     </select>
                 </div>
@@ -209,6 +209,8 @@
 </div>
 </template>
 <script>
+
+
 import '../register/register.css'
 export default{
     name:'register',

@@ -271,7 +271,7 @@
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
+                <div class="col-md-3" style="margin-top:15px;margin-bottom:20px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">存储服务</h4>
                     <p><span  style="color: #da121a">{{inu.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
