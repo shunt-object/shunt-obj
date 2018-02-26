@@ -254,7 +254,9 @@
          
 </div>
 </template>
+
 <object id="factory" style="display:none" viewastext classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" codebase="ScriptX.cab#Version=5,60,0,360"></object>
+
 <script>
 import child from '../../../../components/steps/steps.vue'
 import '../colligateReport/colligateReport.css'
@@ -604,11 +606,11 @@ export default{
         //     // newWindow.document.close();     //关闭document的输出流, 显示选定的数据
                 var a =$("#difference-box").html();
                  $("#boxinnerHtml").html(a);
-                 $("#difference-box").hide();
+                 $("#difference-box").addClass("pala");
           // this.isClass = true;
           window.print();   //打印当前窗口
            $("#boxinnerHtml").html("");
-           $("#difference-box").show();
+           $("#difference-box").removeClass("pala");
         //   this.inds = 1;
         //   this.getdata();
             
