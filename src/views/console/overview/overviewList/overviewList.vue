@@ -36,7 +36,7 @@
                     </li> 
                     <li class="slider-panel" v-show="this.welco"> 
                         <div class="modle-title" ><h1>ClouldBroker²<span>六步祝您轻松上云</span></h1></div>
-                        <a><!--<img src="../../../../assets/overview/welcome2.png">--><img src="../../../../assets/overview/welcome2-new.jpg"></a>
+                        <a><!--<img src="../../../../assets/overview/welcome2.png">--><img src="../../../../assets/overview/welcome2-new.png"></a>
                         <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
                           
                     </li> 
