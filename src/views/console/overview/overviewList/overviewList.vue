@@ -841,6 +841,7 @@ export default {
                 var setAms = JSON.parse(localStorage.getItem("as"));
                 this.togglelist = setAms;
             }else{
+                
                 for(let i = 0;i<this.vpd.length;i++){            
                     this.ssd = this.vpd[i].projectApps;
                     this.togglelist.push({boolean:true});              
@@ -850,7 +851,7 @@ export default {
             
                         $(".active").addClass("activs")
                     }
-                console.log(this.ds[e])
+                // console.log(this.ds[e])
             
                     for(let j=0;j<this.ssd.length;j++){
                 
