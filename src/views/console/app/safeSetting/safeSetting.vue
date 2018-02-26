@@ -171,7 +171,7 @@ export default{
                 this.safe.phone = '';
                 this.$message.error('请输入手机号');
             }else{
-                this.count = 300;
+                this.count = 60;
                 this.phonedis = true;
                 let that = this;
                 this.sendPhone();

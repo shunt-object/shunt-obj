@@ -587,7 +587,7 @@ export default{
                 pagesplit: true              
             };
             //$("#difference-box").css({"height":"100% !important"});
-            $('#pdf-wrap').css({"background":"#fff"});
+            $('#pdf-wrap').css({"background":"#fff","border-width":"0px"});
             let that = this;
             this.isClass = true;
             pdf.addHTML($("#pdf-wrap"), options, function() {
