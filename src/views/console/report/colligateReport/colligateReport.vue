@@ -612,7 +612,7 @@ export default{
         //   this.inds = 1;
         //   this.getdata();
             
-         console.log(a);
+         //console.log(a);
         //     //return true;
             
      }
