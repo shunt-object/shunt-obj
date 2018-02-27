@@ -116,7 +116,7 @@
                 </el-form-item>
                 <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
                     <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
-                        <el-option :value="ros.id" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
+                        <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
                     <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
                 </el-form-item>
@@ -124,15 +124,15 @@
            </div>
          </el-form>
          <!--添加时触发的按钮-->
-        <div slot="footer" class="dialog-footer" v-show="CreadCenter">
+        <div slot="footer" class="dialog-footer">
             <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
             <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
-        <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
+       <!-- <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
             <el-button @click="dialogFormVis()" class="enterDing ResourceGroup-lay-btn">确定</el-button>
             <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>        
-        </div>
+        </div>-->
   </el-dialog>
  
   <div id="main">
@@ -275,8 +275,8 @@
                     <ul class="cuncul">
                         <li v-if="inu.cloudStorage==undefined||inu.cloudStorage==''" style="color: #797979">--</li>
                         <li v-else style="color: #da121a">{{inu.cloudStorage}}</li>
-                        <li v-if="inu.serverName==undefined||inu.serverName==''"><span  style="color: #797979">（--）</span>云存储（GB）</li>
-                        <li v-else>（<span style="color: #da121a">{{inu.serverName}}</span>）云存储（GB）</li>
+                        <li v-if="inu.cse==undefined||inu.cse==''"><span  style="color: #797979">（--）</span>云存储（GB）</li>
+                        <li v-else>（<span style="color: #da121a">{{inu.cse.name}}</span>）云存储（GB）</li>
                     </ul>
                 </div>
             </div>
@@ -566,7 +566,7 @@ export default {
            
          
          },
-        CreadCenter:false,
+       
         orCreadCenter:false,
         dialogTableVisible: false,
         dialogFormVisible: false,
@@ -721,7 +721,7 @@ export default {
      dialogFormVisibler:function(){
            this.alertTitle = false; 
         this.dialogFormVisible = true;
-        this.CreadCenter = true;
+       
         this.orCreadCenter = false;
          this.regionter = "";
          this.coresShj = {};
@@ -892,7 +892,7 @@ export default {
                                             sna:this.inusShj.sna,
                                             nsa:this.inusShj.nsa,
                                             cloudStorage:this.inusShj.cloudStorage,
-                                            serverName:this.inusShj.serverName,
+                                            cse:this.inusShj.serverName,
                                             appid: Number(this.appId)
                                         }
                                     );
@@ -903,11 +903,20 @@ export default {
                                                 sna:this.inusShj.sna,
                                                 nsa:this.inusShj.nsa,
                                                 cloudStorage:this.inusShj.cloudStorage,
-                                                serverName:this.inusShj.serverName,
+                                                cse:this.inusShj.serverName,
                                                 appid: Number(this.appId)
                                             }
                                         )
                                     }
+                                    console.log(this.inusShj.serverName);
+                                    for(let i = 0 ;i<this.inus.length;i++){
+                                        var objs = this.inus[this.inus.length-1]
+                                    }
+                                    this.$this.post('/broker/app/resource/group/storage',objs).then((res)=>{
+                                       alert("哈哈")
+                                    },(err)=>{
+                                        console.log("不好意思")
+                                    });   
                                         this.v++;
                                         this.col = 4;
                                         this.dialogFormVisible =false;
@@ -975,8 +984,9 @@ export default {
     },
     yybian:function(e){
          this.dialogFormVisible =true;
-         this.CreadCenter = false;
-        this.orCreadCenter = true;
+        
+        
+      
        this.regionter = "server";
        console.log(e)
         this.coresShj = this.cores[e];
@@ -985,14 +995,14 @@ export default {
     },
     sjbian:function(e){
         this.dialogFormVisible = true;
-        this.CreadCenter = false;
-        this.orCreadCenter = true;
+        
+      
         this.inesShj = this.ines[e]
         this.regionter = "db";
     },
     wlbian:function(){
-        this.CreadCenter = false;
-        this.orCreadCenter = true;
+        
+        
          this.regionter = "net";
          this.dialogFormVisible = true;
          
@@ -1001,8 +1011,8 @@ export default {
         this.regionter = "storage";
          this.dialogFormVisible = true;
            this.alertTitle = false; 
-         this.CreadCenter = false;
-        this.orCreadCenter = true;
+        
+       
         this.inusShj = this.inus[e];
         if(this.inusShj.sna!=undefined){
            this.asd = true;
