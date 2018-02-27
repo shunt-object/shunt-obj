@@ -80,6 +80,7 @@ export default{
             linetab:'1',
             istypeslist:false,
             linearr:[],
+            linearr_b:[],
             radarTitle:''
         }
     },
@@ -201,6 +202,7 @@ export default{
             this.$this.post('/broker/user/analysis/putCloud/',str).then((reponse)=>{
                 for(let i=0;i<reponse.data.data.length;i++){//reponse.data.data[i].months
                     this.linearr.push([reponse.data.data[i].months,reponse.data.data[i].num]);
+                    this.linearr_b.push([reponse.data.data[i].months,reponse.data.data[i].num+1]);
                     this.$nextTick(function() {
                         this.canversLine('line')
                     })
@@ -259,17 +261,18 @@ export default{
                             crossStyle: {
                                 color: '#999'
                             }
-                        }
+                        },
+                        formatter: '{a}: {c0}'
                     },
                     legend: {
-                        data: ['上云总数'],
+                        data: ['上云趋势','上云总数'],
                         x:'79%',
                         y:'10px'
                     },
                     xAxis: [{
                         name:'  月份',
                         type:'category',
-                        data: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+                        data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
                         axisPointer:{
                             type:'shadow'
                         },
@@ -313,19 +316,20 @@ export default{
                         },
                     }],
                     series: [{
-                        name:'',
+                        name:'上云总数',
                         type:'bar',
                         data:this.linearr,
                         itemStyle:{
                             normal:{
                                 color:'#f7a72c'
                             }
-                        }
+                        },
+                        barWidth : 25,//柱图宽度
                     },{
-                        name:'上云总数',
+                        name:'上云趋势',
                         type:'line',
                         yAxisIndex: 1,
-                        data:this.linearr,
+                        data:this.linearr_b,
                         lineStyle:{
                             normal:{
                                 color:'#da121a'
@@ -347,7 +351,7 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                //color:['red', 'green','yellow' ,'blueviolet'],
+                color:['#da121a', '#F7A72C','#E15F2D'],
                 legend: {
                     orient : 'vertical',
                     x : '79%',
@@ -368,7 +372,7 @@ export default{
                                 borderWidth:'0'
                             }
                         },
-                        center:['50%','45%']
+                        center:['50%','50%']
                     }
                 ]
             })
@@ -397,6 +401,7 @@ export default{
                         saveAsImage : {show: true}
                     }
                 },
+                color:['#da121a'],
                 polar : [
                 {
                     indicator : this.radarmax
@@ -442,6 +447,7 @@ export default{
                         }                        
                     }
                 },
+                color:['#da121a'],
                 xAxis: {
                     name: '云收益度',
                     type: 'value',
@@ -491,7 +497,7 @@ export default{
                     markLine: {
                         lineStyle: {
                             normal: {
-                                color: "#626c91",
+                                color: "#ccc",
                                 type: 'solid',
                                 width: 1,
                             },
