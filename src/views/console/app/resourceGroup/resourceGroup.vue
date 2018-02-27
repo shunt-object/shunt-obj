@@ -71,12 +71,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="inesShj.os" placeholder="请选择">
-                        <el-option :value="rs.id" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
+                        <el-option :value="rs" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="inesShj.computeMappingFactor" placeholder="请选择">
-                        <el-option :value="rufs.id" :label="rufs.name" :key="rufs.name" v-for="rufs in rufs"></el-option>
+                        <el-option :value="rufs" :label="rufs.name" :key="rufs.name" v-for="rufs in rufs"></el-option>
                     </el-select>
                 </el-form-item>
                 </el-form>
@@ -200,8 +200,8 @@
                         <li v-if="ins.ghz==undefined||ins.ghz==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ghz}}</li>
                         <li class="liGe">处理器主频（GHZ）</li>
-                        <li v-if="ins.os==undefined||ins.os==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{ins.os}}</li>
+                        <li v-if="ins.osType==undefined||ins.osType==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{ins.osType.name}}</li>
                         <li>操作系统</li>
                     </ul>
                 </div>
@@ -210,8 +210,8 @@
                         <li v-if="ins.ram==undefined||ins.ram==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ram}}</li>
                         <li class="liGe">内存（GB）</li>
-                        <li v-if="ins.computeMappingFactor==undefined||ins.computeMappingFactor==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{ins.computeMappingFactor}}</li>
+                        <li v-if="ins.cmf==undefined||ins.cmf==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{ins.cmf.name}}</li>
                         <li>资源平均利用率</li>
                     </ul>
                 </div>
@@ -662,7 +662,8 @@ export default {
        queryType:'',
        rs:[],
        ros:[],
-       rufs:[]
+       rufs:[],
+       result:[]
     }
   },
   mounted:function(){
@@ -672,23 +673,27 @@ export default {
       console.log("="+this.appId) 
       this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                     
-                    this.result =  res.data.data; 
-                    console.log( res);
+                    this.result =  res.data; 
+                    console.log( this.result);
+                    if(this.result.msg=="数据无"){
+                        return ;
+                    }else{
                      //this.$router.push({path:'/login'});/planQuestion
-                     
-                     if(this.result.network.bandwidth==null&&this.result.network.inbound==null&&this.result.network.outbound==null){
-                        this.wangl =false;
-                     }else if(this.result.network.bandwidth!=null&&this.result.network.inbound!=null&&this.result.network.outbound!=null){
-                         this.netRule=this.result.network;
-                         this.wangl=true;
+                    
+                        if(this.result.network==null){
+                            this.wangl =false;
+                        }else if(this.result.network!=null){
+                            this.netRule=this.result.network;
+                            this.wangl=true;
+                        }
+                        
+                        
+                        
+                        this.cores=this.result.appServer;
+                        this.ines = this.result.dbServer;
+                        this.inus = this.result.storage;
+                        console.log(this.result.dbServer);
                      }
-                    
-                     
-                    
-                     this.cores=this.result.appServer;
-                     this.ines = this.result.dbServer;
-                     this.inus = this.result.storage;
-                     console.log(this.result.dbServer);
                      },(err)=>{
                          console.log("不好意思")
                      });
@@ -817,10 +822,10 @@ export default {
                                             cores:this.inesShj.cores,
                                             ghz:this.inesShj.ghz,
                                             ram:this.inesShj.ram,
-                                            computeMappingFactor:this.inesShj.computeMappingFactor, 
+                                            cmf:this.inesShj.computeMappingFactor, 
                                             localDisk:this.inesShj.localDisk,
-                                            os:this.inesShj.os,
-                                           
+                                            osType:this.inesShj.os,
+                                           appid: Number(this.appId)
                                         }
                                     )
                                 }else{
@@ -830,13 +835,25 @@ export default {
                                             cores:this.inesShj.cores,
                                             ghz:this.inesShj.ghz,
                                             ram:this.inesShj.ram,
-                                            computeMappingFactor:this.inesShj.computeMappingFactor, 
+                                            cmf:this.inesShj.computeMappingFactor, 
                                             localDisk:this.inesShj.localDisk,
-                                            os:this.inesShj.os,
-                                            
+                                            osType:this.inesShj.os,
+                                            appid: Number(this.appId)
                                         }
                                     )
                                 };
+                                    let obs=this.ines;
+                                    for(let i = 0 ;i<this.ines.length;i++){
+                                        var objs = this.ines[this.ines.length-1]
+                                    }
+                                    
+                                    //let objer = objs;
+                                    console.log(objs)
+                                    this.$this.post('/broker/app/resource/group/server/2',objs).then((res)=>{
+                                        alert("成功")
+                                    },(err)=>{
+                                        console.log("不好意思")
+                                    });  
                             } else {
                                 console.log('error 出现问题!!');
                                 return false;
@@ -857,6 +874,17 @@ export default {
                                   this.dialogFormVisible =false;
                                     this.regionter="";
                                     this.col = 3;
+                                    let objers = {
+                                        appid: Number(this.appId),
+                                        bandwidth:this.netRule.bandwidth,
+                                        inbound:this.netRule.inbound,
+                                        outbound:this.netRule.outbound
+                                    }
+                                   this.$this.post('/broker/app/resource/group/net',objers).then((res)=>{
+                                        alert("成功")
+                                    },(err)=>{
+                                        console.log("不好意思")
+                                    });   
                             } else {
                                 console.log('error submit!!');
                                 return false;
