@@ -765,7 +765,7 @@ export default {
                                         cmf:this.coresShj.computeMappingFactor,
                                         localDisk:this.coresShj.localDisk,
                                         osType:this.coresShj.os,
-                                        appId: Number(this.appId),
+                                        appid: Number(this.appId),
                                         num:"1"
                                 }
                             )
@@ -778,7 +778,7 @@ export default {
                                     cmf:this.coresShj.computeMappingFactor,
                                     localDisk:this.coresShj.localDisk,
                                     osType:this.coresShj.os,
-                                    appId: Number(this.appId),
+                                    appid: Number(this.appId),
                                     num:this.coresShj.num
                                    }
                                 )
