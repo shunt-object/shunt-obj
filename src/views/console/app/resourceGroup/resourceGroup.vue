@@ -40,17 +40,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="coresShj.os" placeholder="请选择">
-                        <el-option value="Linux">Linux</el-option>
-                        <el-option value="Window">Window</el-option>
-                        <el-option value="Unix">Unix</el-option>
+                        <el-option :value="rs" v-for="rs in rs"  :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="coresShj.computeMappingFactor" placeholder="请选择">
-                        <el-option value="≤30%">≤30%</el-option>
-                        <el-option value="30%-60%">30%-60%</el-option>
-                        <el-option value="60%-90%">60%-90%</el-option>
-                        <el-option value="≥90%">≥90%</el-option>
+                        <el-option :value="rus" v-for="rus in rus" :label="rus.name"></el-option>
                     </el-select>
                 </el-form-item>
               </el-form>
@@ -76,17 +71,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="inesShj.os" placeholder="请选择">
-                        <el-option value="Linux">Linux</el-option>
-                        <el-option value="Window">Window</el-option>
-                        <el-option value="Unix">Unix</el-option>
+                        <el-option :value="rs.id" v-for="rs in rs" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="inesShj.computeMappingFactor" placeholder="请选择">
-                        <el-option value="≤30%">≤30%</el-option>
-                        <el-option value="30%-60%">30%-60%</el-option>
-                        <el-option value="60%-90%">60%-90%</el-option>
-                        <el-option value="≥90%">≥90%</el-option>
+                        <el-option :value="rus.id" :label="rus.name" v-for="rus in rus"></el-option>
                     </el-select>
                 </el-form-item>
                 </el-form>
@@ -126,16 +116,7 @@
                 </el-form-item>
                 <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
                     <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
-                        <el-option value="AWS">AWS</el-option>
-                        <el-option value="Azure">Azure</el-option>
-                        <el-option value="阿里云">阿里云</el-option>
-                        <el-option value="腾讯云">腾讯云</el-option>
-                        <el-option value="金山云">金山云</el-option>
-                        <el-option value="电信云">电信云</el-option>
-                        <el-option value="UCloud">UCloud</el-option>
-                        <el-option value="华为云">华为云</el-option>
-                        <el-option value="沃云">沃云</el-option>
-                        <el-option value="其它">其它</el-option>
+                        <el-option :value="ros.id" v-for="ros in ros" :label="ros.name"></el-option>
                     </el-select>
                     <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
                 </el-form-item>
@@ -179,8 +160,8 @@
                         <li v-if="jl.ghz==undefined||jl.ghz==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.ghz}}</li>
                         <li class="liGe">处理器主频（GHZ）</li>
-                        <li v-if="jl.os==undefined||jl.os==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{jl.os}}</li>
+                        <li v-if="jl.osType==undefined||jl.osType==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{jl.osType.name}}</li>
                         <li>操作系统</li>
                     </ul>
                 </div>
@@ -189,8 +170,8 @@
                         <li v-if="jl.ram==undefined||jl.ram==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{jl.ram}}</li>
                         <li class="liGe">内存（GB）</li>
-                        <li v-if="jl.computeMappingFactor==undefined||jl.computeMappingFactor==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{jl.computeMappingFactor}}</li>
+                        <li v-if="jl.cmf==undefined||jl.cmf==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{jl.cmf.name}}</li>
                         <li>资源平均利用率</li>
                     </ul>
                 </div>
@@ -646,8 +627,7 @@ export default {
                     computeMappingFactor:"",
                     localDisk:"",
                     os:"",
-                    monthlyUsage:"",
-                    dailyUsage:"",
+                 
                     num:"1",
           },     
        
@@ -659,9 +639,8 @@ export default {
             ram:"",
             computeMappingFactor:"", 
             localDisk:"",
-            os:"",
-            monthlyUsage:"",
-            dailyUsage:"",
+            os:""
+        
             
       },
         netRule:{
@@ -680,7 +659,10 @@ export default {
         },
 
        appId:"",
-       queryType:''
+       queryType:'',
+       re:[],
+       ros:[],
+       rus:[]
     }
   },
   mounted:function(){
@@ -691,7 +673,7 @@ export default {
       this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                     
                     this.result =  res.data.data; 
-                    console.log( this.result);
+                    console.log( res);
                      //this.$router.push({path:'/login'});/planQuestion
                      
                      if(this.result.network.bandwidth==null&&this.result.network.inbound==null&&this.result.network.outbound==null){
@@ -710,7 +692,22 @@ export default {
                      },(err)=>{
                          console.log("不好意思")
                      });
-  
+
+                    this.$this.get("broker/prop/typedata/os/-1").then((rs)=>{
+                            this.rs=rs.data.data;
+                    },(err)=>{
+                        console.log("不好意思")
+                    })
+                    this.$this.get("broker/prop/typedata/cmf/-1").then((rus)=>{
+                          this.rus = rus.data.data;
+                    },(err)=>{
+                        console.log("不好意思")
+                    })
+                    this.$this.get("broker/prop/typedata/cse/-1").then((ros)=>{
+                            this.ros = ros.data.data;
+                    },(err)=>{
+                        console.log("不好意思")
+                    })
                     
   },
   methods:{
@@ -765,11 +762,10 @@ export default {
                                         cores:this.coresShj.cores,
                                         ghz:this.coresShj.ghz,
                                         ram:this.coresShj.ram,
-                                        computeMappingFactor:this.coresShj.computeMappingFactor,
+                                        cmf:this.coresShj.computeMappingFactor,
                                         localDisk:this.coresShj.localDisk,
-                                        os:this.coresShj.os,
-                                        monthlyUsage:this.coresShj.monthlyUsage,
-                                        dailyUsage:this.coresShj.dailyUsage,
+                                        osType:this.coresShj.os,
+                                        appId: this.appId,
                                         num:"1"
                                 }
                             )
@@ -779,15 +775,26 @@ export default {
                                     cores:this.coresShj.cores,
                                     ghz:this.coresShj.ghz,
                                     ram:this.coresShj.ram,
-                                    computeMappingFactor:this.coresShj.computeMappingFactor,
+                                    cmf:this.coresShj.computeMappingFactor,
                                     localDisk:this.coresShj.localDisk,
-                                    os:this.coresShj.os,
-                                    monthlyUsage:this.coresShj.monthlyUsage,
-                                    dailyUsage:this.coresShj.dailyUsage,
+                                    osType:this.coresShj.os,
+                                    appId: this.appId,
                                     num:this.coresShj.num
                                    }
                                 )
-                            }       
+                            }
+                            let obj=this.cores;
+                            for(let i = 0 ;i<this.cores.length;i++){
+                                var objs = this.cores[this.cores.length-1]
+                            }
+                            
+                            //let objer = objs;
+                           
+                            this.$this.post('/broker/app/resource/group/server/1',objs).then((res)=>{
+                                alert("成功")
+                            },(err)=>{
+                                console.log("不好意思")
+                            });     
                     } else {
                         console.log('error 出现问题!!');
                         return false;
@@ -813,8 +820,7 @@ export default {
                                             computeMappingFactor:this.inesShj.computeMappingFactor, 
                                             localDisk:this.inesShj.localDisk,
                                             os:this.inesShj.os,
-                                            monthlyUsage:this.inesShj.monthlyUsage,
-                                            dailyUsage:this.inesShj.dailyUsage
+                                           
                                         }
                                     )
                                 }else{
@@ -827,8 +833,7 @@ export default {
                                             computeMappingFactor:this.inesShj.computeMappingFactor, 
                                             localDisk:this.inesShj.localDisk,
                                             os:this.inesShj.os,
-                                            monthlyUsage:this.inesShj.monthlyUsage,
-                                            dailyUsage:this.inesShj.dailyUsage
+                                            
                                         }
                                     )
                                 };
@@ -1010,8 +1015,7 @@ export default {
                     computeMappingFactor:"",
                     localDisk:"",
                     os:"",
-                    monthlyUsage:"",
-                    dailyUsage:"",
+                   
                     num:"1"
             }
           )
