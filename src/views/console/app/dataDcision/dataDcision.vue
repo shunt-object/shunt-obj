@@ -427,15 +427,15 @@ export default{
             this.charts = echarts.init(document.getElementById(id));
             this.charts.setOption({
                 //backgroundColor:'#ccc',
-                title: {
-                    text: '',
-                    textStyle:{
-                        color:'#333333',
-                        fontWeight:'bold',
-                        fontSize:'15'
-                    },
-                    left: 'center'
-                },
+                // title: {
+                //     text: '',
+                //     textStyle:{
+                //         color:'#333333',
+                //         fontWeight:'bold',
+                //         fontSize:'15'
+                //     },
+                //     left: 'center'
+                // },
                 tooltip: {
                     trigger: 'item',
                     axisPointer: {
@@ -445,9 +445,37 @@ export default{
                             type: 'dashed',
                             width: 1
                         }                        
+                    },
+                    formatter: function(obj) {
+                        if (obj.componentType == "series") {
+                            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' +
+                                obj.name +
+                                '</div>' +
+                                '<span>' +
+                                '云亲和度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[0]  +
+                                '<br/>' +
+                                '<span>' +
+                                '云收益度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[1] 
+                        }
                     }
                 },
-                color:['#da121a'],
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: function(params) {
+                            return params.name
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        position: 'bottom',
+                    }
+                },
                 xAxis: {
                     name: '云收益度',
                     type: 'value',
@@ -483,21 +511,45 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc'
+                            color: '#ccc',
+                            type: 'solid',
+                            width: '1.5'
                         }
                     },
                     nameTextStyle:{
                         color:'#999'
                     }
                 },
+                visualMap: {
+                    min: 0,
+                    max: 100,
+                    dimension: 0,
+                    left: 'right',
+                    top: '10',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: true,
+                    itemWidth: 10,
+                    itemHeight: 90,
+                    textStyle: {
+                        color: '#666',
+                        height: 56,
+                        fontSize: 11,
+                        lineHeight: 60,
+                    },
+                    inRange: {
+                        color: ['#f7a72c', '#da121a']
+                    },
+                    //padding: [50, 20],
+                    orient: 'horizontal',
+                },
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 20,
+                    //symbolSize: 20,
                     markLine: {
                         lineStyle: {
                             normal: {
-                                color: "#ccc",
+                                color: "#f7a72c",
                                 type: 'solid',
                                 width: 1,
                             },
@@ -507,7 +559,7 @@ export default{
                         },
                         data: [{
                             xAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -515,7 +567,7 @@ export default{
                             }
                         }, {
                             yAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
