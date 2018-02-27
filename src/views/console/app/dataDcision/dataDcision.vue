@@ -521,13 +521,13 @@ export default{
                     }
                 },
                 visualMap: {
-                    min: 0,
-                    max: 100,
+                    //min: 0,
+                    //max: 100,
                     dimension: 0,
                     left: 'right',
                     top: '10',
                     text: ['高', '低'], // 文本，默认为数值文本
-                    calculable: true,
+                    calculable: false,
                     itemWidth: 10,
                     itemHeight: 90,
                     textStyle: {
