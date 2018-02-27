@@ -278,7 +278,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#ccc'
+                                color: '#bebebe'
                             }
                         },
                         nameTextStyle:{
@@ -294,7 +294,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#ccc'
+                                color: '#bebebe'
                             }
                         },
                         nameTextStyle:{
@@ -384,7 +384,7 @@ export default{
                     text: '',
                 },
                 tooltip : {
-                    trigger: 'axis'
+                    //trigger: 'axis'
                 },
                 legend: {
                     orient : 'vertical',
@@ -403,8 +403,21 @@ export default{
                 },
                 color:['#da121a'],
                 polar : [
-                {
-                    indicator : this.radarmax
+                    {
+                        indicator : this.radarmax,
+                        // splitArea : {
+                        //     show : true,   
+                        //     areaStyle : {
+                        //         color: ["#fff",'#FEEFD7']  // 图表背景网格的颜色
+                        //     }
+                        // },
+                        // splitLine : {
+                        //     show : true,
+                        //     lineStyle : {
+                        //         width : 1,
+                        //         color : '#ccc' // 图表背景网格线的颜色
+                        //     }
+                        // }
                     }
                 ],
                 calculable : true,
@@ -482,15 +495,13 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
-                    axisLabel: {
-                        interval:0
-                    },
+                    interval:20,
                     splitLine: {
                         show: false
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc'
+                            color: '#bebebe'
                         }
                     },
                     nameTextStyle:{
@@ -503,15 +514,16 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
+                    interval:20,
                     axisLabel: {
-                        interval:20
+                        //formatter: '{value}'
                     },
                     splitLine: {
                         show: false
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc',
+                            color: '#bebebe',
                             type: 'solid',
                             width: '1.5'
                         }
@@ -521,8 +533,8 @@ export default{
                     }
                 },
                 visualMap: {
-                    //min: 0,
-                    //max: 100,
+                    min: 0,
+                    max: 100,
                     dimension: 0,
                     left: 'right',
                     top: '10',
@@ -537,7 +549,7 @@ export default{
                         lineHeight: 60,
                     },
                     inRange: {
-                        color: ['#f7a72c', '#da121a']
+                        color: ['yellow', '#da121a']
                     },
                     //padding: [50, 20],
                     orient: 'horizontal',
@@ -545,7 +557,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    //symbolSize: 20,
+                    symbolSize: 20,
                     markLine: {
                         lineStyle: {
                             normal: {
