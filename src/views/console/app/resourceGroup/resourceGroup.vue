@@ -125,7 +125,7 @@
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer" v-show="CreadCenter">
-            <el-button @click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
+            <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
             <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
@@ -602,11 +602,6 @@ export default {
           checkeder: false,
           checkedes: false,
           awsClound:"",
-
-    //    appId:"",
-    // isfas:false,
-    // isdas:false,
-    // isgas:false,
     valus:"",
     k:0,
     j:0,
@@ -627,7 +622,6 @@ export default {
                     computeMappingFactor:"",
                     localDisk:"",
                     os:"",
-                 
                     num:"1",
           },     
        
@@ -673,7 +667,7 @@ export default {
       console.log("="+this.appId) 
       this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                     
-                    this.result =  res.data; 
+                    this.result =  res.data.data; 
                     console.log( this.result);
                     if(this.result.msg=="数据无"){
                         return ;
@@ -686,12 +680,9 @@ export default {
                             this.netRule=this.result.network;
                             this.wangl=true;
                         }
-                        
-                        
-                        
-                        this.cores=this.result.appServer;
-                        this.ines = this.result.dbServer;
-                        this.inus = this.result.storage;
+                        this.cores=this.result.appServer==undefined?this.cores=[]:this.cores=this.result.appServer;
+                        this.ines = this.result.dbServer==undefined?this.ines=[]:this.ines=this.result.dbServer;
+                        this.inus = this.result.storage==undefined?this.inus=[]:this.inus=this.result.storage;
                         console.log(this.result.dbServer);
                      }
                      },(err)=>{
@@ -755,7 +746,6 @@ export default {
          
      },
       dialogFor:function(){
-        console.log(this.regionter);
         //console.log(formNames)
         console.log(this.coresShj.num);
             if(this.regionter=='server'){
@@ -796,7 +786,7 @@ export default {
                             //let objer = objs;
                            
                             this.$this.post('/broker/app/resource/group/server/1',objs).then((res)=>{
-                                alert("成功")
+                                
                             },(err)=>{
                                 console.log("不好意思")
                             });     
@@ -813,6 +803,7 @@ export default {
                                 this.dialogFormVisible =false;
                 });
               }else if(this.regionter=="db"){
+                 var that  = this;  
                  this.$refs['inesShj'].validate((valid) => {
                             if (valid) {
                                if(this.inesShj.num==undefined){
@@ -842,6 +833,7 @@ export default {
                                         }
                                     )
                                 };
+
                                     let obs=this.ines;
                                     for(let i = 0 ;i<this.ines.length;i++){
                                         var objs = this.ines[this.ines.length-1]
@@ -850,7 +842,7 @@ export default {
                                     //let objer = objs;
                                     console.log(objs)
                                     this.$this.post('/broker/app/resource/group/server/2',objs).then((res)=>{
-                                        alert("成功")
+                                       
                                     },(err)=>{
                                         console.log("不好意思")
                                     });  
@@ -881,7 +873,7 @@ export default {
                                         outbound:this.netRule.outbound
                                     }
                                    this.$this.post('/broker/app/resource/group/net',objers).then((res)=>{
-                                        alert("成功")
+                                       
                                     },(err)=>{
                                         console.log("不好意思")
                                     });   
@@ -900,7 +892,8 @@ export default {
                                             sna:this.inusShj.sna,
                                             nsa:this.inusShj.nsa,
                                             cloudStorage:this.inusShj.cloudStorage,
-                                            serverName:this.inusShj.serverName
+                                            serverName:this.inusShj.serverName,
+                                            appid: Number(this.appId)
                                         }
                                     );
                                 }else{
@@ -910,7 +903,8 @@ export default {
                                                 sna:this.inusShj.sna,
                                                 nsa:this.inusShj.nsa,
                                                 cloudStorage:this.inusShj.cloudStorage,
-                                            serverName:this.inusShj.serverName
+                                                serverName:this.inusShj.serverName,
+                                                appid: Number(this.appId)
                                             }
                                         )
                                     }
