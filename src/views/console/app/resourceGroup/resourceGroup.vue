@@ -40,12 +40,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="coresShj.os" placeholder="请选择">
-                        <el-option :value="rs" v-for="rs in rs"  :label="rs.name"></el-option>
+                        <el-option :value="rs" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="coresShj.computeMappingFactor" placeholder="请选择">
-                        <el-option :value="rus" v-for="rus in rus" :label="rus.name"></el-option>
+                        <el-option :value="rufs" v-for="rufs in rufs" :key="rufs.name" :label="rufs.name"></el-option>
                     </el-select>
                 </el-form-item>
               </el-form>
@@ -71,12 +71,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="inesShj.os" placeholder="请选择">
-                        <el-option :value="rs.id" v-for="rs in rs" :label="rs.name"></el-option>
+                        <el-option :value="rs.id" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="inesShj.computeMappingFactor" placeholder="请选择">
-                        <el-option :value="rus.id" :label="rus.name" v-for="rus in rus"></el-option>
+                        <el-option :value="rufs.id" :label="rufs.name" :key="rufs.name" v-for="rufs in rufs"></el-option>
                     </el-select>
                 </el-form-item>
                 </el-form>
@@ -116,7 +116,7 @@
                 </el-form-item>
                 <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
                     <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
-                        <el-option :value="ros.id" v-for="ros in ros" :label="ros.name"></el-option>
+                        <el-option :value="ros.id" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
                     <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
                 </el-form-item>
@@ -660,9 +660,9 @@ export default {
 
        appId:"",
        queryType:'',
-       re:[],
+       rs:[],
        ros:[],
-       rus:[]
+       rufs:[]
     }
   },
   mounted:function(){
@@ -699,7 +699,7 @@ export default {
                         console.log("不好意思")
                     })
                     this.$this.get("broker/prop/typedata/cmf/-1").then((rus)=>{
-                          this.rus = rus.data.data;
+                          this.rufs = rus.data.data;
                     },(err)=>{
                         console.log("不好意思")
                     })
