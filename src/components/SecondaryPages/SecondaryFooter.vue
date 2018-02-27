@@ -23,7 +23,7 @@
                 <p class="footer-jx">CloudBroker²</p>
                     <div class="footer-ke">
                         <p>您的专属上云顾问</p>
-                        <img src="../../assets/erweima.png" alt="">
+                        <img src="../../assets/erweima.jpg" alt="">
                     </div>
                 </div>
         </div>
