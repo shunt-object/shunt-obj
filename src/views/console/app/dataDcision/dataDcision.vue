@@ -347,6 +347,7 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
+                //color:['red', 'green','yellow' ,'blueviolet'],
                 legend: {
                     orient : 'vertical',
                     x : '79%',

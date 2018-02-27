@@ -152,6 +152,7 @@ Vue.prototype.logout = function(){
     this.$this.get('/broker/auth/logout').then((response)=>{
         if(response.data.code=='1'){
             sessionStorage.clear();
+            localStorage.clear();
             this.$router.push({path:'/'});
         }
     }).catch((error)=>{
