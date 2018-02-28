@@ -52,6 +52,11 @@
 }
 select,input{
     outline:none;
+    /*outline-color:#f7a72c;
+    outline-width:1px;*/
+}
+input:focus,select:focus{
+    border:1px solid #409EFF;
 }
 /*表单*/
 .CreateAnalysis_from_box{

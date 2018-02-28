@@ -170,7 +170,7 @@
 }
 .from-head{
     width:100%;
-    height:38px;
+    height:60px;
     background:#da121a;
     margin-bottom: 15px;
     /*margin-top: 10px;*/
@@ -180,6 +180,18 @@
         height: 100%;
         
 }
+.from-head-left{
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.from-head-left img{
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+.from-head-right{
+    line-height:60px;
+}
 .buttHover:hover{
     color:#da121a;
 }
@@ -187,3 +199,18 @@
     height:100% !important;
     max-height:100% !important;
 }
+
+
+/*@media print{
+    #pagefooter{
+        display:block;
+        position:running(pagefooter);
+    }
+}
+@page{
+    margin-bottom:1.5in;
+    padding:1em;
+    @bottom-center{
+        content:element(pagefooter);
+    }
+}*/

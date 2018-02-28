@@ -96,6 +96,12 @@
     border:none;
     outline:none;
 }
+.login-from-list input:focus{
+    border:none;
+}
+.login-from-list-focus{
+    border:1px solid #409EFF;
+}
 .login-from-btn{
     background:#da121a;
     border:1px solid #da121a;

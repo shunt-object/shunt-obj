@@ -13,15 +13,15 @@
                 <div class="login-from-title">用户登录</div>
                 <div class="login-fu-title">欢迎使用ClouldBroker²</div>
                 <div style="padding:0 20px;margin-top:20px;">
-                    <div class="login-from-list" :class="isaccount==true?'error':''">
+                    <div class="login-from-list login-list-one" :class="isaccount==true?'error':''">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="手机/邮箱/账号" v-model="account" v-on:blur="PhoneReg('account')">
+                        <input type="text" placeholder="手机/邮箱/账号" v-model="account" v-on:click="focusone()" v-on:blur="PhoneReg('account')">
                         <div class="phone-notice" v-show="isaccount">{{accountText}}</div>
                     </div>
                     
-                    <div class="login-from-list" :class="ishave==true?'error':''">
+                    <div class="login-from-list login-list-two" :class="ishave==true?'error':''">
                         <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="密码" v-model="password" v-on:blur="PhoneReg('password')">
+                        <input type="password" placeholder="密码" v-model="password" v-on:focus="focustwo()" v-on:blur="PhoneReg('password')">
                         <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
                     </div>                
                     <button class="login-from-btn" v-on:click="login()">登录</button>
@@ -40,7 +40,7 @@
         <div class="col-md-3"></div>
     </div>
     <div class="login-footer">
-        <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a style="color:#555" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-1</a>&nbsp&nbspTEL：400-612-218</p>
+        <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a style="color:#555" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-2</a>&nbsp&nbspTEL：400-612-218</p>
         <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
@@ -80,6 +80,12 @@ export default{
         //console.log('------',this.$route.query.redirect);
     },
     methods:{
+        focusone:function(){
+            $(".login-list-one").addClass('login-from-list-focus');
+        },
+        focustwo:function(){
+            $(".login-list-two").addClass('login-from-list-focus');
+        },
         PhoneReg:function(dom){
              //let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
              //let phoneReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/;
@@ -88,6 +94,7 @@ export default{
                     this.isaccount=true;
                     this.accountText = '请输入账号';
                 }
+                $(".login-list-one").removeClass('login-from-list-focus');
                 // else{
                 //     phoneReg.test(this.account)==true?this.isaccount=false:this.isaccount=true;this.accountText = '请输入正确邮箱地址'
                 // }
@@ -96,6 +103,7 @@ export default{
                 if(this.ishave==true){
                     this.passwordText = '请输入密码'
                 }
+                 $(".login-list-two").removeClass('login-from-list-focus');
              }
         },
         login:function(){

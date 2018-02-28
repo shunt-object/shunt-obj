@@ -6,12 +6,11 @@
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
-        
         <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
             <div class="from-headers">
-                <div class="from-head" style="line-height:38px;color:#fff;">
-                        <div style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""></div>
-                        <div style="float:right;padding-right:2%">上云分析综合报告</div>
+                <div class="from-head" style="color:#fff;">
+                    <div class="from-head-left" style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""><br>您身边的云计算专业服务顾问</div>
+                    <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}}上云分析综合报告</div>
                 </div>
             
                 <div class="colligate-heade">
@@ -580,13 +579,12 @@ export default{
             }).catch((error)=>{})
         },
         getPdf:function(){
-          
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
-            pdf.internal.scaleFactor = 1.8;
+            pdf.internal.scaleFactor = 1.8;//可以调整缩放比例
             var options = {
-                pagesplit: true              
+                pagesplit: true
             };
             //$("#difference-box").css({"height":"100% !important"});
             $('#pdf-wrap').css({"background":"#fff","border-width":"0px"});

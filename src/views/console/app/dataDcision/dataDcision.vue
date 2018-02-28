@@ -81,7 +81,8 @@ export default{
             istypeslist:false,
             linearr:[],
             linearr_b:[],
-            radarTitle:''
+            radarTitle:'',
+            maxY:[]
         }
     },
     mounted:function(){
@@ -252,6 +253,7 @@ export default{
         );
         },
         canversLine:function(dom){
+            let that = this;
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({              
                     tooltip:{
@@ -262,7 +264,7 @@ export default{
                                 color: '#999'
                             }
                         },
-                        formatter: '{a}: {c0}'
+                        formatter: '上云总数: {c1}'
                     },
                     legend: {
                         data: ['上云趋势','上云总数'],
@@ -278,7 +280,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#bebebe'
+                                color: '#999'
                             }
                         },
                         nameTextStyle:{
@@ -294,7 +296,7 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#bebebe'
+                                color: '#999'
                             }
                         },
                         nameTextStyle:{
@@ -306,16 +308,36 @@ export default{
                         axisLabel: {
                             formatter: '{value}'
                         },
+                        max: function(value) {
+                            for(let i=0;i<12;i++){
+                                that.maxY[i]=Math.ceil((value.max-1)/5)*5;
+                            }
+                            //that.maxY.push(Math.ceil((value.max-1)/5)*5);
+                            //console.log('max',that.maxY);
+                            //return value.max - 20;
+                        },
                         axisLine: {
                             lineStyle: {
-                                color: '#ccc'
+                                color: '#fff'
                             }
                         },
                         nameTextStyle:{
                             color:'#999'
                         },
                     }],
-                    series: [{
+                    series: [
+                        { // For shadow
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {color: 'rgba(247,247,247,0.4)'}
+                        },
+                        barWidth:'25',
+                        barGap:'-100%',
+                        barCategoryGap:'40%',
+                        data: this.maxY,
+                        animation: false
+                    },
+                    {
                         name:'上云总数',
                         type:'bar',
                         data:this.linearr,
@@ -325,7 +347,8 @@ export default{
                             }
                         },
                         barWidth : 25,//柱图宽度
-                    },{
+                    },
+                    {
                         name:'上云趋势',
                         type:'line',
                         yAxisIndex: 1,
@@ -335,7 +358,8 @@ export default{
                                 color:'#da121a'
                             }
                         }
-                    }]
+                    }
+                    ]
 
             })
         },
@@ -351,7 +375,7 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                color:['#da121a', '#F7A72C','#E15F2D'],
+                color:['#F7A72C', '#da121a','#E15F2D'],
                 legend: {
                     orient : 'vertical',
                     x : '79%',
@@ -496,12 +520,21 @@ export default{
                     min:0,
                     max:100,
                     interval:20,
+                    axisLabel: {
+                        interval:20,
+                    },
                     splitLine: {
-                        show: false
+                        show: false,
+                        interval:0,
+                        lineStyle: {
+                            color: 'yellow',
+                            type: 'solid',
+                            width: '1'
+                        }
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#bebebe'
+                            color: '#999'
                         }
                     },
                     nameTextStyle:{
@@ -519,11 +552,17 @@ export default{
                         //formatter: '{value}'
                     },
                     splitLine: {
-                        show: false
+                        show: false,
+                        interval:'20',
+                        lineStyle: {
+                            color: 'red',
+                            type: 'solid',
+                            width: '1.5'
+                        }
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#bebebe',
+                            color: '#999',
                             type: 'solid',
                             width: '1.5'
                         }
