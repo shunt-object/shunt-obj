@@ -40,12 +40,12 @@
                 </el-form-item>
                 <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
                     <el-select v-model="coresShj.os" placeholder="请选择">
-                        <el-option :value="rs" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
+                        <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
                     <el-select v-model="coresShj.computeMappingFactor" placeholder="请选择">
-                        <el-option :value="rufs" v-for="rufs in rufs" :key="rufs.name" :label="rufs.name"></el-option>
+                        <el-option :value="rufs" v-for="rufs in rufs" :key="JSON.stringify(rufs)" :label="rufs.name"></el-option>
                     </el-select>
                 </el-form-item>
               </el-form>
@@ -138,7 +138,7 @@
   <div id="main">
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" >
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(jl.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">应用服务</h4>
@@ -179,7 +179,7 @@
         </div>
          <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(ins.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
                     <img src="../../../../assets/overview/resource-group2.png" alt="">
                     <h4 style="font-size:12px;">数据库服务</h4>
@@ -244,14 +244,14 @@
                     <ul class="cuncul">
                         <li v-if="this.netRule.outbound==undefined||this.netRule.outbound==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{this.netRule.outbound}}</li>
-                        <li>出站</li>
+                        <li>出站（Mbps/月）</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(inu.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:20px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">存储服务</h4>
@@ -642,7 +642,7 @@ export default {
             inbound:"",
             outbound:""
         },
-    
+    resu:"",
      inus:[],
      inusShj: { 
           num:"1",
@@ -668,7 +668,10 @@ export default {
       this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                     
                     this.result =  res.data.data; 
-                    console.log( this.result);
+                   if(this.result.network !== null){
+                        this.resu = this.result.network.id
+                   }
+            
                     if(this.result.msg=="数据无"){
                         return ;
                     }else{
@@ -761,7 +764,8 @@ export default {
                                         localDisk:this.coresShj.localDisk,
                                         osType:this.coresShj.os,
                                         appid: Number(this.appId),
-                                        num:"1"
+                                        num:"1",
+                                       
                                 }
                             )
                         }else{
@@ -774,7 +778,8 @@ export default {
                                     localDisk:this.coresShj.localDisk,
                                     osType:this.coresShj.os,
                                     appid: Number(this.appId),
-                                    num:this.coresShj.num
+                                    num:this.coresShj.num,
+                                    
                                    }
                                 )
                             }
@@ -782,6 +787,8 @@ export default {
                             for(let i = 0 ;i<this.cores.length;i++){
                                 var objs = this.cores[this.cores.length-1]
                             }
+                            console.log(this.coresShj.computeMappingFactor);
+                            console.log(objs)
                             
                             //let objer = objs;
                            
@@ -984,11 +991,11 @@ export default {
     },
     yybian:function(e){
          this.dialogFormVisible =true;
+        console.log(this.coresShj.computeMappingFactor)
         
-        
-      
+         
        this.regionter = "server";
-       console.log(e)
+       console.log(this.cores)
         this.coresShj = this.cores[e];
 
           // console.log(    this.coresShj);
@@ -1038,19 +1045,7 @@ export default {
             this.checkedes=false
         }
       },
-      creadIng:function(e){
-          this.cores.push(
-              {
-                    cores:"",
-                    ghz:"",
-                    ram:"",
-                    computeMappingFactor:"",
-                    localDisk:"",
-                    os:"",
-                   
-                    num:"1"
-            }
-          )
+   
         //     this.j++;
         //    console.log(j,index);
         //   console.log(this.cores);
@@ -1068,13 +1063,13 @@ export default {
             //     }
             // )
            
-      },
+      
  
 
     //   -----删除---
 
-    removeAl:function(index){
-        
+    removeAl:function(e,d){
+        var that = this;
            // this.cores.splice(index, 1); 
          
         this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
@@ -1084,7 +1079,16 @@ export default {
           cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
-            this.cores.splice(index, 1); 
+            // this.cores.splice(index, 1); 
+            let id = e;
+            console.log(d);
+            console.log(this.cores)
+            this.$this.delete('/broker/app/resource/group/'+this.appId+'/1/'+id).then((res)=>{
+                      that.cores.splice(d,1);                
+            },(err)=>{
+                 console.log("不好意思")
+            });   
+
           this.$message({
             type: 'success',
             message: '删除成功!',
@@ -1098,7 +1102,8 @@ export default {
 
             
     },
-    removeAs:function(index){
+    removeAs:function(e,d){
+        var that = this;
        this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -1106,7 +1111,12 @@ export default {
           cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
-            this.ines.splice(index, 1); 
+            let id = e;
+            this.$this.delete('/broker/app/resource/group/'+this.appId+'/2/'+id).then((res)=>{
+                      that.ines.splice(d,1);                
+            },(err)=>{
+                 console.log("不好意思")
+            });  
           this.$message({
             type: 'success',
             message: '删除成功!',
@@ -1120,7 +1130,7 @@ export default {
            
       
     },
-    removeAe:function(index){
+    removeAe:function(){
         this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -1128,10 +1138,17 @@ export default {
           cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
-           this.wangl = false;
-           this.netRule.bandwidth="";
-           this.netRule.inbound="";
-           this.netRule.outbound="";
+            let id = this.resu;
+            console.log(id)
+            this.$this.delete('/broker/app/resource/group/'+this.appId+'/3/'+id).then((res)=>{
+                    this.wangl = false;
+                    this.netRule.bandwidth="";
+                    this.netRule.inbound="";
+                    this.netRule.outbound="";               
+            },(err)=>{
+                 console.log("不好意思")
+            });  
+          
           this.$message({
             type: 'success',
             message: '删除成功!',
@@ -1144,7 +1161,8 @@ export default {
         });
       
     },
-    removeAw:function(index){
+    removeAw:function(e,d){
+        var that = this;
         this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -1152,7 +1170,12 @@ export default {
           cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
-          this.inus.splice(index, 1); 
+            let id = e;
+            this.$this.delete('/broker/app/resource/group/'+this.appId+'/4/'+id).then((res)=>{
+                         that.inus.splice(d, 1);       
+            },(err)=>{
+                 console.log("不好意思")
+            });  
           this.$message({
             type: 'success',
             message: '删除成功!',

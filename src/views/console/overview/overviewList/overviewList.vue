@@ -60,7 +60,8 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname">{{vp.proname}}</span>
+                    <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname" @click="bianjiZt(index)" v-show="flags">{{vp.proname}}</span>
+                    <input type="text" class="col-md-1 col-xs-1 proanmes" v-show="!flags" v-model="vp.proname">
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-7 removeIng col-xs-6">
                         <!--<el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
@@ -625,6 +626,7 @@ export default {
     name:"overviewList",
     data (){
         return {
+            flags:true,
             vpd:[],
             ssd:[],
             ds:[],
@@ -643,6 +645,10 @@ export default {
         }
     },     
     methods:{
+        bianjiZt:function(e){
+            alert(this.vpd[e].flags)
+            this.flags = false;
+        },
         myFun:function(){
             myFuun()
         },
