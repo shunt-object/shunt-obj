@@ -38,13 +38,13 @@
                 <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input v-model="coresShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
-                    <el-select v-model="coresShj.os" placeholder="请选择">
+                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                    <el-select v-model="coresShj.osType" placeholder="请选择">
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
-                    <el-select v-model="coresShj.computeMappingFactor" placeholder="请选择">
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
+                    <el-select v-model="coresShj.cmf" placeholder="请选择">
                         <el-option :value="rufs" v-for="rufs in rufs" :key="JSON.stringify(rufs)" :label="rufs.name"></el-option>
                     </el-select>
                 </el-form-item>
@@ -69,14 +69,14 @@
                 <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input v-model="inesShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="os">
-                    <el-select v-model="inesShj.os" placeholder="请选择">
-                        <el-option :value="rs" v-for="rs in rs"  :key="rs.name" :label="rs.name"></el-option>
+                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                    <el-select v-model="inesShj.osType" placeholder="请选择">
+                        <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs.name)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="computeMappingFactor">
-                    <el-select v-model="inesShj.computeMappingFactor" placeholder="请选择">
-                        <el-option :value="rufs" :label="rufs.name" :key="rufs.name" v-for="rufs in rufs"></el-option>
+                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
+                    <el-select v-model="inesShj.cmf" placeholder="请选择">
+                        <el-option :value="rufs" :label="rufs.name" :key="JSON.stringify(rufs.name)" v-for="rufs in rufs"></el-option>
                     </el-select>
                 </el-form-item>
                 </el-form>
@@ -114,8 +114,8 @@
                 <el-form-item label="网络存储（NAS）（GB）" :label-width="formLabelWidth" v-if="this.checkeder==true" prop="nsa">
                     <el-input v-model="inusShj.nsa" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cloudStorage">
-                    <el-select v-model="inusShj.serverName" placeholder="请选择厂商">
+                <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cse">
+                    <el-select v-model="inusShj.cse" placeholder="请选择厂商">
                         <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
                     <el-input v-model="inusShj.cloudStorage" auto-complete="off" style="width:40%"  type="number" min="1"></el-input>
@@ -138,7 +138,7 @@
   <div id="main">
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" >
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(jl.id,index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index,jl.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(jl.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">应用服务</h4>
@@ -179,7 +179,7 @@
         </div>
          <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(ins.id,index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index,ins.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(ins.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
                     <img src="../../../../assets/overview/resource-group2.png" alt="">
                     <h4 style="font-size:12px;">数据库服务</h4>
@@ -219,7 +219,7 @@
         </div>
        <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian()"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
                     <img src="../../../../assets/overview/resource-group3.png" alt="">
                     <h4 style="font-size:12px;">网络服务</h4>
@@ -251,7 +251,7 @@
         </div>
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(inu.id,index)"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index,inu.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(inu.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:20px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">存储服务</h4>
@@ -541,8 +541,8 @@ export default {
             ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghz:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
             localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
-            os:[{required: true, message: '请选择操作系统', trigger: 'change'}],
-            computeMappingFactor:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
+            osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+            cmf:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             
             coresq: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
             ramq:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
@@ -554,7 +554,7 @@ export default {
             bandwidth:[{required: true, message: '请输入带宽', trigger: 'blur'}],
             inbound:[{required: true, message: '请输入入站大小', trigger: 'blur'}],
             outbound:[{required: true, message: '请输入出站大小', trigger: 'blur'}],
-            cloudStorage:[{required: true, message: '请输入云厂商和云存储大小', trigger: 'blur'}],
+            cse:[{required: true, message: '请输入云厂商和云存储大小', trigger: 'blur'}],
             sna:[{required: true, message: '请输入共享存储大小', trigger: 'blur'}],
             nsa:[{required: true, message: '请输入网络大小', trigger: 'blur'}],
              cpus: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
@@ -566,7 +566,7 @@ export default {
            
          
          },
-       
+        rsers:[],
         orCreadCenter:false,
         dialogTableVisible: false,
         dialogFormVisible: false,
@@ -624,7 +624,10 @@ export default {
                     os:"",
                     num:"1",
           },     
-       
+       ids:null,
+       ider:null,
+       ideu:null,
+
        ines:[],
        inesShj:{
             num:"1",    
@@ -642,7 +645,7 @@ export default {
             inbound:"",
             outbound:""
         },
-    resu:"",
+    resu:null,
      inus:[],
      inusShj: { 
           num:"1",
@@ -661,16 +664,23 @@ export default {
     }
   },
   mounted:function(){
-      this.queryType = this.$route.query.type;
-      //this.$layer.msg("注意：以下全为必填项");
-      this.appId = this.$route.query.id;
-      console.log("="+this.appId) 
-      this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
+      this.showers();
                     
+  },
+  methods:{
+      showers:function(){
+            this.queryType = this.$route.query.type;
+            //this.$layer.msg("注意：以下全为必填项");
+            this.appId = this.$route.query.id;
+            console.log("="+this.appId) 
+            this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
+                            
                     this.result =  res.data.data; 
-                   if(this.result.network !== null){
-                        this.resu = this.result.network.id
-                   }
+                    //console.log(this.result.appServer.id)
+                        if(this.result.network !== null){
+                            this.resu = this.result.network.id
+                        }
+
             
                     if(this.result.msg=="数据无"){
                         return ;
@@ -686,7 +696,7 @@ export default {
                         this.cores=this.result.appServer==undefined?this.cores=[]:this.cores=this.result.appServer;
                         this.ines = this.result.dbServer==undefined?this.ines=[]:this.ines=this.result.dbServer;
                         this.inus = this.result.storage==undefined?this.inus=[]:this.inus=this.result.storage;
-                        console.log(this.result.dbServer);
+                        console.log(this.result);
                      }
                      },(err)=>{
                          console.log("不好意思")
@@ -694,6 +704,11 @@ export default {
 
                     this.$this.get("broker/prop/typedata/os/-1").then((rs)=>{
                             this.rs=rs.data.data;
+                            for(var k = 0;k<this.rs.length;k++){
+                               this.rsers.push (this.rs[k])
+                            }
+                           console.log(this.rsers)
+                            
                     },(err)=>{
                         console.log("不好意思")
                     })
@@ -707,9 +722,7 @@ export default {
                     },(err)=>{
                         console.log("不好意思")
                     })
-                    
-  },
-  methods:{
+      },
       lookw:function(){
         if(this.checked==false){
             this.checked=true
@@ -724,7 +737,9 @@ export default {
      dialogFormVisibler:function(){
            this.alertTitle = false; 
         this.dialogFormVisible = true;
-       
+       this.ids=null;
+       this.ider=null;
+       this.ideu = null;
         this.orCreadCenter = false;
          this.regionter = "";
          this.coresShj = {};
@@ -754,18 +769,19 @@ export default {
             if(this.regionter=='server'){
                  this.$refs['coresShj'].validate((valid) => {
                     if (valid) {
+                     
                         if(this.coresShj.num==undefined){
                             this.cores.push(
                                 {
                                         cores:this.coresShj.cores,
                                         ghz:this.coresShj.ghz,
                                         ram:this.coresShj.ram,
-                                        cmf:this.coresShj.computeMappingFactor,
+                                        cmf:this.coresShj.cmf,
                                         localDisk:this.coresShj.localDisk,
-                                        osType:this.coresShj.os,
+                                        osType:this.coresShj.osType,
                                         appid: Number(this.appId),
                                         num:"1",
-                                       
+                                        id:this.ids
                                 }
                             )
                         }else{
@@ -774,12 +790,12 @@ export default {
                                     cores:this.coresShj.cores,
                                     ghz:this.coresShj.ghz,
                                     ram:this.coresShj.ram,
-                                    cmf:this.coresShj.computeMappingFactor,
+                                    cmf:this.coresShj.cmf,
                                     localDisk:this.coresShj.localDisk,
-                                    osType:this.coresShj.os,
+                                    osType:this.coresShj.osType,
                                     appid: Number(this.appId),
                                     num:this.coresShj.num,
-                                    
+                                    id:this.ids
                                    }
                                 )
                             }
@@ -787,13 +803,8 @@ export default {
                             for(let i = 0 ;i<this.cores.length;i++){
                                 var objs = this.cores[this.cores.length-1]
                             }
-                            console.log(this.coresShj.computeMappingFactor);
-                            console.log(objs)
-                            
-                            //let objer = objs;
-                           
                             this.$this.post('/broker/app/resource/group/server/1',objs).then((res)=>{
-                                
+                                 this.showers();
                             },(err)=>{
                                 console.log("不好意思")
                             });     
@@ -802,7 +813,6 @@ export default {
                         return false;
                         
                     }
-                            console.log(this.cores)
                                 this.j++;
                                 this.col = 1;
                                 this.coresShj = {};
@@ -820,10 +830,11 @@ export default {
                                             cores:this.inesShj.cores,
                                             ghz:this.inesShj.ghz,
                                             ram:this.inesShj.ram,
-                                            cmf:this.inesShj.computeMappingFactor, 
+                                            cmf:this.inesShj.cmf, 
                                             localDisk:this.inesShj.localDisk,
-                                            osType:this.inesShj.os,
-                                           appid: Number(this.appId)
+                                            osType:this.inesShj.osType,
+                                           appid: Number(this.appId),
+                                           id:this.ider
                                         }
                                     )
                                 }else{
@@ -833,23 +844,20 @@ export default {
                                             cores:this.inesShj.cores,
                                             ghz:this.inesShj.ghz,
                                             ram:this.inesShj.ram,
-                                            cmf:this.inesShj.computeMappingFactor, 
+                                            cmf:this.inesShj.cmf, 
                                             localDisk:this.inesShj.localDisk,
-                                            osType:this.inesShj.os,
-                                            appid: Number(this.appId)
+                                            osType:this.inesShj.osType,
+                                            appid: Number(this.appId),
+                                            id:this.ider
                                         }
                                     )
                                 };
-
                                     let obs=this.ines;
                                     for(let i = 0 ;i<this.ines.length;i++){
                                         var objs = this.ines[this.ines.length-1]
                                     }
-                                    
-                                    //let objer = objs;
-                                    console.log(objs)
                                     this.$this.post('/broker/app/resource/group/server/2',objs).then((res)=>{
-                                       
+                                        this.showers();
                                     },(err)=>{
                                         console.log("不好意思")
                                     });  
@@ -876,11 +884,12 @@ export default {
                                     let objers = {
                                         appid: Number(this.appId),
                                         bandwidth:this.netRule.bandwidth,
-                                        inbound:this.netRule.inbound,
-                                        outbound:this.netRule.outbound
+                                        inbound:Number(this.netRule.inbound),
+                                        outbound:Number(this.netRule.outbound),
+                                        id:this.resu
                                     }
                                    this.$this.post('/broker/app/resource/group/net',objers).then((res)=>{
-                                       
+                                         this.showers();
                                     },(err)=>{
                                         console.log("不好意思")
                                     });   
@@ -899,8 +908,9 @@ export default {
                                             sna:this.inusShj.sna,
                                             nsa:this.inusShj.nsa,
                                             cloudStorage:this.inusShj.cloudStorage,
-                                            cse:this.inusShj.serverName,
-                                            appid: Number(this.appId)
+                                            cse:this.inusShj.cse,
+                                            appid: Number(this.appId),
+                                            id:this.ideu
                                         }
                                     );
                                 }else{
@@ -910,17 +920,18 @@ export default {
                                                 sna:this.inusShj.sna,
                                                 nsa:this.inusShj.nsa,
                                                 cloudStorage:this.inusShj.cloudStorage,
-                                                cse:this.inusShj.serverName,
-                                                appid: Number(this.appId)
+                                                cse:this.inusShj.cse,
+                                                appid: Number(this.appId),
+                                                id:this.ideu
                                             }
                                         )
                                     }
-                                    console.log(this.inusShj.serverName);
                                     for(let i = 0 ;i<this.inus.length;i++){
                                         var objs = this.inus[this.inus.length-1]
                                     }
+                                    console.log(objs)
                                     this.$this.post('/broker/app/resource/group/storage',objs).then((res)=>{
-                                       alert("哈哈")
+                                        this.showers();
                                     },(err)=>{
                                         console.log("不好意思")
                                     });   
@@ -989,37 +1000,28 @@ export default {
                  this.alertTitle = false; 
     
     },
-    yybian:function(e){
+    yybian:function(e,d){
+        this.ids = d ;
          this.dialogFormVisible =true;
-        console.log(this.coresShj.computeMappingFactor)
-        
-         
-       this.regionter = "server";
-       console.log(this.cores)
+        this.regionter = "server";
         this.coresShj = this.cores[e];
-
-          // console.log(    this.coresShj);
     },
-    sjbian:function(e){
+    sjbian:function(e,d){
         this.dialogFormVisible = true;
-        
-      
+        this.ider = d ;
         this.inesShj = this.ines[e]
         this.regionter = "db";
     },
     wlbian:function(){
-        
-        
          this.regionter = "net";
          this.dialogFormVisible = true;
          
     },
-    cuncbian:function(e){
+    cuncbian:function(e,d){
         this.regionter = "storage";
+        this.ideu = d;
          this.dialogFormVisible = true;
            this.alertTitle = false; 
-        
-       
         this.inusShj = this.inus[e];
         if(this.inusShj.sna!=undefined){
            this.asd = true;
@@ -1070,8 +1072,6 @@ export default {
 
     removeAl:function(e,d){
         var that = this;
-           // this.cores.splice(index, 1); 
-         
         this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -1079,7 +1079,7 @@ export default {
           cancelButtonClass:'lay-cancel-btn',
           type: 'warning'
         }).then(() => {
-            // this.cores.splice(index, 1); 
+           
             let id = e;
             console.log(d);
             console.log(this.cores)
@@ -1139,7 +1139,6 @@ export default {
           type: 'warning'
         }).then(() => {
             let id = this.resu;
-            console.log(id)
             this.$this.delete('/broker/app/resource/group/'+this.appId+'/3/'+id).then((res)=>{
                     this.wangl = false;
                     this.netRule.bandwidth="";
