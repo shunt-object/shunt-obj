@@ -289,7 +289,7 @@
             background: #e41e2b;
    }
    .city{
-       background:url("../../../assets/city.png") no-repeat  center center;background-size:75%;
+       background:url("../../../assets/compares.png") no-repeat  center center;background-size:75%;
    }
     .scrollUp:hover{
         cursor:pointer;

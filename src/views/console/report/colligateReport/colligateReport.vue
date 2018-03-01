@@ -21,8 +21,8 @@
             <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
                 <!-- 基本信息 -->
                 <div class="colligate-title">
-                    <img src="../../../../assets/report/report-information.png" alt="">
-                    基本信息
+                   <!--<img src="../../../../assets/report/report-information.png" alt="">-->
+                    <i class="iconfont icon-jibenxinxi" style="color:#da121a"></i>基本信息
                 </div>
 
                 <div class="colligate-list">
@@ -54,8 +54,8 @@
 
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
-                    <img src="../../../../assets/report/report-plan.png" alt="">
-                    云规划报告详情
+                    <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
+                    <i class="iconfont icon-zengshoushuju" style="color:#da121a"></i>云规划报告详情
                 </div>
                 <div class="colligate-list">
                     <div class="legend-box">
@@ -100,8 +100,8 @@
                     </div> 
                     <!-- 云选型 -->
                     <div class="colligate-title">
-                        <img src="../../../../assets/report/report-compare.png" alt="">
-                        云选型报告详情
+                       <!-- <img src="../../../../assets/report/report-compare.png" alt=""> -->
+                        <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云选型报告详情
                     </div>
                     <div class="colligate-list">
                         <table class="table-score colligate-tables">
@@ -176,7 +176,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-gengduoneirong main-color"></i>云供应商标准选型差异</div>
+                        <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-qitashuju main-color"></i>云供应商标准选型差异</div>
                         <div>
                             <p class="explain">
                                 <span><i class="iconfont icon-yuan high-ratio" style="margin-right:3px;"></i>高匹配</span>

@@ -8,9 +8,9 @@
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
     <div class="resource">输入工作负载配置信息</div> 
-    <div class="operation">
-        <p><span>下载模板</span><span>批量导入</span></p>
-    </div>
+    <!--<div class="operation">
+        <p><i class="iconfont icon-iconset0339" style="margin-right:0"></i><button>下载模板</button>&nbsp&nbsp&nbsp&nbsp<i class="iconfont icon-batch-import"  style="margin-right:0"></i><button>批量导入</button></p>
+    </div>-->
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
         <el-form :model="form"><p style="color:red;" v-show="alertTitle">注意：网络资源只能配置一个，再次配置为修改。</p>
@@ -129,7 +129,7 @@
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer">
             <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
-            <el-button type="primary" @click="dialogFormVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
+            <el-button type="primary" @click="quxiao" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
        <!-- <div slot="footer" class="dialog-footer" v-show="orCreadCenter">
@@ -256,7 +256,7 @@
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index,inu.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(inu.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:20px;">
-                    <img src="../../../../assets/overview/resource-group1.png" alt="">
+                    <img src="../../../../assets/overview/resource-group4.png" alt="">
                     <h4 style="font-size:12px;">存储服务</h4>
                     <p><span  style="color: #da121a">{{inu.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
                 </div>
@@ -321,9 +321,14 @@
     background:#fff;
 }
 .operation p{
-   
+    font-size:14px;
+    color:#999;
     float:right;
     margin-right:20px;
+    
+}
+.operation p button{
+    background:#fff;
 }
 *{
     padding:0
@@ -689,6 +694,15 @@ export default {
     });         
   },
   methods:{
+      quxiao:function(){
+        this.dialogFormVisible = false;
+         this.asd = false;
+         this.afd = false;
+         this.agd = false;
+         this.checked = false;
+         this.checkeder = false;
+         this.checkedes = false;
+      },
       showers:function(){
             this.queryType = this.$route.query.type;
             //this.$layer.msg("注意：以下全为必填项");
@@ -772,7 +786,8 @@ export default {
          this.checked = false;
          this.checkeder = false;
          this.checkedes = false;
-    
+         
+          
      },
      alertTitler:function(){
             
