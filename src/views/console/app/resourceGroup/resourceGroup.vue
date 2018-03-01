@@ -8,6 +8,9 @@
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
     <div class="resource">输入工作负载配置信息</div> 
+    <div class="operation">
+        <p><span>下载模板</span><span>批量导入</span></p>
+    </div>
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
         <el-form :model="form"><p style="color:red;" v-show="alertTitle">注意：网络资源只能配置一个，再次配置为修改。</p>
@@ -282,7 +285,7 @@
             </div>
         </div>
         <div class="col-md-6 text-center" style="padding:10px 20px 5px 0;" v-show="creads">
-                <p class="col-md-12 text-center" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:center;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
+                <p class="col-md-12 text-center CreatPj" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:center;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
                     <span @click="dialogFormVisibler" class="pds user-hover">
                         <span style="float:left;width:40%;text-align:right;"><i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;line-height:200px;"></i></span>
                         <span style="width:60%;float:left;text-align:left;">添加工作负载配置信息</span>
@@ -311,6 +314,16 @@
 }
 @media (max-width: 768px) {
     .icon-tiam{padding-left:30px}
+}
+.operation{
+    width:100%;
+    height:40px;
+    background:#fff;
+}
+.operation p{
+   
+    float:right;
+    margin-right:20px;
 }
 *{
     padding:0
@@ -527,6 +540,8 @@ a:hover{
 }
 </style>
 <script>
+   
+
 import sds from '../../../../components/steps/steps.vue'
 export default {
   name: 'ResourceGroup',
@@ -665,14 +680,19 @@ export default {
   },
   mounted:function(){
       this.showers();
-                    
+       $(document).ready(function(){
+                $(".CreatPj").hover(function(){
+                    $(this).css("background","#f7f7f7")
+                },function(){
+                   $(this).css("background","#fff")
+                })
+    });         
   },
   methods:{
       showers:function(){
             this.queryType = this.$route.query.type;
             //this.$layer.msg("注意：以下全为必填项");
             this.appId = this.$route.query.id;
-            console.log("="+this.appId) 
             this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                             
                     this.result =  res.data.data; 
@@ -722,6 +742,7 @@ export default {
                     },(err)=>{
                         console.log("不好意思")
                     })
+                    
       },
       lookw:function(){
         if(this.checked==false){
@@ -748,11 +769,11 @@ export default {
          this.asd = false;
          this.afd = false;
          this.agd = false;
-         this.checked = false;
-         this.checkeder = false;
-         this.checkedes = false;
+   
+    
      },
      alertTitler:function(){
+            
         if(this.regionter=='net'){
             if(this.netRule.bandwidth!=''||this.netRule.inbound!=''||this.netRule.outbound!=''){
                 this.alertTitle = true;
@@ -765,6 +786,9 @@ export default {
      },
       dialogFor:function(){
         //console.log(formNames)
+           this.checked = false;
+         this.checkeder = false;
+         this.checkedes = false;
         console.log(this.coresShj.num);
             if(this.regionter=='server'){
                  this.$refs['coresShj'].validate((valid) => {
@@ -1023,15 +1047,19 @@ export default {
          this.dialogFormVisible = true;
            this.alertTitle = false; 
         this.inusShj = this.inus[e];
-        if(this.inusShj.sna!=undefined){
-           this.asd = true;
-        }else if(this.inusShj.nsa!=undefined){
-            this.afd = true;
-        }else if(this.inusShj.cloudStorage!=undefined){
-            this.agd = true;
+    
+      
+        if(this.asd=true){
+            this.checked = true;
         }
-       
-   
+        if(this.afd=true){
+            this.checkeder = true;
+        }
+        if(this.agd=true){
+            this.checkedes = true
+        }
+          console.log(this.afd)
+     
     },
       lookq:function(){
         if(this.checkeder==false){
