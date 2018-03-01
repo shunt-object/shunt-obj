@@ -60,7 +60,7 @@ export default{
             password:'',
             ishave:false,
             passwordText:'',
-            remember:false,
+            remember:true,
             nextTo:''
         }
     },

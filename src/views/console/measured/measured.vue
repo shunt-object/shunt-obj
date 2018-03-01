@@ -8,9 +8,8 @@
     <div class="row measured-content">
         <div class="col-md-6 measured-desc">
             <div class="measured-desc-box">
-                <p class="measured-desc-list">我们当前正在与国内领先的端到端实测</p>
-                <p class="measured-desc-list">服务商听云共同研发云实测功能，请您耐心等待。</p>
-                <p class="measured-desc-list">如您当前急需对云平台的测试，请您直接访问听云。</p>
+                <p class="measured-desc-list">我们当前正在与国内领先的端到端实测，服务商听云共同研发云实测功能，请您耐心等待。</p>
+                <p class="measured-desc-list">如您当前急需对云平台的测试，<br>请您直接访问听云。</p>
                 <button class="visit-tingyun" v-on:click="tingyun()"><a href="http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1" target="_blank">立即访问</a></button>
             </div>            
         </div>
@@ -43,23 +42,25 @@
 }
 .measured-desc-box{
     float:right;
-    margin-top:48%;
+    margin-top:35%;
     margin-right:50px;
+    width:58%;
 }
 .measured-desc-list{
     text-align:left;
     font-size:14px;
     color:#666;
-    line-height:18px;
+    line-height:22px;
+    margin:0 !important;
 }
 .visit-tingyun{
-    width:100px;
-    height:30px;
     background:#da121a;
     color:#fff;
     border:none;
     float:left;
-    margin-top:10px;
+    margin-top:20px;
+    font-size: 12px;
+    padding: 10px 25px;
 }
 .visit-tingyun a{
     color:#fff;
@@ -69,8 +70,8 @@
 }
 .measured-bg img{
     float:left;
-    /*width:430px;*/
-    width:75%;
+    width:58%;
+    /*width:75%;*/
     margin-top:10%;
 }
 

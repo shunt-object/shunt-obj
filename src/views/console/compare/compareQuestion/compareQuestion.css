@@ -125,6 +125,9 @@
     height:28px;
     padding:0 10px;
 }
+.compare-select:focus{
+    border:1px solid #409EFF;
+}
 .comparebtn{
     background:#da121a;
     border-radius:2px;
