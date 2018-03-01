@@ -201,16 +201,40 @@
 }
 
 
-/*@media print{
-    #pagefooter{
-        display:block;
-        position:running(pagefooter);
-    }
+.pagefooter{
+    width:100%;
+    margin-top:10px;
+    padding-bottom:10px;
+    display:none;
 }
-@page{
-    margin-bottom:1.5in;
-    padding:1em;
-    @bottom-center{
-        content:element(pagefooter);
-    }
-}*/
+.page-bigline{
+    width:100%;
+    height:3px;
+    background:#da121a;
+}
+.page-smallline{
+    margin-top:5px;
+    width:100%;
+    height:1px;
+    background:#da121a;
+    margin-bottom:10px;
+}
+.page-left{
+    float:left;
+    margin-left:15px;
+    text-align:left;
+}
+.page-left img{
+    width:110px;
+    height:16px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+.page-p{
+    color:#666;
+    font-size:12px;
+    margin:0 !important;
+}
+.page-right{
+    float:right;
+}

@@ -248,7 +248,25 @@
                         </div>
                         
                     </div>
+
+                    <div class="pagefooter">
+                        <div class="page-bigline"></div>
+                        <div class="page-smallline"></div>
+                        <div class="page-left">
+                            <img src="../../../../assets/login-logo.png" alt="">
+                            <p class="page-p">联系电话：400-828-7308</p>
+                            <p class="page-p">邮箱地址：Help@csb-china.com</p>
+                            <p class="page-p">官网地址：www.csb-china.com</p>
+                        </div>
+                        <div class="page-right">
+                            <img style="width:73px;height:73px;" src="../../../../assets/report/weixin.jpg" alt="">
+                            <p class="page-p">您的专属服务顾问</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
                 </div>
+
             </div>
             
         </div>
@@ -591,10 +609,12 @@ export default{
             };
             //$("#difference-box").css({"height":"100% !important"});
             $('#pdf-wrap').css({"background":"#fff","border-width":"0px"});
+           $(".pagefooter").css({"display":"block"});
             let that = this;
             this.isClass = true;
             pdf.addHTML($("#pdf-wrap"), options, function() {
                 pdf.save('综合报告'+time+'.pdf');
+                $(".pagefooter").css({"display":"none"});
                 that.isClass = false;
             });
         },
