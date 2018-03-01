@@ -769,7 +769,9 @@ export default {
          this.asd = false;
          this.afd = false;
          this.agd = false;
-   
+         this.checked = false;
+         this.checkeder = false;
+         this.checkedes = false;
     
      },
      alertTitler:function(){
@@ -786,9 +788,7 @@ export default {
      },
       dialogFor:function(){
         //console.log(formNames)
-           this.checked = false;
-         this.checkeder = false;
-         this.checkedes = false;
+        
         console.log(this.coresShj.num);
             if(this.regionter=='server'){
                  this.$refs['coresShj'].validate((valid) => {
@@ -1048,17 +1048,30 @@ export default {
            this.alertTitle = false; 
         this.inusShj = this.inus[e];
     
-      
-        if(this.asd=true){
-            this.checked = true;
+        if(this.inusShj.sna!=null){
+            this.checked= true;
+            this.asd= true
         }
-        if(this.afd=true){
-            this.checkeder = true;
+        if(this.inusShj.nsa!=null){
+            this.checkeder= true;
+            this.afd= true
         }
-        if(this.agd=true){
-            this.checkedes = true
+        if(this.inusShj.cloudStorage!=null){
+            this.checkedes= true;
+            this.agd= true
         }
-          console.log(this.afd)
+        // if(this.asd=true){
+        //     this.checked = true;
+        // }
+        // if(this.afd=true){
+        //     this.checkeder = true;
+        // }
+        // if(this.agd=true){
+        //     this.checkedes = true
+        // }
+          console.log(this.checked)
+          console.log(this.asd)
+          console.log(this.agd)
      
     },
       lookq:function(){
