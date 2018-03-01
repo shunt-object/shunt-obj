@@ -10,7 +10,7 @@
         <div class="from-headers">
             <div class="from-head" style="color:#fff;">
                 <div class="from-head-left" style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""><br>您的专属服务顾问</div>
-                <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}}上云分析综合报告</div>
+                <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}} 上云分析综合报告</div>
             </div>
             
             <div class="colligate-heade">
