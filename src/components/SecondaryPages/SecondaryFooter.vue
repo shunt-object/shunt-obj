@@ -5,7 +5,7 @@
         <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
-                <p class="text-left footer-list hoverRed"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-612-218</p>
+                <p class="text-left footer-list hoverRed"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-828-7308</p>
                 <p class="text-left footer-list hoverRed"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
