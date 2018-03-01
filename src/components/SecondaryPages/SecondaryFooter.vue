@@ -5,19 +5,19 @@
         <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
-                <p class="text-left footer-list"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-612-218</p>
-                <p class="text-left footer-list"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
+                <p class="text-left footer-list hoverRed"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-612-218</p>
+                <p class="text-left footer-list hoverRed"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">产品功能</p>
-                <p class="text-left footer-list" @click="cloundPlan">云规划</p>
-                <p class="text-left footer-list" @click="cloundSelect">云选型</p>
-                <p class="text-left footer-list" @click="cloundCe">云实测</p>
+                <p class="text-left footer-list hoverRed" @click="cloundPlan">云规划</p>
+                <p class="text-left footer-list hoverRed" @click="cloundSelect">云选型</p>
+                <p class="text-left footer-list hoverRed" @click="cloundCe">云实测</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">服务支持</p>
-                <p class="text-left footer-list" @click="helpCenter">帮助中心</p>
-                <p class="text-left footer-list" @click="fuwuLook">服务条款</p>
+                <p class="text-left footer-list hoverRed" @click="helpCenter">帮助中心</p>
+                <p class="text-left footer-list hoverRed" @click="fuwuLook">服务条款</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
                 <p class="footer-jx">CloudBroker²</p>
@@ -42,6 +42,9 @@
 /**{
    overflow:hidden
 }*/
+.hoverRed:hover{
+    color:#e41e2b
+}
 .footer-jx:hover{
    cursor:pointer;
 }
