@@ -18,7 +18,7 @@
 </div>
 <div class="overviewlist" v-if="utype!=3&&utype!=4">
     <div class="overviewSearch row" v-if="this.flag!=true">
-        <button class="creatAll col-xs-12 col-md-1"  v-on:click="UpRoute"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建云分析</button>
+        <button class="creatAll col-xs-12 col-md-1"  v-on:click="UpRoute"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="margin-right:5px;"></i>创建分析组</button>
           <div class="PlansearchBox">
              <input type="text"  id="myInput" v-on:keyup="myFun()" placeholder="搜索">
             <button class="PlansearchBtn"><i class="fa fa-search"></i></button>
@@ -60,8 +60,8 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname" @click="bianjiZt(index)" v-show="flags">{{vp.proname}}</span>
-                    <input type="text" class="col-md-1 col-xs-1 proanmes" v-show="!flags" v-model="vp.proname">
+                    <input type="text" id="loginers" class="col-md-1 col-xs-1 proanmes proInput" autofocus="autofocus" v-if="vars[index]==true" v-model="vp.proname" v-on:blur="shiBlur(vp.proname,index,vp.id)">
+                    <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname" @click="bianjiZt(index)" v-if="vars[index]==false">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-7 removeIng col-xs-6">
                         <!--<el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
@@ -84,7 +84,8 @@
                 <li class="row spx active"  v-if="togglelist[index].boolean==true" v-for="(item,appindex) in vp.projectApps">
                     <span class="col-md-1 bn col-xs-1"></span>
                     <span class="col-md-1 bn col-xs-1"></span>
-                    <span class="col-md-1 bn col-xs-4 pnormal" :title="item.appname">{{item.appname}}</span>
+                     <input type="text" class="col-md-1  col-xs-4  pnormal" id="loginers" style="margin-top:4%" autofocus="autofocus" :title="item.appname" v-model="item.appname" v-if="item.appsindex==true" v-on:blur="chiBlur(item.appname,index,appindex,item.id)" >
+                    <span class="col-md-1 bn col-xs-4 pnormal" :title="item.appname" @click="creatyy(index,appindex)" v-if="item.appsindex==false">{{item.appname}}</span>
                     <span class="col-md-7 text-left col-xs-3">
                         <p class="rate ">
                             <a v-for="(im,index) in item.appResults" id="as" class="col-xs-7" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
@@ -139,6 +140,10 @@
 .creatAll{
     width:114px !important;
 }
+.proInput{
+    margin-top:5px;
+    height:70%;
+}
 .page-login-toolTipClass{
     background:#FFF1DC !important;
     border:1px solid #F7A72C !important;
@@ -182,6 +187,7 @@
     text-overflow:ellipsis;
     white-space: nowrap;
     }
+    
     .pnormal{
         display:inline-block;
         width:80px;
@@ -615,7 +621,7 @@ position: relative; width:100%;
      }
 </style>
 <script>
-
+   
     function myFuun(){
     var $sea=$('#myInput').val();
     //先隐藏全部，再把符合筛选条件的值显示
@@ -626,7 +632,8 @@ export default {
     name:"overviewList",
     data (){
         return {
-            flags:true,
+            vares:[],
+            vars:[],
             vpd:[],
             ssd:[],
             ds:[],
@@ -645,9 +652,100 @@ export default {
         }
     },     
     methods:{
+        createding:function(){
+            this.utype =  sessionStorage.getItem("utype");
+        
+            this.$http.get('/broker/result/analysis').then((res)=>{
+                this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
+            for(var h = 0;h<this.vpd.length;h++){
+                    this.vars.push(false);
+                    var a = this.vpd[h].projectApps;
+                    for(var j=0;j<a.length;j++){
+                        a[j].appsindex = false;
+                    }
+                }
+                if(this.vpd.length==0){
+                    this.flag=true
+                }else{
+                    this.flag=false
+                }
+                if( localStorage.getItem("as")){
+                    var setAms = JSON.parse(localStorage.getItem("as"));
+                    this.togglelist = setAms;
+                }else{
+                    for(let i = 0;i<this.vpd.length;i++){            
+                        this.ssd = this.vpd[i].projectApps;
+                        this.togglelist.push({boolean:true});              
+                        // app   5个
+                        console.log(this.ssd.length);
+                        if(this.ssd.length>1){
+                
+                            $(".active").addClass("activs")
+                        }
+                        for(let j=0;j<this.ssd.length;j++){
+                    
+                            this.dg = this.ssd[j].appResults;
+                        
+                            for(let c = 0;c<this.dg.length;c++){
+                                this.gv = this.dg[c].result;
+                            }
+                        }
+                    }    
+                }                    
+                },(err)=>{
+                    console.log("不好意思")
+            })
+        },
+     
         bianjiZt:function(e){
-            alert(this.vpd[e].flags)
-            this.flags = false;
+            for(var h = 0;h<this.vpd.length;h++){
+                 this.vars.push(false);
+            }
+             $(document).ready(function(){
+                $("#loginers").focus();
+            }); 
+            this.vars[e] = true;
+            console.log(this.vars[e]==true)
+            console.log(this.vpd[e])
+        },
+        shiBlur:function(pronames,e,appid){
+            this.vars[e] = false;
+            let obj = {
+                "analysisName":pronames,
+                "proId": appid,
+            }
+            this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                         this.createding();
+            },(err)=>{
+                  console.log("不好意思")
+            })
+        },
+        creatyy:function(e,d){
+            for(var h = 0;h<this.vpd.length;h++){
+                 this.vars.push(false);
+                  var a = this.vpd[h].projectApps;
+                  for(var j=0;j<a.length;j++){
+                      a[j].appsindex = false;
+                  }
+            }
+             $(document).ready(function(){
+                $("#loginers").focus();
+            }); 
+            this.vpd[e].projectApps[d].appsindex = true;
+        },
+        
+        chiBlur:function(a,e,d,s){
+            this.vpd[e].projectApps[d].appsindex = false;
+            let obj = {
+                "appId":s,
+                "appName":a
+            };
+            console.log(obj)
+            this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                  this.createding();
+            },(err)=>{
+                  console.log("不好意思")
+            })
         },
         myFun:function(){
             myFuun()
@@ -655,10 +753,6 @@ export default {
         upDown:function(){
             this.welco = true;
             this.welcom = true;
-            // if("WebSocket" in window){
-            //     alert("您的浏览器支持WebSocket")
-            // }
-              
         },
         Jips:function(even){
             console.log(even)
@@ -681,35 +775,7 @@ export default {
             
     
         // },
-        // onm:function(index){
-            
-        //      this.i = index
-        // },
-        // onm:function(index){
-        //     //alert(index);
-        //     //console.log(this.vpd);
-        //     var ps = [];
-        //     var aix = this.vpd;
-        //     for(var i=0;i<aix.length;i++){
-        //         if(aix[i].projectApps&&aix[i].projectApps.length>0){
-        //             for(var j=0;j<aix[i].projectApps.length;j++){
-        //                 //console.log(aix[i].projectApps[j].appResults)
-        //                 if(aix[i].projectApps[j].appResults&&aix[i].projectApps[j].appResults.length>0){
-        //                         for(var k=0;k<aix[i].projectApps[j].appResults.length;k++){
-        //                            // console.log(aix[i].projectApps[j].appResults[k].result)
-        //                          var a=aix[i].projectApps[j].appResults[k].result;
-        //                         console.log(a)
-        //                         }
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     ps.push(a);
-                
-        // },
-        // als:function(){
-        //     this.$router.push({path:'/CreateAnalysis'});
-        // },            
+             
         rems:function(e,index){
             var that = this;
             //   let ids=[];
@@ -771,7 +837,6 @@ export default {
                     center: false
                     }).then(() => {
                        var ida = [];
-                        // window.location.reload();
                         that.vpd[index].projectApps.splice(appindex,1);
                         ida.push(id); //=也ok
                         var asg = {"ids":ida};
@@ -787,27 +852,16 @@ export default {
                         })
                     }).catch(() => {
               });   
-            
-           
         },
         onm:function(n,o,b){
-            //this.$router.push({path:'/',query:{id:n}});
-            //console.log(n,o,b);
             var o = o;
             var n = n;
             if(n == 4){
-                //if((b==1 || b==0)){
                     this.$router.push({path:'/compareQuestion',query:{id:o}});
-                //}
             }else if(n == 5){
-                    //if((b==1 || b==0)){
                     this.$router.push({path:'/resourceGroup',query:{id:o}});
-                //}
-                
             }else{
-                //if(b==1 || b==0){
                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
-                //}
             }
         },
        
@@ -833,46 +887,6 @@ export default {
         }
     },
     created:function(){
-        this.utype =  sessionStorage.getItem("utype");
-        
-        this.$http.get('/broker/result/analysis').then((res)=>{
-            this.vpd = eval("(" + res.bodyText +")").data;   //所有数据
-        console.log(this.vpd);
-            if(this.vpd.length==0){
-                this.flag=true
-            }else{
-                this.flag=false
-            }
-            if( localStorage.getItem("as")){
-                var setAms = JSON.parse(localStorage.getItem("as"));
-                this.togglelist = setAms;
-            }else{
-                
-                for(let i = 0;i<this.vpd.length;i++){            
-                    this.ssd = this.vpd[i].projectApps;
-                    this.togglelist.push({boolean:true});              
-                    // app   5个
-                    console.log(this.ssd.length);
-                    if(this.ssd.length>1){
-            
-                        $(".active").addClass("activs")
-                    }
-                // console.log(this.ds[e])
-            
-                    for(let j=0;j<this.ssd.length;j++){
-                
-                        this.dg = this.ssd[j].appResults;
-                        console.log(this.dg);
-                        for(let c = 0;c<this.dg.length;c++){
-                            this.gv = this.dg[c].result;
-                
-
-                        }
-                    }
-                }    
-            }                    
-            },(err)=>{
-                console.log("不好意思")
-        })
+        this.createding();
     }}
 </script>
