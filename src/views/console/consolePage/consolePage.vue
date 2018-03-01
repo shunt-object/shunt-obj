@@ -44,7 +44,7 @@
             <ul class="nav top-menu">
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover" id="xiaowei">
-                        <i class="iconfont icon-kefu"></i>小微
+                        <i class="iconfont icon-kefu"></i><!--小微-->Dr.吴
                     </a>                    
                 </li>
                 <li id="header_inbox_bar" class="dropdown">

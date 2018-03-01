@@ -1,6 +1,7 @@
 
 .detadcision-box{
     padding:0 !important;
+    min-height:100vh;
 }
 .detadcision-header{
     padding:0 10px !important;

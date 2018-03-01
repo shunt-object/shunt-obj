@@ -269,10 +269,11 @@ export default{
                     legend: {
                         data: ['上云趋势','上云总数'],
                         x:'79%',
+                        //right:'10px',
                         y:'10px'
                     },
                     xAxis: [{
-                        name:'  月份',
+                        name:'月份',
                         type:'category',
                         data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
                         axisPointer:{
@@ -575,7 +576,7 @@ export default{
                     min: 0,
                     max: 100,
                     dimension: 0,
-                    left: 'right',
+                    left: '73%',
                     top: '10',
                     text: ['高', '低'], // 文本，默认为数值文本
                     calculable: false,

@@ -22,7 +22,7 @@
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
                 <p class="footer-jx">CloudBroker²</p>
                     <div class="footer-ke">
-                        <p>您的专属上云顾问</p>
+                        <p>您的专属服务顾问</p>
                         <img src="../../assets/erweima.jpg" alt="">
                     </div>
                 </div>

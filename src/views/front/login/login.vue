@@ -27,7 +27,7 @@
                     <button class="login-from-btn" v-on:click="login()">登录</button>
                     <div class="login-from-remember">
                         <div class="login-from-left">
-                            <input type="checkbox" v-model="remember">记住密码
+                            <input type="checkbox" v-model="remember">记住用户
                         </div>
                         <div class="login-from-right">
                             <router-link to="/register" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
@@ -68,6 +68,10 @@ export default{
         if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
             this.remember = true;
             this.password = localStorage.getItem('remPassword');
+        }
+        if(localStorage.getItem('remAccount')!='' && localStorage.getItem('remAccount')!=null){
+            this.remember = true;
+            this.account = localStorage.getItem('remAccount');
         }
         let that = this;
         $(document).keyup(function (evnet) {
@@ -161,8 +165,10 @@ export default{
                 })
                if(this.remember==true){
                    localStorage.setItem('remPassword',this.password);
+                   localStorage.setItem('remAccount',this.account);
                }else{
                    localStorage.removeItem('remPassword');
+                   localStorage.removeItem('remAccount');
                }
             }else{
                 if(this.account==''){

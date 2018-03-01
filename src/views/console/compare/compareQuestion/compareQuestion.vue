@@ -12,7 +12,7 @@
     <div class="compare-title">选型标准</div>
     <!-- 场景选择 -->
     <div class="compare-change">
-        <div class="change-select">场景选择：</div>
+        <div class="change-select">场景选择</div>
         <div class="row">
             <div class="change-name col-md-1"></div>
             <div class="change-list col-md-11 row">

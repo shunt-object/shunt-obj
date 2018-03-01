@@ -6,78 +6,80 @@
     ><p class="comback">综合报告</p>
 </div>
     <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
-        <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
-            <div class="from-headers">
-                <div class="from-head" style="color:#fff;">
-                    <div class="from-head-left" style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""><br>您身边的云计算专业服务顾问</div>
-                    <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}}上云分析综合报告</div>
-                </div>
+    <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
+        <div class="from-headers">
+            <div class="from-head" style="color:#fff;">
+                <div class="from-head-left" style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""><br>您的专属服务顾问</div>
+                <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}}上云分析综合报告</div>
+            </div>
             
-                <div class="colligate-heade">
-                    <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji1" style="margin-right: 2px !important;"></i>打印</button>
-                    <button class="exportBtn buttHover" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
-                    
+            <div class="colligate-heade">
+                <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji1" style="margin-right: 2px !important;"></i>打印</button>
+                <button class="exportBtn buttHover" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
+                
+            </div>
+            <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
+                <!-- 基本信息 -->
+                <div class="colligate-title">
+                    <img src="../../../../assets/report/report-information.png" alt="">
+                    基本信息
                 </div>
-                <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
-                    <!-- 基本信息 -->
-                    <div class="colligate-title">
-                        <img src="../../../../assets/report/report-information.png" alt="">
-                        基本信息
-                    </div>
-                    <div class="colligate-list">
-                        <table class="information-table">
-                            <thead>
-                                <tr>
-                                    <th>企业名称</th>
-                                    <th>分析人</th>
-                                    <th>云分析名称</th>
-                                    <th>负载名称</th>
-                                    <th>工作负载类型</th>
-                                    <th>工作负载架构</th>
-                                    <th>分析时间</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{information.realname}}</td>
-                                    <td>{{information.tenant}}</td>
-                                    <td>{{information.proname}}</td>
-                                    <td>{{information.appname}}</td>
-                                    <td>{{information.protypeStr}}</td>
-                                    <td>{{information.frametypeStr}}</td>
-                                    <td>{{information.createDt}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- 云规划报告 -->
-                    <div class="colligate-title">
-                        <img src="../../../../assets/report/report-plan.png" alt="">
-                        云规划报告详情
-                    </div>
-                    <div class="colligate-list">
-                        <div class="legend-box">
-                            <div class="legend">    
-                                <div class="legend-list">
-                                    <span class="legend-block legend-high"></span>
-                                    高
-                                </div> 
-                                <div class="legend-list">
-                                    <span class="legend-block legend-heshi"></span>
-                                    合适
-                                </div>
-                                <div class="legend-list">
-                                    <span class="legend-block legend-yib"></span>
-                                    一般
-                                </div>
-                                <div class="legend-list">
-                                    <span class="legend-block legend-di"></span>
-                                    低
-                                </div>
+
+                <div class="colligate-list">
+                    <table class="information-table">
+                        <thead>
+                            <tr>
+                                <th>企业名称</th>
+                                <th>分析人</th>
+                                <th>云分析名称</th>
+                                <th>负载名称</th>
+                                <th>工作负载类型</th>
+                                <th>工作负载架构</th>
+                                <th>分析时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{information.tenant}}</td>
+                                <td>{{information.realname}}</td>
+                                <td>{{information.proname}}</td>
+                                <td>{{information.appname}}</td>
+                                <td>{{information.protypeStr}}</td>
+                                <td>{{information.frametypeStr}}</td>
+                                <td>{{information.createDt}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 云规划报告 -->
+                <div class="colligate-title">
+                    <img src="../../../../assets/report/report-plan.png" alt="">
+                    云规划报告详情
+                </div>
+                <div class="colligate-list">
+                    <div class="legend-box">
+                        <div class="legend">    
+                            <div class="legend-list">
+                                <span class="legend-block legend-high"></span>
+                                高
+                            </div> 
+                            <div class="legend-list">
+                                <span class="legend-block legend-heshi"></span>
+                                合适
                             </div>
-                            <div class="result-echarts" id="main"></div>
+                            <div class="legend-list">
+                                <span class="legend-block legend-yib"></span>
+                                一般
+                            </div>
+                            <div class="legend-list">
+                                <span class="legend-block legend-di"></span>
+                                低
+                            </div>
                         </div>
-                        <div class="echarts-desc">工作负载分布图</div>
+                        <div class="result-echarts" id="main"></div>
+                    </div>
+                    <div class="echarts-desc">工作负载分布图</div>
                         <div class="row">
                             <div class="col-md-3">
                                 <p class="appname">
@@ -248,6 +250,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
      
          
