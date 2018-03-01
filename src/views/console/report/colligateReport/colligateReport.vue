@@ -35,7 +35,7 @@
                                 <th>负载名称</th>
                                 <th>工作负载类型</th>
                                 <th>工作负载架构</th>
-                                <th>分析时间</th>
+                                <th>创建时间</th>
                             </tr>
                         </thead>
                         <tbody>
