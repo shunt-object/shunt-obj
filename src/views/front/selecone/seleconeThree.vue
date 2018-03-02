@@ -23,8 +23,8 @@
                 <div class="seleconeMain-mainfir col-xs-12 " style="padding-left:15px">
                     <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px">云实测——进一步科学验证</span></p>
                     <div class="seclone-dv">
-                        <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px">在测试环境下1:1还原真实业务场景</h3>
-                        <p style="font-weight:100;text-align:center;font-size:18px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
+                        <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px">在云实测环境下1:1还原真实业务场景</h3>
+                        <p style="font-weight:100;text-align:center;font-size:18px">有没有一个一站式平台，可以专业验证云规划和云选型结果呢？</p>
                     </div>
                     <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
                 </div>
@@ -33,8 +33,8 @@
         </div>
         <div style="background:#f6f7f8;width:100%">
             <div class="clould-testing-block container">
-                <h4 style="font-weight:100">为什么在您完成云规划和云选型后</h4>
-                <h4 style="font-weight:100;margin-top:10px;">还需要进行云测试呢？</h4>
+                <h4 style="font-weight:100">在完成云规划和云选型后</h4>
+                <h4 style="font-weight:100;margin-top:10px;">为什么还需要进行云实测</h4>
                 <div class="col-md-12" style="margin:0px;">
                     <div class="col-md-6 col-xs-12">
                         <div class="clould-testing-desc">
@@ -43,31 +43,33 @@
                             <p class="clould-testing-p">一个好的云平台性能，可以带来更快的云平台访问速度，</p>
                             <p class="clould-testing-p">更快的页面响应速度，更快的数据计算，从而获得更好的用户体验；</p>
                             <p class="clould-testing-p">一个好的云平台性能，确保了云迁移是否满足用户的功能需求，</p>
-                            <p class="clould-testing-p">是否实现上云的目的？反之，一个低性能的云平台，将直接影响您的用户体验；</p>
+                            <p class="clould-testing-p">是否实现上云的目的？</p>
+                            <p class="clould-testing-p">反之，一个低性能的云平台，将直接影响您的用户体验；</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
-                        <img class="clould-testing-img" src="../../../assets/measured/measured-computer.png" alt="">
+                    <div class="col-md-6 col-xs-12" style="margin-bottom:50px;">
+                        <img class="clould-testing-img" src="../../../assets/measured/measured-computer.png" alt="" style="width:80%">
                     </div>
                 </div>
             </div>
         </div>
         <div style="background:#fff;width:100%;padding-bottom:80px;">
             <div class="clould-testing-block container">
-                <h4 style="font-weight:100;">CloudBroker 应用性能测试SaaS应用提供了</h4>
-                <h4 style="font-weight:100;margin-bottom:50px;margin-top:10px;">在测试环境下1:1还原真实业务场景</h4>
+                
+                <h4 style="font-weight:100;margin-top:50px;">在云实测环境下，为您提供</h4>
+                <h4 style="font-weight:100;margin-bottom:50px;margin-top:0 !important">1：1仿真环境和还原真实业务场景</h4>
                 <div class="row" style="margin:0px;">
                     <div class="col-md-9">
                         <img class="clould-testing-img" src="../../../assets/measured/measured-computer-content.png" alt="">
                     </div>
                     <div class="col-md-3" style="padding:0 !importnt;">
-                        <p class="clould-testing-sight">较为全面的覆盖了前后端页面所有测试环节，将协助您全面提升用户体验</p>
+                        <p class="clould-testing-sight">全面的覆盖了前后端多维度测试环节，将协助您全面提升用户体验</p>
                         <ul class="clould-testing-ul">
                             <li><span class="clould-testing-li-num clould-testing-color1">1</span>基于大数据</li>
-                            <li><span class="clould-testing-li-num clould-testing-color2">2</span>应用性能监控分析</li>
+                            <li><span class="clould-testing-li-num clould-testing-color2">2</span>网络和应用性能监控分析</li>
                             <li><span class="clould-testing-li-num clould-testing-color3">3</span>业务可视化</li>
                             <li><span class="clould-testing-li-num clould-testing-color1">4</span>业务访问路径梳理</li>
-                            <li><span class="clould-testing-li-num clould-testing-color2">5</span>端到端应用性能监控</li>
+                            <li><span class="clould-testing-li-num clould-testing-color2">5</span>端到端网络和应用性能监控</li>
                         </ul>
                     </div>
                 </div>
@@ -120,7 +122,7 @@
 .seleconeMains-banner{
    animation-duration:2s;
 }
-.seleconeMains-banner{background:url("../../../assets/threeGj.png") no-repeat  center 40px;background-size:100% 100%; }
+.seleconeMains-banner{background:#222222;background-size:100% 100%; }
 .seleconeMain-mainfir{margin-top:150px;margin-bottom:40px}
 .seleconeMain-mainfir .selecone-pfir{
     font-size:26px;
@@ -162,7 +164,7 @@
     margin-top:50px;
 }
 .clould-testing-desc{
-    padding-top:220px;
+    padding-top:118px;
 }
 .clould-testing-p{
     font-size:14px;
@@ -172,7 +174,8 @@
     line-height:28px;
 }
 .clould-testing-img{
-    width:100%;
+    width:80%;
+    margin-top:30px;
 }
 .clould-testing-sight{
     font-size:14px;
