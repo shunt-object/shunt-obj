@@ -129,12 +129,6 @@
            <!--CND-->
             <div class="yibanzp" v-if="regionter=='cdn'">
               <el-form :model="cdnList" :rules="rules" ref="cdnList">
-                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
-                        <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
-                </el-form-item>
-                <el-form-item  label="购买结束时间" :label-width="formLabelWidth">
-                        <el-date-picker v-model="cdnList.expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
-                </el-form-item>
                <!-- <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
                     <el-date-picker
                             v-model="cdnList.sdate"
@@ -146,13 +140,19 @@
                             align="right">
                     </el-date-picker>
                  </el-form-item>-->
-                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandwidth">
-                    <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
-                </el-form-item>
                 <el-form-item label="云厂商" :label-width="formLabelWidth" prop="cse">
                     <el-select v-model="cdnList.cse" placeholder="请选择厂商">
                         <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
+                </el-form-item>
+                <el-form-item label="流量（GB）" :label-width="formLabelWidth" prop="bandwidth">
+                    <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
+                        <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
+                </el-form-item>
+                <el-form-item  label="购买结束时间" :label-width="formLabelWidth">
+                        <el-date-picker v-model="cdnList.expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
                 </el-form-item>
              </el-form>
            </div>
@@ -320,14 +320,14 @@
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian(index,cdn.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAj(cdn.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
-                    <img src="../../../../assets/overview/resource-group3.png" alt="">
+                    <img src="../../../../assets/overview/resource-group5.png" alt="">
                     <h4 style="font-size:12px;">CDN</h4>
                 </div>
                 <div class="col-md-2 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
                         <li v-if="cdn.bandwidth==undefined||cdn.bandwidth==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{cdn.bandwidth}}</li>  
-                        <li>带宽（Mbps/月）</li>
+                        <li>流量（GB）</li>
                     </ul>
                 </div>
                 <div class="col-md-2 Pei" style="margin-top:10px;">
@@ -337,18 +337,11 @@
                         <li>云厂商</li>
                     </ul>
                 </div>
-                <div class="col-md-2 Pei" style="margin-top:10px;">
+                <div class="col-md-4 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
                         <li v-if="cdn.startDate==undefined||cdn.startDate==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{cdn.startDate}}</li>
-                        <li>购买开始时间</li>
-                    </ul>
-                </div>
-                <div class="col-md-2 Pei" style="margin-top:10px;">
-                    <ul class="cuncul">
-                        <li v-if="cdn.expireDate==undefined||cdn.expireDate==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{cdn.expireDate}}</li>
-                        <li>购买结束时间</li>
+                        <li v-else  style="color: #da121a">{{cdn.startDate}}/{{cdn.expireDate}}</li>
+                        <li>购买起止时间</li>
                     </ul>
                 </div>
             </div>
