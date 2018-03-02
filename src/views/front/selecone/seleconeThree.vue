@@ -18,17 +18,17 @@
     <!-- 中间内容 -->
     <div class="measurement-level">
         <!-- 导航 -->
-        <div class="seleconeMain-banner row ">
+        <div class="seleconeMains-banner row ">
             <div class="container">
-                <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
-                    <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px">云实测——进一步科学验证</span></p>
+                <div class="seleconeMain-mainfir col-xs-12 " style="padding-left:15px">
+                    <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px">云实测——进一步科学验证</span></p>
                     <div class="seclone-dv">
-                        <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">在测试环境下1:1还原真实业务场景</h3>
-                        <p style="font-weight:100;text-align:left;font-size:18px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
+                        <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px">在测试环境下1:1还原真实业务场景</h3>
+                        <p style="font-weight:100;text-align:center;font-size:18px">有没有一个简单的应用，可以科学的告诉我结果呢？</p>
                     </div>
-                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
+                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
                 </div>
-                <div class="col-md-6 col-xs-12 text-left" style="margin-top:105px;padding:0 !important;"><img src="../../../assets/compare.png" alt="" style="float:right;width: 80%;"></div>
+               
             </div>
         </div>
         <div style="background:#f6f7f8;width:100%">
@@ -117,11 +117,11 @@
 .scrollUp:hover{
     cursor:pointer;
 }  
-.seleconeMain-banner{
+.seleconeMains-banner{
    animation-duration:2s;
 }
-.seleconeMain-banner{background:#222222;text-align:center;background-size:100% 100%;}
-.seleconeMain-mainfir{margin-top:160px;}
+.seleconeMains-banner{background:url("../../../assets/threeGj.png") no-repeat  center 40px;background-size:100% 100%; }
+.seleconeMain-mainfir{margin-top:150px;margin-bottom:40px}
 .seleconeMain-mainfir .selecone-pfir{
     font-size:26px;
     color:#ffffff;
