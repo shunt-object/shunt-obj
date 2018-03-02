@@ -130,16 +130,27 @@
             <div class="yibanzp" v-if="regionter=='cdn'">
               <el-form :model="cdnList" :rules="rules" ref="cdnList">
                 <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
-                        <el-date-picker v-model="startDate"  type="date" placeholder="选择购买开始时间" format="yyyy年MM月dd日" value-format="yyyy-MM-dd"> </el-date-picker>
+                        <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
                 </el-form-item>
                 <el-form-item  label="购买结束时间" :label-width="formLabelWidth">
-                        <el-date-picker v-model="expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy年MM月dd日" value-format="yyyy-MM-dd"> </el-date-picker>
+                        <el-date-picker v-model="cdnList.expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
                 </el-form-item>
-                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandswidth">
-                    <el-input v-model="cdnList.bandswidth" auto-complete="off" type="number" min="1"></el-input>
+               <!-- <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
+                    <el-date-picker
+                            v-model="cdnList.sdate"
+                            type="datetimerange"
+                            :picker-options="pickerOptions2"
+                            range-separator="至"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期"
+                            align="right">
+                    </el-date-picker>
+                 </el-form-item>-->
+                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandwidth">
+                    <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="云厂商" :label-width="formLabelWidth" prop="cses">
-                    <el-select v-model="cdnList.cses" placeholder="请选择厂商">
+                <el-form-item label="云厂商" :label-width="formLabelWidth" prop="cse">
+                    <el-select v-model="cdnList.cse" placeholder="请选择厂商">
                         <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
                 </el-form-item>
@@ -305,38 +316,38 @@
                 </div>
             </div>
         </div>
-         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.cdns">
+         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(cdn,index) in cdn">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
-                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian()"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian(index,cdn.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAj(cdn.id,index)"></i></span></h2>
                 <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
                     <img src="../../../../assets/overview/resource-group3.png" alt="">
                     <h4 style="font-size:12px;">CDN</h4>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:10px;" >
+                <div class="col-md-2 Pei" style="margin-top:10px;" >
                     <ul class="cuncul">
-                        <li v-if="this.cdn.bandwidth==undefined||this.cdn.bandwidth==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.cdn.bandwidth}}</li>  
+                        <li v-if="cdn.bandwidth==undefined||cdn.bandwidth==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{cdn.bandwidth}}</li>  
                         <li>带宽（Mbps/月）</li>
                     </ul>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:10px;">
+                <div class="col-md-2 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
-                        <li v-if="this.cdn.cse==undefined||this.cdn.cse==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.cdn.cse}}</li>
+                        <li v-if="cdn.cse==undefined||cdn.cse==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{cdn.cse.name}}</li>
                         <li>云厂商</li>
                     </ul>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:10px;">
+                <div class="col-md-2 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
-                        <li v-if="this.cdn.startDate==undefined||this.cdn.startDate==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.cdn.startDate}}</li>
+                        <li v-if="cdn.startDate==undefined||cdn.startDate==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{cdn.startDate}}</li>
                         <li>购买开始时间</li>
                     </ul>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:10px;">
+                <div class="col-md-2 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
-                        <li v-if="this.cdn.expireDate==undefined||this.cdn.expireDate==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.cdn.expireDate}}</li>
+                        <li v-if="cdn.expireDate==undefined||cdn.expireDate==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{cdn.expireDate}}</li>
                         <li>购买结束时间</li>
                     </ul>
                 </div>
@@ -612,15 +623,16 @@ import sds from '../../../../components/steps/steps.vue'
 export default {
   name: 'ResourceGroup',
   data () {
+      let that = this;
     return {
-         
+          
           inusShjs:{
               type:[]
           },
           rules: {
               
-            exDate:[{ type: 'date', required: true, message: '请输入购买结束时间', trigger: 'change' }],
-            stDate:[{ type: 'date', required: true, message: '请输入购买开始时间', trigger: 'change' }],
+            expireDate:[{ type: 'date', required: true, message: '请输入购买结束时间', trigger: 'change' }],
+            startDate:[{ type: 'date', required: true, message: '请输入购买开始时间', trigger: 'change' }],
             cses:[{required: true, message: '请选择云厂商', trigger: 'blur'}],
             cores: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
             ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
@@ -639,7 +651,7 @@ export default {
             bandwidth:[{required: true, message: '请输入带宽', trigger: 'blur'}],
             inbound:[{required: true, message: '请输入入站大小', trigger: 'blur'}],
             outbound:[{required: true, message: '请输入出站大小', trigger: 'blur'}],
-            cse:[{required: true, message: '请选择云厂商和云存储大小', trigger: 'blur'}],
+            cse:[{required: true, message: '请选择云厂商', trigger: 'blur'}],
             sna:[{required: true, message: '请输入共享存储大小', trigger: 'blur'}],
             nsa:[{required: true, message: '请输入网络大小', trigger: 'blur'}],
              cpus: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
@@ -745,10 +757,10 @@ export default {
         },
     cdn:[],
     cdnList:{
-         bandswidth:"",
-        stDate:"",
-        exDate:"",
-         cses:"",
+         bandwidth:"",
+        startDate:"",
+        expireDate:"",
+         cse:"",
 
     },
      expireDate:"",
@@ -758,7 +770,20 @@ export default {
        rs:[],
        ros:[],
        rufs:[],
-       result:[]
+       result:[],
+       
+        pickerOptions0: {
+          disabledDate(time) {
+            return time.getTime() < Date.now() - 8.64e7;
+          }
+        },
+        pickerOptions1: {
+          disabledDate(time) {
+            return time.getTime() < Date.now() - 8.64e7 ||
+                time.getTime() < new Date(that.cdnList.startDate).getTime();
+          }
+        }
+            
     }
   },
   mounted:function(){
@@ -818,7 +843,7 @@ export default {
             this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                             
                     this.result =  res.data.data; 
-                    console.log(res)
+                 console.log(this.result)
                     //console.log(this.result.appServer.id)
                       if(this.result.network !== null){
                             this.resu = this.result.network.id
@@ -841,7 +866,8 @@ export default {
                         this.cores=this.result.appServer==undefined?this.cores=[]:this.cores=this.result.appServer;
                         this.ines = this.result.dbServer==undefined?this.ines=[]:this.ines=this.result.dbServer;
                         this.inus = this.result.storage==undefined?this.inus=[]:this.inus=this.result.storage;
-                        console.log(this.result);
+                        this.cdn = this.result.cdns==undefined?this.cdn=[]:this.cdn=this.result.cdns;
+                       
                      }
                      },(err)=>{
                          console.log("不好意思")
@@ -891,6 +917,7 @@ export default {
          this.coresShj = {};
          this.inesShj={};
          this.inusShj = {};  
+         this.cdnList = {};
          this.asd = false;
          this.afd = false;
          this.agd = false;
@@ -1100,10 +1127,10 @@ export default {
                             if (valid) {
                                     this.cdn.push(
                                         { 
-                                            bandwidth:this.cdnList.bandswidth,
-                                            startDate:this.startDate,
-                                            expireDate:this.expireDate,
-                                            cse:this.cdnList.cses,
+                                            bandwidth:this.cdnList.bandwidth,
+                                            startDate:this.cdnList.startDate,
+                                            expireDate:this.cdnList.expireDate,
+                                            cse:this.cdnList.cse,
                                             appid: Number(this.appId),
                                             id:this.idey
                                         }
@@ -1111,7 +1138,7 @@ export default {
                                     for(let i = 0 ;i<this.cdn.length;i++){
                                         var objs = this.cdn[this.cdn.length-1]
                                     }
-
+                                    console.log(this.cdnList.startDate)
                                    this.$this.post('/broker/app/resource/group/cdn',objs).then((res)=>{
                                         this.showers();
                                         this.dialogFormVisible =false;
@@ -1241,6 +1268,16 @@ export default {
           console.log(this.asd)
           console.log(this.agd)
      
+    },
+    cdnbian:function(e,d){
+         this.regionter = "cdn";
+         this.idey = d;
+         this.dialogFormVisible = true;
+        
+         this.cdnList = this.cdn[e];
+         console.log(this.cdnList)
+         console.log(this.cdnList.bandswidth)
+
     },
       lookq:function(){
         if(this.checkeder==false){
@@ -1395,46 +1432,33 @@ export default {
           });          
         });
     },
-    // isga:function(index){
-    //     //console.log(this.inusList[index].isgas)
-    //     if(this.inusList[index].isgas==false){
-    //         this.inusList[index].isgas=true;
-    //     }else{
-    //         this.inusList[index].isgas=false;
-    //     };
-
-
-    // },
-    // isda:function(index){
-    //      if(this.inusList[index].isdas==false){
-    //         this.inusList[index].isdas=true;
-    //     }else{
-    //         this.inusList[index].isdas=false;
-    //     }
-    // },
-    // isfa:function(index){
-    //     if(this.inusList[index].isfas==false){
-    //         this.inusList[index].isfas=true;
-    //     }else{
-    //         this.inusList[index].isfas=false;
-    //     }
-    // },
-
+    removeAj:function(e,d){
+        var that = this;
+        this.$confirm('删除后，如需恢复需要重新添。确认删除？', '温馨提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          confirmButtonClass:'lay-btn-red',
+          cancelButtonClass:'lay-cancel-btn',
+          type: 'warning'
+        }).then(() => {
+            let id = e;
+            this.$this.delete('/broker/app/resource/group/'+this.appId+'/5/'+id).then((res)=>{
+                         that.cdn.splice(d, 1);       
+            },(err)=>{
+                 console.log("不好意思")
+            });  
+          this.$message({
+            type: 'success',
+            message: '删除成功!',
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+    },
     btn:function(){
-           //console.log(this.os);
-            // if(){
-
-            //    this.$layer.alert("注意：您有未填写的项目，请填写完整");
-            // }else{
-            //this.appId = sessionStorage.getItem("appId"); 
-
-            // let valuely = $("#sele").val();
-            // let valueey = $("#selet").val();
-            // console.log(this.appId);
-           // if(){
-
-           // }else{
-            
                 let obj ={
                     "appId": this.appId,
                     "appServer": this.cores,
