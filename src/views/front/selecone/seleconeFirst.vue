@@ -57,11 +57,12 @@
                             </ul>
                         </div>
                     </div>
+                    <!--<div class="seleconefirst-source">RightScale2017年上云趋势报告</div>-->
                 </div>
             </div>
             <div style="background:#f9fafb;width:100%;" class="broundRi">
                 <div class="seleconeMain-shrts container" >
-                    <h4>现实中真实困惑</h4>
+                    <h4 style="font-weight:100">现实中真实困惑</h4>
                     <P style="margin-top:10px;">面对诸多的云厂商，不知如何选择？</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-9 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
@@ -80,8 +81,8 @@
             </div>
             <div style="background:#ffffff;width:100%" >
                 <div class="seleconeMain-echarts broundDow container">
-                    <h4 class="child-p text-center">多维报表分析</h4>
-                    <h4 class="child-ps text-center">提供可视化数据展现</h4>
+                    <h4 class="child-p text-center" style="font-weight:100">多维报表分析</h4>
+                    <h4 class="child-ps text-center" style="font-weight:100">提供可视化数据展现</h4>
                     <P class="child-pl text-center" style="margin-top:10px;color:#777777">海量数据、分析报告</P>
                     <div class="col-md-12 seleconeMain-img">
                         <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/84.png" alt="" style="width:63%;height:63%;"></div>
@@ -344,7 +345,7 @@
        margin-top:50px; 
     }
     .seleconeMain-echarts .child-ps{
-           font-size:26px;
+        font-size:26px;
        color:#333333;
        text-align:center;
     }

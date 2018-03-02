@@ -70,7 +70,7 @@
     </div>
     <div class="compare-cate" v-if="res==true">上云工作负载配置信息详情</div>
     <table class="table-score resourGroup-table" v-if="res==true">
-        <thead v-if="appServer.length>0||dbServer.length>0||network.inbound||storage.length>0">
+        <thead v-if="appServer.length>0||dbServer.length>0||network!=null||storage.length>0||cdns.length>0">
             <tr>
                 <th>数量</th>
                 <th>资源</th>
@@ -102,7 +102,7 @@
                     <p><span class="labelRed">{{db.computeMappingFactor}}</span>资源平均利用率</p>
                 </td>
             </tr>
-            <tr v-if="network.inbound">
+            <tr v-if="network!=null">
                 <td></td>
                 <td>网络存储</td>
                 <td>
@@ -118,6 +118,16 @@
                     <p><span class="labelRed">{{stro.sna}}</span>共享存储（SAN）（GB）</p>
                     <p><span class="labelRed">{{stro.nsa}}</span>网络存储（NAS）（GB）</p>
                     <p><span class="labelRed">{{stro.cloudStorage}}</span>云存储（GB）</p>
+                </td>
+            </tr>
+            <tr v-for="cdn in cdns">
+                <td></td>
+                <td>CDN</td>
+                <td>
+                    <p><span class="labelRed">{{cdn.cse.name}}</span>云厂商</p>
+                    <p><span class="labelRed">{{cdn.bandwidth}}</span>带宽</p>
+                    <p><span class="labelRed">{{cdn.startDate}}</span>购买开始时间</p>
+                    <p><span class="labelRed">{{cdn.expireDate}}</span>购买结束时间</p>
                 </td>
             </tr>
         </tbody>
@@ -148,6 +158,7 @@ export default{
             appServer:[],
             dbServer:[],
             network:[],
+            cdns:[],
             storage:[],
             details:[],
             confirm:[],
@@ -170,18 +181,25 @@ export default{
     },
     methods:{
         getdata:function(){
-            console.log(1111);
-            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-                console.log('=====',response.data.data.res==null);
-                if(response.data.data.res!=null){
+            this.$this.get('/broker/app/resource/group/'+this.appId+'').then((response)=>{
+                if(response.data.data.appServer.length>0||response.data.data.dbServer.length>0||response.data.data.network!=null||response.data.data.storage.length>0||response.data.data.cdns.length>0){
                     this.res = true;
                 }
+                this.appServer = response.data.data.appServer;
+                this.dbServer = response.data.data.dbServer;
+                this.network = response.data.data.network;
+                this.storage = response.data.data.storage;
+                this.cdns = response.data.data.cdns;
+            }).catch((error)=>{})
+            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
+                // if(response.data.data.res!=null){
+                //     this.res = true;
+                // }
                 this.compareResultList = response.data.data.datas;
-                this.appServer = JSON.parse(response.data.data.res.appServer);
-                this.dbServer = JSON.parse(response.data.data.res.dbServer);
-                this.network = JSON.parse(response.data.data.res.network);
-                this.storage = JSON.parse(response.data.data.res.storage);
-                console.log('-----',this.network);
+                // this.appServer = JSON.parse(response.data.data.res.appServer);
+                // this.dbServer = JSON.parse(response.data.data.res.dbServer);
+                // this.network = JSON.parse(response.data.data.res.network);
+                // this.storage = JSON.parse(response.data.data.res.storage);
                  
             }).catch((error)=>{})
         },

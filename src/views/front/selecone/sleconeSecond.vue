@@ -305,7 +305,7 @@
        margin-top:50px; 
     }
     .seleconeMain-echarts .child-ps{
-           font-size:28px;
+           font-size:26px;
        color:#333333;
        text-align:center;
     }

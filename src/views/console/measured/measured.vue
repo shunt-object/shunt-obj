@@ -4,12 +4,11 @@
         <span></span>
         云实测
     </div> 
-    <!--<div class="title"><div class="swing"><img src="../../../assets/jqqd.jpg" alt=""><p style="font-size:14px;">正在开发中，即将上线，敬请您的期待......</p></div></div> -->
-    <div class="row measured-content">
+    <div class="title"><div class="swing"><img src="../../../assets/jqqd.jpg" alt=""><p style="font-size:14px;">正在开发中，即将上线，敬请您的期待......</p></div></div>
+    <!--<div class="row measured-content">
         <div class="col-md-6 measured-desc">
             <div class="measured-desc-box">
-                <p class="measured-desc-list">我们当前正在与国内领先的端到端实测</p>
-                <p class="measured-desc-list">服务商听云共同研发云实测功能，请您耐心等待；</p>
+                <p class="measured-desc-list">当前，我们正在与国内领先的，<br>端到端实测服务商听云共同研发云实测功能，请您耐心等待；</p>
                 <p class="measured-desc-list">如您当前急需对云平台的测试，<br>请您直接访问听云。</p>
                 <button class="visit-tingyun" v-on:click="tingyun()"><a href="http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1" target="_blank">立即访问</a></button>
             </div>            
@@ -17,7 +16,7 @@
         <div class="col-md-6 measured-bg">
             <img src="../../../assets/measured/measured-computer.png" alt="">
         </div>
-    </div>
+    </div>-->
 </div>
 </template>
 <style>
@@ -83,7 +82,10 @@ import "../measured/animate.min.css"
             name:"measured",
             methods:{
                 tingyun:function(){
-                    //alert(1111);
+                    this.$http.get('/broker/action/click/19').then((response)=>{
+                        //console.log('----',response);
+                    }).catch((error)=>{
+                    })
                 }
             }
 

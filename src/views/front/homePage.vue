@@ -212,12 +212,12 @@
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
           <img src="../../assets/Group 38.png" alt=""  class="jz-img">
-          <img src="../../assets/Group 45.png" alt=""  class="jz-img">
+          <img src="../../assets/Group-45-new.png" alt=""  class="jz-img">
          
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
            <img src="../../assets/Group 39.png" alt=""  class="jz-img">
-           <img src="../../assets/Group 36.png" alt=""  class="jz-img">
+           <img src="../../assets/Group-36-new.png" alt=""  class="jz-img">
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
           <img src="../../assets/ali.png" alt="" class="jz-img">

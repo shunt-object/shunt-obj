@@ -37,7 +37,7 @@
                     <li class="slider-panel" v-show="this.welco"> 
                         <div class="modle-title" ><h1>ClouldBroker²<span>六步祝您轻松上云</span></h1></div>
                         <a><!--<img src="../../../../assets/overview/welcome2.png">--><img src="../../../../assets/overview/welcome2-new.png"></a>
-                        <span class="creatCloud" v-on:click="UpRoute">创建云分析</span>
+                        <span class="creatCloud" v-on:click="UpRoute">创建分析组</span>
                           
                     </li> 
                 </ul>
@@ -143,6 +143,9 @@
 .proInput{
     margin-top:5px;
     height:70%;
+}
+#myInput:focus{
+    border:1px solid #409EFF;
 }
 .page-login-toolTipClass{
     background:#FFF1DC !important;
