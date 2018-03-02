@@ -129,14 +129,19 @@
            <!--CND-->
             <div class="yibanzp" v-if="regionter=='cdn'">
               <el-form :model="cdnList" :rules="rules" ref="cdnList">
-                <el-form-item  label="数量" :label-width="formLabelWidth" >
-                    <el-input v-model="cdnList.num" auto-complete="off" type="number"  placeholder="1" min="1"></el-input>
+                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
+                        <el-date-picker v-model="startDate"  type="date" placeholder="选择购买开始时间" format="yyyy年MM月dd日" value-format="yyyy-MM-dd"> </el-date-picker>
+                </el-form-item>
+                <el-form-item  label="购买结束时间" :label-width="formLabelWidth">
+                        <el-date-picker v-model="expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy年MM月dd日" value-format="yyyy-MM-dd"> </el-date-picker>
                 </el-form-item>
                 <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandswidth">
                     <el-input v-model="cdnList.bandswidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="节点数量（个）" :label-width="formLabelWidth" prop="nodeNum">
-                    <el-input v-model="cdnList.nodeNum" auto-complete="off" type="number" min="1"></el-input>
+                <el-form-item label="云厂商" :label-width="formLabelWidth" prop="cses">
+                    <el-select v-model="cdnList.cses" placeholder="请选择厂商">
+                        <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
+                    </el-select>
                 </el-form-item>
              </el-form>
            </div>
@@ -312,14 +317,27 @@
                         <li v-if="this.cdn.bandwidth==undefined||this.cdn.bandwidth==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{this.cdn.bandwidth}}</li>  
                         <li>带宽（Mbps/月）</li>
-                     
                     </ul>
                 </div>
                 <div class="col-md-3 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
-                        <li v-if="this.cdn.nodeNum==undefined||this.cdn.nodeNum==''"  style="color: #797979">--</li>
-                        <li v-else  style="color: #da121a">{{this.cdn.nodeNum}}</li>
-                        <li>节点数量（个）</li>
+                        <li v-if="this.cdn.cse==undefined||this.cdn.cse==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{this.cdn.cse}}</li>
+                        <li>云厂商</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:10px;">
+                    <ul class="cuncul">
+                        <li v-if="this.cdn.startDate==undefined||this.cdn.startDate==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{this.cdn.startDate}}</li>
+                        <li>购买开始时间</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:10px;">
+                    <ul class="cuncul">
+                        <li v-if="this.cdn.expireDate==undefined||this.cdn.expireDate==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{this.cdn.expireDate}}</li>
+                        <li>购买结束时间</li>
                     </ul>
                 </div>
             </div>
@@ -600,6 +618,10 @@ export default {
               type:[]
           },
           rules: {
+              
+            exDate:[{ type: 'date', required: true, message: '请输入购买结束时间', trigger: 'change' }],
+            stDate:[{ type: 'date', required: true, message: '请输入购买开始时间', trigger: 'change' }],
+            cses:[{required: true, message: '请选择云厂商', trigger: 'blur'}],
             cores: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
             ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghz:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
@@ -617,7 +639,7 @@ export default {
             bandwidth:[{required: true, message: '请输入带宽', trigger: 'blur'}],
             inbound:[{required: true, message: '请输入入站大小', trigger: 'blur'}],
             outbound:[{required: true, message: '请输入出站大小', trigger: 'blur'}],
-            cse:[{required: true, message: '请输入云厂商和云存储大小', trigger: 'blur'}],
+            cse:[{required: true, message: '请选择云厂商和云存储大小', trigger: 'blur'}],
             sna:[{required: true, message: '请输入共享存储大小', trigger: 'blur'}],
             nsa:[{required: true, message: '请输入网络大小', trigger: 'blur'}],
              cpus: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
@@ -629,6 +651,8 @@ export default {
            
          
          },
+         value3:"",
+
         rsers:[],
         orCreadCenter:false,
         dialogTableVisible: false,
@@ -721,10 +745,14 @@ export default {
         },
     cdn:[],
     cdnList:{
-         num:"1",
          bandswidth:"",
-         nodeNum:"",
+        stDate:"",
+        exDate:"",
+         cses:"",
+
     },
+     expireDate:"",
+    startDate:"",
        appId:"",
        queryType:'',
        rs:[],
@@ -885,9 +913,6 @@ export default {
          
      },
       dialogFor:function(){
-        //console.log(formNames)
-        
-        console.log(this.coresShj.num);
             if(this.regionter=='server'){
                  this.$refs['coresShj'].validate((valid) => {
                     if (valid) {
@@ -1073,30 +1098,31 @@ export default {
                     }else if(this.regionter=="cdn"){
                         this.$refs["cdnList"].validate((valid) => {
                             if (valid) {
-                               if(this.cdnList.num==undefined){
-                                        this.cdn.push(
+                                    this.cdn.push(
                                         { 
-                                            num:"1",
                                             bandwidth:this.cdnList.bandswidth,
-                                            nodeNum:this.cdnList.nodeNum,
+                                            startDate:this.startDate,
+                                            expireDate:this.expireDate,
+                                            cse:this.cdnList.cses,
                                             appid: Number(this.appId),
                                             id:this.idey
                                         }
                                     );
-                                }else{
-                                        this.cdn.push(
-                                            { 
-                                                num:this.cdnList.num,
-                                                bandwidth:this.cdnList.bandswidth,
-                                                nodeNum:this.cdnList.nodeNum,
-                                                appid: Number(this.appId),
-                                                id:this.idey
-                                            }
-                                        )
+                                    for(let i = 0 ;i<this.cdn.length;i++){
+                                        var objs = this.cdn[this.cdn.length-1]
                                     }
-                                    // for(let i = 0 ;i<this.inus.length;i++){
-                                    //     var objs = this.inus[this.inus.length-1]
-                                    // }
+
+                                   this.$this.post('/broker/app/resource/group/cdn',objs).then((res)=>{
+                                        this.showers();
+                                        this.dialogFormVisible =false;
+                                        this.regionter="";
+                                        this.cdnList = {};
+                                    },(err)=>{
+                                        console.log("不好意思")
+                                    }); 
+
+
+                                    
                                     // console.log(objs)
                                     // this.$this.post('/broker/app/resource/group/storage',objs).then((res)=>{
                                     //     this.showers();
@@ -1105,9 +1131,7 @@ export default {
                                     // });   
                                     //     this.v++;
                                     //     this.col = 4;
-                                    //     this.dialogFormVisible =false;
-                                    //     this.regionter="";
-                                    //     this.inusShj = {};
+                                    
                              } else {
                                     console.log('error submit!!');
                                     return false;
