@@ -171,6 +171,12 @@
         <p class="p-wha">云可能很复杂，但我们助您上云变得简单和轻松</p>
         <div class="heng"></div>
         <ul class="row col-xs-12 uls-w" style="margin-top:20px !important;">
+            <li class="col-xs-12 col-sm-4 pictes">
+                <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
+                <h2>省钱</h2>
+                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 50%的上云成本支出</p>
+                </div>
+            </li>
           <li class="col-xs-12 col-sm-4 pictes">
             <div class=" li-fir lis-hov"><img src="../../assets/pict-1.png" alt="" class="pict">
               <h2>省力</h2>
@@ -183,12 +189,7 @@
               <p style="padding-top:40%">集结上百位专家心血，<br/> 为了您提供科学规划和上云</p>
             </div>
           </li>
-          <li class="col-xs-12 col-sm-4 pictes">
-            <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
-            <h2>省钱</h2>
-              <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
-            </div>
-          </li>
+          
         </ul>
       </div>
     </div>
