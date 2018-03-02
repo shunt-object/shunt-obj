@@ -8,9 +8,9 @@
 <sds index="2" start="2" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="reourceContent">        
     <div class="resource">输入工作负载配置信息</div> 
-    <!--<div class="operation">
-        <p><i class="iconfont icon-iconset0339" style="margin-right:0"></i><button>下载模板</button>&nbsp&nbsp&nbsp&nbsp<i class="iconfont icon-batch-import"  style="margin-right:0"></i><button>批量导入</button></p>
-    </div>-->
+    <div class="operation">
+        <p><i class="iconfont icon-iconset0339" style="margin-right:0"></i><button @click="DownloadTheTemplate">下载模板</button>&nbsp&nbsp&nbsp&nbsp<i class="iconfont icon-batch-import"  style="margin-right:0"></i><button  style="position:relative" class="buttonTmport">批量导入<input type="file" style=" opacity: 0; position: absolute;top: 0;left: 0;" id="fileinput"  @change="getFile($event)"></button></p>
+    </div>
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
         <el-form :model="form"><p style="color:red;" v-show="alertTitle">注意：网络资源只能配置一个，再次配置为修改。</p>
@@ -20,6 +20,7 @@
                     <el-option label="数据库服务" value="db"></el-option>
                     <el-option label="网络服务" value="net"></el-option>
                     <el-option label="存储服务" value="storage"></el-option>
+                    <el-option label="CDN" value="cdn"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -125,6 +126,21 @@
                 </el-form-item>
              </el-form>
            </div>
+           <!--CND-->
+            <div class="yibanzp" v-if="regionter=='cdn'">
+              <el-form :model="cdnList" :rules="rules" ref="cdnList">
+                <el-form-item  label="数量" :label-width="formLabelWidth" >
+                    <el-input v-model="cdnList.num" auto-complete="off" type="number"  placeholder="1" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="带宽（Mbps/月）" :label-width="formLabelWidth" prop="bandswidth">
+                    <el-input v-model="cdnList.bandswidth" auto-complete="off" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="节点数量（个）" :label-width="formLabelWidth" prop="nodeNum">
+                    <el-input v-model="cdnList.nodeNum" auto-complete="off" type="number" min="1"></el-input>
+                </el-form-item>
+             </el-form>
+           </div>
+
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer">
@@ -284,6 +300,30 @@
                 </div>
             </div>
         </div>
+         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.cdns">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+                <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian()"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
+                <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
+                    <img src="../../../../assets/overview/resource-group3.png" alt="">
+                    <h4 style="font-size:12px;">CDN</h4>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:10px;" >
+                    <ul class="cuncul">
+                        <li v-if="this.cdn.bandwidth==undefined||this.cdn.bandwidth==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{this.cdn.bandwidth}}</li>  
+                        <li>带宽（Mbps/月）</li>
+                     
+                    </ul>
+                </div>
+                <div class="col-md-3 Pei" style="margin-top:10px;">
+                    <ul class="cuncul">
+                        <li v-if="this.cdn.nodeNum==undefined||this.cdn.nodeNum==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{this.cdn.nodeNum}}</li>
+                        <li>节点数量（个）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="col-md-6 text-center" style="padding:10px 20px 5px 0;" v-show="creads">
                 <p class="col-md-12 text-center CreatPj" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:center;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
                     <span @click="dialogFormVisibler" class="pds user-hover">
@@ -345,6 +385,9 @@
     width:40%;
     text-align:left;
     border-radius:4px;
+}
+.buttonTmport:hover{
+    cursor:pointer;
 }
 .el-dialog__header{
     background:none ;
@@ -563,11 +606,11 @@ export default {
             localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
             osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
             cmf:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
-            
+            nodeNum:[{required: true, message: '请输入节点数量的个数', trigger: 'blur'}],
             coresq: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
             ramq:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghzq:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
-           
+            bandswidth:[{required: true, message: '请输入带宽', trigger: 'blur'}],
             osq:[{required: true, message: '请选择操作系统', trigger: 'change'}],
             computeMappingFactorq:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             localDiskq:[{required: true, message: '请输入本地磁盘大小', trigger: 'blur'}],
@@ -597,6 +640,7 @@ export default {
         yingy:false,
         shuj:false,
         wangl:false,
+        cdns:false,
         cunc:false,
         yingyo:true,
         shuju:true,
@@ -606,6 +650,7 @@ export default {
         asd:false,
         afd:false,
         agd:false,
+        file:"",
         form: {
           name: '',
           region: '',
@@ -647,7 +692,7 @@ export default {
        ids:null,
        ider:null,
        ideu:null,
-
+       idey:null,
        ines:[],
        inesShj:{
             num:"1",    
@@ -674,7 +719,12 @@ export default {
           cloudStorage:"",
           serverName:""
         },
-
+    cdn:[],
+    cdnList:{
+         num:"1",
+         bandswidth:"",
+         nodeNum:"",
+    },
        appId:"",
        queryType:'',
        rs:[],
@@ -691,9 +741,39 @@ export default {
                 },function(){
                    $(this).css("background","#fff")
                 })
+
+            //  $(" #fileinput").change(function () {
+            //         var file = this.files[0];
+            //         console.log(file)
+            // });
     });         
   },
   methods:{
+      DownloadTheTemplate:function(){
+          
+          window.location.href='broker/app/resource/group/tempalte/download/'+this.appId;
+            
+      },
+      getFile:function($event){
+            this.file = event.target.files[0];
+            console.log(this.file);
+             event.preventDefault();
+             let formData = new FormData();
+             formData.append('file', this.file);
+             let config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }   
+            }
+            this.$this.post("broker/app/resource/group/import/"+this.appId,formData,config).then((rs)=>{
+                    console.log(rs)       
+                  this.showers();
+                            
+           },(err)=>{
+                 console.log("不好意思")
+           })
+
+      },
       quxiao:function(){
         this.dialogFormVisible = false;
          this.asd = false;
@@ -710,17 +790,20 @@ export default {
             this.$this.get('broker/app/resource/group/'+this.appId).then((res)=>{
                             
                     this.result =  res.data.data; 
+                    console.log(res)
                     //console.log(this.result.appServer.id)
-                        if(this.result.network !== null){
+                      if(this.result.network !== null){
                             this.resu = this.result.network.id
-                        }
+                        }  
 
-            
+                    
                     if(this.result.msg=="数据无"){
                         return ;
                     }else{
                      //this.$router.push({path:'/login'});/planQuestion
-                    
+                        // if(this.result.network !== null){
+                        //     this.resu = this.result.network.id
+                        // }
                         if(this.result.network==null){
                             this.wangl =false;
                         }else if(this.result.network!=null){
@@ -979,6 +1062,52 @@ export default {
                                         this.dialogFormVisible =false;
                                         this.regionter="";
                                         this.inusShj = {};
+                             } else {
+                                    console.log('error submit!!');
+                                    return false;
+                             }
+                        });
+                    
+                          
+                  
+                    }else if(this.regionter=="cdn"){
+                        this.$refs["cdnList"].validate((valid) => {
+                            if (valid) {
+                               if(this.cdnList.num==undefined){
+                                        this.cdn.push(
+                                        { 
+                                            num:"1",
+                                            bandwidth:this.cdnList.bandswidth,
+                                            nodeNum:this.cdnList.nodeNum,
+                                            appid: Number(this.appId),
+                                            id:this.idey
+                                        }
+                                    );
+                                }else{
+                                        this.cdn.push(
+                                            { 
+                                                num:this.cdnList.num,
+                                                bandwidth:this.cdnList.bandswidth,
+                                                nodeNum:this.cdnList.nodeNum,
+                                                appid: Number(this.appId),
+                                                id:this.idey
+                                            }
+                                        )
+                                    }
+                                    // for(let i = 0 ;i<this.inus.length;i++){
+                                    //     var objs = this.inus[this.inus.length-1]
+                                    // }
+                                    // console.log(objs)
+                                    // this.$this.post('/broker/app/resource/group/storage',objs).then((res)=>{
+                                    //     this.showers();
+                                    // },(err)=>{
+                                    //     console.log("不好意思")
+                                    // });   
+                                    //     this.v++;
+                                    //     this.col = 4;
+                                    //     this.dialogFormVisible =false;
+                                    //     this.regionter="";
+                                    //     this.inusShj = {};
                              } else {
                                     console.log('error submit!!');
                                     return false;
