@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-3 clould-result" v-for="item in resultlist">
             <p class="score" :class="item.moduleId==1?'score-qualitative':item.moduleId==2?'score-profit':'score-affinity'">
-                <span class="score-name" v-if="item.moduleId!=1">云{{item.moduleName}}</span>
+                <span class="score-name" v-if="item.moduleId!=1">{{item.moduleName}}</span>
                 <span class="score-name" v-else>{{item.moduleName}}</span>
                 <span class="score-val" v-if="item.moduleId!=1">{{item.result}}</span>
                 <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
