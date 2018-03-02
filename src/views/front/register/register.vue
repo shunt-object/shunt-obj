@@ -196,7 +196,7 @@
             <div class="clear"></div>
             <!--<div class="reg-from-null"></div>-->
             <div class="reg-from-notice">
-                已有ClouldBroker²账号？
+                已有CloudBroker²账号？
                 <router-link class="placego" to="/login">请登录</router-link>
             </div>
         </div>
