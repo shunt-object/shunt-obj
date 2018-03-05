@@ -62,8 +62,8 @@
             </div>
             <div style="background:#f9fafb;width:100%;" class="broundRi">
                 <div class="seleconeMain-shrts container" >
-                    <h4 style="font-weight:100">现实中真实困惑</h4>
-                    <P style="margin-top:10px;">面对诸多的云厂商，不知如何选择？</P>
+                    <h4 style="font-weight:100">看清自身需求业务需求</h4>
+                    <P style="margin-top:10px;">不同维度细化需求颗粒，看清所想与所需</P>
                     <div class="col-md-12 seleconeMain-simg">
                         <div class="col-md-9 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-3 col-xs-12 text-left">

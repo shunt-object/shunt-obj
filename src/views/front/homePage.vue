@@ -30,7 +30,7 @@
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
                 <h1 style="font-size:26px !important;font-weight:100">业界领先上云服务，助您轻松上云！</h1>
-                <p class="pCenter">数字化时代企业上云已经成了必然的发展趋势，云计算供应商纷繁复杂，令人眼花缭乱。任何一个企业都有独特的上云需求，只有真正能够帮您梳理出清晰的需求，才能让上云按您所需，如您所愿。依托于国内外咨询顾问的经验积累，结合国内客户使用习惯，开发实现了科学化和专业化的上云、选云、测云的一体化线上SaaS 服务平台。</p>
+                <p class="pCenter">在数字化时代，企业上云已经成了必然的发展趋势，云服务商纷繁复杂，令人眼花缭乱。任何一个企业都有差异化的上云需求，只有真正能够帮您梳理出清晰的需求，才能让上云按您所需，如您所愿。依托于国内外云服务的经验积累，结合国内客户使用习惯，打造了科学化和专业化的上云、选云、测云的一站式线上SaaS服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
@@ -47,8 +47,8 @@
                
                     <div class="container">
                         <div class="col-md-5 lun-le animated rollIn">
-                            <h1>360°专家咨询服务</h1>
-                            <p class="pCenter" style="font-weight:100">提供上云规划、选型、实测和综合报告全流程、一站式云服务，弹指间助您轻松上云</p>
+                            <h1>360°智能专家咨询服务</h1>
+                            <p class="pCenter" style="font-weight:100">六大场景，数百个专业问题，确保您360° 评估自身需求和目标云的匹配，结合大数据及智能算法，帮助您轻松获取行业及上云建议，快速有效的形成专业选云评估报告。</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
@@ -99,7 +99,7 @@
             <img src="../../assets/Page 1.png" alt="" class="Yunimg">
             <h2>云选型</h2>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们应该上哪家云呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
+              <p class="text-left"><span class="pS">我们应该上哪家云厂商呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
             </div>
             <span class="obj-cta"  @click="ctaClound()">查看更多</span>
           </div>
@@ -107,7 +107,7 @@
             <img src="../../assets/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型设计的业务场景，通过CloudBroker²提供的网络和应用性能测试解决方案，实现端到端的测试可视化，助您上云和选云进一步科学验证。</span></p>
+              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型设计的业务场景，通过CSB²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
             </div>
            <span class="obj-cta">查看更多</span>
           </div>
@@ -117,16 +117,16 @@
     <!---------------------我们的特点---------------------------->
     <div class="obj-what ourPoint phone-position">
       <div class="container obj-what-whew">
-        <h2>我们的特点</h2>
-        <p class="p-wha">科学权威上云分析</p>
+        <h2>我们的优势</h2>
+        <p class="p-wha">科学权威的云咨询服务</p>
         <div class="heng"></div>
         <div class="col-xs-12 cla">
           <div class="col-xs-12 col-sm-2 claes" style="padding-left:1px;">
             <img src="../../assets/a.png" alt="" class="tranImg">
             <h4>SaaS化</h4>
             <div class="mainpa">
-              <p class="mainPd">沉淀5年</p>
-              <p>打造国内领先的S级产品</p>
+              <p class="mainPd">数千客户积累</p>
+              <p>打造国内顶级产品</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-2 claes">

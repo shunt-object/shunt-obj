@@ -16,9 +16,9 @@
                     <div class="cloundbanner">
                         <div class="container">
                             <div class="clound-dvs col-xs-12">
-                                <p class="clound-ps">我们每前进小一步，都将为您带来更好的上云体验！</p>
-                                <p class="clound-pa">是致力于为更多公司和团队实现目标，</p>
-                                <p class="clound-pd">成为一家拥抱前沿领域、持续创新的好公司。</p>
+                                <p class="clound-ps">我们每前进一小步，都将竭力为您带来更好的云中服务！</p>
+                                <p class="clound-pa">让每一个上云者都在在我们（CSB ²）的帮助下，找到并用好适合自己的云，</p>
+                                <p class="clound-pd">我们目标是成为新云管理服务提供商</p>
                                 <p class="clound-pg" style="margin-bottom:110px;"><span @click="tiyans">立即体验</span></p>
                             </div>
                         </div>
@@ -28,12 +28,13 @@
                             <div class="cloundMains-main">
                                 <p style="margin-bottom:30px">关于我们</p>
                               
-                                    <div class="text-left" style="color:#666666;">CloudBroker²是一站式专家云服务的践行者和倡导者，中国版的“Rightscale”。我们致力于上云和管云的创新、研制和应用，秉承“让您轻松面对上云和管云”的服务理念，帮助企业应用最新的信息化技术，提升应用系统敏捷性，降低管理与运营成本，增强业务的创新能力，从而帮助企业顺利实现数字化转型。</div>
+                                    <div class="text-left" style="color:#666666;">CloudBroker²，是新一代云管理服务商，简称CSB²，公司致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
                                       <div class="city" style="padding-top:40px;padding-bottom:30px">
-                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²总部坐落于北京，在无锡和杭州设立了分支机构，联合创世团队成员来自IBM、Microsoft、法电、腾讯、 神州数码等全球顶尖IT企业CloudBroker²  CloudBroker²目前研发中心坐落在北京麒麟社10号楼706。</div>
-                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²专注于上云咨询、云管理和云运维一站式服务，是国内在上云咨询线上化的践行者，是国内领先的上云规划、选型和实测的云服务平台提供商，提供阿波罗（上云服务）、阿瑞斯（云管理平台）、雅典娜（自动化运维）、维纳斯（云迁移工具）产品级服务和SaaS云服务。</div>
-                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²以“云”为核心，应用场景横跨了从上云咨询、云迁移、云运维，为数据中心及运维部门、决策部门实现服务的可视、可控和可管。有效的降低了IT上云和管云成本，帮助用户明明白白的看清楚多云 资源状态和成本，帮助用户实现“专业”、“省力”和“省钱”，呈现IT服务；为以“以IT服务”为业务的IT服务商（MSP）提供智能的业务管理，提升用户服务满意度，打造“MSP+”。</div>
-                                        <div class="text-left" style="text-indent: 1cm">我们期待与您共同成长，共同打造云服务的未来！</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的产品和服务包括，上云分析工具、选云分析工具、真机实测工具、价格管理工具、线上购买工具及迁移、运维工具。这一系列的工具协助客户全面管理云的生命周期。</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB²是以云为核心，其服务场景横跨了上云咨询、云迁移、云运维等多个阶段，为运维部门、决策部门实现服务的可视、可控和可管。帮助用户清晰明确的看到多云的资源和成本，有效的降低了上云和管云的成本，是用户“省钱” “省力”和“专业”的好伙伴</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的总部位于北京、在无锡与杭州均设立了分支结构，团队成员，包括IBM、Microsoft、法电、腾讯、神州数码等全球顶尖IT 企业人员。</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²以“云”为核心，应用场景横跨了从上云咨询、云迁移、云运维，为数据中心及运维部门、决策部门实现服务的可视、可控和可管。有效的降低了IT上云和管云成本，帮助用户明明白白的看清楚多云 CSB² 链接客户与云，让每一个上云者都在CSB ²的帮助下，找到并用好适合自己的云。</div>
+                                        <div class="text-left" style="text-indent: 1cm">我们目标是成为新一代云管理服务提供商MSP+</div>
                                     </div>
                             </div>
                         </div>
@@ -44,12 +45,12 @@
                             <div class="cccspans">
                                 <ul class="col-md-5 col-xs-12 ulsMains" style="padding-top:5px">
                                     <li style="margin-top:13px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CloudBroker²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
-                                    <li style="margin-top:62px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">阿波罗（上云服务）v1.0正式发布</span><span class="yellowSpan">2018.02</span></p></li>
+                                    <li style="margin-top:62px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CSB²（上云服务）v1.0正式发布</span><span class="yellowSpan">2018.02</span></p></li>
                                 </ul>
                                 <div class="col-md-1 divimger" style=" margin-bottom:50px;width:10px"><img src="../../../assets/shu.png" alt=""></div>
                                 <ul class="col-md-5 col-xs-12">
-                                    <li style="margin-top:72px"><p><span class="yellowSpam">2017.10</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿波罗（上云服务）v1.0正式研发</span></p></li>
-                                    <li style="margin-top:62px"><p><span class="yellowSpam">2018.02</span><span class="cccspan" style="padding-left:20px;text-align:left;">阿瑞斯（云管理平台）v1.0正式研发</span></p></li>
+                                    <li style="margin-top:72px"><p><span class="yellowSpam">2017.10</span><span class="cccspan" style="padding-left:20px;text-align:left;">CSB²（上云服务）v1.0正式研发</span></p></li>
+                                    <li style="margin-top:62px"><p><span class="yellowSpam">2018.03</span><span class="cccspan" style="padding-left:20px;text-align:left;">CSB²小程序正式研发</span></p></li>
                                 </ul>
                             </div>
                         </div>
