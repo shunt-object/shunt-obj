@@ -35,7 +35,7 @@
         <div style="background:#f6f7f8;width:100%">
             <div class="clould-testing-block container">
                 <h4 style="font-weight:100">在完成云规划和云选型后</h4>
-                <h4 style="font-weight:100;margin-top:10px;">为什么还需要进行云实测</h4>
+                <h4 style="font-size: 16px; color: #777;text-align: center;margin-top:10px;font-weight:normal;">为什么还需要进行云实测</h4>
                 <div class="col-md-12" style="margin:0px;">
                     <div class="col-md-6 col-xs-12">
                         <div class="clould-testing-desc">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12" style="margin-bottom:50px;">
-                        <img class="clould-testing-img" src="../../../assets/measured/measured-computer.png" alt="" style="width:80%">
+                        <img class="clould-testing-img" src="../../../assets/measured/measured-computer.png" alt="" style="width:85%">
                     </div>
                 </div>
             </div>
@@ -58,20 +58,22 @@
             <div class="clould-testing-block container">
                 
                 <h4 style="font-weight:100;margin-top:50px;">在云实测环境下，为您提供</h4>
-                <h4 style="font-weight:100;margin-bottom:50px;margin-top:0 !important">1：1仿真环境和还原真实业务场景</h4>
+                <h4 style="font-size: 16px; color: #777;text-align: center;margin-top:10px;font-weight:normal;">1：1仿真环境和还原真实业务场景</h4>
                 <div class="row" style="margin:0px;">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <img class="clould-testing-img" src="../../../assets/measured/measured-computer-content.png" alt="">
                     </div>
-                    <div class="col-md-3" style="padding:0 !importnt;">
-                        <p class="clould-testing-sight">全面的覆盖了前后端多维度测试环节，将协助您全面提升用户体验</p>
-                        <ul class="clould-testing-ul">
-                            <li><span class="clould-testing-li-num clould-testing-color1">1</span>基于大数据</li>
-                            <li><span class="clould-testing-li-num clould-testing-color2">2</span>网络和应用性能监控分析</li>
-                            <li><span class="clould-testing-li-num clould-testing-color3">3</span>业务可视化</li>
-                            <li><span class="clould-testing-li-num clould-testing-color1">4</span>业务访问路径梳理</li>
-                            <li><span class="clould-testing-li-num clould-testing-color2">5</span>端到端网络和应用性能监控</li>
-                        </ul>
+                    <div class="col-md-4" style="padding:0 !importnt;">
+                        <div class="" style="width:80%">
+                            <p class="clould-testing-sight">全面的覆盖了前后端多维度测试环节，将协助您全面提升用户体验</p>
+                            <ul class="clould-testing-ul" style="padding: 0;">
+                                <li><span class="clould-testing-li-num clould-testing-color1">1</span>基于大数据</li>
+                                <li><span class="clould-testing-li-num clould-testing-color2">2</span>网络和应用性能监控分析</li>
+                                <li><span class="clould-testing-li-num clould-testing-color3">3</span>业务可视化</li>
+                                <li><span class="clould-testing-li-num clould-testing-color1">4</span>业务访问路径梳理</li>
+                                <li><span class="clould-testing-li-num clould-testing-color2">5</span>端到端网络和应用性能监控</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,26 +253,31 @@
             },
             tingyun:function(){
                 let that = this;
-               this.$msgbox({
-                    title: '温馨提示',
-                    message:'当前，我们正在与听云联合研发，敬请您的期待！如您当前急需进行，请您直接访问听云官网。',
-                    showCancelButton: true,
-                    cancelButtonText: '取消',
-                    confirmButtonText: '立即访问',
-                    confirmButtonClass:'lay-btn-red',
-                    cancelButtonClass:'message-btn-cel',
-                    type: 'warning',
-                    callback:function(action, instance){
-                        if(action=='confirm'){
-                            //window.open('http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1');
-                            that.$router.push({path: '/consolePage'});
-                            that.$http.get('/broker/action/click/19').then((response)=>{
-                                //console.log('----',response);
-                            }).catch((error)=>{
-                            })
-                        }
-                    }
-               })
+                this.$router.push({path: '/consolePage'});
+                this.$http.get('/broker/action/click/19').then((response)=>{
+                    //console.log('----',response);
+                }).catch((error)=>{
+                })
+            //    this.$msgbox({
+            //         title: '温馨提示',
+            //         message:'当前，我们正在与听云联合研发，敬请您的期待！如您当前急需进行，请您直接访问听云官网。',
+            //         showCancelButton: true,
+            //         cancelButtonText: '取消',
+            //         confirmButtonText: '立即访问',
+            //         confirmButtonClass:'lay-btn-red',
+            //         cancelButtonClass:'message-btn-cel',
+            //         type: 'warning',
+            //         callback:function(action, instance){
+            //             if(action=='confirm'){
+            //                 //window.open('http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1');
+            //                 that.$router.push({path: '/consolePage'});
+            //                 that.$http.get('/broker/action/click/19').then((response)=>{
+            //                     //console.log('----',response);
+            //                 }).catch((error)=>{
+            //                 })
+            //             }
+            //         }
+            //    })
             }
         },
         mounted:function(){

@@ -1,6 +1,9 @@
 .lay-btn-red{
     background:#da121a !important; border:1px solid #da121a !important;
 }
+.el-message-box__btns .el-button{
+    margin-left: 10px !important;
+}
 .lay-cancel-btn{
     float:right !important;
     margin-left: 10px !important;
