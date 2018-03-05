@@ -42,7 +42,7 @@
                 <div class="seleconeMain-charts container">
                     <h4 style="font-weight:100">当前企业上云情况</h4>
                     <P style="margin-top:10px;font-size:16px;color:#777777;">上云成为常态、多云变为主流</P>
-                    <span style="float:right;color: rgb(119, 119, 119);">注：引用RightScale2018年上云趋势报告绘图</span>
+                    <span style="float:right;color: rgb(119, 119, 119);">注：引用RightScale2018年上云趋势报告</span>
                     <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
                             <div id="mains"></div>
@@ -69,12 +69,12 @@
                         <div class="col-md-9 col-xs-12 text-right seleconeMain"><img src="../../../assets/126.png" alt=""></div>
                         <div class="col-md-3 col-xs-12 text-left">
                             <ul>
-                                <li><span class="sp1">1</span><span class="sp4">政府扶持</span></li>
-                                <li><span class="sp3">2</span><span class="sp4">战略选型</span></li>
-                                <li><span class="sp2">3</span><span class="sp4">财务决策</span></li>
-                                <li><span class="sp1">4</span><span class="sp4">技术选型</span></li>
-                                <li><span class="sp3">5</span><span class="sp4">安全合规</span></li>
-                                <li><span class="sp1">6</span><span class="sp4">运维支撑能力</span></li>
+                                <li><span class="sp1" style="margin-right:10px;">1</span><span class="sp4">政府扶持</span></li>
+                                <li><span class="sp3" style="margin-right:10px;">2</span><span class="sp4">战略选型</span></li>
+                                <li><span class="sp2" style="margin-right:10px;">3</span><span class="sp4">财务决策</span></li>
+                                <li><span class="sp1" style="margin-right:10px;">4</span><span class="sp4">技术选型</span></li>
+                                <li><span class="sp3" style="margin-right:10px;">5</span><span class="sp4">安全合规</span></li>
+                                <li><span class="sp1" style="margin-right:10px;">6</span><span class="sp4">运维支撑能力</span></li>
                             </ul>
                         </div>
                     </div>

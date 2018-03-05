@@ -283,6 +283,9 @@
 .PlansearchBtn{
    background:#da121a; width:42px; height:30px; color:#fff; float:right;
 }
+.PlansearchBtn:hover{
+    background:#EF131D;
+}
 i{
     font-style:normal;
 }
