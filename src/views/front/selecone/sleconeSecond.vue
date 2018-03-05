@@ -6,7 +6,7 @@
                 <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
                 <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                     <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
-                    <div v-show="phoneBox" class="phone-box"><img src="../../../assets/homePage-hover-phone.png" alt=""></div>
+                    <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
                 </li>
             
             </ul>
@@ -16,7 +16,7 @@
     <div class="selecMain ">
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
-                        <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
@@ -156,6 +156,7 @@
    }
 
    .seleconeMain-mainfir{margin-top:160px;}
+   .nfir{margin-bottom:48px}
    .seleconeMain-mainfir .selecone-pfir{
         font-size:26px;
         color:#ffffff;

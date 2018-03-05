@@ -6,7 +6,7 @@
             <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                 <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
-                <div v-show="phoneBox" class="phone-box"><img src="../../../assets/homePage-hover-phone.png" alt=""></div>
+                <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
             </li>
         
         </ul>
@@ -20,15 +20,16 @@
         <!-- 导航 -->
         <div class="seleconeMains-banner row ">
             <div class="container">
-                <div class="seleconeMain-mainfir col-xs-12 " style="padding-left:15px">
-                    <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px">云实测——进一步科学验证</span></p>
+                <div class="seleconeMain-mainfir  col-xs-12 col-md-6 " style="padding-left:50px">
+                    <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px">云实测——进一步科学验证</span></p>
                     <div class="seclone-dv">
-                        <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px">在云实测环境下1:1还原真实业务场景</h3>
-                        <p style="font-weight:100;text-align:center;font-size:18px">有没有一个一站式平台，可以专业验证云规划和云选型结果呢？</p>
+                        <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">1:1还原真实业务场景</h3>
+                        <p style="font-weight:100;text-align:left;font-size:18px">有没有一个一站式平台，专业验证规划和选型结果呢？</p>
                     </div>
-                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
+                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
                 </div>
-               
+                <div class="col-md-6 col-xs-12 text-left" style="margin-top:105px;padding:0 !important;"><img src="../../../assets/xindian.png" alt="" style="float:right;width: 80%;"></div>
+
             </div>
         </div>
         <div style="background:#f6f7f8;width:100%">
@@ -123,7 +124,7 @@
    animation-duration:2s;
 }
 .seleconeMains-banner{background:#222222;background-size:100% 100%; }
-.seleconeMain-mainfir{margin-top:150px;margin-bottom:40px}
+.seleconeMain-mainfir{margin-top:150px}
 .seleconeMain-mainfir .selecone-pfir{
     font-size:26px;
     color:#ffffff;
