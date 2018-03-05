@@ -9,7 +9,7 @@
 <div class="reourceContent">        
     <div class="resource">输入工作负载配置信息</div> 
     <div class="operation">
-        <p><i class="iconfont icon-iconset0339" style="margin-right:0"></i><button @click="DownloadTheTemplate">下载模板</button>&nbsp&nbsp&nbsp&nbsp<i class="iconfont icon-batch-import"  style="margin-right:0"></i><button  style="position:relative" class="buttonTmport">批量导入<input type="file" style=" opacity: 0; position: absolute;top: 0;left: 0;" id="fileinput"  @change="getFile($event)"></button></p>
+        <p><button @click="DownloadTheTemplate" class="buttonHovers"><i class="iconfont icon-iconset0339" style="margin-right:2px;font-size: 18px !important;"></i>下载模板</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button  style="position:relative" class="buttonTmport buttonHovers"><i class="iconfont icon-batch-import"  style="margin-right:2px;font-size: 18px !important;"></i>批量导入<input type="file" style=" opacity: 0; position: absolute;top: 0;left: 0;" id="fileinput"  @change="getFile($event)"></button></p>
     </div>
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
@@ -319,7 +319,7 @@
          <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(cdn,index) in cdn">
             <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian(index,cdn.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAj(cdn.id,index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
+                <div class="col-md-3" style="margin-top:15px;margin-bottom:50px;">
                     <img src="../../../../assets/overview/resource-group5.png" alt="">
                     <h4 style="font-size:12px;">CDN</h4>
                 </div>
@@ -370,7 +370,9 @@
 </div>
 </template>
 <style>
-
+.buttonHovers:hover{
+    color:#da121a;
+}
 @media (min-width: 768px) {
     /*.icon-tiam{padding-left:200px}*/
 }
@@ -1457,11 +1459,11 @@ export default {
                     "appServer": this.cores,
                     "dbServer": this.ines,
                     "network": this.netRule,
-                    "storage":this.inus
-
+                    "storage":this.inus,
+                    "cdns":this.cdn
                    
                  };
-                 if(obj.network.inbound==""&&obj.network.outbound==""&&obj.network.bandwidth==""&&obj.appServer.length==0&&obj.dbServer.length==0&&obj.storage.length==0){
+                 if(obj.network.inbound==""&&obj.network.outbound==""&&obj.network.bandwidth==""&&obj.appServer.length==0&&obj.dbServer.length==0&&obj.storage.length==0&&obj.cdns.length==0){
                           this.$alert('您还没有添加任何资源配置，请添加配置后点击“下一步”，更详细的配置，分析结果将更加准确；如您不想填写，请你点击“跳过”。', '温馨提示', {
                             confirmButtonText: '确定',
                             confirmButtonClass:'lay-btn-red',

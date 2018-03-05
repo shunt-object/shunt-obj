@@ -30,7 +30,7 @@
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
                 <h1 style="font-size:26px !important;font-weight:100">业界领先上云服务，助您轻松上云！</h1>
-                <p class="pCenter">依托国内用户习惯，开发实现了上云的科学化和专业化分析；</br>打造了“从工作负载是否可上云？上哪种类型的云服务？如何选择</br>适合云厂商？”一体化线上SaaS服务平台。</p>
+                <p class="pCenter">数字化时代企业上云已经成了必然的发展趋势，云计算供应商纷繁复杂，令人眼花缭乱。任何一个企业都有独特的上云需求，只有真正能够帮您梳理出清晰的需求，才能让上云按您所需，如您所愿。依托于国内外咨询顾问的经验积累，结合国内客户使用习惯，开发实现了科学化和专业化的上云、选云、测云的一体化线上SaaS 服务平台。</p>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
