@@ -262,7 +262,8 @@
                     type: 'warning',
                     callback:function(action, instance){
                         if(action=='confirm'){
-                            window.open('http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1');
+                            //window.open('http://www.tingyun.com/?userFrom=sem1&source=bd&plan=sem-chn-ty-j&unit=ty&keyword=ty&e_adposition=cl1');
+                            that.$router.push({path: '/consolePage'});
                             that.$http.get('/broker/action/click/19').then((response)=>{
                                 //console.log('----',response);
                             }).catch((error)=>{
