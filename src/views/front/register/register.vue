@@ -97,6 +97,18 @@
             </div>
             <!-- 手机注册 -->
             <div class="tab-box" v-else>
+                <div class="reg-from-list" :class="isphone==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">手机号码：</span>
+                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
+                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
+                        <li v-for="item in noticeWord">{{item.text}}</li>
+                    </ul>
+                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
+                    <div :class="isphone==false?'right':'null'">
+                        <img class="svg" src="../../../assets/right.svg" alt="">
+                    </div>
+                </div>
                 <div class="reg-from-list" :class="ispassword==true?'error':''">
                     <i class="xing">*</i>
                     <span class="reg-from-key">设置密码：</span>
@@ -142,18 +154,6 @@
                     </ul>
                     <div class="error-color error-notice" v-show="isusername">请输入您的姓名</div>
                     <div :class="isusername==false?'right':'null'">
-                        <img class="svg" src="../../../assets/right.svg" alt="">
-                    </div>
-                </div>
-                <div class="reg-from-list" :class="isphone==true?'error':''">
-                    <i class="xing">*</i>
-                    <span class="reg-from-key">手机号码：</span>
-                    <input type="text" class="reg-from-val" v-model="phone" v-on:focus="notice('phone')" v-on:blur="reg('phone')">
-                    <ul class="reg-from-prompt reg-phone" v-show="isnotice=='phonetrue'">
-                        <li v-for="item in noticeWord">{{item.text}}</li>
-                    </ul>
-                    <div class="error-color error-notice" v-show="isphone">{{phoneError}}</div>
-                    <div :class="isphone==false?'right':'null'">
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
@@ -235,7 +235,7 @@ export default{
             selectTab:true,
             codeNum:'',
             code:'获取手机验证码',
-            codeI:120,
+            codeI:60,
             iscodeNum:false,
             codenotice:'',
             provinceList:[],
@@ -348,7 +348,10 @@ export default{
                         });
                     }
                 }else{
-                    if(phoneReg.test(this.phone)==false){
+                    if(this.phone==''){
+                        this.isphone = true;
+                        this.phoneError = '请输入您的手机号码';
+                    }else if(phoneReg.test(this.phone)==false){
                         this.isphone = true;
                         this.phoneError = '请输入正确的手机格式';
                     }else{
@@ -417,10 +420,15 @@ export default{
                     self.code = self.codeI+'s';
                     if(self.codeI==0){
                         clearInterval(clear);
-                        self.codeI = 120;
+                        self.codeI = 60;
                         self.code = '重新获取验证码';
                     }
                 },1000)
+            }else{
+                if(this.phone==''){
+                    this.isphone = true;
+                    this.phoneError = '请输入您的手机号码';
+                }
             }
         },
         codeHttp:function(){

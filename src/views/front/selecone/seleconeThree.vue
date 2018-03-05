@@ -252,7 +252,7 @@
                 let that = this;
                this.$msgbox({
                     title: '温馨提示',
-                    message:'我们正在与听云正在研发；如您当前急需进行，请您直接访问听云网站。',
+                    message:'当前，我们正在与听云联合研发，敬请您的期待！如您当前急需进行，请您直接访问听云官网。',
                     showCancelButton: true,
                     cancelButtonText: '取消',
                     confirmButtonText: '立即访问',
