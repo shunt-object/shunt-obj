@@ -13,7 +13,7 @@
             </ul>
             <img src="../../../assets/scroll.png" alt="" class="scrollUp">
         </div>
-    <Sec></Sec>
+    <Sec active="2"></Sec>
     <div class="selecMain ">
            
                 <!--<div class="seleconeMain-mainfir col-xs-12">

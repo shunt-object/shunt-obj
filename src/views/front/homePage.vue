@@ -11,7 +11,7 @@
         </ul>
         <img src="../../assets/scroll.png" alt="" class="scrollUp">
     </div>
-    <Sec></Sec>
+    <Sec active="0"></Sec>
     <!--  nav end--> 
 
     <!-------------------------------banner------------------------------------------>

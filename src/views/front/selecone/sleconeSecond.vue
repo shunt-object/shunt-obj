@@ -12,7 +12,7 @@
             </ul>
             <img src="../../../assets/scroll.png" alt="" class="scrollUp">
         </div>
-    <Sec></Sec>
+    <Sec active="1"></Sec>
     <div class="selecMain ">
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">

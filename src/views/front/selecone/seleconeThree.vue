@@ -13,7 +13,7 @@
         <img src="../../../assets/scroll.png" alt="" class="scrollUp">
     </div>
     <!-- 导航 -->
-    <Sec></Sec>
+    <Sec active="3"></Sec>
     <!--<Seb></Seb>-->
     <!-- 中间内容 -->
     <div class="measurement-level">

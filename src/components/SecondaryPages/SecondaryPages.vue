@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" :class="active=='0'?'border_active':''">首页</a></li>
             <li class="dropdown">
                <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
                <!-- <div class="dropdown-content">
@@ -24,15 +24,15 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li @click="cloundPlan"><a class="page-scroll  hovers">云规划</a></li>
-            <li @click="cloundPlen"><a class="page-scroll  hovers">云选型</a></li>
-            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
+            <li @click="cloundPlan"><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">云规划</a></li>
+            <li @click="cloundPlen"><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">云选型</a></li>
+            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
                         </div> </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -65,7 +65,8 @@
 //       $(".xians").css("display","none")
 //  })
 // })
-export default {   
+export default { 
+    props:["active"],  
     data() {
       return {
         islogin: false,
@@ -133,6 +134,9 @@ export default {
 </script>
 
 <style>
+.border_active{
+    border-bottom:1px solid #fff;
+}
 .dropdown {
     position: relative;
     display: inline-block;
