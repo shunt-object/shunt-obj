@@ -206,6 +206,9 @@ select,input{
     font-size:14px;
     color:#f0f0f0;
 }
+.nextbtn:hover{
+    background:#EF131D;
+}
 .label{
     position:relative;
     padding:0 !important;

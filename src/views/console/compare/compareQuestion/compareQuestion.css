@@ -141,6 +141,9 @@
     float:right;
     margin-top:10px;
 }
+.comparebtn:hover{
+    background:#EF131D;
+}
 /*题号*/
 .compare-num{
     width:22px;

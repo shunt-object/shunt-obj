@@ -98,7 +98,7 @@
             <div class="col-md-6"></div>
             <!--<div class="col-md-4"></div>-->
         </div>
-        <button class="nextbtn" v-on:click="submit()"><span class="pl-5">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
+        <button class="nextbtn" v-on:click="submit()"><span style="margin-left:5px;">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i></button>
         <div class="clear"></div>
     </div>
         

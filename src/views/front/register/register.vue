@@ -575,7 +575,7 @@ export default{
             this.againPassError='';
             this.codeNum='';
             this.code='获取手机验证码';
-            this.codeI=300;
+            this.codeI=60;
         }
     },
     component:{

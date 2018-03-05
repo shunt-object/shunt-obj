@@ -16,7 +16,7 @@
         <div class="activate-desc" v-if="fail==true&&register==false">
             用户激活失败，可能是您的激活链接已经失效或者链接不完整，请点击<span class="again" v-on:click="sendagain()">重新发送</span>验证邮件。
         </div>
-        <router-link to="/login" v-if="success==true||register==true"><button class="successBtn">立即登录</button></router-link>
+        <router-link to="/login" v-if="success==true||register==true"><button class="successBtn" v-on:click="tologin()">立即登录</button></router-link>
     </div>
     <div class="activate-footer">
         <p class="activate-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
@@ -49,7 +49,7 @@ export default{
             this.register = false;
             this.send(urlList[urlList.length-1]);
         }
-        console.log('------',urlList[urlList.length-1]);
+        //console.log('------',urlList[urlList.length-1]);
         //console.log('------',document.location.href.split('/'));
     },
     methods:{
@@ -62,16 +62,20 @@ export default{
                     this.success = false;
                     this.fail = true;
                 }
-                console.log('======',response);
+                //console.log('======',response);
             }).catch((error)=>{
             })
         },
         sendagain:function(){
             this.$this.get('/broker/mail/send/validCode/'+this.username).then((response)=>{
-                console.log('sendagain',response);
+                //console.log('sendagain',response);
                 this.$router.push({path:'/sendEmail',query:{username:this.username}});
             }).catch((error)=>{
             })
+        },
+        tologin:function(){
+            localStorage.removeItem('remPassword');
+            localStorage.removeItem('remAccount');
         }
     }
 }

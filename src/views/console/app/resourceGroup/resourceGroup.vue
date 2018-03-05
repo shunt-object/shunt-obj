@@ -588,8 +588,14 @@ a:hover{
 .resourcebtn{
     float:right; margin:10px 0; background:#da121a; border-radius:2px; width:94px;  height:35px; border:none; font-size:14px; color:#f0f0f0;
 }
+.resourcebtn:hover{
+    background:#EF131D;
+}
 .jumpBnt{
     float:right; margin:10px; background:#f7a72c; border-radius:2px; width:94px;  height:35px; /*border:1px solid #ccc;*/ font-size:14px; color:#fff;
+}
+.jumpBnt:hover{
+    background:#FFB730;
 }
 .Mainli span{
     margin-right:5px;

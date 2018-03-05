@@ -45,6 +45,9 @@
     float:right;
     margin-left:10px;
 }
+.compare-btn:hover{
+    background:#EF131D;
+}
 .compare-prevBtn{
     background:#fff;
     border-radius:2px;

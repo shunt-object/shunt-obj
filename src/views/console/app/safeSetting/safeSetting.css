@@ -52,6 +52,9 @@
     background:#da121a;
     color:#fff;
 }
+.safe-save-btn:hover{
+    background:#EF131D;
+}
 .safe-cel-btn{
     background:#ebebeb;
     color:#595959;
@@ -65,6 +68,9 @@
     color:#ffffff;
     text-align:center;
     margin-left:10px;
+}
+.safe-send-btn:hover{
+    background:#FFB730;
 }
 .error{
     border:1px solid red;
