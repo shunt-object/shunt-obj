@@ -172,9 +172,9 @@
  
   <div id="main">
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"   v-for="(jl,index) in cores" >
-            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;height:195px" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">应用服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="yybian(index,jl.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAl(jl.id,index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
+                <div class="col-md-3" style="margin-top:20px;">
                     <img src="../../../../assets/overview/resource-group1.png" alt="">
                     <h4 style="font-size:12px;">应用服务</h4>
                     <p><span  style="color: #da121a">{{jl.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
@@ -213,9 +213,9 @@
             </div>
         </div>
          <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-for="(ins,index) in ines">
-            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;height:195px" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">数据库服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="sjbian(index,ins.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAs(ins.id,index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:19px;">
+                <div class="col-md-3" style="margin-top:20px;">
                     <img src="../../../../assets/overview/resource-group2.png" alt="">
                     <h4 style="font-size:12px;">数据库服务</h4>
                     <p><span  style="color: #da121a">{{ins.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
@@ -253,9 +253,9 @@
             </div>
         </div>
        <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;" v-show="this.wangl">
-            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;height:195px" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">网络服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="wlbian()"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAe()"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:49px;">
+                <div class="col-md-3" style="margin-top:35px;">
                     <img src="../../../../assets/overview/resource-group3.png" alt="">
                     <h4 style="font-size:12px;">网络服务</h4>
                 </div>
@@ -285,9 +285,9 @@
             </div>
         </div>
         <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(inu,index) in inus">
-            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;height:195px" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">存储服务<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cuncbian(index,inu.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAw(inu.id,index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:20px;">
+                <div class="col-md-3" style="margin-top:20px;">
                     <img src="../../../../assets/overview/resource-group4.png" alt="">
                     <h4 style="font-size:12px;">存储服务</h4>
                     <p><span  style="color: #da121a">{{inu.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
@@ -317,9 +317,9 @@
             </div>
         </div>
          <div class="col-md-6 animated bounceInDown" style="padding:10px 20px 5px 0;animation-duration:1s;animation-delay:0.2s;animation-iteration-count:1;animation-fill-mode:both;"  v-for="(cdn,index) in cdn">
-            <div style="border:1px solid #ccc;padding:0px;background: #fff;" class="col-md-12">
+            <div style="border:1px solid #ccc;padding:0px;background: #fff;height:195px" class="col-md-12">
                 <h2 class="text-left" style="font-size:14px;margin:0;background:#f4f4f4;padding:10px 0 10px 10px;">CDN<span style="float:right"><i class="iconfont icon-icon-bainji" @click="cdnbian(index,cdn.id)"></i>&nbsp&nbsp<i class="iconfont icon-cuohao" @click="removeAj(cdn.id,index)"></i></span></h2>
-                <div class="col-md-3" style="margin-top:15px;margin-bottom:50px;">
+                <div class="col-md-3" style="margin-top:35px;">
                     <img src="../../../../assets/overview/resource-group5.png" alt="">
                     <h4 style="font-size:12px;">CDN</h4>
                 </div>
@@ -347,9 +347,9 @@
             </div>
         </div>
         <div class="col-md-6 text-center" style="padding:10px 20px 5px 0;" v-show="creads">
-                <p class="col-md-12 text-center CreatPj" style="border:1px solid #ccc;line-height:200px;background:#fff;color:#555;text-align:center;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
+                <p class="col-md-12 text-center CreatPj" style="border:1px solid #ccc;line-height:194px;background:#fff;color:#555;text-align:center;"><!--<img src="../../../../assets/additi.svg" style="width:5%;margin-right:10px;" alt="">-->
                     <span @click="dialogFormVisibler" class="pds user-hover">
-                        <span style="float:left;width:40%;text-align:right;"><i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;line-height:200px;"></i></span>
+                        <span style="float:left;width:40%;text-align:right;"><i class="iconfont icon-tianjia-yin icon-tiam" style="font-size:22px !important;line-height:194px;"></i></span>
                         <span style="width:60%;float:left;text-align:left;">添加工作负载配置信息</span>
                         <div style="clear:both;"></div>
                     </span>
@@ -380,7 +380,7 @@
     .icon-tiam{padding-left:30px}
 }
 .operation{
-    padding:10px 0 30px 0;
+    padding:10px 0 32px 0;
     background:#FFF;
     width:100%;
 }

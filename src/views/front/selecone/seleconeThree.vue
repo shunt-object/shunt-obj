@@ -3,8 +3,8 @@
     <!-- 侧边悬浮 -->
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li id="xiaowei" v-on:click="xiaowei()"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
-            <li class="phone-li" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
+            <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+            <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                 <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
                 <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
             </li>
@@ -117,6 +117,9 @@
 </div>
 </template>
 <style>
+.liHoversBj:hover{
+    background:#EF131D;
+}
 .scrollUp:hover{
     cursor:pointer;
 }  
