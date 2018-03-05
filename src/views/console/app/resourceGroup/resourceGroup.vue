@@ -1460,10 +1460,17 @@ export default {
                     "dbServer": this.ines,
                     "network": this.netRule,
                     "storage":this.inus,
+<<<<<<< HEAD
                     "cdns":this.cdn
                    
                  };
                  if(obj.network.inbound==""&&obj.network.outbound==""&&obj.network.bandwidth==""&&obj.appServer.length==0&&obj.dbServer.length==0&&obj.storage.length==0&&obj.cdns.length==0){
+=======
+                    "cdn":this.cdns
+                   
+                 };
+                 if(obj.network.inbound==""&&obj.network.outbound==""&&obj.network.bandwidth==""&&obj.appServer.length==0&&obj.dbServer.length==0&&obj.storage.length==0&&obj.cdn.length==0){
+>>>>>>> 4a9e9ad73a2f527f177272ca93f28d63d1fccbe3
                           this.$alert('您还没有添加任何资源配置，请添加配置后点击“下一步”，更详细的配置，分析结果将更加准确；如您不想填写，请你点击“跳过”。', '温馨提示', {
                             confirmButtonText: '确定',
                             confirmButtonClass:'lay-btn-red',
