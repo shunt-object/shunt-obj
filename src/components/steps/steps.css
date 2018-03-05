@@ -82,6 +82,7 @@
 .active-circle{
     background:#da121a;
     color:#fff;
+    font-size: 16px;
 }
 .finish-circle{
     background:url('../../assets/step-circle.png') no-repeat;
