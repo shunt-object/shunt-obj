@@ -107,7 +107,7 @@
             <img src="../../assets/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型设计的业务场景，通过CSB²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
+              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型的业务场景，通过CloudBroker²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
             </div>
            <span class="obj-cta">查看更多</span>
           </div>

@@ -42,6 +42,7 @@
                 <div class="seleconeMain-charts container">
                     <h4 style="font-weight:100">当前企业上云情况</h4>
                     <P style="margin-top:10px;font-size:16px;color:#777777;">上云成为常态、多云变为主流</P>
+                    <span style="float:right;color: rgb(119, 119, 119);">注：引用RightScale2018年上云趋势报告绘图</span>
                     <div class="col-md-12 seleconeMain-img" style="margin:0px;">
                         <div class="col-md-4 col-xs-12 text-center">
                             <div id="mains"></div>
