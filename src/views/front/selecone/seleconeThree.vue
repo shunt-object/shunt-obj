@@ -58,10 +58,10 @@
             <div class="clould-testing-block container">
                 
                 <h4 style="font-weight:100;margin-top:50px;">在云实测环境下，为您提供</h4>
-                <h4 style="font-size: 16px; color: #777;text-align: center;margin-top:10px;font-weight:normal;">1：1仿真环境和还原真实业务场景</h4>
+                <h4 style="font-size: 16px; color: #777;text-align: center;margin-top:10px;font-weight:normal;margin-bottom: 40px;">1：1仿真环境和还原真实业务场景</h4>
                 <div class="row" style="margin:0px;">
-                    <div class="col-md-8">
-                        <img class="clould-testing-img" src="../../../assets/measured/measured-computer-content.png" alt="">
+                    <div class="col-md-8" style="padding:0 !important;">
+                        <img src="../../../assets/measured/measured-computer-content.png" style="width:100%;" alt="">
                     </div>
                     <div class="col-md-4" style="padding:0 !importnt;">
                         <div class="" style="width:80%">
