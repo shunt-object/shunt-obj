@@ -9,7 +9,7 @@
 <div class="reourceContent">        
     <div class="resource">输入工作负载配置信息</div> 
     <div class="operation">
-        <p><button @click="DownloadTheTemplate" class="buttonHovers"><i class="iconfont icon-iconset0339" style="margin-right:2px;font-size: 18px !important;"></i>下载模板</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button  style="position:relative" class="buttonTmport buttonHovers"><i class="iconfont icon-batch-import"  style="margin-right:2px;font-size: 18px !important;"></i>批量导入<input type="file" style=" opacity: 0; position: absolute;top: 0;left: 0;" id="fileinput"  @change="getFile($event)"></button></p>
+        <p><button @click="DownloadTheTemplate" class="buttonHovers" style="margin-top:0px"><i class="iconfont icon-iconset0339" style="margin-right:2px;font-size: 18px !important;"></i>下载模板</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button  style="position:relative" class="buttonTmport buttonHovers"><i class="iconfont icon-batch-import"  style="margin-right:3px;font-size: 18px !important;"></i>批量导入<input type="file" style=" opacity: 0; position: absolute;top: 0;left: 0;" id="fileinput"  @change="getFile($event)"></button></p>
     </div>
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
@@ -380,9 +380,9 @@
     .icon-tiam{padding-left:30px}
 }
 .operation{
+    padding:10px 0 30px 0;
+    background:#FFF;
     width:100%;
-    height:40px;
-    background:#fff;
 }
 .operation p{
     font-size:14px;
