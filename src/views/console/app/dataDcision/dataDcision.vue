@@ -28,22 +28,13 @@
     <div class="row">
         <div class="col-md-7 padding10">
             <div class="decision-title">上云趋势统计分析
-                <select class="year-select" v-model="year" v-on:change="lineModel('time')">
+                <select class="year-select" v-model="year" v-on:change="lineModel()">
                     <option v-for="item in yearList" :value="item">{{item}}</option>
                 </select>
-                <!--<select class="up-select" v-model="linetab" v-on:change="lineModel()">
-                    <option v-for="item in tradeTab" :value="item.id">{{item.name}}</option>
-                </select>-->
-                <select class="up-select" v-model="lineArea"  v-on:change="lineModel('area')">
-                    <option v-for="item in areaList" :value="item">{{item.area}}</option>
+                <select class="up-select" v-model="lineArea" v-on:change="lineModel()">
+                    <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
                 </select>
-                <select class="up-select" v-model="lineCity"  v-on:change="lineModel('city')">
-                    <option v-for="item in cityList" :value="item">{{item.city}}</option>
-                </select>
-                <select class="up-select" v-model="lineProvince"  v-on:change="lineModel('province')">
-                    <option v-for="item in provinceList" :value="item">{{item.province}}</option>
-                </select>
-                <select class="up-select" v-model="lineInsdusty" v-on:change="lineModel('industry')">
+                <select class="up-select" v-model="lineInsdusty" v-on:change="lineModel()">
                     <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
                 </select>
             </div>
@@ -53,8 +44,14 @@
         </div>
         <div class="col-md-5 padding10">
             <div class="decision-title">云厂商倾向性占比分析
-                <select class="comm-select" v-model="pietab" v-on:change="pieModel()">
-                    <option v-for="item in tradeTab" :value="item.id">{{item.name}}</option>
+                <select class="up-select" v-model="pieYear" v-on:change="pieModel()">
+                    <option  v-for="item in yearList" :value="item">{{item}}</option>
+                </select>
+                <select class="up-select" v-model="pieArea" v-on:change="pieModel()">
+                    <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
+                </select>
+                <select class="up-select" v-model="pieInsdusty" v-on:change="pieModel()">
+                    <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
                 </select>
             </div>
             <div class="datadecision-list">
@@ -82,12 +79,8 @@ export default{
             radarlegend:[],
             radarmax:[],
             opiniondata:[],
-            tradeTab:[
-                {id:'1',name:'所在区域'},
-                {id:'2',name:'所在行业'}
-            ],
-            pietab:'1',
-            yearList:['2018'],
+            pieYear:'2018',
+            yearList:['2017','2018'],
             year:'2018',
             linetab:'1',
             istypeslist:false,
@@ -95,14 +88,12 @@ export default{
             linearr_b:[],
             radarTitle:'',
             maxY:[],
-            provinceList:[],
-            cityList:[],
-            areaList:[],
-            industryList:[],
-            lineProvince:'',
-            lineCity:'',
-            lineArea:'',
-            lineInsdusty:''
+            areaList:[{id:'1',name:'所选区域'},{id:'2',name:'全部区域'}],
+            industryList:[{id:'1',name:'所选行业'},{id:'2',name:'全部行业'}],
+            lineArea:'1',
+            lineInsdusty:'1',
+            pieArea:'1',
+            pieInsdusty:'1'
         }
     },
     mounted:function(){
@@ -112,13 +103,6 @@ export default{
         }else{
             this.radarTitle = this.information.tenant;
         }
-        this.lineProvince = this.information.province;
-        this.lineCity = this.information.city;
-        this.lineArea = this.information.area;
-        this.lineInsdusty = this.information.industry;
-        this.getCity(this.information.provinceid);
-        this.getArea(this.information.cityid);
-        this.getPie(this.pietab);
         this.getWork();
         let obj = {
             "areaid": this.information.areaid,
@@ -127,10 +111,10 @@ export default{
             "cityid":this.information.cityid,
             "year": this.year
         };
+        console.log('aaaaa',obj);
         this.getLine(obj);
+        this.getPie(obj);
         this.getTypes();  
-        this.getIndustry();//行业 
-        this.getProvince();//省 
         var that = this;
         $(document).click(function () {
             if(that.istypeslist == true){
@@ -145,33 +129,6 @@ export default{
         }); 
     },
     methods:{
-        getIndustry:function(){
-            this.$this.get('/broker/prop/industry/').then((response)=>{
-                this.industryList = response.data.data;
-            }).catch((error)=>{
-            })
-        },
-        getProvince:function(){
-            this.$this.get('/broker/prop/provinces/').then((response)=>{
-                this.provinceList = response.data.data;
-                this.provinceList.unshift({province:'全国',provinceid:'-1'});
-            }).catch((error)=>{
-            })
-        },
-        getCity:function(provinceid){
-            this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
-                this.cityList = response.data.data;
-                this.cityList.unshift({city:'全部',cityid:'-1'});
-            }).catch((error)=>{
-            })
-        },
-        getArea:function(cityid){
-            this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
-                this.areaList = response.data.data;
-                this.areaList.unshift({area:'全部',areaid:'-1'});
-            }).catch((error)=>{
-            })
-        },
         Istypes:function(){
             if(this.istypeslist==false){
                 this.istypeslist = true;
@@ -230,47 +187,28 @@ export default{
 
             })
         },
-        pieModel:function(){
-            this.pielegend = [];
-            this.piedata = [];
-            this.getPie(this.pietab);
-        },
-        lineModel:function(dom){
-            if(dom=='time'){
-                let obj = {
-                    "year": this.year
-                };
-                this.getLine(obj);
-            }else if(dom=='province'){
-                this.cityList = [];
-                this.areaList = [];
-                let obj = {
-                    "provinceid": this.lineProvince.provinceid,
-                    "year": this.year
-                };
-                this.getLine(obj);
-                this.getCity(this.lineProvince.provinceid);
-            }else if(dom=='city'){
-                this.areaList = [];
-                let obj = {
-                    "cityid":this.lineCity.cityid,
-                    "year": this.year
-                };
-                this.getLine(obj);
-                this.getArea(this.lineCity.cityid);
-            }else if(dom=='area'){
-                let obj = {
-                    "areaid":this.lineArea.areaid,
-                    "year": this.year
-                };
-                this.getLine(obj);
-            }else if(dom=='industry'){
-                let obj = {
-                    "industry":this.lineInsdusty,
-                    "year": this.year
-                };
-                this.getLine(obj);
+        lineModel:function(){//1=所选  2=全部
+            let sheng = this.information.provinceid,shi = this.information.cityid,
+            qu = this.information.areaid,insdusty = this.information.industry;
+            if(this.lineArea==2){
+                sheng = '-1';shi = '-1'; qu = '-1';
+            }else{
+                sheng = this.information.provinceid;shi = this.information.cityid;
+                qu = this.information.areaid;
             }
+            if(this.lineInsdusty==2){
+                insdusty = '-1';
+            }else{
+                insdusty = this.information.industry;
+            }
+            let obj = {
+                    "provinceid":sheng,
+                    "cityid":shi,
+                    "areaid":qu,
+                    "industry":insdusty,
+                    "year": this.year
+                };
+            this.getLine(obj);
         },
         getLine:function(obj){
             let str = JSON.stringify(obj);
@@ -279,25 +217,58 @@ export default{
             this.$this.post('/broker/user/analysis/putCloud/',str).then((reponse)=>{
                 this.linearr = [];
                 this.linearr_b = [];
-                for(let i=0;i<reponse.data.data.length;i++){//reponse.data.data[i].months
-                    this.linearr.push([reponse.data.data[i].months,reponse.data.data[i].num]);
-                    this.linearr_b.push([reponse.data.data[i].months,reponse.data.data[i].num+1]);
+                if(reponse.data.data.length>1){
+                    for(let i=0;i<reponse.data.data.length;i++){//reponse.data.data[i].months
+                        this.linearr.push([reponse.data.data[i].months,reponse.data.data[i].num]);
+                        this.linearr_b.push([reponse.data.data[i].months,reponse.data.data[i].num+1]);
+                        this.$nextTick(function() {
+                            this.canversLine('line')
+                        })
+                    }
+                }else{
                     this.$nextTick(function() {
                         this.canversLine('line')
                     })
                 }
+                
             }).catch((error)=>{
 
             })
         },
-        getPie:function(pie){
+        pieModel:function(){
+            let sheng = this.information.provinceid,shi = this.information.cityid,
+            qu = this.information.areaid,insdusty = this.information.industry;
+            if(this.pieArea==2){
+                sheng = '-1';shi = '-1'; qu = '-1';
+            }else{
+                sheng = this.information.provinceid;shi = this.information.cityid;
+                qu = this.information.areaid;
+            }
+            if(this.pieInsdusty==2){
+                insdusty = '-1';
+            }else{
+                insdusty = this.information.industry;
+            }
+            let obj = {
+                "provinceid":sheng,
+                "cityid":shi,
+                "areaid":qu,
+                "industry":insdusty,
+                "year": this.pieYear
+            };
+            this.getPie(obj);
+        },
+        getPie:function(obj){
+            let str = JSON.stringify(obj);
             // 饼图 1==区域 2==行业
-            this.$this.get('/broker/user/analysis/adviceServer/'+pie).then((response)=>{
+            this.$this.post('/broker/user/analysis/adviceServer',str).then((response)=>{
+                this.pielegend = [];
+                this.piedata = [];
                 this.pieList = response.data.data;
                 for(let i=0;i<response.data.data.length;i++){
                     this.pielegend.push(response.data.data[i].serverName);
                     this.piedata.push({value:response.data.data[i].num, name:response.data.data[i].serverName});
-                }
+                } 
                 this.$nextTick(function() {
                     this.canversPie('pie')
                 })

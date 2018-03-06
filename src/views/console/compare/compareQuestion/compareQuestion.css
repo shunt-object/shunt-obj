@@ -60,6 +60,9 @@
     line-height:26px;
     cursor: pointer;
 }
+.change-all:hover{
+    background:#EF131D;
+}
 .all-list li{
     width:112px;
     height:26px;
@@ -74,10 +77,16 @@
     border:1px solid #ebebeb;
     /*background:#dedede;*/
 }
+.default:hover{
+    background:#F5F7FA;
+}
 .active-change{
     border:1px solid #f7a72c;
     background:#f7a72c;
     color:#fff;
+}
+.active-change:hover{
+    background:#FFB730;
 }
 /*做题*/
 .compare-box{

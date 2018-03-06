@@ -160,7 +160,7 @@
          </el-form>
          <!--添加时触发的按钮-->
         <div slot="footer" class="dialog-footer">
-            <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn">确定</el-button> 
+            <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn ResourceGroup-lay-yes">确定</el-button> 
             <el-button type="primary" @click="quxiao" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
         <!--编辑是触发的按钮-->
@@ -416,6 +416,12 @@
     background: #fff !important;
     border: 1px solid #dcdfe6 !important;
     color: #606266 !important;
+}
+.ResourceGroup-lay-del:hover{
+    background:#F5F7FA !important;
+}
+.ResourceGroup-lay-yes:hover{
+    background:#EF131D !important;
 }
 .el-dialog{
     width:40%;
