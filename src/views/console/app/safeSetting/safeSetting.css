@@ -48,6 +48,9 @@
     height:30px;  
     font-size:14px; 
 }
+.safe-cel-btn:hover{
+    background:#F5F7FA;
+}
 .safe-save-btn{
     background:#da121a;
     color:#fff;
