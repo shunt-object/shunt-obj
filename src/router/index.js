@@ -12,15 +12,17 @@ import resourceGroup from '@/views/console/app/resourceGroup/resourceGroup'
 import createAnalysis from '@/views/console/app/createAnalysis/createAnalysis'
 import accountInformation from '@/views/console/app/accountInformation/accountInformation'
 import safeSetting from '@/views/console/app/safeSetting/safeSetting'
-import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
+import compareList from '@/views/console/compare/compareList/compareList'
 import compareQuestion from '@/views/console/compare/compareQuestion/compareQuestion'
 import compareResult from '@/views/console/compare/compareResult/compareResult'
 import planList from '@/views/console/plan/planList/planList'
+import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
+import planResult from '@/views/console/plan/planResult/planResult'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
-import compareList from '@/views/console/compare/compareList/compareList'
 import measured from '@/views/console/measured/measured'
 import design from '@/views/console/design/design'
-import planResult from '@/views/console/plan/planResult/planResult'
+import designHalf from '@/views/console/design/designHalf/designHalf'
+import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import wei from '@/views/front/wei'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
@@ -167,6 +169,22 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:design
+        },
+        {
+          path:'/designOrder',
+          name:'designOrder',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:designOrder
+        },
+        {
+          path:'/designHalf',
+          name:'designHalf',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:designHalf
         },
         {
             path:'/createAnalysis',
