@@ -68,6 +68,9 @@
     background:#da121a; width:114px; height:30px; font-size:14px; color:#ffffff; text-align:center;
 line-height:30px; float:left; margin-top:13px;
 }
+.creatCompareBtn:hover{
+    background:#EF131D;
+}
 .searchBox{
     float:right; padding-top:13px;
 }
