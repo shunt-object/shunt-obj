@@ -71,7 +71,7 @@
                             <i class="iconfont icon-zhediequanbu" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;" v-on:click="toggleShow(index)"></i>
                         </el-tooltip>-->
                     </span>
-                    <span class="col-md-2 col-xs-4">
+                    <span class="col-md-2 col-xs-5">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
                             <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
                         </el-tooltip>

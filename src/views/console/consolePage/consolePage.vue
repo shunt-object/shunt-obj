@@ -93,6 +93,7 @@
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
+                       <!-- <li v-on:click="design()"><a href="javascript:;">云设计</a></li>-->
                     </ul>
                 </li>
                 <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
@@ -197,6 +198,9 @@ export default{
         },
         measure:function(){
              this.$router.push({path:'/measured'});
+        },
+        design:function(){
+            this.$router.push({path:'/design'});
         },
         responsiveView:function () {
             var wSize = $(window).width();
