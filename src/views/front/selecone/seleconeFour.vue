@@ -17,8 +17,8 @@
                         <div class="container">
                             <div class="clound-dvs col-xs-12">
                                 <p class="clound-ps">我们每前进一小步，都将竭力为您带来更好的云中服务！</p>
-                                <p class="clound-pa">让每一个上云者都在在我们（CSB ²）的帮助下，找到并用好适合自己的云，</p>
-                                <p class="clound-pd">我们目标是成为新云管理服务提供商</p>
+                                <p class="clound-pa">让每一个上云者都在我们（CSB ²）的帮助下，找到并用好适合自己的云</p>
+                                <p class="clound-pd">我们目标是成为新型云管理服务提供商</p>
                                 <p class="clound-pg" style="margin-bottom:110px;"><span @click="tiyans">立即体验</span></p>
                             </div>
                         </div>
@@ -31,10 +31,11 @@
                                     <div class="text-left" style="color:#666666;">CloudBroker²，是新一代云管理服务商，简称CSB²，公司致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
                                       <div class="city" style="padding-top:40px;padding-bottom:30px">
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的产品和服务包括，上云分析工具、选云分析工具、真机实测工具、价格管理工具、线上购买工具及迁移、运维工具。这一系列的工具协助客户全面管理云的生命周期。</div>
-                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB²是以云为核心，其服务场景横跨了上云咨询、云迁移、云运维等多个阶段，为运维部门、决策部门实现服务的可视、可控和可管。帮助用户清晰明确的看到多云的资源和成本，有效的降低了上云和管云的成本，是用户“省钱” “省力”和“专业”的好伙伴</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB ²是以“云”为核心，其服务场景横跨了上云咨询、云迁移、云运维等多个阶段，为运维部门、决策部门实现服务的可视、可控和可管。帮助用户清晰明确的看到多云的资源和成本，有效的降低了上云和管云的成本，是用户“省钱” “省力”和“专业”的好伙伴。</div>
+                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB²以“云”为核心，链接客户与云，让每一个上云者都在CSB²的帮助下，找到并用好适合自己的云。</div>
+                                        
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的总部位于北京、在无锡与杭州均设立了分支结构，团队成员，包括IBM、Microsoft、法电、腾讯、神州数码等全球顶尖IT 企业人员。</div>
-                                        <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CloudBroker²以“云”为核心，应用场景横跨了从上云咨询、云迁移、云运维，为数据中心及运维部门、决策部门实现服务的可视、可控和可管。有效的降低了IT上云和管云成本，帮助用户明明白白的看清楚多云 CSB² 链接客户与云，让每一个上云者都在CSB ²的帮助下，找到并用好适合自己的云。</div>
-                                        <div class="text-left" style="text-indent: 1cm">我们目标是成为新一代云管理服务提供商MSP+</div>
+                                        <div class="text-left" style="text-indent: 1cm">我们目标是：成为新一代云管理服务提供商MSP+。</div>
                                     </div>
                             </div>
                         </div>
@@ -44,7 +45,7 @@
                             <div class="wer">我们的发展</div>
                             <div class="cccspans">
                                 <ul class="col-md-5 col-xs-12 ulsMains" style="padding-top:5px">
-                                    <li style="margin-top:13px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CloudBroker²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
+                                    <li style="margin-top:13px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CSB²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
                                     <li style="margin-top:62px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CSB²（上云服务）v1.0正式发布</span><span class="yellowSpan">2018.02</span></p></li>
                                 </ul>
                                 <div class="col-md-1 divimger" style=" margin-bottom:50px;width:10px"><img src="../../../assets/shu.png" alt=""></div>
