@@ -78,6 +78,11 @@
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs.name)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
+                <el-form-item label="数据库示例" :label-width="formLabelWidth" prop="prop1">
+                    <el-select v-model="inesShj.prop1" placeholder="请选择">
+                        <el-option :value="rvs" v-for="rvs in rvs"  :key="JSON.stringify(rvs.name)" :label="rvs.name"></el-option>
+                    </el-select>
+                </el-form-item>
                 <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
                     <el-select v-model="inesShj.cmf" placeholder="请选择">
                         <el-option :value="rufs" :label="rufs.name" :key="JSON.stringify(rufs.name)" v-for="rufs in rufs"></el-option>
@@ -148,11 +153,17 @@
                 <el-form-item label="流量（GB）" :label-width="formLabelWidth" prop="bandwidth">
                     <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" >
+                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" required>
+                    <el-form-item >
                         <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
+                        <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
+                    </el-form-item>
                 </el-form-item>
-                <el-form-item  label="购买结束时间" :label-width="formLabelWidth">
+                <el-form-item  label="购买结束时间" :label-width="formLabelWidth" required>
+                    <el-form-item >
                         <el-date-picker v-model="cdnList.expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
+                        <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
+                    </el-form-item>
                 </el-form-item>
              </el-form>
            </div>
@@ -220,7 +231,7 @@
                     <h4 style="font-size:12px;">数据库服务</h4>
                     <p><span  style="color: #da121a">{{ins.num}}</span><span style="color:#666;font-size:12px;margin-left:3px;">个（同配置）</span></p>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:20px;">
+                <div class="col-md-2 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="ins.cores==undefined||ins.cores==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.cores}}</li>
@@ -230,7 +241,7 @@
                         <li>本地磁盘（GB）</li>
                     </ul>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:20px;">
+                <div class="col-md-2 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="ins.ghz==undefined||ins.ghz==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ghz}}</li>
@@ -240,7 +251,7 @@
                         <li>操作系统</li>
                     </ul>
                 </div>
-                <div class="col-md-3 Pei" style="margin-top:20px;">
+                <div class="col-md-2 Pei" style="margin-top:20px;">
                     <ul>
                         <li v-if="ins.ram==undefined||ins.ram==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.ram}}</li>
@@ -248,6 +259,14 @@
                         <li v-if="ins.cmf==undefined||ins.cmf==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.cmf.name}}</li>
                         <li>资源平均利用率</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 Pei" style="margin-top:20px;">
+                    <ul>
+                        
+                        <li v-if="ins.prop1==undefined||ins.prop1==''"  style="color: #797979">--</li>
+                        <li v-else  style="color: #da121a">{{ins.prop1.name}}</li>
+                        <li>数据库示例</li>
                     </ul>
                 </div>
             </div>
@@ -339,7 +358,8 @@
                 </div>
                 <div class="col-md-4 Pei" style="margin-top:10px;">
                     <ul class="cuncul">
-                        <li v-if="cdn.startDate==undefined||cdn.startDate==''"  style="color: #797979">--</li>
+                        <li v-if="cdn.startDate==undefined||cdn.startDate==''"><span style="color: #797979">--</span>/{{cdn.expireDate}}</li>
+                        <li v-else-if="cdn.expireDate==undefined||cdn.expireDate==''">{{cdn.startDate}}/<span style="color: #797979">--</span></li>
                         <li v-else  style="color: #da121a">{{cdn.startDate}}/{{cdn.expireDate}}</li>
                         <li>购买起止时间</li>
                     </ul>
@@ -643,21 +663,32 @@ export default {
   name: 'ResourceGroup',
   data () {
       let that = this;
+    //   var checkAge = (rule, value, callback) => {
+    //     if (!value) {
+    //       return callback(new Error('起始时间不能为空'));
+    //     }
+    //   };
+    //    var checkAges = (rule, value, callback) => {
+    //     if (!value) {
+    //       return callback(new Error('结束时间不能为空'));
+    //     }
+    //   }
     return {
           
           inusShjs:{
               type:[]
           },
           rules: {
-              
-            expireDate:[{ type: 'date', required: true, message: '请输入购买结束时间', trigger: 'change' }],
-            startDate:[{ type: 'date', required: true, message: '请输入购买开始时间', trigger: 'change' }],
+             
+            // expireDate:[{ validator: checkAges, trigger: 'change' }],
+            // startDate:[{ validator: checkAge, trigger: 'change' }],
             cses:[{required: true, message: '请选择云厂商', trigger: 'blur'}],
             cores: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
             ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
             ghz:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
             localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
             osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+            prop1:[{required: true, message: '请选择数据库示例', trigger: 'change'}],
             cmf:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             nodeNum:[{required: true, message: '请输入节点数量的个数', trigger: 'blur'}],
             coresq: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
@@ -754,6 +785,7 @@ export default {
             cores:"",
             ghz:"",
             ram:"",
+            prop1:"",
             computeMappingFactor:"", 
             localDisk:"",
             os:""
@@ -782,8 +814,7 @@ export default {
          cse:"",
 
     },
-     expireDate:"",
-    startDate:"",
+    
        appId:"",
        queryType:'',
        rs:[],
@@ -912,6 +943,12 @@ export default {
                     },(err)=>{
                         console.log("不好意思")
                     })
+                    this.$this.get("broker/prop/typedata/db/-1").then((rvs)=>{
+                            this.rvs = rvs.data.data;
+                            console.log(this.rvs)
+                    },(err)=>{
+                        console.log("不好意思")
+                    })
                     
       },
       lookw:function(){
@@ -1022,6 +1059,7 @@ export default {
                                             num:"1",    
                                             cores:this.inesShj.cores,
                                             ghz:this.inesShj.ghz,
+                                            prop1:this.inesShj.prop1,
                                             ram:this.inesShj.ram,
                                             cmf:this.inesShj.cmf, 
                                             localDisk:this.inesShj.localDisk,
@@ -1038,6 +1076,7 @@ export default {
                                             ghz:this.inesShj.ghz,
                                             ram:this.inesShj.ram,
                                             cmf:this.inesShj.cmf, 
+                                             prop1:this.inesShj.prop1,
                                             localDisk:this.inesShj.localDisk,
                                             osType:this.inesShj.osType,
                                             appid: Number(this.appId),
@@ -1049,6 +1088,7 @@ export default {
                                     for(let i = 0 ;i<this.ines.length;i++){
                                         var objs = this.ines[this.ines.length-1]
                                     }
+                                    console.log(objs)
                                     this.$this.post('/broker/app/resource/group/server/2',objs).then((res)=>{
                                         this.showers();
                                     },(err)=>{
@@ -1142,8 +1182,11 @@ export default {
                           
                   
                     }else if(this.regionter=="cdn"){
+                        
                         this.$refs["cdnList"].validate((valid) => {
+                            
                             if (valid) {
+                               
                                     this.cdn.push(
                                         { 
                                             bandwidth:this.cdnList.bandwidth,

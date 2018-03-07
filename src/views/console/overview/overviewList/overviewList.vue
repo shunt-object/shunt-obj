@@ -56,7 +56,7 @@
             <!--<span class="col-md-3">云选型进度</span>-->
         </li>
         <li class="" v-for="(vp,index) in vpd">
-            <ul>
+            <ul class="ulerts">
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
@@ -635,7 +635,7 @@ position: relative; width:100%;
     var $sea=$('#myInput').val();
     //先隐藏全部，再把符合筛选条件的值显示
     console.log($sea);
-        $('ul li').hide().filter(':contains('+$sea+')').show();
+        $('.ulerts li').hide().filter(':contains('+$sea+')').show();
     };
 export default {
     name:"overviewList",
@@ -718,16 +718,21 @@ export default {
             console.log(this.vpd[e])
         },
         shiBlur:function(pronames,e,appid){
-            this.vars[e] = false;
-            let obj = {
-                "analysisName":pronames,
-                "proId": appid,
+            if(pronames==""){
+                this.vars[e] = false;
+                this.createding();
+            }else if(pronames!==""){
+                this.vars[e] = false;
+                let obj = {
+                    "analysisName":pronames,
+                    "proId": appid,
+                }
+                this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                            this.createding();
+                },(err)=>{
+                    console.log("不好意思")
+                })
             }
-            this.$this.post("broker/app/update/name",obj).then((rus)=>{
-                         this.createding();
-            },(err)=>{
-                  console.log("不好意思")
-            })
         },
         creatyy:function(e,d){
             for(var h = 0;h<this.vpd.length;h++){
@@ -744,17 +749,22 @@ export default {
         },
         
         chiBlur:function(a,e,d,s){
-            this.vpd[e].projectApps[d].appsindex = false;
-            let obj = {
-                "appId":s,
-                "appName":a
-            };
-            console.log(obj)
-            this.$this.post("broker/app/update/name",obj).then((rus)=>{
-                  this.createding();
-            },(err)=>{
-                  console.log("不好意思")
-            })
+            if(a==""){
+                this.vpd[e].projectApps[d].appsindex =true;
+                this.createding();
+            }else if(a!==""){
+                this.vpd[e].projectApps[d].appsindex = false;
+                let obj = {
+                    "appId":s,
+                    "appName":a
+                };
+                console.log(obj)
+                this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                    this.createding();
+                },(err)=>{
+                    console.log("不好意思")
+                })
+            }
         },
         myFun:function(){
             myFuun()
