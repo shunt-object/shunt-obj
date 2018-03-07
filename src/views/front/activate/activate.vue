@@ -19,9 +19,9 @@
         <router-link to="/login" v-if="success==true||register==true"><button class="successBtn" v-on:click="tologin()">立即登录</button></router-link>
     </div>
     <div class="activate-footer">
-        <p class="activate-foot-list">© CopyRight 2018江苏京玉信息技术有限公司 版权所有TEL:400-612-218</p>
-        <p class="activate-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="activate-foot-list">京公网安备 11010802020326号</p>
+        <p class="activate-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司<a style="color:#b3b3b3;width:180px !important;" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-2</a></p>
+        <!--<p class="activate-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
+        <p class="activate-foot-list">京公网安备 11010802020326号</p>-->
     </div>
 </div>
 </template>
