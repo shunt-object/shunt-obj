@@ -5,7 +5,7 @@
     <router-link class="zong" to="/consolePage">总览</router-link>
     ><p class="comback">综合报告</p>
 </div>
-    <child index="6" start="5" :type="$route.query.type" :id="$route.query.id"></child>
+    <child index="7" start="6" :type="$route.query.type" :id="$route.query.id"></child>
     <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
         <div class="from-headers">
             <div class="from-head" style="color:#fff;">

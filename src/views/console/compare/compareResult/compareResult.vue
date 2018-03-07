@@ -214,7 +214,8 @@ export default{
             }
         },
         nextgo:function(){
-            this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
+            //this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
+            this.$router.push({path:'/design',query:{id:this.appId,type:this.queryType}});
         }
     },
     components:{

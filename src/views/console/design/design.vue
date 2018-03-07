@@ -4,6 +4,7 @@
                 <span></span>
                 云设计
             </div>
+            <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
             <div class="designHeader">
                 <div class="designTop">
                     <h2><i></i>推荐配置</h2>
@@ -392,6 +393,9 @@ import sds from '../../../components/steps/steps'
                   },(err)=>{
                               console.log("不好意思")    
                   });
+            },
+            components:{
+                sds
             }
 
 

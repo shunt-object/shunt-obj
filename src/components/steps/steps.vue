@@ -14,16 +14,21 @@
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==3?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="comparePrev(3)">3</span>
         <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云选型</div>
+        <div class="stepPlan-line common-line" :class="start==4?'active-line':id!=0?'finish-line':'common-line'"></div>
+    </div>
+    <div class="stepPlan-item step22">
+        <span class="circle" :class="start==4?'active-circle':id!=0?'finish-circle':'common-circle'" v-on:click="comparePrev(4)">4</span>
+        <div class="stepPlan-name common-color int15" :class="start==4?'active-color':'common-color'">云设计</div>
         <div class="stepPlan-line common-line"></div>
     </div>
     <div class="stepPlan-item step22">
-        <span class="circle common-circle" v-on:click="comparePrev(4)">4</span>
+        <span class="circle common-circle" v-on:click="comparePrev(5)">5</span>
         <div class="stepPlan-name common-color int15">云实测</div>
         <div class="stepPlan-line" :class="start==5?'active-line':compare==true?'finish-line':'common-line'"></div>
     </div>
-    <div class="stepPlan-item step10" v-on:click="comparePrev(5)">
-        <span class="circle" :class="start==5?'active-circle':compare==true?'finish-circle':'common-circle'">5</span>
-        <div class="stepPlan-name common-color int10" :class="start==5?'active-color':'common-color'">综合报告</div>
+    <div class="stepPlan-item step10" v-on:click="comparePrev(6)">
+        <span class="circle" :class="start==6?'active-circle':compare==true?'finish-circle':'common-circle'">6</span>
+        <div class="stepPlan-name common-color int10" :class="start==6?'active-color':'common-color'">综合报告</div>
     </div>
 </div>
 <!-- 创建云规划 -->
@@ -46,16 +51,21 @@
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==4?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="planPrev(4)">4</span>
         <div class="stepPlan-name common-color int15" :class="index==4?'active-color':'common-color'">云选型</div>
+        <div class="stepPlan-line common-line" :class="index==4?'active-circle':id!=0?'finish-line':'common-line'"></div>
+    </div>
+    <div class="stepPlan-item step18">
+        <span class="circle" :class="index==5?'active-circle':id!=0?'finish-circle':'common-circle'" v-on:click="planPrev(5)">5</span>
+        <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云设计</div>
         <div class="stepPlan-line common-line"></div>
     </div>
     <div class="stepPlan-item step18">
-        <span class="circle common-circle" v-on:click="planPrev(5)">5</span>
+        <span class="circle common-circle" v-on:click="planPrev(6)">6</span>
         <div class="stepPlan-name common-color int15">云实测</div>
-        <div class="stepPlan-line" :class="index==6?'active-line':compare==true&&clould==true?'finish-line':'common-line'"></div>
+        <div class="stepPlan-line" :class="index==7?'active-line':compare==true&&clould==true?'finish-line':'common-line'"></div>
     </div>
-      <div class="stepPlan-item step10" v-on:click="planPrev(6)">
-        <span class="circle" :class="index==6?'active-circle':compare==true&&clould==true?'finish-circle':'common-circle'">6</span>
-        <div class="stepPlan-name common-color int10" :class="index==6?'active-color':'common-color'">综合报告</div>
+      <div class="stepPlan-item step10" v-on:click="planPrev(7)">
+        <span class="circle" :class="index==7?'active-circle':compare==true&&clould==true?'finish-circle':'common-circle'">7</span>
+        <div class="stepPlan-name common-color int10" :class="index==7?'active-color':'common-color'">综合报告</div>
     </div>
 </div>
 </template>
@@ -137,7 +147,9 @@ export default{
                 if( this.isnot!=1 && this.isnot!=2 ){
                     this.$router.push({path:'/compareQuestion',query:{type:'compare',id:this.id}});
                 }
-            }else if(I==5){
+            }else if(I==4){
+                this.$router.push({path:'/design',query:{type:'compare',id:this.id}});
+            }else if(I==6){
                 this.$router.push({path:'/colligateReport',query:{type:'compare',id:this.id}});
             }
         }
@@ -165,7 +177,9 @@ export default{
                 if( this.isnot!=1 && this.isnot!=2 ){
                     this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
                 }                
-            }else if(I==6){
+            }else if(I==5){
+                this.$router.push({path:'/design',query:{type:'plan',id:this.id}});
+            }else if(I==7){
                 this.$router.push({path:'/colligateReport',query:{type:'plan',id:this.id}});
             }
         }
