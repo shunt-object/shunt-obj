@@ -146,7 +146,9 @@
                                         <!--<td class="ds" style="line-height:110px">2</td>-->
                                         <td>
                                             <ul class="row" >
-                                                <li style="margin-top:40px"><span class="col-md-4 ys">1</span><span class="col-md-4 ys">1</span><span class="col-md-4 ys">1</span></li>
+                                                <li style="margin-top:40px">
+                                                    <span class="col-md-4 ys">{{stos.bandwidth}}</span><span class="col-md-4 ys">{{stos.cse.name}}</span>
+                                                    <span class="col-md-4 ys" v-if=""></span><span class="col-md-4 ys">1</span></li>
                                                 <li><span class="col-md-4 ds">流量（GB）</span><span class="col-md-4 ds">云厂商</span><span class="col-md-4 ds">购买起止时间</span></li>
                                             </ul>
                                         </td>
