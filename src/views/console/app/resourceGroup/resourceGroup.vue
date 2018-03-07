@@ -78,7 +78,7 @@
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs.name)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="数据库示例" :label-width="formLabelWidth" prop="prop1">
+                <el-form-item label="数据库实例" :label-width="formLabelWidth" prop="prop1">
                     <el-select v-model="inesShj.prop1" placeholder="请选择">
                         <el-option :value="rvs" v-for="rvs in rvs"  :key="JSON.stringify(rvs.name)" :label="rvs.name"></el-option>
                     </el-select>
@@ -266,7 +266,7 @@
                         
                         <li v-if="ins.prop1==undefined||ins.prop1==''"  style="color: #797979">--</li>
                         <li v-else  style="color: #da121a">{{ins.prop1.name}}</li>
-                        <li>数据库示例</li>
+                        <li>数据库实例</li>
                     </ul>
                 </div>
             </div>
@@ -688,7 +688,7 @@ export default {
             ghz:[{required: true, message: '请输入处理器主频大小', trigger: 'blur'}],
             localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
             osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
-            prop1:[{required: true, message: '请选择数据库示例', trigger: 'change'}],
+            prop1:[{required: true, message: '请选择数据库实例', trigger: 'change'}],
             cmf:[{required: true, message: '请选择资源平均利用率', trigger: 'change'}],
             nodeNum:[{required: true, message: '请输入节点数量的个数', trigger: 'blur'}],
             coresq: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
