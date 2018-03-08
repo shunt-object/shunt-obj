@@ -308,11 +308,11 @@ export default{
                 //console.log('result',response); 
                 if(type==2){
                     this.whichShow(3);
-                    this.profitReault =  response.data.data+'分';
+                    this.profitReault =  response.data.data;
                     document.documentElement.scrollTop = 0;
                 }else{
                     document.documentElement.scrollTop = 0;
-                    this.affinityResult = response.data.data+'分';
+                    this.affinityResult = response.data.data;
                     this.$router.push({path:'/planResult',query:{id:this.appId}});
                 }              
             }).catch((error)=>{
