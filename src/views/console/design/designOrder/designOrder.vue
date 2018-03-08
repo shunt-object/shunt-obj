@@ -6,7 +6,7 @@
     ><p class="comback">云设计</p>
     ><p class="comback">购买详情</p>
 </div>
-<child index="3" start="3"></child>
+<child index="5" start="4" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="designOrder-box">
     <div class="designOrder-title"><span>全部商品</span></div>
     <div class="designOrder-list">
