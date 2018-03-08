@@ -7,9 +7,9 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 forget-box">
             <div class="forget-step">
-                <div class="move-block w-28">
+                <div class="move-block w-37">
                     <span class="move-circle cir-act">1</span>
-                    <p class="move-title text-10">填写登录账号</p>
+                    <p class="move-title">填写登录账号</p>
                     <span class="move-line" :class="index>0?'line-act':'line-moren'"></span>
                 </div>
                 <div class="move-block w-25">
@@ -30,7 +30,7 @@
             <div class="forget-content">
                 <div class="forget-list" v-if="index==0||index==1">
                     <div class="forget-username" v-if="index==0" :class="isRegister==true?'error':''">
-                        <input type="text" class="username-input" v-model="useraccount">
+                        <input type="text" class="username-input" v-model="useraccount" placeholder="请输入注册手机号或注册邮箱">
                         <button class="username-btn" v-on:click="check()">确认</button>
                     </div>
                     <div class="forget-type" v-if="index==1">
