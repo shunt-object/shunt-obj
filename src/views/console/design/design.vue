@@ -4,6 +4,7 @@
                 <span></span>
                 云设计
             </div>
+            <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
             <div class="designHeader">
                 <div class="designTop">
                     <h2><i></i>推荐配置</h2>
@@ -171,7 +172,7 @@
     .designTop{
         width:100%;
         background:#fff;
-        height:auto;
+        height:100%;
     }
     .designTop h2{
         text-align:left;
@@ -221,7 +222,6 @@
     }
    .designConfig{
        width:100%;
-       height:198px; 
    }
    .designdesignConfiguration{
         margin-left:30px;
@@ -304,7 +304,7 @@ import sds from '../../../components/steps/steps'
                    this.ccshow=false;
                    this.digaopei=true;
                    this.index = 1;
-                   
+                    $(".designTabj p").find("span").removeClass("designTabjBj")  
                },
                sjClick:function(){
                   this.sjshow=true;
@@ -314,9 +314,15 @@ import sds from '../../../components/steps/steps'
                    this.ccshow=false;
                    this.digaopei=true;
                    this.index = 2;
+                   $(".designTabj p").find("span").removeClass("designTabjBj")
                },
                wlClick:function(){
-                   this.wlshow=true;
+                   
+                    if(this.data.network==null){
+                        this.wlshow=false
+                    }else if(this.data.network!==null){
+                        this.wlshow=true;
+                    }
                     this.sjshow=false;
                    this.yyshow=false;
                    this.cdnshow=false;
@@ -341,6 +347,7 @@ import sds from '../../../components/steps/steps'
                    this.digaopei=false;
                },
                dipeis:function(){
+                   
                     this.gaopei = false;
                     this.dipei = true;
                     if(this.index == 1){
@@ -359,9 +366,26 @@ import sds from '../../../components/steps/steps'
                           
                    }
                },
+             
                gaopeis:function(){
                    this.gaopei = true;
                    this.dipei = false;
+                   if(this.index == 1){
+                       this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
+                              this.dats = ris.data.data;
+                              console.log(this.dats)
+                    },(err)=>{
+                              console.log("不好意思")    
+                      });  
+                   }else if(this.index == 2){
+                       this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
+                                  this.datis = ros.data.data;
+                                  console.log(this.datis)
+                       },(err)=>{
+                              console.log("不好意思")    
+                       });  
+                          
+                   }
                }
             },
             mounted:function(){
@@ -392,6 +416,9 @@ import sds from '../../../components/steps/steps'
                   },(err)=>{
                               console.log("不好意思")    
                   });
+            },
+            components:{
+                sds
             }
 
 
