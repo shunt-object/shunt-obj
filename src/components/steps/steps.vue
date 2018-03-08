@@ -51,7 +51,7 @@
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==4?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="planPrev(4)">4</span>
         <div class="stepPlan-name common-color int15" :class="index==4?'active-color':'common-color'">云选型</div>
-        <div class="stepPlan-line common-line" :class="index==4?'active-circle':id!=0?'finish-line':'common-line'"></div>
+        <div class="stepPlan-line common-line" :class="index==5?'active-line':id!=0?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==5?'active-circle':id!=0?'finish-circle':'common-circle'" v-on:click="planPrev(5)">5</span>
