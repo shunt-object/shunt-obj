@@ -293,7 +293,7 @@ export default{
     name:'designHalf',
     mounted:function(){
         this.$http.get('/broker/price/region/-1').then((response)=>{
-            console.log('----',response);
+            //console.log('----',response);
         }).catch((error)=>{
         })
     }
