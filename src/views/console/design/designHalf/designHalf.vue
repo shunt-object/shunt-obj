@@ -132,8 +132,8 @@
             </tbody>
         </table>
         <!-- 空白 -->
-        <div class="nodata" style="border:1px solid #ebebeb;height:300px !important;" v-if="priceClould.length<1">
-            <img src="../../../../assets/compare-nodata.png" alt="" style="margin-top: 100px ！important;">
+        <div class="nodata" style="border:1px solid #ebebeb;" v-if="priceClould.length<1">
+            <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
             
             暂无云厂商匹配数据
@@ -485,13 +485,14 @@ export default{
             this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
         },
         designnext:function(){
-            let arr = [];
-            for(let i=0;i<this.priceClould.length;i++){
-                if(this.priceClould[i].model==true){
-                    arr.push(this.priceClould[i].data.id);
-                }
-            }
-            this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
+            // let arr = [];
+            // for(let i=0;i<this.priceClould.length;i++){
+            //     if(this.priceClould[i].model==true){
+            //         arr.push(this.priceClould[i].data.id);
+            //     }
+            // }
+            // this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
+            this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.type}});
         },
         designprev:function(){
             this.$router.push({path:'/compareResult',query:{id:this.appId,listid:arr,type:this.type}});
