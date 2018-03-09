@@ -290,6 +290,12 @@
 <script>
 import '../designHalf/designHalf.css';
 export default{
-    name:'designHalf'
+    name:'designHalf',
+    mounted:function(){
+        this.$http.get('/broker/price/region/-1').then((response)=>{
+            console.log('----',response);
+        }).catch((error)=>{
+        })
+    }
 }
 </script>
