@@ -104,7 +104,7 @@
                     <span style="font-size:14px;color:#333333">7×24小时顾问支持</span>
                 </div>
                 <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;">
-                    <img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;margin-left:20px;">
+                    <img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys">
                     <span style="font-size:14px;color:#333333">1V1专家服务</span>
                 </div>
                 <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;">
@@ -119,6 +119,18 @@
 </div>
 </template>
 <style>
+@media (max-width: 768px) {
+      
+     .imgeys{
+            margin-left:0 !important;
+     }
+}
+@media (min-width: 768px) {
+      
+     .imgeys{
+            margin-left:20px !important;
+     }
+}
 .liHoversBj:hover{
     background:#EF131D;
 }

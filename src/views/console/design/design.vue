@@ -33,7 +33,7 @@
                                                 <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:120px"><span><i></i>修正</span></td>
+                                        <td class="ds" style="line-height:120px"><span><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -63,7 +63,7 @@
                                                 <li><span class="col-md-4 ds">本地磁盘（GB）</span><span class="col-md-4 ds">操作系统</span><span class="col-md-4 ds">数据库示例</span></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:120px"><span><i></i>修正</span></td>
+                                        <td class="ds" style="line-height:120px"><span><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
