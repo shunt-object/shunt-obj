@@ -220,9 +220,10 @@ export default {
     this.getData();
     
   },
-//   updated:function(){
-//       $.noConflict();
+//  updated:function(){
+        
 //            $(document).ready(function(){
+//                 $.noConflict();
 //                $("#example").dataTable().fnDestroy();
 //                 $('#example').DataTable({
 //                     "bFilter": true,

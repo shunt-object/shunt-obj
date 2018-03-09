@@ -20,6 +20,7 @@ import planQuestion from '@/views/console/plan/planQuestion/planQuestion'
 import planResult from '@/views/console/plan/planResult/planResult'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
 import measured from '@/views/console/measured/measured'
+import yunzc from '@/views/console/yunzc/yunzc'
 import design from '@/views/console/design/design'
 import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
@@ -161,6 +162,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:measured
+        },
+        {
+          path:'/yunzc',
+          name:'yunzc',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:yunzc
         },
         {
           path:'/design',

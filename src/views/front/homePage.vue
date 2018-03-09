@@ -20,13 +20,11 @@
                        <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>
       <div class="carousel-inner">
         
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
-            
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
               <div class="col-md-7 lun-le animated rollIn">
@@ -43,9 +41,7 @@
        
        
         <div class="item" style="width:100%;min-width:100%;height:100%;">
-  
-                 <div class=" lumain">
-               
+                 <div class=" lunmain">
                     <div class="container">
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>360°智能专家咨询服务</h1>
@@ -59,22 +55,7 @@
 
 
          </div>
-         <div class="item active" style="width:100%;min-width:100%;height:100%;">
-          <div class=" lunmain">
-            
-            <div class="container" style="position:relative">
-              
-              <div class="col-md-7 lun-le animated rollIn">
-                <h1 style="font-size:26px !important;font-weight:100">多场景、目标云真机测试</h1>
-                <p class="pCenter">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”</p>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
-              </div>
-              <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight" style="padding-top:100px;">  
-                <img src="../../assets/sanbanner.png" alt="" class="tranimg" style="width:75%">
-              </div>
-            </div>
-          </div>
-        </div>
+        
    
    </div>
      
@@ -996,9 +977,7 @@ ul,ol li {
 .right{
     height:100%;
 }
-.lunmain .container {
-  width: 100%; margin-top: 10%;
-}
+
 .tuPa {
   right: 0; height:0%; position: absolute; bottom: 0
 }
