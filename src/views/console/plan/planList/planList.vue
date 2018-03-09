@@ -387,8 +387,37 @@ export default {
                         type: 'dashed',
                         width: 1
                     },
-                }
+                },
+                formatter: function(obj) {
+                        if (obj.componentType == "series") {
+                            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' +
+                                obj.name +
+                                '</div>' +
+                                '<span>' +
+                                '云亲和度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[0]  +
+                                '<br/>' +
+                                '<span>' +
+                                '云收益度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[1] 
+                        }
+                    }
             },
+            label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: function(params) {
+                            return params.name
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        position: 'bottom',
+                    }
+                },
             xAxis: {
                 name: '云收益度',
                 type: 'value',

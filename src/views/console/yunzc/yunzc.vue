@@ -1,6 +1,6 @@
 <template>
     <div class="dvsmain">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tabelId">
                 <thead class="row">
                     <tr>
                         <th class="text-center thtop thtops">用户名</th>
@@ -20,8 +20,10 @@
                         <td>{{re.tenant}}</td>
                         <td>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>
                         <td>{{re.industryStr.name}}</td>
-                        <td>{{re.phone}}</td>
-                        <td>{{re.email}}</td>
+                        <td v-if="re.phone==null">未填写</td>
+                        <td v-else>{{re.phone}}</td>
+                        <td v-if="re.email==null">未填写</td>
+                        <td v-else>{{re.email}}</td>
                         <td>{{re.createDt}}</td>
                     </tr>
                 
@@ -42,13 +44,45 @@
     }
 </style>
 <script>
+import "../plan/planList/datatable.css";
     export default{
          data () {
             return {
                 responers:[]
             }
          },
-         mounted:function(){
+     updated:function(){
+        
+                $(document).ready(function(){
+                        $.noConflict();
+                    $("#tabelId").dataTable().fnDestroy();
+                        $('#tabelId').DataTable({
+                            "bFilter": true,
+                            "bLengthChange": false,
+                            
+                            
+                            "oLanguage": {
+                                "sSearch": "搜索:",
+                                "sEmptyTable": "没有相关记录",  
+                                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                                "sZeroRecords": "抱歉， 没有找到",
+                                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                                "sInfoEmpty": "没有数据",
+                                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                                "oPaginate": {
+                                    "sFirst": "首页",
+                                    "sPrevious": "前一页",
+                                    "sNext": "后一页",
+                                    "sLast": "尾页"
+                                },
+                                "sZeroRecords": "没有检索到数据",
+                                
+                            }
+                        });
+
+                    });
+  },
+         created:function(){
              this.$this.get('/broker/admin/user/list').then((respone)=>{
               this.responers = respone.data.data
                 console.log(this.responers);

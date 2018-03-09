@@ -390,6 +390,7 @@
 </div>
 </template>
 <style>
+
 .buttonHovers:hover{
     color:#da121a;
 }

@@ -40,11 +40,14 @@
               <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
 
 
-               <li v-if="islogin==true" class="logout-box">
-                <span v-on:click="asd">{{realname}}<i class="realname-san"></i></span>
-                <p class="logout-ul" v-show="logoutlist">
-                  
-                    <span v-on:click="fn()" style="cursor:pointer;color:#000;font-size:12px;" >退出</span>
+               <li v-if="islogin==true" class="logout-box" >
+                <span v-on:click="asd" class="olsty">{{realname}}<i class="realname-san"></i></span>
+                <p class="logout-ul" v-show="logoutlist" style="width:120px">
+                    <ol class="olers" style="padding-left:0 !important">
+                        <li style="cursor:pointer;font-size:12px;text-align:center"><router-link to="/accountInformation">&nbsp&nbsp&nbsp&nbsp<a style="width:80px;text-align:left;display:inline-block;color:#000 !important;"><i class="iconfont icon-zhanghaoguanli1"></i>&nbsp账号信息</a></router-link></li>
+                        <li style="cursor:pointer;font-size:12px;"><router-link to="/safeSetting">&nbsp&nbsp&nbsp&nbsp<a style="width:80px;text-align:left;display:inline-block;color:#000 !important;"><i class="iconfont icon-anquan"></i>&nbsp安全设置</a></router-link></li>
+                        <li v-on:click="fn()" style="cursor:pointer;font-size:12px;" >&nbsp&nbsp&nbsp&nbsp<a style="width:80px;text-align:left;display:inline-block;color:#000 !important;"><i class="iconfont icon-tuichu1"></i>&nbsp退出</a></li>
+                    </ol>
                 </p>
          
               </li>
@@ -58,13 +61,7 @@
 </div>
 </template>
 <script>
-// $(document).ready(function(){ 
-//  $(".lihovzan").hover(function(){
-//     $(".xians").css("display","block")
-//  },function(){
-//       $(".xians").css("display","none")
-//  })
-// })
+
 export default { 
     props:["active"],  
     data() {
@@ -128,12 +125,18 @@ export default {
       },
       listwer:function(){
            this.$router.push({path: '/seleconeFour'})
-      }
+      },
+    
     }
   }
+
+
 </script>
 
 <style>
+.olers li:hover{
+    background:#F5F7FA !important
+}
 .border_active{
     border-bottom:1px solid #fff;
 }

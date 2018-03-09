@@ -94,7 +94,7 @@
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
                         <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
-                        <li v-on:click="zhic()"><a href="javascript:;">运营支撑</a></li>
+                        <li v-on:click="zhic()" v-if="utype == 5"><a href="javascript:;">运营支撑</a></li>
                        
                     </ul>
                 </li>
@@ -138,7 +138,7 @@ export default{
         }
     },
     mounted:function(){
-
+        
         $("#xiaowei").click(function(){
             var that = this; 
                    
@@ -189,6 +189,7 @@ export default{
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
         this.utype = sessionStorage.getItem("utype");
+        
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{

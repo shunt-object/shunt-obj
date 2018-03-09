@@ -157,14 +157,7 @@
                         <img class="svg" src="../../../assets/right.svg" alt="">
                     </div>
                 </div>
-                <div class="reg-from-list" :class="iscodeNum==true?'error':''">
-                    <i class="xing">*</i>
-                    <span class="reg-from-key">验证码：</span>
-                    <input type="text" class="cede-input" v-model="codeNum">
-                    <button class="getcode-btn" v-on:click="getCode()">{{code}}</button>
-                    <div class="clear"></div>
-                    <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
-                </div>
+                
                 <div class="reg-from-list">
                     <i class="xing" style="color:#fff !important;">*</i>
                     <span class="reg-from-key">所属行业：</span>
@@ -184,6 +177,14 @@
                     <select v-model="areas" class="city_tab">
                         <option v-for="item in areasList" :value="item">{{item.area}}</option>
                     </select>
+                </div>
+                <div class="reg-from-list" :class="iscodeNum==true?'error':''">
+                    <i class="xing">*</i>
+                    <span class="reg-from-key">验证码：</span>
+                    <input type="text" class="cede-input" v-model="codeNum">
+                    <button class="getcode-btn" v-on:click="getCode()">{{code}}</button>
+                    <div class="clear"></div>
+                    <div class="error-color error-notice" v-show="iscodeNum">{{codenotice}}</div>
                 </div>
             </div>
             <!--  -->
