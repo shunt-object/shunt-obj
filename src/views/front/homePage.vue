@@ -20,6 +20,7 @@
                        <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>
       <div class="carousel-inner">
         
@@ -50,6 +51,21 @@
                             
                         </div>
                         <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
+                    </div>
+                </div>
+
+
+         </div>
+         <div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain">
+                    <div class="container">
+                        <div class="col-md-6 lun-le animated rollIn">
+                            <h1>多场景、目标云真机测试</h1>
+                            <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”</p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
+                            
+                        </div>
+                        <div class="col-md-6  animated rotateInDownRight" style="padding-top:2%"><img src="../../assets/sanbanner.png" alt="" style="width:75%;"></div>
                     </div>
                 </div>
 

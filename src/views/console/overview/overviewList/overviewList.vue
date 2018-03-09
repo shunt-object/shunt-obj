@@ -104,6 +104,9 @@
                                 <p class="ratelist" v-if="im.moduleId==5" :class="im.taskStatus==2?'group-ed':((im.taskStatus==1)?'group-ing':'group-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
+                                <p class="ratelist pMargin" v-if="im.moduleId==6" :class="im.taskStatus==2?'group-eder':((im.taskStatus==1)?'group-inger':'grouper-null')" >
+                                    <span>{{im.moduleName}}</span>
+                                </p>
                                 <span class="satatus" v-if="im.taskStatus==2">(已完成)</span>    
                                 <span class="satatus" v-if="im.taskStatus==1">(分析中)</span>   
                                 <span class="satatus" v-if="im.taskStatus==0">(未完成)</span>             <!--0=未做；1=已做未完成；2=已完成-->
@@ -269,6 +272,18 @@
     background:url('../../../../assets/overview/overview-group-ed.png') no-repeat top center;
     background-size:60%;
 }
+.group-eder{
+    background:url('../../../../assets/overview/group-eder.png') no-repeat top center;
+    background-size:60%;
+}
+.group-inger{
+    background:url('../../../../assets/overview/group-inger.png') no-repeat top center;
+    background-size:60%;
+}
+.grouper-null{
+    background:url('../../../../assets/overview/grouper-null.png') no-repeat top center;
+    background-size:60%;
+}
 .group-null{
     background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
     background-size:60%;
@@ -422,7 +437,9 @@ a:hover{
         height:57px;
 
 }
-
+.pMargin{
+    margin-top:10px
+}
 .clould-ing{
     background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
 }
@@ -468,7 +485,19 @@ a:hover{
 .group-null{
     background:url('../../../../assets/overview/overview-group-null.png') no-repeat top center;
     
-}}
+}
+.group-eder{
+    background:url('../../../../assets/overview/group-eder.png') no-repeat top center;
+    
+}
+.group-inger{
+    background:url('../../../../assets/overview/group-inger.png') no-repeat top center;
+}
+.grouper-null{
+    background:url('../../../../assets/overview/grouper-null.png') no-repeat top center;
+}
+}
+
 .ad{
     width:100px; margin-right:10px;
 }
@@ -879,9 +908,12 @@ export default {
                     this.$router.push({path:'/compareQuestion',query:{id:o}});
             }else if(n == 5){
                     this.$router.push({path:'/resourceGroup',query:{id:o}});
+            }else if(n == 6){
+                 this.$router.push({path:'/design',query:{id:o}});
             }else{
                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
             }
+            
         },
        
         UpRoute:function(){
