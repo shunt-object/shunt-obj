@@ -162,12 +162,14 @@
                     </div>
                 </div>
             </div>
+            <designHalf :type="$route.query.type" :id="$route.query.id"></designHalf>
     </div>
 </template>
 <style>
     .designHeader{
-        min-height:90vh;
-        padding-bottom:5%;
+        /*min-height:90vh;
+        padding-bottom:5%;*/
+        padding-bottom:20px;
     }
     .designTop{
         width:100%;
@@ -273,6 +275,7 @@
 <script>
    
 import sds from '../../../components/steps/steps'
+import designHalf from '../design/designHalf/designHalf'
       export default{
             name:"design",
             data(){
@@ -418,7 +421,8 @@ import sds from '../../../components/steps/steps'
                   });
             },
             components:{
-                sds
+                sds,
+                designHalf
             }
 
 

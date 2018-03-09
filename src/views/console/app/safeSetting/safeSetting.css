@@ -44,9 +44,12 @@
     margin-top:20px;
 }
 .safe-save-btn,.safe-cel-btn{
-    width:88px;
+    /*width:88px;
     height:30px;  
-    font-size:14px; 
+    font-size:14px; */
+    padding: 3px 15px;
+    font-size: 12px;
+    border-radius: 3px;
 }
 .safe-cel-btn:hover{
     background:#F5F7FA;

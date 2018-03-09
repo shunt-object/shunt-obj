@@ -73,7 +73,7 @@
                 <div class="clear"></div>
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
-                        <span class="createAnalysis-fang">5</span>
+                        <span class="createAnalysis-fang">6</span>
                         请选择区域：
                     </div>
                     <div class="row" style="padding-left:30px;">

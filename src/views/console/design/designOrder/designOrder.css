@@ -2,6 +2,7 @@
     padding:0 30px 22px 30px;
     background:#fff;
     margin-top:10px;
+    min-height:100vh;
 }
 .designOrder-title{
     width:100%;
@@ -42,6 +43,7 @@
     line-height:46px;
     color:#acacac;
     font-size:12px;
+    cursor:pointer;
 }
 .designOrder-list-table{
     width:100%;
@@ -57,6 +59,9 @@
     color:#777;
     padding:10px;
     font-size:12px;
+}
+.designOrder-list-table thead tr .designOrder-td-bg{
+    background:#FAE4CB;
 }
 .designOrder-list-price{
     width:100%;
