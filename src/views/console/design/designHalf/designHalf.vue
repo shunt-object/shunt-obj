@@ -78,13 +78,13 @@
             <div class="designHalf-price-list-title col-md-1"></div>
             <div class="designHalf-price-list-select col-md-11">
                 <button class="designHalf-look-price" v-on:click="lookPrice()">查看价格</button>
-                <span class="go-datadcision">价格对比图可到<router-link style="color:#da121a;"to="/dataDcision">数据分析</router-link>中查看</span>
+                <span class="go-datadcision">价格对比图可到数据分析中查看</span>
             </div>
         </div>
     </div>
     <div class="designHalf-table" v-show="islook">
         <!-- 应用服务 -->
-        <table class="designHalf-table-appServer designHalf-table-public" id="example">
+        <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
             <thead>
                 <tr>
                     <td class="designHalf-w-5" rowspan="2"><input type="checkbox" v-model="allselect" v-on:click="whole()"><br>全选</td>
@@ -131,6 +131,14 @@
                 </tr>
             </tbody>
         </table>
+        <!-- 空白 -->
+        <div class="nodata" style="border:1px solid #ebebeb;height:300px !important;" v-if="priceClould.length<1">
+            <img src="../../../../assets/compare-nodata.png" alt="" style="margin-top: 100px ！important;">
+            <br>
+            
+            暂无云厂商匹配数据
+
+        </div>
         <!-- 数据库服务 -->
         <!--<table class="designHalf-table-appServer designHalf-table-public">
             <thead>
