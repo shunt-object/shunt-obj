@@ -242,7 +242,7 @@ export default{
         },
         result:function(){
             // this.$router.push({path:'/design',query:{id:this.appId,type:this.queryType}});
-            this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.queryType}});
+            this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
         },
         allSelect:function(e){
             //console.log(this.typelist);
