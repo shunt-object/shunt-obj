@@ -94,6 +94,7 @@
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
                         <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
+                        <li v-on:click="zhic()"><a href="javascript:;">运营支撑</a></li>
                        
                     </ul>
                 </li>
@@ -199,6 +200,9 @@ export default{
         },
         measure:function(){
              this.$router.push({path:'/measured'});
+        },
+        zhic:function(){
+             this.$router.push({path:'/yunzc'});
         },
         design:function(){
             this.$router.push({path:'/design'});
