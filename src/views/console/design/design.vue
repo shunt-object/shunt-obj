@@ -7,7 +7,7 @@
             <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
             <div class="designHeader">
                 <div class="designTop">
-                    <h2><i></i>推荐配置</h2>
+                    <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp推荐配置</h2>
                     <div class="designTab">
                         <p><span v-on:click="yyClick"><a class="designTaba">应用服务</a></span><span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span><span v-on:click="wlClick"><a class="designTaba">网络服务</a></span><span v-on:click="ccClick"><a class="designTaba">存储服务</a></span><span v-on:click="cdnClick"><a class="designTaba">CDN</a></span></p>
                     </div>
@@ -17,7 +17,7 @@
                             <table class="table table-bordered">
                                 <thead class="row">
                                     <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
+                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;border-top:none !important;">角色</th>
                                         <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                                         <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
                                         <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
@@ -33,7 +33,7 @@
                                                 <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:120px"><span v-on:click="xiuzheng()"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                                        <td class="ds" style="line-height:110px"><span v-on:click="xiuzheng()"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -153,7 +153,7 @@
                                                 <li><span class="col-md-4 ds">流量（GB）</span><span class="col-md-4 ds">云厂商</span><span class="col-md-4 ds">购买起止时间</span></li>
                                             </ul>
                                         </td>
-                                        <td style="line-height:120px;color:#cac9c9;font-size:14px"><span><i></i>暂不可以修正</span></td>
+                                        <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -170,6 +170,7 @@
         /*min-height:90vh;
         padding-bottom:5%;*/
         padding-bottom:20px;
+        margin-top:20px;
     }
     .designTop{
         width:100%;
@@ -178,7 +179,7 @@
     }
     .designTop h2{
         text-align:left;
-        margin:0px 0 40px 40px;
+        margin:0px 0 40px 18px;
         font-size:14px;
         padding-top:20px;
         color:#6e6e6e;
@@ -201,10 +202,13 @@
         
         border-radius:1px;
         background:#f7f7f7;
-        padding:5px 20px;
+        width:110px;
+        height:29px;
+        text-align:center;
+        line-height:29px;
         font-size:14px;
         color:#b9b5b5;
-        text-align:left;
+        
         
         margin-bottom:10px;
     }
@@ -269,7 +273,7 @@
       background:#f7a72c;
       border-radius:1px;
       color:#fff !important;
-      border:none !important;
+      border:1px solid #f7a72c  !important;
   }
 </style>
 <script>

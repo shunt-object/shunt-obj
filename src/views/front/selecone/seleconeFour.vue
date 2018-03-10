@@ -56,24 +56,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cloundzi">
-                        <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:70px;">我们的资质</div>
-                        <div class="weiduduan clearfix">
-                            <div id="phoneCarousel">
-                                <div class="previous arrow">&nbsp;</div>
-                                <div class="next arrow">&nbsp;</div>
-                                <div id="stage">
-                                    <a><img width="550" height="400" src="../../../assets/qualification1.jpg" alt="iPhone" id="iphone" class="default" /></a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification2.jpg" alt="Nexus One" id="nexus" /> </a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification3.jpg" alt="Nokia" id="nokia" /> </a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification4.jpg" alt="BlackBerry" id="blackberry" /></a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
+                   
                     <div class="belief" style="margin-bottom:40px;">
                                 <div class="container">
-                                    <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:40px;margin-top:70px">我们的信念</div>
+                                    <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:40px;margin-top:40px">我们的信念</div>
                                         <div style="background:#f8f8f8;height:440px;width:100%;">
                                             <div class="col-md-6 col-xs-12"   >
                                                 <div class=" werxin">
@@ -89,9 +75,24 @@
                                         </div>
                                 </div>
                      </div>
+                      <div class="cloundzi">
+                        <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:70px">我们的资质</div>
+                        <div class="weiduduan clearfix">
+                            <div id="phoneCarousel">
+                                <div class="previous arrow">&nbsp;</div>
+                                <div class="next arrow">&nbsp;</div>
+                                <div id="stage">
+                                    <a><img width="550" height="400" src="../../../assets/qualification1.jpg" alt="iPhone" id="iphone" class="default" /></a>
+                                    <a><img width="550" height="400" src="../../../assets/qualification2.jpg" alt="Nexus One" id="nexus" /> </a>
+                                    <a><img width="550" height="400" src="../../../assets/qualification3.jpg" alt="Nokia" id="nokia" /> </a>
+                                    <a><img width="550" height="400" src="../../../assets/qualification4.jpg" alt="BlackBerry" id="blackberry" /></a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
                      <div class="callme">
                         <div class="container">
-                            <div class="callme-call">我们在这里</div>
+                            <div class="callme-call" style=";margin-top:70px">我们在这里</div>
                             <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京总部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡分部</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">

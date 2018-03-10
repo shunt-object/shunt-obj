@@ -660,9 +660,11 @@ position: relative; width:100%;
    
     function myFuun(){
     var $sea=$('#myInput').val();
+    var ase = $sea.toUpperCase();
     //先隐藏全部，再把符合筛选条件的值显示
     console.log($sea);
         $('.ulerts li').hide().filter(':contains('+$sea+')').show();
+        $('.ulerts li').filter(':contains('+ase+')').show();
     };
 export default {
     name:"overviewList",
