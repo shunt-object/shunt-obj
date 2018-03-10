@@ -15,26 +15,26 @@
         <div class="clear"></div>
     </div>
     <div class="underpay" v-show="selectpay">
-        <div class="underpay-title">方式一<span class="underpay-strong">联系电话：</span></div>
+        <div class="underpay-title"><i class="iconfont icon-dianhua2" style="margin-right:5px;"></i>联系电话：</div>
         <div class="underpay-list">
-            <p class="underpay-list-type">400-828-7308<span class="underpay-small">（ 服务热线 ）</span></p>
-            <p class="underpay-list-type">186-1010-3844<span class="underpay-small">（ 毛东晖 ）</span></p>
+            <p class="underpay-list-type">400-828-7308<span class="underpay-small">（服务热线）</span></p>
+            <p class="underpay-list-type">186-1010-3844<span class="underpay-small">（毛东晖）</span></p>
         </div>
-        <div class="underpay-title">方式二<span class="underpay-strong">联系邮箱：</span></div>
+        <div class="underpay-title"><i class="iconfont icon-youxiang1" style="margin-right:5px;"></i>联系邮箱：</div>
         <div class="underpay-list">
             <p class="underpay-list-type">Help@csb-china.com</p>
         </div>
-        <div class="underpay-title">方式三<span class="underpay-strong">联系客服：</span></div>
+        <div class="underpay-title"><i class="iconfont icon-kefu" style="margin-right:5px;"></i>联系客服：</div>
         <div class="underpay-list">
             <p class="underpay-list-type" style="line-height:40px;text-indent:10px;cursor:pointer;">
                 <span class="underpay-kficon" v-on:click="sevice()"><i class="iconfont icon-custom-service"></i></span>
-                <span style="cursor:pointer;" v-on:click="sevice()">prof.吴</span>
+                <span style="cursor:pointer;" v-on:click="sevice()">Prof. 吴</span>
                 <div class="clear"></div>
             </p>
         </div>
     </div>
     <div class="onpay" v-if="selectpay!=true">
-        线上支付正在开发中
+        当前线上支付方式正与云厂商共同研发中，敬请您的期待.....
     </div>
 </div>
 <div class="designHalf-box" v-if="$route.query.enter!=1">

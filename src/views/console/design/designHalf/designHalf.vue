@@ -4,10 +4,13 @@
         <div class="designHalf-price-title">
             <span style="color:#da121a;margin-right:5px;"><i class="iconfont icon-jiagechaxun"></i></span>价格优选
         </div>
-        <div class="designHalf-price-tab">           
-            <button class="designHalf-tab-btn" v-on:click="selectClould(1)" :class="style.appointelect==true?'designHalf-active1':'designHalf-default'" >单云优选</button>
-            <button class="designHalf-tab-btn1" disabled>多云优选</button>
-            <div class="clear"></div>
+        <div class="designHalf-price-tab row">
+            <div class="col-md-1"></div>    
+            <div class="col-md-11 designHalf-price-box">
+                <button class="designHalf-tab-btn" v-on:click="selectClould(1)" :class="style.appointelect==true?'designHalf-active1':'designHalf-default'" >单云优选</button>
+                <button class="designHalf-tab-btn1" disabled>多云优选</button>
+                <div class="clear"></div>
+            </div>    
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1">
@@ -25,17 +28,17 @@
                     <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-ditu"></i></span>区域
                 </div>
                 <div class="designHalf-price-list-select col-md-11 row">
-                    <div class="col-md-2" v-for="(item,regionIndex) in region">
-                        <button class="designHalf-select-buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
-                    </div>
+                    <!--<div class="col-md-2" v-for="(item,regionIndex) in region">-->
+                        <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
+                    <!--</div>-->
                 </div>
             </div>
             <div class="row" style="margin-top:20px!important;">
                 <div class="designHalf-price-list-title col-md-1"></div>
                 <div class="designHalf-price-list-select col-md-11 row">
-                    <div class="col-md-2" v-for="(item,regionIndex) in regiontwo">
-                        <button class="designHalf-select-box" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
-                    </div>
+                    <!--<div class="col-md-2" v-for="(item,regionIndex) in regiontwo">-->
+                        <button class="designHalf-select-box designHalf-select-box1" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -44,9 +47,9 @@
                 <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-jifei"></i></span>购买方式
             </div>
             <div class="designHalf-price-list-select col-md-11 row">
-                <div class="col-md-2" v-for="(item,index) in buytype">
-                    <button class="designHalf-select-buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
-                </div>
+                <!--<div class="col-md-2" v-for="(item,index) in buytype">-->
+                    <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
+                <!--</div>-->
             </div>
         </div>
         <div class="designHalf-price-list row">
@@ -54,9 +57,9 @@
                 <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
             </div>
             <div class="designHalf-price-list-select col-md-11 row">
-                <div class="col-md-2" v-for="(item,index) in paytype">
-                    <button class="designHalf-select-buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
-                </div>
+                <!--<div class="col-md-2" v-for="(item,index) in paytype">-->
+                    <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
+                <!--</div>-->
             </div>
         </div>
         <div class="designHalf-price-list row">
@@ -64,11 +67,11 @@
                 <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-14"></i></span>购买周期
             </div>
             <div class="designHalf-price-list-select col-md-11 row">
-                <div class="designHalf-price-buytime col-md-7" style="margin-left:0.7%;">
+                <div class="designHalf-price-buytime col-md-7" ><!--style="margin-left:0.7%;"-->
                     <button class="designHalf-buytime-list border-left-no" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-for="(item,index) in monthlist" v-on:click="monthcycle(index)">{{item.data.name}}</button>
                 </div>
                 <div class="col-md-1">
-                    <select class="designHalf-buttime-select" v-model="lookobj.month" v-on:change="morecycle()">
+                    <select class="designHalf-buttime-select" v-model="month" v-on:change="morecycle()">
                         <option :value="item.month" v-for="item in moremonth">{{item.name}}</option>
                     </select>
                 </div>
@@ -132,7 +135,7 @@
             </tbody>
         </table>
         <!-- 空白 -->
-        <div class="nodata" style="border:1px solid #ebebeb;" v-if="priceClould.length<1">
+        <div class="design-nodata" v-if="priceClould.length<1">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
             
@@ -352,6 +355,7 @@ export default{
                 {data:{name:'5年',month:60},boolean:false}
             ],
             moremonth:[
+                {name:'更多',month:-1},
                 {name:'4个月',month:4},
                 {name:'5个月',month:5},
                 {name:'7个月',month:7},
@@ -360,6 +364,7 @@ export default{
                 {name:'10个月',month:10},
                 {name:'11个月',month:11}
             ],
+            month:-1,
             lookobj:{
                 appid:'',
                 buyType:'1',
@@ -453,6 +458,9 @@ export default{
            for(let i=0;i<this.monthlist.length;i++){
                 this.monthlist[i].boolean = false;
             }
+            if(this.month!=-1){
+                this.lookobj.month = this.month;
+            }            
         },
         lookPrice:function(){
             //console.log(this.lookobj);

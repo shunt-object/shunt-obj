@@ -15,13 +15,17 @@
     padding-bottom:35px;
     border-bottom:1px solid #ebebeb;
 }
+.designHalf-price-box{
+    /*padding-left: 3.3% !important;*/
+    padding-left: 2.8% !important;
+}
 .designHalf-tab-btn{
     border:1px solid #b3b3b3;
     border-radius:2px;
     /*width:255px;*/
     width:160px;
-    height:40px;
-    margin-left:60px;
+    /*height:40px;*/
+    height:30px;
     float:left;
     font-size:14px;
     color:#333333;
@@ -30,8 +34,9 @@
     border:1px solid #b3b3b3;
     border-radius:2px;
     width:160px;
-    height:40px;
-    margin-left:60px;
+    /*height:40px;*/
+    height:30px;
+    margin-left:20px;
     float:left;
     font-size:14px;
     color:#B5B5B5;
@@ -50,11 +55,12 @@
     text-align:left;
 }
 .clould-company{
-    border:1px solid #b3b3b3;
+    border:1px solid #dddddd;
     border-radius:1px;
     width:255px;
     height:28px;
-    margin-left:2.25%;
+    /*margin-left:2.25%;*/
+    margin-left: 1.5%;
 }
 .designHalf-select-box{
     width:75%;
@@ -63,10 +69,23 @@
     border-radius:1px;
     height:28px;
     text-align:center;
-    line-height:28px;
+    line-height:26px;
     font-size:14px;
     color:#333333;
     margin-bottom:10px !important;
+}
+.designHalf-select-box1{
+    width:110px;
+    border:1px solid #dddddd;
+    border-radius:1px;
+    height:28px;
+    text-align:center;
+    line-height:26px;
+    font-size:14px;
+    color:#333333;
+    margin-bottom:10px !important;
+    float:left;
+    margin-left:15px;
 }
 .designHalf-select-buytype{
     width:75%;
@@ -75,9 +94,21 @@
     border-radius:1px;
     height:30px;
     text-align:center;
-    line-height:30px;
+    line-height:28px;
     font-size:14px;
     color:#333333;
+}
+.designHalf-select-buytype1{
+    width:110px;
+    border:1px solid #dddddd;
+    border-radius:1px;
+    height:30px;
+    text-align:center;
+    line-height:28px;
+    font-size:14px;
+    color:#333333;
+    float:left;
+    margin-left:15px;
 }
 .designHalf-buytime-list{
     width:10.8%;
@@ -108,7 +139,8 @@
     height:28px;
     color:#fff;
     font-size:14px;
-    margin-left:2.3%;
+    /*margin-left:2.3%;*/
+    margin-left: 1.8%;
 }
 .designHalf-look-price:hover,.designHalf-active1:hover{
     background:#EF131D;
@@ -228,6 +260,22 @@
 .designHalfprev:hover{
     background:#F5F7FA;
 }
+/*没有数据*/
+.design-nodata{
+    background:#ffffff;
+    width:100%;
+    height:300px;
+    font-size:14px;
+    color:#555;
+    margin:10px 0;
+    line-height:30px;
+    text-align:center;
+    border:1px solid #ebebeb;
+}
+.design-nodata img{
+    margin-top:100px;
+}
+
 
 
 

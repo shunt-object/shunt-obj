@@ -39,14 +39,15 @@
     height:30px;
     line-height:30px;
     font-size:14px;
-    color:#b9b5b5;
+    /*color:#b9b5b5;*/
+    color:#da121a;
     text-align:left;
 }
-.underpay-strong{
-    font-size:16px;
+/*.underpay-strong{
+    font-size:14px;
     color:#da121a;
     margin-left:5px;
-}
+}*/
 .underpay-list{
     border-radius:2px;
     width:100%;
