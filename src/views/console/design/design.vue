@@ -12,7 +12,7 @@
                         <p><span v-on:click="yyClick"><a class="designTaba">应用服务</a></span><span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span><span v-on:click="wlClick"><a class="designTaba">网络服务</a></span><span v-on:click="ccClick"><a class="designTaba">存储服务</a></span><span v-on:click="cdnClick"><a class="designTaba">CDN</a></span></p>
                     </div>
                     <div class="designTabj" v-show="digaopei"><p><span v-on:click="dipeis">低配</span><span v-on:click="gaopeis">高配</span></p></div>
-                    <div class="designConfig" v-show="yyshow" v-for="dat in dats">
+                    <div class="designConfig" v-show="yyshow" v-for="(dat,index) in dats">
                         <div style="margin:0 30px 0 30px;" >
                             <table class="table table-bordered">
                                 <thead class="row">
@@ -33,7 +33,7 @@
                                                 <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:120px"><span><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                                        <td class="ds" style="line-height:120px"><span v-on:click="xiuzheng()"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -375,7 +375,7 @@ import designHalf from '../design/designHalf/designHalf'
                gaopeis:function(){
                    this.gaopei = true;
                    this.dipei = false;
-                   if(this.index == 1){
+                   if(this.index == 1){  //index =1 是应用服务  =2是数据库服务
                        this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
                               this.dats = ris.data.data;
                               this.yyshow=true;
