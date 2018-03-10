@@ -280,7 +280,7 @@ import designHalf from '../design/designHalf/designHalf'
             name:"design",
             data(){
                 return {
-                    yyshow:false,
+                    yyshow:true,
                     sjshow:false,
                     wlshow:false,
                     ccshow:false,
@@ -300,17 +300,16 @@ import designHalf from '../design/designHalf/designHalf'
             },
             methods:{
                yyClick:function(){
-                   this.yyshow=true;
                    this.sjshow=false;
                    this.wlshow=false;
                    this.cdnshow=false;
                    this.ccshow=false;
                    this.digaopei=true;
                    this.index = 1;
-                    $(".designTabj p").find("span").removeClass("designTabjBj")  
+                         $(".designTabj p").find("span").removeClass("designTabjBj")  
                },
                sjClick:function(){
-                  this.sjshow=true;
+                  
                    this.yyshow=false;
                    this.wlshow=false;
                    this.cdnshow=false; 
@@ -353,15 +352,18 @@ import designHalf from '../design/designHalf/designHalf'
                    
                     this.gaopei = false;
                     this.dipei = true;
+                    
                     if(this.index == 1){
                           this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
                                   this.dats = ris.data.data;
+                                  this.yyshow=true;
                           },(err)=>{
                               console.log("不好意思")    
                           });  
                    }else if(this.index == 2){
                        this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
                                   this.datis = ros.data.data;
+                                  this.sjshow=true;
                                   console.log(this.datis)
                           },(err)=>{
                               console.log("不好意思")    
@@ -376,6 +378,7 @@ import designHalf from '../design/designHalf/designHalf'
                    if(this.index == 1){
                        this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
                               this.dats = ris.data.data;
+                              this.yyshow=true;
                               console.log(this.dats)
                     },(err)=>{
                               console.log("不好意思")    
@@ -383,6 +386,7 @@ import designHalf from '../design/designHalf/designHalf'
                    }else if(this.index == 2){
                        this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
                                   this.datis = ros.data.data;
+                                  this.sjshow=true;
                                   console.log(this.datis)
                        },(err)=>{
                               console.log("不好意思")    
@@ -393,6 +397,11 @@ import designHalf from '../design/designHalf/designHalf'
             },
             mounted:function(){
                 this.appId = this.$route.query.id;
+                 $(".designTab p").find("span").first().addClass("designSpanbg");
+                 $(".designTab p").find("span").find("a").first().addClass("designbg");
+                 $(".designTabj p").find("span").first().addClass("designTabjBj");
+                this.index = 1;
+                this.dipeis();
                  $(document).ready(function(){ 
                     $(".designTab p").find("span").click(function(){
                         $(".designTab p").find("span").removeClass("designSpanbg")

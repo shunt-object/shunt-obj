@@ -437,9 +437,7 @@ a:hover{
         height:57px;
 
 }
-.pMargin{
-    margin-top:10px
-}
+
 .clould-ing{
     background:url('../../../../assets/overview/overview-clould-ing.png') no-repeat top center;
 }
