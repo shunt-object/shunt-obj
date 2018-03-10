@@ -14,10 +14,10 @@
     <div class="stepPlan-item step22">
         <span class="circle" :class="start==3?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="comparePrev(3)">3</span>
         <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云选型</div>
-        <div class="stepPlan-line common-line" :class="start==4?'active-line':id!=0?'finish-line':'common-line'"></div>
+        <div class="stepPlan-line common-line" :class="start==4?'active-line':design==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step22">
-        <span class="circle" :class="start==4?'active-circle':id!=0?'finish-circle':'common-circle'" v-on:click="comparePrev(4)">4</span>
+        <span class="circle" :class="start==4?'active-circle':design==true?'finish-circle':'common-circle'" v-on:click="comparePrev(4)">4</span>
         <div class="stepPlan-name common-color int15" :class="start==4?'active-color':'common-color'">云设计</div>
         <div class="stepPlan-line common-line"></div>
     </div>
@@ -51,10 +51,10 @@
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==4?'active-circle':compare==true?'finish-circle':'common-circle'" v-on:click="planPrev(4)">4</span>
         <div class="stepPlan-name common-color int15" :class="index==4?'active-color':'common-color'">云选型</div>
-        <div class="stepPlan-line common-line" :class="index==5?'active-line':id!=0?'finish-line':'common-line'"></div>
+        <div class="stepPlan-line common-line" :class="index==5?'active-line':design==true?'finish-line':'common-line'"></div>
     </div>
     <div class="stepPlan-item step18">
-        <span class="circle" :class="index==5?'active-circle':id!=0?'finish-circle':'common-circle'" v-on:click="planPrev(5)">5</span>
+        <span class="circle" :class="index==5?'active-circle':design==true?'finish-circle':'common-circle'" v-on:click="planPrev(5)">5</span>
         <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云设计</div>
         <div class="stepPlan-line common-line"></div>
     </div>
@@ -79,7 +79,8 @@ export default{
         resource:false,
         clould:false,
         compare:false,
-        isnot:''
+        isnot:'',
+        design:false
     }
   },
   mounted:function(){
@@ -108,9 +109,10 @@ export default{
             //arr.length==3?this.clould='true':this.clould='false'
         }).catch((error)=>{ 
         })
-        this.judge(5);
-        this.judge(3);
-        this.judge(4);
+        this.judge(5);//5=资源配置
+        this.judge(3);//3=亲和度
+        this.judge(4);//4=比较标准
+        this.judge(6);//6=云设计
         // 云选型
         // this.$this.get('/broker/compare/result/'+this.id).then((response)=>{ 
         //     this.compare = response.data.data.datas;
@@ -120,19 +122,21 @@ export default{
   },
   methods:{
     judge:function(moduleId){
-        //1=云定性 2=收益度 3=亲和度 4=比较标准 5=资源配置;返回值：模块状态：0：未做；1：已做；2：已完成
+        //1=云定性 2=收益度 3=亲和度 4=比较标准 5=资源配置;6=云设计返回值：模块状态：0：未做；1：已做；2：已完成
         this.$this.get('/broker/app/module/status/'+moduleId+'/'+this.id).then((response)=>{ 
             if(moduleId==5){
                 if(this.id!=0){
-                    response.data.data==2?this.resource=true:resource=false;
+                    response.data.data==2?this.resource=true:this.resource=false;
                 }else{
-                    resource=false;
+                    this.resource=false;
                 }
                 
             }else if(moduleId==3){
-                response.data.data==2?this.clould=true:clould=false;
+                response.data.data==2?this.clould=true:this.clould=false;
             }else if(moduleId==4){
-                response.data.data==2?this.compare=true:compare=false;
+                response.data.data==2?this.compare=true:this.compare=false;
+            }else if(moduleId==6){
+                response.data.data==2?this.design=true:this.compare=false;
             }
         }).catch((error)=>{ 
         })

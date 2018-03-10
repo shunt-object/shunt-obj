@@ -3,10 +3,9 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
-    ><p class="comback" v-on:click="design()">云设计</p>
-    ><p class="comback">购买详情</p>
+    ><p class="comback">云设计</p>
+    ><p class="comback">购物详情</p>
 </div>
-<child index="5" start="4" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="designOrder-box">
     <div class="designOrder-title"><span>全部商品</span></div>
     <div class="designOrder-list" v-for="(item,index) in orderlist">
@@ -64,19 +63,11 @@
     价格：<span class="designOrder-list-price-color">￥{{sumprice}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
     <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
 </div>
-<!--<div class="designOrder-touch">
-    <div class="designOrder-touch-box">
-        <p class="designOrder-touch-list">联系我们：400-828-7308</p>
-        <p class="designOrder-touch-list">邮箱方式：Help@csb-china.com</p>
-    </div>
-</div>-->
 </div>
 </template>
 <script>
-import '../designOrder/designOrder.css';
-import child from '../../../../components/steps/steps.vue'
 export default{
-    name:'designOrder',
+    name:'orderlist',
     data(){
         return {
             appId:'',
@@ -94,14 +85,8 @@ export default{
     methods:{
         getdata:function(){
             this.orderlist = [];
-            let listid = [];
-            if(this.param instanceof Array==true){
-                listid = this.param;
-            }else{
-                listid = [this.param];
-            }
-            let obj = {"ids":listid};
-            this.$http.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
+            let obj = {"ids":this.param};
+            this.$http.get('/broker/price/purchasing/list').then((response)=>{
                 //console.log('----',response); 
                 for(let i=0;i<response.data.data.length;i++){
                     this.orderlist.push({data:response.data.data[i],model:true});
@@ -121,7 +106,7 @@ export default{
             }
         },
         pay:function(){
-            this.$router.push({path:'/pay',query:{id:this.appId,type:this.$route.query.type,listid:this.param}});
+            this.$router.push({path:'/pay',query:{id:this.appId,type:this.$route.query.type,enter:'1'}});
             //this.contact = true;
         },
         del:function(id){
@@ -132,16 +117,10 @@ export default{
                 data: obj
             }).then((response)=> {
                 this.getdata();
-                console.log(response)
+                //console.log(response)
             }).catch((error)=> {
             });
-        },
-        design:function(){
-            this.$router.push({path:'/design',query:{id:this.$route.query.id,type:this.$route.query.type}});
         }
-    },
-    components:{
-        child
     }
 }
 </script>

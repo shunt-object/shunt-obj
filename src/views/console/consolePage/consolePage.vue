@@ -61,11 +61,11 @@
                         <i class="iconfont icon-icon--" style="font-size:18px !important;float: left;"></i>通知中心
                     </a>                    
                 </li>
-                <!--<li id="header_notification_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-bell-alt"></i>在线咨询
+                <li id="header_notification_bar" class="dropdown" v-on:click="buycar()">
+                    <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
+                        <i class="iconfont icon-gouwuche" style="color:#da121a;"></i>购物车
                     </a>                    
-                </li>-->
+                </li>
             </ul>
         </div>
        
@@ -193,6 +193,9 @@ export default{
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
+        buycar:function(){
+            this.$router.push({path:'/orderlist'});
+        },
         planning:function(){
             this.$router.push({path:'/planList'});
         },

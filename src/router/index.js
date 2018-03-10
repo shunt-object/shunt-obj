@@ -31,6 +31,8 @@ import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import seleconeFour from "../views/front/selecone/seleconeFour.vue"
 import dataDcision from '@/views/console/app/dataDcision/dataDcision'
+import pay from '@/views/console/pay/pay'
+import orderlist from '@/views/console/orderlist/orderlist'
 
 
 
@@ -124,6 +126,14 @@ export default new Router({
           component:dataDcision
         },
         {
+          path:'/orderlist',
+          name:'orderlist',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:orderlist
+        },
+        {
           path:'/accountInformation',
           name:'accountInformation',
           meta: {
@@ -187,14 +197,14 @@ export default new Router({
           },
           component:designOrder
         },
-        // {
-        //   path:'/designHalf',
-        //   name:'designHalf',
-        //   meta: {
-        //     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-        //   },
-        //   component:designHalf
-        // },
+        {
+          path:'/pay',
+          name:'pay',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:pay
+        },
         {
             path:'/createAnalysis',
             name:'createAnalysis',

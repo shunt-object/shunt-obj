@@ -18,8 +18,9 @@
 .designHalf-tab-btn{
     border:1px solid #b3b3b3;
     border-radius:2px;
-    width:255px;
-    height:47px;
+    /*width:255px;*/
+    width:160px;
+    height:40px;
     margin-left:60px;
     float:left;
     font-size:14px;
@@ -28,8 +29,8 @@
 .designHalf-tab-btn1{
     border:1px solid #b3b3b3;
     border-radius:2px;
-    width:255px;
-    height:47px;
+    width:160px;
+    height:40px;
     margin-left:60px;
     float:left;
     font-size:14px;
@@ -49,14 +50,15 @@
     text-align:left;
 }
 .clould-company{
-    width:100%;
-    height:28px;
     border:1px solid #b3b3b3;
     border-radius:1px;
-    text-indent:10px;
+    width:255px;
+    height:28px;
+    margin-left:2.25%;
 }
 .designHalf-select-box{
-    width:90%;
+    width:75%;
+    /*width:100px;*/
     border:1px solid #dddddd;
     border-radius:1px;
     height:28px;
@@ -67,12 +69,13 @@
     margin-bottom:10px !important;
 }
 .designHalf-select-buytype{
-    width:90%;
+    width:75%;
+    /*width:100px;*/
     border:1px solid #dddddd;
     border-radius:1px;
-    height:39px;
+    height:30px;
     text-align:center;
-    line-height:39px;
+    line-height:30px;
     font-size:14px;
     color:#333333;
 }
@@ -82,7 +85,7 @@
     border:1px solid #cccccc;
     font-size:12px;
     text-align:center;
-    padding:10px 0;
+    padding:5px 0;
 }
 .designHalf-buytime-list:nth-child(1){
     border-left:1px solid #ccc;
@@ -95,7 +98,7 @@
     border:1px solid #cccccc;
     font-size:12px;
     text-align:center;
-    padding:10px 0;
+    padding:5px 0;
     text-indent:10px;
 }
 .designHalf-look-price{
@@ -105,8 +108,9 @@
     height:28px;
     color:#fff;
     font-size:14px;
+    margin-left:2.3%;
 }
-.designHalf-look-price:hover{
+.designHalf-look-price:hover,.designHalf-active1:hover{
     background:#EF131D;
 }
 .go-datadcision{
@@ -174,6 +178,11 @@
    color:#fff;
    border:1px solid #f7a72c; 
 }
+.designHalf-active1{
+   background:#da121a; 
+   color:#fff;
+   border:1px solid #da121a; 
+}
 .designHalf-default{
     background:#fff; 
 }
@@ -224,6 +233,7 @@
 
 .col-md-2{
     padding:0 !important;
+    text-align:center;
 }
 /**/
 .cm-checkbox{
