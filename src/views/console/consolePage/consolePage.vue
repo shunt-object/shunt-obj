@@ -63,7 +63,7 @@
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="buycar()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
-                        <i class="iconfont icon-gouwuche" style="color:#da121a;"></i>购物车
+                        <i class="iconfont icon-gouwuche"></i>购物车
                     </a>                    
                 </li>
             </ul>
