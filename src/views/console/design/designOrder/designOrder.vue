@@ -94,6 +94,7 @@ export default{
     methods:{
         getdata:function(){
             this.orderlist = [];
+            this.sumprice = 0;
             let listid = [];
             if(this.param instanceof Array==true){
                 listid = this.param;
