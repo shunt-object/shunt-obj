@@ -1,0 +1,86 @@
+/*我的点评*/
+.comment-box{
+    padding:0 12px !important;
+    margin-top:-10px;
+}
+.comment-word{
+    font-size:14px;
+    color:#f7a72c;
+    line-height:21px;
+    text-align:left;
+}
+.comment-list{
+    padding:0 23px;
+    margin:10px 0 !important;
+}
+.comment-key{
+    text-align:left !important;
+}
+.comment-star{
+    float:left;
+    width:19px;
+    height:18px;
+    margin-right:10px;
+    cursor: pointer;
+}
+.contactway{
+    font-size:14px;
+    color:#aaaaaa;
+}
+.star1{
+    background:url('../../../assets/star1.png') center center no-repeat;
+    background-size:100% 100%;
+}
+.star2{
+    background:url('../../../assets/star2.png') center center no-repeat;
+    background-size:100% 100%;
+}
+.comment-type{
+    width:100px;
+    height:30px;
+    font-size:14px;
+    color:#333333;
+    border:1px solid #dddddd;
+    float:left;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+.comment-text{
+    width:100%;
+    height:155px;
+    border:1px solid #d1d2d3;
+    border-radius:2px;
+    font-size:14px;
+    padding:10px;
+    line-height:20px;
+}
+.comment-default{
+    background:#fff;
+}
+.comment-active{
+   background:#f7a72c; 
+   color:#fff;
+   border:1px solid #f7a72c; 
+}
+.comment-default:hover{
+    background:#F5F7FA;
+}
+.comment-active:hover{
+    background:#FFB730;
+}
+.comment-notice{
+    background:#fff1dc;
+    border:1px solid #f7a72c;
+    border-radius:2px;
+    width:100%;
+    min-height:90px;
+    padding:13px 18px;
+    font-size:12px;
+    color:#5b5b5b;
+    line-height:18px;
+    text-align:left;
+    margin-top:20px;
+}
+.comment-notice span{
+     color:#f7a72c;
+}
