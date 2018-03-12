@@ -126,15 +126,25 @@ export default{
         },
         del:function(id){
             let obj = {"ids":[id]};
-            this.$this({
-                method: "delete",
-                url: "/broker/price/purchasing/delete",
-                data: obj
-            }).then((response)=> {
-                this.getdata();
-                console.log(response)
-            }).catch((error)=> {
-            });
+            let that = this;
+            this.$confirm('您确定要删除该订单吗？', '温馨提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                confirmButtonClass:'lay-btn-red',
+                cancelButtonClass:'lay-cancel-btn',
+                type: 'warning',
+                center: false
+            }).then(() => {
+                that.$this({
+                    method: "delete",
+                    url: "/broker/price/purchasing/delete",
+                    data: obj
+                }).then((response)=> {
+                    that.getdata();
+                    //console.log(response)
+                }).catch((error)=> {
+                });      
+            }).catch(() => {});   
         },
         design:function(){
             this.$router.push({path:'/design',query:{id:this.$route.query.id,type:this.$route.query.type}});

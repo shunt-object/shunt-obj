@@ -61,6 +61,11 @@
                         <i class="iconfont icon-icon--" style="font-size:18px !important;float: left;"></i>通知中心
                     </a>                    
                 </li>
+                <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
+                    <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
+                        <i class="iconfont icon-dianping"></i>我的点评
+                    </a>                    
+                </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="buycar()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <i class="iconfont icon-gouwuche"></i>购物车
@@ -92,7 +97,12 @@
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
+<<<<<<< HEAD
                         <li v-on:click="designer()"><a href="javascript:;">云设计</a></li> 
+=======
+                        <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
+                        <li v-on:click="buycar()"><a href="javascript:;">云买手</a></li>
+>>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
                     </ul>
                 </li>
@@ -125,6 +135,54 @@
             <router-view></router-view>
         </section>
     </section>
+    <!-- 弹框 -->
+    <el-dialog title="我的点评" :visible.sync="dialogcomment" style="text-align:left;">
+        <div class="comment-box">
+            <div class="comment-word">非常感谢您对CloudBroker²的关注，欢迎提出宝贵的意见和建议，我们将积极采纳，更好的改善我们的服务。</div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">我的评分</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <span class="comment-star" :class="item.boolean==false?'star1':'star2'" v-for="(item,index) in starlist" v-on:click="selectstar(index)"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">意见类型</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <button class="comment-type" :class="item.boolean==false?'comment-default':'comment-active'" v-for="(item,index) in commentlist" v-on:click="selectcomment(index)">{{item.data.name}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">意见内容</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <textarea class="comment-text" placeholder="欢迎将使用中遇到的问题反馈给我们" v-model="confirmobj.content"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">联系方式</div>
+                    <div class="col-md-10 contactway" style="padding-left:0px !important;">{{contactway}}</div>
+                </div>
+            </div>            
+            <div class="" style="padding:0 23px;">
+                <div class="comment-notice">
+                    温馨提示：<br>
+                    1.反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）<br>
+                    2.产品使用中遇到的问题您可以联系<span>Prof. 吴</span><br>
+                    3.紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>
+                </div>
+            </div>
+            <div class="email-btn">
+                <button class="safe-save-btn" v-on:click="success()">保存</button>
+                <button class="safe-cel-btn" v-on:click="undialog()">取 消</button>
+            </div>   
+        </div>         
+    </el-dialog>
 </div>
 </template>
 <style>
@@ -136,6 +194,7 @@
 import '../consolePage/consoleFrame.css'
 import '../consolePage/style-responsive.css'
 import '../consolePage/font-awesome/css/font-awesome.css'
+import '../consolePage/consolePage.css'
 
 
 
@@ -146,11 +205,33 @@ export default{
         return {
             username:'',
             utype:'',
+<<<<<<< HEAD
             istrue:false
+=======
+            dialogcomment:false,
+            commentlist:[],
+            starlist:[
+                {id:1,boolean:true},
+                {id:2,boolean:true},
+                {id:3,boolean:true},
+                {id:4,boolean:false},
+                {id:5,boolean:false}
+            ],
+            contactway:'',
+            confirmobj:{
+                content:'',
+                grade:'3',
+                type:''
+            }
+>>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
         }
     },
     mounted:function(){
-        
+        if(JSON.parse(sessionStorage.getItem("account")).email==null){
+            this.contactway = JSON.parse(sessionStorage.getItem("account")).phone;
+        }else{
+            this.contactway = JSON.parse(sessionStorage.getItem("account")).email;
+        }
         $("#xiaowei").click(function(){
             var that = this; 
                    
@@ -201,14 +282,77 @@ export default{
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
         this.utype = sessionStorage.getItem("utype");
+<<<<<<< HEAD
         if(this.utype==5){
             this.istrue = true
         }else if(this.utype!=5){
             this.istrue = false
         }
+=======
+        this.getcomment();
+>>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
+        getcomment:function(){            
+            this.$this.get('/broker/prop/typedata/fb/-1').then((response)=>{
+                //console.log('----',response);
+                for(let i=0;i<response.data.data.length;i++){
+                    this.commentlist.push({data:response.data.data[i],boolean:false});
+                }
+            }).catch((error)=>{
+            })
+        },
+        mycomment:function(){
+            this.dialogcomment = true;
+        },
+        selectcomment:function(index){
+            for(let i=0;i<this.commentlist.length;i++){
+                this.commentlist[i].boolean = false;
+            }
+            this.commentlist[index].boolean = true;
+            this.confirmobj.type = this.commentlist[index].data;
+        },
+        selectstar:function(index){
+            let n=0;
+            if(this.starlist[index].boolean==true){
+                for(let i=0;i<this.starlist.length;i++){
+                    if(this.starlist[i].boolean==true){
+                        n++;
+                    }
+                }
+                if(index<n-1){
+                    for(let j=index+1;j<this.starlist.length;j++){
+                        this.starlist[j].boolean = false;
+                    }
+                }else{
+                    this.starlist[index].boolean = false;
+                }
+                if(index==0){
+                    this.starlist[index].boolean = true;
+                }
+            }else{
+                if(index>0){
+                    for(let i=0;i<this.starlist.length;i++){
+                        if(i<=index){
+                            this.starlist[i].boolean = true;
+                        }
+                    }
+                }
+            }
+            this.confirmobj.grade = this.starlist[index].id;
+        },
+        undialog:function(){
+            this.dialogcomment = false;
+        },
+        success:function(){
+            //console.log(this.confirmobj);
+            let obj = JSON.stringify(this.confirmobj);
+            this.$this.post('/broker/feedback/add',obj).then((response)=>{
+                //console.log('----',response);
+            }).catch((error)=>{
+            })
+        },
         buycar:function(){
             this.$router.push({path:'/orderlist'});
         },
