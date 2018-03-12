@@ -61,7 +61,7 @@
     </div>
 </div>
 <div class="designOrder-sum-price">
-    价格：<span class="designOrder-list-price-color">￥{{sumprice}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
+    价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
     <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
 </div>
 <!--<div class="designOrder-touch">
@@ -94,6 +94,7 @@ export default{
     methods:{
         getdata:function(){
             this.orderlist = [];
+            this.sumprice = 0;
             let listid = [];
             if(this.param instanceof Array==true){
                 listid = this.param;
@@ -107,7 +108,7 @@ export default{
                     this.orderlist.push({data:response.data.data[i],model:true});
                     this.sumprice = this.sumprice+response.data.data[i].cloudPrice;
                 }
-                this.sumprice = Number(this.sumprice).toFixed(2);
+                //this.sumprice = Number(this.sumprice).toFixed(2);
             }).catch((error)=>{
             })
         },
