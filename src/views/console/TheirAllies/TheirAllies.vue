@@ -13,7 +13,7 @@
                 <p class="measured-desc-list">优化产品和推广策略。当前CSB²版本</p>
                 <p class="measured-desc-list">使用友盟产品；您看通过点击如下按钮，</p>
                 <p class="measured-desc-list">访问友盟提供的数据，谢谢！</p>
-                <button class="visit-tingyun" v-on:click="tingyun()"><a href="https://passport.umeng.com/login?redirectURL=http%3A%2F%2Faccount.umeng.com%2F" target="_blank">登录友盟</a></button>
+                <button class="visit-tingyuns" v-on:click="tingyun()"><a href="https://passport.umeng.com/login?redirectURL=http%3A%2F%2Faccount.umeng.com%2F" target="_blank">登录友盟</a></button>
             </div>            
         </div>
         <div class="col-md-6 measured-bg">
@@ -56,7 +56,7 @@
     line-height:22px;
     margin:0 !important;
 }
-.visit-tingyun{
+.visit-tingyuns{
     background:#da121a;
     color:#fff;
     border:none;
@@ -65,7 +65,7 @@
     font-size: 12px;
     padding: 10px 25px;
 }
-.visit-tingyun a{
+.visit-tingyuns a{
     color:#fff;
 }
 .visit-tingyun a:hover{

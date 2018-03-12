@@ -97,12 +97,12 @@
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
-<<<<<<< HEAD
+
                         <li v-on:click="designer()"><a href="javascript:;">云设计</a></li> 
-=======
+
                         <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
                         <li v-on:click="buycar()"><a href="javascript:;">云买手</a></li>
->>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
+
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
                     </ul>
                 </li>
@@ -122,7 +122,7 @@
                     </a>
                     <ul class="sub">
                         <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
-                        <li v-on:click="compare()"><a href="javascript:;">点评数据</a></li>
+                        <li><a href="javascript:;">点评数据</a></li>
                         <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
                     </ul>
                 </li>
@@ -205,9 +205,8 @@ export default{
         return {
             username:'',
             utype:'',
-<<<<<<< HEAD
-            istrue:false
-=======
+
+            istrue:false,
             dialogcomment:false,
             commentlist:[],
             starlist:[
@@ -223,7 +222,7 @@ export default{
                 grade:'3',
                 type:''
             }
->>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
+
         }
     },
     mounted:function(){
@@ -282,15 +281,15 @@ export default{
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
         this.utype = sessionStorage.getItem("utype");
-<<<<<<< HEAD
+
         if(this.utype==5){
             this.istrue = true
         }else if(this.utype!=5){
             this.istrue = false
         }
-=======
+
         this.getcomment();
->>>>>>> 9b9ced5803f3234c52f7ff204ad3c9cecb3fa048
+
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
