@@ -21,7 +21,9 @@ import planResult from '@/views/console/plan/planResult/planResult'
 import overviewList from '@/views/console/overview/overviewList/overviewList'
 import measured from '@/views/console/measured/measured'
 import yunzc from '@/views/console/yunzc/yunzc'
+import TheirAllies from '@/views/console/TheirAllies/TheirAllies'
 import design from '@/views/console/design/design'
+import designer from '@/views/console/designer/designer'
 import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
@@ -182,12 +184,28 @@ export default new Router({
           component:yunzc
         },
         {
+          path:'/TheirAllies',
+          name:'TheirAllies',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:TheirAllies
+        },
+        {
           path:'/design',
           name:'design',
           meta: {
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:design
+        },
+        {
+          path:'/designer',
+          name:'designer',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:designer
         },
         {
           path:'/designOrder',

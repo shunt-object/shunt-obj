@@ -38,6 +38,9 @@
     }
     .thtop{
         border-top:1px solid #ddd !important;
+            background: #ebebeb;
+            color: #555;
+            border-bottom:1px solid #ddd !important
     }
     .thtops{
         border-top-width: 1px !important;
@@ -59,8 +62,7 @@ import "../plan/planList/datatable.css";
                         $('#tabelId').DataTable({
                             "bFilter": true,
                             "bLengthChange": false,
-                            
-                            
+                             'ordering':false,
                             "oLanguage": {
                                 "sSearch": "搜索:",
                                 "sEmptyTable": "没有相关记录",  

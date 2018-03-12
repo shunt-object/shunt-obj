@@ -92,10 +92,8 @@
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
-                        <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
+                        <li v-on:click="designer()"><a href="javascript:;">云设计</a></li> 
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
-                        <li v-on:click="zhic()" v-if="utype == 5"><a href="javascript:;">运营支撑</a></li>
-                       
                     </ul>
                 </li>
                 <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
@@ -104,6 +102,19 @@
                         <img src="../../../assets/shuju.png" alt="">
                         <span>数据分析</span>
                     </a>
+                </li>
+                  <li class="sub-menu" v-show="istrue">
+                    <a href="javascript:;" class="">
+                        <!--<i class="icon-book"></i>-->
+                        <img src="../../../assets/y.png" alt="">
+                        <span>运营支撑</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
+                        <li v-on:click="compare()"><a href="javascript:;">点评数据</a></li>
+                        <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- sidebar menu end-->
@@ -134,7 +145,8 @@ export default{
     data(){
         return {
             username:'',
-            utype:''
+            utype:'',
+            istrue:false
         }
     },
     mounted:function(){
@@ -189,7 +201,11 @@ export default{
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
         this.utype = sessionStorage.getItem("utype");
-        
+        if(this.utype==5){
+            this.istrue = true
+        }else if(this.utype!=5){
+            this.istrue = false
+        }
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
@@ -208,8 +224,11 @@ export default{
         zhic:function(){
              this.$router.push({path:'/yunzc'});
         },
-        design:function(){
-            this.$router.push({path:'/design'});
+        designer:function(){
+            this.$router.push({path:'/designer'});
+        },
+        TheirAllies:function(){
+           this.$router.push({path:'/TheirAllies'});
         },
         responsiveView:function () {
             var wSize = $(window).width();

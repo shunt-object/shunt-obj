@@ -177,6 +177,9 @@
     .remn{
         text-align:right;
     }
+    .progress{
+        width:100px; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 0;
+    }
     .jinDus{
         text-indent: 0%;
     }
@@ -370,9 +373,7 @@ line-height:30px; float:left; margin-top:13px;
 .spx span .rate{
     margin-top:20px;
 }
-.progress{
-    width:83%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:5px 0 0 0;
-} 
+
 .spc{
     margin-left:5px; color:#000;
 }
@@ -410,6 +411,9 @@ a:hover{
     .ratelist{
         height:70px;
     }
+    .progress{
+     width:532px; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 0;
+} 
     .jinDus{
         text-indent: 20%;
     }
