@@ -202,7 +202,7 @@ export default{
             contactway:'',
             confirmobj:{
                 content:'',
-                grade:'',
+                grade:'3',
                 type:''
             }
         }
