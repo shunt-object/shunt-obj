@@ -28,17 +28,13 @@
                     <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-ditu"></i></span>区域
                 </div>
                 <div class="designHalf-price-list-select col-md-11 row">
-                    <!--<div class="col-md-2" v-for="(item,regionIndex) in region">-->
-                        <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
-                    <!--</div>-->
+                    <button class="designHalf-select-buytype" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
                 </div>
             </div>
             <div class="row" style="margin-top:20px!important;">
                 <div class="designHalf-price-list-title col-md-1"></div>
                 <div class="designHalf-price-list-select col-md-11 row">
-                    <!--<div class="col-md-2" v-for="(item,regionIndex) in regiontwo">-->
-                        <button class="designHalf-select-box designHalf-select-box1" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
-                    <!--</div>-->
+                    <button class="designHalf-select-box" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
                 </div>
             </div>
         </div>
@@ -47,9 +43,7 @@
                 <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-jifei"></i></span>购买方式
             </div>
             <div class="designHalf-price-list-select col-md-11 row">
-                <!--<div class="col-md-2" v-for="(item,index) in buytype">-->
-                    <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
-                <!--</div>-->
+                <button class="designHalf-select-buytype" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
             </div>
         </div>
         <div class="designHalf-price-list row">
@@ -57,9 +51,7 @@
                 <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
             </div>
             <div class="designHalf-price-list-select col-md-11 row">
-                <!--<div class="col-md-2" v-for="(item,index) in paytype">-->
-                    <button class="designHalf-select-buytype designHalf-select-buytype1" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
-                <!--</div>-->
+                <button class="designHalf-select-buytype" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
             </div>
         </div>
         <div class="designHalf-price-list row">
@@ -96,7 +88,7 @@
                     <td class="designHalf-w-6" rowspan="2">角色类型</td>
                     <td class="designHalf-w-6" rowspan="2">配置类型</td>                    
                     <td class="designHalf-w-6" rowspan="2">区域</td>
-                    <td class="designHalf-w-31" align="center" valign="middle" colspan="4">购买规格</td>
+                    <td class="designHalf-w-28" align="center" valign="middle" colspan="4">购买规格</td>
                     <td class="designHalf-w-6" rowspan="2">数量</td>
                     <td class="designHalf-w-6" rowspan="2">购买周期</td>
                     <td class="designHalf-w-6" rowspan="2">费用参考</td>
@@ -112,7 +104,7 @@
             </thead>
             <tbody>
                 <tr v-for="(item,index) in priceClould">
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio()"></td>
+                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio(index)"></td>
                     <td class="designHalf-w-6">{{item.data.sname}}</td>
                     <td class="designHalf-w-6">{{item.data.pname}}</td>
                     <td class="designHalf-w-6">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':'--'}}</td>
@@ -126,9 +118,9 @@
                     <td class="designHalf-w-6">{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
                     <td class="designHalf-w-6">￥{{item.data.cloudPrice}}</td>
                     <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'原厂在线暂不支持':item.data.csbPrice}}</td>
-                    <td class="designHalf-w-7">
+                    <td class="designHalf-w-10">
                         <button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
-                            <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>购买
+                            <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>加入购物车
                         </button>
                     </td>
                 </tr>
@@ -308,6 +300,12 @@
                 </tr>
             </tbody>
         </table>-->
+        <div class="designHalf-balance row" v-if="priceClould.length>1">
+            <div class="col-md-6 balance-left">已选择<span>{{num}}</span>件商品</div>
+            <div class="col-md-6 balance-right">
+                总价：<span>￥{{Number(sumprice).toFixed(2)}}</span><button class="go-balance" v-on:click="balance()">去结算</button>
+            </div>
+        </div>
     </div>
     <div class="designHalf-box">
         <button class="designHalfbtn" v-on:click="designnext()">
@@ -376,7 +374,9 @@ export default{
             priceClould:[],
             allselect:false,
             appId:'',
-            islook:false
+            islook:false,
+            sumprice:0,
+            num:0
         }
     },
     mounted:function(){
@@ -473,25 +473,66 @@ export default{
             }).catch((error)=>{
             })
         },
-        radio:function(){
+        radio:function(index){
             let n = 0;
             for(let i=0;i<this.priceClould.length;i++){
                 if(this.priceClould[i].model==true){
                     n++;
+                    //this.sumprice = this.sumprice+this.priceClould[i].data.cloudPrice;
                 }
             }
             if(n>0){
                 this.allselect = false;
             }
+            if(this.priceClould[index].model==false){
+                this.num++;
+                //this.sumprice = Number(this.sumprice).toFixed(2);
+                this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+            }else{
+                this.num--;
+                this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+            }
         },
         whole:function(){
-             for(let i=0;i<this.priceClould.length;i++){
-                this.priceClould[i].model = true;
+            this.sumprice = 0;
+            console.log(this.allselect);
+            if(this.allselect==false){
+                for(let i=0;i<this.priceClould.length;i++){
+                    this.priceClould[i].model = true;
+                    this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                }
+                this.num = this.priceClould.length;
+            }else{
+                for(let i=0;i<this.priceClould.length;i++){
+                    this.priceClould[i].model = false;
+                    this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                }
+                this.num = 0;
             }
+            
         },
         gobuy:function(id){
             let arr = [id];
             this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
+        },
+        balance:function(){
+            let arr = [];
+            for(let i=0;i<this.priceClould.length;i++){
+                if(this.priceClould[i].model==true){
+                    arr.push(this.priceClould[i].data.id);
+                }
+            }
+            if(arr.length<1){
+                this.$alert('您当前还未添加任何商品，请添加', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    type: 'warning',
+                    confirmButtonClass:'lay-btn-red'
+                });
+            }else{
+                this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
+            }
+            
         },
         designnext:function(){
             // let arr = [];
