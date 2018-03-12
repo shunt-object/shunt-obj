@@ -1,0 +1,239 @@
+.pala{
+    overflow: hidden; 
+    width:0px;
+    height:0px;
+    border:none;
+}
+.colligate-heade{
+    width:100%;
+    height:30px;
+    line-height:50px;
+    text-align:center;
+    background:#fff;
+    margin-top:4px;
+    border-top:1px solid #da121a; 
+    font-size:16px;
+    position:relative;
+}
+.exportBtn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:100px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    background:#fff;
+    color:#999;
+}
+.pointersd{
+    position:absolute;
+    right:90px;
+    top:10px;
+    width:100px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    background:#fff;
+    color:#999;
+}
+.pointersd i{
+    font-size:18px !important;
+    margin-top:2px;
+}
+.pointers{
+        position: absolute;
+        right: 76px;
+        top: 10px;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        background: #fff;
+        color: #999;
+}
+.colligate-title{
+    text-align:left;
+    height:40px;
+    line-height:40px;
+    color:#666;
+    font-weight:bold;
+}
+.colligate-title img{
+    margin-right:5px;
+}
+.colligate-list{
+    margin-bottom:10px;
+}
+.advise-box{
+    /*position:relative;*/
+}
+.self-advise{
+    position:relative;
+}
+.advise-title{
+    width:100%;
+    line-height:35px;
+    font-size:14px;
+    text-align:left;
+    color:#666;
+}
+.advise-content{
+    text-align:left;
+    font-size:14px;
+    color:#999;
+    text-indent:2em;
+}
+.advise-system-input{
+    padding-left:2em;
+}
+.advise-system-text{
+    width:100%;
+    height:100%;
+    border:1px solid #e5e5e5;
+    padding:10px;
+    color:#999;
+    outline:none;
+}
+.system-btn{
+    margin-top:10px;
+}
+.system-yes{
+    color:#666;
+    background:#fff;
+    float:right;
+}
+.system-no{
+    color:#666;
+    background:#fff;
+    float:right;
+    margin-left:20px;
+}
+.system-yes i{
+    color:#5DB75B;
+    margin-right:3px;
+}
+.system-no i{
+    color:#da121a;
+    margin-right:3px;
+}
+.not-advise{
+    width:100px;
+    position:absolute;
+    left:50%;
+    margin-left:-35px;
+    top:55%;
+    margin-top:40px;
+    color:#999;
+}
+.colligate-advise{
+    border:1px solid #e5e5e5;
+    height:300px;
+    color:#666;
+    width:100%;
+    outline:none;
+    padding:20px;
+    text-align:left;
+}
+.advise-bg{
+    background:url('../../../../assets/compare-nodata.png') no-repeat center center;
+}
+.colligate-advise img{
+    margin-top:200px;
+}
+.information-table{
+    width:100%;
+    border:1px solid #e5e5e5;
+}
+.information-table thead tr th{
+    text-align:center;
+    height: 54px;
+    background: #ebebeb;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-right:1px solid #e5e5e5;
+}
+.colligate-tables thead tr th{
+    font-weight:bold !important;
+    color:#666 !important;
+}
+.information-table tbody tr td{
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    border-right:1px solid #e5e5e5;
+}
+.main-color{
+    color:#da121a;
+    margin-right:3px;
+}
+.from-head{
+    width:100%;
+    height:60px;
+    background:#da121a;
+    margin-bottom: 15px;
+    /*margin-top: 10px;*/
+}
+.from-headers{
+        width: 100%;
+        height: 100%;
+        
+}
+.from-head-left{
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.from-head-left img{
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+.from-head-right{
+    line-height:60px;
+}
+.buttHover:hover{
+    color:#da121a;
+}
+.allheight{
+    height:100% !important;
+    max-height:100% !important;
+}
+
+
+.pagefooter{
+    width:100%;
+    margin-top:10px;
+    padding-bottom:10px;
+}
+.page-bigline{
+    width:100%;
+    height:3px;
+    background:#da121a;
+}
+.page-smallline{
+    margin-top:5px;
+    width:100%;
+    height:1px;
+    background:#da121a;
+    margin-bottom:10px;
+}
+.page-left{
+    float:left;
+    margin-left:15px;
+    text-align:left;
+}
+.page-left img{
+    width:110px;
+    height:16px;
+    margin-top:6px;
+    margin-bottom:15px;
+}
+.page-p{
+    color:#666;
+    font-size:12px;
+    margin:0 !important;
+}
+.page-right{
+    float:right;
+}

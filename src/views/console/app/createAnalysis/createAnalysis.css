@@ -1,0 +1,259 @@
+.total{
+    width:100%;
+    height:100%;
+    font-family:'Microsoft YaHei';
+    padding:0 10px;
+}
+.total-header{
+    text-align:left;
+    margin-bottom: 15px;
+    margin-top: 6px;
+    font-size:14px;
+    line-height:20px;
+    text-indent:10px;
+    color:#666;
+}
+.total-header span{
+    width:3px;
+    height:20px;
+    background:#da121a;
+    float:left;
+}
+.comback{
+    display:inline-block;
+    margin:0 !important;
+    margin-right: 5px !important;
+    cursor:pointer;
+}
+.comback:hover,zong:hover{
+    color:#000;
+}
+.zong{
+    color:#333;
+    margin-right:5px;
+}
+.outbox{
+    width:100%;
+    height:100%;
+}
+
+.CreateAnalysis{
+    width:100%;
+    height:100%;
+    background:#f8f8f8;
+    border:1px solid #dedede;
+    border-radius:5px;
+}
+.example{
+    font-size:12px;
+    color:#999;
+    line-height:30px;
+    margin-left:10px;
+}
+select,input{
+    outline:none;
+    /*outline-color:#f7a72c;
+    outline-width:1px;*/
+}
+.createAnalysis-list input:focus,.createAnalysis-list select:focus{
+    border:1px solid #409EFF;
+}
+/*表单*/
+.CreateAnalysis_from_box{
+    padding:0 25px;
+    background:#f8fafd;
+    margin-top:10px;
+    border-top:6px solid #f3f3f3;
+    min-height:100vh;
+    width:100%;
+}
+.new-built{
+    font-size:14px;
+    height:30px;
+    line-height:30px;
+    background:#da121a;
+    color:#fff;
+    border-radius:2px;
+    margin:25px 0;
+}
+.createAnalysis-box{
+    background:#fff;
+    padding:50px 30px;
+}
+.createAnalysis-list{
+    margin-top:30px;
+}
+.createAnalysis-list:nth-child(1){
+    margin-top:0px;
+}
+.createAnalysis-list-title{
+    width:100%;
+    font-size:14px;
+    color:#555;
+    text-align:left;
+    margin:15px 0;
+    /*font-weight:bold;*/
+}
+.createAnalysis-fang{
+    width:20px;
+    height:20px;
+    display:inline-block;
+    background:#da121a;
+    color:#fff;
+    line-height:20px;
+    text-align:center;
+}
+.create-input{
+    width:60%;
+    height:30px;
+    float:left;
+    margin-left:30px;
+    padding:0 10px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    background:#f3f3f3;
+}
+.create-select{
+    width:60%;
+    height:30px;
+    float:left;
+    margin-left:30px;
+    padding:0 10px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    background:#f3f3f3;
+}
+.city-select{
+    width:92%;
+    height:30px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    background:#f3f3f3;
+    float:left;
+    text-indent:10px;
+    margin-bottom:15px;
+}
+.city-select-one{
+    margin-left:30px !important;
+}
+.create-radio-span{
+    float:left;
+    margin-left:30px;
+}
+.create-radio-input{
+    margin-right:5px !important;
+}
+/*.create-radio{
+    text-align:left;
+    margin:10px 30px;
+}*/
+/*.create-radio-input{
+    float:left;
+}*/
+
+
+
+
+
+
+
+
+
+
+.CreateAnalysis_from{
+    width:100%;
+    min-height:234px;
+    background:#fff;
+    border-radius:5px;
+    padding:38px 84px;
+}
+.CreateAnalysis_from_list{
+    text-align:left;
+    width:100%;
+    padding-bottom:10px;
+    font-size:14px;
+}
+.CreateAnalysis_key{
+    display:inline-block;
+    width:100px;
+    text-align:right;
+}
+.CreateAnalysis_input{
+    width:240px;
+    height:30px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    padding-left:10px;
+    padding-right:25px;
+    color: #333;
+    background:#f3f3f3;
+}
+.CreateAnalysis_select{
+    width:180px;
+    height:30px;
+    border:1px solid #f3f3f3;
+    border-radius:3px;
+    background:#f3f3f3;
+}
+.nextbtn{
+    float:right;
+    margin:10px 0;
+    background:#da121a;
+    border-radius:2px;
+    width:94px;
+    height:35px;
+    border:none;
+    font-size:14px;
+    color:#f0f0f0;
+}
+.nextbtn:hover{
+    background:#EF131D;
+}
+.label{
+    position:relative;
+    padding:0 !important;
+    font-weight:normal !important;
+    font-size:14px !important;
+}
+.down{
+    border-left:1px solid #f3f3f3;
+    display:inline-block;
+    height:30px;
+    position:absolute;
+    right:8px;
+    top:-5px;
+    width:20px;
+}
+.down i{
+    width: 0px;
+    height: 5px;
+    border: 5px solid;
+    border-color:  #666 transparent transparent transparent;
+    float: left;
+    margin: 13px 8px;
+    cursor: pointer;
+}
+.analysis_name{
+    width: 240px;
+    max-height:100px;
+    overflow:auto;
+    text-align: left;
+    margin-left: 104px;
+    color:#333;
+    line-height:30px;
+    border:1px solid #f3f3f3;
+    border-top:none;
+    border-radius:0 0 5px 5px;
+    background:#f3f3f3;
+    padding:0;
+}
+.analysis_name li{
+    cursor:pointer;
+    padding:0 10px;
+}
+.analysis_name li:hover{
+    background:#ccc;
+}
+.error{
+    border:1px solid red;
+}

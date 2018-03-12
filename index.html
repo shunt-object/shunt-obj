@@ -3,10 +3,63 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>broker</title>
+    <meta content="width=device-width" name="viewport" />  
+    <meta content="telephone=no" name="format-detection" />  
+    <title>CloudBroker²-云计算专业服务顾问</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <style>
+    #cnzz_stat_icon_1273069341{
+      display:none
+    }
+      @media print {
+         .not-print {
+           display:none
+         }
+      }
+      html {
+          overflow-y:auto; 
+          overflow-x:hidden;
+        } 
+body {
+        _margin:0;
+        _height:100%; 
+        _overflow-y:auto;
+     }
+  </style>
+<link rel="shortcut icon"type="image/x-icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+  <body oncopy = "return false" onselectstart = "return false" onload="disableInfo()"> 
+    <!--oncontextmenu="return false"禁止右键-->
+
+    <!--友盟统计-->
+    <div id="app">
+        <div id="statistical" style="display:none"> 
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273069341'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273069341%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </div>
+    
     <!-- built files will be auto injected -->
-  </body>
+    <script>
+           function disableInfo() {  
+              document.onkeydown = function() {  
+                  var e = window.event || arguments[0];  
+                  //屏蔽F12  
+                  // if(e.keyCode == 123) {  
+                  //     return false;  
+                  //     //屏蔽Ctrl+Shift+I  
+                  // } else 
+                  
+                  if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  
+                      return false;  
+                      //屏蔽Shift+F10  
+                  } else if((e.shiftKey) && (e.keyCode == 121)){  
+                      return false;  
+                  }  else if((e.ctrlKey) && (e.keyCode == 85)){
+                     return false; 
+                  }
+              };  
+   
+        }  
+
+    </script>
+  </bod>
 </html>

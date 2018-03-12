@@ -1,0 +1,118 @@
+
+@media (max-width:768px){
+    .step10{width:10%};
+    .step18{
+        width:5%;
+    }
+    .step22{
+        width:17%;
+    }
+    .stepPlan-name{
+        font-size:10px;
+    }
+    .stepPlan{
+        width:100%;
+        height:105px;
+        background:#fff;
+        padding:0px;
+        /*position:relative;*/
+    }
+
+}
+.stepPlan-item{
+    float:left;
+    position:relative;
+}
+
+
+@media (min-width:768px){
+    .step22{
+        width:18.3%;
+    }
+    .step10{
+        width:8%;
+    }
+    .step18{
+        width:15.3%;
+    }
+    .stepPlan-name{
+        font-size:12px;
+    }
+    .stepPlan{
+        width:100%;
+        height:105px;
+        background:#fff;
+        padding:20px;
+        /*position:relative;*/
+    }
+}
+.circle{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    z-index:2;
+    position:absolute;
+    left:20px;
+    top:25px;
+    font-size:12px;
+    line-height:24px;
+    cursor:pointer;
+}
+.stepPlan-line{
+    width:95%;
+    height:2px;
+    position:absolute;
+    right:-20px;
+    top:38px;
+    z-index:1;
+}
+.stepPlan-name{
+    margin-top:50px;
+    text-align:left;
+   
+    line-height:20px;
+}
+.common-color{
+    color:#999999;
+}
+.active-color{
+    color:#1c1c1c;
+}
+.common-circle{
+    background:#f3f3f3;
+    color:#999;
+}
+.active-circle{
+    background:#da121a;
+    color:#fff;
+    font-size: 16px;
+}
+.finish-circle{
+    background:url('../../assets/step-circle.png') no-repeat;
+    background-size:100% 100%;
+    font-size:0;
+    color:transparent;
+}
+.common-line{
+    background:#f3f3f3;
+}
+.active-line{
+    height:1px !important;
+    background:#da121a; 
+}
+.finish-line{
+    height:1px !important;
+    background:#5db75b;
+}
+.int10{
+    text-indent:10px;
+}
+.int15{
+    text-indent:15px;
+}
+.int13{
+    text-indent:13px;
+}
+.int-20{
+    text-indent:-20px;
+}

@@ -1,0 +1,119 @@
+
+.detadcision-box{
+    padding:0 !important;
+    min-height:100vh;
+}
+.detadcision-header{
+    padding:0 10px !important;
+}
+.datadecision{
+    overflow-x:hidden;
+    background:#F8FAFD;
+    padding-top:10px;
+}
+.datadecision-list{
+    background:#fff;
+    box-shadow: 0 2px 2px 0 hsla(0,0%,79%,.4);
+    height:300px;
+}
+.decision-title{
+    width:100%;
+    height:35px;
+    background:#F6F6F6;
+    text-align:left;
+    line-height:35px;
+    text-indent:10px;
+    position:relative;
+}
+.comm-select{
+    position:absolute;
+    right:10px;
+    top:8px;
+    width:80px;
+    height:20px;
+    background:#e9e9e9;
+    border:none;
+    line-height:20px;
+    border-radius:2px;
+    cursor:pointer;
+    color:#777;
+    font-size:12px;
+    padding-left:10px;
+}
+.year-select{
+    width:80px;
+    height:20px;
+    /*position:absolute;
+    right:10px;
+    top:8px;*/
+    float:right;
+    margin-top:8px;
+    background:#e9e9e9;
+    border:none;
+    line-height:20px;
+    border-radius:2px;
+    cursor:pointer;
+    color:#777;
+    font-size:12px;
+    padding-left:10px;
+    margin-right:10px;
+}
+.up-select{
+    /*position:absolute;
+    right:100px;
+    top:8px;*/
+    float:right;
+    margin-top:8px;
+    margin-right:10px;
+    width:80px;
+    height:20px;
+    background:#e9e9e9;
+    border:none;
+    line-height:20px;
+    border-radius:2px;
+    cursor:pointer;
+    color:#777;
+    font-size:12px;
+    padding-left:10px;
+}
+.types-input{
+    min-width:110px;
+    height:20px;
+    position:absolute;
+    right:10px;
+    top:8px;
+    font-size:12px;
+    color:#777;
+    border-radius:2px;
+    background:#e9e9e9;
+    line-height:20px;
+    cursor:pointer;
+}
+.types-select{
+    position:absolute;
+    right:10px;
+    top:28px;
+    border:1px solid #e9e9e9;
+    min-width:110px;
+    background:#fff;
+    z-index:9999;
+}
+.types-select p{
+    line-height:20px;
+    width:100%;
+    font-size:12px;
+    cursor:pointer;
+    color:#666;
+}
+.types-select p:hover{
+    background:#1e90ff;
+    cursor:pointer;
+    color:#fff;
+}
+.types-checkbox{
+    float:left;
+    margin:4px 10px !important;
+}
+.padding10{
+    padding:10px;
+}

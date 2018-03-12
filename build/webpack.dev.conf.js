@@ -8,6 +8,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+var express = require('express');
+var proxy = require('http-proxy-middleware');
+var app = express();
+app.middleware = [
+        proxy(['/broker'], {target: 'http://118.244.227.150:22080', changeOrigin: true})
+        //proxy(['/broker'], {target: 'http://localhost:8080', changeOrigin: true})
+];
+
+app.use(app.middleware);
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
