@@ -24,6 +24,7 @@ import yunzc from '@/views/console/yunzc/yunzc'
 import TheirAllies from '@/views/console/TheirAllies/TheirAllies'
 import design from '@/views/console/design/design'
 import designer from '@/views/console/designer/designer'
+import ReviewTheData from '@/views/console/ReviewTheData/ReviewTheData'
 import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
@@ -206,6 +207,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:designer
+        },
+        {
+          path:'/ReviewTheData',
+          name:'ReviewTheData',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:ReviewTheData
         },
         {
           path:'/designOrder',

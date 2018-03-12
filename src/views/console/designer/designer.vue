@@ -29,14 +29,14 @@
                             </thead>
                             <tbody v-for="dat in datis">
                                 <tr>
-                                     <td rowspan="6">1</td>
-                                     <td rowspan="6">1</td>
+                                     <td rowspan="6">{{dat.appSimple.appname}}</td>
+                                     <td rowspan="6">{{dat.appSimple.proname}}</td>
 
                                      <td>（v）CPU</td>
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.cores}}</td>
                                      <td>{{dat.cpu}}</td>
-                                     <td rowspan="6" style="color:#206faf"><i class="iconfont icon-chakan"></i>&nbsp查看详情</td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#ddd">
                                     <td>处理器主频（GHZ）</td>
@@ -95,7 +95,7 @@
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.cores}}</td>
                                      <td>{{dati.cpu}}</td>
-                                     <td rowspan="6" style="color:#206faf"><i class="iconfont icon-chakan"></i>&nbsp查看详情</td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span><</td>
                                 </tr>
                                 <tr style="background:#ddd">
                                     <td>处理器主频（GHZ）</td>
@@ -135,6 +135,9 @@
     </div>
 </template>
 <style>
+    .hoverspanRouter:hover{
+       cursor:pointer; 
+    }
     .designHalf-table-public{
         width:95% !important; 
     }
@@ -228,6 +231,9 @@
                 }
             },
             methods:{
+                routerDesign:function(e){
+                        this.$router.push({path:'/design',query:{id:e}});
+                },
                 yyclick:function(){
                     this.yyshow = true;
                      this.digaopei=true;

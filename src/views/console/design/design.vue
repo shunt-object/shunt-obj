@@ -33,7 +33,7 @@
                                                 <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:110px"><span v-on:click="xiuzheng(dat.id,index,dat.typeLevel,dat.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                                        <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.id,index,dat.typeLevel,dat.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -63,7 +63,7 @@
                                                 <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>
                                             </ul>
                                         </td>
-                                        <td class="ds" style="line-height:120px"><span v-on:click="xiuszheng(dati.id,index,dati.typeLevel,dati.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                                        <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.id,index,dati.typeLevel,dati.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
                                     </tr>
                                 
                                 </tbody>
@@ -224,6 +224,9 @@
     </div>
 </template>
 <style>
+    .HoverSPAN:hover{
+        cursor:pointer
+    }
     .designHeader{
         /*min-height:90vh;
         padding-bottom:5%;*/

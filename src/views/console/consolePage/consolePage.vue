@@ -122,7 +122,7 @@
                     </a>
                     <ul class="sub">
                         <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
-                        <li><a href="javascript:;">点评数据</a></li>
+                        <li v-on:click="ReviewTheData()"><a href="javascript:;">点评数据</a></li>
                         <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
                     </ul>
                 </li>
@@ -389,7 +389,11 @@ export default{
         },
         datadcis:function(){
             this.$router.push({path:'/dataDcision'});
+        },
+        ReviewTheData:function(){
+            this.$router.push({path:'/ReviewTheData'});
         }
+
     }
 }
 </script>
