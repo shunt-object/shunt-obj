@@ -138,7 +138,7 @@
     <!-- 弹框 -->
     <el-dialog title="我的点评" :visible.sync="dialogcomment" style="text-align:left;">
         <div class="comment-box">
-            <div class="comment-word">非常感谢您对CloudBroker²的关注，欢迎提出宝贵的意见和建议，我们将积极采纳，更好的改善我们的服务。</div>
+            <div class="comment-word">您的点评，是我们前进的动力！</div>
             <div class="comment-list">
                 <div class="row">
                     <div class="col-md-2 comment-key">我的评分</div>
@@ -169,12 +169,12 @@
                     <div class="col-md-10 contactway" style="padding-left:0px !important;">{{contactway}}</div>
                 </div>
             </div>            
-            <div class="" style="padding:0 23px;">
+            <div class="">
                 <div class="comment-notice">
                     温馨提示：<br>
-                    1、反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）<br>
-                    2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span><br>
-                    3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>
+                    1、反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）。<br>
+                    2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span> 。<br>
+                    3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>。
                 </div>
             </div>
             <div class="email-btn">
@@ -210,16 +210,16 @@ export default{
             dialogcomment:false,
             commentlist:[],
             starlist:[
-                {id:1,boolean:true},
-                {id:2,boolean:true},
-                {id:3,boolean:true},
+                {id:1,boolean:false},
+                {id:2,boolean:false},
+                {id:3,boolean:false},
                 {id:4,boolean:false},
                 {id:5,boolean:false}
             ],
             contactway:'',
             confirmobj:{
                 content:'',
-                grade:'3',
+                grade:'0',
                 type:''
             }
 
@@ -337,6 +337,8 @@ export default{
                             this.starlist[i].boolean = true;
                         }
                     }
+                }else{
+                    this.starlist[index].boolean = true;
                 }
             }
             this.confirmobj.grade = this.starlist[index].id;

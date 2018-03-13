@@ -7,17 +7,31 @@
             <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
             <div class="designHeader">
                 <div class="designTop">
-                    <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp推荐配置</h2>
+                    <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:14px"></i>&nbsp&nbsp推荐配置</h2>
                     <div class="designTab">
-                        <p><span v-on:click="yyClick"><a class="designTaba">应用服务</a></span><span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span><span v-on:click="wlClick"><a class="designTaba">网络服务</a></span><span v-on:click="ccClick"><a class="designTaba">存储服务</a></span><span v-on:click="cdnClick"><a class="designTaba">CDN</a></span></p>
+                        <p>
+                            <span v-on:click="yyClick"><a class="designTaba">应用服务</a></span>
+                            <span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span>
+                            <!--<span v-on:click="wlClick"><a class="designTaba">网络服务</a></span>
+                            <span v-on:click="ccClick"><a class="designTaba">存储服务</a></span>
+                            <span v-on:click="cdnClick"><a class="designTaba">CDN</a></span>-->
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span>
+                        </p>
                     </div>
-                    <div class="designTabj" v-show="digaopei"><p><span v-on:click="dipeis">低配</span><span v-on:click="gaopeis">高配</span></p></div>
+                    <div class="designTabj" v-show="digaopei">
+                        <p style="width:200px;">
+                            <span v-on:click="dipeis" style="float:right;">低配</span>
+                            <span v-on:click="gaopeis">高配</span>
+                        </p>
+                    </div>
                     <div class="designConfig" v-show="yyshow" v-for="(dat,index) in dats">
                         <div style="margin:0 30px 0 30px;" >
                             <table class="table table-bordered">
                                 <thead class="row">
                                     <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;border-top:none !important;">角色</th>
+                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                                         <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                                         <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
                                         <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
@@ -224,6 +238,15 @@
     </div>
 </template>
 <style>
+.table>thead>tr>th{
+    border-bottom-width:0px;
+}
+.table{
+    border-top:none;
+}
+.table>thead:first-child>tr:first-child>th{
+    border-top:1px solid #ddd !important;
+}
     .HoverSPAN:hover{
         cursor:pointer
     }
@@ -240,10 +263,12 @@
     }
     .designTop h2{
         text-align:left;
-        margin:0px 0 40px 18px;
+        /*margin:0px 0 40px 18px;*/
         font-size:14px;
-        padding-top:20px;
+        /*padding-top:20px;*/
+        padding:18px 13px;
         color:#6e6e6e;
+        margin-bottom:0px;
     }
     .designTab p{
         height:40px;
@@ -257,7 +282,7 @@
     .designTabj p span:hover{
          cursor:pointer
     }
-     .designTab a{
+     .designTab a,.designTab .notclick{
         display:inline-block;
       
         
@@ -433,7 +458,7 @@
 }
 
 .iconfont{
-    margin-right:10px;
+    /*margin-right:10px;*/
 }
 .cuncul{
     margin-top:50px;

@@ -5,13 +5,13 @@
 }
 .comment-word{
     font-size:14px;
-    color:#f7a72c;
+    color:#555555;
     line-height:21px;
     text-align:left;
 }
 .comment-list{
-    padding:0 23px;
-    margin:10px 0 !important;
+    /*padding:0 23px;*/
+    margin:20px 0 !important;
 }
 .comment-key{
     text-align:left !important;
@@ -82,5 +82,5 @@
     margin-top:20px;
 }
 .comment-notice span{
-     color:#f7a72c;
+     color:#da121a;
 }
