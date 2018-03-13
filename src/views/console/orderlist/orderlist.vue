@@ -3,7 +3,7 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
-    ><p class="comback">云设计</p>
+    ><router-link class="zong" to="/designer"> 云设计</router-link>
     ><p class="comback">购物详情</p>
 </div>
 <div class="designOrder-box">

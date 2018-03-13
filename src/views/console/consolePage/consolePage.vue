@@ -280,6 +280,7 @@ export default{
             }
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
+        console.log('-------',JSON.parse(sessionStorage.getItem("account")).realname);
         this.utype = sessionStorage.getItem("utype");
 
         if(this.utype==5){

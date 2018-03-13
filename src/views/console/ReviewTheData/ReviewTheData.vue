@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<div class="designTop">
+<div class="reviewthe-box">
     <table class="reviewthe-table" id="tabelId">
         <thead>
             <tr>
@@ -53,7 +53,7 @@
 .reviewthe-tu-list{
     background:#fff; box-shadow: 0 2px 2px 0 hsla(0,0%,79%,.4); height:300px;
 }
-.designTop{
+.reviewthe-box{
     padding:20px; background:#fff; width:100%; margin:20px 0;
 }
 .reviewthe-table{
