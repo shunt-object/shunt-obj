@@ -253,7 +253,8 @@
                     charters:"",
                     echartsey:[],
                     valuters:[],
-                    echartsnum:0
+                    echartsnum:0,
+                    enum:0,
                 }
             },
             methods:{
@@ -318,15 +319,15 @@
                                 ]
                     });
                 },
-                echartsList:function(e){
-                    console.log(e)
-                     this.$this.get('/broker/design/analysis/month/total/'+e).then((rns)=>{  //取得echarts图表的数据
+                echartsList:function(e,d){
+                    //console.log(d)
+                     this.$this.get('/broker/design/analysis/month/total/'+e+"/"+d).then((rns)=>{  //取得echarts图表的数据
                                     //this.echartsey = rns.data.data;
                                     for( let u = 0;u<rns.data.data.length;u++){
                                         this.echartsey.push({name:rns.data.data[u].months,value:rns.data.data[u].vmtotal})
                                         this.valuters.push([rns.data.data[u].months,rns.data.data[u].vmtotal])
                                     }
-                                    console.log(this.valuters)
+                                    //console.log(this.valuters)
                                     this.chartsChange()
                         },(err)=>{
                                 console.log("不好意思")    
@@ -360,7 +361,8 @@
                                     this.yyshow=true;
                                     //console.log(ros)
                                     this.echartsnum = 1;
-                                    this.echartsList(this.echartsnum);
+                                    this.enum = 18;
+                                    this.echartsList(this.echartsnum,this.enum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
@@ -369,7 +371,8 @@
                                     this.dati = ros.data.data;
                                     this.sjshow=true;
                                      this.echartsnum = 2;
-                                    this.echartsList(this.echartsnum);
+                                     this.enum = 18;
+                                    this.echartsList(this.echartsnum,this.enum);
                                   
                                     //console.log(this.dati)
                         },(err)=>{
@@ -383,9 +386,10 @@
                         this.$this.get('/broker/design/list/1/17').then((ros)=>{
                                     this.datis = ros.data.data;
                                     this.yyshow=true;
-                                    console.log(this.datis);
+                                   // console.log(this.datis);
                                      this.echartsnum = 1;
-                                    this.echartsList(this.echartsnum);
+                                     this.enum = 17;
+                                    this.echartsList(this.echartsnum,this.enum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
@@ -393,9 +397,10 @@
                        this.$this.get('/broker/design/list/2/17').then((ros)=>{
                                     this.dati = ros.data.data;
                                     this.sjshow=true;
-                                    console.log(this.dati);
+                                   // console.log(this.dati);
                                      this.echartsnum = 2;
-                                    this.echartsList(this.echartsnum);
+                                     this.enum = 17;
+                                    this.echartsList(this.echartsnum,this.enum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
