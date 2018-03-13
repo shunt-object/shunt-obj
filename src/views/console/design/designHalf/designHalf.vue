@@ -130,9 +130,7 @@
         <div class="design-nodata" v-if="priceClould.length<1">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
-            
-            暂无云厂商匹配数据
-
+            暂无云厂商匹配数据，请联系线下获取支持。
         </div>
         <!-- 数据库服务 -->
         <!--<table class="designHalf-table-appServer designHalf-table-public">
@@ -376,7 +374,8 @@ export default{
             appId:'',
             islook:false,
             sumprice:0,
-            num:0
+            num:0,
+            loopriceclick:0,
         }
     },
     mounted:function(){
@@ -463,15 +462,26 @@ export default{
             }            
         },
         lookPrice:function(){
+            this.loopriceclick++;
+            if(this.loopriceclick<2){
+                this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
+                    // console.log('----',response);     
+                    for(let i=0;i<response.data.data.length;i++){
+                        this.priceClould.push({data:response.data.data[i],model:false});
+                    } 
+                    this.islook = true;      
+                }).catch((error)=>{
+                })
+            }
             //console.log(this.lookobj);
-            this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
-                // console.log('----',response);     
-                for(let i=0;i<response.data.data.length;i++){
-                    this.priceClould.push({data:response.data.data[i],model:false});
-                } 
-                this.islook = true;      
-            }).catch((error)=>{
-            })
+            // this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
+            //     // console.log('----',response);     
+            //     for(let i=0;i<response.data.data.length;i++){
+            //         this.priceClould.push({data:response.data.data[i],model:false});
+            //     } 
+            //     this.islook = true;      
+            // }).catch((error)=>{
+            // })
         },
         radio:function(index){
             let n = 0;

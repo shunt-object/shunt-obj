@@ -15,12 +15,17 @@
                             <!--<span v-on:click="wlClick"><a class="designTaba">网络服务</a></span>
                             <span v-on:click="ccClick"><a class="designTaba">存储服务</a></span>
                             <span v-on:click="cdnClick"><a class="designTaba">CDN</a></span>-->
-                            <span><a class="designTaba" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</a></span>
-                            <span><a class="designTaba" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</a></span>
-                            <span><a class="designTaba" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</a></span>
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
+                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span>
                         </p>
                     </div>
-                    <div class="designTabj" v-show="digaopei"><p><span v-on:click="dipeis">低配</span><span v-on:click="gaopeis">高配</span></p></div>
+                    <div class="designTabj" v-show="digaopei">
+                        <p style="width:200px;">
+                            <span v-on:click="dipeis" style="float:right;">低配</span>
+                            <span v-on:click="gaopeis">高配</span>
+                        </p>
+                    </div>
                     <div class="designConfig" v-show="yyshow" v-for="(dat,index) in dats">
                         <div style="margin:0 30px 0 30px;" >
                             <table class="table table-bordered">
@@ -277,7 +282,7 @@
     .designTabj p span:hover{
          cursor:pointer
     }
-     .designTab a{
+     .designTab a,.designTab .notclick{
         display:inline-block;
       
         

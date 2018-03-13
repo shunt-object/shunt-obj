@@ -9,9 +9,19 @@
                 <div class="designTop">
                     <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp云设计详情</h2>
                     <div class="designTab">
-                        <p><span v-on:click="yyclick"><a class="designTaba">应用服务</a></span><span v-on:click="sjclick"><a class="designTaba">数据存储服务</a></span><span ><a class="designTaba">网络服务</a></span><span ><a class="designTaba">存储服务</a></span><span ><a class="designTaba">CDN</a></span></p>
+                        <p>
+                            <span v-on:click="yyclick"><a class="designTaba">应用服务</a></span>
+                            <span v-on:click="sjclick"><a class="designTaba">数据存储服务</a></span>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span></p>
                     </div>
-                    <div class="designTabj" v-show="digaopeis"><p><span v-on:click="dipei">低配</span><span v-on:click="gaopei">高配</span></p></div>
+                    <div class="designTabj" v-show="digaopeis">
+                        <p style="width:200px;">
+                            <span v-on:click="dipei" style="float:right;">低配</span>
+                            <span v-on:click="gaopei">高配</span>
+                        </p>
+                    </div>
                     <div v-show="yyshow">
                        <table class="designHalf-table-public" id="example" style="margin-left:30px">
                             <thead>
@@ -154,9 +164,9 @@
     }
     .designTop h2{
         text-align:left;
-        margin:0px 0 40px 18px;
+        /*margin:0px 0 40px 18px;*/
         font-size:14px;
-        padding-top:20px;
+        /*padding-top:20px;*/
         color:#6e6e6e;
     }
     .designTab p{
@@ -248,7 +258,7 @@
                      this.sjshow = true;
                      this.yyshow=false;
                       $(".designTabj p").find("span").removeClass("designTabjBj");
-                   $(".designTabj p").find("span").last().addClass("designTabjBj");
+                    $(".designTabj p").find("span").last().addClass("designTabjBj");
                    this.gaopei();
                 },
                 dipei:function(){
