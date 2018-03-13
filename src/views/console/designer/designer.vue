@@ -12,9 +12,9 @@
                         <p>
                             <span v-on:click="yyclick"><a class="designTaba">应用服务</a></span>
                             <span v-on:click="sjclick"><a class="designTaba">数据存储服务</a></span>
-                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
-                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
-                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span></p>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed;width: 110px; height: 29px; ">网络服务</button></span>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed;width: 110px; height: 29px; ">存储服务</button></span>
+                            <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; width: 110px; height: 29px;">CDN</button></span></p>
                     </div>
                     <div class="designTabj" v-show="digaopeis">
                         <p style="width:200px;">
@@ -22,8 +22,13 @@
                             <span v-on:click="gaopei">高配</span>
                         </p>
                     </div>
+                    <div  class="col-md-12">
+                        <div id="idexEcharts"></div>
+                    </div>
                     <div v-show="yyshow">
+                        <div style="margin-bottom:50px;">应用服务月度数量统计分析</div>
                        <table class="designHalf-table-public" id="example" style="margin-left:30px">
+                       
                             <thead>
                                 <tr>
                                     <td class="designHalf-w-6" rowspan="2">应用名称</td>
@@ -82,6 +87,7 @@
                         </table>
                     </div>
                     <div v-show="sjshow">
+                    <div style="margin-bottom:50px;">数据库服务月度数量统计分析</div>
                        <table class="designHalf-table-appServer designHalf-table-public" id="example" style="margin-left:30px">
                             <thead>
                                 <tr>
@@ -225,9 +231,15 @@
       color:#fff !important;
       border:1px solid #f7a72c  !important;
   }
+  #idexEcharts{
+      margin:0 auto;
+      width:900px;
+      height:300px
+  }
 </style>
 <script>
     import sds from '../../../components/steps/steps'
+    import echarts from 'echarts'
       export default{
             name:"designer",
             data(){
@@ -238,9 +250,87 @@
                     datis:[],
                     dati:[],
                     sjshow:false,
+                    charters:"",
+                    echartsey:[],
+                    valuters:[],
+                    echartsnum:0
                 }
             },
             methods:{
+                chartsChange:function(){
+                      var myCherts = echarts.init(document.getElementById('idexEcharts'));
+                        myCherts.setOption ({
+                                color: ['#f7a72c'],
+                                tooltip : {
+                                    trigger: 'axis',
+                                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                    }
+                                },
+                                 legend: {
+                                    data: ['数量'],
+                                    x:'79%',
+                                    //right:'10px',
+                                    y:'10px'
+                                },
+                                grid: {
+                                    left: '10%',
+                                    right: '4%',
+                                    bottom: '4%',
+                                    top:"15%",
+                                    containLabel: true
+                                },
+                                xAxis : [
+                                    {
+                                        type : 'category',
+                                        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                                        axisTick: {
+                                            alignWithLabel: true
+                                        }
+                                    }
+                                ],
+                              yAxis: [{
+                                type:'value',
+                                name:'数量',
+                                axisLabel: {
+                                    formatter: '{value}'
+                                },
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#999'
+                                    }
+                                },
+                                nameTextStyle:{
+                                    color:'#999'
+                                },
+                                }
+                                ],
+                                series : [
+                                           
+                              
+                                    {
+                                        name:'数量',
+                                        type:'bar',
+                                        barWidth: '60%',
+                                        data:this.valuters
+                                    }
+                                ]
+                    });
+                },
+                echartsList:function(e){
+                    console.log(e)
+                     this.$this.get('/broker/design/analysis/month/total/'+e).then((rns)=>{  //取得echarts图表的数据
+                                    //this.echartsey = rns.data.data;
+                                    for( let u = 0;u<rns.data.data.length;u++){
+                                        this.echartsey.push({name:rns.data.data[u].months,value:rns.data.data[u].vmtotal})
+                                        this.valuters.push([rns.data.data[u].months,rns.data.data[u].vmtotal])
+                                    }
+                                    console.log(this.valuters)
+                                    this.chartsChange()
+                        },(err)=>{
+                                console.log("不好意思")    
+                        });
+                },
                 routerDesign:function(e){
                         this.$router.push({path:'/design',query:{id:e}});
                 },
@@ -267,7 +357,9 @@
                         this.$this.get('/broker/design/list/1/18').then((ros)=>{
                                     this.datis = ros.data.data;
                                     this.yyshow=true;
-                                    console.log(this.datis)
+                                    //console.log(ros)
+                                    this.echartsnum = 1;
+                                    this.echartsList(this.echartsnum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
@@ -275,10 +367,14 @@
                        this.$this.get('/broker/design/list/2/18').then((ros)=>{
                                     this.dati = ros.data.data;
                                     this.sjshow=true;
-                                    console.log(this.dati)
+                                     this.echartsnum = 2;
+                                    this.echartsList(this.echartsnum);
+                                  
+                                    //console.log(this.dati)
                         },(err)=>{
                                 console.log("不好意思")    
-                        }); 
+                        });
+                         
                    }
                 },
                 gaopei:function(){
@@ -286,7 +382,9 @@
                         this.$this.get('/broker/design/list/1/17').then((ros)=>{
                                     this.datis = ros.data.data;
                                     this.yyshow=true;
-                                    console.log(this.datis)
+                                    console.log(this.datis);
+                                     this.echartsnum = 1;
+                                    this.echartsList(this.echartsnum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
@@ -294,7 +392,9 @@
                        this.$this.get('/broker/design/list/2/17').then((ros)=>{
                                     this.dati = ros.data.data;
                                     this.sjshow=true;
-                                    console.log(this.dati)
+                                    console.log(this.dati);
+                                     this.echartsnum = 2;
+                                    this.echartsList(this.echartsnum);
                         },(err)=>{
                                 console.log("不好意思")    
                         }); 
@@ -319,7 +419,8 @@
                         $(".designTabj p").find("span").removeClass("designTabjBj")
                         $(this).addClass("designTabjBj")
                     })
-                }); 
+                });
+                
             }
      }
 </script>
