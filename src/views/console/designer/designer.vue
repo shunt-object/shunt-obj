@@ -104,8 +104,8 @@
                             </thead>
                             <tbody v-for="dati in dati">
                                 <tr>
-                                     <td rowspan="6">1</td>
-                                     <td rowspan="6">1</td>
+                                     <td rowspan="6">{{dati.appSimple.appname}}</td>
+                                     <td rowspan="6">{{dati.appSimple.proname}}</td>
 
                                      <td>（v）CPU</td>
                                      <td v-if="dati.resServer==null">--</td>
@@ -274,14 +274,15 @@
                                     y:'10px'
                                 },
                                 grid: {
-                                    left: '10%',
-                                    right: '4%',
+                                    left: '8%',
+                                    right: '6%',
                                     bottom: '4%',
                                     top:"15%",
                                     containLabel: true
                                 },
                                 xAxis : [
                                     {
+                                        name:"月份",
                                         type : 'category',
                                         data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
                                         axisTick: {

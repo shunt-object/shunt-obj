@@ -7,7 +7,7 @@
 </div>
 <div class="row reviewthe-echarts">
     <div class="col-md-7">
-        <div class="reviewthe-tu-title">意见反馈采集趋势</div>
+        <div class="reviewthe-tu-title">点评数据采集统计</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-bar" id="reviewthe-bar" style="width:100%;height:100%;"></div>
         </div>
