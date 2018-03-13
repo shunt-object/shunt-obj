@@ -95,7 +95,7 @@
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.cores}}</td>
                                      <td>{{dati.cpu}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span><</td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#ddd">
                                     <td>处理器主频（GHZ）</td>
@@ -236,6 +236,7 @@
                 },
                 yyclick:function(){
                     this.yyshow = true;
+                     this.sjshow = false;
                      this.digaopei=true;
                      this.inder = 1;
                      $(".designTabj p").find("span").removeClass("designTabjBj");

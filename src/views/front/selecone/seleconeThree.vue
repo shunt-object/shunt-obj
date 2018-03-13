@@ -93,7 +93,7 @@
 
     <!-- 底部 -->
     <div style="background:#ededed;width:100%;height:auto;">
-        <div class="seleconeMain-footer row">
+        <div class="seleconeMain-footer">
             <div class="container text-left" style="width:60%;padding-left:cd30px;">
                 <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;">
                     <img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px">

@@ -61,7 +61,7 @@
                     <div class="container">
                         <div class="col-md-6 lun-le animated rollIn">
                             <h1>多场景、目标云真机测试</h1>
-                            <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”</p>
+                            <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”。</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
                             
                         </div>

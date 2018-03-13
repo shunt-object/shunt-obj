@@ -19,6 +19,7 @@
                         <td>{{re.realname}}</td>
                         <td>{{re.tenant}}</td>
                         <td>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>
+                        <td v-if="re.industryStr==null">未填写</td>
                         <td>{{re.industryStr.name}}</td>
                         <td v-if="re.phone==null">未填写</td>
                         <td v-else>{{re.phone}}</td>

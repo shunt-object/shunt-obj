@@ -412,7 +412,7 @@ a:hover{
         height:70px;
     }
     .progress{
-     width:532px; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 0;
+     width:520px; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 0 !important;
 } 
     .jinDus{
         text-indent: 20%;
