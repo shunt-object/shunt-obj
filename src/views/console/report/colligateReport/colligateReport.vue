@@ -100,7 +100,6 @@
                     </div> 
                     <!-- 云选型 -->
                     <div class="colligate-title">
-                       <!-- <img src="../../../../assets/report/report-compare.png" alt=""> -->
                         <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云选型报告详情
                     </div>
                     <div class="colligate-list">
@@ -123,7 +122,7 @@
                             </tbody>
                         </table>
                         
-                        <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
+                        <!--<table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
                             <thead v-if="appServer.length>0||dbServer.length>0||network!=null||storage.length>0||cdns.length>0">
                                 <tr>
                                     <th>数量</th>
@@ -185,7 +184,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                         <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-qitashuju main-color"></i>云供应商标准选型差异</div>
                         <div>
                             <p class="explain">
@@ -225,14 +224,184 @@
                             </table>
                         </div>
                     </div>
+                    <!-- 云设计 -->
+                    <div class="colligate-title">
+                        <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云设计配置信息详情
+                    </div>
+                    <table class="colligate-design" v-if="designdata.appServer.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.appServer">
+                            <tr>
+                                <td rowspan="5">应用服务</td>
+                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                <td>（v）CPU</td>
+                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                <td>{{item.cpu}}</td>
+                            </tr>
+                            <tr>
+                                <td>处理器主频（GHZ）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                <td>{{item.ghz==undefined?'--':''}}</td>
+                            </tr>
+                            <tr>
+                                <td>内存（GB）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                <td>{{item.ram}}</td>
+                            </tr>
+                            <tr>
+                                <td>系统盘</td>
+                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                <td>{{item.localDisk}}</td>
+                            </tr>                            
+                            <tr>
+                                <td>操作系统</td>
+                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                <td>{{item.osType.name}}</td>
+                            </tr>
+                            <!--<tr>
+                                <td>资源平均利用率</td>
+                                <td>cccc</td>
+                                <td></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.dbServer.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.dbServer">
+                            <tr>
+                                <td rowspan="5">数据库服务</td>
+                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                <td>（v）CPU</td>
+                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                <td>{{item.cpu}}</td>
+                            </tr>
+                            <tr>
+                                <td>处理器主频（GHZ）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                <td>{{item.ghz==undefined?'--':''}}</td>
+                            </tr>
+                            <tr>
+                                <td>内存（GB）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                <td>{{item.ram}}</td>
+                            </tr>
+                            <tr>
+                                <td>系统盘</td>
+                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                <td>{{item.localDisk}}</td>
+                            </tr>                            
+                            <tr>
+                                <td>操作系统</td>
+                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                <td>{{item.osType.name}}</td>
+                            </tr>
+                            <!--<tr>
+                                <td>资源平均利用率</td>
+                                <td>cccc</td>
+                                <td></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.cdns.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.cdns">
+                            <tr>
+                                <td rowspan="6">CDN</td>
+                                <td rowspan="6">--</td>
+                                <td>带宽</td>
+                                <td>{{item.bandwidth==null?'--':item.bandwidth}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>云厂商</td>
+                                <td>{{item.cse==null?'--':item.cse.name}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.cdns.inbound!=null">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="6">网络存储</td>
+                                <td rowspan="6">--</td>
+                                <td>入站（Mbps/月）</td>
+                                <td>{{designdata.network.inbound==null?'--':designdata.network.inbound}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>出站（Mbps/月）</td>
+                                <td>{{designdata.network.outbound==null?'--':designdata.network.outbound}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.storage.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.storage">
+                            <tr>
+                                <td rowspan="6">网络存储</td>
+                                <td rowspan="6">--</td>
+                                <td>共享存储（SAN）（GB）</td>
+                                <td>{{item.sna==null?'--':item.sna}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>网络存储（NAS）（GB）</td>
+                                <td>{{item.nsa==null?'--':item.nsa}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>云存储（GB）</td>
+                                <td>{{item.cloudStorage==null?'--':item.cloudStorage}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <!-- 上云分析建议  -->
                     <div class="colligate-title">
-                    <!--<img src="../../../../assets/report/report-advise.png" alt="">-->
                         <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
                     </div>
-                    <!--<img src="../../../../assets/compare-nodata.png" alt="">
-                        <br>
-                        暂无建议-->
                     <div class="advise-box">
                         <div class="system-advise">
                             <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>上云分析CloudBroker²评估建议</p>
@@ -295,10 +464,8 @@ import '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 
 export default{
-
     name:'colligateReport',
     data(){
- 
         return {
             inds:0,
             charts:'',
@@ -324,7 +491,14 @@ export default{
             system:'',
             Issystem:false,
             systemold:'',
-            isClass:false
+            isClass:false,
+            designdata:{
+                appServer:[],
+                dbServer:[],
+                cdns:[],
+                network:[],
+                storage:[]
+            }
         }
     },
     updated:function(){
@@ -339,6 +513,7 @@ export default{
         this.appId = this.$route.query.id;
         this.information.realname = JSON.parse(sessionStorage.getItem("account")).realname;
         this.information.tenant = JSON.parse(sessionStorage.getItem("account")).tenant;
+        this.getdesign();
         //云规划
         this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
             //console.log('结果',response);
@@ -405,6 +580,19 @@ export default{
             if(dom=='no'){
                 this.system = this.systemold;
             }
+        },
+        getdesign:function(){
+            this.$this.get('/broker/design/list/'+this.appId).then((response)=>{
+                //console.log('aaaa',response.data.data);
+                this.designdata.appServer = response.data.data.designAppServer;
+                this.designdata.dbServer = response.data.data.designAppdb;
+                this.designdata.network = response.data.data.network;
+                this.designdata.storage = response.data.data.storage;
+                this.designdata.cdns = response.data.data.cdns;
+                console.log('aaa',this.designdata.appServer);
+            }).catch((error)=>{
+
+            })
         },
         drawPie:function(id){
             console.log(this.opiniondata);

@@ -111,7 +111,7 @@ export default{
             "cityid":this.information.cityid,
             "year": this.year
         };
-        console.log('aaaaa',obj);
+        //console.log('aaaaa',obj);
         this.getLine(obj);
         this.getPie(obj);
         this.getTypes();  
@@ -421,7 +421,7 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                color:['#F7A72C', '#da121a','#E15F2D'],
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 legend: {
                     orient : 'vertical',
                     x : '79%',
