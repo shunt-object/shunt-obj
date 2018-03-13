@@ -343,7 +343,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="colligate-design" v-if="designdata.network.inbound!=null">
+                    <table class="colligate-design" v-if="designdata.network!=null">
                         <thead>
                             <tr>
                                 <td style="width:15%;">角色</td>

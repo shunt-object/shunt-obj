@@ -116,8 +116,8 @@
                     <td class="designHalf-w-7"><!--{{item.data.localDisk}}-->40GB</td>
                     <td class="designHalf-w-6">{{item.data.num}}</td>
                     <td class="designHalf-w-6">{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.cloudPrice}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'原厂在线暂不支持':item.data.csbPrice}}</td>
+                    <td class="designHalf-w-6">￥{{item.data.cloudPrice==0?'原厂在线暂不支持':item.data.cloudPrice}}</td>
+                    <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'线下联系':item.data.csbPrice}}</td>
                     <td class="designHalf-w-10">
                         <button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
                             <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>加入购物车
