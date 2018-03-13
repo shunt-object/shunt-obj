@@ -13,7 +13,7 @@
                     </div>
                     <div class="designTabj" v-show="digaopeis"><p><span v-on:click="dipei">低配</span><span v-on:click="gaopei">高配</span></p></div>
                     <div v-show="yyshow">
-                       <table class="designHalf-table-appServer designHalf-table-public" id="example" style="margin-left:30px">
+                       <table class="designHalf-table-public" id="example" style="margin-left:30px">
                             <thead>
                                 <tr>
                                     <td class="designHalf-w-6" rowspan="2">应用名称</td>
@@ -38,7 +38,7 @@
                                      <td>{{dat.cpu}}</td>
                                      <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
-                                <tr style="background:#ddd">
+                                <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.ghz}}</td>
@@ -50,7 +50,7 @@
                                      <td v-else>{{dat.resServer.ram}}</td>
                                      <td>{{dat.ram}}</td>
                                 </tr>
-                                <tr style="background:#ddd">
+                                <tr style="background:#f7f7f7">
                                     <td>系统盘</td>
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.localDisk}}</td>
@@ -97,7 +97,7 @@
                                      <td>{{dati.cpu}}</td>
                                      <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span><</td>
                                 </tr>
-                                <tr style="background:#ddd">
+                                <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.ghz}}</td>
@@ -109,7 +109,7 @@
                                      <td v-else>{{dati.resServer.ram}}</td>
                                      <td>{{dati.ram}}</td>
                                 </tr>
-                                <tr style="background:#ddd">
+                                <tr style="background:#f7f7f7">
                                     <td>本地磁盘</td>
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.localDisk}}</td>

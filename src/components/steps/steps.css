@@ -42,20 +42,20 @@
         width:100%;
         height:105px;
         background:#fff;
-        padding:20px;
+        padding:5px 20px;
         /*position:relative;*/
     }
 }
 .circle{
-    width:26px;
-    height:26px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     z-index:2;
     position:absolute;
     left:20px;
     top:25px;
-    font-size:12px;
-    line-height:24px;
+    font-size:14px;
+    line-height:32px;
     cursor:pointer;
 }
 .stepPlan-line{
@@ -67,7 +67,7 @@
     z-index:1;
 }
 .stepPlan-name{
-    margin-top:50px;
+    margin-top:60px;
     text-align:left;
    
     line-height:20px;
@@ -77,15 +77,17 @@
 }
 .active-color{
     color:#1c1c1c;
+    font-weight:bold;
 }
 .common-circle{
-    background:#f3f3f3;
-    color:#999;
+    background:#ccc;
+    color:#fff;
 }
 .active-circle{
     background:#da121a;
     color:#fff;
     font-size: 16px;
+    font-weight:bold;
 }
 .finish-circle{
     background:url('../../assets/step-circle.png') no-repeat;
@@ -94,7 +96,7 @@
     color:transparent;
 }
 .common-line{
-    background:#f3f3f3;
+    background:#ccc;
 }
 .active-line{
     height:1px !important;
