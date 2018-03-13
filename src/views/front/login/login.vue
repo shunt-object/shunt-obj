@@ -65,10 +65,10 @@ export default{
         }
     },
     mounted:function(){
-        if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
-            this.remember = true;
-            this.password = localStorage.getItem('remPassword');
-        }
+        // if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
+        //     this.remember = true;
+        //     this.password = localStorage.getItem('remPassword');
+        // }
         if(localStorage.getItem('remAccount')!='' && localStorage.getItem('remAccount')!=null){
             this.remember = true;
             this.account = localStorage.getItem('remAccount');
@@ -164,10 +164,10 @@ export default{
                     console.log(error);
                 })
                if(this.remember==true){
-                   localStorage.setItem('remPassword',this.password);
+                   //localStorage.setItem('remPassword',this.password);
                    localStorage.setItem('remAccount',this.account);
                }else{
-                   localStorage.removeItem('remPassword');
+                   //localStorage.removeItem('remPassword');
                    localStorage.removeItem('remAccount');
                }
             }else{

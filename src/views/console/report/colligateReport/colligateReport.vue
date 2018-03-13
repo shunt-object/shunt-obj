@@ -343,7 +343,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="colligate-design" v-if="designdata.cdns.inbound!=null">
+                    <table class="colligate-design" v-if="designdata.network.inbound!=null">
                         <thead>
                             <tr>
                                 <td style="width:15%;">角色</td>
@@ -380,7 +380,7 @@
                         </thead>
                         <tbody v-for="item in designdata.storage">
                             <tr>
-                                <td rowspan="6">网络存储</td>
+                                <td rowspan="6">存储存储</td>
                                 <td rowspan="6">--</td>
                                 <td>共享存储（SAN）（GB）</td>
                                 <td>{{item.sna==null?'--':item.sna}}</td>
