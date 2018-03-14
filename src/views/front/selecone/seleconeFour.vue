@@ -4,7 +4,7 @@
             <ul class="fixed-ul">
                 <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
                 <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                    <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                    <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                     <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
                 </li>
             
@@ -93,7 +93,7 @@
                      <div class="callme">
                         <div class="container">
                             <div class="callme-call" style=";margin-top:70px">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京总部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡分部</span></div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京分部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡总部</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -103,7 +103,7 @@
                      
                      </div>
                      <div style="background:#ededed;width:100%;height:auto;">
-                        <div class="seleconeMain-footer row" >
+                        <div class="seleconeMain-footer" >
                             <div class="container text-left" style="width:60%;">
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>

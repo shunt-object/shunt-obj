@@ -5,8 +5,8 @@
         <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
-                <p class="text-left footer-list hoverRed"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-828-7308</p>
-                <p class="text-left footer-list hoverRed"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp<a style="color:#b3b3b3" href="tel:4008287308">400-828-7308</a></p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3" href="mailto:Help@csb-china.com">Help@csb-china.com</a></p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">产品功能</p>
@@ -50,6 +50,9 @@
 }*/
 .hoverRed:hover{
     color:#e41e2b
+}
+.hovera a:hover{
+     color:#e41e2b !important
 }
 .footer-jx:hover{
    cursor:pointer;

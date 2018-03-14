@@ -4,7 +4,7 @@
         <ul class="fixed-ul">
             <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                <img src="../../assets/homePage-phone.png" class="fixed-icon" alt=""><a href="tel:139xxxxxxxx" style="color:#fff">电话咨询</a>
+               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                 <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
             </li>
            
@@ -188,7 +188,7 @@
             <li class="col-xs-12 col-sm-4 pictes">
                 <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
                 <h2>省钱</h2>
-                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 50%的上云成本支出</p>
+                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
                 </div>
             </li>
           <li class="col-xs-12 col-sm-4 pictes">

@@ -119,9 +119,12 @@ line-height:30px; float:left; margin-top:13px;
 <script>
   function myFunn(){
     var $sea=$('#myInput').val();
+      var ase = $sea.toUpperCase();
     //先隐藏全部，再把符合筛选条件的值显示
     //console.log($sea);
-        $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+         $('table tbody tr').hide().filter(':contains('+$sea+')').show();
+         $('table tbody tr').filter(':contains('+ase+')').show();
+        
     }  
  export default{
     name:"compareList",

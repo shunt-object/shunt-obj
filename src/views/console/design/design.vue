@@ -180,12 +180,12 @@
             
     <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
         <el-form :model="form">
-            <el-form-item label="角色" :label-width="formLabelWidth">
+           <!-- <el-form-item label="角色" :label-width="formLabelWidth">
                 <el-select v-model="regionter" placeholder="请选择角色">
                     <el-option label="应用服务" value="server"></el-option>
                     <el-option label="数据库服务" value="db"></el-option>
                 </el-select>
-            </el-form-item>
+            </el-form-item>>-->
 
          <div class="yibazi" v-if="regionter=='server'" >
             <el-form :model="coresShj" :rules="rules" ref="coresShj" >
@@ -239,10 +239,10 @@
 </template>
 <style>
 .table>thead>tr>th{
-    border-bottom-width:0px;
+    border-bottom-width:0px !important;
 }
 .table{
-    border-top:none;
+    border-top:none !important;
 }
 .table>thead:first-child>tr:first-child>th{
     border-top:1px solid #ddd !important;
@@ -803,7 +803,7 @@ import designHalf from '../design/designHalf/designHalf'
                                         "type":this.types,
                                         "typeLevel": this.typesey
                                     }
-
+                                    
                                     this.$this.post("broker/design/update/vm",obj).then((spones)=>{
                                             this.index = 1;
                                             this.dipeis();
@@ -853,6 +853,7 @@ import designHalf from '../design/designHalf/designHalf'
                                 "type":this.types,
                                 "typeLevel": this.typesey
                             }
+                           
                              this.$this.post("broker/design/update/vm",objs).then((spones)=>{
                                     this.index = 2;
                                     this.dipeis();
@@ -872,6 +873,7 @@ import designHalf from '../design/designHalf/designHalf'
                                 "type":this.types,
                                 "typeLevel": this.typesey
                             }
+                             console.log(objs)
                              this.$this.post("broker/design/update/vm",objs).then((spones)=>{
                                     this.index = 2;
                                     this.gaopeis();
