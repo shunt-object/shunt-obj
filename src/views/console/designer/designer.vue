@@ -2,12 +2,11 @@
     <div class="total">
         <div class="total-header">
                 <span></span>
-                总览
-                ><p class="comback">云设计</p>
+                <p class="comback">云设计</p>
             </div>
             <div class="designHeader">
                 <div class="designTop">
-                    <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp云设计详情</h2>
+                    <h2><i class="iconfont icon-kujialeqiyezhan_yunshejixitong" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp云设计详情</h2>
                     <div class="designTab">
                         <p>
                             <span v-on:click="yyclick"><a class="designTaba">应用服务</a></span>
@@ -270,7 +269,7 @@
                                 },
                                  legend: {
                                     data: ['数量'],
-                                    x:'79%',
+                                    x:'87%',
                                     //right:'10px',
                                     y:'10px'
                                 },

@@ -127,6 +127,10 @@ export default{
                     data: obj
                 }).then((response)=> {
                     that.getdata();
+                    that.$message({
+                        message: '您的订单已成功删除。',
+                        type: 'success'
+                    });
                     //console.log(response)
                 }).catch((error)=> {
                 });      

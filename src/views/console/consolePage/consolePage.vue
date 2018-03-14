@@ -81,7 +81,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active" v-on:click="index()" style="border-bottom:none !important;">
-                    <a class="" href="javascript:;">
+                    <a class="outhover" href="javascript:;">
                         <!--<i class="icon-dashboard"></i>-->
                         <img src="../../../assets/zong.png" alt="">
                         <span>总览</span>
@@ -107,7 +107,7 @@
                     </ul>
                 </li>
                 <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
-                    <a href="javascript:;" class="">
+                    <a href="javascript:;" class="outhover">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/shuju.png" alt="">
                         <span>数据分析</span>
@@ -178,8 +178,8 @@
                 </div>
             </div>
             <div class="email-btn">
-                <button class="safe-save-btn" v-on:click="success()">保存</button>
-                <button class="safe-cel-btn" v-on:click="undialog()">取 消</button>
+                <button class="safe-save-btn" v-on:click="success()">提交</button>
+                <button class="safe-cel-btn" v-on:click="undialog()">取消</button>
             </div>   
         </div>         
     </el-dialog>
@@ -221,7 +221,18 @@ export default{
                 content:'',
                 grade:'0',
                 type:''
-            }
+            },
+            // hoverlist:[
+            //     {name:'总览',boolean:true},
+            //     {name:'云规划',boolean:true},
+            //     {name:'云选型',boolean:true},
+            //     {name:'云设计',boolean:true},
+            //     {name:'云买手',boolean:true},
+            //     {name:'云实测',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            // ]
 
         }
     },
@@ -355,8 +366,15 @@ export default{
                 this.dialogcomment = false;
                 this.selectstar(2);
                 this.confirmobj.content = '';
+                this.$message({
+                    message: '您已提交成功。',
+                    type: 'success'
+                });
                 for(let i=0;i<this.commentlist.length;i++){
                     this.commentlist[i].boolean = false;
+                }
+                for(let i=0;i<this.starlist.length;i++){
+                    this.starlist[i].boolean = false;
                 }
             }).catch((error)=>{
             })

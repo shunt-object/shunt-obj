@@ -226,7 +226,7 @@
                     </div>
                     <!-- 云设计 -->
                     <div class="colligate-title">
-                        <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云设计配置信息详情
+                        <i class="iconfont icon-peizhiguanli" style="color:#da121a"></i>&nbsp云设计配置信息详情
                     </div>
                     <table class="colligate-design" v-if="designdata.appServer.length>0">
                         <thead>

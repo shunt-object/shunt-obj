@@ -7,22 +7,22 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 forget-box">
             <div class="forget-step">
-                <div class="move-block w-37">
+                <div class="move-block w-27">
                     <span class="move-circle cir-act">1</span>
                     <p class="move-title">填写登录账号</p>
                     <span class="move-line" :class="index>0?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-25">
+                <div class="move-block w-27">
                     <span class="move-circle" :class="index>1?'cir-act':'cir-moren'">2</span>
                     <p class="move-title">验证身份</p>
                     <span class="move-line" :class="index>1?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-25">
+                <div class="move-block w-27">
                     <span class="move-circle" :class="index>2?'cir-act':'cir-moren'">3</span>
                     <p class="move-title">重置密码</p>
                     <span class="move-line" :class="index>2?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-10">
+                <div class="move-block w-8">
                     <span class="move-circle" :class="index>3?'cir-act':'cir-moren'">4</span>
                     <p class="move-title text10">完成</p>
                 </div>
@@ -188,7 +188,7 @@ export default{
                 this.$message.error('请输入手机号');
             }else{
                 this.isphonenum=false;
-                this.countP = 300;
+                this.countP = 60;
                 this.disabledP = true;
                 let that = this;
                 this.phoneHttp();
@@ -203,6 +203,7 @@ export default{
             }            
         },
         phoneHttp:function(){
+            alert(this.useraccount);
             let obj = {
                 mobile:'',
                 type:'',
@@ -217,6 +218,10 @@ export default{
             let str = JSON.stringify(obj);
             this.$this.post('/broker/sms/send/code/forget',str).then((response)=>{
                 //console.log('----',response);
+                // this.$message({
+                //     message: '验证码已成功发送到您的手机，请注意查收。',
+                //     type: 'success'
+                // });
             }).catch((error)=>{
             })
         },
@@ -261,6 +266,10 @@ export default{
                     this.isemailnum=true;
                 }else if(response.data.code==1){
                     this.isemailnum=false;
+                    this.$message({
+                        message: '验证码已成功发送到您的邮箱，请注意查收。',
+                        type: 'success'
+                    });
                 }
             }).catch((error)=>{
             })
