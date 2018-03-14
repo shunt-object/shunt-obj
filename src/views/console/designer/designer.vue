@@ -265,7 +265,8 @@
                                     trigger: 'axis',
                                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                                    }
+                                    },
+                                   
                                 },
                                  legend: {
                                     data: ['数量'],
@@ -319,6 +320,8 @@
                     });
                 },
                 echartsList:function(e,d){
+                    this.echartsey=[];
+                    this.valuters = [];
                     //console.log(d)
                      this.$this.get('/broker/design/analysis/month/total/'+e+"/"+d).then((rns)=>{  //取得echarts图表的数据
                                     //this.echartsey = rns.data.data;
