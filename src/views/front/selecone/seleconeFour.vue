@@ -28,7 +28,7 @@
                             <div class="cloundMains-main">
                                 <p style="margin-bottom:30px">关于我们</p>
                               
-                                    <div class="text-left" style="color:#666666;">CloudBroker²，是新一代云管理服务商，简称CSB²，公司致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
+                                    <div class="text-left" style="color:#666666;">江苏京玉信息技术有限公司，是新一代云管理服务商，简称CSB²，公司致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
                                       <div class="city" style="padding-top:40px;padding-bottom:30px">
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的产品和服务包括，上云分析工具、选云分析工具、真机实测工具、价格管理工具、线上购买工具及迁移、运维工具。这一系列的工具协助客户全面管理云的生命周期。</div>
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB ²是以“云”为核心，其服务场景横跨了上云咨询、云迁移、云运维等多个阶段，为运维部门、决策部门实现服务的可视、可控和可管。帮助用户清晰明确的看到多云的资源和成本，有效的降低了上云和管云的成本，是用户“省钱” “省力”和“专业”的好伙伴。</div>
@@ -93,7 +93,7 @@
                      <div class="callme">
                         <div class="container">
                             <div class="callme-call" style=";margin-top:70px">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京分部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡总部</span></div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span><span @click="wuxiHover" class="mospan" id="wxs">无锡办公室</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
