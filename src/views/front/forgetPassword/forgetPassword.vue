@@ -43,12 +43,12 @@
                 <div class="forget-list" v-if="index==2">
                     <div v-if="or=='phone'">
                         <div class="forget-code" :class="isphonenum==false?'':'error'">
-                            <span>手机号码：</span>
-                            <input type="text" v-on:blur="regPhone()" placeholder="请输入手机号" class="code-input" v-model="phonenum">
+                            <span>手机号码：</span>{{accountNum}}
+                            <!--<input type="text" v-on:blur="regPhone()" placeholder="请输入手机号" class="code-input" v-model="phonenum">-->
                         </div>
                         <div class="forget-code" :class="isphonecode==false?'':'error'">
                             <span>验&nbsp;证&nbsp;&nbsp;码：</span>
-                            <input type="text" placeholder="请输入验证码" class="code-input" v-model="phonecode">
+                            <input type="text" placeholder="请输入验证码" class="code-input1" v-model="phonecode">
                             <button class="code-btn" :disabled="disabledP" v-on:click="phoneCode()">
                                 {{countP}}<span v-if="countP!='发送验证码'&&countP!='重新发送'">s</span>
                             </button>
@@ -56,12 +56,12 @@
                     </div>
                     <div v-if="or=='email'">
                         <div class="forget-code" :class="isemailnum==false?'':'error'">
-                            <span>邮箱账号：</span>
-                            <input type="text" placeholder="请输入邮箱" v-on:blur="regEmail()" class="code-input" v-model="emailnum">
+                            <span>邮箱账号：</span>{{accountNum}}
+                            <!--<input type="text" placeholder="请输入邮箱" v-on:blur="regEmail()" class="code-input" v-model="emailnum">-->
                         </div>
                         <div class="forget-code" :class="isemailcode==false?'':'error'">
                             <span>验&nbsp;证&nbsp;&nbsp;码：</span>
-                            <input type="text" placeholder="请输入验证码" class="code-input" v-model="emailcode">
+                            <input type="text" placeholder="请输入验证码" class="code-input1" v-model="emailcode">
                             <button class="code-btn" :disabled="disabledE" v-on:click="emailCode()">
                                 {{countE}} <span v-if="countE!='发送验证码'&&countE!='重新发送'">s</span>
                             </button>
@@ -72,7 +72,7 @@
                 <div class="forget-list" v-if="index==3">
                     <div class="forget-code" :class="isone==true?'error':''">
                         <span class="passkey" placeholder="6-16位字母、数字和标点符号包含2种">新密码：</span>
-                        <input type="password" class="code-input" placeholder="密码为6-16个字符,字母、数字和标点符号至少包含2种" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
+                        <input type="password" class="code-input" placeholder="6-16位字母、数字和标点符号包含2种" v-model="password" v-on:foucs="enter('one')" v-on:blur="leave('one')">
                     </div>
                     <div class="forget-code" :class="istwo==true?'error':''">
                         <span class="passkey">确认新密码：</span>
@@ -83,7 +83,7 @@
                 <div class="forget-list" v-if="index==4">
                     <img src="../../../assets/front/activate-success.png" class="activate-img for-success-img" alt="">
                     <div class="forget-success">密码更改成功</div>
-                    <router-link to="/login" class="forget-type-btn mt-70">立即登录</router-link>
+                    <router-link to="/login" class="forget-type-btn">立即登录</router-link>
                 </div>
             </div>
         </div>
@@ -123,20 +123,37 @@ export default{
         }
     },
     mounted:function(){
-        if(JSON.parse(sessionStorage.getItem("account")).username){//修改密码
+        //alert(this.$route.query.forget);
+        if(this.$route.query.forget==1){
             this.index = 1;
-            this.typeE = true;
-            this.typeP = true;
             if(JSON.parse(sessionStorage.getItem("account")).email!=null){
+                this.typeE = true;
                 this.accountNum = JSON.parse(sessionStorage.getItem("account")).email;
             }else if(JSON.parse(sessionStorage.getItem("account")).phone!=null){
+                this.typeP = true;
                 this.accountNum = JSON.parse(sessionStorage.getItem("account")).phone;
             }else{
+                this.typeE = true;
+                this.typeP = true;
                 this.accountNum = JSON.parse(sessionStorage.getItem("account")).realname;
             }
-        }else{//找回密码
+        }else{
             this.index = 0;
         }
+        // if(JSON.parse(sessionStorage.getItem("account")).username){//修改密码
+        //     this.index = 1;
+        //     this.typeE = true;
+        //     this.typeP = true;
+        //     if(JSON.parse(sessionStorage.getItem("account")).email!=null){
+        //         this.accountNum = JSON.parse(sessionStorage.getItem("account")).email;
+        //     }else if(JSON.parse(sessionStorage.getItem("account")).phone!=null){
+        //         this.accountNum = JSON.parse(sessionStorage.getItem("account")).phone;
+        //     }else{
+        //         this.accountNum = JSON.parse(sessionStorage.getItem("account")).realname;
+        //     }
+        // }else{//找回密码
+        //     this.index = 0;
+        // }
     },
     methods:{
         test:function(dom){
@@ -183,10 +200,11 @@ export default{
             }
         },
         phoneCode:function(){
-            if(this.phonenum==''){
-                this.isphonenum=true;
-                this.$message.error('请输入手机号');
-            }else{
+            this.phonenum = this.accountNum;
+            // if(this.phonenum==''){
+            //     this.isphonenum=true;
+            //     this.$message.error('请输入手机号');
+            // }else{
                 this.isphonenum=false;
                 this.countP = 60;
                 this.disabledP = true;
@@ -200,10 +218,10 @@ export default{
                         that.disabledP = false;
                     }
                 },1000)
-            }            
+           // }            
         },
         phoneHttp:function(){
-            alert(this.useraccount);
+            //alert(this.useraccount);
             let obj = {
                 mobile:'',
                 type:'',
@@ -218,18 +236,19 @@ export default{
             let str = JSON.stringify(obj);
             this.$this.post('/broker/sms/send/code/forget',str).then((response)=>{
                 //console.log('----',response);
-                // this.$message({
-                //     message: '验证码已成功发送到您的手机，请注意查收。',
-                //     type: 'success'
-                // });
+                this.$message({
+                    message: '验证码已成功发送到您的手机，请注意查收。',
+                    type: 'success'
+                });
             }).catch((error)=>{
             })
         },
         emailCode:function(){
-            if(this.emailnum==''){
-                this.isemailnum=true;
-                this.$message.error('请输入邮箱');
-            }else{
+            this.emailnum = this.accountNum;
+            // if(this.emailnum==''){
+            //     this.isemailnum=true;
+            //     this.$message.error('请输入邮箱');
+            // }else{
                 this.isemailnum=false;
                 this.countE = 300;
                 this.disabledE = true;
@@ -243,7 +262,7 @@ export default{
                         that.disabledE = false;
                     }
                 },1000)
-            }
+            //}
             
         },
         emailHttp:function(){
@@ -277,15 +296,19 @@ export default{
         confirm:function(){
             let code,contact;
             if(this.or=='phone'){
-                if(this.phonenum==''||this.phonecode==''){
-                    if(this.phonenum==''){
-                        this.isphonenum = true;
-                        this.$message.error('请输入手机号');
-                    }
-                    if(this.phonecode==''){
-                        this.isphonecode = true;
-                        this.$message.error('请输入验证码');
-                    }
+                // if(this.phonenum==''||this.phonecode==''){
+                //     if(this.phonenum==''){
+                //         this.isphonenum = true;
+                //         this.$message.error('请输入手机号');
+                //     }
+                //     if(this.phonecode==''){
+                //         this.isphonecode = true;
+                //         this.$message.error('请输入验证码');
+                //     }
+                // }
+                if(this.phonecode==''){
+                    this.isphonecode = true;
+                    this.$message.error('请输入验证码');
                 }else{
                     code = this.phonecode; 
                     contact=this.phonenum;
@@ -294,15 +317,19 @@ export default{
                     this.checkCode(contact,code);
                 }
             }else{
-                if(this.emailnum==''||this.emailcode==''){
-                    if(this.emailnum==''){
-                        this.isemailnum=true;
-                        this.$message.error('请输入邮箱');
-                    }
-                    if(this.emailcode==''){
-                        this.isemailcode = true;
-                        this.$message.error('请输入验证码');
-                    }
+                // if(this.emailnum==''||this.emailcode==''){
+                //     if(this.emailnum==''){
+                //         this.isemailnum=true;
+                //         this.$message.error('请输入邮箱');
+                //     }
+                //     if(this.emailcode==''){
+                //         this.isemailcode = true;
+                //         this.$message.error('请输入验证码');
+                //     }
+                // }
+                if(this.emailcode==''){
+                    this.isemailcode = true;
+                    this.$message.error('请输入验证码');
                 }else{
                     code = this.emailcode;
                     contact=this.emailnum;
@@ -331,11 +358,17 @@ export default{
             if(dom=='one'){
                 if(this.password==''){
                     this.isone = true;
-                    this.$message.error('请输入新密码');
+                    this.$message({
+                        message: '请输入新密码',
+                        type: 'warning'
+                    });
                 }else{                
                     if(passwordReg.test(this.password)==false){
                         this.isone = true;
-                        this.$message.error('请输入正确的密码格式');
+                        this.$message({
+                            message: '请输入正确的密码格式',
+                            type: 'warning'
+                        });
                     }else{
                         this.isone = false;
                     }
@@ -343,17 +376,26 @@ export default{
             }else{
                 if(this.passwordA==''){
                     this.istwo = true;
-                    this.$message.error('请再次输入密码');
+                    this.$message({
+                        message: '请再次输入密码',
+                        type: 'warning'
+                    });
                 }else{
                     if(passwordReg.test(this.passwordA)==false){
                         this.istwo = true;
-                        this.$message.error('请输入正确的密码格式');
+                        this.$message({
+                            message: '请输入正确的密码格式',
+                            type: 'warning'
+                        });
                     }else{
                         if(this.passwordA==this.password){
                             this.istwo = false;
                         }else{
                             this.istwo = true;
-                            this.$message.error('两次密码输入不一致');
+                            this.$message({
+                                message: '两次密码输入不一致',
+                                type: 'warning'
+                            });
                         }
                     }
                 }
@@ -361,14 +403,42 @@ export default{
             }
         },
         passwordyes:function(){
-            if(this.isone==true||this.istwo==true){
+            if(this.password==''||this.passwordA==''){
+                if(this.password==''){
+                    this.isone = true;
+                    this.$message({
+                        message: '请输入新密码',
+                        type: 'warning'
+                    });
+                }
+                if(this.passwordA==''){
+                    this.istwo = true;
+                    this.$message({
+                        message: '请再次输入新密码',
+                        type: 'warning'
+                    });
+                }
+            }else if(this.isone==true||this.istwo==true){
                 if(this.isone==true){
                     this.isone = true;
-                    this.$message.error('请输入新密码');
+                    this.$message({
+                        message: '请输入新密码',
+                        type: 'warning'
+                    });
                 }
                 if(this.istwo==true){
                     this.istwo = true;
-                    this.$message.error('请再次输入密码');
+                    if(this.passwordA==''){
+                        this.$message({
+                            message: '请再次输入密码',
+                            type: 'warning'
+                        });
+                    }else{
+                        this.$message({
+                            message: '两次密码输入不一致',
+                            type: 'warning'
+                        });
+                    }                    
                 }
             }else{
                 let obj = {

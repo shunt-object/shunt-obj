@@ -136,7 +136,7 @@ export default{
                         if(sessionStorage.getItem("accountId")){
                             this.$router.push({path:'/consolePage'}); 
                         }
-                    }else if(res.data.code=='0'){
+                    }else if(res.data.code=='0'){//用户名或密码不正确
                         this.isaccount=true;
                         this.ishave=true;
                         this.accountText = '用户名不正确';

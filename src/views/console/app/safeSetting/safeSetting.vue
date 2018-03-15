@@ -13,7 +13,7 @@
             密码设置：
         </span>
         <span class="accountInfor-list-val">******</span>
-        <router-link target="_blank" to="/forgetPassword" style="margin-left:80px;color:#2eabf5;">
+        <router-link target="_blank" to="/forgetPassword?forget=1" style="margin-left:80px;color:#2eabf5;">
             <span class="account-icon-edit"><i class="iconfont icon-bianji"></i></span>修改密码
         </router-link>
     </div>

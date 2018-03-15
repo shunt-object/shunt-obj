@@ -135,7 +135,7 @@ export default{
                             color: '#999'
                         }
                     },
-                    formatter: '采集数据: {c1}'
+                    //formatter: '采集数据: {c1}'
                 },
                 legend: {
                     data: ['采集数据'],

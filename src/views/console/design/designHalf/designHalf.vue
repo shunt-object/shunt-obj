@@ -321,7 +321,7 @@
 import '../designHalf/designHalf.css';
 export default{
     name:'designHalf',
-    props:["type","id"],
+    props:["type","id","appG","appD","dbG","dbD"],
     data(){
         return {
             appointCloud:false,//是否显示云厂商下拉框
@@ -367,6 +367,7 @@ export default{
                 month:'12',
                 paymentType:'1',
                 regions:[],
+                designIds:[],
                 serverId:'1'
             },
             priceClould:[],
@@ -383,6 +384,7 @@ export default{
         // this.appId = '542';
         // this.lookobj.appid = '542';
         this.getRegion(-1);
+        console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
         selectClould:function(id){//1=多云厂商  0=指定云厂商
@@ -461,6 +463,8 @@ export default{
             }            
         },
         lookPrice:function(){
+            let arr = this.appG.concat(this.appD).concat(this.dbG).concat(this.dbD);
+            this.lookobj.designIds = arr;
             this.priceClould = [];
             this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
                 // console.log('----',response);     
@@ -501,9 +505,10 @@ export default{
             }
         },
         whole:function(){
-            this.sumprice = 0;
+            //this.sumprice = 0;
             console.log(this.allselect);
             if(this.allselect==false){
+                this.sumprice = 0;
                 for(let i=0;i<this.priceClould.length;i++){
                     this.priceClould[i].model = true;
                     this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;

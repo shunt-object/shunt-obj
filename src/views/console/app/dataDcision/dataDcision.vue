@@ -554,7 +554,7 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
-                    interval:20,
+                    interval:10,
                     axisLabel: {
                         interval:20,
                     },
@@ -582,7 +582,7 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
-                    interval:20,
+                    interval:10,
                     axisLabel: {
                         //formatter: '{value}'
                     },
@@ -631,7 +631,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 20,
+                    symbolSize: 10,
                     markLine: {
                         lineStyle: {
                             normal: {

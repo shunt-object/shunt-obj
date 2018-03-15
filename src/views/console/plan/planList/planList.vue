@@ -1,8 +1,8 @@
 <template>
 <div class="total">
 <div class="total-header">
-    <span></span>
-    云规划
+    <span></span>    
+    <p class="zong">云规划</p>
 </div>       
 <div class="CRe row planList" >
     <div class="palnList-search">
@@ -32,7 +32,7 @@
                 低
             </div>
         </div>
-        <div class="result-echarts" id="main"></div>
+        <div class="planlist-echarts" id="main"></div>
     </div>
     <!-- 有数据 -->
     <table id="example" class="table table-striped table-bordered planlist-table" border="1">
@@ -73,6 +73,10 @@
 </template>
 
 <style>
+.planlist-echarts{
+    width:100%;
+    height:600px;
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -422,6 +426,7 @@ export default {
                 name: '云收益度',
                 type: 'value',
                 scale: true,
+                interval:10,
                 min:0,
                 max:100,
                 axisLabel: {
@@ -445,8 +450,9 @@ export default {
                 scale: true,
                 min:0,
                 max:100,
+                interval:10,
                 axisLabel: {
-                    interval:20
+                    interval:5
                 },
                 splitLine: {
                     show: false
@@ -463,7 +469,7 @@ export default {
             series: [{
                 type: 'scatter',
                 data: this.opiniondata,
-                symbolSize: 20,
+                symbolSize: 10,
                 markLine: {
                     lineStyle: {
                         normal: {

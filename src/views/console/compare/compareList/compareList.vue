@@ -3,7 +3,7 @@
 <!-- 公共的样式 -->
 <div class="total-header">
     <span></span>
-    云选型
+    <p class="zong">云选型</p>
 </div>
     <div class="compareList">
         <div class="compareList-search">

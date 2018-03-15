@@ -1,193 +1,205 @@
 <template>
-    <div class="total">
-            <div class="total-header">
-                <span></span>
-                云设计
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <p class="zong">云设计</p>
+</div>
+<sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
+<div class="designHeader">
+    <div class="designTop">
+        <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:14px"></i>&nbsp&nbsp推荐配置</h2>
+        <div class="designTab">
+            <p>
+                <span v-on:click="yyClick"><a class="designTaba">应用服务</a></span>
+                <span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span>
+                <!--<span v-on:click="wlClick"><a class="designTaba">网络服务</a></span>
+                <span v-on:click="ccClick"><a class="designTaba">存储服务</a></span>
+                <span v-on:click="cdnClick"><a class="designTaba">CDN</a></span>-->
+                <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
+                <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
+                <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span>
+            </p>
+        </div>
+        <div class="designTabj" v-show="digaopei">
+            <p style="width:200px;">
+                <span v-on:click="dipeis" style="float:right;">低配</span>
+                <span v-on:click="gaopeis">高配</span>
+            </p>
+        </div>
+        <div class="designConfig" v-show="yyshow">
+            <div style="margin:0 30px 0 30px;" >
+                <table class="table table-bordered">
+                    <thead class="row">
+                        <tr>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
+                            <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height:110px" v-for="(dat,index) in dats">
+                            <td class="ds" style="line-height:110px">
+                                <input type="checkbox" v-model="dat.boolean" v-on:click="clickCheck(index)">
+                            </td>
+                            <td class="ds" style="line-height:110px">应用服务</td>
+                            <td class="ds" style="line-height:110px">{{dat.data.num}}</td>
+                            <td>
+                                <ul class="row" >
+                                    <li style="margin-top:40px"><span class="col-md-3 ys">{{dat.data.cpu}}</span><span class="col-md-3 ys">{{dat.data.ram}}</span><span class="col-md-3 ys">{{dat.data.localDisk}}</span><span  class="col-md-3 ys">{{dat.data.osType.name}}</span> 
+                                    <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
+                                </ul>
+                            </td>
+                            <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.data.id,index,dat.data.typeLevel,dat.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
             </div>
-            <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
-            <div class="designHeader">
-                <div class="designTop">
-                    <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:14px"></i>&nbsp&nbsp推荐配置</h2>
-                    <div class="designTab">
-                        <p>
-                            <span v-on:click="yyClick"><a class="designTaba">应用服务</a></span>
-                            <span v-on:click="sjClick"><a class="designTaba">数据库服务</a></span>
-                            <!--<span v-on:click="wlClick"><a class="designTaba">网络服务</a></span>
-                            <span v-on:click="ccClick"><a class="designTaba">存储服务</a></span>
-                            <span v-on:click="cdnClick"><a class="designTaba">CDN</a></span>-->
-                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">网络服务</button></span>
-                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">存储服务</button></span>
-                            <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span>
-                        </p>
-                    </div>
-                    <div class="designTabj" v-show="digaopei">
-                        <p style="width:200px;">
-                            <span v-on:click="dipeis" style="float:right;">低配</span>
-                            <span v-on:click="gaopeis">高配</span>
-                        </p>
-                    </div>
-                    <div class="designConfig" v-show="yyshow" v-for="(dat,index) in dats">
-                        <div style="margin:0 30px 0 30px;" >
-                            <table class="table table-bordered">
-                                <thead class="row">
-                                    <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
-                                        <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                                        <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
-                                        <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:110px">
-                                        <td class="ds" style="line-height:110px">应用服务</td>
-                                        <td class="ds" style="line-height:110px">{{dat.num}}</td>
-                                        <td>
-                                            <ul class="row" >
-                                                <li style="margin-top:40px"><span class="col-md-3 ys">{{dat.cpu}}</span><span class="col-md-3 ys">{{dat.ram}}</span><span class="col-md-3 ys">{{dat.localDisk}}</span><span  class="col-md-3 ys">{{dat.osType.name}}</span> 
-                                                <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
-                                            </ul>
-                                        </td>
-                                        <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.id,index,dat.typeLevel,dat.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="designConfig" v-show="sjshow" v-for="(dati,index) in datis">
-                        <div style="margin:0 30px 0 30px;">
-                            <table class="table table-bordered">
-                                <thead class="row">
-                                    <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
-                                        <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                                        <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
-                                        <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:110px">
-                                        <td class="ds" style="line-height:110px">数据库服务</td>
-                                        <td class="ds" style="line-height:110px">{{dati.num}}</td>
-                                        <td>
-                                            <ul class="row" >
-                                                <li style="margin-top:20px"><span class="col-md-6 ys">{{dati.cpu}}</span><span class="col-md-6 ys">{{dati.ram}}</span></li>
-                                                <li><span class="col-md-6 ds">( v ) CPU</span><span class="col-md-6 ds">内存</br> ( GB )</span></li>
-                                                <li><span class="col-md-6 ys">{{dati.localDisk}}</span><span class="col-md-6 ys">{{dati.osType.name}}</span><!--<span class="col-md-4 ys">{{}}</span>--></li>
-                                                <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>
-                                            </ul>
-                                        </td>
-                                        <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.id,index,dati.typeLevel,dati.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="designConfig" v-show="wlshow">
-                        <div style="margin:0 30px 0 30px;">
-                            <table class="table table-bordered">
-                                <thead class="row">
-                                    <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
-                                        <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
-                                        <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
-                                        <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:110px">
-                                        <td class="ds" style="line-height:110px">网络服务</td>
-                                        <!--<td class="ds" style="line-height:110px">2</td>-->
-                                        <td>
-                                            <ul class="row" >
-                                                <li style="margin-top:40px"><span class="col-md-4 ys">{{this.zong}}</span><span class="col-md-4 ys">{{this.jin}}</span><span class="col-md-4 ys">{{this.chu}}</span></li>
-                                                <li><span class="col-md-4 ds">总量（Mbps/月）</span><span class="col-md-4 ds">入站（Mbsp/月）</span><span class="col-md-4 ds">出站（Mbsp/月）</span></li>
-                                            </ul>
-                                        </td>
-                                        <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="designConfig" v-show="ccshow" v-for=" sto in data.storage">
-                        <div style="margin:0 30px 0 30px;">
-                            <table class="table table-bordered">
-                                <thead class="row">
-                                    <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
-                                        <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                                        <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
-                                        <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:110px">
-                                        <td class="ds" style="line-height:110px">存储服务</td>
-                                        <td class="ds" style="line-height:110px">{{sto.num}}</td>
-                                        <td>
-                                            <ul class="row" >
-                                                <li style="margin-top:40px">
-                                                    <span class="col-md-4 ys" v-if="sto.sna==undefined||sto.sna==''">--</span><span class="col-md-4 ys" v-else>{{sto.sna}}</span>
-                                                    <span class="col-md-4 ys" v-if="sto.nsa==undefined||sto.nsa==''">--</span><span class="col-md-4 ys" v-else>{{sto.nsa}}</span>
-                                                    <span class="col-md-4 ys" v-if="sto.cloudStorage==undefined||sto.cloudStorage==''">--</span><span class="col-md-4 ys" v-else>{{sto.cloudStorage}}</span>
-                                                </li>
-                                                <li><span class="col-md-4 ds">共享存储（SAN）（GB）</span><span class="col-md-4 ds">网络存储（SAN）（GB）</span><span class="col-md-4 ds">（<span v-if="sto.cse==undefined||sto.cse==''">--</span><span class="ys" v-else>{{sto.cse.name}}</span>）云存储</br>( GB )</span></li>
-                                            </ul>
-                                        </td>
-                                        <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="designConfig" v-show="cdnshow" v-for=" stos in data.cdns">
-                        <div style="margin:0 30px 0 30px;">
-                            <table class="table table-bordered">
-                                <thead class="row">
-                                    <tr>
-                                        <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
-                                        <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
-                                        <th class="text-center col-md-6 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
-                                        <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:110px">
-                                        <td class="ds" style="line-height:110px">CDN</td>
-                                        <!--<td class="ds" style="line-height:110px">2</td>-->
-                                        <td>
-                                            <ul class="row" >
-                                                <li style="margin-top:40px">
-                                                    <span class="col-md-4 ys">{{stos.bandwidth}}</span><span class="col-md-4 ys">{{stos.cse.name}}</span>
-                                                    <span class="col-md-4 ys" v-if=""></span><span class="col-md-4 ys">1</span></li>
-                                                <li><span class="col-md-4 ds">流量（GB）</span><span class="col-md-4 ds">云厂商</span><span class="col-md-4 ds">购买起止时间</span></li>
-                                            </ul>
-                                        </td>
-                                        <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="designConfig" v-show="sjshow">
+            <div style="margin:0 30px 0 30px;">
+                <table class="table table-bordered">
+                    <thead class="row">
+                        <tr>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb">
+                                <input type="checkbox" v-model="dbserall" v-on:click="dbWhole()">价格优选
+                            </th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
+                            <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height:110px" v-for="(dati,index) in datis">
+                            <td class="ds" style="line-height:110px">
+                                <input type="checkbox" v-model="dati.boolean" v-on:click="checkDB(index)">
+                            </td>
+                            <td class="ds" style="line-height:110px">数据库服务</td>
+                            <td class="ds" style="line-height:110px">{{dati.data.num}}</td>
+                            <td>
+                                <ul class="row" >
+                                    <li style="margin-top:20px"><span class="col-md-6 ys">{{dati.data.cpu}}</span><span class="col-md-6 ys">{{dati.data.ram}}</span></li>
+                                    <li><span class="col-md-6 ds">( v ) CPU</span><span class="col-md-6 ds">内存</br> ( GB )</span></li>
+                                    <li><span class="col-md-6 ys">{{dati.data.localDisk}}</span><span class="col-md-6 ys">{{dati.data.osType.name}}</span><!--<span class="col-md-4 ys">{{}}</span>--></li>
+                                    <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>
+                                </ul>
+                            </td>
+                            <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.data.id,index,dati.data.typeLevel,dati.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
             </div>
-            <designHalf :type="$route.query.type" :id="$route.query.id"></designHalf>
-            
-    <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-           <!-- <el-form-item label="角色" :label-width="formLabelWidth">
-                <el-select v-model="regionter" placeholder="请选择角色">
-                    <el-option label="应用服务" value="server"></el-option>
-                    <el-option label="数据库服务" value="db"></el-option>
-                </el-select>
-            </el-form-item>>-->
-
-         <div class="yibazi" v-if="regionter=='server'" >
+        </div>
+        <div class="designConfig" v-show="wlshow">
+            <div style="margin:0 30px 0 30px;">
+                <table class="table table-bordered">
+                    <thead class="row">
+                        <tr>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
+                            <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height:110px">
+                            <td class="ds" style="line-height:110px">网络服务</td>
+                            <!--<td class="ds" style="line-height:110px">2</td>-->
+                            <td>
+                                <ul class="row" >
+                                    <li style="margin-top:40px"><span class="col-md-4 ys">{{this.zong}}</span><span class="col-md-4 ys">{{this.jin}}</span><span class="col-md-4 ys">{{this.chu}}</span></li>
+                                    <li><span class="col-md-4 ds">总量（Mbps/月）</span><span class="col-md-4 ds">入站（Mbsp/月）</span><span class="col-md-4 ds">出站（Mbsp/月）</span></li>
+                                </ul>
+                            </td>
+                            <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="designConfig" v-show="ccshow">
+            <div style="margin:0 30px 0 30px;">
+                <table class="table table-bordered">
+                    <thead class="row">
+                        <tr>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
+                            <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height:110px" v-for=" sto in data.storage">
+                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px">存储服务</td>
+                            <td class="ds" style="line-height:110px">{{sto.num}}</td>
+                            <td>
+                                <ul class="row" >
+                                    <li style="margin-top:40px">
+                                        <span class="col-md-4 ys" v-if="sto.sna==undefined||sto.sna==''">--</span><span class="col-md-4 ys" v-else>{{sto.sna}}</span>
+                                        <span class="col-md-4 ys" v-if="sto.nsa==undefined||sto.nsa==''">--</span><span class="col-md-4 ys" v-else>{{sto.nsa}}</span>
+                                        <span class="col-md-4 ys" v-if="sto.cloudStorage==undefined||sto.cloudStorage==''">--</span><span class="col-md-4 ys" v-else>{{sto.cloudStorage}}</span>
+                                    </li>
+                                    <li><span class="col-md-4 ds">共享存储（SAN）（GB）</span><span class="col-md-4 ds">网络存储（SAN）（GB）</span><span class="col-md-4 ds">（<span v-if="sto.cse==undefined||sto.cse==''">--</span><span class="ys" v-else>{{sto.cse.name}}</span>）云存储</br>( GB )</span></li>
+                                </ul>
+                            </td>
+                            <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="designConfig" v-show="cdnshow">
+            <div style="margin:0 30px 0 30px;">
+                <table class="table table-bordered">
+                    <thead class="row">
+                        <tr>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
+                            <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height:110px" v-for=" stos in data.cdns">
+                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px">CDN</td>
+                            <!--<td class="ds" style="line-height:110px">2</td>-->
+                            <td>
+                                <ul class="row" >
+                                    <li style="margin-top:40px">
+                                        <span class="col-md-4 ys">{{stos.bandwidth}}</span><span class="col-md-4 ys">{{stos.cse.name}}</span>
+                                        <span class="col-md-4 ys" v-if=""></span><span class="col-md-4 ys">1</span></li>
+                                    <li><span class="col-md-4 ds">流量（GB）</span><span class="col-md-4 ds">云厂商</span><span class="col-md-4 ds">购买起止时间</span></li>
+                                </ul>
+                            </td>
+                            <td style="line-height:120px;color:#da121a;font-size:14px"><span><i></i>暂不可以修正</span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
+<el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
+    <el-form :model="form">
+        <!-- <el-form-item label="角色" :label-width="formLabelWidth">
+            <el-select v-model="regionter" placeholder="请选择角色">
+                <el-option label="应用服务" value="server"></el-option>
+                <el-option label="数据库服务" value="db"></el-option>
+            </el-select>
+        </el-form-item>>-->
+        <div class="yibazi" v-if="regionter=='server'" >
             <el-form :model="coresShj" :rules="rules" ref="coresShj" >
                 <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
                     <el-input auto-complete="off" v-model="coresShj.num" type="number" min="1"></el-input>
@@ -207,35 +219,35 @@
                     </el-select>
                 </el-form-item>
             </el-form>
-          </div>
-          <div class="yibazi" v-if="regionter=='db'" >
-                <el-form :model="inesShj" :rules="rules" ref="inesShj" >
-                    <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
-                        <el-input auto-complete="off" v-model="inesShj.num" type="number" min="1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
-                        <el-input  auto-complete="off" v-model="inesShj.cpu" type="number" min="1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
-                        <el-input  auto-complete="off" v-model="inesShj.ram" type="number" min="1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
-                        <el-input  auto-complete="off" v-model="inesShj.localDisk" type="number" min="1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
-                        <el-select placeholder="请选择"  v-model="inesShj.osType" >
-                            <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
-                        </el-select>
-                    </el-form-item>
-                 </el-form>  
-          </div>
-         </el-form>   
-         <div slot="footer" class="dialog-footer">
-            <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn ResourceGroup-lay-yes">确定</el-button> 
-            <el-button type="primary" @click="quxiao" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
         </div>
-   </el-dialog>
+        <div class="yibazi" v-if="regionter=='db'" >
+            <el-form :model="inesShj" :rules="rules" ref="inesShj" >
+                <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
+                    <el-input auto-complete="off" v-model="inesShj.num" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
+                    <el-input  auto-complete="off" v-model="inesShj.cpu" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                    <el-input  auto-complete="off" v-model="inesShj.ram" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                    <el-input  auto-complete="off" v-model="inesShj.localDisk" type="number" min="1"></el-input>
+                </el-form-item>
+                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                    <el-select placeholder="请选择"  v-model="inesShj.osType" >
+                        <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-form>  
+        </div>
+    </el-form>   
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="dialogFor()" class="enterDing ResourceGroup-lay-btn ResourceGroup-lay-yes">确定</el-button> 
+        <el-button type="primary" @click="quxiao" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
     </div>
+</el-dialog>
+</div>
 </template>
 <style>
 .table>thead>tr>th{
@@ -701,10 +713,111 @@ import designHalf from '../design/designHalf/designHalf'
                     rs:[],
                     regionter:"",
                     types:"",
-                    typesey:""
+                    typesey:"",
+                    appseverboo:[],
+                    checkIdappG:[],
+                    checkIdappD:[],
+                    checkIddbG:[],
+                    checkIddbD:[],
+                    appserall:false,
+                    dbserall:false,
                 }
             },
             methods:{
+                appWhole:function(){
+                    if(this.dipei==true){
+                        if(this.appserall==false){
+                            this.checkIdappD = [];
+                            this.commonall(this.checkIdappD,this.dats,true);
+                        }else{
+                            this.checkIdappD = [];
+                            this.commonall(this.checkIdappD,this.dats,false);
+                        }                        
+                    }else{
+                        if(this.appserall==false){
+                            this.checkIdappG = [];
+                            this.commonall(this.checkIdappG,this.dats,true);
+                        }else{
+                            this.checkIdappG = [];
+                            this.commonall(this.checkIdappG,this.dats,false);
+                        }     
+                    }
+                    //console.log(this.checkIdappG,'----',this.checkIdappD);
+                },
+                clickCheck:function(index){
+                    if(this.dipei==true){
+                        if(this.dats[index].boolean==false){
+                            this.checkIdappD.push(this.dats[index].data.id);
+                        }else{
+                            for(let i=0;i<this.checkIdappD.length;i++){
+                                if(this.checkIdappD[i]==this.dats[index].data.id){
+                                    this.checkIdappD.splice(i,1);
+                                }
+                            }
+                        }
+                    }else{
+                        if(this.dats[index].boolean==false){
+                            this.checkIdappG.push(this.dats[index].data.id);
+                        }else{
+                            for(let i=0;i<this.checkIdappG.length;i++){
+                                if(this.checkIdappG[i]==this.dats[index].data.id){
+                                    this.checkIdappG.splice(i,1);
+                                }
+                            }
+                        }
+                    }
+                },
+                checkDB:function(index){
+                    if(this.dipei==true){
+                        if(this.datis[index].boolean==false){
+                            this.checkIddbD.push(this.datis[index].data.id);
+                        }else{
+                            for(let i=0;i<this.checkIddbD.length;i++){
+                                if(this.checkIddbD[i]==this.datis[index].data.id){
+                                    this.checkIddbD.splice(i,1);
+                                }
+                            }
+                        }
+                    }else{
+                        if(this.datis[index].boolean==false){
+                            this.checkIddbG.push(this.datis[index].data.id);
+                        }else{
+                            for(let i=0;i<this.checkIddbG.length;i++){
+                                if(this.checkIddbG[i]==this.datis[index].data.id){
+                                    this.checkIddbG.splice(i,1);
+                                }
+                            }
+                        }
+                    }
+                },
+                dbWhole:function(){
+                    if(this.dipei==true){
+                        if(this.dbserall==false){
+                            this.checkIddbD = [];
+                            this.commonall(this.checkIddbD,this.datis,true);
+                        }else{
+                            this.checkIddbD = [];
+                            this.commonall(this.checkIddbD,this.datis,false);
+                        }                        
+                    }else{
+                        if(this.dbserall==false){
+                            this.checkIddbG = [];
+                            this.commonall(this.checkIddbG,this.datis,true);
+                        }else{
+                            this.checkIddbG = [];
+                            this.commonall(this.checkIddbG,this.datis,false);
+                        }     
+                    }
+                    //console.log(this.checkIddbG,'-----',this.checkIddbD);
+                },
+                commonall:function(arr,list,boolean){
+                    for(let i=0;i<list.length;i++){
+                        list[i].boolean = boolean;
+                        if(boolean==true){
+                            arr.push(list[i].data.id);
+                        }                        
+                    }
+                },
                yyClick:function(){
                    this.sjshow=false;
                    this.wlshow=false;
@@ -765,10 +878,10 @@ import designHalf from '../design/designHalf/designHalf'
                     this.types = type;
                     this.ids = id;
                     if(levelType==17){  //17高配
-                         this.coresShj = this.dats[index];
+                         this.coresShj = this.dats[index].data;
                          this.typesey = 17;
                     }else if(levelType==18){
-                        this.coresShj = this.dats[index];
+                        this.coresShj = this.dats[index].data;
                          this.typesey = 18;
                     }
                    
@@ -780,10 +893,10 @@ import designHalf from '../design/designHalf/designHalf'
                     this.types = type;
                     this.ids = id;
                     if(levelType==17){
-                         this.inesShj = this.datis[index];
+                         this.inesShj = this.datis[index].data;
                          this.typesey = 17;  
                     }else if(levelType==18){
-                        this.inesShj = this.datis[index];
+                        this.inesShj = this.datis[index].data;
                          this.typesey = 18;
                     }
                },
@@ -873,13 +986,13 @@ import designHalf from '../design/designHalf/designHalf'
                                 "type":this.types,
                                 "typeLevel": this.typesey
                             }
-                             console.log(objs)
+                             //console.log(objs)
                              this.$this.post("broker/design/update/vm",objs).then((spones)=>{
                                     this.index = 2;
                                     this.gaopeis();
                                     this.dialogFormVisible = false;
                             },(err)=>{
-                                    console.log("不好意思")
+                                    //console.log("不好意思")
                             })
                         }
                            }else {
@@ -901,23 +1014,32 @@ import designHalf from '../design/designHalf/designHalf'
                     })
                },
                dipeis:function(){
-                   
+                   this.appserall = false;
+                   this.dbserall = false;
                     this.gaopei = false;
                     this.dipei = true;
                     
                     if(this.index == 1){
+                        this.dats = [];
                           this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
-                                  this.dats = ris.data.data;
-                                  console.log(this.dats)
+                                  //this.dats = ris.data.data;
+                                for(let i=0;i<ris.data.data.length;i++){
+                                    this.dats.push({data:ris.data.data[i],boolean:false});
+                                }
+                                  //console.log(this.dats)
                                   this.yyshow=true;
                           },(err)=>{
                               console.log("不好意思")    
                           });  
                    }else if(this.index == 2){
+                       this.datis = [];
                        this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
-                                  this.datis = ros.data.data;
+                                  //this.datis = ros.data.data;
+                                  for(let i=0;i<ros.data.data.length;i++){
+                                        this.datis.push({data:ros.data.data[i],boolean:false});
+                                    }
                                   this.sjshow=true;
-                                  console.log(this.datis)
+                                  //console.log(this.datis)
                           },(err)=>{
                               console.log("不好意思")    
                           });  
@@ -926,21 +1048,31 @@ import designHalf from '../design/designHalf/designHalf'
                },
              
                gaopeis:function(){
+                   this.appserall = false;
+                   this.dbserall = false;
                    this.gaopei = true;
                    this.dipei = false;
                    if(this.index == 1){  //index =1 是应用服务  =2是数据库服务
+                        this.dats = [];
                        this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
-                              this.dats = ris.data.data;
-                              this.yyshow=true;
-                              console.log(this.dats)
+                            //this.dats = ris.data.data;
+                            for(let i=0;i<ris.data.data.length;i++){
+                                this.dats.push({data:ris.data.data[i],boolean:false});
+                            }
+                            this.yyshow=true;
+                            //console.log(this.dats)
                     },(err)=>{
                               console.log("不好意思")    
                       });  
                    }else if(this.index == 2){
+                       this.datis = [];
                        this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
-                                  this.datis = ros.data.data;
-                                  this.sjshow=true;
-                                  console.log(this.datis)
+                            //this.datis = ros.data.data;
+                            for(let i=0;i<ros.data.data.length;i++){
+                                this.datis.push({data:ros.data.data[i],boolean:false});
+                            }
+                            this.sjshow=true;
+                            //console.log(this.datis)
                        },(err)=>{
                               console.log("不好意思")    
                        });  
@@ -974,7 +1106,7 @@ import designHalf from '../design/designHalf/designHalf'
                                       this.chu =  this.data.network.outbound; 
                                       this.zong=this.jin+this.chu;
                                   }
-                                  console.log(this.data)
+                                  //console.log(this.data)
                                   if(this.data.storage == []){
                                       return false;
                                   }
