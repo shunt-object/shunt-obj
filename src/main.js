@@ -21,7 +21,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 
 
-
 Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
 axios.defaults.withCredentials=true;

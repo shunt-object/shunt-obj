@@ -93,7 +93,7 @@
                      <div class="callme">
                         <div class="container">
                             <div class="callme-call" style=";margin-top:70px">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span><span @click="wuxiHover" class="mospan" id="wxs">无锡办公室</span></div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span @click="wuxiHover" class="moren" id="wxs">无锡办公室</span><span v-on:click="beijingHover()" class="mospan" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -340,8 +340,8 @@
         data(){
             return {
                Ais:false,
-               Sis:false,
-               Asd:true,
+               Sis:true,
+               Asd:false,
                phoneBox:false
             }
         },
