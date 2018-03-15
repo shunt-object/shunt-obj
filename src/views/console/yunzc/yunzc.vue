@@ -26,10 +26,22 @@
                         <td>{{re.username}}</td>
                         <td>{{re.realname}}</td>
                         <td>{{re.tenant}}</td>
-                        <td v-if="re.province==null">--/{{re.city.city}}/{{re.area.area}}</td>
+
+
+                        <td class="text-center" >
+                            <tr>
+                                <td v-if="re.province==null"  style="padding-left:25px !important">--</td>
+                                <td v-else  style="padding-left:25px !important">{{re.province.province}}</td>
+                                <td v-if="re.city==null" style="padding-left:25px !important">--</td>
+                                <td v-else style="padding-left:25px !important">{{re.city.city}}</td>
+                                <td v-if="re.area==null" style="padding-left:25px !important">--</td>
+                                <td v-else style="padding-left:25px !important">{{re.area.area}}</td>
+                            </tr>
+                        </td>
+                        <!--<td v-if="re.province==null&&re.city!==null&&">--/{{re.city.city}}/{{re.area.area}}</td>
                         <td v-else-if="re.city==null">{{re.province.province}}/--/{{re.area.area}}</td>
                         <td v-else-if="re.area==null">{{re.province.province}}/{{re.city.city}}/--</td>
-                        <td v-else>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>
+                        <td v-else>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>-->
                         <td v-if="re.industryStr==null">未填写</td>
                         <td v-else>{{re.industryStr.name}}</td>
                         <td v-if="re.phone==null">未填写</td>
@@ -104,6 +116,7 @@ import "../plan/planList/datatable.css";
      updated:function(){
         
                 $(document).ready(function(){
+                   
                         $.noConflict();
                     $("#tabelId").dataTable().fnDestroy();
                         $('#tabelId').DataTable({
