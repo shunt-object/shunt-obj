@@ -26,10 +26,14 @@
                         <td>{{re.username}}</td>
                         <td>{{re.realname}}</td>
                         <td>{{re.tenant}}</td>
-                        <td>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>
+                        <td v-if="re.province==null">--/{{re.city.city}}/{{re.area.area}}</td>
+                        <td v-else-if="re.city==null">{{re.province.province}}/--/{{re.area.area}}</td>
+                        <td v-else-if="re.area==null">{{re.province.province}}/{{re.city.city}}/--</td>
+                        <td v-else>{{re.province.province}}/{{re.city.city}}/{{re.area.area}}</td>
                         <td v-if="re.industryStr==null">未填写</td>
-                        <td>{{re.industryStr.name}}</td>
+                        <td v-else>{{re.industryStr.name}}</td>
                         <td v-if="re.phone==null">未填写</td>
+                        <td v-else-if="re.phone==''">未填写</td>
                         <td v-else>{{re.phone}}</td>
                         <td v-if="re.email==null">未填写</td>
                         <td v-else>{{re.email}}</td>
@@ -149,12 +153,13 @@ import "../plan/planList/datatable.css";
   },
          created:function(){
              this.$this.get('/broker/admin/user/list').then((respone)=>{
-              this.responers = respone.data.data
-               for(var i=0;i<this.responers.length;i++){
-                    for(var j=0;j<this.responers[i].industryStr.length;j++){
-                        console.log(this.responers[i].industryStr[j].name)
-                    }
-               }
+              this.responers = respone.data.data;
+              console.log(this.responers)
+            //    for(var i=0;i<this.responers.length;i++){
+            //         for(var j=0;j<this.responers[i].industryStr.length;j++){
+            //             console.log(this.responers[i].industryStr[j].name)
+            //         }
+            //    }
             }).catch((error)=>{
             })
          },
