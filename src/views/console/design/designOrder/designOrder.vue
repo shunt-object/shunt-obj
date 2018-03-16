@@ -60,10 +60,13 @@
         </div>
     </div>
 </div>
-<div class="designOrder-sum-price">
-    价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
-    <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
-</div>
+
+    <div class="designOrder-sum-price">
+        价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
+        <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
+    </div>
+
+
 <!--<div class="designOrder-touch">
     <div class="designOrder-touch-box">
         <p class="designOrder-touch-list">联系我们：400-828-7308</p>

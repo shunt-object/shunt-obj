@@ -59,13 +59,16 @@
         </div>
     </div>
 </div>
-<div class="designOrder-sum-price">
-    价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
-    <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
+<div class="designOrder-fixed">
+    <div class="designOrder-sum-price">
+        价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
+        <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
+    </div>
 </div>
 </div>
 </template>
 <script>
+import '../orderlist/orderlist.css';
 export default{
     name:'orderlist',
     data(){
