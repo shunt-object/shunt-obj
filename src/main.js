@@ -151,6 +151,9 @@ axios.interceptors.response.use(
 Vue.prototype.logout = function(){
     this.$this.get('/broker/auth/logout').then((response)=>{
         if(response.data.code=='1'){
+            sessionStorage.removeItem("utype");
+            sessionStorage.removeItem("accountId");
+            sessionStorage.removeItem("account");
             sessionStorage.clear();
             localStorage.removeItem("as");
             this.$router.push({path:'/'});

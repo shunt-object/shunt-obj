@@ -7,7 +7,7 @@
 <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
 <div class="designHeader">
     <div class="designTop">
-        <h2><i class="iconfont icon-xitongpeizhi" style="color:#da121a;font-size:14px"></i>&nbsp&nbsp推荐配置</h2>
+        <h2><i class="iconfont icon-xitongpeizhi main-color" style="color:#da121a;font-size:14px"></i>推荐配置</h2>
         <div class="designTab">
             <p>
                 <span v-on:click="yyClick"><a class="designTaba">应用服务</a></span>

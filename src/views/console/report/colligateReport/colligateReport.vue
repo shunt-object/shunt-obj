@@ -22,7 +22,7 @@
                 <!-- 基本信息 -->
                 <div class="colligate-title">
                    <!--<img src="../../../../assets/report/report-information.png" alt="">-->
-                    <i class="iconfont icon-jibenxinxi" style="color:#da121a"></i>基本信息
+                    <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>基本信息
                 </div>
 
                 <div class="colligate-list">
@@ -55,7 +55,7 @@
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
-                    <i class="iconfont icon-zengshoushuju" style="color:#da121a"></i>云规划报告详情
+                    <i class="iconfont icon-zengshoushuju main-color" style="color:#da121a"></i>云规划报告详情
                 </div>
                 <div class="colligate-list">
                     <div class="legend-box">
@@ -618,7 +618,35 @@ export default{
                             width: 1
                         }                        
                     },
-                    formatter:this.opiniondata[0].name+'：'+this.opiniondata[0].value[0]+'，'+this.opiniondata[0].value[1]
+                    formatter: function(obj) {
+                        if (obj.componentType == "series") {
+                            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' +
+                                obj.name +
+                                '</div>' +
+                                '<span>' +
+                                '云亲和度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[0]  +
+                                '<br/>' +
+                                '<span>' +
+                                '云收益度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[1] 
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: function(params) {
+                            return params.name
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        position: 'bottom',
+                    }
                 },
                 xAxis: {
                     name: '云收益度',
@@ -665,7 +693,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 20,
+                    symbolSize: 10,
                     markLine: {
                         lineStyle: {
                             normal: {

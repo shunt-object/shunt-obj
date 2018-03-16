@@ -8,13 +8,13 @@
 </div>
 <child index="5" start="4" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="designOrder-box">
-    <div class="designOrder-title"><span>全部商品</span></div>
+    <div class="designOrder-title"><span>全部商品&nbsp;&nbsp;{{orderlist.length}}</span></div>
     <div class="designOrder-list" v-for="(item,index) in orderlist">
         <div class="designOrder-list-head">
             <p class="designOrder-list-name">
                 <input type="checkbox" v-model="item.model" v-on:click="select(index)">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':''}}
             </p>
-            <p class="designOrder-list-del" v-on:click="del(item.data.id)">删除订单</p>
+            <p class="designOrder-list-del" v-on:click="del(item.data.id)"><i class="iconfont icon-shanchu main-color"></i>删除订单</p>
         </div>
         <table class="designOrder-list-table">
             <thead>

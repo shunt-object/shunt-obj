@@ -2,7 +2,7 @@
 <div class="designHalf-price">
     <div class="designHalf-select">
         <div class="designHalf-price-title">
-            <span style="color:#da121a;margin-right:5px;"><i class="iconfont icon-jiagechaxun"></i></span>价格优选
+            <span style="color:#da121a;"><i class="iconfont icon-jiagechaxun main-color"></i></span>价格优选
         </div>
         <div class="designHalf-price-tab row">
             <div class="col-md-1"></div>    
@@ -14,7 +14,7 @@
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1">
-                <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-yunduan"></i></span>云厂商
+                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-yunduan"></i></span>云厂商
             </div>
             <div class="designHalf-price-list-select col-md-11">
                 <select class="clould-company">
@@ -25,7 +25,7 @@
         <div class="designHalf-price-list row">
             <div class="row">
                 <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                    <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-ditu"></i></span>区域
+                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-ditu"></i></span>区域
                 </div>
                 <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
                     <button class="designHalf-select-buytype" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
@@ -40,7 +40,7 @@
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-jifei"></i></span>购买方式
+                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-jifei"></i></span>购买方式
             </div>
             <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
                 <button class="designHalf-select-buytype" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
@@ -48,7 +48,7 @@
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
+                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
             </div>
             <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
                 <button class="designHalf-select-buytype" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
@@ -56,7 +56,7 @@
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:5px;"><i class="iconfont icon-14"></i></span>购买周期
+                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-14"></i></span>购买周期
             </div>
             <div class="designHalf-price-list-select col-md-11">
                 <div class="designHalf-price-buytime col-md-7" ><!--style="margin-left:0.7%;"-->

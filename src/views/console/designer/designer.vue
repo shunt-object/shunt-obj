@@ -5,7 +5,7 @@
             </div>
             <div class="designHeader">
                 <div class="designTop">
-                    <h2><i class="iconfont icon-sheji" style="color:#da121a;font-size:16px"></i>&nbsp&nbsp云设计详情</h2>
+                    <h2><i class="iconfont icon-sheji main-color" style="color:#da121a;font-size:16px"></i>云设计详情</h2>
                     <div class="designTab">
                         <p>
                             <span v-on:click="yyclick"><a class="designTaba">应用服务</a></span>
@@ -49,7 +49,7 @@
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.cores}}</td>
                                      <td>{{dat.cpu}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" style="font-size:14px;" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
