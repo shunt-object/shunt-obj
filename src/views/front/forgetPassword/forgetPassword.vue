@@ -236,9 +236,15 @@ export default{
             let str = JSON.stringify(obj);
             this.$this.post('/broker/sms/send/code/forget',str).then((response)=>{
                 //console.log('----',response);
+                // this.$message({
+                //     message: '验证码已成功发送到您的手机，请注意查收。',
+                //     type: 'success'
+                // });
                 this.$message({
                     message: '验证码已成功发送到您的手机，请注意查收。',
-                    type: 'success'
+                    //type: 'success',
+                    customClass:'lay-msg',
+                    iconClass:'el-icon-success'
                 });
             }).catch((error)=>{
             })
@@ -285,9 +291,15 @@ export default{
                     this.isemailnum=true;
                 }else if(response.data.code==1){
                     this.isemailnum=false;
+                    // this.$message({
+                    //     message: '验证码已成功发送到您的邮箱，请注意查收。',
+                    //     type: 'success'
+                    // });
                     this.$message({
                         message: '验证码已成功发送到您的邮箱，请注意查收。',
-                        type: 'success'
+                        //type: 'success',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success'
                     });
                 }
             }).catch((error)=>{

@@ -26,6 +26,7 @@
                 <span v-on:click="gaopeis">高配</span>
             </p>
         </div>
+        <div class="design-notice">*您将负载添加到价格优选可生成价格列表</div>
         <div class="designConfig" v-show="yyshow">
             <div style="margin:0 30px 0 30px;" >
                 <table class="table table-bordered">
@@ -34,7 +35,7 @@
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
                             <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
                         </tr>
                     </thead>
@@ -68,7 +69,7 @@
                             </th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
                             <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
                         </tr>
                     </thead>
@@ -101,7 +102,7 @@
                         <tr>
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
-                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
                             <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
                         </tr>
                     </thead>
@@ -130,7 +131,7 @@
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
-                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
                             <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
                         </tr>
                     </thead>
@@ -164,7 +165,7 @@
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
-                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">配置信息</th>
+                            <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
                             <th class="text-center col-md-3 trds" style="border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">操作</th>
                         </tr>
                     </thead>
@@ -250,6 +251,13 @@
 </div>
 </template>
 <style>
+.design-notice{
+    text-align:left;
+    font-size:12px;
+    color:#da121a;
+    text-indent:33px;
+    margin-bottom:10px;
+}
 .table>thead>tr>th{
     border-bottom-width:0px !important;
 }
@@ -353,7 +361,7 @@
       border:1px solid  #c0c0c0;
   }
   .designTabj{
-      margin-bottom:50px;
+      margin-bottom:60px;
   }
   .ys{
       color:#da121a;
