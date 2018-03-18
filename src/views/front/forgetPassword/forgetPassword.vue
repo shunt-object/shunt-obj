@@ -22,9 +22,9 @@
                     <p class="move-title">重置密码</p>
                     <span class="move-line" :class="index>2?'line-act':'line-moren'"></span>
                 </div>
-                <div class="move-block w-8">
+                <div class="move-block w-15">
                     <span class="move-circle" :class="index>3?'cir-act':'cir-moren'">4</span>
-                    <p class="move-title text10">完成</p>
+                    <p class="move-title text5">完成</p>
                 </div>
             </div>
             <div class="forget-content">

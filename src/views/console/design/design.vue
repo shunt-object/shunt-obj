@@ -26,8 +26,8 @@
                 <span v-on:click="gaopeis">高配</span>
             </p>
         </div>
-        <div class="design-notice">*您将负载添加到价格优选可生成价格列表</div>
-        <div class="designConfig" v-show="yyshow">
+        <div class="design-notice" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
+        <div class="designConfig" v-if="yyshow==true&&dats.length>0">
             <div style="margin:0 30px 0 30px;" >
                 <table class="table table-bordered">
                     <thead class="row">
@@ -59,7 +59,7 @@
                 </table>
             </div>
         </div>
-        <div class="designConfig" v-show="sjshow">
+        <div class="designConfig" v-if="sjshow==true&&datis.length>0">
             <div style="margin:0 30px 0 30px;">
                 <table class="table table-bordered">
                     <thead class="row">
