@@ -7,18 +7,19 @@
         <div class="designHalf-price-tab row">
             <div class="col-md-1"></div>    
             <div class="col-md-11 designHalf-price-box">
+                <button class="designHalf-tab-btn" v-on:click="selectClould(0)" :class="style.appointelect!=true?'designHalf-active1':'designHalf-default'" >多云优选</button>
                 <button class="designHalf-tab-btn" v-on:click="selectClould(1)" :class="style.appointelect==true?'designHalf-active1':'designHalf-default'" >单云优选</button>
-                <button class="designHalf-tab-btn1" disabled>多云优选</button>
+                
                 <div class="clear"></div>
             </div>    
         </div>
-        <div class="designHalf-price-list row">
+        <div class="designHalf-price-list row" v-show="appointCloud">
             <div class="designHalf-price-list-title col-md-1">
                 <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-yunduan"></i></span>云厂商
             </div>
             <div class="designHalf-price-list-select col-md-11">
-                <select class="clould-company">
-                    <option>华为云</option>
+                <select class="clould-company" v-model="selectcompany" v-on:change="selectS()">
+                    <option v-for="item in clouldcompany" :value="item.id">{{item.name}}</option>
                 </select>
             </div>
         </div>
@@ -326,7 +327,7 @@ export default{
         return {
             appointCloud:false,//是否显示云厂商下拉框
             style:{
-                appointelect:true
+                appointelect:false
             },
             region:[],
             regiontwo:[],
@@ -360,6 +361,11 @@ export default{
                 {name:'10个月',month:10},
                 {name:'11个月',month:11}
             ],
+            clouldcompany:[
+                {id:'11',name:'华为云'},
+                {id:'10',name:'腾讯云'}
+            ],
+            selectcompany:'11',
             month:-1,
             lookobj:{
                 appid:'',
@@ -368,7 +374,7 @@ export default{
                 paymentType:'1',
                 regions:[],
                 designIds:[],
-                serverId:'1'
+                serverId:'-1'
             },
             priceClould:[],
             allselect:false,
@@ -387,15 +393,19 @@ export default{
         console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
-        selectClould:function(id){//1=多云厂商  0=指定云厂商
+        selectClould:function(id){//0=多云厂商  1=指定云厂商
             if(id==0){
                 this.style.appointelect = false;
-                this.appointCloud = true;
+                this.appointCloud = false;
+                this.lookobj.serverId = '-1';
             }else{
                 this.style.appointelect = true;
-                this.appointCloud = false;
+                this.appointCloud = true;
+                this.lookobj.serverId = this.selectcompany;
             }
-            this.lookobj.serverId = id;
+        },
+        selectS:function(){
+            this.lookobj.serverId = this.selectcompany;
         },
         getRegion:function(id){
             this.$http.get('/broker/price/region/'+id).then((response)=>{
