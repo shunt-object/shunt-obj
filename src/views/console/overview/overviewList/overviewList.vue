@@ -89,22 +89,22 @@
                     <span class="col-md-7 text-left col-xs-3">
                         <p class="rate ">
                             <a v-for="(im,index) in item.appResults" id="as" class="col-xs-7" style="position:relative;cursor:pointer" v-on:click="onm(im.moduleId,item.id,im.taskStatus)"  >
-                                <p class="ratelist " v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
+                                <p class="ratelist" style="margin-bottom:38px!important" v-if="im.moduleId==1" :class="im.taskStatus==2?'clould-ed':((im.taskStatus==1)?'clould-ing':'clould-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
-                                <p class="ratelist" v-if="im.moduleId==2" :class="im.taskStatus==2?'profit-ed':((im.taskStatus==1)?'profit-ing':'profit-null')" >
+                                <p class="ratelist" style="margin-bottom:38px!important"  v-if="im.moduleId==2" :class="im.taskStatus==2?'profit-ed':((im.taskStatus==1)?'profit-ing':'profit-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
-                                <p class="ratelist" v-if="im.moduleId==3" :class="im.taskStatus==2?'affine-ed':((im.taskStatus==1)?'affine-ing':'affine-null')" >
+                                <p class="ratelist" style="margin-bottom:38px!important"  v-if="im.moduleId==3" :class="im.taskStatus==2?'affine-ed':((im.taskStatus==1)?'affine-ing':'affine-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
-                                <p class="ratelist" v-if="im.moduleId==4" :class="im.taskStatus==2?'compare-ed':((im.taskStatus==1)?'compare-ing':'compare-null')" >
+                                <p class="ratelist" style="margin-bottom:38px!important"  v-if="im.moduleId==4" :class="im.taskStatus==2?'compare-ed':((im.taskStatus==1)?'compare-ing':'compare-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
-                                <p class="ratelist" v-if="im.moduleId==5" :class="im.taskStatus==2?'group-ed':((im.taskStatus==1)?'group-ing':'group-null')" >
+                                <p class="ratelist" style="margin-bottom:38px!important"  v-if="im.moduleId==5" :class="im.taskStatus==2?'group-ed':((im.taskStatus==1)?'group-ing':'group-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
-                                <p class="ratelist pMargin" v-if="im.moduleId==6" :class="im.taskStatus==2?'group-eder':((im.taskStatus==1)?'group-inger':'grouper-null')" >
+                                <p class="ratelist pMargin" style="margin-bottom:38px!important"  v-if="im.moduleId==6" :class="im.taskStatus==2?'group-eder':((im.taskStatus==1)?'group-inger':'grouper-null')" >
                                     <span>{{im.moduleName}}</span>
                                 </p>
                                 <span class="satatus" v-if="im.taskStatus==2">(已完成)</span>    
@@ -412,7 +412,7 @@ a:hover{
         height:70px;
     }
     .progress{
-     width:83%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 0 !important;
+     width:83%; margin:20px 0 0 0; height:6px !important; border-radius:10px; border:1px solid #e4e4e4; display:inline-block; margin:25px 0 0 21px !important;
 } 
     .jinDus{
         text-indent: 20%;
@@ -421,7 +421,7 @@ a:hover{
     padding-top:20px;
     }*/
 .ratelist span{
-    display: inline-block; padding-top:55px; color:#666666;
+    display: inline-block; padding-top:70px; color:#666666;
 }
 .pnormal{
     overflow: hidden;

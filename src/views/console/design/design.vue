@@ -20,13 +20,13 @@
                 <span><button class="designTaba notclick" disabled style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; ">CDN</button></span>
             </p>
         </div>
-        <div class="designTabj" v-show="digaopei">
-            <p style="width:200px;">
-                <span v-on:click="dipeis" style="float:right;">低配</span>
-                <span v-on:click="gaopeis">高配</span>
+        <div class="designTabj row" v-show="digaopei">
+            <p style="width:300px;margin-left:15px;" class="col-md-12">
+                <span v-on:click="dipeis" class="col-md-4">低配</span>
+                <span v-on:click="gaopeis" class="col-md-4"  style="margin-left:20px;">高配</span>
             </p>
         </div>
-        <div class="design-notice" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
+        <div class="design-notice col-md-12" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
         <div class="designConfig" v-if="yyshow==true&&dats.length>0">
             <div style="margin:0 30px 0 30px;" >
                 <table class="table table-bordered">
@@ -191,7 +191,12 @@
         </div>
     </div>
 </div>
-<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
+<designHalf v-show="haveSj" :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
+<div class="planList-nodata" v-show="noSj">
+        <img src="../../../assets/compare-nodata.png" alt="">
+        <br>
+        暂无数据
+</div>
 <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
     <el-form :model="form">
         <!-- <el-form-item label="角色" :label-width="formLabelWidth">
@@ -251,11 +256,17 @@
 </div>
 </template>
 <style>
+.planList-nodata{
+    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555;line-height:30px; text-align:center;
+}
+.planList-nodata img{
+    margin-top:200px;
+}
 .design-notice{
     text-align:left;
     font-size:12px;
     color:#da121a;
-    text-indent:33px;
+    text-indent:12px;
     margin-bottom:10px;
 }
 .table>thead>tr>th{
@@ -353,8 +364,8 @@
       height:150px;
    }
   .designTabj p span{
-      float:left;
-      margin-left:30px;
+      
+      
       font-size:12px;
       color:#c0c0c0;
       padding:5px 20px;
@@ -729,6 +740,8 @@ import designHalf from '../design/designHalf/designHalf'
                     checkIddbD:[],
                     appserall:false,
                     dbserall:false,
+                    haveSj:false,
+                    noSj:false
                 }
             },
             methods:{
@@ -1036,6 +1049,13 @@ import designHalf from '../design/designHalf/designHalf'
                                 }
                                   //console.log(this.dats)
                                   this.yyshow=true;
+                                 if(this.dats.length>0){
+                                        this.haveSj = true;
+                                        this.noSj = false;
+                                 }else{
+                                     this.noSj = true;
+                                     this.haveSj = false
+                                 }
                           },(err)=>{
                               console.log("不好意思")    
                           });  
@@ -1047,6 +1067,13 @@ import designHalf from '../design/designHalf/designHalf'
                                         this.datis.push({data:ros.data.data[i],boolean:false});
                                     }
                                   this.sjshow=true;
+                                  if(this.datis.length>0){
+                                        this.haveSj = true;
+                                        this.noSj = false;
+                                 }else{
+                                     this.noSj = true;
+                                     this.haveSj = false
+                                 }
                                   //console.log(this.datis)
                           },(err)=>{
                               console.log("不好意思")    
@@ -1068,6 +1095,13 @@ import designHalf from '../design/designHalf/designHalf'
                                 this.dats.push({data:ris.data.data[i],boolean:false});
                             }
                             this.yyshow=true;
+                            if(this.dats.length>0){
+                                        this.haveSj = true;
+                                        this.noSj = false;
+                                 }else{
+                                     this.noSj = true;
+                                     this.haveSj = false
+                                 }
                             //console.log(this.dats)
                     },(err)=>{
                               console.log("不好意思")    
@@ -1080,6 +1114,13 @@ import designHalf from '../design/designHalf/designHalf'
                                 this.datis.push({data:ros.data.data[i],boolean:false});
                             }
                             this.sjshow=true;
+                            if(this.datis.length>0){
+                                        this.haveSj = true;
+                                        this.noSj = false;
+                                 }else{
+                                     this.noSj = true;
+                                     this.haveSj = false
+                                 }
                             //console.log(this.datis)
                        },(err)=>{
                               console.log("不好意思")    

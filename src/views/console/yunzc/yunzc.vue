@@ -28,15 +28,15 @@
                         <td>{{re.tenant}}</td>
 
 
-                        <td class="text-center" >
-                            <tr>
-                                <td v-if="re.province==null"  style="padding-left:25px !important">--</td>
-                                <td v-else  style="padding-left:25px !important">{{re.province.province}}</td>
-                                <td v-if="re.city==null" style="padding-left:25px !important">--</td>
-                                <td v-else style="padding-left:25px !important">{{re.city.city}}</td>
-                                <td v-if="re.area==null" style="padding-left:25px !important">--</td>
-                                <td v-else style="padding-left:25px !important">{{re.area.area}}</td>
-                            </tr>
+                        <td >
+                            <ul class="el-kuser">
+                                <li v-if="re.province==null">--/</li>
+                                <li v-else  >{{re.province.province}}/</li>
+                                <li v-if="re.city==null" >--/</li>
+                                <li v-else >{{re.city.city}}/</li>
+                                <li v-if="re.area==null" >--</li>
+                                <li v-else >{{re.area.area}}</li>
+                            </ul>
                         </td>
                         <!--<td v-if="re.province==null&&re.city!==null&&">--/{{re.city.city}}/{{re.area.area}}</td>
                         <td v-else-if="re.city==null">{{re.province.province}}/--/{{re.area.area}}</td>
@@ -62,6 +62,13 @@
 <style>
     .btnDao:hover{
         cursor:pointer
+    }
+    .el-kuser li{
+        display:inline-block
+    }
+    .el-kuser{
+        margin:0 !important;
+        padding-left:0 !important
     }
     .dvsmain{
         background:#fff;
