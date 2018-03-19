@@ -78,6 +78,14 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="designHalf-app" style="width:100%;height:300px;"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="designHalf-db" style="width:100%;height:300px;"></div>
+        </div>
+    </div>
     <div class="designHalf-table" v-show="islook">
         <!-- 应用服务 -->
         <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
@@ -319,12 +327,14 @@
 </div>
 </template>
 <script>
+import echarts from 'echarts'
 import '../designHalf/designHalf.css';
 export default{
     name:'designHalf',
     props:["type","id","appG","appD","dbG","dbD"],
     data(){
         return {
+            charts:'',
             appointCloud:false,//是否显示云厂商下拉框
             style:{
                 appointelect:false
@@ -382,6 +392,10 @@ export default{
             islook:false,
             sumprice:0,
             num:0,
+            appEcharts:[],
+            dbEcharts:[],
+            appX:[],
+            dbX:[]
         }
     },
     mounted:function(){
@@ -476,23 +490,31 @@ export default{
             let arr = this.appG.concat(this.appD).concat(this.dbG).concat(this.dbD);
             this.lookobj.designIds = arr;
             this.priceClould = [];
+            this.appX = [];
+            this.appEcharts = [];
+            this.dbX = [];
+            this.dbEcharts = [];
             this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
                 // console.log('----',response);     
                 for(let i=0;i<response.data.data.length;i++){
                     this.priceClould.push({data:response.data.data[i],model:false});
+                    if(response.data.data[i].rtype==1){//应用服务
+                        this.appX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                        this.appEcharts.push(response.data.data[i].cloudPrice);                        
+                    }else if(response.data.data[i].rtype==2){//数据库服务
+                        this.dbX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                        this.dbEcharts.push(response.data.data[i].cloudPrice);
+                    }
                 } 
-                this.islook = true;      
+                this.islook = true;
+                if(this.appEcharts.length>0){
+                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
+                } 
+                if(this.dbEcharts.length>0){
+                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
+                }      
             }).catch((error)=>{
             })
-            //console.log(this.lookobj);
-            // this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
-            //     // console.log('----',response);     
-            //     for(let i=0;i<response.data.data.length;i++){
-            //         this.priceClould.push({data:response.data.data[i],model:false});
-            //     } 
-            //     this.islook = true;      
-            // }).catch((error)=>{
-            // })
         },
         radio:function(index){
             let n = 0;
@@ -568,6 +590,76 @@ export default{
         },
         designprev:function(){
             this.$router.push({path:'/compareResult',query:{id:this.appId,listid:arr,type:this.type}});
+        },
+        canversBar:function(dom,xdata,datalist,text){
+            let that = this;
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({              
+                tooltip:{
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#999'
+                        }
+                    },
+                },
+                legend: {
+                    data: [text],
+                    x:'77%',
+                    //right:'10px',
+                    y:'10px'
+                },
+                xAxis: [{
+                    name:'云厂商',
+                    type:'category',
+                    data: xdata,
+                    axisPointer:{
+                        type:'shadow'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#999'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#999'
+                    },
+                    nameLocation:'end',
+                    axisLabel: {  
+                        interval:0,  
+                        rotate:30  
+                    } 
+                }],
+                yAxis: [{
+                    type:'value',
+                    name:'价格',
+                    axisLabel: {
+                        formatter: '{value}'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#999'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#999'
+                    },
+                }],
+                series: [
+                    {
+                        name:text,
+                        type:'bar',
+                        data:datalist,
+                        itemStyle:{
+                            normal:{
+                                color:'#f7a72c'
+                            }
+                        },
+                        barWidth : 25,//柱图宽度
+                    }
+                ]
+            })
         }
     }
 }
