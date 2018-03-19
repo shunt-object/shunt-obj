@@ -240,7 +240,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 10,
+                    symbolSize: 13,
                     markLine: {
                         lineStyle: {
                             normal: {

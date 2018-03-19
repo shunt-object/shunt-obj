@@ -133,6 +133,13 @@
     font-size:12px;
     margin-left:10px;
 }
+.heightno{
+    height:0px;
+}
+.hight300{
+    height:300px;
+    width:100%;
+}
 /*表格*/
 .designHalf-table-public{
     width:100%;

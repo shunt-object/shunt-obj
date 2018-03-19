@@ -356,7 +356,13 @@ export default{
             this.$this.get('/broker/user/forget/check/code/'+contact+'/'+code).then((response)=>{
                 //console.log('yanzhengma',response);
                 if(response.data.code=1){
-                    this.index=3;
+                    if(response.data.data==true){
+                        this.index=3;
+                    }else{
+                        this.isphonecode = true;
+                        this.$message.error('验证码输入错误，请重新输入。');
+                    }
+                    
                 }
             }).catch((error)=>{
 
