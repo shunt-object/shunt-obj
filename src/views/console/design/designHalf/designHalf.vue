@@ -78,14 +78,14 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-6">
             <div id="designHalf-app" style="width:100%;height:300px;"></div>
         </div>
         <div class="col-md-6">
             <div id="designHalf-db" style="width:100%;height:300px;"></div>
         </div>
-    </div>
+    </div>-->
     <div class="designHalf-table" v-show="islook">
         <!-- 应用服务 -->
         <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
@@ -507,12 +507,12 @@ export default{
                     }
                 } 
                 this.islook = true;
-                if(this.appEcharts.length>0){
-                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
-                } 
-                if(this.dbEcharts.length>0){
-                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
-                }      
+                // if(this.appEcharts.length>0){
+                //     this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
+                // } 
+                // if(this.dbEcharts.length>0){
+                //     this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
+                // }      
             }).catch((error)=>{
             })
         },
