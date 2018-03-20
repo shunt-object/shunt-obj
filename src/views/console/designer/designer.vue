@@ -48,7 +48,7 @@
                                      <td>（v）CPU</td>
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.cores}}</td>
-                                     <td>{{dat.cpu}}</td>
+                                     <td>{{Math.round(dat.cpu)}}</td>
                                      <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" style="font-size:14px;" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
@@ -61,7 +61,7 @@
                                     <td>内存（GB）</td>
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.ram}}</td>
-                                     <td>{{dat.ram}}</td>
+                                     <td>{{Math.round(dat.ram)}}</td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>系统盘</td>
@@ -108,7 +108,7 @@
                                      <td>（v）CPU</td>
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.cores}}</td>
-                                     <td>{{dati.cpu}}</td>
+                                     <td>{{Math.round(dati.cpu)}}</td>
                                      <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
@@ -121,7 +121,7 @@
                                     <td>内存（GB）</td>
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.ram}}</td>
-                                     <td>{{dati.ram}}</td>
+                                     <td>{{Math.round(dati.ram)}}</td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>本地磁盘</td>

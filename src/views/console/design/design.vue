@@ -48,7 +48,7 @@
                             <td class="ds" style="line-height:110px">{{dat.data.num}}</td>
                             <td>
                                 <ul class="row" >
-                                    <li style="margin-top:40px"><span class="col-md-3 ys">{{dat.data.cpu}}</span><span class="col-md-3 ys">{{dat.data.ram}}</span><span class="col-md-3 ys">{{dat.data.localDisk}}</span><span  class="col-md-3 ys">{{dat.data.osType.name}}</span> 
+                                    <li style="margin-top:40px"><span class="col-md-3 ys">{{Math.round(dat.data.cpu)}}</span><span class="col-md-3 ys">{{Math.round(dat.data.ram)}}</span><span class="col-md-3 ys">{{dat.data.localDisk}}</span><span  class="col-md-3 ys">{{dat.data.osType.name}}</span> 
                                     <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                 </ul>
                             </td>
@@ -82,7 +82,7 @@
                             <td class="ds" style="line-height:110px">{{dati.data.num}}</td>
                             <td>
                                 <ul class="row" >
-                                    <li style="margin-top:20px"><span class="col-md-6 ys">{{dati.data.cpu}}</span><span class="col-md-6 ys">{{dati.data.ram}}</span></li>
+                                    <li style="margin-top:20px"><span class="col-md-6 ys">{{Math.round(dati.data.cpu)}}</span><span class="col-md-6 ys">{{Math.round(dati.data.ram)}}</span></li>
                                     <li><span class="col-md-6 ds">( v ) CPU</span><span class="col-md-6 ds">内存</br> ( GB )</span></li>
                                     <li><span class="col-md-6 ys">{{dati.data.localDisk}}</span><span class="col-md-6 ys">{{dati.data.osType.name}}</span><!--<span class="col-md-4 ys">{{}}</span>--></li>
                                     <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>

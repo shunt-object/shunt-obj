@@ -102,7 +102,7 @@
         </div>
         <div class="row text-center">
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/13.png" alt="" class="Yunimg">
+            <img src="../../assets/homepage/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云？精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
@@ -118,7 +118,7 @@
             <span class="obj-cta"  @click="ctaClound()">查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/12.png" alt="" class="Yunimg">
+            <img src="../../assets/homepage/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型的业务场景，通过CloudBroker²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/5.png" alt="" class="tranImg">
+            <img src="../../assets/homepage/5.png" alt="" class="tranImg">
             <h4>实测化</h4>
             <div class="mainpa">
               <p class="mainPd">云端百台真机测试</p>
@@ -764,7 +764,7 @@ ul,ol li {
   .lunmain .lun-rig {
       padding-top: 150px; padding-left: 50px
   }
-   .lumain .lun-rig {
+  .lumain .lun-rig {
       padding-top: 150px; padding-right: 50px
   }
  /* .Imgs {
