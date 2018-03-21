@@ -191,12 +191,13 @@
         </div>
     </div>
 </div>
-<designHalf v-show="haveSj" :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
-<div class="planList-nodata" v-show="noSj">
+<div class="design-nodata" v-show="noSj">
         <img src="../../../assets/compare-nodata.png" alt="">
         <br>
         暂无数据
 </div>
+<!-- v-show="haveSj" -->
+<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
 <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
     <el-form :model="form">
         <!-- <el-form-item label="角色" :label-width="formLabelWidth">
