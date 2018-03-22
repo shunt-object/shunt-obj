@@ -1,23 +1,23 @@
 <template>
-       <div style="background:#ccc;background:#ccc">
-            <iframe id="embed"  frameborder="no"  name="abc" border="0"  src="http://xiaowei.io/chat/pc/index.html?appid=3311&style=red"   width="500" height="600"></iframe>
-       </div>
+     <div id="rys"></div>
 </template>
 
 <script>
-    // var that = this;
-    //  window.onresize = function() {
-    //     var window_width = window.innerWidth
-    //         || document.documentElement.clientWidth
-    //         || document.body.clientWidth;
-                                    
-    //     if(window_width > 500) {
-            
-    //             window.resizeTo(500, 600);
-    //             window.moveTo(0, 0);
-            
-    //     }
-    // }; 
+ import {rongClouds} from "../../components/rongCloud/rongcloud.js";
+    export default {
+   
+    data() {
+      return {
+       
+      }
+    },
+    mounted: function() {
+        window.onload = function(){
+            var adw = document.getElementById("rys")
+            rongClouds(adw)
+     
+        }
+    }}
 </script>
 
 

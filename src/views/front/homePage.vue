@@ -1,19 +1,21 @@
 <template style="position:relative">
+ 
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+            <li id="xiaowei"  class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                 <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
             </li>
            
         </ul>
+        <div id="rys" style="z-index:100 !important"></div>
         <img src="../../assets/scroll.png" alt="" class="scrollUp">
     </div>
     <Sec active="0"></Sec>
     <!--  nav end--> 
-
+   
     <!-------------------------------banner------------------------------------------>
 <div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
@@ -79,8 +81,8 @@
     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"></a>
   
     <!-------------------------------轮播结束------------------------------------------>
-   
-   
+      
+    
     <!--------------------------------公告------------------------------------------------>  
     <div class="announce">
         <div class="container">
@@ -241,8 +243,9 @@
         
       </div>
     </div>
+   
     <!------------------------感言------------------------------------------>
-    <div class=" obj-frees"   style="height:200px;position:relative">
+    <div class=" obj-frees"   style="height:200px;position:relative;">
       <div class="pder">
         <h4 class="text-center" style="font-weight:100">
           现在开启您的上云分析之旅
@@ -252,15 +255,19 @@
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
     <!-------------------------footer------------------------------------------>
+     
     <Sex></Sex>
     </div>
   </div>
   </div>
+ 
 </div>
 </template>
 <script>
  import wei from '../front/wei.vue';
- import "../front/animate.min.css"
+ import "../front/animate.min.css";
+
+ import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
 export default {
@@ -268,7 +275,8 @@ export default {
     components:{
         wei,
         Sec,
-        Sex
+        Sex,
+        
     },
     data() {
       return {
@@ -282,7 +290,10 @@ export default {
           
 
         $(document).ready(function(){ 
-           
+                $("#xiaowei").click(function(){
+                     var adw = document.getElementById("rys")
+                      rongClouds(adw)
+                })    
             
                
                      $.fn.extend({
@@ -557,13 +568,18 @@ export default {
           
     },
     methods: {
-        xiaowei:function(){
+        // cloudertye:function(){
             
-            var that = this; 
-                   
-            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
-                  
-        },
+        //             // window.open("#/wei",'','width=600,height=600')    
+        //               var adw = document.getElementById("rys")
+        //               rongClouds(adw)
+              
+               
+
+
+
+
+        // },
          
         PlanLj:function(){
              this.$router.push({path: '/register'});

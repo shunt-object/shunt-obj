@@ -29,6 +29,7 @@ import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import wei from '@/views/front/wei'
+
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"

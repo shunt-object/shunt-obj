@@ -460,7 +460,7 @@
 import child from '../../../../components/steps/steps.vue'
 import '../colligateReport/colligateReport.css'
 import echarts from 'echarts'
-import '../../../../components/pdf/html2canvas.js'
+import html2Canvas from '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 
 export default{
@@ -835,11 +835,11 @@ export default{
                 //console.log('----',this.appServer); 
             }).catch((error)=>{})
         },
-        getPdf:function(){
+       getPdf:function(){
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
-            pdf.internal.scaleFactor = 1.8;//可以调整缩放比例
+            pdf.internal.scaleFactor = 2.5;//可以调整缩放比例
             var options = {
                 pagesplit: true
             };
@@ -851,7 +851,42 @@ export default{
                 pdf.save('综合报告'+time+'.pdf');
                 that.isClass = false;
             });
-        },
+       },
+            // getPdf: function () {
+            //     let _this = this;
+            //     let pdfDom = document.querySelector('#pdf-wrap');
+            //     html2Canvas(pdfDom, {
+            //     onrendered: function(canvas) {
+            //     let contentWidth = canvas.width
+            //     let contentHeight = canvas.height
+            //     let pageHeight = contentWidth / 592.28 * 841.89
+            //     let leftHeight = contentHeight
+            //     let position = 0
+            //     let imgWidth = 595.28
+            //     let imgHeight = 592.28 / contentWidth * contentHeight
+            
+            //     let pageData = canvas.toDataURL('image/jpeg', 1.0)
+            
+            //     let PDF = new JsPDF('', 'pt', 'a4')
+            
+            //     if (leftHeight < pageHeight) {
+            //     PDF.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight)
+            //     } else {
+            //     while (leftHeight > 0) {
+            //         PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+            //         leftHeight -= pageHeight
+            //         position -= 841.89
+            //         if (leftHeight > 0) {
+            //         PDF.addPage()
+            //         }
+            //     }
+            //     }
+            //     PDF.save(_this.pdfData.title + '.pdf')
+            //     }
+            //     })
+            //     html2Canvas()
+            // },
+       //},
       pointers:function(){
         //    factory.printing.header = "";       //页眉
         //     factory.printing.footer = "";       //页脚
