@@ -78,14 +78,14 @@
             </div>
         </div>
     </div>
-    <!--<div class="row">
+    <div class="row" v-show="islookecharts">
         <div class="col-md-6">
             <div id="designHalf-app" style="width:100%;height:300px;"></div>
         </div>
         <div class="col-md-6">
             <div id="designHalf-db" style="width:100%;height:300px;"></div>
         </div>
-    </div>-->
+    </div>
     <div class="designHalf-table" v-show="islook">
         <!-- 应用服务 -->
         <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
@@ -341,6 +341,7 @@ export default{
             },
             region:[],
             regiontwo:[],
+            regionthree:[],
             buytype:[
                 {data:{id:1,name:'包年包月'},boolean:true},
                 {data:{id:2,name:'按量付费'},boolean:false},
@@ -395,7 +396,8 @@ export default{
             appEcharts:[],
             dbEcharts:[],
             appX:[],
-            dbX:[]
+            dbX:[],
+            islookecharts:false
         }
     },
     mounted:function(){
@@ -436,7 +438,19 @@ export default{
                     }
                     this.regiontwo[0].boolean = true;
                     this.lookobj.regions.push(this.regiontwo[0].data.code);
+                    this.getRegionT(this.regiontwo[0].data.id);
                 }                
+            }).catch((error)=>{
+            })
+        },
+        getRegionT:function(id){
+            this.$http.get('/broker/price/region/'+id).then((response)=>{
+                //console.log('----',response.data.data);
+                for(let i=0;i<response.data.data.length;i++){
+                    this.regionthree.push({data:response.data.data[i],boolean:false});
+                }   
+                this.regionthree[0].boolean = true; 
+                this.lookobj.regions.push(this.regionthree[0].data.code);         
             }).catch((error)=>{
             })
         },
@@ -494,8 +508,10 @@ export default{
             this.appEcharts = [];
             this.dbX = [];
             this.dbEcharts = [];
+            this.islookecharts = true; 
             this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
-                // console.log('----',response);     
+                // console.log('----',response);   
+                 
                 for(let i=0;i<response.data.data.length;i++){
                     this.priceClould.push({data:response.data.data[i],model:false});
                     if(response.data.data[i].rtype==1){//应用服务
@@ -507,12 +523,15 @@ export default{
                     }
                 } 
                 this.islook = true;
-                // if(this.appEcharts.length>0){
-                //     this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
-                // } 
-                // if(this.dbEcharts.length>0){
-                //     this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
-                // }      
+                //if(this.appEcharts.length>0){
+                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
+                //} 
+                //if(this.dbEcharts.length>0){
+                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
+                //}
+                if(this.priceClould.length==0){
+                    this.islookecharts = false; 
+                }      
             }).catch((error)=>{
             })
         },
