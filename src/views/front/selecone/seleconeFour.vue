@@ -4,7 +4,7 @@
             <ul class="fixed-ul">
                 <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
                 <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                    <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                    <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                     <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
                 </li>
             
@@ -28,7 +28,7 @@
                             <div class="cloundMains-main">
                                 <p style="margin-bottom:30px">关于我们</p>
                               
-                                    <div class="text-left" style="color:#666666;">CloudBroker²，是新一代云管理服务商，简称CSB²，公司致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
+                                    <div class="text-left" style="color:#666666;text-indent:1cm;">江苏京玉信息技术有限公司是全新一代云服务提供商，全力打造以CloudBroker²（简称：CSB²）为核心的云服务产品家族，致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
                                       <div class="city" style="padding-top:40px;padding-bottom:30px">
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB² 的产品和服务包括，上云分析工具、选云分析工具、真机实测工具、价格管理工具、线上购买工具及迁移、运维工具。这一系列的工具协助客户全面管理云的生命周期。</div>
                                         <div class="text-left" style="text-indent: 1cm;margin-bottom:10px">CSB ²是以“云”为核心，其服务场景横跨了上云咨询、云迁移、云运维等多个阶段，为运维部门、决策部门实现服务的可视、可控和可管。帮助用户清晰明确的看到多云的资源和成本，有效的降低了上云和管云的成本，是用户“省钱” “省力”和“专业”的好伙伴。</div>
@@ -93,7 +93,7 @@
                      <div class="callme">
                         <div class="container">
                             <div class="callme-call" style=";margin-top:70px">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span v-on:click="beijingHover()" class="moren" id="bjs">北京总部</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州分部</span><span @click="wuxiHover" class="mospan" id="wxs">无锡分部</span></div>
+                            <div class="callme-dist" style="margin-bottom:30px"><span @click="wuxiHover" class="moren" id="wxs">无锡办公室</span><span v-on:click="beijingHover()" class="mospan" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -103,7 +103,7 @@
                      
                      </div>
                      <div style="background:#ededed;width:100%;height:auto;">
-                        <div class="seleconeMain-footer row" >
+                        <div class="seleconeMain-footer" >
                             <div class="container text-left" style="width:60%;">
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                                     <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -340,8 +340,8 @@
         data(){
             return {
                Ais:false,
-               Sis:false,
-               Asd:true,
+               Sis:true,
+               Asd:false,
                phoneBox:false
             }
         },

@@ -29,9 +29,10 @@
     float:left;
     font-size:14px;
     color:#333333;
+    margin-right:20px;
 }
 .designHalf-tab-btn1{
-    border:1px solid #b3b3b3;
+    border:1px solid #EDEDED;
     border-radius:2px;
     width:160px;
     /*height:40px;*/
@@ -63,18 +64,7 @@
     margin-left: 1.5%;
 }
 .designHalf-select-box{
-    width:75%;
-    /*width:100px;*/
-    border:1px solid #dddddd;
-    border-radius:1px;
-    height:28px;
-    text-align:center;
-    line-height:26px;
-    font-size:14px;
-    color:#333333;
-    margin-bottom:10px !important;
-}
-.designHalf-select-box1{
+    /*width:75%;*/
     width:110px;
     border:1px solid #dddddd;
     border-radius:1px;
@@ -85,20 +75,12 @@
     color:#333333;
     margin-bottom:10px !important;
     float:left;
-    margin-left:15px;
+    margin-right:20px;
+    margin-bottom:10px;
 }
+
 .designHalf-select-buytype{
-    width:75%;
-    /*width:100px;*/
-    border:1px solid #dddddd;
-    border-radius:1px;
-    height:30px;
-    text-align:center;
-    line-height:28px;
-    font-size:14px;
-    color:#333333;
-}
-.designHalf-select-buytype1{
+    /*width:75%;*/
     width:110px;
     border:1px solid #dddddd;
     border-radius:1px;
@@ -108,8 +90,10 @@
     font-size:14px;
     color:#333333;
     float:left;
-    margin-left:15px;
+    margin-bottom:10px;
+    margin-right:20px;
 }
+
 .designHalf-buytime-list{
     width:10.8%;
     float:left;
@@ -149,6 +133,13 @@
     font-size:12px;
     margin-left:10px;
 }
+.heightno{
+    height:0px;
+}
+.hight300{
+    height:300px;
+    width:100%;
+}
 /*表格*/
 .designHalf-table-public{
     width:100%;
@@ -159,6 +150,8 @@
     border:1px solid #e5e5e5;
     /*line-height:24px;*/
     padding:10px 0;
+    color:#555;
+    font-weight:bold;
 }
 .designHalf-table-public tbody tr td{
     font-size:12px;
@@ -182,14 +175,14 @@
 .designHalf-w-8{
     width:8%;
 }
-.designHalf-w-31{
-    width:31%;
+.designHalf-w-28{
+    width:28%;
 }
 .designHalf-w-5{
     width:5.1%;
 }
 .designHalf-w-7{
-    width:7.5%;
+    width:7%;
 }
 .designHalf-w-6{
     width:6.4%;
@@ -200,7 +193,7 @@
 .designHalf-buy-btn{
     background:#f7a72c;
     border-radius:2px;
-    width:68px;
+    width:90px;
     height:30px;
     font-size:12px;
     color:#ffffff;
@@ -266,7 +259,7 @@
     width:100%;
     height:300px;
     font-size:14px;
-    color:#555;
+    color:#999;
     margin:10px 0;
     line-height:30px;
     text-align:center;
@@ -274,6 +267,39 @@
 }
 .design-nodata img{
     margin-top:100px;
+}
+/*去结算*/
+.designHalf-balance{
+    width:100%;
+    min-height:92px;
+    background:#f7f7f7;
+}
+.balance-left{
+    text-align:left;
+    line-height:92px;
+}
+.balance-right{
+    text-align:right;
+}
+.go-balance{
+    background:#da121a;
+    border-radius:2px;
+    width:98px;
+    height:44px;
+    font-size:14px;
+    color:#ffffff;
+    margin-top:24px;
+}
+.go-balance{
+    margin-left:20px;
+}
+.balance-right span,.balance-left span{
+    color:#da121a;
+    font-size:18px;
+    font-weight:bold;
+}
+.balance-left span{
+    margin:0 3px;
 }
 
 

@@ -6,7 +6,7 @@
             <ul class="fixed-ul">
                 <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
                 <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                    <img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+                    <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                     <div v-show="phoneBox" class="phone-box"><img src="../../../assets/alertPhone.png" alt=""  style="width:100%;height:100%"></div>
                 </li>
             
@@ -25,7 +25,7 @@
                       <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;"><span class="spanTy" @click="spanTy()">立即体验</span></p>
                 </div>-->
            
-            <div class="seleconeMain-banner row ">
+            <div class="seleconeMain-banner row " style="margin:0!important">
                  <div class="container">
                         <div class="seleconeMain-mainfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px">我们应该上哪家云呢？</span></p>

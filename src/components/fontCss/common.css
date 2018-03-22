@@ -56,6 +56,10 @@
     color: #f7a72c !important;
     border-radius: 2px !important;
 }
+.lay-msg .el-icon-success{
+    color:#f7a72c !important;
+    margin-right:5px;
+}
 .el-message-box__status{
     top:20px !important;
 }

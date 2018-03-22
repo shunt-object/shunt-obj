@@ -24,7 +24,9 @@ import '../src/components/fontCss/fontcss.css'
 import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
+// import "../rongCloud/RongIMLib-cs"
+// import "../rongCloud/cs.min.css"
+// import "../rongCloud/cs.min.js"
 
 
 
@@ -158,6 +160,9 @@ axios.interceptors.response.use(
 Vue.prototype.logout = function(){
     this.$this.get('/broker/auth/logout').then((response)=>{
         if(response.data.code=='1'){
+            sessionStorage.removeItem("utype");
+            sessionStorage.removeItem("accountId");
+            sessionStorage.removeItem("account");
             sessionStorage.clear();
             localStorage.removeItem("as");
             this.$router.push({path:'/'});

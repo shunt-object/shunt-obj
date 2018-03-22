@@ -55,12 +55,12 @@
     </div>
     <div class="stepPlan-item step18">
         <span class="circle" :class="index==5?'active-circle':design==true?'finish-circle':'common-circle'" v-on:click="planPrev(5)">5</span>
-        <div class="stepPlan-name common-color int15" :class="start==3?'active-color':'common-color'">云设计</div>
+        <div class="stepPlan-name common-color int15" :class="index==5?'active-color':'common-color'">云设计</div>
         <div class="stepPlan-line common-line"></div>
     </div>
     <div class="stepPlan-item step18">
         <span class="circle common-circle" v-on:click="planPrev(6)">6</span>
-        <div class="stepPlan-name common-color int15">云实测</div>
+        <div class="stepPlan-name common-color int15" :class="index==6?'active-color':'common-color'">云实测</div>
         <div class="stepPlan-line" :class="index==7?'active-line':compare==true&&clould==true?'finish-line':'common-line'"></div>
     </div>
       <div class="stepPlan-item step10" v-on:click="planPrev(7)">

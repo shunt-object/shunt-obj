@@ -2,7 +2,7 @@
 <div class="total">
     <div class="total-header">
         <span></span>
-        云实测
+        <p class="zong">云实测</p>
     </div> 
     <!--<div class="title"><div class="swing"><img src="../../../assets/jqqd.jpg" alt=""><p style="font-size:14px;">正在开发中，即将上线，敬请您的期待......</p></div></div>-->
     <div class="row measured-content">

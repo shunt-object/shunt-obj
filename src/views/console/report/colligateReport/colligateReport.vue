@@ -22,7 +22,7 @@
                 <!-- 基本信息 -->
                 <div class="colligate-title">
                    <!--<img src="../../../../assets/report/report-information.png" alt="">-->
-                    <i class="iconfont icon-jibenxinxi" style="color:#da121a"></i>基本信息
+                    <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>基本信息
                 </div>
 
                 <div class="colligate-list">
@@ -51,11 +51,15 @@
                         </tbody>
                     </table>
                 </div>
-
+                <!--拓扑图-->
+                <div class="colligate-title">
+                    <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
+                </div>
+                <div id="mynetwork" :class="graphnodes.length>3?'graph':''" v-if="graphnodes.length>3"></div>
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
-                    <i class="iconfont icon-zengshoushuju" style="color:#da121a"></i>云规划报告详情
+                    <i class="iconfont icon-zengshoushuju main-color" style="color:#da121a"></i>云规划报告详情
                 </div>
                 <div class="colligate-list">
                     <div class="legend-box">
@@ -100,7 +104,6 @@
                     </div> 
                     <!-- 云选型 -->
                     <div class="colligate-title">
-                       <!-- <img src="../../../../assets/report/report-compare.png" alt=""> -->
                         <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云选型报告详情
                     </div>
                     <div class="colligate-list">
@@ -123,7 +126,7 @@
                             </tbody>
                         </table>
                         
-                        <table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
+                        <!--<table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
                             <thead v-if="appServer.length>0||dbServer.length>0||network!=null||storage.length>0||cdns.length>0">
                                 <tr>
                                     <th>数量</th>
@@ -185,7 +188,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                         <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-qitashuju main-color"></i>云供应商标准选型差异</div>
                         <div>
                             <p class="explain">
@@ -225,39 +228,221 @@
                             </table>
                         </div>
                     </div>
+                    <!-- 云设计 -->
+                    <div class="colligate-title">
+                        <i class="iconfont icon-peizhiguanli" style="color:#da121a"></i>&nbsp云设计配置信息详情
+                    </div>
+                    <table class="colligate-design" v-if="designdata.appServer.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.appServer">
+                            <tr>
+                                <td rowspan="5">应用服务</td>
+                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                <td>（v）CPU</td>
+                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                <td>{{item.cpu}}</td>
+                            </tr>
+                            <tr>
+                                <td>处理器主频（GHZ）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                <td>{{item.ghz==undefined?'--':''}}</td>
+                            </tr>
+                            <tr>
+                                <td>内存（GB）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                <td>{{item.ram}}</td>
+                            </tr>
+                            <tr>
+                                <td>系统盘</td>
+                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                <td>{{item.localDisk}}</td>
+                            </tr>                            
+                            <tr>
+                                <td>操作系统</td>
+                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                <td>{{item.osType.name}}</td>
+                            </tr>
+                            <!--<tr>
+                                <td>资源平均利用率</td>
+                                <td>cccc</td>
+                                <td></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.dbServer.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.dbServer">
+                            <tr>
+                                <td rowspan="5">数据库服务</td>
+                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                <td>（v）CPU</td>
+                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                <td>{{item.cpu}}</td>
+                            </tr>
+                            <tr>
+                                <td>处理器主频（GHZ）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                <td>{{item.ghz==undefined?'--':''}}</td>
+                            </tr>
+                            <tr>
+                                <td>内存（GB）</td>
+                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                <td>{{item.ram}}</td>
+                            </tr>
+                            <tr>
+                                <td>系统盘</td>
+                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                <td>{{item.localDisk}}</td>
+                            </tr>                            
+                            <tr>
+                                <td>操作系统</td>
+                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                <td>{{item.osType.name}}</td>
+                            </tr>
+                            <!--<tr>
+                                <td>资源平均利用率</td>
+                                <td>cccc</td>
+                                <td></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.cdns.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.cdns">
+                            <tr>
+                                <td rowspan="6">CDN</td>
+                                <td rowspan="6">--</td>
+                                <td>带宽</td>
+                                <td>{{item.bandwidth==null?'--':item.bandwidth}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>云厂商</td>
+                                <td>{{item.cse==null?'--':item.cse.name}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.network!=null">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="6">网络存储</td>
+                                <td rowspan="6">--</td>
+                                <td>入站（Mbps/月）</td>
+                                <td>{{designdata.network.inbound==null?'--':designdata.network.inbound}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>出站（Mbps/月）</td>
+                                <td>{{designdata.network.outbound==null?'--':designdata.network.outbound}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="colligate-design" v-if="designdata.storage.length>0">
+                        <thead>
+                            <tr>
+                                <td style="width:15%;">角色</td>
+                                <td style="width:15%;">类型</td>
+                                <td style="width:23.3%;">规格</td>
+                                <td style="width:23.3%;">当前配置</td>
+                                <td style="width:23.3%;">云配置（推荐）</td>
+                            </tr>              
+                        </thead>
+                        <tbody v-for="item in designdata.storage">
+                            <tr>
+                                <td rowspan="6">存储存储</td>
+                                <td rowspan="6">--</td>
+                                <td>共享存储（SAN）（GB）</td>
+                                <td>{{item.sna==null?'--':item.sna}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>网络存储（NAS）（GB）</td>
+                                <td>{{item.nsa==null?'--':item.nsa}}</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>云存储（GB）</td>
+                                <td>{{item.cloudStorage==null?'--':item.cloudStorage}}</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <!-- 上云分析建议  -->
                     <div class="colligate-title">
-                    <!--<img src="../../../../assets/report/report-advise.png" alt="">-->
                         <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
                     </div>
-                    <!--<img src="../../../../assets/compare-nodata.png" alt="">
-                        <br>
-                        暂无建议-->
-                    <div class="advise-box">
-                        <div class="system-advise">
-                            <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>上云分析CloudBroker²评估建议</p>
-                            <p class="advise-content" v-if="Issystem==false">{{system}}
-                                <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#2eabf5;">编辑</span></span>
-                            </p>
-                            <div class="advise-system-input" v-show="Issystem">
-                                <textarea class="advise-system-text" v-model="system">{{system}}</textarea>
+                    <!--场景占比分析-->
+                    <div class="colligateBuy">
+                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>场景占比分析</p>
+                        <div style="padding-left:2em;">
+                            <div class="colligateBuy-echarts row">
+                                <div class="col-md-6">
+                                    <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:380px;"></div>
+                                </div>
+                                <div class="col-md-6"></div>
                             </div>
-                            <div class="system-btn" v-show="Issystem">
-                                <button class="system-no" v-on:click="systemSave('no')"><i class="iconfont icon-shanchuguanbicha2"></i>取消</button>
-                                <button class="system-yes" v-on:click="systemSave('yes')"><i class="iconfont icon-duihao2"></i>保存</button>                    
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="self-advise">
-                            <p class="advise-title"><i class="iconfont icon-jianyi main-color"></i>上云分析自我评估建议</p>
-                            <div style="padding-left:2em;">
-                                <textarea class="colligate-advise" placeholder="请输入上云分析自我评估建议" v-model="advise" :class="advise==''?'advise-bg':''">
-                                </textarea>
-                                <span class="not-advise" v-if="advise==''">暂无评估</span>
-                            </div>                
-                        </div>
-                        
+                        </div>                        
                     </div>
+                    <!--<div class="advise-box">-->
+                    <div class="system-advise">
+                        <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>上云分析CloudBroker²评估建议</p>
+                        <p class="advise-content" v-if="Issystem==false">{{system}}
+                            <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#2eabf5;">编辑</span></span>
+                        </p>
+                        <div class="advise-system-input" v-show="Issystem">
+                            <textarea class="advise-system-text" v-model="system">{{system}}</textarea>
+                        </div>
+                        <div class="system-btn" v-show="Issystem">
+                            <button class="system-no" v-on:click="systemSave('no')"><i class="iconfont icon-shanchuguanbicha2"></i>取消</button>
+                            <button class="system-yes" v-on:click="systemSave('yes')"><i class="iconfont icon-duihao2"></i>保存</button>                    
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="self-advise">
+                        <p class="advise-title"><i class="iconfont icon-jianyi main-color"></i>上云分析自我评估建议</p>
+                        <div style="padding-left:2em;">
+                            <textarea class="colligate-advise" placeholder="请输入上云分析自我评估建议" v-model="advise">
+                            </textarea>
+                            <!--:class="advise==''?'advise-bg':''"<span class="not-advise" v-if="advise==''">暂无评估</span>-->
+                        </div>                
+                    </div>
+
+                    <!--</div>-->
 
                     <div class="pagefooter">
                         <div class="page-bigline"></div>
@@ -293,12 +478,12 @@ import '../colligateReport/colligateReport.css'
 import echarts from 'echarts'
 import '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
+import vis from "vis/dist/vis.min.js"
+// import "vis/dist/vis.min.css"
 
 export default{
-
     name:'colligateReport',
     data(){
- 
         return {
             inds:0,
             charts:'',
@@ -324,7 +509,29 @@ export default{
             system:'',
             Issystem:false,
             systemold:'',
-            isClass:false
+            isClass:false,
+            designdata:{
+                appServer:[],
+                dbServer:[],
+                cdns:[],
+                network:[],
+                storage:[]
+            },
+            graphnodes:[
+                {id: 1, label: 'app'},
+                {id: 2, label: '应用服务'},
+                {id: 3, label: '数据库服务'},
+            ],
+            graphedges:[
+                {from: 1, to: 2},
+                {from: 1, to: 3},
+            ],
+            container:'',
+            graphdata:{},
+            graphoptions:{},
+            dbScaleservies:[],
+            dbScaleName:[],
+            dbScaleType:[],
         }
     },
     updated:function(){
@@ -335,61 +542,216 @@ export default{
         // }
     },
     mounted:function(){
+        this.graph(this.$route.query.id,1);
+        this.graph(this.$route.query.id,2);
+        this.graphoptions = {
+            nodes:{
+                borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
+                color:{
+                    border:'#da121a',
+                    background:'#fff',
+                },
+                font: {
+                color: '#333',
+                size:12,
+                },
+                //image:'aa.jpg'
+            },
+            interaction:{
+                zoomView:false,
+                hover: false,//鼠标移过后加粗该节点和连接线
+                dragNodes:false,//是否能拖动节点
+                dragView:false,//是否能拖动画布
+                selectConnectedEdges:false,//选择节点后是否显示连接线
+                hoverConnectedEdges:false,//鼠标滑动节点后是否显示连接线
+                selectable:false,//是否可以点击选择
+            },
+            edges: {
+                shadow:false,//连接线阴影配置
+                smooth: false,//是否显示方向箭头
+            },
+            layout:{
+                randomSeed:1,//配置每次生成的节点位置都一样，参数为数字1、2等
+                hierarchical: {
+                    direction: 'UD',//UD:上下 DU:下上 LR:左右 RL:右左
+                    sortMethod: 'directed' 
+                }, //层级结构显示}
+            },
+        };
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.information.realname = JSON.parse(sessionStorage.getItem("account")).realname;
         this.information.tenant = JSON.parse(sessionStorage.getItem("account")).tenant;
-        //云规划
-        this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
-            //console.log('结果',response);
-            let qinhe,shouyi;   
-            this.result =  response.data.data; 
-            this.information.proname = response.data.data.proname;
-            this.information.appname = response.data.data.appname;
-            this.information.protypeStr = response.data.data.protypeStr;
-            this.information.frametypeStr = response.data.data.frametypeStr;
-            this.information.createDt = response.data.data.createDt;
-            for(let i=0;i<response.data.data.appResults.length;i++){
-                if(response.data.data.appResults[i].moduleId==1||response.data.data.appResults[i].moduleId==2||response.data.data.appResults[i].moduleId==3){
-                    this.resultlist.push(response.data.data.appResults[i]);
-                }
-                if(response.data.data.appResults[i].moduleId==2){
-                    shouyi = response.data.data.appResults[i].result;
-                }
-                if(response.data.data.appResults[i].moduleId==3){
-                    qinhe = response.data.data.appResults[i].result;
-                }
-                if(response.data.data.appResults[i].moduleId==1){
-                    this.system = JSON.parse(response.data.data.appResults[i].result).advice;
-                    this.systemold = JSON.parse(response.data.data.appResults[i].result).advice;
-                    this.desc = JSON.parse(response.data.data.appResults[i].result).description;
-                    this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
-                }
-            }
-            //  if( this.isclick==1 && this.isclick==2 ){
-            //     this.$layer.msg(" 因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。");
-            //  }
-            this.opiniondata =  [{
-                name:response.data.data.appname,
-                value:[shouyi,qinhe]
-            }] 
-            this.$nextTick(function() {
-                this.drawPie('main')
-            })
-             console.log(this.opiniondata);         
-        }).catch((error)=>{
-        }) 
-        // 云选型
-        this.getdata();
-        this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
-            this.details =  response.data.data;
-            for(let variable  in this.details){   //variable 为属性名
-                this.confirm = this.details[variable][0].servers;
-            }
-            this.length = this.confirm.length+3;
-        }).catch((error)=>{})
+        this.getdesign();        
+        this.getplan();//云规划        
+        this.getdata();// 云选型
+        this.compareDiffer();//云选型做题记录
+        this.gettype();//获取类型
+        this.dbScale();//数据库服务场景占比分析
+        
     },
     methods:{
+        gettype:function(){
+            this.$this.get('/broker/prop/typedata/esc-csb/-1').then((response)=>{
+                //console.log('----',response);
+                for(let i=0;i<response.data.data.length;i++){
+                    this.dbScaleType.push(response.data.data[i].name);
+                }
+            }).catch((error)=>{
+            })
+        },
+        dbScale:function(){
+            let str = {"appids":[this.appId]};
+            this.$this.post('/broker/price/purchasin/scene',JSON.stringify(str)).then((response)=>{
+                for(let i=0;i<response.data.data.length;i++){
+                    this.dbScaleservies.push({
+                        name: response.data.data[i].vmType,
+                        type: 'bar',
+                        stack: '总量',
+                        data: [[response.data.data[i].num,response.data.data[i].sceneType]]
+                    });
+                    this.dbScaleName.push(response.data.data[i].vmType);
+                }  
+                this.$nextTick(function() {
+                    this.dbScaleCanvas('colligateBuy-type');
+                })
+            }).catch((error)=>{})
+        },
+        dbScaleCanvas:function(dom){
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data: this.dbScaleName,
+                    top:'10',
+                    left:'0'
+                },
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
+                grid: {
+                    left: '3%',
+                    right: '8%',
+                    bottom: '2%',
+                    containLabel: true
+                },
+                xAxis:  {
+                    type: 'value',
+                    name:'数量',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
+                    axisLabel:{
+                        color:'#333'                   
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                },
+                yAxis: {
+                    type: 'category',
+                    name:'类型',
+                    data: this.dbScaleType,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
+                    axisLabel:{
+                        color:'#333'                   
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                },
+                series: this.dbScaleservies
+            })
+        },
+        getplan:function(){
+            this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
+                //console.log('结果',response);
+                let qinhe,shouyi;   
+                this.result =  response.data.data; 
+                this.information.proname = response.data.data.proname;
+                this.information.appname = response.data.data.appname;
+                this.information.protypeStr = response.data.data.protypeStr;
+                this.information.frametypeStr = response.data.data.frametypeStr;
+                this.information.createDt = response.data.data.createDt;
+                for(let i=0;i<response.data.data.appResults.length;i++){
+                    if(response.data.data.appResults[i].moduleId==1||response.data.data.appResults[i].moduleId==2||response.data.data.appResults[i].moduleId==3){
+                        this.resultlist.push(response.data.data.appResults[i]);
+                    }
+                    if(response.data.data.appResults[i].moduleId==2){
+                        shouyi = response.data.data.appResults[i].result;
+                    }
+                    if(response.data.data.appResults[i].moduleId==3){
+                        qinhe = response.data.data.appResults[i].result;
+                    }
+                    if(response.data.data.appResults[i].moduleId==1){
+                        this.system = JSON.parse(response.data.data.appResults[i].result).advice;
+                        this.systemold = JSON.parse(response.data.data.appResults[i].result).advice;
+                        this.desc = JSON.parse(response.data.data.appResults[i].result).description;
+                        this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
+                    }
+                }
+                //  if( this.isclick==1 && this.isclick==2 ){
+                //     this.$layer.msg(" 因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。");
+                //  }
+                this.opiniondata =  [{
+                    name:response.data.data.appname,
+                    value:[shouyi,qinhe]
+                }] 
+                this.$nextTick(function() {
+                    this.drawPie('main')
+                })
+                //console.log(this.opiniondata);         
+            }).catch((error)=>{
+            }) 
+        },
+        compareDiffer:function(){
+            this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
+                this.details =  response.data.data;
+                for(let variable  in this.details){   //variable 为属性名
+                    this.confirm = this.details[variable][0].servers;
+                }
+                this.length = this.confirm.length+3;
+            }).catch((error)=>{})
+        },
+        graph:function(appid,serversid){//拓扑图
+            this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
+                let index = this.graphnodes.length+1;
+                if(serversid==1){
+                    for(let i=0;i<response.data.data.length;i++){
+                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1)});
+                        this.graphedges.push({from: 2, to:this.graphnodes.length});
+                    }
+                }else{
+                    for(let i=0;i<response.data.data.length;i++){
+                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1)});
+                        this.graphedges.push({from: 3, to:this.graphnodes.length});
+                    }
+                }
+                if(this.graphnodes.length>3){
+                    var nodes = new vis.DataSet(this.graphnodes);
+                    // 创建关系数组
+                    var edges = new vis.DataSet(this.graphedges);
+                    //   // 创建一个网络
+                    this.container = document.getElementById('mynetwork');
+                    //   // vis数据
+                    this.graphdata = {
+                        nodes: nodes,
+                        edges: edges
+                    };
+                    var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
+                }
+                
+            }).catch((error)=>{})
+        },
         goBack:function(link){
             if(link=='comparelist'){
                 this.$router.push({path:'/compareList'});
@@ -406,8 +768,21 @@ export default{
                 this.system = this.systemold;
             }
         },
+        getdesign:function(){
+            this.$this.get('/broker/design/list/'+this.appId).then((response)=>{
+                //console.log('aaaa',response.data.data);
+                this.designdata.appServer = response.data.data.designAppServer;
+                this.designdata.dbServer = response.data.data.designAppdb;
+                this.designdata.network = response.data.data.network;
+                this.designdata.storage = response.data.data.storage;
+                this.designdata.cdns = response.data.data.cdns;
+                //console.log('aaa',this.designdata.appServer);
+            }).catch((error)=>{
+
+            })
+        },
         drawPie:function(id){
-            console.log(this.opiniondata);
+            //console.log(this.opiniondata);
             this.charts = echarts.init(document.getElementById(id));
             this.charts.setOption({
                 //backgroundColor:'#ccc',
@@ -430,7 +805,35 @@ export default{
                             width: 1
                         }                        
                     },
-                    formatter:this.opiniondata[0].name+'：'+this.opiniondata[0].value[0]+'，'+this.opiniondata[0].value[1]
+                    formatter: function(obj) {
+                        if (obj.componentType == "series") {
+                            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' +
+                                obj.name +
+                                '</div>' +
+                                '<span>' +
+                                '云亲和度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[0]  +
+                                '<br/>' +
+                                '<span>' +
+                                '云收益度' +
+                                '</span>' +
+                                ' : ' + obj.data.value[1] 
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: function(params) {
+                            return params.name
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        position: 'bottom',
+                    }
                 },
                 xAxis: {
                     name: '云收益度',
@@ -477,7 +880,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 20,
+                    symbolSize: 13,
                     markLine: {
                         lineStyle: {
                             normal: {

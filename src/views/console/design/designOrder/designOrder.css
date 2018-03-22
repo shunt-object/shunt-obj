@@ -50,14 +50,15 @@
 }
 .designOrder-list-table thead tr td{
     background:#ffefdd;
-    line-height:48px;
-    color:#606060;
+    color:#555;
     font-size:12px;
+    padding: 8px 0;
+    font-weight: bold;
 }
 .designOrder-list-table tbody tr td{
     background:#fffbf7;
     color:#777;
-    padding:10px;
+    padding:10px 0;
     font-size:12px;
 }
 .designOrder-list-table thead tr .designOrder-td-bg{

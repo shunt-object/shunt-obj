@@ -1,0 +1,29 @@
+.designOrder-fixed{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    padding-left:190px;
+    padding-right:10px;
+}
+@media (max-width: 480px) {
+    .designOrder-fixed{
+        position:relative;
+        width:100%;
+        padding:0;
+    }
+}
+@media (max-width:320px) {
+    .designOrder-fixed{
+        position:relative;
+        width:100%;
+        padding:0;
+    }
+}
+@media (max-width: 866px){
+    .designOrder-fixed{
+        position:relative;
+        width:100%;
+        padding:0;
+    }
+}
