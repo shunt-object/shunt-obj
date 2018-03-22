@@ -4,7 +4,7 @@
         <ul class="fixed-ul">
             <li id="xiaowei" v-on:click="xiaowei()" class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                <img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询
+               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                 <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
             </li>
            
@@ -61,8 +61,8 @@
                     <div class="container">
                         <div class="col-md-6 lun-le animated rollIn">
                             <h1>多场景、目标云真机测试</h1>
-                            <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
+                            <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”。</p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaSc()" class="hoverSapn">了解更多</span></p>
                             
                         </div>
                         <div class="col-md-6  animated rotateInDownRight" style="padding-top:2%"><img src="../../assets/sanbanner.png" alt="" style="width:75%;"></div>
@@ -102,7 +102,7 @@
         </div>
         <div class="row text-center">
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/13.png" alt="" class="Yunimg">
+            <img src="../../assets/homepage/13.png" alt="" class="Yunimg">
             <h2>云规划</h2>
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云？精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
@@ -118,12 +118,12 @@
             <span class="obj-cta"  @click="ctaClound()">查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/12.png" alt="" class="Yunimg">
+            <img src="../../assets/homepage/12.png" alt="" class="Yunimg">
             <h2>云实测</h2>  
             <div class="bluar-ccc">
               <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型的业务场景，通过CloudBroker²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
             </div>
-           <span class="obj-cta">查看更多</span>
+           <span class="obj-cta" @click="cloundScc()">查看更多</span>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/5.png" alt="" class="tranImg">
+            <img src="../../assets/homepage/5.png" alt="" class="tranImg">
             <h4>实测化</h4>
             <div class="mainpa">
               <p class="mainPd">云端百台真机测试</p>
@@ -188,7 +188,7 @@
             <li class="col-xs-12 col-sm-4 pictes">
                 <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
                 <h2>省钱</h2>
-                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 50%的上云成本支出</p>
+                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
                 </div>
             </li>
           <li class="col-xs-12 col-sm-4 pictes">
@@ -597,6 +597,30 @@ export default {
       ctaCloundCsb:function(){
           this.$router.push({path: '/sleconesecond'});
             $('html ,body').animate({scrollTop: 0},0);
+      },
+      ctaSc:function(){
+          this.$router.push({path: '/seleconeThree'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      cloundScc:function(){
+             this.$router.push({path: '/seleconeThree'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      jiaxinTogglerDiv:function(){
+         
+            (function(ji, a, x, i, n, c) {
+                ji[n] = ji[n] || function() {
+                    (ji[n].n = ji[n].n || []).push(arguments);
+                };
+                j = a.createElement(x), s = a.getElementsByTagName(x)[0];
+                j.async = true;
+                if(typeof c==="function"){if(typeof document.attachEvent!=="object"){j.onload=function(){c()}}else{j.onreadystatechange=function(){var r=j.readyState;if(r==="loaded"||r==="complete"){j.onreadystatechange=null;c()}}}};
+                j.charset = "UTF-8";
+                j.src = i + "?v=" + new Date().getUTCDate() + "&id=bwdin25wmjr3dg&appName=jiaxinlvyou&appChannel=20042";
+                s.parentNode.insertBefore(j, s);
+            })(window, document, "script", "//web.jiaxincloud.com/mcs.js", "_JIAXIN");_JIAXIN();
+
+
       }
     }
   }
@@ -716,7 +740,9 @@ ul,ol li {
         padding-right:10px;
         margin-left:26px
     }
- 
+ .mainPd {
+    margin-top: 20px; color: #666666; display: block
+}
   .tuPa {
       left: 2%; height: 288px; position: absolute; bottom: -14%
   }
@@ -738,7 +764,7 @@ ul,ol li {
   .lunmain .lun-rig {
       padding-top: 150px; padding-left: 50px
   }
-   .lumain .lun-rig {
+  .lumain .lun-rig {
       padding-top: 150px; padding-right: 50px
   }
  /* .Imgs {
@@ -989,7 +1015,9 @@ ul,ol li {
 .pCenter{
     padding-bottom:20px;
 }
-
+.mainPd {
+    margin-top: 20px; color: #666666; display: block;margin-bottom:15px;
+}
 .right{
     height:100%;
 }
@@ -1110,9 +1138,7 @@ h2 {
 .color_999{
     color:#999;
 }
-.mainPd {
-    margin-top: 20px; color: #666666; display: block
-}
+
 .mainpa {
     font-size: 14px; color: #666666; line-height: 12px;
 }

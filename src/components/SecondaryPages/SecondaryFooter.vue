@@ -5,8 +5,9 @@
         <div class="row" style="margin:0 auto !important;">
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">联系我们</p>
-                <p class="text-left footer-list hoverRed"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp400-828-7308</p>
-                <p class="text-left footer-list hoverRed"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbspHelp@csb-china.com</p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="tel:4008287308">400-828-7308</a></p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="mailto:Help@csb-china.com">Help@csb-china.com</a></p>
+                <p class="text-left footer-list hoverRed"><img src="../../assets/dizhiicon.svg" alt="" style="width:9px;height:10px">&nbsp江苏无锡惠山区信息港</p>
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
                 <p class="text-left footer-jx">产品功能</p>
@@ -50,6 +51,9 @@
 }*/
 .hoverRed:hover{
     color:#e41e2b
+}
+.hovera a:hover{
+     color:#e41e2b !important
 }
 .footer-jx:hover{
    cursor:pointer;
@@ -143,8 +147,15 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
-
- 
+.footer .footer-left {
+    border-left:1px solid #2e383e;
+}
+ .footer-inert{
+    width:101.2%;
+    height:2px;
+    background:#2e383e;
+    margin-top:20px;
+}
   .tuPa {
       left: 2%; height: 288px; position: absolute; bottom: -14%
   }
@@ -375,9 +386,8 @@ ul,ol li {
 .footer .container {
     width: 60%;
 }
-.footer .footer-left {
-    border-left:1px solid #2e383e;
-}
+
+
 .footer .footer-jx {
     font-weight: 200; font-size:14px; color:#ccc;
 }
@@ -403,8 +413,15 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
-
-
+    .footer .footer-left {
+        border-left:0px solid #2e383e;
+    }
+.footer-inert{
+    width:0;
+    height:0px;
+    background:#2e383e;
+    margin-top:0px;
+}
 .right{
     height:100%;
 }
@@ -619,12 +636,7 @@ h2 {
          margin: 50px 0 25px;
          color:#fff;
   }
-.footer-inert{
-    width:101.2%;
-    height:2px;
-    background:#2e383e;
-    margin-top:20px;
-}
+
 .tranimg:hover{
       transform: scale(1.2);
         -webkit-transition: all 0.6s ease-out; -moz-transition: all 0.6s ease-out; -o-transition: all 0.6s ease-out; transition: all 0.6s ease-out;

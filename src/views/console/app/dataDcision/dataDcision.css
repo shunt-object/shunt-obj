@@ -14,7 +14,7 @@
 .datadecision-list{
     background:#fff;
     box-shadow: 0 2px 2px 0 hsla(0,0%,79%,.4);
-    height:300px;
+    height:450px;
 }
 .decision-title{
     width:100%;
@@ -58,14 +58,15 @@
     padding-left:10px;
     margin-right:10px;
 }
-.up-select{
+@media (min-width: 768px) {
+  .up-select{
     /*position:absolute;
     right:100px;
     top:8px;*/
     float:right;
     margin-top:8px;
     margin-right:10px;
-    width:80px;
+    width:88px;
     height:20px;
     background:#e9e9e9;
     border:none;
@@ -76,6 +77,28 @@
     font-size:12px;
     padding-left:10px;
 }
+}
+@media (max-width: 768px) {
+  .up-select{
+    /*position:absolute;
+    right:100px;
+    top:8px;*/
+    float:right;
+    margin-top:8px;
+    margin-right:10px;
+    width:45px;
+    height:20px;
+    background:#e9e9e9;
+    border:none;
+    line-height:20px;
+    border-radius:2px;
+    cursor:pointer;
+    color:#777;
+    font-size:12px;
+    padding-left:10px;
+}
+}
+
 .types-input{
     min-width:110px;
     height:20px;

@@ -36,8 +36,8 @@
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
-              <li><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
-              <li><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
+              <li class="liHoverxg"><span class="log" v-if="islogin==false" v-on:click="loGog">登录</span></li>
+              <li class="liHoverxgs"><span class="resc" v-if="islogin==false" v-on:click="reset">注册</span></li>
 
 
                <li v-if="islogin==true" class="logout-box" >
@@ -134,6 +134,15 @@ export default {
 </script>
 
 <style>
+.liHoverxg span:hover{
+    background:#fff;
+    color:#da121a;
+}
+.liHoverxgs span:hover{
+     background:#fff;
+    color:#da121a;
+    border:1px #fff solid;
+}
 .olers li:hover{
     background:#F5F7FA !important
 }

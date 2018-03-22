@@ -12,7 +12,7 @@
         <div class="notice">
             <p class="notice-img"><i class="iconfont icon-gonggao2"></i>公告信息：</p>
             <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
-                <li><marquee direction="left">CSB²正式推出数据分析服务<span class="notice-time"></span></marquee></li>
+                <li><marquee direction="left">CSB²正式推出价格优选功能<span class="notice-time"></span></marquee></li>
             </ul>
         </div>
          <!--用户信息-->
@@ -81,7 +81,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active" v-on:click="index()" style="border-bottom:none !important;">
-                    <a class="" href="javascript:;">
+                    <a class="outhover" href="javascript:;">
                         <!--<i class="icon-dashboard"></i>-->
                         <img src="../../../assets/zong.png" alt="">
                         <span>总览</span>
@@ -97,19 +97,34 @@
                     <ul class="sub">
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
+
+                        <li v-on:click="designer()"><a href="javascript:;">云设计</a></li> 
+
                         <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
                         <li v-on:click="buycar()"><a href="javascript:;">云买手</a></li>
+
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
-                        <li v-on:click="zhic()" v-if="utype == 5"><a href="javascript:;">运营支撑</a></li>
-                       
                     </ul>
                 </li>
                 <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
-                    <a href="javascript:;" class="">
+                    <a href="javascript:;" class="outhover">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/shuju.png" alt="">
                         <span>数据分析</span>
                     </a>
+                </li>
+                  <li class="sub-menu" v-show="istrue">
+                    <a href="javascript:;" class="">
+                        <!--<i class="icon-book"></i>-->
+                        <img src="../../../assets/y.png" alt="">
+                        <span>运营支撑</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
+                        <li v-on:click="ReviewTheData()"><a href="javascript:;">点评数据</a></li>
+                        <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- sidebar menu end-->
@@ -123,7 +138,7 @@
     <!-- 弹框 -->
     <el-dialog title="我的点评" :visible.sync="dialogcomment" style="text-align:left;">
         <div class="comment-box">
-            <div class="comment-word">非常感谢您对CloudBroker²的关注，欢迎提出宝贵的意见和建议，我们将积极采纳，更好的改善我们的服务。</div>
+            <div class="comment-word">您的点评，是我们前进的动力！</div>
             <div class="comment-list">
                 <div class="row">
                     <div class="col-md-2 comment-key">我的评分</div>
@@ -154,17 +169,18 @@
                     <div class="col-md-10 contactway" style="padding-left:0px !important;">{{contactway}}</div>
                 </div>
             </div>            
-            <div class="" style="padding:0 23px;">
+            <div class="">
                 <div class="comment-notice">
-                    温馨提示：<br>
-                    1.反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）<br>
-                    2.产品使用中遇到的问题您可以联系<span>Prof. 吴</span><br>
-                    3.紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>
+                    <p>温馨提示：</p>
+                    1、反馈会在1-3个工作日与您联系<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：工作时间：周一至周五，9：00-18：00。<br>
+                    2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span> 。<br>
+                    3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>。
                 </div>
             </div>
             <div class="email-btn">
-                <button class="safe-save-btn" v-on:click="success()">保存</button>
-                <button class="safe-cel-btn" v-on:click="undialog()">取 消</button>
+                <button class="safe-save-btn" v-on:click="success()">提交</button>
+                <button class="safe-cel-btn" v-on:click="undialog()">取消</button>
             </div>   
         </div>         
     </el-dialog>
@@ -190,21 +206,35 @@ export default{
         return {
             username:'',
             utype:'',
+
+            istrue:false,
             dialogcomment:false,
             commentlist:[],
             starlist:[
-                {id:1,boolean:true},
-                {id:2,boolean:true},
-                {id:3,boolean:true},
+                {id:1,boolean:false},
+                {id:2,boolean:false},
+                {id:3,boolean:false},
                 {id:4,boolean:false},
                 {id:5,boolean:false}
             ],
             contactway:'',
             confirmobj:{
                 content:'',
-                grade:'3',
+                grade:'0',
                 type:''
-            }
+            },
+            // hoverlist:[
+            //     {name:'总览',boolean:true},
+            //     {name:'云规划',boolean:true},
+            //     {name:'云选型',boolean:true},
+            //     {name:'云设计',boolean:true},
+            //     {name:'云买手',boolean:true},
+            //     {name:'云实测',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            //     {name:'数据分析',boolean:true},
+            // ]
+
         }
     },
     mounted:function(){
@@ -262,8 +292,17 @@ export default{
             }
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
+        console.log('-------',JSON.parse(sessionStorage.getItem("account")).realname);
         this.utype = sessionStorage.getItem("utype");
+
+        if(this.utype==5){
+            this.istrue = true
+        }else if(this.utype!=5){
+            this.istrue = false
+        }
+
         this.getcomment();
+
        // console.log(JSON.parse(sessionStorage.getItem("account")));
     },
     methods:{
@@ -311,6 +350,8 @@ export default{
                             this.starlist[i].boolean = true;
                         }
                     }
+                }else{
+                    this.starlist[index].boolean = true;
                 }
             }
             this.confirmobj.grade = this.starlist[index].id;
@@ -323,6 +364,21 @@ export default{
             let obj = JSON.stringify(this.confirmobj);
             this.$this.post('/broker/feedback/add',obj).then((response)=>{
                 //console.log('----',response);
+                this.dialogcomment = false;
+                this.selectstar(2);
+                this.confirmobj.content = '';
+                this.$message({
+                    message: '您已提交成功。',
+                    //type: 'success',
+                    customClass:'lay-msg',
+                    iconClass:'el-icon-success'
+                });
+                for(let i=0;i<this.commentlist.length;i++){
+                    this.commentlist[i].boolean = false;
+                }
+                for(let i=0;i<this.starlist.length;i++){
+                    this.starlist[i].boolean = false;
+                }
             }).catch((error)=>{
             })
         },
@@ -341,8 +397,11 @@ export default{
         zhic:function(){
              this.$router.push({path:'/yunzc'});
         },
-        design:function(){
-            this.$router.push({path:'/design'});
+        designer:function(){
+            this.$router.push({path:'/designer'});
+        },
+        TheirAllies:function(){
+           this.$router.push({path:'/TheirAllies'});
         },
         responsiveView:function () {
             var wSize = $(window).width();
@@ -360,7 +419,11 @@ export default{
         },
         datadcis:function(){
             this.$router.push({path:'/dataDcision'});
+        },
+        ReviewTheData:function(){
+            this.$router.push({path:'/ReviewTheData'});
         }
+
     }
 }
 </script>

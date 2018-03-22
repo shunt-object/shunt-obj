@@ -485,7 +485,7 @@
 }
 
 .iconfont{
-    margin-right:10px;
+    /*margin-right:10px;*/
 }
 .cuncul{
     margin-top:50px;
@@ -1390,10 +1390,10 @@ export default {
         }).then(() => {
            
             let id = e;
-            console.log(d);
-            console.log(this.cores)
+            //console.log(id);
             this.$this.delete('/broker/app/resource/group/'+this.appId+'/1/'+id).then((res)=>{
-                      that.cores.splice(d,1);                
+                  that.cores.splice(d,1);                
+                    
             },(err)=>{
                  console.log("不好意思")
             });   

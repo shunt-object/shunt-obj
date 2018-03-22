@@ -257,7 +257,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-    background: #35404D;
+    background: #22242A;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -281,9 +281,20 @@ ul.sidebar-menu li ul.sub li a {
     transition: all 0.3s ease;
     color: #737B83;
 }
-
+.outhover:hover{
+    /*background:#090909;*/
+    background: #3a3d45;
+}
+.outhover-act{
+    background: #3a3d45;
+}
+.slidera-act{
+    color: #da121a;
+    background:#090909;
+}
 ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
     color: #da121a;
+    background:#090909;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -328,7 +339,8 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #3a3d45;
+    /*background: #3a3d45;*/
+    /*background: #090909;*/
     color: #fff;
     display: block;
 

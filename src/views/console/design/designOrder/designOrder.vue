@@ -8,13 +8,13 @@
 </div>
 <child index="5" start="4" :type="$route.query.type" :id="$route.query.id"></child>
 <div class="designOrder-box">
-    <div class="designOrder-title"><span>全部商品</span></div>
+    <div class="designOrder-title"><span>全部商品&nbsp;&nbsp;{{orderlist.length}}</span></div>
     <div class="designOrder-list" v-for="(item,index) in orderlist">
         <div class="designOrder-list-head">
             <p class="designOrder-list-name">
                 <input type="checkbox" v-model="item.model" v-on:click="select(index)">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':''}}
             </p>
-            <p class="designOrder-list-del" v-on:click="del(item.data.id)">删除订单</p>
+            <p class="designOrder-list-del" v-on:click="del(item.data.id)"><i class="iconfont icon-shanchu main-color"></i>删除订单</p>
         </div>
         <table class="designOrder-list-table">
             <thead>
@@ -60,10 +60,13 @@
         </div>
     </div>
 </div>
-<div class="designOrder-sum-price">
-    价格：<span class="designOrder-list-price-color">￥{{sumprice}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
-    <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
-</div>
+
+    <div class="designOrder-sum-price">
+        价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
+        <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
+    </div>
+
+
 <!--<div class="designOrder-touch">
     <div class="designOrder-touch-box">
         <p class="designOrder-touch-list">联系我们：400-828-7308</p>
@@ -94,6 +97,7 @@ export default{
     methods:{
         getdata:function(){
             this.orderlist = [];
+            this.sumprice = 0;
             let listid = [];
             if(this.param instanceof Array==true){
                 listid = this.param;
@@ -107,7 +111,7 @@ export default{
                     this.orderlist.push({data:response.data.data[i],model:true});
                     this.sumprice = this.sumprice+response.data.data[i].cloudPrice;
                 }
-                this.sumprice = Number(this.sumprice).toFixed(2);
+                //this.sumprice = Number(this.sumprice).toFixed(2);
             }).catch((error)=>{
             })
         },
@@ -141,6 +145,10 @@ export default{
                     data: obj
                 }).then((response)=> {
                     that.getdata();
+                    that.$message({
+                        message: '您的订单已成功删除。',
+                        type: 'success'
+                    });
                     //console.log(response)
                 }).catch((error)=> {
                 });      

@@ -28,10 +28,10 @@
     <div class="row">
         <div class="col-md-7 padding10">
             <div class="decision-title">上云趋势统计分析
-                <select class="year-select" v-model="year" v-on:change="lineModel()">
+                <select class="year-select" v-model="year" v-on:change="lineModel()" >
                     <option v-for="item in yearList" :value="item">{{item}}</option>
                 </select>
-                <select class="up-select" v-model="lineArea" v-on:change="lineModel()">
+                <select class="up-select" v-model="lineArea" v-on:change="lineModel()" >
                     <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
                 </select>
                 <select class="up-select" v-model="lineInsdusty" v-on:change="lineModel()">
@@ -111,7 +111,7 @@ export default{
             "cityid":this.information.cityid,
             "year": this.year
         };
-        console.log('aaaaa',obj);
+        //console.log('aaaaa',obj);
         this.getLine(obj);
         this.getPie(obj);
         this.getTypes();  
@@ -421,7 +421,7 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                color:['#F7A72C', '#da121a','#E15F2D'],
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 legend: {
                     orient : 'vertical',
                     x : '79%',
@@ -554,7 +554,7 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
-                    interval:20,
+                    interval:10,
                     axisLabel: {
                         interval:20,
                     },
@@ -582,7 +582,7 @@ export default{
                     scale: true,
                     min:0,
                     max:100,
-                    interval:20,
+                    interval:10,
                     axisLabel: {
                         //formatter: '{value}'
                     },
@@ -631,7 +631,7 @@ export default{
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
-                    symbolSize: 20,
+                    symbolSize: 13,
                     markLine: {
                         lineStyle: {
                             normal: {

@@ -62,9 +62,10 @@
     background:#EF131D;
 }
 .safe-cel-btn{
-    background:#ebebeb;
+    background:#fff;
     color:#595959;
     margin-left:10px;
+    border: 1px solid #dcdfe6;
 }
 .safe-send-btn{
     background:#f7a72c;

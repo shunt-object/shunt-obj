@@ -25,7 +25,7 @@
             <p class="underpay-list-type">Help@csb-china.com</p>
         </div>
         <div class="underpay-title"><i class="iconfont icon-kefu" style="margin-right:5px;"></i>联系客服：</div>
-        <div class="underpay-list">
+        <div class="underpay-list" style="padding-bottom: 0px !important;">
             <p class="underpay-list-type" style="line-height:40px;text-indent:10px;cursor:pointer;">
                 <span class="underpay-kficon" v-on:click="sevice()"><i class="iconfont icon-custom-service"></i></span>
                 <span style="cursor:pointer;" v-on:click="sevice()">Prof. 吴</span>

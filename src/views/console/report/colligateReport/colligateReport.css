@@ -128,7 +128,8 @@
 }
 .colligate-advise{
     border:1px solid #e5e5e5;
-    height:300px;
+    /*height:300px;*/
+    height:100px;
     color:#666;
     width:100%;
     outline:none;
@@ -168,6 +169,14 @@
     color:#da121a;
     margin-right:3px;
 }
+/*占比分析图*/
+.colligateBuy-echarts{
+    width:100%;
+    height:400px;
+    border:1px solid #e5e5e5;
+    margin-bottom:10px;
+}
+/*页尾*/
 .from-head{
     width:100%;
     height:60px;
@@ -236,4 +245,31 @@
 }
 .page-right{
     float:right;
+}
+/*拓扑*/
+.graph{
+    width:100%;
+    height:400px;
+}
+/*云设计*/
+.colligate-design{
+    width:100%;
+    margin-bottom:20px;
+}
+.colligate-design thead tr td{
+    background: #f3f3f3;
+    border: 1px solid #e5e5e5;
+    padding: 10px 0;
+    color: #555;
+    font-weight: 700;
+}
+.colligate-design tbody tr td{
+    font-size: 12px;
+    color: #2b2b2b;
+    border: 1px solid #e5e5e5;
+    padding: 15px 0;
+    line-height: 20px;
+}
+.colligate-design tbody tr:nth-child(2n){
+    background: rgb(247, 247, 247);
 }
