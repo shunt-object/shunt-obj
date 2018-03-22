@@ -7,6 +7,12 @@ import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
 import VueResource from 'vue-resource'
+<<<<<<< HEAD
+import layer from 'vue-layer'
+import 'font-awesome/css/font-awesome.min.css'
+Vue.prototype.$layer = layer(Vue);
+Vue.use(VueResource);
+=======
 import axios from 'axios'
 import layer from 'vue-layer'
 import 'font-awesome/css/font-awesome.min.css'
@@ -183,6 +189,7 @@ router.beforeEach((to, from, next) => {
 })
 
 
+>>>>>>> develop
 
 Vue.config.productionTip = false
 
