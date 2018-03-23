@@ -29,7 +29,6 @@ import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import CustomerService from '@/views/front/CustomerService'
-import rong from "@/views/front/rong"
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
@@ -74,11 +73,6 @@ export default new Router({
       path: '/CustomerService',
       name: 'CustomerService',
       component: CustomerService
-    },
-    {
-      path: '/rong',
-      name: 'rong',
-      component: rong
     },
     {
       path:'/register',

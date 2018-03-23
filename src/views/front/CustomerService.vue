@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin-top:7%;">
+                <div style="margin-top:7%;margin-bottom:7%">
                     <span style="width:60%;margin:0 auto;display:inline-block;text-align:center;height:40px;line-height:40px;border-radius:13px;color:#fff;background:#da121a">请选择您要咨询的内容</span>
                 </div>
             </div>

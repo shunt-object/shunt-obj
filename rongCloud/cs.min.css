@@ -7,7 +7,9 @@
 	padding: 0;
 	border: 0
 }
-
+#jiaxin-mcs-fixed-btn span{
+	display:none !important;
+}
 .rongcloud-zong{
 	width:50%;
 	margin: 0 auto !important;
@@ -280,8 +282,8 @@
 	overflow: auto;
 	padding: 8px 16px;
 	position: absolute;
-	top: 136px;
-	bottom: 114px;
+	top: 100px;
+	bottom: 251px;
 	background-color: #fff;
 	-webkit-overflow-scrolling: touch
 }
@@ -707,7 +709,7 @@
 .rongcloud-text {
 	width: 100%;
 	display: inline-block;
-	height: 200px;
+	height: 160px;
 	padding: 5px;
 	border: 0;
 	color: #999;
