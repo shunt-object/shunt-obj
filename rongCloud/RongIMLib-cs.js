@@ -1756,6 +1756,7 @@ var RongIMLib;
          * @param dataAccessProvider 必须是DataAccessProvider的实例
          */
         RongIMClient.init = function (appKey, dataAccessProvider, options) {
+           
             if (!RongIMClient._instance) {
                 RongIMClient._instance = new RongIMClient();
             }

@@ -3,7 +3,7 @@
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li id="xiaowei"  class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
+            <li id="xiaowei"  class="liHoversBj" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
             <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
                <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
                 <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
@@ -11,6 +11,7 @@
            
         </ul>
         <div id="rys" style="z-index:100 !important"></div>
+        
         <img src="../../assets/scroll.png" alt="" class="scrollUp">
     </div>
     <Sec active="0"></Sec>
@@ -264,16 +265,14 @@
 </div>
 </template>
 <script>
- import wei from '../front/wei.vue';
  import "../front/animate.min.css";
-
  import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
 export default {
     name: 'homePage',
     components:{
-        wei,
+        
         Sec,
         Sex,
         
@@ -290,10 +289,11 @@ export default {
           
 
         $(document).ready(function(){ 
-                $("#xiaowei").click(function(){
-                     var adw = document.getElementById("rys")
-                      rongClouds(adw)
-                })    
+                // $("#xiaowei").click(function(){
+                //      var adw = document.getElementById("rys")
+                //       rongClouds(adw)
+                //     //   $(".rongcloud-Messages-date").hide();
+                // })    
             
                
                      $.fn.extend({
@@ -622,6 +622,9 @@ export default {
              this.$router.push({path: '/seleconeThree'});
             $('html ,body').animate({scrollTop: 0},0);
       },
+      xiaowei:function(){
+        var win = window.open("#/CustomerService","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
+      },
       jiaxinTogglerDiv:function(){
          
             (function(ji, a, x, i, n, c) {
@@ -646,6 +649,19 @@ export default {
 /**{
    overflow:hidden
 }*/
+.rong-jian{
+    font-weight:bold;
+	display: inline-block;
+	z-index: 1;
+    width: 20px;
+	height: 20px;
+    line-height:20px;
+	border-radius:50px;
+    background:#fff;
+    color:#4db8fb;
+    vertical-align: middle;
+	background-position: 0 -139px
+}
 .hoverSapn:hover{
     cursor:pointer;
 }
