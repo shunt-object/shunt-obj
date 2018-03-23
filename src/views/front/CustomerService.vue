@@ -64,10 +64,16 @@
     methods:{
         consulting(){
            var adw = document.getElementById("rys")
-           var account = sessionStorage.getItem('account');
-           var accounts= JSON.parse(account);
-           var relname = accounts.realname;
-           var username = accounts.username; 
+           var relname = "游客";
+           var username = "tourist";
+           var accounts = sessionStorage.getItem('account');
+           console.log(accounts)
+           if(accounts){
+                accounts= JSON.parse(accounts);
+                relname = accounts.realname;
+                username = accounts.username; 
+           }
+          
            var obj = {
                     "portraitUri": "",
                     "realName":relname,

@@ -27,7 +27,7 @@ function rongClouds(idsName,services,tokens){
                     "name":"demo"
                 },
                 "requestInfo":{
-                    "referrer":"10001"
+                    "referrer":"20002"
                 }
             }
         })
