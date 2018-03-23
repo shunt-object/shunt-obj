@@ -471,6 +471,7 @@ export default{
             this.regionthree = [];
         },
         selectRegiontwo:function(regionIndex){
+            this.lookobj.regions = [];
             let arr = [];
             for(let i=0;i<this.regiontwo.length;i++){
                 this.regiontwo[i].boolean = false;

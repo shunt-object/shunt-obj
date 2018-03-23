@@ -55,7 +55,7 @@
                 <div class="colligate-title">
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
-                <div id="mynetwork" :class="graphnodes.length>3?'graph':''" v-if="graphnodes.length>3"></div>
+                <div id="mynetwork" class="graph"></div>
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
@@ -569,14 +569,10 @@ export default{
                 storage:[]
             },
             graphnodes:[
-                {id: 1, label: 'app'},
-                {id: 2, label: '应用服务'},
-                {id: 3, label: '数据库服务'},
+                {id: 1, label: '公网', shape: 'image', image:'/src/assets/report/publicnetwork.png',group:1,color:{border:'#da121a'}},
             ],
-            graphedges:[
-                {from: 1, to: 2},
-                {from: 1, to: 3},
-            ],
+            graphedges:[],
+            appfrom:[],
             container:'',
             graphdata:{},
             graphoptions:{},
@@ -599,7 +595,9 @@ export default{
     },
     mounted:function(){
         this.graph(this.$route.query.id,1);
-        this.graph(this.$route.query.id,2);
+        if(this.graphnodes.length>1){
+            this.graph(this.$route.query.id,2);
+        }        
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -624,7 +622,11 @@ export default{
             },
             edges: {
                 shadow:false,//连接线阴影配置
-                smooth: false,//是否显示方向箭头
+                smooth: false,
+                arrows: {
+                    to: {enabled: true, scaleFactor: 1, type: 'arrow'},
+                    from: {enabled: true, scaleFactor: 1, type: 'arrow'},
+                }
             },
             layout:{
                 randomSeed:1,//配置每次生成的节点位置都一样，参数为数字1、2等
@@ -810,18 +812,27 @@ export default{
         graph:function(appid,serversid){//拓扑图
             this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
-                if(serversid==1){
+                let arr = [];
+                if(serversid==1){//应用服务
                     for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1)});
-                        this.graphedges.push({from: 2, to:this.graphnodes.length});
+                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'/src/assets/report/appnetwork.png',group:2});
+                        this.appfrom.push(index+i);
+                        this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
                     }
-                }else{
+                    this.graph(this.$route.query.id,2);
+                }else{//数据库服务
                     for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1)});
-                        this.graphedges.push({from: 3, to:this.graphnodes.length});
+                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'/src/assets/report/dbnetwork.png',group:3});
+                        if(this.appfrom.length==0){                            
+                            this.graphedges.push({from:1,to:index+i,dashes:true,label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
+                        }else{
+                            for(let n=0;n<this.appfrom.length;n++){
+                                this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'middle',size:10,}});
+                            }  
+                        }                                              
                     }
                 }
-                if(this.graphnodes.length>3){
+                // if(this.graphnodes.length>3){
                     var nodes = new vis.DataSet(this.graphnodes);
                     // 创建关系数组
                     var edges = new vis.DataSet(this.graphedges);
@@ -833,7 +844,7 @@ export default{
                         edges: edges
                     };
                     var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
-                }
+                // }
                 
             }).catch((error)=>{})
         },

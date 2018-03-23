@@ -170,6 +170,11 @@ export default{
             console.log(error);
         })
         this.getIndustry();//行业
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                return false;
+            }
+        });
     },
     methods:{
         getIndustry:function(){

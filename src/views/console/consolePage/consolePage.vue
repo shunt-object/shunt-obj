@@ -106,12 +106,17 @@
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu" v-on:click="datadcis()" v-if="utype!=3&&utype!=4">
-                    <a href="javascript:;" class="outhover">
+                <li class="sub-menu" v-if="utype!=3&&utype!=4">
+                    <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/shuju.png" alt="">
-                        <span>数据分析</span>
+                        <span>智多星</span>
+                        <span class="arrow"></span>
                     </a>
+                    <ul class="sub">
+                        <li v-on:click="smarter()"><a href="javascript:;">智慧分析</a></li>
+                        <li v-on:click="sus()"><a href="javascript:;">舆情监控</a></li>
+                    </ul>
                 </li>
                   <li class="sub-menu" v-show="istrue">
                     <a href="javascript:;" class="">
@@ -419,8 +424,11 @@ export default{
         index:function(){
             this.$router.push({path:'/consolePage'});
         },
-        datadcis:function(){
-            this.$router.push({path:'/dataDcision'});
+        smarter:function(){
+            this.$router.push({path:'/smarterDecision'});
+        },
+        sus:function(){
+            this.$router.push({path:'/susDecision'});
         },
         ReviewTheData:function(){
             this.$router.push({path:'/ReviewTheData'});
