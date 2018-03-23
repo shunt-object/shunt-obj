@@ -406,15 +406,66 @@
                     <div class="colligate-title">
                         <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
                     </div>
+                    <!--投资回报率-->
+                    <div class="colligateInvest">
+                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率</p>
+                        <div class="colligate-list" style="padding-left:2em;">
+                            <table class="Invest-table">
+                                <thead>
+                                    <tr>                   
+                                        <td rowspan="2">您的预算</td>
+                                        <td align="center" valign="middle" colspan="4">花销</td>
+                                        <td rowspan="2">投资回报率</td>
+                                    </tr>
+                                    <tr class="Invest-table-headtwo">
+                                        <td>云厂商</td>
+                                        <td>规格</td>
+                                        <td>费用参考</td>
+                                        <td>京玉折扣价</td>
+                                    </tr>                
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td :rowspan="pricelist.length+1">
+                                            <p :class="budgetprice==''?'Invest-table-color':''" style="cursor:pointer;" v-if="isbudget==false" v-on:click="budget()">{{budgetprice==''?'请输入您的预算':budgetprice}}<span style="color:#666;margin-left:3px;"><i class="iconfont icon-bianji"></i></span></p>
+                                            <p class="inputbudget" v-if="isbudget==true"><input type="number" v-model="budgetprice" v-on:blur="budgetYes()"></p>元
+                                        </td>
+                                        <td>{{pricelistOne.sname}}</td>
+                                        <td>
+                                            <div class="invest-size">
+                                                <span class="Invest-table-color">{{pricelistOne.cores}}</span><br>（v）CPU
+                                            </div>
+                                            <div class="invest-size">
+                                                <span class="Invest-table-color">{{pricelistOne.ram}}</span><br>内存（GB）
+                                            </div>
+                                        </td>
+                                        <td>{{pricelistOne.cloudPrice==0?'原厂在线暂不支持':'￥'+pricelistOne.cloudPrice}}</td>
+                                        <td>{{pricelistOne.csbPrice==0?'线下联系':'￥'+pricelistOne.csbPrice}}</td>
+                                        <td :rowspan="pricelist.length+1"><p class="Invest-table-color">{{priceRate}}<span v-if="priceRate!=''">%</span></p></td>
+                                    </tr>
+                                    <tr v-for="item in pricelist">
+                                        <td>{{item.sname}}</td>
+                                        <td>
+                                            <div class="invest-size">
+                                                <span class="Invest-table-color">{{item.cores}}</span><br>（v）CPU
+                                            </div>
+                                            <div class="invest-size">
+                                                <span class="Invest-table-color">{{item.ram}}</span><br>内存（GB）
+                                            </div>
+                                        </td>
+                                        <td>{{item.cloudPrice==0?'原厂在线暂不支持':'￥'+item.cloudPrice}}</td>
+                                        <td>{{item.csbPrice==0?'线下联系':'￥'+item.csbPrice}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <!--场景占比分析-->
                     <div class="colligateBuy">
-                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>场景占比分析</p>
+                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>意向场景占比分析</p>
                         <div style="padding-left:2em;">
-                            <div class="colligateBuy-echarts row">
-                                <div class="col-md-6">
-                                    <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:380px;"></div>
-                                </div>
-                                <div class="col-md-6"></div>
+                            <div class="colligateBuy-echarts">
+                                <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:780px;"></div>
                             </div>
                         </div>                        
                     </div>
@@ -532,6 +583,11 @@ export default{
             dbScaleservies:[],
             dbScaleName:[],
             dbScaleType:[],
+            pricelist:[],
+            pricelistOne:[],
+            isbudget:false,
+            budgetprice:'',
+            priceRate:''
         }
     },
     updated:function(){
@@ -588,9 +644,38 @@ export default{
         this.compareDiffer();//云选型做题记录
         this.gettype();//获取类型
         this.dbScale();//数据库服务场景占比分析
-        
+        this.getPrice();//获取价格列表
     },
     methods:{
+        budget:function(){//预算
+            this.isbudget==false?this.isbudget=true:this.isbudget=false;
+        },
+        budgetYes:function(){
+            this.isbudget = false;
+            if(this.budgetprice!=''){
+                let obj = {
+                    appid:[this.appId],
+                    budget:this.budgetprice
+                };
+                this.$this.post('/broker/price/roi',JSON.stringify(obj)).then((response)=>{
+                    if(response.data.code==1){
+                        this.priceRate = response.data.data.roi;
+                    }
+                }).catch((error)=>{})
+            }
+            
+        },
+        getPrice:function(){
+            let obj = {"ids":[]};
+            this.$this.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
+                //console.log('----',response); 
+                this.pricelistOne = response.data.data[0];
+                for(let i=1;i<response.data.data.length;i++){
+                    this.pricelist.push(response.data.data[i]);
+                }
+            }).catch((error)=>{
+            })
+        },
         gettype:function(){
             this.$this.get('/broker/prop/typedata/esc-csb/-1').then((response)=>{
                 //console.log('----',response);
@@ -633,7 +718,7 @@ export default{
                 },
                 color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 grid: {
-                    left: '3%',
+                    left: '2%',
                     right: '8%',
                     bottom: '2%',
                     containLabel: true

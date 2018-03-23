@@ -5,6 +5,11 @@
     <p class="zong">云设计</p>
 </div>
 <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
+<!-- 拓扑图 -->
+<div class="designTop" v-if="graphnodes.length>3">
+    <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
+    <div id="mynetwork" :class="graphnodes.length>3?'graph':''" v-if="graphnodes.length>3"></div>
+</div>
 <div class="designHeader">
     <div class="designTop">
         <h2><i class="iconfont icon-xitongpeizhi main-color" style="color:#da121a;font-size:14px"></i>推荐配置</h2>
@@ -670,506 +675,573 @@ a:hover{
 
 </style>
 <script>
-   
 import sds from '../../../components/steps/steps'
 import designHalf from '../design/designHalf/designHalf'
-      export default{
-            name:"design",
-            data(){
-                return {
-                     rules: {
-                         cpu: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
-                         ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
-                         localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
-                         osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
-                          num:[{required: true, message: '请输入数量', trigger: 'blur'}]
-                     },
-                      coresShj:{
-                            cpu:"",   //vcpu
-                            ram:"",     //内存
-                            localDisk:"",  //系统盘（GB）
-                            osType:"",        //操作系统
-                            num:""     //数量
-                        },
-                        inesShj:{
-                            cpu:"",   //vcpu
-                            ram:"",     //内存
-                            localDisk:"",  //系统盘（GB）
-                            osType:"",        //操作系统
-                            num:""     //数量
-                        },    
-                        
-                    formLabelWidth: '120px',
-                     dialogTableVisible: false,
-                    dialogFormVisible: false,
-                    yyshow:true,
-                    sjshow:false,
-                    wlshow:false,
-                    ccshow:false,
-                    cdnshow:false,
-                    dipei:false,
-                    gaopei:false,
-                    xiuzhengZt:false,
-                    appId:"",
-                    ids:"",
-                    digaopei:true,
-                    index:0,
-                    dats:[],
-                    datis:[],
-                    data:[],
-                    zong:"",
-                    jin:"",
-                    chu:"",
-                    form: {
-                        name: '',
-                        region: '',
-                        date1: '',
-                        date2: '',
-                        delivery: false,
-                        type: [],
-                        resource: '',
-                        desc: ''
-                    },
-                    rs:[],
-                    regionter:"",
-                    types:"",
-                    typesey:"",
-                    appseverboo:[],
-                    checkIdappG:[],
-                    checkIdappD:[],
-                    checkIddbG:[],
-                    checkIddbD:[],
-                    appserall:false,
-                    dbserall:false,
-                    haveSj:false,
-                    noSj:false
-                }
+import jsPDF from 'jspdf/dist/jspdf.debug.js'
+import vis from "vis/dist/vis.min.js"
+export default{
+    name:"design",
+    data(){
+        return {
+            rules: {
+                cpu: [{ required: true, message: '请输入(v)CPU', trigger: 'blur' }],
+                ram:[{required: true, message: '请输入内存大小', trigger: 'blur'}],
+                localDisk:[{required: true, message: '请输入磁盘大小', trigger: 'blur'}],
+                osType:[{required: true, message: '请选择操作系统', trigger: 'change'}],
+                num:[{required: true, message: '请输入数量', trigger: 'blur'}]
             },
-            methods:{
-                appWhole:function(){
-                    if(this.dipei==true){
-                        if(this.appserall==false){
-                            this.checkIdappD = [];
-                            this.commonall(this.checkIdappD,this.dats,true);
-                        }else{
-                            this.checkIdappD = [];
-                            this.commonall(this.checkIdappD,this.dats,false);
-                        }                        
-                    }else{
-                        if(this.appserall==false){
-                            this.checkIdappG = [];
-                            this.commonall(this.checkIdappG,this.dats,true);
-                        }else{
-                            this.checkIdappG = [];
-                            this.commonall(this.checkIdappG,this.dats,false);
-                        }     
-                    }
-                    //console.log(this.checkIdappG,'----',this.checkIdappD);
-                },
-                clickCheck:function(index){
-                    if(this.dipei==true){
-                        if(this.dats[index].boolean==false){
-                            this.checkIdappD.push(this.dats[index].data.id);
-                        }else{
-                            for(let i=0;i<this.checkIdappD.length;i++){
-                                if(this.checkIdappD[i]==this.dats[index].data.id){
-                                    this.checkIdappD.splice(i,1);
-                                }
-                            }
-                        }
-                    }else{
-                        if(this.dats[index].boolean==false){
-                            this.checkIdappG.push(this.dats[index].data.id);
-                        }else{
-                            for(let i=0;i<this.checkIdappG.length;i++){
-                                if(this.checkIdappG[i]==this.dats[index].data.id){
-                                    this.checkIdappG.splice(i,1);
-                                }
-                            }
-                        }
-                    }
-                },
-                checkDB:function(index){
-                    if(this.dipei==true){
-                        if(this.datis[index].boolean==false){
-                            this.checkIddbD.push(this.datis[index].data.id);
-                        }else{
-                            for(let i=0;i<this.checkIddbD.length;i++){
-                                if(this.checkIddbD[i]==this.datis[index].data.id){
-                                    this.checkIddbD.splice(i,1);
-                                }
-                            }
-                        }
-                    }else{
-                        if(this.datis[index].boolean==false){
-                            this.checkIddbG.push(this.datis[index].data.id);
-                        }else{
-                            for(let i=0;i<this.checkIddbG.length;i++){
-                                if(this.checkIddbG[i]==this.datis[index].data.id){
-                                    this.checkIddbG.splice(i,1);
-                                }
-                            }
-                        }
-                    }
-                },
-                dbWhole:function(){
-                    if(this.dipei==true){
-                        if(this.dbserall==false){
-                            this.checkIddbD = [];
-                            this.commonall(this.checkIddbD,this.datis,true);
-                        }else{
-                            this.checkIddbD = [];
-                            this.commonall(this.checkIddbD,this.datis,false);
-                        }                        
-                    }else{
-                        if(this.dbserall==false){
-                            this.checkIddbG = [];
-                            this.commonall(this.checkIddbG,this.datis,true);
-                        }else{
-                            this.checkIddbG = [];
-                            this.commonall(this.checkIddbG,this.datis,false);
-                        }     
-                    }
-                    //console.log(this.checkIddbG,'-----',this.checkIddbD);
-                },
-                commonall:function(arr,list,boolean){
-                    for(let i=0;i<list.length;i++){
-                        list[i].boolean = boolean;
-                        if(boolean==true){
-                            arr.push(list[i].data.id);
-                        }                        
-                    }
-                },
-               yyClick:function(){
-                   this.sjshow=false;
-                   this.wlshow=false;
-                   this.cdnshow=false;
-                   this.ccshow=false;
-                   this.digaopei=true;
-                   this.index = 1;
-                 $(".designTabj p").find("span").removeClass("designTabjBj");
-                 $(".designTabj p").find("span").last().addClass("designTabjBj");
-                 this.gaopeis();
-               },
-               sjClick:function(){
-                   this.yyshow=false;
-                   this.wlshow=false;
-                   this.cdnshow=false; 
-                   this.ccshow=false;
-                   this.digaopei=true;
-                   this.index = 2;
-                   $(".designTabj p").find("span").removeClass("designTabjBj");
-                   $(".designTabj p").find("span").last().addClass("designTabjBj");
-                   this.gaopeis();
-                   
-               },
-               wlClick:function(){
-                   
-                    if(this.data.network==null){
-                        this.wlshow=false
-                    }else if(this.data.network!==null){
-                        this.wlshow=true;
-                    }
-                    this.sjshow=false;
-                   this.yyshow=false;
-                   this.cdnshow=false;
-                   this.ccshow=false;
-                   this.digaopei=false;
-                     
-               },
-               ccClick:function(){
-                    this.ccshow=true;
-                    this.sjshow=false;
-                   this.wlshow=false;
-                   this.cdnshow=false;
-                   this.yyshow=false;
-                   this.digaopei=false;
-               },
-               cdnClick:function(){
-                    this.cdnshow=true;
-                     this.sjshow=false;
-                   this.wlshow=false;
-                   this.yyshow=false;
-                   this.ccshow=false;
-                   this.digaopei=false;
-               },
-               xiuzheng:function(id,index,levelType,type){
-                    this.dialogFormVisible = true;
-                    this.Ajaxxi();
-                    this.regionter='server';
-                    this.types = type;
-                    this.ids = id;
-                    if(levelType==17){  //17高配
-                         this.coresShj = this.dats[index].data;
-                         this.typesey = 17;
-                    }else if(levelType==18){
-                        this.coresShj = this.dats[index].data;
-                         this.typesey = 18;
-                    }
-                   
-               },
-               xiuszheng:function(id,index,levelType,type){
-                    this.dialogFormVisible = true;
-                    this.Ajaxxi();
-                    this.regionter='db';
-                    this.types = type;
-                    this.ids = id;
-                    if(levelType==17){
-                         this.inesShj = this.datis[index].data;
-                         this.typesey = 17;  
-                    }else if(levelType==18){
-                        this.inesShj = this.datis[index].data;
-                         this.typesey = 18;
-                    }
-               },
-               dialogFor:function(){  //点击确定时
-                   if(this.types == 1  ){   //=1 是应用服务
-                     this.$refs['coresShj'].validate((valid) => {
-                          if (valid) {
-                                 if(this.typesey == 18){ //18代表低配
-                                    let obj = {
-                                        "appid": this.appId,
-                                        "cpu":this.coresShj.cpu ,
-                                        "id": this.ids,
-                                        "localDisk":this.coresShj.localDisk,
-                                        "num": Number(this.coresShj.num),
-                                        "osType":this.coresShj.osType,
-                                        "ram": this.coresShj.ram,
-                                        "type":this.types,
-                                        "typeLevel": this.typesey
-                                    }
-                                    
-                                    this.$this.post("broker/design/update/vm",obj).then((spones)=>{
-                                            this.index = 1;
-                                            this.dipeis();
-                                            this.dialogFormVisible = false;
-                                    },(err)=>{
-                                            console.log("不好意思")
-                                    })
-                                    
-                                    }else if(this.typesey == 17){
-                                        let obj = {
-                                                "appid": this.appId,
-                                                "cpu":this.coresShj.cpu ,
-                                                "id": this.ids,
-                                                "localDisk":this.coresShj.localDisk,
-                                                "num": Number(this.coresShj.num),
-                                                "osType":this.coresShj.osType,
-                                                "ram": this.coresShj.ram,
-                                                "type":this.types,
-                                                "typeLevel": this.typesey
-                                            }
-
-                                            this.$this.post("broker/design/update/vm",obj).then((spones)=>{
-                                                    this.index = 1;
-                                                    this.gaopeis();
-                                                    this.dialogFormVisible = false;
-                                            },(err)=>{
-                                                    console.log("不好意思")
-                                            })
-                                    }
-                          }else {
-                            console.log('error 出现问题!!');
-                            return false;
-                         }
-                     })
-                   }else if(this.types == 2){
-                      this.$refs['inesShj'].validate((valid) => {
-                           if (valid) {
-                                if(this.typesey == 18){
-                            let objs = {
-                                "appid": this.appId,
-                                "cpu":this.inesShj.cpu ,
-                                "id": this.ids,
-                                "localDisk":this.inesShj.localDisk,
-                                "num": Number(this.inesShj.num),
-                                "osType":this.inesShj.osType,
-                                "ram": this.inesShj.ram,
-                                "type":this.types,
-                                "typeLevel": this.typesey
-                            }
-                           
-                             this.$this.post("broker/design/update/vm",objs).then((spones)=>{
-                                    this.index = 2;
-                                    this.dipeis();
-                                    this.dialogFormVisible = false;
-                            },(err)=>{
-                                    console.log("不好意思")
-                            })
-                        }else if(this.typesey == 17){
-                            let objs = {
-                                "appid": this.appId,
-                                "cpu":this.inesShj.cpu ,
-                                "id": this.ids,
-                                "localDisk":this.inesShj.localDisk,
-                                "num": Number(this.inesShj.num),
-                                "osType":this.inesShj.osType,
-                                "ram": this.inesShj.ram,
-                                "type":this.types,
-                                "typeLevel": this.typesey
-                            }
-                             //console.log(objs)
-                             this.$this.post("broker/design/update/vm",objs).then((spones)=>{
-                                    this.index = 2;
-                                    this.gaopeis();
-                                    this.dialogFormVisible = false;
-                            },(err)=>{
-                                    //console.log("不好意思")
-                            })
-                        }
-                           }else {
-                            console.log('error 出现问题!!');
-                            return false;
-                           }
-                      }) 
+            coresShj:{
+                cpu:"",   //vcpu
+                ram:"",     //内存
+                localDisk:"",  //系统盘（GB）
+                osType:"",        //操作系统
+                num:""     //数量
+            },
+            inesShj:{
+                cpu:"",   //vcpu
+                ram:"",     //内存
+                localDisk:"",  //系统盘（GB）
+                osType:"",        //操作系统
+                num:""     //数量
+            },    
                         
-                   }
-               },
-               quxiao:function(){   //点击取消时
-                   this.dialogFormVisible = false;
-               },
-               Ajaxxi:function(){
-                    this.$this.get("broker/prop/typedata/os/-1").then((rs)=>{
-                            this.rs=rs.data.data;
-                    },(err)=>{
-                            console.log("不好意思")
-                    })
-               },
-               dipeis:function(){
-                   this.appserall = false;
-                   this.dbserall = false;
-                    this.gaopei = false;
-                    this.dipei = true;
-                    
-                    if(this.index == 1){
-                        this.dats = [];
-                          this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
-                                  //this.dats = ris.data.data;
-                                for(let i=0;i<ris.data.data.length;i++){
-                                    this.dats.push({data:ris.data.data[i],boolean:false});
-                                }
-                                  //console.log(this.dats)
-                                  this.yyshow=true;
-                                 if(this.dats.length>0){
-                                        this.haveSj = true;
-                                        this.noSj = false;
-                                 }else{
-                                     this.noSj = true;
-                                     this.haveSj = false
-                                 }
-                          },(err)=>{
-                              console.log("不好意思")    
-                          });  
-                   }else if(this.index == 2){
-                       this.datis = [];
-                       this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
-                                  //this.datis = ros.data.data;
-                                  for(let i=0;i<ros.data.data.length;i++){
-                                        this.datis.push({data:ros.data.data[i],boolean:false});
-                                    }
-                                  this.sjshow=true;
-                                  if(this.datis.length>0){
-                                        this.haveSj = true;
-                                        this.noSj = false;
-                                 }else{
-                                     this.noSj = true;
-                                     this.haveSj = false
-                                 }
-                                  //console.log(this.datis)
-                          },(err)=>{
-                              console.log("不好意思")    
-                          });  
-                          
-                   }
-               },
-             
-               gaopeis:function(){
-                   this.appserall = false;
-                   this.dbserall = false;
-                   this.gaopei = true;
-                   this.dipei = false;
-                   if(this.index == 1){  //index =1 是应用服务  =2是数据库服务
-                        this.dats = [];
-                       this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
-                            //this.dats = ris.data.data;
-                            for(let i=0;i<ris.data.data.length;i++){
-                                this.dats.push({data:ris.data.data[i],boolean:false});
+            formLabelWidth: '120px',
+            dialogTableVisible: false,
+            dialogFormVisible: false,
+            yyshow:true,
+            sjshow:false,
+            wlshow:false,
+            ccshow:false,
+            cdnshow:false,
+            dipei:false,
+            gaopei:false,
+            xiuzhengZt:false,
+            appId:"",
+            ids:"",
+            digaopei:true,
+            index:0,
+            dats:[],
+            datis:[],
+            data:[],
+            zong:"",
+            jin:"",
+            chu:"",
+            form: {
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: ''
+            },
+            rs:[],
+            regionter:"",
+            types:"",
+            typesey:"",
+            appseverboo:[],
+            checkIdappG:[],
+            checkIdappD:[],
+            checkIddbG:[],
+            checkIddbD:[],
+            appserall:false,
+            dbserall:false,
+            haveSj:false,
+            noSj:false,
+            graphnodes:[
+                {id: 1, label: 'app'},
+                {id: 2, label: '应用服务'},
+                {id: 3, label: '数据库服务'},
+            ],
+            graphedges:[
+                {from: 1, to: 2},
+                {from: 1, to: 3},
+            ],
+            container:'',
+            graphdata:{},
+            graphoptions:{},
+        }
+    },
+    mounted:function(){
+        this.appId = this.$route.query.id;
+        $(".designTab p").find("span").first().addClass("designSpanbg");
+        $(".designTab p").find("span").find("a").first().addClass("designbg");
+        $(".designTabj p").find("span").last().addClass("designTabjBj");
+        this.graph(this.$route.query.id,1);
+        this.graph(this.$route.query.id,2);
+        this.graphoptions = {
+            nodes:{
+                borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
+                color:{
+                    border:'#da121a',
+                    background:'#fff',
+                },
+                font: {
+                color: '#333',
+                size:12,
+                },
+                //image:'aa.jpg'
+            },
+            interaction:{
+                zoomView:false,
+                hover: false,//鼠标移过后加粗该节点和连接线
+                dragNodes:false,//是否能拖动节点
+                dragView:false,//是否能拖动画布
+                selectConnectedEdges:false,//选择节点后是否显示连接线
+                hoverConnectedEdges:false,//鼠标滑动节点后是否显示连接线
+                selectable:false,//是否可以点击选择
+            },
+            edges: {
+                shadow:false,//连接线阴影配置
+                smooth: false,//是否显示方向箭头
+            },
+            layout:{
+                randomSeed:1,//配置每次生成的节点位置都一样，参数为数字1、2等
+                hierarchical: {
+                    direction: 'UD',//UD:上下 DU:下上 LR:左右 RL:右左
+                    sortMethod: 'directed' 
+                }, //层级结构显示}
+            },
+        };
+        this.index = 1;  //1是应用服务
+        this.gaopeis();
+            $(document).ready(function(){ 
+            $(".designTab p").find("span").click(function(){
+                $(".designTab p").find("span").removeClass("designSpanbg")
+                $(this).addClass("designSpanbg")
+                $(".designTab p span").find("a").removeClass("designbg");
+                $(this).find("a").addClass("designbg");
+            })
+            $(".designTabj p").find("span").click(function(){
+                $(".designTabj p").find("span").removeClass("designTabjBj")
+                $(this).addClass("designTabjBj")
+            })
+        }); 
+        this.$this.get('broker/app/resource/group/'+this.appId).then((rvs)=>{
+            this.data = rvs.data.data;
+            if(this.data.network!==null){
+                this.jin = this.data.network.inbound;
+                this.chu =  this.data.network.outbound; 
+                this.zong=this.jin+this.chu;
+            }
+            //console.log(this.data)
+            if(this.data.storage == []){
+                return false;
+            }
+        },(err)=>{
+            console.log("不好意思")    
+        });
+                  
+    },
+    methods:{
+        graph:function(appid,serversid){//拓扑图
+            this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
+                let index = this.graphnodes.length+1;
+                if(serversid==1){
+                    for(let i=0;i<response.data.data.length;i++){
+                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1)});
+                        this.graphedges.push({from: 2, to:this.graphnodes.length});
+                    }
+                }else{
+                    for(let i=0;i<response.data.data.length;i++){
+                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1)});
+                        this.graphedges.push({from: 3, to:this.graphnodes.length});
+                    }
+                }
+                if(this.graphnodes.length>3){
+                    var nodes = new vis.DataSet(this.graphnodes);
+                    // 创建关系数组
+                    var edges = new vis.DataSet(this.graphedges);
+                    //   // 创建一个网络
+                    this.container = document.getElementById('mynetwork');
+                    //   // vis数据
+                    this.graphdata = {
+                        nodes: nodes,
+                        edges: edges
+                    };
+                    var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
+                }
+                
+            }).catch((error)=>{})
+        },
+        appWhole:function(){
+            if(this.dipei==true){
+                if(this.appserall==false){
+                    this.checkIdappD = [];
+                    this.commonall(this.checkIdappD,this.dats,true);
+                }else{
+                    this.checkIdappD = [];
+                    this.commonall(this.checkIdappD,this.dats,false);
+                }                        
+            }else{
+                if(this.appserall==false){
+                    this.checkIdappG = [];
+                    this.commonall(this.checkIdappG,this.dats,true);
+                }else{
+                    this.checkIdappG = [];
+                    this.commonall(this.checkIdappG,this.dats,false);
+                }     
+            }
+            //console.log(this.checkIdappG,'----',this.checkIdappD);
+        },
+        clickCheck:function(index){
+            if(this.dipei==true){
+                if(this.dats[index].boolean==false){
+                    this.checkIdappD.push(this.dats[index].data.id);
+                }else{
+                    for(let i=0;i<this.checkIdappD.length;i++){
+                        if(this.checkIdappD[i]==this.dats[index].data.id){
+                            this.checkIdappD.splice(i,1);
+                        }
+                    }
+                }
+            }else{
+                if(this.dats[index].boolean==false){
+                    this.checkIdappG.push(this.dats[index].data.id);
+                }else{
+                    for(let i=0;i<this.checkIdappG.length;i++){
+                        if(this.checkIdappG[i]==this.dats[index].data.id){
+                            this.checkIdappG.splice(i,1);
+                        }
+                    }
+                }
+            }
+        },
+        checkDB:function(index){
+            if(this.dipei==true){
+                if(this.datis[index].boolean==false){
+                    this.checkIddbD.push(this.datis[index].data.id);
+                }else{
+                    for(let i=0;i<this.checkIddbD.length;i++){
+                        if(this.checkIddbD[i]==this.datis[index].data.id){
+                            this.checkIddbD.splice(i,1);
+                        }
+                    }
+                }
+            }else{
+                if(this.datis[index].boolean==false){
+                    this.checkIddbG.push(this.datis[index].data.id);
+                }else{
+                    for(let i=0;i<this.checkIddbG.length;i++){
+                        if(this.checkIddbG[i]==this.datis[index].data.id){
+                            this.checkIddbG.splice(i,1);
+                        }
+                    }
+                }
+            }
+        },
+        dbWhole:function(){
+            if(this.dipei==true){
+                if(this.dbserall==false){
+                    this.checkIddbD = [];
+                    this.commonall(this.checkIddbD,this.datis,true);
+                }else{
+                    this.checkIddbD = [];
+                    this.commonall(this.checkIddbD,this.datis,false);
+                }                        
+            }else{
+                if(this.dbserall==false){
+                    this.checkIddbG = [];
+                    this.commonall(this.checkIddbG,this.datis,true);
+                }else{
+                    this.checkIddbG = [];
+                    this.commonall(this.checkIddbG,this.datis,false);
+                }     
+            }
+            //console.log(this.checkIddbG,'-----',this.checkIddbD);
+        },
+        commonall:function(arr,list,boolean){
+            for(let i=0;i<list.length;i++){
+                list[i].boolean = boolean;
+                if(boolean==true){
+                    arr.push(list[i].data.id);
+                }                        
+            }
+        },
+        yyClick:function(){
+            this.sjshow=false;
+            this.wlshow=false;
+            this.cdnshow=false;
+            this.ccshow=false;
+            this.digaopei=true;
+            this.index = 1;
+            $(".designTabj p").find("span").removeClass("designTabjBj");
+            $(".designTabj p").find("span").last().addClass("designTabjBj");
+            this.gaopeis();
+        },
+        sjClick:function(){
+            this.yyshow=false;
+            this.wlshow=false;
+            this.cdnshow=false; 
+            this.ccshow=false;
+            this.digaopei=true;
+            this.index = 2;
+            $(".designTabj p").find("span").removeClass("designTabjBj");
+            $(".designTabj p").find("span").last().addClass("designTabjBj");
+            this.gaopeis();            
+        },
+        wlClick:function(){            
+            if(this.data.network==null){
+                this.wlshow=false
+            }else if(this.data.network!==null){
+                this.wlshow=true;
+            }
+            this.sjshow=false;
+            this.yyshow=false;
+            this.cdnshow=false;
+            this.ccshow=false;
+            this.digaopei=false;                
+        },
+        ccClick:function(){
+            this.ccshow=true;
+            this.sjshow=false;
+            this.wlshow=false;
+            this.cdnshow=false;
+            this.yyshow=false;
+            this.digaopei=false;
+        },
+        cdnClick:function(){
+            this.cdnshow=true;
+                this.sjshow=false;
+            this.wlshow=false;
+            this.yyshow=false;
+            this.ccshow=false;
+            this.digaopei=false;
+        },
+        xiuzheng:function(id,index,levelType,type){
+            this.dialogFormVisible = true;
+            this.Ajaxxi();
+            this.regionter='server';
+            this.types = type;
+            this.ids = id;
+            if(levelType==17){  //17高配
+                    this.coresShj = this.dats[index].data;
+                    this.typesey = 17;
+            }else if(levelType==18){
+                this.coresShj = this.dats[index].data;
+                    this.typesey = 18;
+            }            
+        },
+        xiuszheng:function(id,index,levelType,type){
+            this.dialogFormVisible = true;
+            this.Ajaxxi();
+            this.regionter='db';
+            this.types = type;
+            this.ids = id;
+            if(levelType==17){
+                    this.inesShj = this.datis[index].data;
+                    this.typesey = 17;  
+            }else if(levelType==18){
+                this.inesShj = this.datis[index].data;
+                    this.typesey = 18;
+            }
+        },
+        dialogFor:function(){  //点击确定时
+            if(this.types == 1  ){   //=1 是应用服务
+                this.$refs['coresShj'].validate((valid) => {
+                    if (valid) {
+                        if(this.typesey == 18){ //18代表低配
+                            let obj = {
+                                "appid": this.appId,
+                                "cpu":this.coresShj.cpu ,
+                                "id": this.ids,
+                                "localDisk":this.coresShj.localDisk,
+                                "num": Number(this.coresShj.num),
+                                "osType":this.coresShj.osType,
+                                "ram": this.coresShj.ram,
+                                "type":this.types,
+                                "typeLevel": this.typesey
+                            };                            
+                            this.$this.post("broker/design/update/vm",obj).then((spones)=>{
+                                this.index = 1;
+                                this.dipeis();
+                                this.dialogFormVisible = false;
+                            },(err)=>{
+                                console.log("不好意思")
+                            })                            
+                        }else if(this.typesey == 17){
+                            let obj = {
+                                    "appid": this.appId,
+                                    "cpu":this.coresShj.cpu ,
+                                    "id": this.ids,
+                                    "localDisk":this.coresShj.localDisk,
+                                    "num": Number(this.coresShj.num),
+                                    "osType":this.coresShj.osType,
+                                    "ram": this.coresShj.ram,
+                                    "type":this.types,
+                                    "typeLevel": this.typesey
+                                };
+                                this.$this.post("broker/design/update/vm",obj).then((spones)=>{
+                                        this.index = 1;
+                                        this.gaopeis();
+                                        this.dialogFormVisible = false;
+                                },(err)=>{
+                                        console.log("不好意思")
+                                })
                             }
+                    }else {
+                        console.log('error 出现问题!!');
+                    return false;
+                    }
+                })
+            }else if(this.types == 2){
+                this.$refs['inesShj'].validate((valid) => {
+                    if (valid) {
+                        if(this.typesey == 18){
+                    let objs = {
+                        "appid": this.appId,
+                        "cpu":this.inesShj.cpu ,
+                        "id": this.ids,
+                        "localDisk":this.inesShj.localDisk,
+                        "num": Number(this.inesShj.num),
+                        "osType":this.inesShj.osType,
+                        "ram": this.inesShj.ram,
+                        "type":this.types,
+                        "typeLevel": this.typesey
+                    };                    
+                    this.$this.post("broker/design/update/vm",objs).then((spones)=>{
+                    this.index = 2;
+                    this.dipeis();
+                    this.dialogFormVisible = false;
+                },(err)=>{
+                    console.log("不好意思")
+                })
+            }else if(this.typesey == 17){
+                let objs = {
+                    "appid": this.appId,
+                    "cpu":this.inesShj.cpu ,
+                    "id": this.ids,
+                    "localDisk":this.inesShj.localDisk,
+                    "num": Number(this.inesShj.num),
+                    "osType":this.inesShj.osType,
+                    "ram": this.inesShj.ram,
+                    "type":this.types,
+                    "typeLevel": this.typesey
+                };
+                this.$this.post("broker/design/update/vm",objs).then((spones)=>{
+                this.index = 2;
+                this.gaopeis();
+                this.dialogFormVisible = false;
+            },(err)=>{
+                    //console.log("不好意思")
+            })
+        }
+            }else {
+            console.log('error 出现问题!!');
+            return false;
+            }
+        })     
+        }
+    },
+    quxiao:function(){   //点击取消时
+        this.dialogFormVisible = false;
+    },
+    Ajaxxi:function(){
+        this.$this.get("broker/prop/typedata/os/-1").then((rs)=>{
+                this.rs=rs.data.data;
+        },(err)=>{
+                console.log("不好意思")
+        })
+    },
+        dipeis:function(){
+            this.appserall = false;
+            this.dbserall = false;
+            this.gaopei = false;
+            this.dipei = true;
+            
+            if(this.index == 1){
+                this.dats = [];
+                    this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
+                            //this.dats = ris.data.data;
+                        for(let i=0;i<ris.data.data.length;i++){
+                            this.dats.push({data:ris.data.data[i],boolean:false});
+                        }
+                            //console.log(this.dats)
                             this.yyshow=true;
                             if(this.dats.length>0){
-                                        this.haveSj = true;
-                                        this.noSj = false;
-                                 }else{
-                                     this.noSj = true;
-                                     this.haveSj = false
-                                 }
-                            //console.log(this.dats)
+                                this.haveSj = true;
+                                this.noSj = false;
+                            }else{
+                                this.noSj = true;
+                                this.haveSj = false
+                            }
                     },(err)=>{
-                              console.log("不好意思")    
-                      });  
-                   }else if(this.index == 2){
-                       this.datis = [];
-                       this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
+                        console.log("不好意思")    
+                    });  
+            }else if(this.index == 2){
+                this.datis = [];
+                this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
                             //this.datis = ros.data.data;
                             for(let i=0;i<ros.data.data.length;i++){
                                 this.datis.push({data:ros.data.data[i],boolean:false});
                             }
                             this.sjshow=true;
                             if(this.datis.length>0){
-                                        this.haveSj = true;
-                                        this.noSj = false;
-                                 }else{
-                                     this.noSj = true;
-                                     this.haveSj = false
-                                 }
+                                this.haveSj = true;
+                                this.noSj = false;
+                            }else{
+                                this.noSj = true;
+                                this.haveSj = false
+                            }
                             //console.log(this.datis)
-                       },(err)=>{
-                              console.log("不好意思")    
-                       });  
-                          
-                   }
-               }
-            },
-            mounted:function(){
-                this.appId = this.$route.query.id;
-                 $(".designTab p").find("span").first().addClass("designSpanbg");
-                 $(".designTab p").find("span").find("a").first().addClass("designbg");
-                 $(".designTabj p").find("span").last().addClass("designTabjBj");
-                this.index = 1;  //1是应用服务
-                this.gaopeis();
-                 $(document).ready(function(){ 
-                    $(".designTab p").find("span").click(function(){
-                        $(".designTab p").find("span").removeClass("designSpanbg")
-                        $(this).addClass("designSpanbg")
-                        $(".designTab p span").find("a").removeClass("designbg");
-                        $(this).find("a").addClass("designbg");
-                    })
-                    $(".designTabj p").find("span").click(function(){
-                        $(".designTabj p").find("span").removeClass("designTabjBj")
-                        $(this).addClass("designTabjBj")
-                    })
-                }); 
-                 this.$this.get('broker/app/resource/group/'+this.appId).then((rvs)=>{
-                                  this.data = rvs.data.data;
-                                  if(this.data.network!==null){
-                                      this.jin = this.data.network.inbound;
-                                      this.chu =  this.data.network.outbound; 
-                                      this.zong=this.jin+this.chu;
-                                  }
-                                  //console.log(this.data)
-                                  if(this.data.storage == []){
-                                      return false;
-                                  }
-                  },(err)=>{
-                              console.log("不好意思")    
-                  });
-                  
-            },
-            components:{
-                sds,
-                designHalf
+                    },(err)=>{
+                        console.log("不好意思")    
+                    });  
+                    
             }
-
-
+        },
+             
+        gaopeis:function(){
+            this.appserall = false;
+            this.dbserall = false;
+            this.gaopei = true;
+            this.dipei = false;
+            if(this.index == 1){  //index =1 是应用服务  =2是数据库服务
+                this.dats = [];
+                this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
+                    //this.dats = ris.data.data;
+                    for(let i=0;i<ris.data.data.length;i++){
+                        this.dats.push({data:ris.data.data[i],boolean:false});
+                    }
+                    this.yyshow=true;
+                    if(this.dats.length>0){
+                        this.haveSj = true;
+                        this.noSj = false;
+                    }else{
+                        this.noSj = true;
+                        this.haveSj = false
+                    }
+                    //console.log(this.dats)
+            },(err)=>{
+                        console.log("不好意思")    
+                });  
+            }else if(this.index == 2){
+                this.datis = [];
+                this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
+                    //this.datis = ros.data.data;
+                    for(let i=0;i<ros.data.data.length;i++){
+                        this.datis.push({data:ros.data.data[i],boolean:false});
+                    }
+                    this.sjshow=true;
+                    if(this.datis.length>0){
+                                this.haveSj = true;
+                                this.noSj = false;
+                            }else{
+                                this.noSj = true;
+                                this.haveSj = false
+                            }
+                    //console.log(this.datis)
+                },(err)=>{
+                        console.log("不好意思")    
+                });  
+                    
+            }
+        }
+    },
+    components:{
+        sds,
+        designHalf
     }
+}
 </script>

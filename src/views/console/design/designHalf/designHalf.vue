@@ -38,6 +38,12 @@
                     <button class="designHalf-select-box" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
                 </div>
             </div>
+            <div class="row">
+                <div class="designHalf-price-list-title col-md-1"></div>
+                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                    <button class="designHalf-select-box" v-for="(item,regionIndex) in regionthree" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegionthree(regionIndex)">{{item.data.region}}</button>
+                </div>
+            </div>
         </div>
         <div class="designHalf-price-list row">
             <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
@@ -374,7 +380,8 @@ export default{
             ],
             clouldcompany:[
                 {id:'11',name:'华为云'},
-                {id:'10',name:'腾讯云'}
+                {id:'10',name:'腾讯云'},
+                {id:'7',name:'阿里云'}
             ],
             selectcompany:'11',
             month:-1,
@@ -433,6 +440,7 @@ export default{
                     this.region[0].boolean = true;
                     this.getRegion(this.region[0].data.id);
                 }else{
+                    this.regiontwo = [];
                     for(let i=0;i<response.data.data.length;i++){
                         this.regiontwo.push({data:response.data.data[i],boolean:false});
                     }
@@ -444,13 +452,12 @@ export default{
             })
         },
         getRegionT:function(id){
+            this.regionthree = [];
             this.$http.get('/broker/price/region/'+id).then((response)=>{
                 //console.log('----',response.data.data);
                 for(let i=0;i<response.data.data.length;i++){
                     this.regionthree.push({data:response.data.data[i],boolean:false});
-                }   
-                this.regionthree[0].boolean = true; 
-                this.lookobj.regions.push(this.regionthree[0].data.code);         
+                }         
             }).catch((error)=>{
             })
         },
@@ -461,6 +468,7 @@ export default{
             this.region[regionIndex].boolean = true;
             this.getRegion(this.region[regionIndex].data.id);
             this.regiontwo = [];
+            this.regionthree = [];
         },
         selectRegiontwo:function(regionIndex){
             let arr = [];
@@ -469,7 +477,16 @@ export default{
             }
             this.regiontwo[regionIndex].boolean = true;
             this.lookobj.regions.push(this.regiontwo[regionIndex].data.code);
+            this.getRegionT(this.regiontwo[regionIndex].data.id);
             //this.lookobj.regions = arr;
+        },
+        selectRegionthree:function(regionIndex){
+            this.lookobj.regions = [];
+            for(let i=0;i<this.regionthree.length;i++){
+                this.regionthree[i].boolean = false;
+            }
+            this.regionthree[regionIndex].boolean = true;
+            this.lookobj.regions.push(this.regionthree[regionIndex].data.code);
         },
         buy:function(index){
             for(let i=0;i<this.buytype.length;i++){
@@ -598,13 +615,6 @@ export default{
             
         },
         designnext:function(){
-            // let arr = [];
-            // for(let i=0;i<this.priceClould.length;i++){
-            //     if(this.priceClould[i].model==true){
-            //         arr.push(this.priceClould[i].data.id);
-            //     }
-            // }
-            // this.$router.push({path:'/designOrder',query:{id:this.appId,listid:arr,type:this.type}});
             this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.type}});
         },
         designprev:function(){
