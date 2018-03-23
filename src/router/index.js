@@ -33,7 +33,8 @@ import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import seleconeFour from "../views/front/selecone/seleconeFour.vue"
-import dataDcision from '@/views/console/app/dataDcision/dataDcision'
+import susDecision from '../views/console/dataDecision/susDecision/susDecision'
+import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import pay from '@/views/console/pay/pay'
 import orderlist from '@/views/console/orderlist/orderlist'
 
@@ -121,12 +122,20 @@ export default new Router({
           component:overviewList
         },
         {
-          path:'/dataDcision',
-          name:'dataDcision',
+          path:'/susDecision',
+          name:'susDecision',
           meta: {
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
-          component:dataDcision
+          component:susDecision
+        },
+        {
+          path:'/smarterDecision',
+          name:'smarterDecision',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:smarterDecision
         },
         {
           path:'/orderlist',
