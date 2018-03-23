@@ -855,7 +855,7 @@ export default{
                             this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
                         }else{
                             for(let n=0;n<this.appfrom.length;n++){
-                                this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'middle',size:10,}});
+                                this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
                             }  
                         }                                              
                     }
