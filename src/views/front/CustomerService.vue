@@ -67,8 +67,8 @@
            var relname = "游客";
            var username = "tourist";
            var accounts = sessionStorage.getItem('account');
-           console.log(accounts)
-           if(accounts){
+           
+           if(accounts !==null){
                 accounts= JSON.parse(accounts);
                 relname = accounts.realname;
                 username = accounts.username; 
@@ -79,7 +79,8 @@
                     "realName":relname,
                     "userName": username
                 }
-           this.$this.post('/broker/user/get/token',obj).then((response)=>{
+            console.log(obj)
+           this.$this.post('/broker/rongcloud/user/token',obj).then((response)=>{
                 this.tokens = response.data.data;
                 var ra = document.getElementsByName("q");
                 for(var i=0;i<ra.length;i++){

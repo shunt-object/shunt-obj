@@ -88,15 +88,15 @@ axios.interceptors.response.use(
         return response;
     },
     error => {
-        if (error.response) {
-            switch (error.response.status) {
-                case 403:
-                    router.replace({
-                        path: '/login',
-                        query: {redirect: router.currentRoute.fullPath}
-                    })
-            }
-        }
+        // if (error.response) {
+        //     switch (error.response.status) {
+        //         case 403:
+        //             router.replace({
+        //                 path: '/login',
+        //                 query: {redirect: router.currentRoute.fullPath}
+        //             })
+        //     }
+        // }
         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
     });
 // Vue.http.interceptors.push((request, next) => {  
