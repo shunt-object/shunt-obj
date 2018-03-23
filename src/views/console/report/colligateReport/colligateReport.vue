@@ -569,7 +569,7 @@ export default{
                 storage:[]
             },
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:'/src/assets/report/publicnetwork.png',group:1,color:{border:'#da121a'}},
+                {id: 1, label: '公网', shape: 'image', image:'../../../../../src/assets/report/publicnetwork.png',group:1,color:{border:'#da121a'}},
             ],
             graphedges:[],
             appfrom:[],
@@ -594,10 +594,14 @@ export default{
         // }
     },
     mounted:function(){
-        this.graph(this.$route.query.id,1);
-        if(this.graphnodes.length>1){
-            this.graph(this.$route.query.id,2);
-        }        
+        this.queryType = this.$route.query.type;
+        this.appId = this.$route.query.id;
+        this.information.realname = JSON.parse(sessionStorage.getItem("account")).realname;
+        this.information.tenant = JSON.parse(sessionStorage.getItem("account")).tenant;
+        // this.graph(this.$route.query.id,1);
+        // if(this.graphnodes.length>1){
+        //     this.graph(this.$route.query.id,2);
+        // }      
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -636,10 +640,7 @@ export default{
                 }, //层级结构显示}
             },
         };
-        this.queryType = this.$route.query.type;
-        this.appId = this.$route.query.id;
-        this.information.realname = JSON.parse(sessionStorage.getItem("account")).realname;
-        this.information.tenant = JSON.parse(sessionStorage.getItem("account")).tenant;
+        
         this.getdesign();        
         this.getplan();//云规划        
         this.getdata();// 云选型
@@ -647,6 +648,7 @@ export default{
         this.gettype();//获取类型
         this.dbScale();//数据库服务场景占比分析
         this.getPrice();//获取价格列表
+        this.topology();  //拓扑图
     },
     methods:{
         budget:function(){//预算
@@ -807,6 +809,38 @@ export default{
                     this.confirm = this.details[variable][0].servers;
                 }
                 this.length = this.confirm.length+3;
+            }).catch((error)=>{})
+        },
+        topology:function(){//拓扑图
+            this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
+                let index = this.graphnodes.length+1;
+                for(let i=0;i<response.data.data.app.length;i++){
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/appnetwork.png',group:2});
+                    this.appfrom.push(index+i);
+                    this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
+                }
+                index = this.graphnodes.length+1;
+                for(let i=0;i<response.data.data.db.length;i++){
+                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/dbnetwork.png',group:3});
+                    if(response.data.data.app.length==0){                            
+                        this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
+                    }else{
+                        for(let n=0;n<this.appfrom.length;n++){
+                            this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
+                        }  
+                    }                                              
+                }
+                var nodes = new vis.DataSet(this.graphnodes);
+                // 创建关系数组
+                var edges = new vis.DataSet(this.graphedges);
+                //   // 创建一个网络
+                this.container = document.getElementById('mynetwork');
+                //   // vis数据
+                this.graphdata = {
+                    nodes: nodes,
+                    edges: edges
+                };
+                var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
             }).catch((error)=>{})
         },
         graph:function(appid,serversid){//拓扑图

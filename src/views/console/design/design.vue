@@ -750,7 +750,7 @@ export default{
             haveSj:false,
             noSj:false,
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:'/src/assets/report/publicnetwork.png',group:1,color:{background:'#fff'}},
+                {id: 1, label: '公网', shape: 'image', image:'../../../../../src/assets/report/publicnetwork.png',group:1,color:{background:'#fff'}},
             ],
             graphedges:[],
             container:'',
@@ -764,10 +764,10 @@ export default{
         $(".designTab p").find("span").first().addClass("designSpanbg");
         $(".designTab p").find("span").find("a").first().addClass("designbg");
         $(".designTabj p").find("span").last().addClass("designTabjBj");
-        this.graph(this.$route.query.id,1);
-        if(this.graphnodes.length>1){
-            this.graph(this.$route.query.id,2);
-        }  
+        // this.graph(this.$route.query.id,1);
+        // if(this.graphnodes.length>1){
+        //     this.graph(this.$route.query.id,2);
+        // }  
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -834,9 +834,42 @@ export default{
         },(err)=>{
             console.log("不好意思")    
         });
-                  
+
+        this.topology();      
     },
     methods:{
+        topology:function(){
+            this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
+                let index = this.graphnodes.length+1;
+                for(let i=0;i<response.data.data.app.length;i++){
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/appnetwork.png',group:2});
+                    this.appfrom.push(index+i);
+                    this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
+                }
+                index = this.graphnodes.length+1;
+                for(let i=0;i<response.data.data.db.length;i++){
+                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/dbnetwork.png',group:3});
+                    if(response.data.data.app.length==0){                            
+                        this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
+                    }else{
+                        for(let n=0;n<this.appfrom.length;n++){
+                            this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
+                        }  
+                    }                                              
+                }
+                var nodes = new vis.DataSet(this.graphnodes);
+                // 创建关系数组
+                var edges = new vis.DataSet(this.graphedges);
+                //   // 创建一个网络
+                this.container = document.getElementById('mynetwork');
+                //   // vis数据
+                this.graphdata = {
+                    nodes: nodes,
+                    edges: edges
+                };
+                var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
+            }).catch((error)=>{})
+        },
         graph:function(appid,serversid){//拓扑图
             this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
