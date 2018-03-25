@@ -542,10 +542,10 @@ export default{
                 } 
                 this.islook = true;
                 //if(this.appEcharts.length>0){
-                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
+                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
                 //} 
                 //if(this.dbEcharts.length>0){
-                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
+                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
                 //}
                 if(this.priceClould.length==0){
                     this.islookecharts = false; 
@@ -686,7 +686,7 @@ export default{
                                 color:'#f7a72c'
                             }
                         },
-                        barWidth : 25,//柱图宽度
+                        barWidth : 15,//柱图宽度
                     }
                 ]
             })

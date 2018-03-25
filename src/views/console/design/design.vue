@@ -679,6 +679,9 @@ import sds from '../../../components/steps/steps'
 import designHalf from '../design/designHalf/designHalf'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 import vis from "vis/dist/vis.min.js"
+import network from '../../../assets/report/publicnetwork.png'
+import appnetwork from '../../../assets/report/appnetwork.png'
+import dbnetwork from '../../../assets/report/dbnetwork.png'
 export default{
     name:"design",
     data(){
@@ -750,7 +753,7 @@ export default{
             haveSj:false,
             noSj:false,
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:'../../../../../src/assets/report/publicnetwork.png',group:1,color:{background:'#fff'}},
+                {id: 1, label: '公网', shape: 'image', image:network,group:1,color:{background:'#fff'}},
             ],
             graphedges:[],
             container:'',
@@ -842,13 +845,13 @@ export default{
             this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
                 for(let i=0;i<response.data.data.app.length;i++){
-                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/appnetwork.png',group:2});
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,group:2});
                     this.appfrom.push(index+i);
                     this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
                 }
                 index = this.graphnodes.length+1;
                 for(let i=0;i<response.data.data.db.length;i++){
-                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/dbnetwork.png',group:3});
+                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:dbnetwork,group:3});
                     if(response.data.data.app.length==0){                            
                         this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
                     }else{
@@ -1285,7 +1288,10 @@ export default{
     },
     components:{
         sds,
-        designHalf
+        designHalf,
+        network,
+        appnetwork,
+        dbnetwork
     }
 }
 </script>

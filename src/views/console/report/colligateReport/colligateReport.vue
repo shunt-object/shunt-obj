@@ -96,7 +96,7 @@
                                     <span class="score-name" v-if="item.moduleId!=1">{{item.moduleName}}</span>
                                     <span class="score-name" v-else>{{item.moduleName}}</span>
                                     <span class="score-val" v-if="item.moduleId!=1">{{item.result}}</span>
-                                    <span class="score-val" v-else>{{JSON.parse(item.result).sname}}</span>
+                                    <span class="score-val" v-else>{{JSON.parse(item.result).sname==undefined?'--':JSON.parse(item.result).sname}}</span>
                                 </p>
                             </div>
                         </div>
@@ -408,53 +408,59 @@
                     </div>
                     <!--投资回报率-->
                     <div class="colligateInvest">
-                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率</p>
+                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率预估分析</p>
                         <div class="colligate-list" style="padding-left:2em;">
-                            <table class="Invest-table">
+                            <table class="Invest-table" v-if="pricelistOne.length>0">
                                 <thead>
                                     <tr>                   
                                         <td rowspan="2">您的预算</td>
-                                        <td align="center" valign="middle" colspan="4">花销</td>
+                                        <td align="center" valign="middle" colspan="6">优选后消费</td>
                                         <td rowspan="2">投资回报率</td>
                                     </tr>
                                     <tr class="Invest-table-headtwo">
                                         <td>云厂商</td>
                                         <td>规格</td>
+                                        <td>数量</td>
+                                        <td>时间</td>
                                         <td>费用参考</td>
                                         <td>京玉折扣价</td>
                                     </tr>                
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr v-for="(item,index) in pricelistOne">
                                         <td :rowspan="pricelist.length+1">
                                             <p :class="budgetprice==''?'Invest-table-color':''" style="cursor:pointer;" v-if="isbudget==false" v-on:click="budget()">{{budgetprice==''?'请输入您的预算':budgetprice}}<span style="color:#666;margin-left:3px;"><i class="iconfont icon-bianji"></i></span></p>
                                             <p class="inputbudget" v-if="isbudget==true"><input type="number" v-model="budgetprice" v-on:blur="budgetYes()"></p>元
                                         </td>
-                                        <td>{{pricelistOne.sname}}</td>
+                                        <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelistOne',index)">{{item.data.sname}}</td>
                                         <td>
                                             <div class="invest-size">
-                                                <span class="Invest-table-color">{{pricelistOne.cores}}</span><br>（v）CPU
+                                                <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
                                             </div>
                                             <div class="invest-size">
-                                                <span class="Invest-table-color">{{pricelistOne.ram}}</span><br>内存（GB）
+                                                <span class="Invest-table-color">{{item.data.ram}}</span><br>内存（GB）
                                             </div>
                                         </td>
-                                        <td>{{pricelistOne.cloudPrice==0?'原厂在线暂不支持':'￥'+pricelistOne.cloudPrice}}</td>
-                                        <td>{{pricelistOne.csbPrice==0?'线下联系':'￥'+pricelistOne.csbPrice}}</td>
+                                        <td>{{item.data.num}}</td>
+                                        <td>{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
+                                        <td>{{item.data.cloudPrice==0?'原厂在线暂不支持':'￥'+item.data.cloudPrice}}</td>
+                                        <td>{{item.data.csbPrice==0?'线下联系':'￥'+item.data.csbPrice}}</td>
                                         <td :rowspan="pricelist.length+1"><p class="Invest-table-color">{{priceRate}}<span v-if="priceRate!=''">%</span></p></td>
                                     </tr>
-                                    <tr v-for="item in pricelist">
-                                        <td>{{item.sname}}</td>
+                                    <tr v-for="(item,index) in pricelist" v-if="pricelist.length>0">
+                                        <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelist',index)">{{item.data.sname}}</td>
                                         <td>
                                             <div class="invest-size">
-                                                <span class="Invest-table-color">{{item.cores}}</span><br>（v）CPU
+                                                <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
                                             </div>
                                             <div class="invest-size">
-                                                <span class="Invest-table-color">{{item.ram}}</span><br>内存（GB）
+                                                <span class="Invest-table-color">{{item.data.ram}}</span><br>内存（GB）
                                             </div>
                                         </td>
-                                        <td>{{item.cloudPrice==0?'原厂在线暂不支持':'￥'+item.cloudPrice}}</td>
-                                        <td>{{item.csbPrice==0?'线下联系':'￥'+item.csbPrice}}</td>
+                                        <td>{{item.data.num}}</td>
+                                        <td>{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
+                                        <td>{{item.data.cloudPrice==0?'原厂在线暂不支持':'￥'+item.data.cloudPrice}}</td>
+                                        <td>{{item.data.csbPrice==0?'线下联系':'￥'+item.data.csbPrice}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -462,7 +468,7 @@
                     </div>
                     <!--场景占比分析-->
                     <div class="colligateBuy">
-                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>意向场景占比分析</p>
+                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>云设计意向场景统计分析</p>
                         <div style="padding-left:2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:780px;"></div>
@@ -473,7 +479,7 @@
                     <div class="system-advise">
                         <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>上云分析CloudBroker²评估建议</p>
                         <p class="advise-content" v-if="Issystem==false">{{system}}
-                            <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#2eabf5;">编辑</span></span>
+                            <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#555;">编辑</span></span><!--#2eabf5-->
                         </p>
                         <div class="advise-system-input" v-show="Issystem">
                             <textarea class="advise-system-text" v-model="system">{{system}}</textarea>
@@ -530,6 +536,9 @@ import echarts from 'echarts'
 import html2Canvas from '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 import vis from "vis/dist/vis.min.js"
+import network from '../../../../assets/report/publicnetwork.png'
+import appnetwork from '../../../../assets/report/appnetwork.png'
+import dbnetwork from '../../../../assets/report/dbnetwork.png'
 // import "vis/dist/vis.min.css"
 
 export default{
@@ -569,7 +578,7 @@ export default{
                 storage:[]
             },
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:'../../../../../src/assets/report/publicnetwork.png',group:1,color:{border:'#da121a'}},
+                {id: 1, label: '公网', shape: 'image', image:network,group:1,color:{border:'#da121a'}},
             ],
             graphedges:[],
             appfrom:[],
@@ -646,20 +655,43 @@ export default{
         this.getdata();// 云选型
         this.compareDiffer();//云选型做题记录
         this.gettype();//获取类型
-        this.dbScale();//数据库服务场景占比分析
+        //this.dbScale();//数据库服务场景占比分析
         this.getPrice();//获取价格列表
         this.topology();  //拓扑图
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                return false;
+            }
+        });
     },
     methods:{
         budget:function(){//预算
             this.isbudget==false?this.isbudget=true:this.isbudget=false;
         },
+        investInput:function(arrname,index){
+            if(arrname=='pricelistOne'){
+                this.pricelistOne[index].boolean==false?this.pricelistOne[index].boolean=true:this.pricelistOne[index].boolean=false;
+            }else{
+                this.pricelist[index].boolean==false?this.pricelist[index].boolean=true:this.pricelist[index].boolean=false;
+            }
+            //console.log('-----',this.pricelistOne);
+        },
         budgetYes:function(){
             this.isbudget = false;
+            let arr = [];
             if(this.budgetprice!=''){
+                for(let i=0;i<this.pricelist.length;i++){
+                    if(this.pricelist[i].boolean==true){
+                        arr.push(this.pricelist[i].data.id);
+                    }
+                }
+                if(this.pricelistOne[0].boolean==true){
+                    arr.push(this.pricelistOne[0].data.id);
+                }
                 let obj = {
                     appid:[this.appId],
-                    budget:this.budgetprice
+                    budget:this.budgetprice,
+                    purchaseIds:arr
                 };
                 this.$this.post('/broker/price/roi',JSON.stringify(obj)).then((response)=>{
                     if(response.data.code==1){
@@ -673,9 +705,14 @@ export default{
             let obj = {"ids":[]};
             this.$this.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
                 //console.log('----',response); 
-                this.pricelistOne = response.data.data[0];
-                for(let i=1;i<response.data.data.length;i++){
-                    this.pricelist.push(response.data.data[i]);
+                //this.pricelistOne = response.data.data[0];
+                if(response.data.data.length>0){
+                    this.pricelistOne.push({boolean:false,data:response.data.data[0]});
+                    //console.log('aaaa',this.pricelistOne);
+                    for(let i=1;i<response.data.data.length;i++){
+                        //this.pricelist.push(response.data.data[i]);
+                        this.pricelist.push({boolean:false,data:response.data.data[i]});
+                    }
                 }
             }).catch((error)=>{
             })
@@ -686,27 +723,49 @@ export default{
                 for(let i=0;i<response.data.data.length;i++){
                     this.dbScaleType.push(response.data.data[i].name);
                 }
+                this.dbScale(this.dbScaleType);
             }).catch((error)=>{
             })
         },
-        dbScale:function(){
+        dbScale:function(dbScaleType){
             let str = {"appids":[this.appId]};
+            let app = [],db = [];
+            for(let n=0;n<dbScaleType.length;n++){
+                app.push([0,dbScaleType[n]]);
+                db.push([0,dbScaleType[n]]);
+            }
             this.$this.post('/broker/price/purchasin/scene',JSON.stringify(str)).then((response)=>{
                 for(let i=0;i<response.data.data.length;i++){
-                    this.dbScaleservies.push({
-                        name: response.data.data[i].vmType,
-                        type: 'bar',
-                        stack: '总量',
-                        data: [[response.data.data[i].num,response.data.data[i].sceneType]]
-                    });
+                    if(response.data.data[i].vmType=='应用服务'){
+                        for(let j=0;j<app.length;j++){
+                            if(response.data.data[i].sceneType==app[j][1]){
+                                app[j][0] = response.data.data[i].num;
+                            }
+                        }
+                    }else{
+                        for(let k=0;k<db.length;k++){
+                            if(response.data.data[i].sceneType==db[k][1]){
+                                db[k][0] = response.data.data[i].num;
+                            }
+                        }
+                    }
+                    // this.dbScaleservies.push({
+                    //     name: response.data.data[i].vmType,
+                    //     type: 'bar',
+                    //     stack: '总量',
+                    //     data: [[response.data.data[i].num,response.data.data[i].sceneType]]
+                    // });
                     this.dbScaleName.push(response.data.data[i].vmType);
                 }  
                 this.$nextTick(function() {
-                    this.dbScaleCanvas('colligateBuy-type');
+                    //this.dbScaleCanvas('colligateBuy-type',dbScaleType,this.dbScaleservies);
+                    this.dbScaleCanvas('colligateBuy-type',dbScaleType,app,db);
                 })
             }).catch((error)=>{})
         },
-        dbScaleCanvas:function(dom){
+        //dbScaleCanvas:function(dom,dbScaleType,dbScaleservies){
+        dbScaleCanvas:function(dom,dbScaleType,app,db){
+            //console.log('+++++',dbScaleType);
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -745,7 +804,7 @@ export default{
                 yAxis: {
                     type: 'category',
                     name:'类型',
-                    data: this.dbScaleType,
+                    data: dbScaleType,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
@@ -758,7 +817,21 @@ export default{
                         color:'#333'
                     },
                 },
-                series: this.dbScaleservies
+                //series: dbScaleservies
+                series:[
+                    {
+                        name: '应用服务',
+                        type: 'bar',
+                        stack: '总量',
+                        data: app
+                    },
+                    {
+                        name: '数据库服务',
+                        type: 'bar',
+                        stack: '总量',
+                        data: db
+                    }
+                ]
             })
         },
         getplan:function(){
@@ -771,6 +844,7 @@ export default{
                 this.information.protypeStr = response.data.data.protypeStr;
                 this.information.frametypeStr = response.data.data.frametypeStr;
                 this.information.createDt = response.data.data.createDt;
+                console.log(this.information.proname);
                 for(let i=0;i<response.data.data.appResults.length;i++){
                     if(response.data.data.appResults[i].moduleId==1||response.data.data.appResults[i].moduleId==2||response.data.data.appResults[i].moduleId==3){
                         this.resultlist.push(response.data.data.appResults[i]);
@@ -815,13 +889,13 @@ export default{
             this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
                 for(let i=0;i<response.data.data.app.length;i++){
-                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/appnetwork.png',group:2});
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,group:2});
                     this.appfrom.push(index+i);
                     this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
                 }
                 index = this.graphnodes.length+1;
                 for(let i=0;i<response.data.data.db.length;i++){
-                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'../../../../../src/assets/report/dbnetwork.png',group:3});
+                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:dbnetwork,group:3});
                     if(response.data.data.app.length==0){                            
                         this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
                     }else{
@@ -1227,7 +1301,10 @@ export default{
      }
     },
     components:{
-        child
+        child,
+        network,
+        appnetwork,
+        dbnetwork
     }
 }
 </script>

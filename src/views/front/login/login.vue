@@ -74,11 +74,11 @@ export default{
             this.account = localStorage.getItem('remAccount');
         }
         let that = this;
-        $(document).keyup(function (evnet) {
+        document.onkeyup = function(evnet){
             if (evnet.keyCode == '13') {
                 that.login();
             }
-        });
+        }
         this.nextTo = this.$route.query.redirect;
         
         //console.log('------',this.$route.query.redirect);
@@ -120,7 +120,7 @@ export default{
                 let str = JSON.stringify(obj);
                 let that = this;
                 this.$this.post('/broker/auth/login',str).then((res)=>{
-                    console.log('login',res);
+                    //console.log('login',res);
                     if(res.data.code=='1'){
                         // if(this.$route.query.redirect==undefined){
                         //     this.$router.push({path:'/'});

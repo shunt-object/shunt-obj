@@ -110,7 +110,7 @@
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
                         <img src="../../../assets/shuju.png" alt="">
-                        <span>智多星</span>
+                        <span>Prof. 吴数据</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
