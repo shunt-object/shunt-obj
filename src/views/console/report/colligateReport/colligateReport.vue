@@ -56,7 +56,7 @@
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
                 <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
-                <div class="graph-notice" v-if="isgraph==true">您当前还没有配置资源工作负载信息，<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">立即配置工作负载信息</span>。</div>
+                <div class="graph-notice" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
@@ -469,7 +469,7 @@
                     </div>
                     <!--场景占比分析-->
                     <div class="colligateBuy">
-                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单统计分析图</p>
+                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单场景分析图</p>
                         <div style="padding-left:2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:780px;"></div>

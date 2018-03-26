@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-7 padding10">
-            <div class="decision-title">多云优选意向订单统计分析
+            <div class="decision-title">多云优选意向订单场景分析
                 <select class="types-input" style="float:right;margin-right:10px;border:none;width:110px !important;" v-model="analysisModel" v-on:change="designScene()">
                     <option v-for="item in analysisList" :value="item.id" style="background:#fff;">{{item.proname}}</option>
                 </select>

@@ -9,7 +9,7 @@
 <div class="designTop">
     <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
     <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
-    <div class="graph-notice" style="padding-left: 2em;" v-if="isgraph==true">您当前还没有配置资源工作负载信息，<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">立即配置工作负载信息</span>。</div>
+    <div class="graph-notice" style="padding-left: 2em;" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
 </div>
 <div class="designHeader">
     <div class="designTop">
