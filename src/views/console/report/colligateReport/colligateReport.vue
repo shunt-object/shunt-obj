@@ -794,7 +794,7 @@ export default{
                 legend: {
                     data: this.dbScaleName,
                     top:'10',
-                    left:'0'
+                    right:'10'
                 },
                 color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 grid: {

@@ -115,7 +115,7 @@
                     </a>
                     <ul class="sub">
                         <li v-on:click="smarter()"><a href="javascript:;">智慧分析</a></li>
-                        <li v-on:click="sus()"><a href="javascript:;">舆情监控</a></li>
+                        <li v-on:click="sus()"><a href="javascript:;">舆情分析</a></li>
                     </ul>
                 </li>
                   <li class="sub-menu" v-show="istrue">
