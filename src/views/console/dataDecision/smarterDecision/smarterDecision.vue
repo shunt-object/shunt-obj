@@ -63,8 +63,7 @@ export default{
             desType:[],
             series:[],
             desingLegend:[],
-            muing:[],
-            dataPush:[]
+            appnamelist:[],
         }
     },
     mounted:function(){
@@ -102,7 +101,7 @@ export default{
                 this.getDesignType();
             }).catch((error)=>{})
             this.$this.get('/broker/app/getAppMsg').then((response)=>{//应用
-                console.log('bbbbbbb',response);
+                //console.log('bbbbbbb',response);
             }).catch((error)=>{})
             let obj = {ids:['592']};
             this.$this.post('/broker/user/analysis/app/compare/group',JSON.stringify(obj)).then((response)=>{
@@ -110,28 +109,62 @@ export default{
             }).catch((error)=>{})
         },
         designScene:function(){
-            this.muing = [];
+            //this.muing = [];
             this.getDesignHttp(this.desType,this.analysisModel);
             //this.getDesignType();
         },
         getDesignHttp:function(designType,analysisModel){
-            //console.log(this.analysisModel);
             let str = {ids:[analysisModel]};
             this.series = [];
             this.desingLegend = [];
+            // for(let m=0;m<designType.length;m++){
+            //     this.series.push({
+            //         name: designType[m],
+            //         type: 'bar',
+            //         stack: '总量',
+            //         data: []
+            //     });
+            // }
             this.$this.post('/broker/user/analysis/app/purchasin/scene',JSON.stringify(str)).then((response)=>{
                 //console.log('aaaaaa',response.data.data);
+                // for(let t in response.data.data){
+                //     this.appnamelist.push(t);//y轴
+                // }
+                // for(let n=0;n<this.series.length;n++){
+                //     for(let t in response.data.data){
+                //         this.series[n].data.push([0,t]);
+                //     }
+                // }
+                
+                // for(let i in response.data.data){
+                //     for(let j=0;j<response.data.data[i].length;j++){
+                        
+                //         for(let k=0;k<this.series.length;k++){
+                //             if(response.data.data[i][j].sceneType==this.series[k].name){
+                //                 for(let b=0;b<this.series[k].data.length;b++){
+                //                     if(response.data.data[i][j].appname==this.series[k].data[b][1]){
+                                        
+                //                         this.series[k].data[b][0] = response.data.data[i][j].num;
+                //                     }
+                //                 }
+                //             }
+                //         }
+
+                //     }
+                // }
+                // this.$nextTick(function() {
+                //     this.canvarDesign('desingn-scenc',this.appnamelist,this.series,designType);
+                // })
+                
+                
                 for(let i in response.data.data){
                     this.desingLegend.push(i);
-                    this.series[i].push({
+                    this.series.push({
                         name: i,
                         type: 'bar',
                         stack: '总量',
-                        data: this.dataPush
+                        data: []
                     });
-                    for(let r = 0;r<response.data.data[i].length;r++){
-                        console.log(response.data.data[i][r])
-                    }
                 }
                
                 for(let g=0;g<this.series.length;g++){
@@ -140,25 +173,24 @@ export default{
                     }    
                 }
                 for(let k=0;k<this.series.length;k++){
-                         this.muing.push(this.series[k].name)
-                        for(let j in response.data.data){
-                            for(let n=0;n<response.data.data[j].length;n++){
-                                if(this.series[k].name==response.data.data[j][n].appname){
-                                    
-                                    for(let y=0;y<this.series[k].data.length;y++){
-                                        if(this.series[k].data[y][1]==response.data.data[j][n].sceneType){
-                                            this.series[k].data[y][0] = response.data.data[j][n].num;
-                                           
-                                        }
+                    for(let j in response.data.data){
+                        for(let n=0;n<response.data.data[j].length;n++){
+                            if(this.series[k].name==response.data.data[j][n].appname){
+                                
+                                for(let y=0;y<this.series[k].data.length;y++){
+                                    if(this.series[k].data[y][1]==response.data.data[j][n].sceneType){
+                                        this.series[k].data[y][0] = response.data.data[j][n].num;
+                                        
                                     }
                                 }
                             }
                         }
+                    }
                     
                 }
-                console.log(this.muing);
+                
                 this.$nextTick(function() {
-                    this.canvarDesign('desingn-scenc',this.desingLegend,this.series,designType,this.muing);
+                    this.canvarDesign('desingn-scenc',this.desingLegend,this.series,designType);
                 })
                 //console.log('hhhhhh',series);
                 
@@ -176,7 +208,7 @@ export default{
             }).catch((error)=>{
             })
         },
-        canvarDesign:function(dom,lenged,series,designType,muing){
+        canvarDesign:function(dom,desingLegend,series,designType){
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -186,7 +218,7 @@ export default{
                     }
                 },
                 legend: {
-                    data: lenged,
+                    data: desingLegend,
                     top:'10',
                     right:'10'
                 },
@@ -215,7 +247,7 @@ export default{
                 yAxis: {
                     type: 'category',
                     name:'类型',
-                    data: muing,
+                    data: designType,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
@@ -228,7 +260,7 @@ export default{
                         color:'#333'
                     },
                 },
-                series: this.series
+                series: series
                 // series:[
                 //     {
                 //         name: '应用服务',

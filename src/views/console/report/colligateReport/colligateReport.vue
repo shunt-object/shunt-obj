@@ -55,7 +55,8 @@
                 <div class="colligate-title">
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
-                <div id="mynetwork" class="graph"></div>
+                <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
+                <div class="graph-notice" v-if="isgraph==true">您当前还没有配置资源工作负载信息，<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">立即配置工作负载信息</span>。</div>
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
@@ -536,9 +537,9 @@ import echarts from 'echarts'
 import html2Canvas from '../../../../components/pdf/html2canvas.js'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 import vis from "vis/dist/vis.min.js"
-import network from '../../../../assets/report/publicnetwork.png'
-import appnetwork from '../../../../assets/report/appnetwork.png'
-import dbnetwork from '../../../../assets/report/dbnetwork.png'
+import network from '../../../../../src/assets/report/publicnetwork.png'
+import appnetwork from '../../../../../src/assets/report/appnetwork.png'
+import dbnetwork from '../../../../../src/assets/report/dbnetwork.png'
 // import "vis/dist/vis.min.css"
 
 export default{
@@ -578,7 +579,7 @@ export default{
                 storage:[]
             },
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:network,group:1,color:{border:'#da121a'}},
+                {id: 1, label: '公网', shape: 'image', image:network,color:{border:'#da121a'}},
             ],
             graphedges:[],
             appfrom:[],
@@ -592,7 +593,8 @@ export default{
             pricelistOne:[],
             isbudget:false,
             budgetprice:'',
-            priceRate:''
+            priceRate:'',
+            isgraph:''
         }
     },
     updated:function(){
@@ -607,10 +609,6 @@ export default{
         this.appId = this.$route.query.id;
         this.information.realname = JSON.parse(sessionStorage.getItem("account")).realname;
         this.information.tenant = JSON.parse(sessionStorage.getItem("account")).tenant;
-        // this.graph(this.$route.query.id,1);
-        // if(this.graphnodes.length>1){
-        //     this.graph(this.$route.query.id,2);
-        // }      
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -665,8 +663,29 @@ export default{
         });
     },
     methods:{
+        goGroup:function(){
+            this.$router.push({path:'/resourceGroup',query:{id:this.appId,type:this.$route.query.type}});
+        },
         budget:function(){//预算
-            this.isbudget==false?this.isbudget=true:this.isbudget=false;
+            let arr = 0;
+            if(this.pricelistOne[0].boolean==true){
+                arr++;
+            }
+            for(let i=0;i<this.pricelist.length;i++){
+                if(this.pricelist[i].boolean==true){
+                    arr++;
+                }
+            }
+            if(arr>0){
+                this.isbudget==false?this.isbudget=true:this.isbudget=false;
+            }else{
+                this.$alert('请您至少选中一个实例，计算投资回报率。', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    type: 'warning',
+                    confirmButtonClass:'lay-btn-red'
+                });
+            }
         },
         investInput:function(arrname,index){
             if(arrname=='pricelistOne'){
@@ -674,6 +693,7 @@ export default{
             }else{
                 this.pricelist[index].boolean==false?this.pricelist[index].boolean=true:this.pricelist[index].boolean=false;
             }
+            this.budgetYes();
             //console.log('-----',this.pricelistOne);
         },
         budgetYes:function(){
@@ -705,12 +725,9 @@ export default{
             let obj = {"ids":[]};
             this.$this.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
                 //console.log('----',response); 
-                //this.pricelistOne = response.data.data[0];
                 if(response.data.data.length>0){
-                    this.pricelistOne.push({boolean:false,data:response.data.data[0]});
-                    //console.log('aaaa',this.pricelistOne);
+                    this.pricelistOne.push({boolean:true,data:response.data.data[0]});
                     for(let i=1;i<response.data.data.length;i++){
-                        //this.pricelist.push(response.data.data[i]);
                         this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
                 }
@@ -888,8 +905,11 @@ export default{
         topology:function(){//拓扑图
             this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
+                if(response.data.data.app.length==0 && response.data.data.db.length==0){
+                    this.isgraph = true
+                }
                 for(let i=0;i<response.data.data.app.length;i++){
-                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,group:2});
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,color:{border:'#f7a72c'}});
                     this.appfrom.push(index+i);
                     this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
                 }
@@ -904,43 +924,7 @@ export default{
                         }  
                     }                                              
                 }
-                var nodes = new vis.DataSet(this.graphnodes);
-                // 创建关系数组
-                var edges = new vis.DataSet(this.graphedges);
-                //   // 创建一个网络
-                this.container = document.getElementById('mynetwork');
-                //   // vis数据
-                this.graphdata = {
-                    nodes: nodes,
-                    edges: edges
-                };
-                var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
-            }).catch((error)=>{})
-        },
-        graph:function(appid,serversid){//拓扑图
-            this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
-                let index = this.graphnodes.length+1;
-                let arr = [];
-                if(serversid==1){//应用服务
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'/src/assets/report/appnetwork.png',group:2});
-                        this.appfrom.push(index+i);
-                        this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
-                    }
-                    this.graph(this.$route.query.id,2);
-                }else{//数据库服务
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'/src/assets/report/dbnetwork.png',group:3});
-                        if(this.appfrom.length==0){                            
-                            this.graphedges.push({from:1,to:index+i,dashes:true,label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
-                        }else{
-                            for(let n=0;n<this.appfrom.length;n++){
-                                this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
-                            }  
-                        }                                              
-                    }
-                }
-                // if(this.graphnodes.length>3){
+                if(response.data.data.app.length>0||response.data.data.db.length>0){
                     var nodes = new vis.DataSet(this.graphnodes);
                     // 创建关系数组
                     var edges = new vis.DataSet(this.graphedges);
@@ -952,7 +936,7 @@ export default{
                         edges: edges
                     };
                     var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
-                // }
+                }
                 
             }).catch((error)=>{})
         },

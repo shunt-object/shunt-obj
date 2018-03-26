@@ -8,7 +8,8 @@
 <!-- 拓扑图 -->
 <div class="designTop">
     <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
-    <div id="mynetwork" class="graph" ></div>
+    <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
+    <div class="graph-notice" style="padding-left: 2em;" v-if="isgraph==true">您当前还没有配置资源工作负载信息，<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">立即配置工作负载信息</span>。</div>
 </div>
 <div class="designHeader">
     <div class="designTop">
@@ -679,9 +680,9 @@ import sds from '../../../components/steps/steps'
 import designHalf from '../design/designHalf/designHalf'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 import vis from "vis/dist/vis.min.js"
-import network from '../../../assets/report/publicnetwork.png'
-import appnetwork from '../../../assets/report/appnetwork.png'
-import dbnetwork from '../../../assets/report/dbnetwork.png'
+import network from '../../../../src/assets/report/publicnetwork.png'
+import appnetwork from '../../../../src/assets/report/appnetwork.png'
+import dbnetwork from '../../../../src/assets/report/dbnetwork.png'
 export default{
     name:"design",
     data(){
@@ -753,13 +754,14 @@ export default{
             haveSj:false,
             noSj:false,
             graphnodes:[
-                {id: 1, label: '公网', shape: 'image', image:network,group:1,color:{background:'#fff'}},
+                {id: 1, label: '公网', shape: 'image', image:network,color:{border:'#da121a'}},
             ],
             graphedges:[],
             container:'',
             graphdata:{},
             graphoptions:{},
             appfrom:[],
+            isgraph:false
         }
     },
     mounted:function(){
@@ -767,10 +769,6 @@ export default{
         $(".designTab p").find("span").first().addClass("designSpanbg");
         $(".designTab p").find("span").find("a").first().addClass("designbg");
         $(".designTabj p").find("span").last().addClass("designTabjBj");
-        // this.graph(this.$route.query.id,1);
-        // if(this.graphnodes.length>1){
-        //     this.graph(this.$route.query.id,2);
-        // }  
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -841,11 +839,17 @@ export default{
         this.topology();      
     },
     methods:{
+        goGroup:function(){
+            this.$router.push({path:'/resourceGroup',query:{id:this.appId,type:this.$route.query.type}});
+        },
         topology:function(){
             this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
+                if(response.data.data.app.length==0 && response.data.data.db.length==0){
+                    this.isgraph = true
+                }
                 for(let i=0;i<response.data.data.app.length;i++){
-                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,group:2});
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,color:{border:'#f7a72c'}});
                     this.appfrom.push(index+i);
                     this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
                 }
@@ -860,43 +864,7 @@ export default{
                         }  
                     }                                              
                 }
-                var nodes = new vis.DataSet(this.graphnodes);
-                // 创建关系数组
-                var edges = new vis.DataSet(this.graphedges);
-                //   // 创建一个网络
-                this.container = document.getElementById('mynetwork');
-                //   // vis数据
-                this.graphdata = {
-                    nodes: nodes,
-                    edges: edges
-                };
-                var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
-            }).catch((error)=>{})
-        },
-        graph:function(appid,serversid){//拓扑图
-            this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
-                let index = this.graphnodes.length+1;
-                let arr = [];
-                if(serversid==1){//应用服务
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:'/src/assets/report/appnetwork.png',group:2});
-                        this.appfrom.push(index+i);
-                        this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
-                    }
-                    this.graph(this.$route.query.id,2);
-                }else{//数据库服务
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:'/src/assets/report/dbnetwork.png',group:3});
-                        if(this.appfrom.length==0){                            
-                            this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
-                        }else{
-                            for(let n=0;n<this.appfrom.length;n++){
-                                this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
-                            }  
-                        }                                              
-                    }
-                }
-                //if(this.graphnodes.length>1){
+                if(response.data.data.app.length>0||response.data.data.db.length>0){
                     var nodes = new vis.DataSet(this.graphnodes);
                     // 创建关系数组
                     var edges = new vis.DataSet(this.graphedges);
@@ -908,7 +876,7 @@ export default{
                         edges: edges
                     };
                     var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
-                //}
+                }
                 
             }).catch((error)=>{})
         },
