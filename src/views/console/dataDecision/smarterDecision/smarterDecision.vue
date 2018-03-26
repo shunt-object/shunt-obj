@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-7 padding10">
-            <div class="decision-title">云设计场景占比统计图
+            <div class="decision-title">多云优选意向订单统计分析图
                 <select class="types-input" style="float:right;margin-right:10px;border:none;width:110px !important;" v-model="analysisModel" v-on:change="designScene()">
                     <option v-for="item in analysisList" :value="item.id" style="background:#fff;">{{item.proname}}</option>
                 </select>
@@ -62,7 +62,9 @@ export default{
             analysisModel:'',
             desType:[],
             series:[],
-            desingLegend:[]
+            desingLegend:[],
+            muing:[],
+            dataPush:[]
         }
     },
     mounted:function(){
@@ -108,6 +110,7 @@ export default{
             }).catch((error)=>{})
         },
         designScene:function(){
+            this.muing = [];
             this.getDesignHttp(this.desType,this.analysisModel);
             //this.getDesignType();
         },
@@ -120,26 +123,32 @@ export default{
                 //console.log('aaaaaa',response.data.data);
                 for(let i in response.data.data){
                     this.desingLegend.push(i);
-                    this.series.push({
+                    this.series[i].push({
                         name: i,
                         type: 'bar',
                         stack: '总量',
-                        data: []
+                        data: this.dataPush
                     });
+                    for(let r = 0;r<response.data.data[i].length;r++){
+                        console.log(response.data.data[i][r])
+                    }
                 }
+               
                 for(let g=0;g<this.series.length;g++){
                     for(let m=0;m<designType.length;m++){
                         this.series[g].data.push([0,designType[m]]);
                     }    
                 }
                 for(let k=0;k<this.series.length;k++){
-                    
+                         this.muing.push(this.series[k].name)
                         for(let j in response.data.data){
                             for(let n=0;n<response.data.data[j].length;n++){
                                 if(this.series[k].name==response.data.data[j][n].appname){
+                                    
                                     for(let y=0;y<this.series[k].data.length;y++){
                                         if(this.series[k].data[y][1]==response.data.data[j][n].sceneType){
                                             this.series[k].data[y][0] = response.data.data[j][n].num;
+                                           
                                         }
                                     }
                                 }
@@ -147,9 +156,9 @@ export default{
                         }
                     
                 }
-                console.log(this.series);
+                console.log(this.muing);
                 this.$nextTick(function() {
-                    this.canvarDesign('desingn-scenc',this.desingLegend,this.series,designType);
+                    this.canvarDesign('desingn-scenc',this.desingLegend,this.series,designType,this.muing);
                 })
                 //console.log('hhhhhh',series);
                 
@@ -167,7 +176,7 @@ export default{
             }).catch((error)=>{
             })
         },
-        canvarDesign:function(dom,lenged,series,designType){
+        canvarDesign:function(dom,lenged,series,designType,muing){
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -179,7 +188,7 @@ export default{
                 legend: {
                     data: lenged,
                     top:'10',
-                    left:'0'
+                    right:'10'
                 },
                 color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 grid: {
@@ -206,7 +215,7 @@ export default{
                 yAxis: {
                     type: 'category',
                     name:'类型',
-                    data: designType,
+                    data: muing,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'

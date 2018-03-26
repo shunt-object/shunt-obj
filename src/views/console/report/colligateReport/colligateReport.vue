@@ -468,7 +468,7 @@
                     </div>
                     <!--场景占比分析-->
                     <div class="colligateBuy">
-                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>云设计意向场景统计分析</p>
+                        <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单统计分析图</p>
                         <div style="padding-left:2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:780px;"></div>

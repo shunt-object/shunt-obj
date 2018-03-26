@@ -2,7 +2,7 @@
     <div>
          <div id="rys"></div>
      <div style="height:100%;width:100%;" v-if="zixunShow==true">
-            <div id="rong-header" style="width:100%;height:70px;background:#da121a;line-height:70px;color:#fff;"><img src="../../assets/login-logo.png" alt="" style="width:180px;float:left;margin-top:25px;padding-left:20px"><span class="rong-header-go" style="float:left;margin-left:120px;font-size:20px;font-weight:400;">欢迎使用CloudBroker²吴老师在线咨询服务</span><span style="float:right;margin-right:60px;" v-on:click="Wclose" class="Wclose"><a class="rong-jian" style="margin-left:5px;font-size:32px;color:#fff">×</a></span></div>
+            <div id="rong-header" style="width:100%;height:70px;background:#da121a;line-height:70px;color:#fff;"><img src="/static/rongCloud/images/login-logos.png" alt="" style="width:180px;float:left;margin-top:25px;padding-left:20px"><span class="rong-header-go" style="float:left;margin-left:120px;font-size:20px;font-weight:400;">欢迎使用CloudBroker²吴老师在线咨询服务</span><span style="float:right;margin-right:60px;" v-on:click="Wclose" class="Wclose"><a class="rong-jian" style="margin-left:5px;font-size:32px;color:#fff">×</a></span></div>
             <div style="width:100%;height:auto;background:#fff;overflow:auto">
                 <div style="width:100%;margin:0 auto!important;">
                     <div style="text-align:center;font-size:22px;margin-top:20px;">为了更好的为您服务，请您首先选择咨询分类，随后点击“咨询”按钮开始与在线支持人员进行交谈。</div>
