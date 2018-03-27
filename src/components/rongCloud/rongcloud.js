@@ -1,6 +1,6 @@
 
-function rongClouds(idsName,services,tokens){
-    //console.log(a.id)
+function rongClouds(idsName,services,tokens,relname){
+    console.log(tokens)
     //console.log(document.getElementById(a.id).innerHTML);
     var idName = idsName.id;
     // alert(idName)
@@ -24,7 +24,7 @@ function rongClouds(idsName,services,tokens){
             customerServiceId:services,
             extraInfo:{
                 "userInfo":{
-                    "name":"demo"
+                    "name":relname
                 },
                 "requestInfo":{
                     "referrer":"20002"
