@@ -15,7 +15,7 @@
             <div class="graphLenged-head">图例说明</div>
             <div class="graphLenged-list"><img src="../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
             <div class="clear"></div>
-            <div class="graphLenged-list"><img src="../../../assets/report/dianline.png" alt="">公网与数据库用户交互</div>
+            <div class="graphLenged-list"><img src="../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
             <div class="clear"></div>
             <div class="graphLenged-list"><img src="../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
         </div>
