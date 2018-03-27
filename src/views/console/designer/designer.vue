@@ -149,24 +149,15 @@
     </div>
 </template>
 <style>
-    .hoverspanRouter:hover{
-       cursor:pointer; 
-    }
-    .designHalf-table-public{
-        width:95% !important; 
-    }
-     .designHeader{
-        /*min-height:90vh;
-        padding-bottom:5%;*/
-        padding-bottom:20px;
-        margin-top:20px;
-    }
-     .designTop{
-        width:100%;
-        background:#fff;
-        height:100%;
-    }
-    .designTop h2{
+.hoverspanRouter:hover{ cursor:pointer;  }
+.designHalf-table-public{ width:95% !important;  }
+.designHeader{ padding-bottom:20px; margin-top:20px; }
+.designTop{
+width:100%;
+background:#fff;
+height:100%;
+}
+.designTop h2{
         text-align:left;
         /*margin:0px 0 40px 18px;*/
         font-size:14px;
@@ -206,7 +197,7 @@
     }
      .designTabj p span{
       float:left;
-      margin-left:30px;
+      margin-right:30px;
       font-size:12px;
       color:#c0c0c0;
       padding:5px 20px;

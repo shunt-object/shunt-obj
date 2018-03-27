@@ -315,9 +315,10 @@
     position: absolute;
     right: 10%;
     top: 0;
-    width: 260px;
+    width: 270px;
     padding: 10px 20px;
     background: #f8fafd;
+    box-sizing:border-box;
 }
 .graphLenged-head{
     width:100%;

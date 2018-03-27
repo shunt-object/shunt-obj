@@ -667,11 +667,11 @@ export default{
         //this.dbScale();//数据库服务场景占比分析
         this.getPrice();//获取价格列表
         this.topology();  //拓扑图
-        $(document).keyup(function (evnet) {
-            if (evnet.keyCode == '13') {
+        document.onkeyup = function(evnet){
+            if (evnet.keyCode == '13') {               
                 return false;
             }
-        });
+        }
     },
     methods:{
         goGroup:function(){

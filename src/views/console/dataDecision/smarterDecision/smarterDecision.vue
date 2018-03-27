@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7 padding10">
+        <div class="col-md-12 padding10">
             <div class="decision-title">多云优选意向订单场景分析
                 <select class="types-input" style="float:right;margin-right:10px;border:none;width:110px !important;" v-model="analysisModel" v-on:change="designScene()">
                     <option v-for="item in analysisList" :value="item.id" style="background:#fff;">{{item.proname}}</option>
@@ -35,8 +35,6 @@
             <div class="datadecision-list1" style="padding-right:20px;">
                 <div class="desingn-scenc" id="desingn-scenc" style="width:100%;height:100%;"></div>
             </div>
-        </div>
-        <div class="col-md-5 padding10">
         </div>
     </div>
 </div>
@@ -102,74 +100,33 @@ export default{
             }).catch((error)=>{})
             this.$this.get('/broker/app/getAppMsg').then((response)=>{//应用
                 //console.log('bbbbbbb',response);
-            }).catch((error)=>{})
+            }).catch((error)=>{});
             let obj = {ids:['592']};
             this.$this.post('/broker/user/analysis/app/compare/group',JSON.stringify(obj)).then((response)=>{
 
             }).catch((error)=>{})
         },
         designScene:function(){
-            //this.muing = [];
             this.getDesignHttp(this.desType,this.analysisModel);
-            //this.getDesignType();
         },
         getDesignHttp:function(designType,analysisModel){
             let str = {ids:[analysisModel]};
             this.series = [];
             this.desingLegend = [];
-            // for(let m=0;m<designType.length;m++){
-            //     this.series.push({
-            //         name: designType[m],
-            //         type: 'bar',
-            //         stack: '总量',
-            //         data: []
-            //     });
-            // }
-            this.$this.post('/broker/user/analysis/app/purchasin/scene',JSON.stringify(str)).then((response)=>{
-                //console.log('aaaaaa',response.data.data);
-                // for(let t in response.data.data){
-                //     this.appnamelist.push(t);//y轴
-                // }
-                // for(let n=0;n<this.series.length;n++){
-                //     for(let t in response.data.data){
-                //         this.series[n].data.push([0,t]);
-                //     }
-                // }
-                
-                // for(let i in response.data.data){
-                //     for(let j=0;j<response.data.data[i].length;j++){
-                        
-                //         for(let k=0;k<this.series.length;k++){
-                //             if(response.data.data[i][j].sceneType==this.series[k].name){
-                //                 for(let b=0;b<this.series[k].data.length;b++){
-                //                     if(response.data.data[i][j].appname==this.series[k].data[b][1]){
-                                        
-                //                         this.series[k].data[b][0] = response.data.data[i][j].num;
-                //                     }
-                //                 }
-                //             }
-                //         }
-
-                //     }
-                // }
-                // this.$nextTick(function() {
-                //     this.canvarDesign('desingn-scenc',this.appnamelist,this.series,designType);
-                // })
-                
-                
+            this.$this.post('/broker/user/analysis/app/purchasin/scene',JSON.stringify(str)).then((response)=>{             
                 for(let i in response.data.data){
                     this.desingLegend.push(i);
                     this.series.push({
                         name: i,
                         type: 'bar',
                         stack: '总量',
+                        barWidth : 25,//柱图宽度
                         data: []
                     });
-                }
-               
+                }               
                 for(let g=0;g<this.series.length;g++){
                     for(let m=0;m<designType.length;m++){
-                        this.series[g].data.push([0,designType[m]]);
+                        this.series[g].data.push([designType[m],0]);
                     }    
                 }
                 for(let k=0;k<this.series.length;k++){
@@ -178,8 +135,8 @@ export default{
                             if(this.series[k].name==response.data.data[j][n].appname){
                                 
                                 for(let y=0;y<this.series[k].data.length;y++){
-                                    if(this.series[k].data[y][1]==response.data.data[j][n].sceneType){
-                                        this.series[k].data[y][0] = response.data.data[j][n].num;
+                                    if(this.series[k].data[y][0]==response.data.data[j][n].sceneType){
+                                        this.series[k].data[y][1] = response.data.data[j][n].num;
                                         
                                     }
                                 }
@@ -192,7 +149,6 @@ export default{
                 this.$nextTick(function() {
                     this.canvarDesign('desingn-scenc',this.desingLegend,this.series,designType);
                 })
-                //console.log('hhhhhh',series);
                 
             }).catch((error)=>{})
         },
@@ -226,29 +182,32 @@ export default{
                 color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 grid: {
                     left: '2%',
-                    right: '8%',
+                    right: '5%',
                     bottom: '2%',
                     containLabel: true
                 },
                 xAxis:  {
-                    type: 'value',
-                    name:'数量',
+                    type: 'category',
+                    data:designType,
+                    name:'类型',
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
                         }
                     },
                     axisLabel:{
-                        color:'#333'                   
+                        color:'#333',
+                        interval:0,  
+                        rotate:30                   
                     },
                     nameTextStyle:{
                         color:'#333'
                     },
                 },
                 yAxis: {
-                    type: 'category',
-                    name:'类型',
-                    data: designType,
+                    type: 'value',
+                    name:'数量',
+                    //data: ,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
@@ -262,14 +221,6 @@ export default{
                     },
                 },
                 series: series
-                // series:[
-                //     {
-                //         name: '应用服务',
-                //         type: 'bar',
-                //         stack: '总量',
-                //         data: app
-                //     }
-                // ]
             },{notMerge: true})
         },
         Istypes:function(){

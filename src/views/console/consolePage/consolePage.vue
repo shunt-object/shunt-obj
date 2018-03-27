@@ -177,8 +177,7 @@
             <div class="">
                 <div class="comment-notice">
                     <p>温馨提示：</p>
-                    1、反馈会在1-3个工作日与您联系<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：工作时间：周一至周五，9：00-18：00。<br>
+                    1、反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）。<br>
                     2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span> 。<br>
                     3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>。
                 </div>

@@ -380,38 +380,13 @@
    .designConfigLis .spanslis{
       height:150px;
    }
-  .designTabj p span{
-      
-      
-      font-size:12px;
-      color:#c0c0c0;
-      padding:5px 20px;
-      border:1px solid  #c0c0c0;
-  }
-  .designTabj{
-      margin-bottom:60px;
-  }
-  .ys{
-      color:#da121a;
-      font-size:12px;
-  }
-  .ds{
-      font-size:12px;
-        color:#969696;
-  }
-  .trds{
-      font-size:14px;
-      color:#777777;
-  }
-  .designTabjBj{
-      background:#f7a72c;
-      border-radius:1px;
-      color:#fff !important;
-      border:1px solid #f7a72c  !important;
-  }
-  .buttonHovers:hover{
-    color:#da121a;
-}
+.designTabj p span{ font-size:12px; color:#c0c0c0; padding:5px 20px; border:1px solid  #c0c0c0; }
+.designTabj{ margin-bottom:60px; }
+.ys{ color:#da121a; font-size:12px; }
+.ds{ font-size:12px; color:#969696; }
+.trds{ font-size:14px; color:#777777; }
+.designTabjBj{ background:#f7a72c; border-radius:1px; color:#fff !important; border:1px solid #f7a72c  !important; }
+.buttonHovers:hover{ color:#da121a; }
 @media (min-width: 768px) {
     /*.icon-tiam{padding-left:200px}*/
     .regionheight{
