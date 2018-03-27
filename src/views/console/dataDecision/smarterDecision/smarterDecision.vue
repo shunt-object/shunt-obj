@@ -37,6 +37,19 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 padding10">
+            <div class="decision-title">云优选场景占比统计分析
+                <div class="types-input" id="types-preference1" v-on:click="compareClick()">应用选择<i class="iconfont icon-sanjiao" style="float:right;margin-right:10px;"></i></div>
+                <div class="types-select" id="types-preference" v-show="iscompareScenes">
+                    <p v-for="(item,index) in compareScenes"><input type="checkbox" v-model="item.boolean" class="types-checkbox" v-on:click="compareDouble(index)">{{item.data.proname}}</p>
+                </div>
+            </div>
+            <div class="datadecision-list" style="padding-right:20px;">
+                <div class="cloulPreference" id="cloulPreference" style="width:100%;height:100%;"></div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </template>
@@ -62,6 +75,10 @@ export default{
             series:[],
             desingLegend:[],
             appnamelist:[],
+            compareScenes:[],
+            compareTypes:[],
+            compareSeries:[],
+            iscompareScenes:false,
         }
     },
     mounted:function(){
@@ -74,21 +91,32 @@ export default{
         this.getWork();
         this.getTypes();  
         var that = this;
-        $(document).click(function () {
+        document.onclick=function(){
             if(that.istypeslist == true){
-                that.istypeslist = false;
+                that.istypeslist = false;                
             }
-        });
+            if(that.iscompareScenes == true){
+                that.iscompareScenes = false;
+            }
+        }
         $("#types-input").click(function(event){
             event.stopPropagation();
         });    
         $("#types-select").click(function(event){
             event.stopPropagation();
         }); 
+        $("#types-preference1").click(function(event){
+            event.stopPropagation();
+        });    
+        $("#types-preference").click(function(event){
+            event.stopPropagation();
+        }); 
         this.gethttp();
-        //this.getDesignType();
     },
     methods:{
+        compareClick:function(){
+            this.iscompareScenes==false?this.iscompareScenes=true:this.iscompareScenes=false;
+        },
         gethttp:function(){
             this.$this.get('/broker/app/analysis').then((response)=>{//云分析
                 //console.log('aaaaa',response);
@@ -100,9 +128,77 @@ export default{
             }).catch((error)=>{})
             this.$this.get('/broker/app/getAppMsg').then((response)=>{//应用
                 //console.log('bbbbbbb',response);
+                for(let i=0;i<response.data.data.length;i++){
+                    this.compareScenes.push({boolean:true,data:response.data.data[i]});
+                }
+                
+                if(response.data.data.length>0){
+                    this.compareSceneHttp(this.compareScenes[0].data.id);//云选型场景
+                }                
             }).catch((error)=>{});
-            let obj = {ids:['592']};
+        },
+        compareSceneHttp:function(id){//云选型场景
+            this.$this.get('/broker/compare/types/'+id).then((response)=>{
+                for(let i=0;i<response.data.data.length;i++){
+                    for(let n=0;n<response.data.data[i].childGroups.length;n++){
+                        this.compareTypes.push(response.data.data[i].childGroups[n].gname);
+                    }
+                }
+                this.compareGroup();//云选型分数
+            }).catch((error)=>{})           
+        },
+        compareDouble:function(index){
+            this.compareScenes[index].boolean==false?this.compareScenes[index].boolean=true:this.compareScenes[index].boolean=false;
+            this.compareGroup();
+        },
+        compareGroup:function(){
+            let ids = [];
+            let comparelegened = [];
+            this.compareSeries = [];
+            for(let i=0;i<this.compareScenes.length;i++){
+                if(this.compareScenes[i].boolean==true){
+                    ids.push(this.compareScenes[i].data.id);
+                }
+            }
+            let obj = {ids:ids};
             this.$this.post('/broker/user/analysis/app/compare/group',JSON.stringify(obj)).then((response)=>{
+                for(let i in response.data.data){
+                    comparelegened.push(i);
+                    this.compareSeries.push({
+                        name:i,
+                        type:'line',
+                        stack: '总量',
+                        data:[]
+                    });
+                }
+                
+                for(let j=0;j<this.compareSeries.length;j++){
+                    for(let n=0;n<this.compareTypes.length;n++){
+                        this.compareSeries[j].data.push([this.compareTypes[n],0]);
+                    }
+                }
+                for(let j=0;j<this.compareSeries.length;j++){
+
+                    for(let k in response.data.data){
+                        for(let m=0;m<response.data.data[k].length;m++){
+                            if(this.compareSeries[j].name==response.data.data[k][m].appname){
+                                for(let x=0;x<this.compareSeries[j].data.length;x++){
+                                
+                                    if(response.data.data[k][m].gname==this.compareSeries[j].data[x][0]){
+                                        this.compareSeries[j].data[x][1] = response.data.data[k][m].scope;
+                                    }
+                                }
+                            }
+                            
+
+                        }
+                    }
+
+                }
+                //console.log(this.compareSeries);
+                this.$nextTick(function() {
+                    this.canvasCompare('cloulPreference',comparelegened,this.compareSeries);
+                })
 
             }).catch((error)=>{})
         },
@@ -163,6 +259,41 @@ export default{
                 this.getDesignHttp(designType,this.analysisModel);
             }).catch((error)=>{
             })
+        },
+        canvasCompare:function(dom,comparelegened,compareSeries){
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:comparelegened,
+                    top:'10',
+                    right:'10'
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    name:'场景',
+                    type: 'category',
+                    boundaryGap: false,
+                    data: this.compareTypes,
+                    axisLabel:{
+                        color:'#333',
+                        interval:0,  
+                        rotate:30                   
+                    },
+                },
+                yAxis: {
+                    name:'分数',
+                    type: 'value'
+                },
+                series: compareSeries
+            },{notMerge: true});
         },
         canvarDesign:function(dom,desingLegend,series,designType){
             this.charts = echarts.init(document.getElementById(dom));
