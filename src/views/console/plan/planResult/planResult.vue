@@ -3,8 +3,8 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
-    ><p class="comback" v-on:click="goBack('palnlist')">云规划</p>
-    ><p class="comback" v-on:click="goBack('planquestion')">选择标准</p>
+    ><p class="comback" v-on:click="goBack('planquestion')">云规划</p>
+    <!--><p class="comback" v-on:click="goBack('planquestion')">选择标准</p>-->
     ><p class="comback">云规划报表</p>
 </div>
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>

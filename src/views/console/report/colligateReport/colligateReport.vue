@@ -55,8 +55,18 @@
                 <div class="colligate-title">
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
-                <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
-                <div class="graph-notice" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
+                <div class="graph-lenged">
+                    <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
+                    <div class="graph-notice" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
+                    <div class="graphLenged" v-if="isgraph==false">
+                        <div class="graphLenged-head">图例说明</div>
+                        <div class="graphLenged-list"><img src="../../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
+                        <div class="clear"></div>
+                        <div class="graphLenged-list"><img src="../../../../assets/report/dianline.png" alt="">公网与数据库用户交互</div>
+                        <div class="clear"></div>
+                        <div class="graphLenged-list"><img src="../../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
+                    </div>
+                </div>                
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
@@ -617,8 +627,9 @@ export default{
                     background:'#fff',
                 },
                 font: {
-                color: '#333',
-                size:12,
+                    color: '#333',
+                    size:12,
+                    face:'Microsoft YaHei'
                 },
                 //image:'aa.jpg'
             },
@@ -911,16 +922,16 @@ export default{
                 for(let i=0;i<response.data.data.app.length;i++){
                     this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,color:{border:'#f7a72c'}});
                     this.appfrom.push(index+i);
-                    this.graphedges.push({from: 1, to:index+i,label: '应用与公网\n用户交互',font: {align: 'horizontal',size:10,}});
+                    this.graphedges.push({from: 1, to:index+i,label: ''});
                 }
                 index = this.graphnodes.length+1;
                 for(let i=0;i<response.data.data.db.length;i++){
                     this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:dbnetwork,group:3});
                     if(response.data.data.app.length==0){                            
-                        this.graphedges.push({from:1,to:index+i,dashes:true, label: '数据库与公\n网用户交互',font: {align: 'horizontal',size:10,}});
+                        this.graphedges.push({from:1,to:index+i,dashes:true, label: ''});
                     }else{
                         for(let n=0;n<this.appfrom.length;n++){
-                            this.graphedges.push({from:this.appfrom[n],to:index+i,label: '应用与数\n据交互',font: {align: 'horizontal',size:10,}});
+                            this.graphedges.push({from:this.appfrom[n],to:index+i,label: ''});
                         }  
                     }                                              
                 }

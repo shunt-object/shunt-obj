@@ -145,7 +145,12 @@
         <div class="design-nodata" v-if="priceClould.length<1">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
-            暂无云厂商匹配数据，请联系线下获取支持。
+            <p>
+            当前暂无云厂商匹配数据，请联系 <span style="color:#da121a;">Prof. 吴</span>
+            </p>
+            <p>
+            或拨打我们热线：<span style="color:#da121a;">400-828-7308</span> 获取支持。
+            </p>
         </div>
         <!-- 数据库服务 -->
         <!--<table class="designHalf-table-appServer designHalf-table-public">

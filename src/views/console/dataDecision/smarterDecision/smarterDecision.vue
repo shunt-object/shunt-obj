@@ -32,7 +32,7 @@
                     <option v-for="item in analysisList" :value="item.id" style="background:#fff;">{{item.proname}}</option>
                 </select>
             </div>
-            <div class="datadecision-list" style="padding-right:20px;">
+            <div class="datadecision-list1" style="padding-right:20px;">
                 <div class="desingn-scenc" id="desingn-scenc" style="width:100%;height:100%;"></div>
             </div>
         </div>
@@ -218,6 +218,7 @@ export default{
                     }
                 },
                 legend: {
+                    type:'scroll',
                     data: desingLegend,
                     top:'10',
                     right:'10'
