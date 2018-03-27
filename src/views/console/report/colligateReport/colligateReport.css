@@ -312,12 +312,12 @@
     position:relative;
 }
 .graphLenged{
-    position:absolute;
-    right:20px;
-    top:0;
-    width:230px;
-    padding:10px;
-    background: rgb(248, 250, 253);
+    position: absolute;
+    right: 10%;
+    top: 0;
+    width: 260px;
+    padding: 10px 20px;
+    background: #f8fafd;
 }
 .graphLenged-head{
     width:100%;
