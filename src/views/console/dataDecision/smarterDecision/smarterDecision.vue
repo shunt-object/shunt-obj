@@ -269,7 +269,8 @@ export default{
                 legend: {
                     data:comparelegened,
                     top:'10',
-                    right:'10'
+                    right:'10',
+                    type:'scroll'
                 },
                 grid: {
                     left: '3%',

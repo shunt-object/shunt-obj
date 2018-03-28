@@ -421,15 +421,19 @@
                     <div class="colligateInvest">
                         <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率预估分析</p>
                         <div class="colligate-list" style="padding-left:2em;">
+                            <div class="colligateBuy-echarts">
+                                <div class="Invest-echarts" id="Invest-echarts" style="width:100%;height:100%;"></div>
+                            </div>
                             <table class="Invest-table" id="Invest-table" v-if="pricelistOne.length>0">
                                 <thead>
                                     <tr>                   
                                         <td rowspan="2">您的预算</td>
-                                        <td align="center" valign="middle" colspan="6">优选后消费</td>
+                                        <td align="center" valign="middle" colspan="7">优选后消费</td>
                                         <td rowspan="2">投资回报率</td>
                                     </tr>
                                     <tr class="Invest-table-headtwo">
                                         <td>云厂商</td>
+                                        <td>产品名称</td>
                                         <td>规格</td>
                                         <td>数量</td>
                                         <td>时间</td>
@@ -444,6 +448,7 @@
                                             <p class="inputbudget" v-if="isbudget==true"><input type="number" v-model="budgetprice" v-on:blur="budgetYes()"></p>元
                                         </td>
                                         <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelistOne',index)">{{item.data.sname}}</td>
+                                        <td>{{item.data.pname}}</td>
                                         <td>
                                             <div class="invest-size">
                                                 <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
@@ -460,6 +465,7 @@
                                     </tr>
                                     <tr v-for="(item,index) in pricelist" v-if="pricelist.length>0">
                                         <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelist',index)">{{item.data.sname}}</td>
+                                        <td>{{item.data.pname}}</td>
                                         <td>
                                             <div class="invest-size">
                                                 <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
@@ -613,10 +619,6 @@ export default{
         // }else if(this.inds = 0){
         //      this.isClass = false;
         // }
-        // $(document).ready(function() {
-        //     $.noConflict();
-        //     $('#Invest-table').dataTable();
-        // } );
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
@@ -668,7 +670,6 @@ export default{
         this.getdata();// 云选型
         this.compareDiffer();//云选型做题记录
         this.gettype();//获取类型
-        //this.dbScale();//数据库服务场景占比分析
         this.getPrice();//获取价格列表
         this.topology();  //拓扑图
         document.onkeyup = function(evnet){
@@ -702,27 +703,60 @@ export default{
                 });
             }
         },
+        
         investInput:function(arrname,index){
+            let pname = [];
+            let series = [];
+            let price = 0;
             if(arrname=='pricelistOne'){
                 this.pricelistOne[index].boolean==false?this.pricelistOne[index].boolean=true:this.pricelistOne[index].boolean=false;
             }else{
                 this.pricelist[index].boolean==false?this.pricelist[index].boolean=true:this.pricelist[index].boolean=false;
+                
+                
             }
+            if(this.pricelistOne[0].boolean==true){
+                pname.push(this.pricelistOne[0].data.pname);
+                series.push(this.pricelistOne[0].data.cloudPrice);
+            }
+            for(let i=0;i<this.pricelist.length;i++){
+                if(this.pricelist[i].boolean==true){
+                    pname.push(this.pricelist[i].data.pname);
+                    series.push(this.pricelist[i].data.cloudPrice);
+                }
+            }
+            //console.log('aaaa',series);
+            if(this.budgetprice!=''){
+                price = this.budgetprice;
+            }
+            this.$nextTick(function() {
+                this.canvasInvest('Invest-echarts',pname,series,price);
+            })
+            
             this.budgetYes();
             //console.log('-----',this.pricelistOne);
         },
         budgetYes:function(){
             this.isbudget = false;
             let arr = [];
+            let pname = [];
+            let series = [];
             if(this.budgetprice!=''){
                 for(let i=0;i<this.pricelist.length;i++){
                     if(this.pricelist[i].boolean==true){
                         arr.push(this.pricelist[i].data.id);
+                        pname.push(this.pricelist[i].data.pname);
+                        series.push([this.pricelist[i].data.pname,this.pricelist[i].data.cloudPrice]);
                     }
                 }
                 if(this.pricelistOne[0].boolean==true){
                     arr.push(this.pricelistOne[0].data.id);
+                    pname.push(this.pricelistOne[0].data.pname);
+                    series.push([this.pricelistOne[0].data.pname,this.pricelistOne[0].data.cloudPrice]);
                 }
+                this.$nextTick(function() {
+                    this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
+                })
                 let obj = {
                     appid:[this.appId],
                     budget:this.budgetprice,
@@ -742,6 +776,9 @@ export default{
                 //console.log('----',response); 
                 if(response.data.data.length>0){
                     this.pricelistOne.push({boolean:true,data:response.data.data[0]});
+                    this.$nextTick(function() {
+                        this.canvasInvest('Invest-echarts',[response.data.data[0].pname],[response.data.data[0].cloudPrice],0);
+                    })
                     for(let i=1;i<response.data.data.length;i++){
                         this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
@@ -781,96 +818,13 @@ export default{
                             }
                         }
                     }
-                    // this.dbScaleservies.push({
-                    //     name: response.data.data[i].vmType,
-                    //     type: 'bar',
-                    //     stack: '总量',
-                    //     data: [[response.data.data[i].num,response.data.data[i].sceneType]]
-                    // });
                     this.dbScaleName.push(response.data.data[i].vmType);
                 }  
                 this.$nextTick(function() {
-                    //this.dbScaleCanvas('colligateBuy-type',dbScaleType,this.dbScaleservies);
                     this.dbScaleCanvas('colligateBuy-type',dbScaleType,app,db);
                 })
             }).catch((error)=>{})
-        },
-        //dbScaleCanvas:function(dom,dbScaleType,dbScaleservies){
-        dbScaleCanvas:function(dom,dbScaleType,app,db){
-            //console.log('+++++',dbScaleType);
-            this.charts = echarts.init(document.getElementById(dom));
-            this.charts.setOption({
-                tooltip : {
-                    trigger: 'axis',
-                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
-                },
-                legend: {
-                    data: this.dbScaleName,
-                    top:'10',
-                    right:'10'
-                },
-                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
-                grid: {
-                    left: '2%',
-                    right: '8%',
-                    bottom: '2%',
-                    containLabel: true
-                },
-                xAxis:  {
-                    type: 'category',
-                    name:'类型',
-                    data: dbScaleType,
-                    axisLine: {
-                        lineStyle: {
-                            color: '#ccc'
-                        }
-                    },
-                    axisLabel:{
-                        color:'#333',
-                        interval:0,  
-                        rotate:30                    
-                    },
-                    nameTextStyle:{
-                        color:'#333'
-                    },
-                },
-                yAxis: {
-                    type: 'value',
-                    name:'数量',
-                    //data: dbScaleType,
-                    axisLine: {
-                        lineStyle: {
-                            color: '#ccc'
-                        }
-                    },
-                    axisLabel:{
-                        color:'#333'                   
-                    },
-                    nameTextStyle:{
-                        color:'#333'
-                    },
-                },
-                //series: dbScaleservies
-                series:[
-                    {
-                        name: '应用服务',
-                        type: 'bar',
-                        stack: '总量',
-                        barWidth : 25,//柱图宽度
-                        data: app
-                    },
-                    {
-                        name: '数据库服务',
-                        type: 'bar',
-                        stack: '总量',
-                        barWidth : 25,//柱图宽度
-                        data: db
-                    }
-                ]
-            })
-        },
+        },        
         getplan:function(){
             this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
                 //console.log('结果',response);
@@ -881,7 +835,6 @@ export default{
                 this.information.protypeStr = response.data.data.protypeStr;
                 this.information.frametypeStr = response.data.data.frametypeStr;
                 this.information.createDt = response.data.data.createDt;
-                console.log(this.information.proname);
                 for(let i=0;i<response.data.data.appResults.length;i++){
                     if(response.data.data.appResults[i].moduleId==1||response.data.data.appResults[i].moduleId==2||response.data.data.appResults[i].moduleId==3){
                         this.resultlist.push(response.data.data.appResults[i]);
@@ -987,6 +940,138 @@ export default{
                 //console.log('aaa',this.designdata.appServer);
             }).catch((error)=>{
 
+            })
+        },
+        canvasInvest:function(dom,x,series,centerline){
+           // alert(1111);
+            //console.log(series);
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    },
+                    formatter:'{b0}: {c0}'
+                },
+                grid: {
+                    left: '2%',
+                    right: '8%',
+                    bottom: '2%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: x,
+                    name:'实例',
+                    axisLabel:{
+                        color:'#333',
+                        interval:0,  
+                        rotate:20                    
+                    },
+                },
+                yAxis: {
+                    name:'价格',
+                    type: 'value'
+                },
+                color:['#da121a'],
+                series: [
+                    {
+                        type: 'scatter',
+                        markLine: {
+                            lineStyle: {
+                                normal: {
+                                    color: "#f7a72c",
+                                    type: 'solid',
+                                    width: 1,
+                                }
+                            },
+                            data: [ {
+                                yAxis: centerline,
+                                name: '平均线'
+                            }]
+                        }
+                    },
+                    {
+                    data: series,
+                    barWidth : 25,//柱图宽度
+                    type: 'bar'
+                }]
+            });
+                       
+        },
+        dbScaleCanvas:function(dom,dbScaleType,app,db){
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data: this.dbScaleName,
+                    top:'10',
+                    right:'10'
+                },
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
+                grid: {
+                    left: '2%',
+                    right: '8%',
+                    bottom: '2%',
+                    containLabel: true
+                },
+                xAxis:  {
+                    type: 'category',
+                    name:'类型',
+                    data: dbScaleType,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
+                    axisLabel:{
+                        color:'#333',
+                        interval:0,  
+                        rotate:30                    
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'数量',
+                    //data: dbScaleType,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
+                    axisLabel:{
+                        color:'#333'                   
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                },
+                //series: dbScaleservies
+                series:[
+                    {
+                        name: '应用服务',
+                        type: 'bar',
+                        stack: '总量',
+                        barWidth : 25,//柱图宽度
+                        data: app
+                    },
+                    {
+                        name: '数据库服务',
+                        type: 'bar',
+                        stack: '总量',
+                        barWidth : 25,//柱图宽度
+                        data: db
+                    }
+                ]
             })
         },
         drawPie:function(id){
@@ -1238,7 +1323,6 @@ export default{
             var options = {
                 pagesplit: true
             };
-            //$("#difference-box").css({"height":"100% !important"});
             $('#pdf-wrap').css({"background":"#fff","border-width":"0px"});
             let that = this;
             this.isClass = true;
@@ -1247,41 +1331,6 @@ export default{
                 that.isClass = false;
             });
        },
-            // getPdf: function () {
-            //     let _this = this;
-            //     let pdfDom = document.querySelector('#pdf-wrap');
-            //     html2Canvas(pdfDom, {
-            //     onrendered: function(canvas) {
-            //     let contentWidth = canvas.width
-            //     let contentHeight = canvas.height
-            //     let pageHeight = contentWidth / 592.28 * 841.89
-            //     let leftHeight = contentHeight
-            //     let position = 0
-            //     let imgWidth = 595.28
-            //     let imgHeight = 592.28 / contentWidth * contentHeight
-            
-            //     let pageData = canvas.toDataURL('image/jpeg', 1.0)
-            
-            //     let PDF = new JsPDF('', 'pt', 'a4')
-            
-            //     if (leftHeight < pageHeight) {
-            //     PDF.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight)
-            //     } else {
-            //     while (leftHeight > 0) {
-            //         PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
-            //         leftHeight -= pageHeight
-            //         position -= 841.89
-            //         if (leftHeight > 0) {
-            //         PDF.addPage()
-            //         }
-            //     }
-            //     }
-            //     PDF.save(_this.pdfData.title + '.pdf')
-            //     }
-            //     })
-            //     html2Canvas()
-            // },
-       //},
       pointers:function(){
         //    factory.printing.header = "";       //页眉
         //     factory.printing.footer = "";       //页脚
