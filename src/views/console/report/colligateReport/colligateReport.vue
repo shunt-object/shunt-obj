@@ -421,7 +421,7 @@
                     <div class="colligateInvest">
                         <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率预估分析</p>
                         <div class="colligate-list" style="padding-left:2em;">
-                            <table class="Invest-table" v-if="pricelistOne.length>0">
+                            <table class="Invest-table" id="Invest-table" v-if="pricelistOne.length>0">
                                 <thead>
                                     <tr>                   
                                         <td rowspan="2">您的预算</td>
@@ -482,7 +482,7 @@
                         <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单场景分析图</p>
                         <div style="padding-left:2em;">
                             <div class="colligateBuy-echarts">
-                                <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:780px;"></div>
+                                <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:100%;"></div>
                             </div>
                         </div>                        
                     </div>
@@ -613,6 +613,10 @@ export default{
         // }else if(this.inds = 0){
         //      this.isClass = false;
         // }
+        // $(document).ready(function() {
+        //     $.noConflict();
+        //     $('#Invest-table').dataTable();
+        // } );
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
@@ -759,21 +763,21 @@ export default{
             let str = {"appids":[this.appId]};
             let app = [],db = [];
             for(let n=0;n<dbScaleType.length;n++){
-                app.push([0,dbScaleType[n]]);
-                db.push([0,dbScaleType[n]]);
+                app.push([dbScaleType[n],0]);
+                db.push([dbScaleType[n],0]);
             }
             this.$this.post('/broker/price/purchasin/scene',JSON.stringify(str)).then((response)=>{
                 for(let i=0;i<response.data.data.length;i++){
                     if(response.data.data[i].vmType=='应用服务'){
                         for(let j=0;j<app.length;j++){
-                            if(response.data.data[i].sceneType==app[j][1]){
-                                app[j][0] = response.data.data[i].num;
+                            if(response.data.data[i].sceneType==app[j][0]){
+                                app[j][1] = response.data.data[i].num;
                             }
                         }
                     }else{
                         for(let k=0;k<db.length;k++){
-                            if(response.data.data[i].sceneType==db[k][1]){
-                                db[k][0] = response.data.data[i].num;
+                            if(response.data.data[i].sceneType==db[k][0]){
+                                db[k][1] = response.data.data[i].num;
                             }
                         }
                     }
@@ -815,24 +819,27 @@ export default{
                     containLabel: true
                 },
                 xAxis:  {
-                    type: 'value',
-                    name:'数量',
+                    type: 'category',
+                    name:'类型',
+                    data: dbScaleType,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
                         }
                     },
                     axisLabel:{
-                        color:'#333'                   
+                        color:'#333',
+                        interval:0,  
+                        rotate:30                    
                     },
                     nameTextStyle:{
                         color:'#333'
                     },
                 },
                 yAxis: {
-                    type: 'category',
-                    name:'类型',
-                    data: dbScaleType,
+                    type: 'value',
+                    name:'数量',
+                    //data: dbScaleType,
                     axisLine: {
                         lineStyle: {
                             color: '#ccc'
@@ -851,12 +858,14 @@ export default{
                         name: '应用服务',
                         type: 'bar',
                         stack: '总量',
+                        barWidth : 25,//柱图宽度
                         data: app
                     },
                     {
                         name: '数据库服务',
                         type: 'bar',
                         stack: '总量',
+                        barWidth : 25,//柱图宽度
                         data: db
                     }
                 ]
