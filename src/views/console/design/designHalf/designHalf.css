@@ -270,8 +270,8 @@
     margin-bottom:20px;
 }
 .design-nodata p{
-    width:245px;
-    text-align:left;
+    /*width:245px;*/
+    text-align:center;
     margin:0 auto;
 }
 /*去结算*/

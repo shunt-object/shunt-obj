@@ -146,7 +146,7 @@
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
             <p>
-            当前暂无云厂商匹配数据，请联系 <span style="color:#da121a;">Prof. 吴</span>
+            当前暂无云厂商匹配数据，请您联系&nbsp;&nbsp;<span style="color:#da121a;">Prof. 吴</span>
             </p>
             <p>
             或拨打我们热线：<span style="color:#da121a;">400-828-7308</span> 获取支持。
