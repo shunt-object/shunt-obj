@@ -76,16 +76,16 @@
                                 </div>
                      </div>
                       <div class="cloundzi">
-                        <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:70px">我们的资质</div>
+                        <div style="font-size:26px;color:#333333;font-weight:100;" class="zizhi">我们的资质</div>
                         <div class="weiduduan clearfix">
                             <div id="phoneCarousel">
                                 <div class="previous arrow">&nbsp;</div>
                                 <div class="next arrow">&nbsp;</div>
                                 <div id="stage">
-                                    <a><img width="550" height="400" src="../../../assets/qualification1.jpg" alt="iPhone" id="iphone" class="default" /></a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification2.jpg" alt="Nexus One" id="nexus" /> </a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification3.jpg" alt="Nokia" id="nokia" /> </a>
-                                    <a><img width="550" height="400" src="../../../assets/qualification4.jpg" alt="BlackBerry" id="blackberry" /></a>
+                                    <a><img src="../../../assets/qualification1.jpg" alt="iPhone" id="iphone" class="default defaimg"/></a>
+                                    <a><img src="../../../assets/qualification2.jpg" alt="Nexus One" id="nexus"  class="defaimg"/> </a>
+                                    <a><img src="../../../assets/qualification3.jpg" alt="Nokia" id="nokia"  class="defaimg"/> </a>
+                                    <a><img src="../../../assets/qualification4.jpg" alt="BlackBerry" id="blackberry"  class="defaimg"/></a>
                                 </div>
                             </div>
                         </div> 
@@ -117,6 +117,10 @@
     </div>
 </template>
 <style>
+    .defaimg{
+        width:550px;
+        height:400px;
+    }
     .liHoversBj:hover{
         background:#EF131D;
     }
@@ -127,7 +131,9 @@
        .imgeys{
             margin-left:20px !important;
         }
-        
+        .zizhi{
+            margin-bottom:70px;
+        }
        .cccspan{
            width:316px;
               display:inline-block;
@@ -150,6 +156,9 @@
         }
     }
     @media (max-width: 768px) {
+        .zizhi{
+            margin-bottom:40px
+        }
        .ulsMains{
            margin-left:0px;
        }
@@ -458,7 +467,42 @@
                             timer=setInterval(function(){rotate(10,360/cnt);},4000);
                         
                     }else {
-                        $(".cloundzi").css("display","none")
+                        //$(".cloundzi").css("display","block");
+                        $(".defaimg").css({
+                            "width":"300px",
+                            "height":"200px"
+                            
+                        })
+                        $("#phoneCarousel").css({
+                            "width":"100%",
+                            "height":"100%"                            
+                        })
+                        $(".default").css({
+                            "left":"0",
+                            "margin-right":"auto",
+                            "margin-top":"0",
+                            "margin-bottom":"0",
+                            "margin-left":"auto",
+                            "position":"static"
+                        })
+                        $("previous arrow").css("display","none");
+                        $("next arrow").css("display","none");
+                         $("#stage img").css({
+                            
+                            "margin-right":"auto",
+                            "margin-top":"0",
+                            "margin-bottom":"0",
+                            "margin-left":"auto",
+                         
+                        })
+                        $("#stage img").css("display","block")
+                        $(".weiduduan").css("width","300px")
+                        $("#stage").css({
+                            "left":"0",
+                            "position":"static",
+                            "margin-left":"0px",
+                            "width":"100%"
+                        })
                     }
                        
               })

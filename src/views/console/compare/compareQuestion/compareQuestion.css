@@ -116,24 +116,41 @@
 .compare-question-list{
     padding:0 10px;
 }
-.compare-question-list li{
-    padding:15px 100px;
-    border-bottom:1px solid #e9e9e9;
-    text-align:left;
-}
+
 .compare-question-list li:last-child{
     border-bottom:none;
 }
 .compare-question-list li>p{
     margin:0;
 }
-.compare-select{
-    border:1px solid #979797;
-    border-radius:2px;
-    width:234px;
-    height:28px;
-    padding:0 10px;
+ @media (min-width: 768px) {   /*pc*/
+    .compare-select{
+        border:1px solid #979797;
+        border-radius:2px;
+        width:234px;
+        height:28px;
+        padding:0 10px;
+    }
+    .compare-question-list li{
+        padding:15px 100px;
+        border-bottom:1px solid #e9e9e9;
+        text-align:left;
+    }   
 }
+ @media (max-width: 768px) {   /*手机*/
+     .compare-select{
+            border:1px solid #979797;
+            border-radius:2px;
+            width:150px;
+            height:28px;
+            padding:0 10px;
+     }
+     .compare-question-list li{
+        padding:15px 0px;
+        border-bottom:1px solid #e9e9e9;
+        text-align:left;
+    }
+ }
 .compare-select:focus{
     border:1px solid #409EFF;
 }

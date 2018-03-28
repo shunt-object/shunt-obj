@@ -318,12 +318,7 @@
         color:#6e6e6e;
         margin-bottom:0px;
     }
-    .designTab p{
-        height:40px;
-        border-bottom:1px solid #ccc;
-        margin-left:30px;
-        margin-right:30px;
-    }
+   
     .designTab p span:hover{
         cursor:pointer
     }
@@ -387,7 +382,7 @@
 .trds{ font-size:14px; color:#777777; }
 .designTabjBj{ background:#f7a72c; border-radius:1px; color:#fff !important; border:1px solid #f7a72c  !important; }
 .buttonHovers:hover{ color:#da121a; }
-@media (min-width: 768px) {
+@media (min-width: 768px) {   /* pc */
     /*.icon-tiam{padding-left:200px}*/
     .regionheight{
         height:195px;
@@ -395,8 +390,14 @@
     .spanIcon{
         text-align:right;
     }
+     .designTab p{
+        height:40px;
+        border-bottom:1px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
+    }
 }
-@media (max-width: 768px) {
+@media (max-width: 768px) {  /* 手机 */
     .icon-tiam{padding-left:30px}
     .regionheight{
         height:auto;
@@ -406,6 +407,12 @@
     }
     .el-input__inner{
         width:50px !important;
+    }
+     .designTab p{
+        height:40px;
+        /*border-bottom:1px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;*/
     }
 }
 .operation{
