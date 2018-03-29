@@ -273,9 +273,9 @@ export default{
                     type:'scroll'
                 },
                 grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '5%',
                     containLabel: true
                 },
                 xAxis: {
@@ -313,9 +313,9 @@ export default{
                 },
                 color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 grid: {
-                    left: '2%',
+                    left: '5%',
                     right: '5%',
-                    bottom: '2%',
+                    bottom: '5%',
                     containLabel: true
                 },
                 xAxis:  {

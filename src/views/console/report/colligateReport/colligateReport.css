@@ -221,6 +221,10 @@
 .inputbudget input{
     -moz-appearance: textfield;
 }
+.invest-checbox{
+    float:left;
+    margin: 4px 10px !important;
+}
 /*占比分析图*/
 .colligateBuy-echarts{
     width:100%;

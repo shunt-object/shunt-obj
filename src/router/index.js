@@ -35,6 +35,7 @@ import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import seleconeFour from "../views/front/selecone/seleconeFour.vue"
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
+import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
 import pay from '@/views/console/pay/pay'
 import orderlist from '@/views/console/orderlist/orderlist'
 
@@ -136,6 +137,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:smarterDecision
+        },
+        {
+          path:'/roiDecision',
+          name:'roiDecision',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:roiDecision
         },
         {
           path:'/orderlist',
