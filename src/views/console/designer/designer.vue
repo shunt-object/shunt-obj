@@ -157,6 +157,32 @@ width:100%;
 background:#fff;
 height:100%;
 }
+@media (max-width: 768px) {  /* 手机 */
+     .designTab p{
+        height:40px;
+        border-bottom:0px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
+    }
+     #idexEcharts{
+      margin:200px auto 0 auto;
+      width:270px;
+      height:150px
+    }
+}
+@media (min-width: 768px) {  /* pc */
+     .designTab p{
+        height:40px;
+        border-bottom:1px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
+    }
+    #idexEcharts{
+      margin:0 auto;
+      width:900px;
+      height:300px
+    }
+}
 .designTop h2{
         text-align:left;
         /*margin:0px 0 40px 18px;*/
@@ -164,12 +190,7 @@ height:100%;
         /*padding-top:20px;*/
         color:#6e6e6e;
     }
-    .designTab p{
-        height:40px;
-        border-bottom:1px solid #ccc;
-        margin-left:30px;
-        margin-right:30px;
-    }
+   
     .designTab p span:hover{
         cursor:pointer
     }
@@ -220,11 +241,7 @@ height:100%;
       color:#fff !important;
       border:1px solid #f7a72c  !important;
   }
-  #idexEcharts{
-      margin:0 auto;
-      width:900px;
-      height:300px
-  }
+ 
 </style>
 <script>
     import sds from '../../../components/steps/steps'

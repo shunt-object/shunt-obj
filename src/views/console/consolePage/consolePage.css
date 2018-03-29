@@ -3,6 +3,9 @@
     padding:0 12px !important;
     margin-top:-10px;
 }
+.idicon:hover{
+    cursor:pointer
+}
 .comment-word{
     font-size:14px;
     color:#555555;

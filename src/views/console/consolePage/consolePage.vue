@@ -47,18 +47,18 @@
                         <i class="iconfont icon-kefu"></i><!--小微-->Prof. 吴
                     </a>                    
                 </li>
-                <li id="header_inbox_bar" class="dropdown">
-                    <el-popover
+                <li id="header_inbox_bar" class="dropdown idicon">
+                   <!-- <el-popover
                     ref="popover2"
                     placement="bottom"
                     trigger="click" popper-class="notification_hover">
                         <div style="padding:60px 100px;">
                             <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
                             <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
-                        </div>                        
-                    </el-popover>
-                    <a data-toggle="dropdown" v-popover:popover2 class="dropdown-toggle navli user-hover" href="#">
-                        <i class="iconfont icon-icon--" style="font-size:18px !important;float: left;"></i>通知中心
+                        </div>    data-toggle="dropdown" v-popover:popover2                    
+                    </el-popover>-->
+                    <a class="dropdown-toggle navli user-hover"  data-toggle="dropdown"  v-on:click="tongzhiCenter()">
+                        <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>通知中心
                     </a>                    
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
@@ -430,7 +430,10 @@ export default{
         },
         ReviewTheData:function(){
             this.$router.push({path:'/ReviewTheData'});
-        }
+        },
+          tongzhiCenter:function(){
+             this.$router.push({path:'/notification'});
+        },
 
     }
 }
