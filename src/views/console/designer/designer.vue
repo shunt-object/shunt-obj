@@ -15,7 +15,7 @@
                             <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; width: 110px; height: 29px;">CDN</button></span></p>
                     </div>
                     <div class="designTabj" v-show="digaopeis">
-                        <p style="width:200px;">
+                        <p style="width:200px;margin-left:30px;">
                             <span v-on:click="dipei" style="float:right;">低配</span>
                             <span v-on:click="gaopei">高配</span>
                         </p>

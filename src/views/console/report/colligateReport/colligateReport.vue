@@ -25,7 +25,7 @@
                     <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>基本信息
                 </div>
 
-                <div class="colligate-list">
+                <div class="colligate-list" style="padding:0 2em;">
                     <table class="information-table">
                         <thead>
                             <tr>
@@ -72,8 +72,8 @@
                     <!-- <img src="../../../../assets/report/report-plan.png" alt=""> -->
                     <i class="iconfont icon-zengshoushuju main-color" style="color:#da121a"></i>云规划报告详情
                 </div>
-                <div class="colligate-list">
-                    <div class="legend-box">
+                <div class="colligate-list" style="padding:0 2em;">
+                    <!--<div class="legend-box">
                         <div class="legend">    
                             <div class="legend-list">
                                 <span class="legend-block legend-high"></span>
@@ -91,7 +91,7 @@
                                 <span class="legend-block legend-di"></span>
                                 低
                             </div>
-                        </div>
+                        </div>-->
                         <div class="result-echarts" id="main"></div>
                     </div>
                     <div class="echarts-desc">工作负载分布图</div>
@@ -118,25 +118,26 @@
                         <i class="iconfont icon-bengchefenleijiageguanli" style="color:#da121a"></i>&nbsp云选型报告详情
                     </div>
                     <div class="colligate-list">
-                        <table class="table-score colligate-tables">
-                            <thead>
-                                <tr>
-                                    <th>云供应商</th>
-                                    <th>分数</th>
-                                    <th>区域价格范围</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="item in compareResultList">
-                                    <td>{{item.serverName}}</td>
-                                    <td>{{item.scope}}</td>
-                                    <td>
-                                        <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
+                        <div style="padding:0 2em;">
+                            <table class="table-score colligate-tables">
+                                <thead>
+                                    <tr>
+                                        <th>云供应商</th>
+                                        <th>分数</th>
+                                        <th>区域价格范围</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in compareResultList">
+                                        <td>{{item.serverName}}</td>
+                                        <td>{{item.scope}}</td>
+                                        <td>
+                                            <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <!--<table class="table-score resourGroup-table colligate-tables" v-if="reslist==true">
                             <thead v-if="appServer.length>0||dbServer.length>0||network!=null||storage.length>0||cdns.length>0">
                                 <tr>
@@ -201,7 +202,7 @@
                             </tbody>
                         </table>-->
                         <div class="compare-cate" style="font-weight:normal;"><i class="iconfont icon-qitashuju main-color"></i>云供应商标准选型差异</div>
-                        <div>
+                        <div style="padding:0 2em;">
                             <p class="explain">
                                 <span><i class="iconfont icon-yuan high-ratio" style="margin-right:3px;"></i>高匹配</span>
                                 <span><i class="iconfont icon-yuan low-ratio" style="margin-right:3px;"></i>低匹配</span>
@@ -209,7 +210,7 @@
                         </div>
                         <div class="clear"></div>
                         <div id="boxinnerHtml" ></div>
-                        <div class="difference-box" :class="isClass==true?'allheight':''" id="difference-box" style="margin-bottom:20px;" >
+                        <div class="difference-box" :class="isClass==true?'allheight':''" id="difference-box" style="margin-bottom:20px;padding:0 2em;" >
                             <table class="comdetails-table">
                                 <thead>
                                     <tr>
@@ -243,184 +244,186 @@
                     <div class="colligate-title">
                         <i class="iconfont icon-peizhiguanli" style="color:#da121a"></i>&nbsp云设计配置信息详情
                     </div>
-                    <table class="colligate-design" v-if="designdata.appServer.length>0">
-                        <thead>
-                            <tr>
-                                <td style="width:15%;">角色</td>
-                                <td style="width:15%;">类型</td>
-                                <td style="width:23.3%;">规格</td>
-                                <td style="width:23.3%;">当前配置</td>
-                                <td style="width:23.3%;">云配置（推荐）</td>
-                            </tr>              
-                        </thead>
-                        <tbody v-for="item in designdata.appServer">
-                            <tr>
-                                <td rowspan="5">应用服务</td>
-                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
-                                <td>（v）CPU</td>
-                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
-                                <td>{{item.cpu}}</td>
-                            </tr>
-                            <tr>
-                                <td>处理器主频（GHZ）</td>
-                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
-                                <td>{{item.ghz==undefined?'--':''}}</td>
-                            </tr>
-                            <tr>
-                                <td>内存（GB）</td>
-                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
-                                <td>{{item.ram}}</td>
-                            </tr>
-                            <tr>
-                                <td>系统盘</td>
-                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
-                                <td>{{item.localDisk}}</td>
-                            </tr>                            
-                            <tr>
-                                <td>操作系统</td>
-                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
-                                <td>{{item.osType.name}}</td>
-                            </tr>
-                            <!--<tr>
-                                <td>资源平均利用率</td>
-                                <td>cccc</td>
-                                <td></td>
-                            </tr>-->
-                        </tbody>
-                    </table>
-                    <table class="colligate-design" v-if="designdata.dbServer.length>0">
-                        <thead>
-                            <tr>
-                                <td style="width:15%;">角色</td>
-                                <td style="width:15%;">类型</td>
-                                <td style="width:23.3%;">规格</td>
-                                <td style="width:23.3%;">当前配置</td>
-                                <td style="width:23.3%;">云配置（推荐）</td>
-                            </tr>              
-                        </thead>
-                        <tbody v-for="item in designdata.dbServer">
-                            <tr>
-                                <td rowspan="5">数据库服务</td>
-                                <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
-                                <td>（v）CPU</td>
-                                <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
-                                <td>{{item.cpu}}</td>
-                            </tr>
-                            <tr>
-                                <td>处理器主频（GHZ）</td>
-                                <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
-                                <td>{{item.ghz==undefined?'--':''}}</td>
-                            </tr>
-                            <tr>
-                                <td>内存（GB）</td>
-                                <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
-                                <td>{{item.ram}}</td>
-                            </tr>
-                            <tr>
-                                <td>系统盘</td>
-                                <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
-                                <td>{{item.localDisk}}</td>
-                            </tr>                            
-                            <tr>
-                                <td>操作系统</td>
-                                <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
-                                <td>{{item.osType.name}}</td>
-                            </tr>
-                            <!--<tr>
-                                <td>资源平均利用率</td>
-                                <td>cccc</td>
-                                <td></td>
-                            </tr>-->
-                        </tbody>
-                    </table>
-                    <table class="colligate-design" v-if="designdata.cdns.length>0">
-                        <thead>
-                            <tr>
-                                <td style="width:15%;">角色</td>
-                                <td style="width:15%;">类型</td>
-                                <td style="width:23.3%;">规格</td>
-                                <td style="width:23.3%;">当前配置</td>
-                                <td style="width:23.3%;">云配置（推荐）</td>
-                            </tr>              
-                        </thead>
-                        <tbody v-for="item in designdata.cdns">
-                            <tr>
-                                <td rowspan="6">CDN</td>
-                                <td rowspan="6">--</td>
-                                <td>带宽</td>
-                                <td>{{item.bandwidth==null?'--':item.bandwidth}}</td>
-                                <td>--</td>
-                            </tr>
-                            <tr>
-                                <td>云厂商</td>
-                                <td>{{item.cse==null?'--':item.cse.name}}</td>
-                                <td>--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="colligate-design" v-if="designdata.network!=null">
-                        <thead>
-                            <tr>
-                                <td style="width:15%;">角色</td>
-                                <td style="width:15%;">类型</td>
-                                <td style="width:23.3%;">规格</td>
-                                <td style="width:23.3%;">当前配置</td>
-                                <td style="width:23.3%;">云配置（推荐）</td>
-                            </tr>              
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="6">网络存储</td>
-                                <td rowspan="6">--</td>
-                                <td>入站（Mbps/月）</td>
-                                <td>{{designdata.network.inbound==null?'--':designdata.network.inbound}}</td>
-                                <td>--</td>
-                            </tr>
-                            <tr>
-                                <td>出站（Mbps/月）</td>
-                                <td>{{designdata.network.outbound==null?'--':designdata.network.outbound}}</td>
-                                <td>--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="colligate-design" v-if="designdata.storage.length>0">
-                        <thead>
-                            <tr>
-                                <td style="width:15%;">角色</td>
-                                <td style="width:15%;">类型</td>
-                                <td style="width:23.3%;">规格</td>
-                                <td style="width:23.3%;">当前配置</td>
-                                <td style="width:23.3%;">云配置（推荐）</td>
-                            </tr>              
-                        </thead>
-                        <tbody v-for="item in designdata.storage">
-                            <tr>
-                                <td rowspan="6">存储存储</td>
-                                <td rowspan="6">--</td>
-                                <td>共享存储（SAN）（GB）</td>
-                                <td>{{item.sna==null?'--':item.sna}}</td>
-                                <td>--</td>
-                            </tr>
-                            <tr>
-                                <td>网络存储（NAS）（GB）</td>
-                                <td>{{item.nsa==null?'--':item.nsa}}</td>
-                                <td>--</td>
-                            </tr>
-                            <tr>
-                                <td>云存储（GB）</td>
-                                <td>{{item.cloudStorage==null?'--':item.cloudStorage}}</td>
-                                <td>--</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div style="padding:0 2em;">
+                        <table class="colligate-design" v-if="designdata.appServer.length>0">
+                            <thead>
+                                <tr>
+                                    <td style="width:15%;">角色</td>
+                                    <td style="width:15%;">类型</td>
+                                    <td style="width:23.3%;">规格</td>
+                                    <td style="width:23.3%;">当前配置</td>
+                                    <td style="width:23.3%;">云配置（推荐）</td>
+                                </tr>              
+                            </thead>
+                            <tbody v-for="item in designdata.appServer">
+                                <tr>
+                                    <td rowspan="5">应用服务</td>
+                                    <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                    <td>（v）CPU</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                    <td>{{item.cpu}}</td>
+                                </tr>
+                                <tr>
+                                    <td>处理器主频（GHZ）</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                    <td>{{item.ghz==undefined?'--':''}}</td>
+                                </tr>
+                                <tr>
+                                    <td>内存（GB）</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                    <td>{{item.ram}}</td>
+                                </tr>
+                                <tr>
+                                    <td>系统盘</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                    <td>{{item.localDisk}}</td>
+                                </tr>                            
+                                <tr>
+                                    <td>操作系统</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                    <td>{{item.osType.name}}</td>
+                                </tr>
+                                <!--<tr>
+                                    <td>资源平均利用率</td>
+                                    <td>cccc</td>
+                                    <td></td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                        <table class="colligate-design" v-if="designdata.dbServer.length>0">
+                            <thead>
+                                <tr>
+                                    <td style="width:15%;">角色</td>
+                                    <td style="width:15%;">类型</td>
+                                    <td style="width:23.3%;">规格</td>
+                                    <td style="width:23.3%;">当前配置</td>
+                                    <td style="width:23.3%;">云配置（推荐）</td>
+                                </tr>              
+                            </thead>
+                            <tbody v-for="item in designdata.dbServer">
+                                <tr>
+                                    <td rowspan="5">数据库服务</td>
+                                    <td rowspan="5">{{item.typeLevel==18?'低配':'高配'}}</td>
+                                    <td>（v）CPU</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.cores}}</td>
+                                    <td>{{item.cpu}}</td>
+                                </tr>
+                                <tr>
+                                    <td>处理器主频（GHZ）</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.ghz}}</td>
+                                    <td>{{item.ghz==undefined?'--':''}}</td>
+                                </tr>
+                                <tr>
+                                    <td>内存（GB）</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.ram}}</td>
+                                    <td>{{item.ram}}</td>
+                                </tr>
+                                <tr>
+                                    <td>系统盘</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.localDisk}}</td>
+                                    <td>{{item.localDisk}}</td>
+                                </tr>                            
+                                <tr>
+                                    <td>操作系统</td>
+                                    <td>{{item.resServer==null?'--':item.resServer.osType.name}}</td>
+                                    <td>{{item.osType.name}}</td>
+                                </tr>
+                                <!--<tr>
+                                    <td>资源平均利用率</td>
+                                    <td>cccc</td>
+                                    <td></td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                        <table class="colligate-design" v-if="designdata.cdns.length>0">
+                            <thead>
+                                <tr>
+                                    <td style="width:15%;">角色</td>
+                                    <td style="width:15%;">类型</td>
+                                    <td style="width:23.3%;">规格</td>
+                                    <td style="width:23.3%;">当前配置</td>
+                                    <td style="width:23.3%;">云配置（推荐）</td>
+                                </tr>              
+                            </thead>
+                            <tbody v-for="item in designdata.cdns">
+                                <tr>
+                                    <td rowspan="6">CDN</td>
+                                    <td rowspan="6">--</td>
+                                    <td>带宽</td>
+                                    <td>{{item.bandwidth==null?'--':item.bandwidth}}</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>云厂商</td>
+                                    <td>{{item.cse==null?'--':item.cse.name}}</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="colligate-design" v-if="designdata.network!=null">
+                            <thead>
+                                <tr>
+                                    <td style="width:15%;">角色</td>
+                                    <td style="width:15%;">类型</td>
+                                    <td style="width:23.3%;">规格</td>
+                                    <td style="width:23.3%;">当前配置</td>
+                                    <td style="width:23.3%;">云配置（推荐）</td>
+                                </tr>              
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="6">网络存储</td>
+                                    <td rowspan="6">--</td>
+                                    <td>入站（Mbps/月）</td>
+                                    <td>{{designdata.network.inbound==null?'--':designdata.network.inbound}}</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>出站（Mbps/月）</td>
+                                    <td>{{designdata.network.outbound==null?'--':designdata.network.outbound}}</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="colligate-design" v-if="designdata.storage.length>0">
+                            <thead>
+                                <tr>
+                                    <td style="width:15%;">角色</td>
+                                    <td style="width:15%;">类型</td>
+                                    <td style="width:23.3%;">规格</td>
+                                    <td style="width:23.3%;">当前配置</td>
+                                    <td style="width:23.3%;">云配置（推荐）</td>
+                                </tr>              
+                            </thead>
+                            <tbody v-for="item in designdata.storage">
+                                <tr>
+                                    <td rowspan="6">存储存储</td>
+                                    <td rowspan="6">--</td>
+                                    <td>共享存储（SAN）（GB）</td>
+                                    <td>{{item.sna==null?'--':item.sna}}</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>网络存储（NAS）（GB）</td>
+                                    <td>{{item.nsa==null?'--':item.nsa}}</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>云存储（GB）</td>
+                                    <td>{{item.cloudStorage==null?'--':item.cloudStorage}}</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- 上云分析建议  -->
                     <div class="colligate-title">
                         <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
                     </div>
-                    <!--投资回报率-->
+                    <!--投资回报率--> 
                     <div class="colligateInvest">
-                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>投资回报率预估分析</p>
-                        <div class="colligate-list" style="padding-left:2em;">
+                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>ROI（投资回报率）预估分析</p>
+                        <div class="colligate-list" style="padding:0 2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="Invest-echarts" id="Invest-echarts" style="width:100%;height:100%;"></div>
                             </div>
@@ -429,15 +432,15 @@
                                     <tr>                   
                                         <td rowspan="2">您的预算</td>
                                         <td align="center" valign="middle" colspan="7">优选后消费</td>
-                                        <td rowspan="2">投资回报率</td>
+                                        <td rowspan="2">ROI（投资回报率）</td>
                                     </tr>
                                     <tr class="Invest-table-headtwo">
-                                        <td>云厂商</td>
-                                        <td>产品名称</td>
+                                        <td><input type="checkbox" class="invest-checbox" v-model="allInvest" v-on:click="allClick()">产品名称</td>
+                                        <td>云厂商</td>                                        
                                         <td>规格</td>
                                         <td>数量</td>
                                         <td>时间</td>
-                                        <td>费用参考</td>
+                                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i v-if="issort!=0" class="iconfont" :class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"></i></td>
                                         <td>京玉折扣价</td>
                                     </tr>                
                                 </thead>
@@ -447,8 +450,8 @@
                                             <p :class="budgetprice==''?'Invest-table-color':''" style="cursor:pointer;" v-if="isbudget==false" v-on:click="budget()">{{budgetprice==''?'请输入您的预算':budgetprice}}<span style="color:#666;margin-left:3px;"><i class="iconfont icon-bianji"></i></span></p>
                                             <p class="inputbudget" v-if="isbudget==true"><input type="number" v-model="budgetprice" v-on:blur="budgetYes()"></p>元
                                         </td>
-                                        <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelistOne',index)">{{item.data.sname}}</td>
-                                        <td>{{item.data.pname}}</td>
+                                        <td><input type="checkbox" class="invest-checbox" v-model="item.boolean" v-on:click="investInput('pricelistOne',index)">{{item.data.pname}}</td>
+                                        <td>{{item.data.sname}}</td>
                                         <td>
                                             <div class="invest-size">
                                                 <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
@@ -464,8 +467,8 @@
                                         <td :rowspan="pricelist.length+1"><p class="Invest-table-color">{{priceRate}}<span v-if="priceRate!=''">%</span></p></td>
                                     </tr>
                                     <tr v-for="(item,index) in pricelist" v-if="pricelist.length>0">
-                                        <td><input type="checkbox" style="margin-right:5px;" v-model="item.boolean" v-on:click="investInput('pricelist',index)">{{item.data.sname}}</td>
-                                        <td>{{item.data.pname}}</td>
+                                        <td><input type="checkbox" class="invest-checbox" v-model="item.boolean" v-on:click="investInput('pricelist',index)">{{item.data.pname}}</td>
+                                        <td>{{item.data.sname}}</td>
                                         <td>
                                             <div class="invest-size">
                                                 <span class="Invest-table-color">{{item.data.cores}}</span><br>（v）CPU
@@ -486,7 +489,7 @@
                     <!--场景占比分析-->
                     <div class="colligateBuy">
                         <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单场景分析图</p>
-                        <div style="padding-left:2em;">
+                        <div style="padding:0 2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="colligateBuy-type" id="colligateBuy-type" style="width:100%;height:100%;"></div>
                             </div>
@@ -509,7 +512,7 @@
                     </div>
                     <div class="self-advise">
                         <p class="advise-title"><i class="iconfont icon-jianyi main-color"></i>上云分析自我评估建议</p>
-                        <div style="padding-left:2em;">
+                        <div style="padding:0 2em;">
                             <textarea class="colligate-advise" placeholder="请输入上云分析自我评估建议" v-model="advise">
                             </textarea>
                             <!--:class="advise==''?'advise-bg':''"<span class="not-advise" v-if="advise==''">暂无评估</span>-->
@@ -610,7 +613,9 @@ export default{
             isbudget:false,
             budgetprice:'',
             priceRate:'',
-            isgraph:''
+            isgraph:'',
+            allInvest:false,
+            issort:'0',//排序
         }
     },
     updated:function(){
@@ -679,6 +684,95 @@ export default{
         }
     },
     methods:{
+        sortPrice:function(){
+            let list = [],arr=[];
+            list[0] = this.pricelistOne[0];
+            for(let i=0;i<this.pricelist.length;i++){
+                list.push(this.pricelist[i]);
+            }
+            this.pricelistOne = [];
+            this.pricelist = [];
+            if(this.issort=='0'){
+                this.issort = '1';//从小到大
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
+                        } 
+                    } 
+                }
+                this.pricelistOne.push(list[0]);
+                for(let k=1;k<list.length;k++){
+                    this.pricelist.push(list[k]);
+                }
+            }else{
+                if(this.issort == '1'){
+                    this.issort = '2';//从大到小
+                    for(let i=0; i<list.length; i++){ 
+                        for(let j=0; j<list.length; j++){ 
+                            if(list[i].data.cloudPrice > list[j].data.cloudPrice){ //从大到小
+                                arr = list[j]; 
+                                list[j] = list[i]; 
+                                list[i] = arr; 
+                            } 
+                        } 
+                    }
+                    this.pricelistOne.push(list[0]);
+                    for(let k=1;k<list.length;k++){
+                        this.pricelist.push(list[k]);
+                    }  
+                }else{
+                    this.issort = '1';//从小到大
+                    for(let i=0; i<list.length; i++){ 
+                        for(let j=0; j<list.length; j++){ 
+                            if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
+                                arr = list[j]; 
+                                list[j] = list[i]; 
+                                list[i] = arr; 
+                            } 
+                        } 
+                    }
+                    this.pricelistOne.push(list[0]);
+                    for(let k=1;k<list.length;k++){
+                        this.pricelist.push(list[k]);
+                    }
+                }            
+            }
+        },
+        allClick:function(){
+            let pname = [];
+            let series = [];
+            let price = 0;
+            if(this.allInvest==false){//选中
+                for(let i=0;i<this.pricelist.length;i++){
+                    this.pricelist[i].boolean = true;
+                }
+                this.pricelistOne[0].boolean = true;
+            }else{
+                for(let i=0;i<this.pricelist.length;i++){
+                    this.pricelist[i].boolean = false;
+                }
+                this.pricelistOne[0].boolean = false;
+            }
+            if(this.pricelistOne[0].boolean==true){
+                pname.push(this.pricelistOne[0].data.pname);
+                series.push(this.pricelistOne[0].data.cloudPrice);
+            }
+            for(let i=0;i<this.pricelist.length;i++){
+                if(this.pricelist[i].boolean==true){
+                    pname.push(this.pricelist[i].data.pname);
+                    series.push(this.pricelist[i].data.cloudPrice);
+                }
+            }
+            if(this.budgetprice!=''){
+                price = this.budgetprice;
+            }
+            this.$nextTick(function() {
+                this.canvasInvest('Invest-echarts',pname,series,price);
+            })
+        },
         goGroup:function(){
             this.$router.push({path:'/resourceGroup',query:{id:this.appId,type:this.$route.query.type}});
         },
@@ -708,22 +802,28 @@ export default{
             let pname = [];
             let series = [];
             let price = 0;
+            let a = 0;
             if(arrname=='pricelistOne'){
                 this.pricelistOne[index].boolean==false?this.pricelistOne[index].boolean=true:this.pricelistOne[index].boolean=false;
             }else{
                 this.pricelist[index].boolean==false?this.pricelist[index].boolean=true:this.pricelist[index].boolean=false;
-                
-                
             }
             if(this.pricelistOne[0].boolean==true){
                 pname.push(this.pricelistOne[0].data.pname);
                 series.push(this.pricelistOne[0].data.cloudPrice);
+            }else{
+                a++;
             }
             for(let i=0;i<this.pricelist.length;i++){
                 if(this.pricelist[i].boolean==true){
                     pname.push(this.pricelist[i].data.pname);
                     series.push(this.pricelist[i].data.cloudPrice);
+                }else{
+                    a++;
                 }
+            }
+            if(a>0){
+                this.allInvest = false;
             }
             //console.log('aaaa',series);
             if(this.budgetprice!=''){
@@ -746,13 +846,13 @@ export default{
                     if(this.pricelist[i].boolean==true){
                         arr.push(this.pricelist[i].data.id);
                         pname.push(this.pricelist[i].data.pname);
-                        series.push([this.pricelist[i].data.pname,this.pricelist[i].data.cloudPrice]);
+                        series.push(this.pricelist[i].data.cloudPrice);
                     }
                 }
                 if(this.pricelistOne[0].boolean==true){
                     arr.push(this.pricelistOne[0].data.id);
                     pname.push(this.pricelistOne[0].data.pname);
-                    series.push([this.pricelistOne[0].data.pname,this.pricelistOne[0].data.cloudPrice]);
+                    series.push(this.pricelistOne[0].data.cloudPrice);
                 }
                 this.$nextTick(function() {
                     this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
@@ -974,10 +1074,16 @@ export default{
                     name:'价格',
                     type: 'value'
                 },
+                legend: {
+                    data: ['价格'],
+                    top:'10',
+                    right:'10'
+                },
                 color:['#da121a'],
                 series: [
                     {
                         type: 'scatter',
+                        name:'预算',
                         markLine: {
                             lineStyle: {
                                 normal: {
@@ -988,11 +1094,12 @@ export default{
                             },
                             data: [ {
                                 yAxis: centerline,
-                                name: '平均线'
+                                name: '预算'
                             }]
                         }
                     },
                     {
+                    name:'价格',
                     data: series,
                     barWidth : 25,//柱图宽度
                     type: 'bar'
@@ -1170,6 +1277,29 @@ export default{
                         color:'#333'
                     }
                 },
+                visualMap: {
+                    min: 0,
+                    max: 100,
+                    dimension: 0,
+                    right:'5%',
+                    //left: '73%',
+                    top: '10',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: false,
+                    itemWidth: 10,
+                    itemHeight: 90,
+                    textStyle: {
+                        color: '#666',
+                        height: 56,
+                        fontSize: 11,
+                        lineHeight: 60,
+                    },
+                    inRange: {
+                        color: ['yellow', '#da121a']
+                    },
+                    //padding: [50, 20],
+                    orient: 'horizontal',
+                },
                 series: [{
                     type: 'scatter',
                     data: this.opiniondata,
@@ -1177,7 +1307,7 @@ export default{
                     markLine: {
                         lineStyle: {
                             normal: {
-                                color: "#626c91",
+                                color: "#f7a72c",
                                 type: 'solid',
                                 width: 1,
                             },
@@ -1187,7 +1317,7 @@ export default{
                         },
                         data: [{
                             xAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -1195,7 +1325,7 @@ export default{
                             }
                         }, {
                             yAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -1210,7 +1340,7 @@ export default{
                                 name: '',//合适
                                 itemStyle: {
                                     normal: {
-                                        color: '#e7faff'
+                                        color: '#fff'
                                     },
                                 },
                                 label: {
@@ -1218,7 +1348,7 @@ export default{
                                         show: true,
                                         position: 'insideTopLeft',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                       // color: "#409EFF",
                                         fontSize: 20,
                                     }
                                 },
@@ -1230,7 +1360,7 @@ export default{
                                 name: '',//低
                                 itemStyle: {
                                     normal: {
-                                        color: '#efefef',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -1238,7 +1368,7 @@ export default{
                                         show: true,
                                         position: 'insideTopRight',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                       // color: "#409EFF",
                                         fontSize: 20,
                                     }
                                 },
@@ -1250,7 +1380,7 @@ export default{
                                 name: '',//高
                                 itemStyle: {
                                     normal: {
-                                        color: '#ffe9ea',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -1258,7 +1388,7 @@ export default{
                                         show: true,
                                         position: 'insideBottomLeft',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        //color: "#409EFF",
                                         fontSize: 20,
                                     }
                                 },
@@ -1270,7 +1400,7 @@ export default{
                                 name: '',//一般
                                 itemStyle: {
                                     normal: {
-                                        color: '#fff1e2',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -1278,7 +1408,7 @@ export default{
                                         show: true,
                                         position: 'insideBottomRight',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        color: "#fff",
                                         fontSize: 20,
                                     }
                                 },

@@ -182,7 +182,7 @@
        color:#304153
    }
    .yidu{
-       color:red;
+       color:#ccc;
    }
 #myInputs:focus{
     border:1px solid #409EFF;
