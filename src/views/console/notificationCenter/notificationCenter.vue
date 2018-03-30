@@ -2,17 +2,17 @@
     <div class="total">
         <div>
             <div class="row notification-header">
-                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">通知中心<span style="color::#333333;font-size:14px;">（共<span>3</span>封，其中<span>1</span>封未读，<span class="unread" v-on:click="weidulook" v-show="weidushow">仅查看未读消息</span>）</span></div>
+                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">通知中心<span style="color::#333333;font-size:14px;">（共<span>{{totalPages}}</span>封，其中<span>{{acp}}</span>封未读<span class="unread" v-on:click="weidulooks" v-show="weidushow">&nbsp仅查看未读消息</span>）</span></div>
                     <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
                         <div style="padding-top:10px">
-                            <input type="text"  id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns"><i class="fa fa-search"></i></button>
+                            <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
             </div>
             <div class="row notification-xuze">
-                <div class="col-md-4 text-left spanleft" style="padding-left:47px;margin-top:30px;margin-bottom:30px"><span class="shanrem" v-on:click="removes()">删除</span><span class="shandu" v-on:click="yiduCreat">标记为已读</span><span class="shanyidu" v-on:click="yiduAll">已读所有消息</span></div>
-                <div class="col-md-8 text-left hangyeselect" style="margin-top:30px;margin-bottom:30px" >
-                     <span class="sp1" v-on:click="zongliang">全部</span><p v-for="(le,index) in lei"><span  class="sp2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
+                <div class="col-md-4 text-left spanleft" style="padding-left:47px;margin-top:20px;margin-bottom:20px"><span class="shanrem" v-on:click="removes()">删除</span><span class="shandu" v-on:click="yiduCreat">标记为已读</span><span class="shanyidu" v-on:click="yiduAll">已读所有消息</span></div>
+                <div class="col-md-8 text-left hangyeselect" style="margin-top:20px;margin-bottom:20px" >
+                     <span class="sp1" v-on:click="zongs">全部</span><p v-for="(le,index) in lei" class="psed"><span  class="sp2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
                 </div>
             </div>
            
@@ -26,7 +26,7 @@
                             <th class="text-center col-md-2">发生时间</th>
                             <th class="text-center col-md-2">消息类型</th>
                          </thead>
-                         <tbody class="notification-mainTabletr">
+                         <tbody class="notification-mainTabletr" id="tyus">
                             <tr v-for="dat in dats" id="tryes">
                                 <td class="text-center col-md-1"><input type="checkbox" :data="dat.contentUserId" :ids="dat.id" :statu="dat.status"/></td>
                                 <td class="text-center col-md-7"><i :class="dat.status==1?'iconfont icon-yiduxiaoxi':'iconfont icon-zhanneixiaoxi'"></i><span :class="dat.status==1?'yidu':'weidu'">{{dat.content}}</span></td>
@@ -81,7 +81,7 @@
         margin-right:9px;
         font-size:12px;
         color:#555555;
-        line-height:24px;
+        line-height:30px;
     }
     .shanrem,.shandu,.shanyidu:hover{
         cursor:pointer
@@ -90,21 +90,21 @@
         background:#ffffff;
         border:1px solid #ebebeb;
         width:60px;
-        height:24px;
+        height:30px;
         display:inline-block
     }
     .shandu{
         background:#ffffff;
         border:1px solid #ebebeb;
         width:84px;
-        height:24px;
+        height:30px;
         display:inline-block
     }
     .shanyidu{
         background:#ffffff;
         border:1px solid #ebebeb;
         width:91px;
-        height:24px;
+        height:30px;
         display:inline-block
     }
     .hangyeselect{
@@ -114,10 +114,10 @@
     .hangyeselect span{
         display:inline-block;
         text-align:center;
-        line-height:24px;
+        line-height:30px;
         
         width:88px;
-        height:24px;
+        height:30px;
     }
     .hangyeselect p{
         display:inline-block;
@@ -157,7 +157,7 @@
        height:70px;
    }
    .kongbottom{
-       height:2px;
+       height:1px;
        width:93%;
        margin:0 auto;
        background: #979797;
@@ -199,34 +199,77 @@
 .sp1,.sp2{
     background:#ffffff;
         border:1px solid #ebebeb;
+        
+}
+.sp2:hover{
+    cursor:pointer;
+  background:#f7a72c;
+  color:#fff;
 }
 .selected{
     background:#f7a72c;
     border-color:#f7a72c;
     color:#fff;
 }
+.sp1{
+    background:#f7a72c;
+    color:#fff;
+}
+.actives{
+    background:#f7a72c;
+    border-color:#f7a72c;
+    color:#fff;
+}
+.ac{
+    color:red
+}
 </style>
 <script>
         function myFuun(){
-            var $sea=$('#myInput').val();
+            var $sea=$('#myInputs').val();
             var ase = $sea.toUpperCase();
+            var aes = $sea.toLocaleLowerCase();
             //先隐藏全部，再把符合筛选条件的值显示
             console.log($sea);
-                $('.ulerts li').hide().filter(':contains('+$sea+')').show();
-                $('.ulerts li').filter(':contains('+ase+')').show();
+                $('#tyus tr').hide().filter(':contains('+$sea+')').show();
+                $('#tyus tr').filter(':contains('+ase+')').show();
+                $('#tyus tr').filter(':contains('+aes+')').show();
         };
-     
-        $(document).ready(function(){  
+        function twiner(e){
+
+                        
+                             $(".sp1").css({
+                                    "background":"#ffffff",
+                                    "border-color":"#ebebeb",
+                                    "color":"#2b2b2b"
+                                })
+                                $(".sp2").removeClass("actives");
+                                var spa = $(".sp2")[e];
+
+                               $(".psed").find(spa).addClass("actives"); 
+                                //$(this).addClass("actives"); 
+                  
+        };
+        function one(){
+                $(".sp1").css({
+                        "background":"#f7a72c",
+                        "border-color":"#f7a72c",
+                        "color":"#fff"
+                })
+                $(".sp2").removeClass("actives");  
+        }
+    //     $(document).ready(function(){  
     
-            $(".sp1").click(function(){
-                   $(this).toggleClass('selected')
-            });
+    //         $(".sp1").click(function(){
+    //                $(this).toggleClass('selected')
+    //         });
         
-            $(".sp2").click(function(){
-                    $(this).css({"background":"#f7a72c","borderColor":"#f7a72c","color":"#fff"})
-            })
-    //  }
-        })
+    //         $(".sp2").click(function(){
+    //                 $(this).css({"background":"#f7a72c","borderColor":"#f7a72c","color":"#fff"})
+    //                 $(this).siblings().css("background","red");
+    //         })
+    // //  }
+    //     })
        export default{
             name:"notification",
             data(){
@@ -239,7 +282,10 @@
                     isopens:true,
                     checkboxAll:false,
                     weidushow:true,
-                    sizePage:6
+                    sizePage:6,
+                    acp:0,
+                    acs:0
+
                 }
             },
             // updated:function(){
@@ -257,12 +303,14 @@
                             "pageReq": {
                                         "order": null,
                                         "page": val-1,
-                                        "size": 6,
+                                        "size": this.sizePage,
                                         "sort": null
                                     }
                         }
                          this.$this.post('/broker/content/user/get/content',a).then((response)=>{
-                                this.dats = response.data.data.content;                    
+                                this.dats = response.data.data.content;   
+                                $("#tryes input[type='checkbox']").prop("checked",false);
+                                this.checkboxAll = false;               
                             }).catch((error)=>{
                         })
 
@@ -270,13 +318,23 @@
 
                 },
                 typedata:function(index,id){
+                    var that = this;
                     this.weidushow = false;
+                     twiner(index)
+                    // $(".sp1").css({
+                    //     "background":"#ffffff",
+                    //     "border-color":"#ebebeb",
+                    //     "color":"#2b2b2b"
+                    // })
+                    
+                    // $(".psed")[index].addClass("actives"); 
+                  
                      var obj ={
                                 "id": 0,
                                 "pageReq": {
                                     "order": null,
                                     "page": 0,
-                                    "size": 6,
+                                    "size": this.sizePage,
                                     "sort": null
                                 },
                                 "type": id
@@ -284,10 +342,11 @@
                         
                      this.$this.post('/broker/content/user/get/content',obj).then((pons)=>{  //获取分类的消息
                                 this.dats = pons.data.data.content;
-                                if(this.dats.length<1){
+                               
+                                if(this.dats.length==0){
                                     this.isopen=true;
                                     this.isopens = false
-                                }else if(this.dats.length>0){
+                                }else if(this.dats.length!=0){
                                     this.isopen=false;
                                     this.isopens = true
                                 }
@@ -296,9 +355,12 @@
                         }).catch((error)=>{
                     })
                 },
-                zongliang:function(){
+                zongs:function(){
                     this.huoqu();
-                    this.isopen = false;
+                    one()
+                   // 
+                  // $(".notification-main").css("display","block")
+                    // /this.isopen = false;
                     this.weidushow = true;
                 },
                huoqu:function(){
@@ -306,13 +368,42 @@
                             "pageReq": {
                                         "order": null,
                                         "page": 0,
-                                        "size": 6,
+                                        "size": this.sizePage,
+                                        "sort": null
+                                    }
+                            }
+                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
+                                 this.dats = response.data.data.content;      
+                                  this.totalPages = response.data.data.totalElements;
+                                   this.weidulook();
+                                if(this.totalPages ==0){
+                                    this.isopens= false;
+                                    this.isopen = true;
+                                }else{  
+                                    this.isopens=true;
+                                    this.isopen = false;
+                                }
+                                //this.titleWeidu(this.totalPages);
+                        }).catch((error)=>{
+                    });
+               },
+               titleWeidu:function(e){
+                    var a = {
+                            "pageReq": {
+                                        "order": null,
+                                        "page": 0,
+                                        "size": e,
                                         "sort": null
                                     }
                             }
                     this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
                                 this.dats = response.data.data.content;      
-                                this.totalPages = response.data.data.totalElements;
+                                for(let k = 0;k<e;k++){
+                                    if(this.dats[k].status==null){
+                                       this.acp.push(this.dats[k])
+                                    }
+                                }
+                                console.log(this.acp)
                                 
                         }).catch((error)=>{
                     });
@@ -373,24 +464,73 @@
                              }).catch(() => {
                           
                             }); 
+                   }else{
+                       return false;
                    }
                },
                weidulook:function(){
                    var c = {
                                 "pageReq": {
                                     "page": 0,
-                                    "size": 6,
+                                    "size": this.totalPages,
                                 },
                                 "status": 0,
                           };
                     this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
                             var totalElements =  pons.data.data.totalElements;
-                            if(totalElements ==0){
+                            if(totalElements<1){
                                 this.isopen = true;
                                 this.isopens = false;
-                            }else if(totalElements!=0){
+                                this.acp = 0;
+                                
+                            }else if(totalElements>0){
+                                 var as = pons.data.data.content;
+                                 this.acp = as.length;
+                            }
+                          console.log(as)
+                    })
+              },
+              weidulooks:function(){
+                    var c = {
+                                "pageReq": {
+                                    "page": 0,
+                                    "size": this.sizePage,
+                                },
+                                "status": 0,
+                          };
+                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
+                            var totalElements =  pons.data.data.totalElements;
+                            if(totalElements<1){
+                                this.isopen = true;
+                                this.isopens = false;
+                                  this.currentPage1=1;
+                            }else if(totalElements>0){
                                  this.dats = pons.data.data.content;
                             }
+                    })
+              },
+              titleCreated:function(){
+                    var c = {
+                                "pageReq": {
+                                    "page": 0,
+                                    "size": this.sizePage,
+                                },
+                                "status": null,
+                          };
+                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
+                            var totalElements =  pons.data.data.totalElements;
+                            if(totalElements==1){
+                                this.isopen = true;
+                                this.isopens = false;
+                                this.acp = 0;
+                            }else if(totalElements==0){
+                                 this.acp =  pons.data.data.content.length
+                            }else if(totalElements==2){
+                                 this.isopen = true;
+                                this.isopens = false;
+                                this.acp = 0;
+                            }
+                          
                     })
               },
               yiduCreat:function(){
@@ -412,11 +552,12 @@
                                                 "id": contentUserId,
                                                 "pageReq": {
                                                     "page": 0,
-                                                    "size": 6,
+                                                    "size": this.sizePage,
                                                 },
                                                 "status": 1,
                                               };
                                     objer.push(obj);
+                                    console.log(objer)
                                     var obb = [];
                                     if (objer[0].contentId == undefined) {
                                         obb = objer.slice(1);
@@ -430,8 +571,9 @@
 
                    };
                       this.$this.post("broker/content/user/option",objy).then((rus)=>{
-                                        this.zongliang();
+                                        this.zongs();
                                         // this.handleCurrentChange(1);
+                                       this.weidulook()
                                         this.currentPage1 =1;
                                         $("#tryes input[type='checkbox']").prop("checked",false);
                                         this.checkboxAll = false
@@ -441,18 +583,18 @@
               }
              },
              yiduAll:function(){
-
+                   one()
                    var c = {
                                 "pageReq": {
                                     "page": 0,
-                                    "size": 6,
+                                    "size": this.sizePage,
                                 },
                                 "status": 1,
                           };
                     this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
                               this.dats = pons.data.data.content;      
                               this.totalPages = pons.data.data.totalElements;
-                            
+                               $(".notification-main").css("display","block")
                     })
                     console.log(c)
              }
@@ -463,7 +605,10 @@
                                 this.lei = pon.data.data
                         }).catch((error)=>{
                     })
-            }
+            },
+            // updated:function(){
+             
+            // }
 
        }
 </script>

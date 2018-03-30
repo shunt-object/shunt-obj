@@ -73,7 +73,7 @@
                     </span>
                     <span class="col-md-2 col-xs-5">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
-                            <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
+                            <i class="iconfont icon-shanchu removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
                             <i class="iconfont icon-zhediemianban" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
@@ -122,7 +122,7 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <el-tooltip visible-arrow content="删除此应用" placement="top" effect="light"  :popper-class="toolTipClass">
-                            <i class="iconfont icon-shanchu-01" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id,index,appindex)" ></i>
+                            <i class="iconfont icon-shanchu" style="font-size:25px !important;padding-right: 10px;" v-on:click="remYy(item.id,index,appindex)" ></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="查看综合报表" placement="top" effect="light"  :popper-class="toolTipClass">   
                             <i class="iconfont icon-chakan" v-on:click="Jips(item.id)" style="font-size:19px !important"></i>

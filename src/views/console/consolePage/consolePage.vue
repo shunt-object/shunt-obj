@@ -48,16 +48,26 @@
                     </a>                    
                 </li>
                 <li id="header_inbox_bar" class="dropdown idicon">
-                   <!-- <el-popover
+                   <el-popover
                     ref="popover2"
                     placement="bottom"
-                    trigger="click" popper-class="notification_hover">
-                        <div style="padding:60px 100px;">
-                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
-                            <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
-                        </div>    data-toggle="dropdown" v-popover:popover2                    
-                    </el-popover>-->
-                    <a class="dropdown-toggle navli user-hover"  data-toggle="dropdown"  v-on:click="tongzhiCenter()">
+                    trigger="hover" popper-class="notification_hover">
+                        <div v-show="noMsg" style="padding:120px 200px;">
+                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
+                            <div style="font-size:14px !important;color:#999;margin-top:5px;">暂无消息</div>
+                        </div>
+                        <div style="padding:20px 20px;" v-show="haveMsg">
+                            <div>
+                                <div class="lilister" v-for="date in dates">
+                                    <p class="psp"><span class="listspan"><i class="iconfont icon-tishi" style="color:#f7a72c;font-size:14px"></i>【{{date.typeName}}】</span><span class="listspan2">{{date.update_time}}</span></p>
+                                    <p class="plp">{{date.content}}</p>
+                                </div>
+                            </div>
+                            <div class="kongMsg"></div>
+                            <div class="lookmangMsg" v-on:click="tongzhiCenter()" >查看全部消息</div>
+                        </div>                
+                    </el-popover>
+                    <a class="dropdown-toggle navli user-hover" v-on:click="tongzhiCenter()"  data-toggle="dropdown"  v-popover:popover2 >
                         <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>通知中心
                     </a>                    
                 </li>
@@ -228,6 +238,9 @@ export default{
                 grade:'0',
                 type:''
             },
+            noMsg:false,
+            haveMsg:true,
+            dates:[]
             // hoverlist:[
             //     {name:'总览',boolean:true},
             //     {name:'云规划',boolean:true},
@@ -310,8 +323,33 @@ export default{
         this.getcomment();
 
        // console.log(JSON.parse(sessionStorage.getItem("account")));
+       this.getHttpMsgCenter();
+ 
     },
     methods:{
+        getHttpMsgCenter:function(){
+           var a = {
+            "pageReq": {
+                        "order": null,
+                        "page": 0,
+                        "size": 3,
+                        "sort": null
+                    }
+            }
+            this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
+                            this.dates = response.data.data.content;      
+                            this.totalPages = response.data.data.totalElements;
+                        if(this.totalPages ==0){
+                            this.noMsg= true;
+                            this.haveMsg =false;
+                        }else{  
+                            this.haveMsg=true;
+                            this.noMsg = false;
+                        }
+                    console.log(this.dates)
+                }).catch((error)=>{
+            });
+        },
         getcomment:function(){            
             this.$this.get('/broker/prop/typedata/fb/-1').then((response)=>{
                 //console.log('----',response);
