@@ -9,16 +9,18 @@
 <div class="designTop">
     <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
     <div class="graph-lenged">
+        <div style="min-height:150px;" v-if="isgraph==false">
+            <div class="graphLenged" v-if="isgraph==false">
+                <div class="graphLenged-head">图例说明</div>
+                <div class="graphLenged-list"><img src="../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
+                <div class="clear"></div>
+                <div class="graphLenged-list"><img src="../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
+                <div class="clear"></div>
+                <div class="graphLenged-list"><img src="../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
+            </div>
+        </div>
         <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
         <div class="graph-notice" style="padding-left: 2em;" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
-        <div class="graphLenged" v-if="isgraph==false">
-            <div class="graphLenged-head">图例说明</div>
-            <div class="graphLenged-list"><img src="../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
-            <div class="clear"></div>
-            <div class="graphLenged-list"><img src="../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
-            <div class="clear"></div>
-            <div class="graphLenged-list"><img src="../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
-        </div>
     </div>
 </div>
 <div class="designHeader">

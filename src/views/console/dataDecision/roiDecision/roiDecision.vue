@@ -322,6 +322,9 @@ export default{
             })
         },
         canvasROI:function(dom,x,series,centerline){
+            // let arr = series;
+            // arr.push(centerline);
+            // let max = Math.max.apply(null,arr);
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -354,32 +357,29 @@ export default{
                 },
                 yAxis: {
                     name:'价格',
-                    type: 'value'
+                    type: 'value',
+                    //max:max,
                 },
                 color:['#da121a'],
                 series: [
                     {
-                        type: 'scatter',
-                        name:'预算',
-                        markLine: {
-                            lineStyle: {
-                                normal: {
-                                    color: "#f7a72c",
-                                    type: 'solid',
-                                    width: 1,
-                                }
-                            },
-                            data: [ {
-                                yAxis: centerline,
-                                name: '预算'
-                            }]
-                        }
-                    },
-                    {
                     name:'价格',
                     data: series,
                     barWidth : 25,//柱图宽度
-                    type: 'bar'
+                    type: 'bar',
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                color: "#f7a72c",
+                                type: 'solid',
+                                width: 2,
+                            }
+                        },
+                        data: [ {
+                            yAxis: centerline,
+                            name: '预算'
+                        }]
+                    }
                 }]
             },{notMerge: true});
         },

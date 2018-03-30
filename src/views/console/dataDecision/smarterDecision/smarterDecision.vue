@@ -40,9 +40,9 @@
     <div class="row">
         <div class="col-md-12 padding10">
             <div class="decision-title">云优选场景占比统计分析
-                <div class="types-input" id="types-preference1" v-on:click="compareClick()">应用选择<i class="iconfont icon-sanjiao" style="float:right;margin-right:10px;"></i></div>
-                <div class="types-select" id="types-preference" v-show="iscompareScenes">
-                    <p v-for="(item,index) in compareScenes" v-on:click="compareDouble(index)"><input type="checkbox" v-model="item.boolean" class="types-checkbox" >{{item.data.proname}}</p>
+                <div class="types-input" id="types-preference1" v-on:click="compareClick()">工作负载选择<i class="iconfont icon-sanjiao" style="float:right;margin-right:10px;"></i></div>
+                <div class="types-select" style="min-width:128px !important;" id="types-preference" v-show="iscompareScenes">
+                    <p v-for="(item,index) in compareScenes" v-on:click="compareDouble(index)"><input type="checkbox" v-model="item.boolean" class="types-checkbox" >{{item.data.appname}}</p>
                 </div>
             </div>
             <div class="datadecision-list" style="padding-right:20px;">

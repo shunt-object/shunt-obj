@@ -14,10 +14,10 @@
                             <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed;width: 110px; height: 29px; ">存储服务</button></span>
                             <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; width: 110px; height: 29px;">CDN</button></span></p>
                     </div>
-                    <div class="designTabj" v-show="digaopeis">
-                        <p style="width:200px;margin-left:30px;">
-                            <span v-on:click="dipei" style="float:right;">低配</span>
-                            <span v-on:click="gaopei">高配</span>
+                    <div class="designTabj row" v-show="digaopeis">
+                        <p class="col-md-12" style="width:300px;margin-left:15px;">
+                            <span v-on:click="dipei" class="col-md-4">低配</span>
+                            <span v-on:click="gaopei" class="col-md-4" style="margin-left:20px;">高配</span>
                         </p>
                     </div>
                     <div  class="col-md-12">
@@ -216,13 +216,13 @@ height:100%;
     .designTabj p span:hover{
          cursor:pointer
     }
-     .designTabj p span{
-      float:left;
-      margin-right:30px;
-      font-size:12px;
-      color:#c0c0c0;
-      padding:5px 20px;
-      border:1px solid  #c0c0c0;
+    .designTabj p span{
+    float:left;
+    margin-right:30px;
+    font-size: 12px;
+    color: #c0c0c0;
+    padding: 5px 20px;
+    border: 1px solid #c0c0c0;
   }
   .designTabj{
       margin-bottom:50px;

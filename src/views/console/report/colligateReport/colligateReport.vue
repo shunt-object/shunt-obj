@@ -7,7 +7,7 @@
 </div>
     <child index="7" start="6" :type="$route.query.type" :id="$route.query.id"></child>
     <div class="tites" id="pdf-wrap" style="background: #f8fafd;padding: 17px 23px;">
-        <div class="from-headers">
+        <div class="from-headers" style="background:#fff;padding:20px;">
             <div class="from-head" style="color:#fff;">
                 <div class="from-head-left" style="float:left;padding-left:2%"><img src="../../../../assets/logoers.png" alt=""><br>您的专属服务顾问</div>
                 <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}} 上云分析综合报告</div>
@@ -18,7 +18,7 @@
                 <button class="exportBtn buttHover" v-on:click="getPdf()"><!--<img src="../../../../assets/report/export.png" style="width:16px;margin-right:5px;" alt=""><--><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
                 
             </div>
-            <div class="colligateReport" id="titBody" style="background:#fff;padding:20px;">
+            <div class="colligateReport" id="titBody">
                 <!-- 基本信息 -->
                 <div class="colligate-title">
                    <!--<img src="../../../../assets/report/report-information.png" alt="">-->
@@ -56,16 +56,18 @@
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
                 <div class="graph-lenged">
+                    <div style="min-height:150px;" v-if="isgraph==false">
+                        <div class="graphLenged" v-if="isgraph==false">
+                            <div class="graphLenged-head">图例说明</div>
+                            <div class="graphLenged-list"><img src="../../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
+                            <div class="clear"></div>
+                            <div class="graphLenged-list"><img src="../../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
+                            <div class="clear"></div>
+                            <div class="graphLenged-list"><img src="../../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
+                        </div>
+                    </div>
                     <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
                     <div class="graph-notice" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
-                    <div class="graphLenged" v-if="isgraph==false">
-                        <div class="graphLenged-head">图例说明</div>
-                        <div class="graphLenged-list"><img src="../../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
-                        <div class="clear"></div>
-                        <div class="graphLenged-list"><img src="../../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
-                        <div class="clear"></div>
-                        <div class="graphLenged-list"><img src="../../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
-                    </div>
                 </div>                
                 <!-- 云规划报告 -->
                 <div class="colligate-title">
@@ -1081,28 +1083,41 @@ export default{
                 },
                 color:['#da121a'],
                 series: [
-                    {
-                        type: 'scatter',
-                        name:'预算',
-                        markLine: {
-                            lineStyle: {
-                                normal: {
-                                    color: "#f7a72c",
-                                    type: 'solid',
-                                    width: 1,
-                                }
-                            },
-                            data: [ {
-                                yAxis: centerline,
-                                name: '预算'
-                            }]
-                        }
-                    },
+                    // {
+                    //     type: 'scatter',
+                    //     name:'预算',
+                    //     markLine: {
+                    //         lineStyle: {
+                    //             normal: {
+                    //                 color: "#f7a72c",
+                    //                 type: 'solid',
+                    //                 width: 1,
+                    //             }
+                    //         },
+                    //         data: [ {
+                    //             yAxis: centerline,
+                    //             name: '预算'
+                    //         }]
+                    //     }
+                    // },
                     {
                     name:'价格',
                     data: series,
                     barWidth : 25,//柱图宽度
-                    type: 'bar'
+                    type: 'bar',
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                color: "#f7a72c",
+                                type: 'solid',
+                                width: 2,
+                            }
+                        },
+                        data: [ {
+                            yAxis: centerline,
+                            name: '预算'
+                        }]
+                    }
                 }]
             });
                        

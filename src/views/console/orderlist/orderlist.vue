@@ -6,7 +6,31 @@
     ><router-link class="zong" to="/designer"> 云设计</router-link>
     ><p class="comback">购物详情</p>
 </div>
-<div class="designOrder-box">
+<div class="designOrder-box" style="padding-top:30px;">
+    <div class="designOrder-echarts-box">
+        <div class="designOrder-echarts-title row">
+            <div class="col-md-6">意向订单云厂商占比分析</div>
+            <div class="col-md-6">
+                <select class="designOrder-echarts-select" v-model="year">
+                    <option v-for="item in yearList" :value="item">{{item}}</option>
+                </select>
+                <select class="designOrder-echarts-select" v-model="area" v-on:change="orderChange()">
+                    <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
+                </select>
+                <select class="designOrder-echarts-select" v-model="industry" v-on:change="orderChange()">
+                    <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="designOrder-echarts row">
+            <div class="col-md-6">
+                <div class="designOrder-pie" id="designOrder-pie" style="width:100%;height:360px;"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="designOrder-bar" id="designOrder-bar" style="width:100%;height:360px;"></div>
+            </div>
+        </div>
+    </div>
     <div class="designOrder-title"><span>全部商品&nbsp;&nbsp;{{orderlist.length}}</span></div>
     <div class="designOrder-list" v-for="(item,index) in orderlist">
         <div class="designOrder-list-head">
@@ -69,14 +93,28 @@
 </template>
 <script>
 import '../orderlist/orderlist.css';
+import echarts from 'echarts'
 export default{
     name:'orderlist',
     data(){
         return {
+            charts:'',
             appId:'',
             param:[],
             orderlist:[],
             sumprice:0,
+            areaList:[{id:'1',name:'所在区域'},{id:'2',name:'全部区域'}],
+            industryList:[{id:'1',name:'所在行业'},{id:'2',name:'全部行业'}],
+            yearList:['2018'],
+            year:'2018',
+            area:'1',
+            industry:'1',
+            obj:{},
+            pielist:[],
+            pielegened:[],
+            piereslist:[],
+            barlist:[],
+            barlegened:[]
             //contact:false
         }
     },
@@ -84,8 +122,66 @@ export default{
         this.appId = this.$route.query.id;
         this.param = this.$route.query.listid;
         this.getdata();
+        this.information = JSON.parse(sessionStorage.getItem("account"));
+        this.obj = {
+            "areaid": this.information.areaid,
+            "industry":this.information.industry,
+            "provinceid":this.information.provinceid,
+            "cityid":this.information.cityid,
+            "year": this.year
+        };
+        this.getPiedata(this.obj);
     },
     methods:{
+        orderChange:function(){
+            //1所选  2全部
+            let sheng = '-1',shi = '-1',qu = '-1';
+            if(this.industry=='2'){
+                this.obj.industry = '-1';
+            }else{
+                this.obj.industry = this.information.industry;
+            }
+            if(this.area=='2'){
+                this.obj.provinceid = sheng;
+                this.obj.cityid = shi;
+                this.obj.areaid = qu;
+            }else{
+                this.obj.provinceid = this.information.provinceid;
+                this.obj.cityid = this.information.cityid;
+                this.obj.areaid = this.information.areaid;
+            }
+            this.getPiedata(this.obj);
+        },
+        getBardata:function(obj,name){
+            this.barlegened = [];
+            this.barlist = [];
+            this.$this.post('/broker/user/analysis/app/purchasin/get/rightAnalysis',JSON.stringify(obj)).then((response)=>{
+                //console.log('aaa',response.data.data);
+                for(let i=0;i<response.data.data.length;i++){
+                    this.barlegened.push(response.data.data[i].name);
+                    this.barlist.push([response.data.data[i].rightNum,response.data.data[i].name]);
+                }
+               this.$nextTick(function() {
+                    this.canvasBar('designOrder-bar',this.barlist,this.barlegened,name)
+                })
+            }).catch((error)=>{})
+        },
+        getPiedata:function(obj){
+            this.pielist = [];
+            this.pielegened = [];
+            this.piereslist = [];
+            this.$this.post('/broker/user/analysis/app/purchasin/get/analysis',JSON.stringify(obj)).then((response)=>{
+                //console.log('aaa',response.data.data);
+                this.piereslist = response.data.data;
+                for(let i=0;i<response.data.data.length;i++){
+                    this.pielegened.push(response.data.data[i].name);
+                    this.pielist.push({value:response.data.data[i].num, name:response.data.data[i].name});
+                }
+                this.$nextTick(function() {
+                    this.canvasPie('designOrder-pie',this.pielist,this.pielegened)
+                })
+            }).catch((error)=>{})
+        },
         getdata:function(){
             this.orderlist = [];
             this.sumprice = 0;
@@ -138,7 +234,107 @@ export default{
                 }).catch((error)=> {
                 });      
             }).catch(() => {});   
-        }
+        },
+        canvasBar:function(dom,series,legend,name){
+            this.echarts = echarts.init(document.getElementById(dom));
+            this.echarts.setOption({
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    right:'10px',
+                    top:'10px',
+                    data: name
+                },
+                grid: {
+                    left: '3%',
+                    right: '10px',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis:  {
+                    name:'数量',
+                    type: 'value'
+                },
+                yAxis: {
+                    name:name+'订单意向实例',
+                    type: 'category',
+                    data: legend
+                },
+                series: [{
+                        name: name,
+                        type: 'bar',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'insideRight'
+                            }
+                        },
+                        data: series
+                    }]
+            });
+        },
+        canvasPie:function(dom,data,legend){
+            let mychart = echarts.init(document.getElementById(dom));
+            mychart.setOption({
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    right:'10px',
+                    y : '10px',
+                    data:legend
+                },
+                toolbox: {
+                    show : false,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {
+                            show: true,
+                            type: ['pie', 'funnel']
+                        },
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
+                calculable : true,
+                series : [
+                    {
+                        name:'占比来源',
+                        type:'pie',
+                        radius : [30, 110],
+                        center : ['50%', '50%'],
+                        roseType : 'area',
+                        data:data
+                    }
+                ]
+            });
+            let that = this,str = {};
+            // mychart.on('click', function (params) {
+            //     //console.log('params',params.data.name);
+            //     for(let i=0;i<that.piereslist.length;i++){
+            //         if(params.data.name==that.piereslist[i].name){
+                        
+            //             str = {
+            //                 "areaid": that.obj.areaid,
+            //                 "industry":that.obj.industry,
+            //                 "provinceid":that.obj.provinceid,
+            //                 "cityid":that.obj.cityid,
+            //                 "sid":that.piereslist[i].sid,
+            //                 "year": that.obj.year
+            //             };
+            //         }
+            //     }
+            //     that.getBardata(str,params.data.name);
+            // });
+            
+        },
     }
 }
 </script>
