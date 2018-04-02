@@ -2,7 +2,7 @@
     <div class="total">
         <div>
             <div class="row notification-header">
-                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">通知中心<span style="color::#333333;font-size:14px;">（共<span>{{totalPages}}</span>封，其中<span>{{acp}}</span>封未读<span class="unread" v-on:click="weidulooks" v-show="weidushow">&nbsp仅查看未读消息</span>）</span></div>
+                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">消息列表</div>
                     <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
                         <div style="padding-top:10px">
                             <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
@@ -10,10 +10,11 @@
                     </div>
             </div>
             <div class="row notification-xuze">
-                <div class="col-md-4 text-left spanleft" style="padding-left:47px;margin-top:20px;margin-bottom:20px"><span class="shanrem" v-on:click="removes()">删除</span><span class="shandu" v-on:click="yiduCreat">标记为已读</span><span class="shanyidu" v-on:click="yiduAll">已读所有消息</span></div>
-                <div class="col-md-8 text-left hangyeselect" style="margin-top:20px;margin-bottom:20px" >
+                <div class="col-md-1 text-right spanleft" style="margin-top:20px;margin-bottom:20px;margin-left:44px;"><span class="shanrems" v-on:click="creatAdd()" style="background:#da121a;color:#fff !important;"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="font-size:12px;padding-right:6px"></i>添加信息</span></div>
+                <div class="col-md-2 text-left spanleft" style="margin-top:20px;margin-bottom:20px"><span class="shanrems" v-on:click="removes()" style="width:88px !important"><i class="iconfont icon-shanchu"></i>删除</span></div>
+                <!--<div class="col-md-8 text-right hangyeselect" style="margin-top:20px;margin-bottom:20px" >
                      <span class="sp1" v-on:click="zongs">全部</span><p v-for="(le,index) in lei" class="psed"><span  class="sps2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
-                </div>
+                </div>-->
             </div>
            
             <div class="notification-main" v-show="isopens">
@@ -21,23 +22,25 @@
                 <div class="notification-mainTable">
                     <table border="1" class="notificationTable containers" borderColor="#e5e5e5">
                          <thead class="notificationTableth" >
-                            <th class="text-center col-md-1"><input type="checkbox" v-model="checkboxAll" @change="changeSta" id="tre" /></th>
-                            <th class="text-center col-md-7">消息内容</th>
+                            <th class="text-center col-md-1" ><input type="checkbox" v-model="checkboxAll" @change="changeSta" id="tre" /></th>
+                            <th class="text-center col-md-1">发布人</th>
+                            <th class="text-center col-md-6">消息内容</th>
                             <th class="text-center col-md-2">发生时间</th>
                             <th class="text-center col-md-2">消息类型</th>
                          </thead>
                          <tbody class="notification-mainTabletr" id="tyus">
                             <tr v-for="dat in dats" id="tryes">
                                 <td class="text-center col-md-1"><input type="checkbox" :data="dat.contentUserId" :ids="dat.id" :statu="dat.status"/></td>
-                                <td class="text-center col-md-7"><i :class="dat.status==1?'iconfont icon-yiduxiaoxi':'iconfont icon-zhanneixiaoxi'"></i><span :class="dat.status==1?'yidu':'weidu'">{{dat.content}}</span></td>
-                                <td class="text-center col-md-2">{{dat.update_time}}</td>
+                                <td class="text-center col-md-1">{{dat.userName}}</td>
+                                <td class="text-center col-md-6"><i :class="dat.status==1?'iconfont icon-yiduxiaoxi':'iconfont icon-zhanneixiaoxi'"></i><span :class="dat.status==1?'yidu':'weidu'">{{dat.content}}</span></td>
+                                <td class="text-center col-md-2">{{dat.modifyDt}}</td>
                                 <td class="text-center col-md-2">{{dat.typeName}}</td>
                             </tr>
                          </tbody>
                     </table>
                 </div>
                 <div class="kongbottom"></div>
-                <div class="block" style="text-align:right">
+                <!--<div class="block" style="text-align:right">
                     <el-pagination 
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
@@ -46,7 +49,7 @@
                         layout="total, prev, pager, next"
                         :total="Number(this.totalPages)">
                     </el-pagination>
-                </div>
+                </div>-->
             </div>
              
             <div class="notification-undata" v-show="isopen">
@@ -76,20 +79,20 @@
     .PlansearchBoxs{
    
     }
-    .shanrem,.shandu,.shanyidu{
+    .shanrems,.shandu,.shanyidu{
         text-align:center;
         margin-right:9px;
         font-size:12px;
         color:#555555;
         line-height:30px;
     }
-    .shanrem,.shandu,.shanyidu:hover{
+    .shanrems,.shandu,.shanyidu:hover{
         cursor:pointer
     }
-    .shanrem{
+    .shanrems{
         background:#ffffff;
         border:1px solid #ebebeb;
-        width:60px;
+        width:90px;
         height:30px;
         display:inline-block
     }
@@ -175,8 +178,8 @@
        color:#da121a !important
    }
    .spanleft span:hover{
-       background:#F5F7FA;
-       color:#000;
+       background:rgb(247, 167, 44);
+       color:#fff;
    }
    .weidu{
        color:#304153
@@ -203,9 +206,8 @@
 }
 .sps2:hover{
     cursor:pointer;
-  background:#F5F7FA;
-  border-color:#F5F7FA;
-  color:#000;
+  background:#f7a72c;
+  color:#fff;
 }
 .selected{
     background:#f7a72c;
@@ -239,7 +241,7 @@
         function twiner(e){
 
                         
-                             $(".sps2").css({
+                             $(".sp1").css({
                                     "background":"#ffffff",
                                     "border-color":"#ebebeb",
                                     "color":"#2b2b2b"
@@ -293,30 +295,43 @@
             //     this.handleCurrentChange(1)
             // },
             methods:{
+                 zongs:function(){
+                    this.huoqu();
+                    one()
+                   // 
+                  // $(".notification-main").css("display","block")
+                    // /this.isopen = false;
+                    this.weidushow = true;
+                },
                 myFun:function(){
                     myFuun()
                 },
                 handleSizeChange:function(val){
-                    alert(val)
+                    // alert(val)
                 },
-                handleCurrentChange:function(val){
-                       var a = {
-                            "pageReq": {
-                                        "order": null,
-                                        "page": val-1,
-                                        "size": this.sizePage,
-                                        "sort": null
-                                    }
-                        }
-                         this.$this.post('/broker/content/user/get/content',a).then((response)=>{
-                                this.dats = response.data.data.content;   
-                                $("#tryes input[type='checkbox']").prop("checked",false);
-                                this.checkboxAll = false;               
-                            }).catch((error)=>{
-                        })
+                // handleCurrentChange:function(val){
+                //        var a = {
+                //             "pageReq": {
+                //                         "order": null,
+                //                         "page": val-1,
+                //                         "size": this.sizePage,
+                //                         "sort": null
+                //                     }
+                //         }
+                //          this.$this.get('/broker/content/get/content',a).then((response)=>{
+                //                 this.dats = response.data.data;   
+                //                 console.log(this.dats);
+                //                 $("#tryes input[type='checkbox']").prop("checked",false);
+                //                 this.checkboxAll = false;               
+                //             }).catch((error)=>{
+                //         })
 
                    
 
+                // },
+                creatAdd:function(){
+                     this.$router.push({path:'/messAdd'});
+        
                 },
                 typedata:function(index,id){
                     var that = this;
@@ -341,7 +356,7 @@
                                 "type": id
                                 }
                         
-                     this.$this.post('/broker/content/user/get/content',obj).then((pons)=>{  //获取分类的消息
+                     this.$this.get('/broker/conten/get/content',obj).then((pons)=>{  //获取分类的消息
                                 this.dats = pons.data.data.content;
                                
                                 if(this.dats.length==0){
@@ -356,14 +371,7 @@
                         }).catch((error)=>{
                     })
                 },
-                zongs:function(){
-                    this.huoqu();
-                    one()
-                   // 
-                  // $(".notification-main").css("display","block")
-                    // /this.isopen = false;
-                    this.weidushow = true;
-                },
+               
                huoqu:function(){
                     var a = {
                             "pageReq": {
@@ -373,42 +381,31 @@
                                         "sort": null
                                     }
                             }
-                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                 this.dats = response.data.data.content;      
+                    this.$this.get('/broker/content/get/content',a).then((response)=>{  //获取所有的信息内容 
+                                 this.dats = response.data.data; 
+                                 var aop = [];  
+                                 
                                   this.totalPages = response.data.data.totalElements;
-                                   this.weidulook();
-                                if(this.totalPages ==0){
+                                  console.log(this.dats)
+                                // if(this.totalPages ==0){
+                                //     this.isopens= false;
+                                //     this.isopen = true;
+                                // }else{  
+                                //     this.isopens=true;
+                                //     this.isopen = false;
+                                // }
+                               if(this.dats.length==0){
                                     this.isopens= false;
                                     this.isopen = true;
-                                }else{  
-                                    this.isopens=true;
-                                    this.isopen = false;
-                                }
+                               }else{
+                                     this.isopens=true;
+                                     this.isopen = false;
+                               }
                                 //this.titleWeidu(this.totalPages);
                         }).catch((error)=>{
                     });
                },
-               titleWeidu:function(e){
-                    var a = {
-                            "pageReq": {
-                                        "order": null,
-                                        "page": 0,
-                                        "size": e,
-                                        "sort": null
-                                    }
-                            }
-                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                this.dats = response.data.data.content;      
-                                for(let k = 0;k<e;k++){
-                                    if(this.dats[k].status==null){
-                                       this.acp.push(this.dats[k])
-                                    }
-                                }
-                                console.log(this.acp)
-                                
-                        }).catch((error)=>{
-                    });
-               },
+           
                changeSta:function(item){
                     if(this.checkboxAll){
                          $("#tryes input[type='checkbox']").prop("checked",true)
@@ -417,6 +414,7 @@
                     }
                },
                removes:function(){
+                   var that = this;
                    if($("#tryes input[type='checkbox']").is(":checked")){
                       
                        var contentUserId;
@@ -426,13 +424,9 @@
                          for (let v = 0; v < $("input[type='checkbox']").length; v++) {
                                 if ($("input[type='checkbox']").eq(v).is(":checked")){
                                     ids = $("input[type='checkbox']").eq(v).attr("ids")
-                                    contentUserId = $("input[type='checkbox']").eq(v).attr("data");
-                                        var objs ={
-                                                    "contentId": ids,
-                                                    "id":contentUserId ,
-                                                    "status": 2,
-                                                  }
-                                          obj.push(objs);
+                                    //contentUserId = $("input[type='checkbox']").eq(v).attr("data");
+                                          obj.push(ids);
+                                    
                                 }
                         }
                          this.$confirm('您确定要删除该应用吗？', '温馨提示', {
@@ -444,164 +438,49 @@
                                 center: false
                           }).then(() => {
                                      
-                                      if (obj[0].contentId == undefined) {
+                                      if (obj[0] == undefined) {
                                         obb = obj.slice(1);
                                       } else {
                                         obb = obj;
                                       }
-                                      console.log(obj)
+                                      //console.log(obj)
                                       
                                       var obs = {
-                                          "list":obb
+                                          "ids":obb
                                       }
                                     console.log(obs)
-                                     this.$this.post("broker/content/user/option",obs).then((rus)=>{
-                                          this.huoqu();
-                                          $("#tryes input[type='checkbox']").prop("checked",false);
-                                         this.checkboxAll = false
-                                    },(err)=>{
-                                        console.log("不好意思")
-                                    })
+                                     that.$this({
+                                            method: "delete",
+                                            url: "/broker/content/delete/content",
+                                            data: obs
+                                        }).then(function(response) {
+                                            that.huoqu();
+                                             that.checkboxAll =false;
+                                        }).catch(function(error) {
+                                            console.log(error);
+                                        });
+            //                          this.$this.post("broker/content/user/option",obs).then((rus)=>{
+            //                               this.huoqu();
+            //                               $("#tryes input[type='checkbox']").prop("checked",false);
+            //                              this.checkboxAll = false
+            //                         },(err)=>{
+            //                             console.log("不好意思")
+            //                         })
                              }).catch(() => {
                           
                             }); 
                    }else{
                        return false;
                    }
-               },
-               weidulook:function(){
-                   var c = {
-                                "pageReq": {
-                                    "page": 0,
-                                    "size": this.totalPages,
-                                },
-                                "status": 0,
-                          };
-                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
-                            var totalElements =  pons.data.data.totalElements;
-                            if(totalElements<1){
-                                this.isopen = true;
-                                this.isopens = false;
-                                this.acp = 0;
-                                
-                            }else if(totalElements>0){
-                                 var as = pons.data.data.content;
-                                 this.acp = as.length;
-                            }
-                          console.log(as)
-                    })
-              },
-              weidulooks:function(){
-                    var c = {
-                                "pageReq": {
-                                    "page": 0,
-                                    "size": this.sizePage,
-                                },
-                                "status": 0,
-                          };
-                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
-                            var totalElements =  pons.data.data.totalElements;
-                            if(totalElements<1){
-                                this.isopen = true;
-                                this.isopens = false;
-                                  this.currentPage1=1;
-                            }else if(totalElements>0){
-                                 this.dats = pons.data.data.content;
-                            }
-                    })
-              },
-              titleCreated:function(){
-                    var c = {
-                                "pageReq": {
-                                    "page": 0,
-                                    "size": this.sizePage,
-                                },
-                                "status": null,
-                          };
-                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
-                            var totalElements =  pons.data.data.totalElements;
-                            if(totalElements==1){
-                                this.isopen = true;
-                                this.isopens = false;
-                                this.acp = 0;
-                            }else if(totalElements==0){
-                                 this.acp =  pons.data.data.content.length
-                            }else if(totalElements==2){
-                                 this.isopen = true;
-                                this.isopens = false;
-                                this.acp = 0;
-                            }
-                          
-                    })
-              },
-              yiduCreat:function(){
-                   if($("#tryes input[type='checkbox']").is(":checked")){
-                        var contentUserId;
-                        var ids;
-                        var status;
-                        var objer=[];
-                        for (let w = 0; w < $("input[type='checkbox']").length; w++) {
-                            if ($("input[type='checkbox']").eq(w).is(":checked")){
-                                    ids = $("input[type='checkbox']").eq(w).attr("ids");
-                                    contentUserId = $("input[type='checkbox']").eq(w).attr("data");
-                                    status = $("input[type='checkbox']").eq(w).attr("statu");
-                                    // if(status==undefined){
-                                    //     status=null;
-                                    // }
-                                    var obj = {
-                                                "contentId":ids ,
-                                                "id": contentUserId,
-                                                "pageReq": {
-                                                    "page": 0,
-                                                    "size": this.sizePage,
-                                                },
-                                                "status": 1,
-                                              };
-                                    objer.push(obj);
-                                    console.log(objer)
-                                    var obb = [];
-                                    if (objer[0].contentId == undefined) {
-                                        obb = objer.slice(1);
-                                      } else {
-                                        obb = objer;
-                                      }
-                                    var objy = {
-                                        "list":obb
-                                    }
-                       }
-
-                   };
-                      this.$this.post("broker/content/user/option",objy).then((rus)=>{
-                                        this.zongs();
-                                        // this.handleCurrentChange(1);
-                                       this.weidulook()
-                                        this.currentPage1 =1;
-                                        $("#tryes input[type='checkbox']").prop("checked",false);
-                                        this.checkboxAll = false
-                                },(err)=>{
-                                    console.log("不好意思")
-                    })  
-              }
-             },
-             yiduAll:function(){
-                   one()
-                   var c = {
-                                "pageReq": {
-                                    "page": 0,
-                                    "size": this.sizePage,
-                                },
-                                "status": 1,
-                          };
-                    this.$this.post('/broker/content/user/get/content',c).then((pons)=>{  
-                              this.dats = pons.data.data.content;      
-                              this.totalPages = pons.data.data.totalElements;
-                               $(".notification-main").css("display","block")
-                    })
-                    console.log(c)
-             }
+               }
+            
             },
+             
+        
+            
             mounted:function(){
                     this.huoqu();
+                    //this.handleCurrentChange();
                     this.$this.get('/broker/prop/typedata/msg-type/-1').then((pon)=>{  //获取消息类型
                                 this.lei = pon.data.data
                         }).catch((error)=>{

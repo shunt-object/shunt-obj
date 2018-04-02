@@ -32,6 +32,8 @@ import CustomerService from '@/views/front/CustomerService'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
+import messageCenter from "../views/front/messageCenter/messageCenter.vue"
+import messAdd from "../views/front/messageCenter/messAdd.vue"
 import seleconeFour from "../views/front/selecone/seleconeFour.vue"
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
@@ -72,6 +74,7 @@ export default new Router({
       name:"seleconeFour",
       component:seleconeFour
     },
+     
     {
       path: '/CustomerService',
       name: 'CustomerService',
@@ -159,6 +162,16 @@ export default new Router({
           path:'/notification',
           name:'notification',
           component:notification
+        },
+         {
+          path:"/messageCenter",
+          name:"messageCenter",
+          component:messageCenter
+        },
+         {
+          path:"/messAdd",
+          name:"messAdd",
+          component:messAdd
         },
         {
           path:'/accountInformation',

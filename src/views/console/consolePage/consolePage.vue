@@ -9,12 +9,12 @@
             <a href="javascript:;" class="logo"><router-link to="/"><img src="../../../assets/logo1.png" alt=""></router-link></a>
         </div>
         <!-- 公告信息 -->
-        <div class="notice">
+       <!-- <div class="notice">
             <p class="notice-img"><i class="iconfont icon-gonggao2"></i>公告信息：</p>
-            <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"-->
+            <ul class="notice-list"><!-- style="letter-spacing: 0.1em;"
                 <li><marquee direction="left">CSB²正式推出价格优选功能<span class="notice-time"></span></marquee></li>
             </ul>
-        </div>
+        </div>-->
          <!--用户信息-->
         <div class="top-nav ">
             <ul class="nav pull-right top-menu">
@@ -68,7 +68,7 @@
                         </div>                
                     </el-popover>
                     <a class="dropdown-toggle navli user-hover" v-on:click="tongzhiCenter()"  data-toggle="dropdown"  v-popover:popover2 >
-                        <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>通知中心
+                        <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>通知中心<span class="Redreg" v-show="redreg"></span>
                     </a>                    
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
@@ -125,8 +125,8 @@
                     </a>
                     <ul class="sub">
                         <li v-on:click="smarter()"><a href="javascript:;">智慧分析</a></li>
-                        <li v-on:click="roi()"><a href="javascript:;">ROI分析</a></li>
-                        <li v-on:click="sus()"><a href="javascript:;">舆情监控</a></li>
+                        <li v-on:click="roi()"><a href="javascript:;">预算分析</a></li>
+                        <li v-on:click="sus()"><a href="javascript:;">数据洞察</a></li>
                     </ul>
                 </li>
                   <li class="sub-menu" v-show="istrue">
@@ -140,6 +140,7 @@
                         <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
                         <li v-on:click="ReviewTheData()"><a href="javascript:;">点评数据</a></li>
                         <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
+                        <li v-on:click="messageCenter()"><a href="javascript:;">消息中心</a></li>
                     </ul>
                 </li>
             </ul>
@@ -240,7 +241,8 @@ export default{
             },
             noMsg:false,
             haveMsg:true,
-            dates:[]
+            dates:[],
+            redreg:false
             // hoverlist:[
             //     {name:'总览',boolean:true},
             //     {name:'云规划',boolean:true},
@@ -475,6 +477,9 @@ export default{
         },
         roi:function(){
             this.$router.push({path:'/roiDecision'});
+        },
+        messageCenter:function(){
+             this.$router.push({path:'/messageCenter'});
         }
 
     }

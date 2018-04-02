@@ -132,3 +132,16 @@ width:359px;
 height:2px;
 margin-bottom: 20px
 }
+.Redreg{
+    position:absolute;
+    top:5px;
+    right:0;
+    display: inline-block;
+    width:6px;
+    height:6px;
+    border-radius: 100px;
+    background:#da121a
+}
+.navli{
+    position:relative;
+}
