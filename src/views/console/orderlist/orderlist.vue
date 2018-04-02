@@ -153,14 +153,15 @@ export default{
             this.getPiedata(this.obj);
         },
         getBardata:function(obj,name){
-            this.barlegened = [];
-            this.barlist = [];
             this.$this.post('/broker/user/analysis/app/purchasin/get/rightAnalysis',JSON.stringify(obj)).then((response)=>{
                 //console.log('aaa',response.data.data);
+                this.barlegened = [];
+                this.barlist = [];
                 for(let i=0;i<response.data.data.length;i++){
                     this.barlegened.push(response.data.data[i].name);
                     this.barlist.push([response.data.data[i].name,response.data.data[i].rightNum]);
                 }
+                //console.log('aaaaa',this.barlist);
                this.$nextTick(function() {
                     this.canvasBar('designOrder-bar',this.barlist,this.barlegened,name)
                 })
@@ -248,6 +249,7 @@ export default{
             }).catch(() => {});   
         },
         canvasBar:function(dom,series,legend,name){
+            //console.log(series);
             this.echarts = echarts.init(document.getElementById(dom));
             this.echarts.setOption({
                 tooltip : {
@@ -303,7 +305,7 @@ export default{
                         },
                         data: series
                     }]
-            });
+            },{notMerge: true});
         },
         canvasPie:function(dom,data,legend){
             let mychart = echarts.init(document.getElementById(dom));

@@ -98,7 +98,7 @@ export default{
             budgetprice:'',
             isbudget:false,
             priceRate:'',
-            allInvest:true,
+            allInvest:false,
             issort:'0',
         }
     },
@@ -308,12 +308,14 @@ export default{
                 if(response.data.data.length>0){
                     this.pricelistOne.push({boolean:true,data:response.data.data[0]});
                     for(let i=1;i<response.data.data.length;i++){
-                        this.pricelist.push({boolean:true,data:response.data.data[i]});
+                        this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
-                    for(let i=0;i<response.data.data.length;i++){
-                        pname.push(response.data.data[i].pname);
-                        series.push(response.data.data[i].cloudPrice);
-                    }
+                    pname.push(this.pricelist[0].data.pname);
+                    series.push(this.pricelist[0].data.cloudPrice);
+                    // for(let i=0;i<response.data.data.length;i++){
+                    //     pname.push(response.data.data[i].pname);
+                    //     series.push(response.data.data[i].cloudPrice);
+                    // }
                 }
                 this.$nextTick(function() {
                     this.canvasROI('roi-echarts',pname,series,0);
