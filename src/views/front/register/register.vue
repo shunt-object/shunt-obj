@@ -638,7 +638,7 @@ export default{
             this.codeI=60;
         }
     },
-    component:{
+    components:{
     }
 }
 

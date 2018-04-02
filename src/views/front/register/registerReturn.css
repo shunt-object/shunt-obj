@@ -1,0 +1,70 @@
+.registerCommon {
+    width: 100vm; min-height: 100vh; overflow-x: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; font-family: 'Microsoft YaHei'; background: #f7f7f7; position: relative;
+}
+.registerCommon-from{
+    padding:0 5% 50px 5% !important; border-radius:5px; background:#fff; margin-top:50px !important; border:1px solid #efefef; box-shadow:0 2px 2px 0 rgba(201,201,201,0.40); margin-bottom:50px;
+}
+.registerCommon-title{
+     font-size:24px; color:#333333; text-align:center; margin:40px 0 10px 0;
+}
+.registerCommon input{
+    width:100% !important;
+}
+.registerCommon .register-ruleForm-select{
+    width:100% !important;
+}
+.registerCommon label{
+    font-weight:normal;
+}
+.register-ruleForm{
+    margin-top:40px;
+}
+.register-ruleForm-item{
+    margin-top:20px;
+}
+.registerCommon-agree{
+    margin-top:30px; text-align:left; padding-left:15px;
+}
+.registerCommon-btn-box{
+    padding-left:15px;
+}
+.registerCommon-btn{
+    background:#da121a; border-radius:2px; width:100%; height:39px; border:none; color:#fff; margin-top:10px;
+}
+.registerCommon-btn:hover{
+    background:#EF131D; border:none; color:#fff;
+}
+.registerCommon-notice{
+    font-size:14px; color:#333333; text-align:center; margin-top:24px;
+}
+.registerCommon-login{
+    color:#da121a;
+}
+.registerCommon-login:hover{
+    color:#EF131D;
+}
+.registerCommon-footer{
+    width:100%; text-align:center; position:absolute; bottom:0; left:0;
+}
+.registerCommon-footer-list{
+    font-size:12px; color:#969696; line-height:20px; text-align:center;
+}
+/*注册成功*/
+.register-success-img{
+    width:100px; height:100px; margin:50px 0 20px 0;
+}
+.registerThree-succ{
+    font-size:20px; color:#404140; text-align:center;
+}
+.registerThree-desc{
+    font-size:14px; color:#404140; text-align:center; margin-top:15px;
+}
+.registerThree-btn{
+    margin:30px 0;
+}
+/*第二步*/
+.selectThree{
+    float:left;
+    width:30% !important;
+    margin-right:3%;
+}
