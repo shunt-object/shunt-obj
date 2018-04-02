@@ -479,14 +479,44 @@ export default{
                     console.log(error);
                 })
             }else{
-                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
+                let emailReg = /^[A-Z|a-z|0-9]+([-_.][A-Z|a-z|0-9]+)*@([A-Z|a-z|0-9]+[-.])+[A-Z|a-z|0-9]{2,5}$/; 
+                let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
+                //加判断验证邮箱
+                //this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的邮箱';
+                if(this.phone!=''){
+                    if(emailReg.test(this.phone)==false){
+                        this.isphone = true;
+                        this.phoneError = '请输入正确的邮箱格式';
+                    }else{
+                        this.isphone=false;
+                    }
+                }else{
+                    this.isphone = true;
+                    this.phoneError = '请输入您的邮箱';
+                }
                 if(this.password==''){
                     this.passError = '请输入您的密码';
                     this.ispassword=true;
-                }else{
-                    this.ispassword=false;
+                }else{                    
+                    if(passwordReg.test(this.password)==false){
+                        this.passError = '请输入正确的密码格式';
+                        this.ispassword=true;
+                    }else{
+                        this.ispassword=false;
+                    }
                 }
-                this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
+                if(this.againPassword!=''){
+                    if(this.againPassword==this.password){
+                        this.isagainPas=false;
+                    }else{
+                        this.isagainPas=true;
+                        this.againPassError = '俩次密码输入不一致';
+                    }
+                }else{
+                    this.isagainPas=true;
+                    this.againPassError = '请再次输入密码';
+                }
+                //this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
                 this.username==''?this.isusername=true:this.isusername=false;
                 if(this.checkbox==false){
@@ -529,12 +559,41 @@ export default{
                 }).catch((error)=>{
                 })
             }else{
-                this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+                let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
+                //this.phone!=''?this.isphone=false:this.isphone=true;this.phoneError = '请输入您的手机号';
+                if(this.phone!=''){
+                    if(emailReg.test(this.phone)==false){
+                        this.isphone = true;
+                        this.phoneError = '请输入正确的手机号';
+                    }else{
+                        this.isphone=false;
+                    }
+                }else{
+                    this.isphone = true;
+                    this.phoneError = '请输入您的手机号';
+                }
                 if(this.password==''){
                     this.passError = '请输入您的密码';
                     this.ispassword=true;
                 }else{
-                    this.ispassword=false;
+                    if(passwordReg.test(this.password)==false){
+                        this.passError = '请输入正确的密码格式';
+                        this.ispassword=true;
+                    }else{
+                        this.ispassword=false;
+                    }
+                }
+                if(this.againPassword!=''){
+                    if(this.againPassword==this.password){
+                        this.isagainPas=false;
+                    }else{
+                        this.isagainPas=true;
+                        this.againPassError = '俩次密码输入不一致';
+                    }
+                }else{
+                    this.isagainPas=true;
+                    this.againPassError = '请再次输入密码';
                 }
                 if(this.codeNum==''){
                     this.codenotice = '请输入验证码';
@@ -542,7 +601,7 @@ export default{
                 }else{
                     this.iscodeNum = false;
                 }
-                this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
+                //this.againPassword!=''?this.isagainPas=false:this.isagainPas=true;this.againPassError = '请再次输入密码';
                 this.confirm==''?this.isconfirm=true:this.isconfirm=false;
                 this.username==''?this.isusername=true:this.isusername=false;
                 if(this.checkbox==false){

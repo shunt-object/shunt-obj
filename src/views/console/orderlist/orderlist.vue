@@ -159,7 +159,7 @@ export default{
                 //console.log('aaa',response.data.data);
                 for(let i=0;i<response.data.data.length;i++){
                     this.barlegened.push(response.data.data[i].name);
-                    this.barlist.push([response.data.data[i].rightNum,response.data.data[i].name]);
+                    this.barlist.push([response.data.data[i].name,response.data.data[i].rightNum]);
                 }
                this.$nextTick(function() {
                     this.canvasBar('designOrder-bar',this.barlist,this.barlegened,name)
@@ -180,6 +180,18 @@ export default{
                 this.$nextTick(function() {
                     this.canvasPie('designOrder-pie',this.pielist,this.pielegened)
                 })
+                if(response.data.data.length>0){
+                    let str = {
+                        "areaid": this.obj.areaid,
+                        "industry":this.obj.industry,
+                        "provinceid":this.obj.provinceid,
+                        "cityid":this.obj.cityid,
+                        "sid":this.piereslist[0].sid,
+                        "year": this.obj.year
+                    };
+                    this.getBardata(str,this.piereslist[0].name);
+                }
+                
             }).catch((error)=>{})
         },
         getdata:function(){
@@ -251,25 +263,41 @@ export default{
                 },
                 grid: {
                     left: '3%',
-                    right: '10px',
+                    right: '25%',
                     bottom: '3%',
                     containLabel: true
                 },
-                xAxis:  {
+                yAxis:  {
                     name:'数量',
-                    type: 'value'
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
                 },
-                yAxis: {
+                xAxis: {
                     name:name+'订单意向实例',
                     type: 'category',
-                    data: legend
+                    data: legend,
+                    axisLabel:{
+                        color:'#999',
+                        interval:0,  
+                        rotate:15                    
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ccc'
+                        }
+                    },
                 },
                 series: [{
                         name: name,
                         type: 'bar',
+                        barWidth : 25,//柱图宽度
                         label: {
                             normal: {
-                                show: true,
+                                show: false,
                                 position: 'insideRight'
                             }
                         },
@@ -316,23 +344,22 @@ export default{
                 ]
             });
             let that = this,str = {};
-            // mychart.on('click', function (params) {
-            //     //console.log('params',params.data.name);
-            //     for(let i=0;i<that.piereslist.length;i++){
-            //         if(params.data.name==that.piereslist[i].name){
-                        
-            //             str = {
-            //                 "areaid": that.obj.areaid,
-            //                 "industry":that.obj.industry,
-            //                 "provinceid":that.obj.provinceid,
-            //                 "cityid":that.obj.cityid,
-            //                 "sid":that.piereslist[i].sid,
-            //                 "year": that.obj.year
-            //             };
-            //         }
-            //     }
-            //     that.getBardata(str,params.data.name);
-            // });
+            mychart.on('click', function (params) {
+                //console.log('params',params.data.name);
+                for(let i=0;i<that.piereslist.length;i++){
+                    if(params.data.name==that.piereslist[i].name){
+                        str = {
+                            "areaid": that.obj.areaid,
+                            "industry":that.obj.industry,
+                            "provinceid":that.obj.provinceid,
+                            "cityid":that.obj.cityid,
+                            "sid":that.piereslist[i].sid,
+                            "year": that.obj.year
+                        };
+                    }
+                }
+                that.getBardata(str,params.data.name);
+            });
             
         },
     }
