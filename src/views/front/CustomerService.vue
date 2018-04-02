@@ -4,7 +4,7 @@
      <div style="height:100%;width:100%;" v-if="zixunShow==true" >
             <div id="rong-header" style="width:100%;height:70px;background:#da121a;color:#fff;">
                 <ul class="col-md-3 text-left">
-                    <li style="padding:10px 0 10px 30px"><img src="/src/assets/logoers.png" alt="" style="width:130px;height:20px;"></li>
+                    <li style="padding:10px 0 10px 30px"><img src="/static/rongCloud/images/logoers.png" alt="" style="width:130px;height:20px;"></li>
                     <li style="padding:0 0 0 30px;"><span>您的专属上云顾问</span></li>
                 </ul>
                 
