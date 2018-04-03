@@ -34,8 +34,19 @@ import '../register/registerReturn.css'
 import registerStep from '../register/registerStep.vue'
 export default{
     name:'registerTwo',
+    data(){
+        return{
+            useername:''
+        }
+    },
     methods:{
         gologin:function(){
+            localStorage.removeItem('remAccount');
+            sessionStorage.removeItem("utype");
+            sessionStorage.removeItem("accountId");
+            sessionStorage.removeItem("account");
+            sessionStorage.clear();
+            localStorage.removeItem("as");
             this.$router.push({path:'/login'});
         }
     },

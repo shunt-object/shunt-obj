@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/views/front/homePage'
-import register from '@/views/front/register/register'
+// import register from '@/views/front/register/register'
 import registerOne from '@/views/front/register/registerOne'
 import registerTwo from '@/views/front/register/registerTwo'
 import registerThree from '@/views/front/register/registerThree'
@@ -80,11 +80,11 @@ export default new Router({
       name: 'CustomerService',
       component: CustomerService
     },
-    {
-      path:'/register',
-      name:'register',
-      component:register
-    }, 
+    // {
+    //   path:'/register',
+    //   name:'register',
+    //   component:register
+    // }, 
     {
       path:'/registerOne',
       name:'registerOne',

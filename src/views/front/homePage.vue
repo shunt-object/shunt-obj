@@ -582,7 +582,7 @@ export default {
         // },
          
         PlanLj:function(){
-             this.$router.push({path: '/register'});
+             this.$router.push({path: '/registerOne'});
         },
         asd:function(){
             this.logoutlist==true?this.logoutlist=false:this.logoutlist=true;
@@ -604,7 +604,7 @@ export default {
           this.$router.push({path: '/consolePage'});
       },
       reset: function() {
-        this.$router.push({path: '/register'})
+        this.$router.push({path: '/registerOne'})
       },
       ctaClound:function(){
           this.$router.push({path: '/seleconefirst'});

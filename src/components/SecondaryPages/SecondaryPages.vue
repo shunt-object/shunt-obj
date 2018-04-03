@@ -87,7 +87,7 @@ export default {
     methods: {
         
         PlanLj:function(){
-             this.$router.push({path: '/register'});
+             this.$router.push({path: '/registerOne'});
         },
         asd:function(){
             this.logoutlist==true?this.logoutlist=false:this.logoutlist=true;
@@ -109,7 +109,7 @@ export default {
           this.$router.push({path: '/consolePage'});
       },
       reset: function() {
-        this.$router.push({path: '/register'})
+        this.$router.push({path: '/registerOne'})
       },
       cloundPlan:function(){
            this.$router.push({path: '/sleconesecond'})
