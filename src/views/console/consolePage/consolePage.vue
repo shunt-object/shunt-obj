@@ -138,7 +138,7 @@
                     </a>
                     <ul class="sub">
                         <li v-on:click="zhic()"><a href="javascript:;">用户数据</a></li>
-                        <li v-on:click="ReviewTheData()"><a href="javascript:;">点评数据</a></li>
+                        <li v-on:click="ReviewTheData()"><a href="javascript:;">意见反馈</a></li>
                         <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
                         <li v-on:click="messageCenter()"><a href="javascript:;">消息中心</a></li>
                     </ul>

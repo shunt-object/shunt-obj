@@ -424,7 +424,7 @@
                     </div>
                     <!--投资回报率--> 
                     <div class="colligateInvest">
-                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>ROI（投资回报率）预估分析</p>
+                        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>预算收益统计分析</p>
                         <div class="colligate-list" style="padding:0 2em;">
                             <div class="colligateBuy-echarts">
                                 <div class="Invest-echarts" id="Invest-echarts" style="width:100%;height:100%;"></div>
@@ -434,7 +434,7 @@
                                     <tr>                   
                                         <td rowspan="2">您的预算</td>
                                         <td align="center" valign="middle" colspan="7">优选后消费</td>
-                                        <td rowspan="2">ROI（投资回报率）</td>
+                                        <td rowspan="2">预算收益率</td>
                                     </tr>
                                     <tr class="Invest-table-headtwo">
                                         <td><input type="checkbox" class="invest-checbox" v-model="allInvest" v-on:click="allClick()">产品名称</td>

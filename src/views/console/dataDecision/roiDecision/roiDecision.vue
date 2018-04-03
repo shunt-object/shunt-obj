@@ -2,12 +2,12 @@
 <div class="total detadcision-box">
 <div class="total-header detadcision-header">
     <span></span>
-    ROI分析
+    预算分析
 </div>
 <div class="roi-content">
     <div class="roi-main">
         <div class="roi-header row">
-            <div class="col-md-6 roi-header-left">ROI（投资回报率）预估分析</div>
+            <div class="col-md-6 roi-header-left">预算收益统计分析</div>
             <div class="col-md-6 roi-header-right">工作负载名称：
                 <select class="roiapp-select" v-model="appidModel" v-on:change="appchange()">
                     <option v-for="item in appmsg" :value="item.id" >{{item.appname}}</option>
@@ -27,7 +27,7 @@
                     <tr>                   
                         <td rowspan="2">您的预算</td>
                         <td align="center" valign="middle" colspan="7">优选后消费</td>
-                        <td rowspan="2">ROI（投资回报率）</td>
+                        <td rowspan="2">预算收益率</td>
                     </tr>
                     <tr class="Invest-table-headtwo">
                         <td><input type="checkbox" class="invest-checbox" v-model="allInvest" v-on:click="allClick()">产品名称</td>
