@@ -500,7 +500,7 @@
     margin:0 auto 20px auto;
 }
 .el-input{
-    width:auto !important;
+    /*width:auto !important;*/
 }
 .enterDing{
     background:#da121a !important;
@@ -531,7 +531,7 @@
 }
 @media (max-width: 768px) {
     .el-form-item__label{
-        width:70px !important;
+        /*width:70px !important;*/
         text-align:left !important;
     }
     .resourceGroup input{
@@ -664,7 +664,7 @@ a:hover{
     padding-right:15px !important
 }
 .el-input__inner{
-    height:30px !important;
+    /*height:30px !important;*/
     
 }
 
