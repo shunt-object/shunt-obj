@@ -12,21 +12,21 @@
             </div>
             <div style="width:100%;height:auto;background:#fff;overflow:auto">
                 <div style="width:100%;margin:0 auto!important;">
-                    <div style="width:300px;height:40px;border:1px solid #ececec;line-height:40px;border-radius:100px;margin:0 auto;margin-top:30px;font-size:12px;color:#6f6f6f;background:#f6f6f6;">欢迎你使用Prof 吴在线支持服务</div>
+                    <div style="width:300px;height:40px;border:1px solid #ececec;line-height:40px;border-radius:100px;margin:0 auto;margin-top:30px;font-size:12px;color:#6f6f6f;background:#f6f6f6;">欢迎你使用Prof. 吴在线支持服务</div>
                     <div style="text-align:center;font-size:12px;margin-top:20px;color:#393b3d;">为了更好的为您服务，请您首先选择咨询分类，随后点击<span style="color:#da121a">“咨询”</span>按钮开始与在线支持人员进行交谈。</div>
                     <div class="shipeidiv" style="border:1px solid #ececec;background:#fbfbfb;border-radius:2px;margin:0 auto;margin-top:40px;">
                          <div>
                             <p style="font-size:12px;color:#515151 !important;text-align:center;margin-top:30px;">请选择您要咨询的服务类型</p>
                             <ul style="line-height:40px;padding:0 !important;font-size:14px;color:#222222;text-align:center;" class="ulinput">
                                 <li v-on:click="xixun" ><input type="radio" name="q" value="0" id="male"><label for="male">顾问咨询</label></li>
-                                <li v-on:click="zixun"><input type="radio" name="q" value="1" id="mela"><label for="mela">在线销售</label></li>
+                                <li ><input type="radio" name="q" value="1" id="mela"><label for="mela">在线销售</label></li>
                             <!-- 
                                 <li><input type="radio" name="q" value="2">合作伙伴</li>
                                 <li><input type="radio" name="q" value="3">在线投诉</li>
                                 <li><input type="radio" name="q" value="4">其他问题</li>
                             -->
                             </ul>
-                             <div class="spanlisty" v-on:click="consulting()" v-show="false">
+                             <div class="spanlisty" v-on:click="zixun()" >
                                 <span class="zixunbtnHover" style="width:90px;height:32px;line-height:32px;color:#fff;display:inline-block;border-radius:5px;border:1px solid #db101b;font-size:14px;"> 咨询 </span>
                             </div>
                          </div>
@@ -123,65 +123,65 @@
                 loading.close();
                 }, 2000);
             },
-        xixun(){
+        // xixun(){
             
            
              
-           var adw = document.getElementById("rys")
-           var relname = "游客";
-           var username = "tourist";
-           var accounts = sessionStorage.getItem('account');
+        //    var adw = document.getElementById("rys")
+        //    var relname = "游客";
+        //    var username = "tourist";
+        //    var accounts = sessionStorage.getItem('account');
            
-           if(accounts !==null){
-                accounts= JSON.parse(accounts);
-                relname = accounts.realname;
-                username = accounts.username; 
-           }
+        //    if(accounts !==null){
+        //         accounts= JSON.parse(accounts);
+        //         relname = accounts.realname;
+        //         username = accounts.username; 
+        //    }
           
-           var obj = {
-                    "portraitUri": "",
-                    "realName":relname,
-                    "userName": username
-                }
-            console.log(obj)
-           this.$this.post('/broker/rongcloud/user/token',obj).then((response)=>{
-                this.tokens = response.data.data;
-                var ra = document.getElementsByName("q");
-                // for(var i=0;i<ra.length;i++){
-                //     if(ra[i].checked==true){
-                //         if(ra[i].value == 0){
-                            this.service = "consultantservice";
-                            rongClouds(adw,this.service,this.tokens,relname)
-                             setInterval(this.zixunShows,2000);
-                              this.kkl();
-                        // }else if(ra[i].value == 1){
+        //    var obj = {
+        //             "portraitUri": "",
+        //             "realName":relname,
+        //             "userName": username
+        //         }
+        //     console.log(obj)
+        //    this.$this.post('/broker/rongcloud/user/token',obj).then((response)=>{
+        //         this.tokens = response.data.data;
+        //         var ra = document.getElementsByName("q");
+        //         // for(var i=0;i<ra.length;i++){
+        //         //     if(ra[i].checked==true){
+        //         //         if(ra[i].value == 0){
+        //                     this.service = "consultantservice";
+        //                     rongClouds(adw,this.service,this.tokens,relname)
+        //                      setInterval(this.zixunShows,2000);
+        //                       this.kkl();
+        //                 // }else if(ra[i].value == 1){
                            
-                        //     this.service = "onlinesale";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }
-                        // else if(ra[i].value == 2){
-                        //     this.service = "service3";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }else if(ra[i].value == 3){
-                        //     this.service = "service4";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }else{
-                        //     this.service = "service5";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }
-                    // }else{
+        //                 //     this.service = "onlinesale";
+        //                 //     rongClouds(adw,this.service,this.tokens,relname)
+        //                 //     setInterval(this.zixunShows,2000);
+        //                 // }
+        //                 // else if(ra[i].value == 2){
+        //                 //     this.service = "service3";
+        //                 //     rongClouds(adw,this.service,this.tokens,relname)
+        //                 //     setInterval(this.zixunShows,2000);
+        //                 // }else if(ra[i].value == 3){
+        //                 //     this.service = "service4";
+        //                 //     rongClouds(adw,this.service,this.tokens,relname)
+        //                 //     setInterval(this.zixunShows,2000);
+        //                 // }else{
+        //                 //     this.service = "service5";
+        //                 //     rongClouds(adw,this.service,this.tokens,relname)
+        //                 //     setInterval(this.zixunShows,2000);
+        //                 // }
+        //             // }else{
                       
-                    // }
-            //}
-            }).catch((error)=>{
-                console.log("不好意思")
-            })
+        //             // }
+        //     //}
+        //     }).catch((error)=>{
+        //         console.log("不好意思")
+        //     })
       
-         },
+        //  },
          zixun(){
                
             var adw = document.getElementById("rys")
@@ -204,36 +204,37 @@
            this.$this.post('/broker/rongcloud/user/token',obj).then((response)=>{
                 this.tokens = response.data.data;
                 var ra = document.getElementsByName("q");
-                // for(var i=0;i<ra.length;i++){
-                //     if(ra[i].checked==true){
-                //         if(ra[i].value == 0){
+                for(var i=0;i<ra.length;i++){
+                    if(ra[i].checked==true){
+                        if(ra[i].value == 0){
                             this.service = "onlinesale";
                             rongClouds(adw,this.service,this.tokens,relname)
                              setInterval(this.zixunShows,2000);
                              this.kkl();
-                        // }else if(ra[i].value == 1){
+                        }else if(ra[i].value == 1){
                            
-                        //     this.service = "onlinesale";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }
-                        // else if(ra[i].value == 2){
-                        //     this.service = "service3";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }else if(ra[i].value == 3){
-                        //     this.service = "service4";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }else{
-                        //     this.service = "service5";
-                        //     rongClouds(adw,this.service,this.tokens,relname)
-                        //     setInterval(this.zixunShows,2000);
-                        // }
-                    // }else{
+                            this.service = "onlinesale";
+                            rongClouds(adw,this.service,this.tokens,relname)
+                            setInterval(this.zixunShows,2000);
+                            this.kkl();
+                        }
+                        else if(ra[i].value == 2){
+                            this.service = "service3";
+                            rongClouds(adw,this.service,this.tokens,relname)
+                            setInterval(this.zixunShows,2000);
+                        }else if(ra[i].value == 3){
+                            this.service = "service4";
+                            rongClouds(adw,this.service,this.tokens,relname)
+                            setInterval(this.zixunShows,2000);
+                        }else{
+                            this.service = "service5";
+                            rongClouds(adw,this.service,this.tokens,relname)
+                            setInterval(this.zixunShows,2000);
+                        }
+                    }else{
                       
-                    // }
-            //}
+                    }
+            }
             }).catch((error)=>{
                 console.log("不好意思")
             })
