@@ -1,5 +1,5 @@
 <template>
-    <div class="total">
+    <div class="total notification-box">
         <div>
             <div class="row notification-header">
                     <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">消息列表</div>
@@ -209,7 +209,7 @@
   background:#f7a72c;
   color:#fff;
 }
-.selected{
+.notification-box .selected{
     background:#f7a72c;
     border-color:#f7a72c;
     color:#fff;

@@ -42,10 +42,10 @@
     margin-top:40px;
 }
 .register-ruleForm-item{
-    margin-top:20px;
+    margin-top:20px; margin-bottom:25px !important;
 }
 .registerCommon-agree{
-    margin-top:30px; text-align:left; padding-left:15px;
+    margin-top:30px; text-align:left; padding-left:15px; margin-bottom:18px;
 }
 .registerCommon-btn-box{
     padding-left:15px;
@@ -57,7 +57,10 @@
     background:#EF131D; border:none; color:#fff;
 }
 .registerCommon-notice{
-    font-size:14px; color:#333333; text-align:center; margin-top:24px;
+    font-size:12px; color:#333333; text-align:center; margin-top:24px;
+}
+.registerCommon-notice a{
+    width:auto !important;
 }
 .registerCommon-login{
     color:#da121a;

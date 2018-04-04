@@ -153,7 +153,7 @@
                 <el-form-item class="resourceGroup-from-item" label="流量（GB）" :label-width="formLabelWidth" prop="bandwidth">
                     <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item  label="购买开始时间" :label-width="formLabelWidth" required>
+                <el-form-item class="resourceGroup-from-item" label="购买开始时间" :label-width="formLabelWidth" required>
                     <el-form-item  class="resourceGroup-from-item">
                         <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
                         <div class="el-form-item__error" v-show="false">起始时间不能为空</div>

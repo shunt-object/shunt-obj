@@ -1,5 +1,5 @@
 <template>
-    <div class="total">
+    <div class="total notification-box">
         <div>
             <div class="row notification-header">
                     <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">通知中心<span style="color::#333333;font-size:14px;">（共<span>{{totalPages}}</span>封，其中<span>{{acp}}</span>封未读<span class="unread" v-on:click="weidulooks" v-show="weidushow">&nbsp仅查看未读消息</span>）</span></div>
@@ -207,7 +207,7 @@
   border-color:#F5F7FA;
   color:#000;
 }
-.selected{
+.notification-box .selected{
     background:#f7a72c;
     border-color:#f7a72c;
     color:#fff;
