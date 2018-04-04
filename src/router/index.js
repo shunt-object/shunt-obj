@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/views/front/homePage'
-import register from '@/views/front/register/register'
+// import register from '@/views/front/register/register'
+import registerOne from '@/views/front/register/registerOne'
+import registerTwo from '@/views/front/register/registerTwo'
+import registerThree from '@/views/front/register/registerThree'
 import login from '@/views/front/login/login'
 import activate from '@/views/front/activate/activate'
 import sendEmail from '@/views/front/send/sendEmail'
@@ -80,10 +83,25 @@ export default new Router({
       name: 'CustomerService',
       component: CustomerService
     },
+    // {
+    //   path:'/register',
+    //   name:'register',
+    //   component:register
+    // }, 
     {
-      path:'/register',
-      name:'register',
-      component:register
+      path:'/registerOne',
+      name:'registerOne',
+      component:registerOne
+    }, 
+    {
+      path:'/registerTwo',
+      name:'registerTwo',
+      component:registerTwo
+    }, 
+    {
+      path:'/registerThree',
+      name:'registerThree',
+      component:registerThree
     },   
     {
       path:'/sendEmail',

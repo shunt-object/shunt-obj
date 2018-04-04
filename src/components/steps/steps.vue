@@ -113,12 +113,6 @@ export default{
         this.judge(3);//3=亲和度
         this.judge(4);//4=比较标准
         this.judge(6);//6=云设计
-        // 云选型
-        // this.$this.get('/broker/compare/result/'+this.id).then((response)=>{ 
-        //     this.compare = response.data.data.datas;
-        // }).catch((error)=>{ 
-        //     this.compare = undefined;
-        // })
   },
   methods:{
     judge:function(moduleId){

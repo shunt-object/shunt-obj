@@ -191,16 +191,21 @@ export default{
                 this.storage = response.data.data.storage;
                 this.cdns = response.data.data.cdns;
             }).catch((error)=>{})
-            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-                // if(response.data.data.res!=null){
-                //     this.res = true;
-                // }
-                this.compareResultList = response.data.data.datas;
-                // this.appServer = JSON.parse(response.data.data.res.appServer);
-                // this.dbServer = JSON.parse(response.data.data.res.dbServer);
-                // this.network = JSON.parse(response.data.data.res.network);
-                // this.storage = JSON.parse(response.data.data.res.storage);
-                 
+            let resultObj;
+            if(this.$route.query.cloudId==undefined){
+                resultObj = {
+                    appid:this.appId,
+                    searchAble:true,
+                    sid:[]
+                };                 
+            }else{
+               resultObj = {
+                    appid:this.appId,
+                    sid:this.$route.query.cloudId
+                };
+            }            
+            this.$this.post('/broker/compare/result',JSON.stringify(resultObj)).then((response)=>{
+                this.compareResultList = response.data.data.datas; 
             }).catch((error)=>{})
         },
         prev:function(){

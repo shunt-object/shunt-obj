@@ -10,6 +10,22 @@
 <div class="compare-line"></div>
 <div class="compare-container">
     <div class="compare-title">选型标准</div>
+    <!-- 云厂商选择 -->
+    <div class="compare-change">
+        <div class="change-select">云厂商选择</div>
+        <div class="row">
+            <div class="change-name col-md-1"></div>
+            <div class="change-list col-md-11 row">
+                <div class="all-list col-md-11 ulas row">
+                    <div class="col-md-1 compare-change-key">云厂商：</div>
+                    <div class="change-all col-md-1" v-on:click="allprovider()">全选</div>
+                    <ul class="col-md-10">
+                        <li id="lis" v-for="(item,index) in providerList" :class="item.boolean==true?'active-change':'default'" v-on:click="providerChange(index)">{{item.data.sname}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 场景选择 -->
     <div class="compare-change">
         <div class="change-select">场景选择</div>
@@ -17,7 +33,7 @@
             <div class="change-name col-md-1"></div>
             <div class="change-list col-md-11 row">
                 <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
-                    <div class="col-md-1">{{types.gname}}：</div>
+                    <div class="col-md-1 compare-change-key">{{types.gname}}：</div>
                     <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
                     <ul class="col-md-10">
                         <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
@@ -102,6 +118,8 @@ export default{
             allLsit:[],
             Ind:0,
             allindex:0,
+            providerList:[],
+            providerId:[]
         }
     },
     mounted:function(){
@@ -109,8 +127,36 @@ export default{
         this.appId = this.$route.query.id; 
         this.getTypes();
         this.getOptions();
+        this.getprovider();//云厂商列表
     },
     methods:{
+        allprovider:function(){
+            let index=0;
+            for(let j=0;j<this.providerList.length;j++){
+                if(this.providerList[j].boolean==false){
+                    index++;
+                }
+            }
+            if(index>0){
+                for(let j=0;j<this.providerList.length;j++){
+                    this.providerList[j].boolean = true;
+                }
+            }else{
+               for(let j=0;j<this.providerList.length;j++){
+                    this.providerList[j].boolean = false;
+                } 
+            }
+        },
+        providerChange:function(index){
+            this.providerList[index].boolean==false?this.providerList[index].boolean=true:this.providerList[index].boolean=false;
+        },
+        getprovider:function(){//云厂商列表
+           this.$this.get('/broker/compare/cloud/provider').then((response)=>{
+                for(let i=0;i<response.data.data.length;i++){
+                    this.providerList.push({boolean:true,data:response.data.data[i]});
+                }
+           }).catch((error)=>{})
+        },
         getTypes:function(){
             this.$this.get('/broker/compare/types/'+this.appId).then((response)=>{
                 //console.log('----',response.data.data);
@@ -242,7 +288,24 @@ export default{
         },
         result:function(){
             // this.$router.push({path:'/design',query:{id:this.appId,type:this.queryType}});
-            this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType}});
+            let index = 0;
+            for(let i=0;i<this.providerList.length;i++){
+                if(this.providerList[i].boolean==true){
+                    this.providerId.push(this.providerList[i].data.id);
+                    index++;
+                }
+            }
+            if(index>0){
+                this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.queryType,cloudId:this.providerId}});
+            }else{
+                this.$alert('请您至少选择一个云厂商进行云优选。', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    type: 'warning',
+                    confirmButtonClass:'lay-btn-red'
+                });
+            }
+            
         },
         allSelect:function(e){
             //console.log(this.typelist);

@@ -14,7 +14,7 @@
     <el-dialog title="工作负载配置信息" :visible.sync="dialogFormVisible">
         
         <el-form :model="form"><p style="color:red;" v-show="alertTitle">注意：网络资源只能配置一个，再次配置为修改。</p>
-            <el-form-item label="配置类型" :label-width="formLabelWidth">
+            <el-form-item class="resourceGroup-from-item" label="配置类型" :label-width="formLabelWidth">
                 <el-select v-model="regionter" placeholder="请选择配置类型" @change="alertTitler()">
                     <el-option label="应用服务" value="server"></el-option>
                     <el-option label="数据库服务" value="db"></el-option>
@@ -27,27 +27,27 @@
             <!--应用服务-->
             <div class="yibazi" v-if="regionter=='server'" >
               <el-form :model="coresShj" :rules="rules" ref="coresShj" >
-                <el-form-item label="数量" :label-width="formLabelWidth">
+                <el-form-item class="resourceGroup-from-item" label="数量" :label-width="formLabelWidth">
                     <el-input v-model="coresShj.num" auto-complete="off" type="number" placeholder="1" min="1" ></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
+                <el-form-item class="resourceGroup-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cores">
                     <el-input v-model="coresShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
+                <el-form-item class="resourceGroup-from-item" label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
                     <el-input v-model="coresShj.ghz" auto-complete="off" type="number" min="1" max="5"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="resourceGroup-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input v-model="coresShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="resourceGroup-from-item" label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input v-model="coresShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="resourceGroup-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select v-model="coresShj.osType" placeholder="请选择">
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
+                <el-form-item class="resourceGroup-from-item" label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
                     <el-select v-model="coresShj.cmf" placeholder="请选择">
                         <el-option :value="rufs" v-for="rufs in rufs" :key="JSON.stringify(rufs)" :label="rufs.name"></el-option>
                     </el-select>
@@ -58,32 +58,32 @@
            <!--数据库服务-->
            <div class="yibazo" v-if="regionter=='db'">
               <el-form :model="inesShj" :rules="rules" ref="inesShj" >
-                <el-form-item label="数量" :label-width="formLabelWidth">
+                <el-form-item class="resourceGroup-from-item" label="数量" :label-width="formLabelWidth">
                     <el-input v-model="inesShj.num" auto-complete="" type="text" placeholder="1"></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cores">
+                <el-form-item class="resourceGroup-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cores">
                     <el-input v-model="inesShj.cores" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
+                <el-form-item class="resourceGroup-from-item" label="处理器主频（GHZ）" :label-width="formLabelWidth" prop="ghz">
                     <el-input v-model="inesShj.ghz" auto-complete="off" type="number" min="1" max="5"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="resourceGroup-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input v-model="inesShj.ram" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="resourceGroup-from-item" label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input v-model="inesShj.localDisk" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="resourceGroup-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select v-model="inesShj.osType" placeholder="请选择">
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs.name)" :label="rs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="数据库实例" :label-width="formLabelWidth" prop="prop1">
+                <el-form-item class="resourceGroup-from-item" label="数据库实例" :label-width="formLabelWidth" prop="prop1">
                     <el-select v-model="inesShj.prop1" placeholder="请选择">
                         <el-option :value="rvs" v-for="rvs in rvs"  :key="JSON.stringify(rvs.name)" :label="rvs.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
+                <el-form-item class="resourceGroup-from-item" label="资源平均利用率" :label-width="formLabelWidth" prop="cmf">
                     <el-select v-model="inesShj.cmf" placeholder="请选择">
                         <el-option :value="rufs" :label="rufs.name" :key="JSON.stringify(rufs.name)" v-for="rufs in rufs"></el-option>
                     </el-select>
@@ -94,13 +94,13 @@
            <!--网络-->
            <div class="yibanzp" v-if="regionter=='net'">
               <el-form :model="netRule" :rules="rules" ref="netRule">
-                <el-form-item label="入站（Mbps/月）" :label-width="formLabelWidth" prop="inbound">
+                <el-form-item class="resourceGroup-from-item" label="入站（Mbps/月）" :label-width="formLabelWidth" prop="inbound">
                     <el-input v-model="netRule.inbound" auto-complete="off" type="number" min="1" @keyup.native="shows"></el-input>
                 </el-form-item>
-                <el-form-item label="出站（Mbps/月）" :label-width="formLabelWidth" prop="outbound">
+                <el-form-item class="resourceGroup-from-item" label="出站（Mbps/月）" :label-width="formLabelWidth" prop="outbound">
                     <el-input v-model="netRule.outbound" auto-complete="off" type="number" min="1" @keyup.native="shows"></el-input>
                 </el-form-item>
-                <el-form-item label="总量（Mbps/月）" :label-width="formLabelWidth">
+                <el-form-item class="resourceGroup-from-item" label="总量（Mbps/月）" :label-width="formLabelWidth">
                     <span style="margin-left:10px">{{netRule.bandwidth}}</span>
                 </el-form-item>
              </el-form>
@@ -109,21 +109,21 @@
           <!--存储-->
            <div class="yibanzp" v-if="this.regionter=='storage'">
              <el-form :model="inusShj" :rules="rules" ref="inusShj">
-                <el-form-item  label="数量" :label-width="formLabelWidth" >
+                <el-form-item class="resourceGroup-from-item" label="数量" :label-width="formLabelWidth" >
                     <el-input v-model="inusShj.num" auto-complete="off" type="number"  placeholder="1" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="" :label-width="formLabelWidth">
+                <el-form-item class="resourceGroup-from-item" label=""><!-- :label-width="formLabelWidth" -->
                     <el-checkbox class="el-check"  v-on:change="lookw()" id="chec" v-model="asd">共享存储（SAN）（GB）</el-checkbox>
                     <el-checkbox class="el-check"  v-on:change="lookq()" v-model="afd">网络存储（NAS）（GB）</el-checkbox>
                     <el-checkbox class="el-check"  v-on:change="looke()" v-model="agd">云存储（GB）</el-checkbox>
                 </el-form-item>
-                <el-form-item label="共享存储（SAN）（GB）" :label-width="formLabelWidth" v-if="this.checked==true" prop="sna">
+                <el-form-item class="resourceGroup-from-item" label="共享存储（SAN）（GB）" :label-width="formLabelWidth" v-if="this.checked==true" prop="sna">
                     <el-input v-model="inusShj.sna" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item label="网络存储（NAS）（GB）" :label-width="formLabelWidth" v-if="this.checkeder==true" prop="nsa">
                     <el-input v-model="inusShj.nsa" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cse">
+                <el-form-item class="resourceGroup-from-item" label="云存储（GB）" :label-width="formLabelWidth" v-if="this.checkedes==true" prop="cse">
                     <el-select v-model="inusShj.cse" placeholder="请选择厂商">
                         <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
@@ -145,21 +145,21 @@
                             align="right">
                     </el-date-picker>
                  </el-form-item>-->
-                <el-form-item label="云厂商" :label-width="formLabelWidth" prop="cse">
+                <el-form-item class="resourceGroup-from-item" label="云厂商" :label-width="formLabelWidth" prop="cse">
                     <el-select v-model="cdnList.cse" placeholder="请选择厂商">
                         <el-option :value="ros" v-for="ros in ros"  :key="ros.name" :label="ros.name"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="流量（GB）" :label-width="formLabelWidth" prop="bandwidth">
+                <el-form-item class="resourceGroup-from-item" label="流量（GB）" :label-width="formLabelWidth" prop="bandwidth">
                     <el-input v-model="cdnList.bandwidth" auto-complete="off" type="number" min="1"></el-input>
                 </el-form-item>
                 <el-form-item  label="购买开始时间" :label-width="formLabelWidth" required>
-                    <el-form-item >
+                    <el-form-item  class="resourceGroup-from-item">
                         <el-date-picker v-model="cdnList.startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
                         <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
                     </el-form-item>
                 </el-form-item>
-                <el-form-item  label="购买结束时间" :label-width="formLabelWidth" required>
+                <el-form-item class="resourceGroup-from-item" label="购买结束时间" :label-width="formLabelWidth" required>
                     <el-form-item >
                         <el-date-picker v-model="cdnList.expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
                         <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
@@ -445,7 +445,7 @@
     background:#EF131D !important;
 }
 .el-dialog{
-    width:40%;
+    width:50%;
     text-align:left;
     border-radius:4px;
 }
@@ -490,12 +490,13 @@
 .cuncul{
     margin-top:50px;
 }
-.el-form-item{
+ .resourceGroup-from-item{
     width:500px;
     margin:0 auto 20px auto;
-}
+    font-size:12px !important;
+ }
 .el-input{
-    width:auto !important;
+    /*width:auto !important;*/
 }
 .enterDing{
     background:#da121a !important;
@@ -507,17 +508,17 @@
     color:#fff !important;
     border-color:#ccc !important;
 }
-.el-form-item__label{
-    width:190px !important;
+.reourceContent .el-form-item__label{
    font-weight:200;
     color:#333333;
+    font-size:14px;
 }
 .el-input__inner{
     color:#666666 !important;
 }
-.el-form-item__content{
+/*.el-form-item__content{
     margin:0 !important;
-}
+}*/
 .el-checkbox__label{
     padding-left:5px !important;
 }
@@ -525,25 +526,27 @@
     margin-left:8px !important;
 }
 @media (max-width: 768px) {
-    .el-form-item__label{
+    /*.el-form-item__label{
         width:70px !important;
         text-align:left !important;
+    }*/
+    .reourceContent .el-form-item__label{
+        font-weight:200;
+        color:#333333;
+        font-size:12px;
     }
     .resourceGroup input{
         width:50px !important;
     }
-    .el-form-item__content{
+    /*.el-form-item__content{
         margin-left:0px !important;
-    }
+    }*/
 }
 
 .pds:hover{
     cursor:pointer;
     /*color:#000;*/
     color:#f7a72c !important;
-}
-.el-input{
-
 }
 .Pei ul li{
     margin-top:12px;
@@ -748,7 +751,7 @@ export default {
           resource: '',
           desc: ''
         },
-         formLabelWidth: '120px',
+         formLabelWidth: '190px',
          regionter:"",
           checked: false,
           checkeder: false,
@@ -838,6 +841,19 @@ export default {
     }
   },
   mounted:function(){
+      let self = this;
+      if($(window).width()<=768){
+        self.formLabelWidth= '70px';
+      }else{
+            self.formLabelWidth= '190px';
+    }
+    $(window).resize(function() {
+        if($(window).width()<=768){
+            self.formLabelWidth= '70px';
+        }else{
+            self.formLabelWidth= '190px';
+        }
+    });
       this.showers();
        $(document).ready(function(){
                 $(".CreatPj").hover(function(){
