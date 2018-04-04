@@ -648,7 +648,7 @@ a:hover{
 .Mainli span{
     margin-right:5px;
 }
-.el-form-item__error{
+.design-from-item .el-form-item__error{
     left:220px !important;
 }
 .iconfont:hover{

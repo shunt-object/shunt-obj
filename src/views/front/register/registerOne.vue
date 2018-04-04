@@ -142,6 +142,8 @@ export default{
         getcode:function(){
             if(this.registerCommonForm.phone!='' && phoneReg.test(this.registerCommonForm.phone)==true){
                 this.codeHttp();
+            }else{
+                return false;
             }
         },
         codeHttp:function(){
