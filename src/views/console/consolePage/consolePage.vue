@@ -166,7 +166,7 @@
             </div>
             <div class="comment-list">
                 <div class="row">
-                    <div class="col-md-2 comment-key">意见类型</div>
+                    <div class="col-md-2 comment-key"><span style="color:#da121a;">*</span>意见类型</div>
                     <div class="col-md-10" style="padding-left:0px !important;">
                         <button class="comment-type" :class="item.boolean==false?'comment-default':'comment-active'" v-for="(item,index) in commentlist" v-on:click="selectcomment(index)">{{item.data.name}}</button>
                     </div>
@@ -407,26 +407,34 @@ export default{
         },
         success:function(){
             //console.log(this.confirmobj);
-            let obj = JSON.stringify(this.confirmobj);
-            this.$this.post('/broker/feedback/add',obj).then((response)=>{
-                //console.log('----',response);
-                this.dialogcomment = false;
-                this.selectstar(2);
-                this.confirmobj.content = '';
+            if(this.confirmobj.type==''){
+                //this.$layer.msg('请选择意见类型');
                 this.$message({
-                    message: '您已提交成功。',
-                    //type: 'success',
-                    customClass:'lay-msg',
-                    iconClass:'el-icon-success'
+                    message: '请选择意见类型',
+                    type: 'warning'
                 });
-                for(let i=0;i<this.commentlist.length;i++){
-                    this.commentlist[i].boolean = false;
-                }
-                for(let i=0;i<this.starlist.length;i++){
-                    this.starlist[i].boolean = false;
-                }
-            }).catch((error)=>{
-            })
+            }else{
+                let obj = JSON.stringify(this.confirmobj);
+                this.$this.post('/broker/feedback/add',obj).then((response)=>{
+                    //console.log('----',response);
+                    this.dialogcomment = false;
+                    this.selectstar(2);
+                    this.confirmobj.content = '';
+                    this.$message({
+                        message: '您已提交成功。',
+                        //type: 'success',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success'
+                    });
+                    for(let i=0;i<this.commentlist.length;i++){
+                        this.commentlist[i].boolean = false;
+                    }
+                    for(let i=0;i<this.starlist.length;i++){
+                        this.starlist[i].boolean = false;
+                    }
+                }).catch((error)=>{
+                })
+            }
         },
         buycar:function(){
             this.$router.push({path:'/orderlist'});
