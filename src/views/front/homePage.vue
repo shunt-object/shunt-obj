@@ -90,7 +90,7 @@
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <li class="col-md-2 annou  col-xs-6" style="line-height:48px;"><p><i class="iconfont icon-gonggao1" style="font-size:19px"></i><span style="font-size:16px;">公告信息</span></p></li>
                 <li class="col-md-10 col-xs-6 lis" style="text-align:center;line-height:48px;">
-                <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 我们将推出重磅服务云实测功能，敬请您的期待！</marquee>
+                <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 我们将隆正推出预算收益数据分析服务，敬请您的体验！</marquee>
                 </li>
             </ul>
       </div>
