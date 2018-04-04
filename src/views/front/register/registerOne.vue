@@ -17,7 +17,7 @@
                         </el-form-item>
                         <el-form-item label="短信验证" prop="phonecode" label-width="80px" class="register-ruleForm-item">
                             <el-input type="tel" v-model="registerCommonForm.phonecode" placeholder="请输入验证码"></el-input>
-                            <button class="codebtn" v-on:click="getcode()">{{count}}</button>
+                            <button type="button" class="codebtn" v-on:click="getcode()">{{count}}</button>
                         </el-form-item>
                         <el-form-item label="设置密码" prop="password" label-width="80px" class="register-ruleForm-item">
                             <el-input type="password" v-model="registerCommonForm.password" placeholder="请设置登录密码" v-on:focus="passfocus()" v-on:blur="passblur()"></el-input>
