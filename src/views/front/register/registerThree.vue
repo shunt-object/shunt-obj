@@ -13,7 +13,7 @@
                 <div class="col-md-10">
                     <img src="../../../assets/front/register-success.png" class="register-success-img" alt="">
                     <div class="registerThree-succ">账号已注册成功</div>
-                    <div class="registerThree-desc">感谢您注册CloudBroker²我们将为您提供最专业的服务！</div>
+                    <div class="registerThree-desc">感谢您注册CloudBroker²，我们将为您提供最专业的云服务！</div>
                     <div class="registerCommon-btn-box">
                         <button class="registerCommon-btn registerThree-btn" v-on:click="gologin()">立即登录</button>
                     </div>                    

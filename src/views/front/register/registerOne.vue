@@ -17,7 +17,7 @@
                         </el-form-item>
                         <el-form-item label="短信验证" prop="phonecode" label-width="80px" class="register-ruleForm-item">
                             <el-input type="tel" v-model="registerCommonForm.phonecode" placeholder="请输入验证码"></el-input>
-                            <button class="codebtn" :class="codeClass==false?'':'codebtn-active'" v-on:click="getcode()">{{count}}</button>
+                            <button class="codebtn" v-on:click="getcode()">{{count}}</button>
                         </el-form-item>
                         <el-form-item label="设置密码" prop="password" label-width="80px" class="register-ruleForm-item">
                             <el-input type="password" v-model="registerCommonForm.password" placeholder="请设置登录密码" v-on:focus="passfocus()" v-on:blur="passblur()"></el-input>
@@ -122,7 +122,6 @@ export default{
                     { required: true, trigger: 'blur',validator: validPasswordTwo }
                 ],
             },
-            codeClass:false,
             count:'获取验证码',
             countI:60,
             isnotice:false
@@ -152,7 +151,6 @@ export default{
             let str = JSON.stringify(obj);
             this.$this.post('/broker/sms/send/code/register',str).then((reponse)=>{
                 if(reponse.data.code==1){
-                    this.codeClass = true;
                     this.$message({
                         message: '验证码发送成功。',
                         customClass:'lay-msg',
@@ -166,7 +164,6 @@ export default{
                             clearInterval(clear);
                             self.countI = 60;
                             self.count = '重新获取';
-                            self.codeClass = false;
                         }
                     },1000)
                 }
