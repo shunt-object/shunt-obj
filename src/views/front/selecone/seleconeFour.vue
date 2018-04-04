@@ -19,7 +19,7 @@
                                 <p class="clound-ps">我们每前进一小步，都将竭力为您带来更好的云中服务！</p>
                                 <p class="clound-pa">让每一个上云者都在我们（CSB ²）的帮助下，找到并用好适合自己的云</p>
                                 <p class="clound-pd">我们目标是成为新型云管理服务提供商</p>
-                                <p class="clound-pg" style="margin-bottom:110px;"><span @click="tiyans">立即体验</span></p>
+                                <p class="clound-pg" style="margin-bottom:110px;"><span @click="ctaCloundCsbs">DEMO体验</span></p>
                             </div>
                         </div>
                     </div>
@@ -405,7 +405,10 @@
             },
             phoneleave:function(){
                     this.phoneBox = false;
-            }
+            },
+            ctaCloundCsbs:function(){
+                    window.open("http://demo.csb-china.com")
+             },
         },
         mounted:function(){
               $(document).ready(function(){ 

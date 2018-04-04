@@ -26,7 +26,7 @@
                         <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">1：1还原真实业务场景</h3>
                         <p style="font-weight:100;text-align:left;font-size:18px">有没有一个一站式平台，专业验证规划和选型结果呢？</p>
                     </div>
-                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="tingyun()">立即体验</span></p>
+                    <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                 </div>
                 <div class="col-md-6 col-xs-12 text-left" style="margin-top:105px;padding:0 !important;"><img src="../../../assets/xindian.png" alt="" style="float:right;width: 80%;"></div>
 
@@ -256,6 +256,9 @@
             }
         },
         methods:{
+            ctaCloundCsbs:function(){
+                    window.open("http://demo.csb-china.com")
+                },
             xiaowei:function(){
                 // var that = this; 
                 // var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");

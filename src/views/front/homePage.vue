@@ -34,7 +34,7 @@
               <div class="col-md-7 lun-le animated rollIn">
                 <h1 style="font-size:26px !important;font-weight:100">业界领先上云服务，助您轻松上云！</h1>
                 <p class="pCenter">在数字化时代，企业上云已经成了必然的发展趋势，云服务商纷繁复杂，令人眼花缭乱。任何一个企业都有差异化的上云需求，只有真正能够帮您梳理出清晰的需求，才能让上云按您所需，如您所愿。依托于国内外云服务的经验积累，结合国内客户使用习惯，打造了科学化和专业化的上云、选云、测云的一站式线上SaaS服务平台。</p>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
+                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
               </div>
               <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
                 <img src="../../assets/shouye.png" alt="" class="tranimg">
@@ -50,7 +50,7 @@
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>360°智能专家咨询服务</h1>
                             <p class="pCenter" style="font-weight:100">六大场景，数百个专业问题，确保您360° 评估自身需求和目标云的匹配，结合大数据及智能算法，帮助您轻松获取行业及上云建议，快速有效的形成专业选云评估报告。</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
                         <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
@@ -65,7 +65,7 @@
                         <div class="col-md-6 lun-le animated rollIn">
                             <h1>多场景、目标云真机测试</h1>
                             <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”。</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaSc()" class="hoverSapn">了解更多</span></p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
                         <div class="col-md-6  animated rotateInDownRight" style="padding-top:2%"><img src="../../assets/sanbanner.png" alt="" style="width:75%;"></div>
@@ -251,7 +251,7 @@
         <h4 class="text-center" style="font-weight:100">
           现在开启您的上云分析之旅
         </h4>
-        <span class="PlanLj" v-on:click="PlanLj">立即体验</span>
+        <span class="PlanLj" v-on:click="ctaCloundCsbs">DEMO体验</span>
       </div>
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
@@ -580,7 +580,9 @@ export default {
 
 
         // },
-         
+        ctaCloundCsbs:function(){
+            window.open("http://demo.csb-china.com")
+        },
         PlanLj:function(){
              this.$router.push({path: '/registerOne'});
         },
