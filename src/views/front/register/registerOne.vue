@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 registerCommon-from">
-            <div class="registerCommon-title">欢迎注册CloudBroker²</div>
+            <div class="registerCommon-title">欢迎注册</div>
             <registerStep step="1"></registerStep>
             <div class="row">
                 <div class="col-md-1"></div>
