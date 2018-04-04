@@ -73,7 +73,7 @@
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
-                        <i class="iconfont icon-dianping"></i>我的点评
+                        <i class="iconfont icon-dianping"></i>意见反馈
                     </a>                    
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="buycar()">
@@ -153,7 +153,7 @@
         </section>
     </section>
     <!-- 弹框 -->
-    <el-dialog title="我的点评" :visible.sync="dialogcomment" style="text-align:left;">
+    <el-dialog title="意见反馈" :visible.sync="dialogcomment" style="text-align:left;">
         <div class="comment-box">
             <div class="comment-word">您的点评，是我们前进的动力！</div>
             <div class="comment-list">
@@ -189,7 +189,7 @@
             <div class="">
                 <div class="comment-notice">
                     <p>温馨提示：</p>
-                    1、反馈会在1-3个工作日与您联系（工作时间：周一至周五，9：00-18：00）。<br>
+                    1、反馈会在1-3个工作日与您联系（工作时间：周一至周五，9:00-18:00）。<br>
                     2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span> 。<br>
                     3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>。
                 </div>

@@ -17,7 +17,7 @@
             <div class="change-name col-md-1"></div>
             <div class="change-list col-md-11 row">
                 <div class="all-list col-md-11 ulas row">
-                    <div class="col-md-1">云厂商：</div>
+                    <div class="col-md-1 compare-change-key">云厂商：</div>
                     <div class="change-all col-md-1" v-on:click="allprovider()">全选</div>
                     <ul class="col-md-10">
                         <li id="lis" v-for="(item,index) in providerList" :class="item.boolean==true?'active-change':'default'" v-on:click="providerChange(index)">{{item.data.sname}}</li>
@@ -33,7 +33,7 @@
             <div class="change-name col-md-1"></div>
             <div class="change-list col-md-11 row">
                 <div class="all-list col-md-11 ulas row" v-for="(types,index) in typelist">
-                    <div class="col-md-1">{{types.gname}}：</div>
+                    <div class="col-md-1 compare-change-key">{{types.gname}}：</div>
                     <div class="change-all col-md-1" v-on:click="allSelect(index)">全选</div>
                     <ul class="col-md-10">
                         <li id="lis" v-for="(typeChild,indexes) in types.childGroups" :class="typeChild.selected==true?'active-change':'default'" v-on:click="changeType(index,indexes)">{{typeChild.gname}}</li>
