@@ -24,10 +24,10 @@
                             </el-select>
                         </el-form-item>
                         <el-form-item label="所属区域" label-width="80px" class="register-ruleForm-item">
-                            <el-select class="selectThree" v-model="registerFrom.province" placeholder="省">
+                            <el-select class="selectThree" v-on:change="changeProvince(registerFrom.province)" v-model="registerFrom.province" placeholder="省">
                                 <el-option class="register-option" v-for="item in provinceList" :label="item.province" :value="item.provinceid" :key="JSON.stringify(item.provinceid)"></el-option>
                             </el-select>
-                            <el-select class="selectThree" v-model="registerFrom.city" placeholder="市">
+                            <el-select class="selectThree" v-on:change="changeCity(registerFrom.city)" v-model="registerFrom.city" placeholder="市">
                                 <el-option class="register-option" v-for="item in cityList" :label="item.city" :value="item.cityid" :key="JSON.stringify(item.cityid)"></el-option>
                             </el-select>
                             <el-select class="selectThree" v-model="registerFrom.area" placeholder="区">
@@ -103,6 +103,12 @@ export default{
             }).catch((error)=>{
             })
         },
+        changeProvince:function(provinceid){
+            console.info(provinceid);
+            this.city = '';
+            this.area = '';
+            this.getCity(provinceid);
+        },
         getCity:function(provinceid){
             this.$this.get('/broker/prop/citys/'+provinceid).then((response)=>{
                 this.cityList = response.data.data;
@@ -110,6 +116,10 @@ export default{
                 this.getArea(response.data.data[0].cityid);
             }).catch((error)=>{
             })
+        },
+        changeCity:function(cityid){
+            this.area = '';
+            this.getArea(cityid);
         },
         getArea:function(cityid){
             this.$this.get('/broker/prop/areas/'+cityid).then((response)=>{
