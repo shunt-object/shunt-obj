@@ -152,7 +152,7 @@ export default{
             }
             this.getPiedata(this.obj);
         },
-        getBardata:function(obj,name){
+        getBardata:function(obj,name,color){
             this.$this.post('/broker/user/analysis/app/purchasin/get/rightAnalysis',JSON.stringify(obj)).then((response)=>{
                 //console.log('aaa',response.data.data);
                 this.barlegened = [];
@@ -163,7 +163,7 @@ export default{
                 }
                 //console.log('aaaaa',this.barlist);
                this.$nextTick(function() {
-                    this.canvasBar('designOrder-bar',this.barlist,this.barlegened,name)
+                    this.canvasBar('designOrder-bar',this.barlist,this.barlegened,name,color)
                 })
             }).catch((error)=>{})
         },
@@ -194,7 +194,7 @@ export default{
                         "sid":this.piereslist[0].sid,
                         "year": this.obj.year
                     };
-                    this.getBardata(str,this.piereslist[0].name);
+                    this.getBardata(str,this.piereslist[0].name,'#F7A72C');
                 }
                 
             }).catch((error)=>{})
@@ -252,7 +252,7 @@ export default{
                 });      
             }).catch(() => {});   
         },
-        canvasBar:function(dom,series,legend,name){
+        canvasBar:function(dom,series,legend,name,color){
             //console.log(series);
             this.echarts = echarts.init(document.getElementById(dom));
             this.echarts.setOption({
@@ -297,6 +297,7 @@ export default{
                         }
                     },
                 },
+                color:[color],
                 series: [{
                         name: name,
                         type: 'bar',
@@ -351,7 +352,7 @@ export default{
             });
             let that = this,str = {};
             mychart.on('click', function (params) {
-                //console.log('params',params.data.name);
+                console.log('params',params);
                 for(let i=0;i<that.piereslist.length;i++){
                     if(params.data.name==that.piereslist[i].name){
                         str = {
@@ -364,7 +365,7 @@ export default{
                         };
                     }
                 }
-                that.getBardata(str,params.data.name);
+                that.getBardata(str,params.data.name,params.color);
             });
             
         },

@@ -155,7 +155,7 @@
     <!-- 弹框 -->
     <el-dialog title="意见反馈" :visible.sync="dialogcomment" style="text-align:left;">
         <div class="comment-box">
-            <div class="comment-word">您的点评，是我们前进的动力！</div>
+            <div class="comment-word">您的意见，是我们前进的动力！</div>
             <div class="comment-list">
                 <div class="row">
                     <div class="col-md-2 comment-key">我的评分</div>
