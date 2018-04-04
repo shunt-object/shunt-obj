@@ -6,7 +6,7 @@
 </div>
 <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
 <!-- 拓扑图 -->
-<div class="designTop">
+<div class="designTop designContent">
     <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
     <div class="graph-lenged">
         <div style="min-height:150px;" v-if="isgraph==false">
@@ -226,19 +226,19 @@
         </el-form-item>>-->
         <div class="yibazi" v-if="regionter=='server'" >
             <el-form :model="coresShj" :rules="rules" ref="coresShj" >
-                <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
+                <el-form-item class="design-from-item" label="数量"  :label-width="formLabelWidth" prop="num">
                     <el-input auto-complete="off" v-model="coresShj.num" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
+                <el-form-item class="design-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
                     <el-input  auto-complete="off" v-model="coresShj.cpu" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="design-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input  auto-complete="off" v-model="coresShj.ram" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="design-from-item" label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input  auto-complete="off" v-model="coresShj.localDisk" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="design-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select placeholder="请选择"  v-model="coresShj.osType" >
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
@@ -247,19 +247,19 @@
         </div>
         <div class="yibazi" v-if="regionter=='db'" >
             <el-form :model="inesShj" :rules="rules" ref="inesShj" >
-                <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
+                <el-form-item class="design-from-item" label="数量"  :label-width="formLabelWidth" prop="num">
                     <el-input auto-complete="off" v-model="inesShj.num" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
+                <el-form-item class="design-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
                     <el-input  auto-complete="off" v-model="inesShj.cpu" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="design-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input  auto-complete="off" v-model="inesShj.ram" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="design-from-item" label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input  auto-complete="off" v-model="inesShj.localDisk" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="design-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select placeholder="请选择"  v-model="inesShj.osType" >
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
@@ -407,8 +407,8 @@
     .spanIcon{
         text-align:center;
     }
-    .el-input__inner{
-       /* width:50px !important;*/
+    .design-from-item .el-input__inner{
+        width:50px !important;
     }
      .designTab p{
         height:40px;
@@ -450,7 +450,7 @@
     background:#EF131D !important;
 }
 .el-dialog{
-    width:40%;
+    width:50%;
     text-align:left;
     border-radius:4px;
 }
@@ -495,12 +495,16 @@
 .cuncul{
     margin-top:50px;
 }
-.el-form-item{
-    /*width:500px;*/
+ .design-from-item{
+    width:500px;
     margin:0 auto 20px auto;
+    font-size:12px !important;
+ }
+.design-from-item .el-input{
+    width:auto !important;
 }
-.el-input{
-    /*width:auto !important;*/
+.design-from-item .el-input__inner{
+    height:30px !important; 
 }
 .enterDing{
     background:#da121a !important;
@@ -513,7 +517,6 @@
     border-color:#ccc !important;
 }
 .el-form-item__label{
-    /*width:190px !important;*/
    font-weight:200;
     color:#333333;
 }
@@ -531,10 +534,14 @@
 }
 @media (max-width: 768px) {
     .el-form-item__label{
-        /*width:70px !important;*/
         text-align:left !important;
     }
-    .resourceGroup input{
+    .design-from-item .el-form-item__label{
+        font-weight:200;
+        color:#333333;
+        font-size:12px !important;
+    }
+    .designContent input{
         width:50px !important;
     }
     .el-form-item__content{
@@ -546,9 +553,6 @@
     cursor:pointer;
     /*color:#000;*/
     color:#f7a72c !important;
-}
-.el-input{
-
 }
 .Pei ul li{
     margin-top:12px;
@@ -573,7 +577,7 @@
     width:100%;
     margin: 0 0 10px 0!important;
 }
-.resourceGroup img{
+.designContent img{
     width:60px; 
 }
 /*.nex{
@@ -617,7 +621,7 @@ a:hover{
 .ulss li:nth-child(1){
     margin-top:30px;
 }
-.resourceGroup input,select{
+.designContent input,select{
     width:236px; height:30px;
 }
 .Inp input{
@@ -662,10 +666,6 @@ a:hover{
 }
 .el-input--suffix .el-input__inner{
     padding-right:15px !important
-}
-.el-input__inner{
-    /*height:30px !important;*/
-    
 }
 
 </style>
@@ -759,6 +759,19 @@ export default{
         }
     },
     mounted:function(){
+        let self = this;
+        if($(window).width()<=768){
+            self.formLabelWidth= '70px';
+        }else{
+                self.formLabelWidth= '190px';
+        }
+        $(window).resize(function() {
+            if($(window).width()<=768){
+                self.formLabelWidth= '70px';
+            }else{
+                self.formLabelWidth= '190px';
+            }
+        });
         this.appId = this.$route.query.id;
         $(".designTab p").find("span").first().addClass("designSpanbg");
         $(".designTab p").find("span").find("a").first().addClass("designbg");
