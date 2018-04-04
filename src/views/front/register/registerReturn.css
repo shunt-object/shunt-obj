@@ -45,7 +45,7 @@
     margin-top:20px; margin-bottom:25px !important;
 }
 .registerCommon-agree{
-    margin-top:30px; text-align:left; padding-left:15px; margin-bottom:18px;
+    margin-top:30px; text-align:left; padding-left:15px; margin-bottom:18px; font-size:12px; color:#606266;
 }
 .registerCommon-btn-box{
     padding-left:15px;
@@ -76,7 +76,7 @@
 }
 /*注册成功*/
 .register-success-img{
-    width:100px; height:100px; margin:50px 0 20px 0;
+    width:60px; height:60px; margin:50px 0 20px 0;
 }
 .registerThree-succ{
     font-size:20px; color:#404140; text-align:center;

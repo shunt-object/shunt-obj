@@ -27,7 +27,7 @@
                             <el-input type="password" v-model="registerCommonForm.passwordtwo" placeholder="请再次输入密码"></el-input>
                         </el-form-item>
                         <div class="registerCommon-agree" style="padding-left:0 !important;">
-                            <input type="checkbox" style="width:14px !important;" v-model="registerCommonForm.agree">同意并遵守<router-link target="_blank" to="/agreenment" style="width:180px !important">《CloudBroker²服务协议》</router-link>
+                            <input type="checkbox" style="width:14px !important;" v-model="registerCommonForm.agree">同意并遵守<router-link target="_blank" to="/agreenment" style="width:150px !important">《CloudBroker²服务协议》</router-link>
                         </div>
                         <button class="registerCommon-btn" v-on:click="submitForm('registerCommonForm')">下一步</button>        
                     </el-form>

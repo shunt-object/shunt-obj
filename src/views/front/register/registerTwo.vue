@@ -35,7 +35,7 @@
                             </el-select>
                         </el-form-item>
                         <div class="registerCommon-agree">
-                            <input type="checkbox" style="width:14px !important;" v-model="registerFrom.agree">同意并遵守<router-link target="_blank" to="/agreenment" style="width:180px !important">《CloudBroker²服务协议》</router-link>
+                            <input type="checkbox" style="width:14px !important;" v-model="registerFrom.agree">同意并遵守<router-link target="_blank" to="/agreenment" style="width:150px !important">《CloudBroker²服务协议》</router-link>
                         </div>
                         <div class="registerCommon-btn-box">
                             <button class="registerCommon-btn" v-on:click="submitForm()">下一步</button>
