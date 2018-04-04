@@ -173,10 +173,14 @@ export default{
             this.piereslist = [];
             this.$this.post('/broker/user/analysis/app/purchasin/get/analysis',JSON.stringify(obj)).then((response)=>{
                 //console.log('aaa',response.data.data);
-                this.piereslist = response.data.data;
+                // this.piereslist = response.data.data;
                 for(let i=0;i<response.data.data.length;i++){
-                    this.pielegened.push(response.data.data[i].name);
-                    this.pielist.push({value:response.data.data[i].num, name:response.data.data[i].name});
+                    if(response.data.data[i].num!=0){
+                        this.piereslist.push(response.data.data[i]);
+                        this.pielegened.push(response.data.data[i].name);
+                        this.pielist.push({value:response.data.data[i].num, name:response.data.data[i].name});
+                    }
+                    
                 }
                 this.$nextTick(function() {
                     this.canvasPie('designOrder-pie',this.pielist,this.pielegened)

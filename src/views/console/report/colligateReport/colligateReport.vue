@@ -1448,16 +1448,13 @@ export default{
                 this.storage = response.data.data.storage;
                 this.cdns = response.data.data.cdns;
             }).catch((error)=>{})
-            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-                this.compareResultList = response.data.data.datas;
-                // if(response.data.data.res!=null){
-                //     this.reslist = true;
-                // }
-                // this.appServer = JSON.parse(response.data.data.res.appServer);
-                // this.dbServer = JSON.parse(response.data.data.res.dbServer);
-                // this.network = JSON.parse(response.data.data.res.network);
-                // this.storage = JSON.parse(response.data.data.res.storage);
-                //console.log('----',this.appServer); 
+            let resultObj = {
+                    appid:this.appId,
+                    searchAble:true,
+                    sid:[]
+            };      
+            this.$this.post('/broker/compare/result',JSON.stringify(resultObj)).then((response)=>{
+                this.compareResultList = response.data.data.datas; 
             }).catch((error)=>{})
         },
        getPdf:function(){

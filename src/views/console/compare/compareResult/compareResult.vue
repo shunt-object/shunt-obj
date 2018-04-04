@@ -191,13 +191,19 @@ export default{
                 this.storage = response.data.data.storage;
                 this.cdns = response.data.data.cdns;
             }).catch((error)=>{})
-            // this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-            //     this.compareResultList = response.data.data.datas;  
-            // }).catch((error)=>{})
-            let resultObj = {
-                appid:this.appId,
-                sid:this.$route.query.cloudId
-            };
+            let resultObj;
+            if(this.$route.query.cloudId==undefined){
+                resultObj = {
+                    appid:this.appId,
+                    searchAble:true,
+                    sid:[]
+                };                 
+            }else{
+               resultObj = {
+                    appid:this.appId,
+                    sid:this.$route.query.cloudId
+                };
+            }            
             this.$this.post('/broker/compare/result',JSON.stringify(resultObj)).then((response)=>{
                 this.compareResultList = response.data.data.datas; 
             }).catch((error)=>{})

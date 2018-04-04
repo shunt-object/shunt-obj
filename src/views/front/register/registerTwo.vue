@@ -43,7 +43,8 @@
                     </el-form>
                     <div class="registerCommon-notice">
                         已有CloudBroker²账号？
-                        <router-link class="registerCommon-login" to="/login">请登录</router-link>
+                        <a class="registerCommon-login" href="javascript:;" v-on:click="gologin()">请登录</a>
+                        <!--<router-link class="registerCommon-login" to="/login">请登录</router-link>-->
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -84,6 +85,9 @@ export default{
         this.getProvince();
     },
     methods:{
+        gologin:function(){
+            this.$router.push({path:'/login'});
+        },
         getIndustry:function(){
             this.$this.get('/broker/prop/industry/').then((response)=>{
                 this.registerFrom.industry = response.data.data[0].id;

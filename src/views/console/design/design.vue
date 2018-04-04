@@ -408,7 +408,7 @@
         text-align:center;
     }
     .el-input__inner{
-        width:50px !important;
+       /* width:50px !important;*/
     }
      .designTab p{
         height:40px;
@@ -496,7 +496,7 @@
     margin-top:50px;
 }
 .el-form-item{
-    width:500px;
+    /*width:500px;*/
     margin:0 auto 20px auto;
 }
 .el-input{
@@ -513,7 +513,7 @@
     border-color:#ccc !important;
 }
 .el-form-item__label{
-    width:190px !important;
+    /*width:190px !important;*/
    font-weight:200;
     color:#333333;
 }
@@ -521,7 +521,7 @@
     color:#666666 !important;
 }
 .el-form-item__content{
-    margin:0 !important;
+    /*margin:0 !important;*/
 }
 .el-checkbox__label{
     padding-left:5px !important;
@@ -703,7 +703,7 @@ export default{
                 num:""     //数量
             },    
                         
-            formLabelWidth: '120px',
+            formLabelWidth: '190px',
             dialogTableVisible: false,
             dialogFormVisible: false,
             yyshow:true,

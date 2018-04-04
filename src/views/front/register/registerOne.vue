@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 registerCommon-from">
-            <div class="registerCommon-title">欢迎注册</div>
+            <div class="registerCommon-title">欢迎注册CloudBroker²</div>
             <registerStep step="1"></registerStep>
             <div class="row">
                 <div class="col-md-1"></div>
@@ -33,7 +33,8 @@
                     </el-form>
                     <div class="registerCommon-notice">
                         已有CloudBroker²账号？
-                        <router-link class="registerCommon-login" to="/login">请登录</router-link>
+                        <a class="registerCommon-login" href="javascript:;" v-on:click="gologin()">请登录</a>
+                        <!--<router-link class="registerCommon-login" to="/login">请登录</router-link>-->
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -130,6 +131,9 @@ export default{
     mounted:function(){         
     },
     methods:{
+        gologin:function(){
+            this.$router.push({path:'/login'});
+        },
         passfocus:function(){
             this.isnotice = true;
         },
@@ -193,6 +197,7 @@ export default{
                 }
             });
         },
+        
     },
     components:{
         registerStep
