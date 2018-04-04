@@ -491,11 +491,11 @@
     margin-top:50px;
 }
 .el-form-item{
-    width:500px;
+    /*width:500px;*/
     margin:0 auto 20px auto;
 }
 .el-input{
-    width:auto !important;
+    /*width:auto !important;*/
 }
 .enterDing{
     background:#da121a !important;
@@ -508,7 +508,7 @@
     border-color:#ccc !important;
 }
 .el-form-item__label{
-    width:190px !important;
+    /*width:190px !important;*/
    font-weight:200;
     color:#333333;
 }
@@ -516,7 +516,7 @@
     color:#666666 !important;
 }
 .el-form-item__content{
-    margin:0 !important;
+    /*margin:0 !important;*/
 }
 .el-checkbox__label{
     padding-left:5px !important;
@@ -748,7 +748,7 @@ export default {
           resource: '',
           desc: ''
         },
-         formLabelWidth: '120px',
+         formLabelWidth: '190px',
          regionter:"",
           checked: false,
           checkeder: false,
