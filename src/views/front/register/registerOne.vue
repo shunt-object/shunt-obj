@@ -29,7 +29,7 @@
                         <div class="registerCommon-agree" style="padding-left:0 !important;">
                             <input type="checkbox" style="width:14px !important;" v-model="registerCommonForm.agree">同意并遵守<router-link target="_blank" to="/agreenment" style="width:150px !important">《CloudBroker²服务协议》</router-link>
                         </div>
-                        <button class="registerCommon-btn" v-on:click="submitForm('registerCommonForm')">下一步</button>        
+                        <button type="button" class="registerCommon-btn" v-on:click="submitForm('registerCommonForm')">下一步</button>        
                     </el-form>
                     <div class="registerCommon-notice">
                         已有CloudBroker²账号？
