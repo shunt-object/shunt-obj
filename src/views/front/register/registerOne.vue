@@ -54,12 +54,15 @@ import registerStep from '../register/registerStep.vue'
 let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
 let passwordReg = /(?!.*[\u4E00-\u9FA5\s])(?!^[a-zA-Z]+$)(?!^[\d]+$)(?!^[^a-zA-Z\d]+$)^.{6,16}$/;
 let rempass;
+let phoneBoolean = false;
 let validPhone=(rule, value,callback)=>{
     console.log(this);
     if (!value){
-        callback(new Error('请输入电话号码'))
+        callback(new Error('请输入电话号码'));
+        phoneBoolean = false;
     }else  if (phoneReg.test(value)==false){
         callback(new Error('请输入正确的手机号码'))
+        phoneBoolean = false;
     }else {
         //callback()
         $.ajax({
@@ -68,7 +71,9 @@ let validPhone=(rule, value,callback)=>{
             success:function(data){
                 if(data.data==false){
                     callback(new Error('您的手机号已被注册'))
+                    phoneBoolean = false;
                 }else{
+                    phoneBoolean = true;
                     callback()
                 }
             },
@@ -141,9 +146,9 @@ export default{
         },
         getcode:function(){
             if(this.registerCommonForm.phone!='' && phoneReg.test(this.registerCommonForm.phone)==true){
-                this.codeHttp();
-            }else{
-                return false;
+                if(phoneBoolean==true){
+                    this.codeHttp();
+                }                
             }
         },
         codeHttp:function(){

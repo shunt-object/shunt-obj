@@ -12,12 +12,12 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <el-form :model="registerFrom" class="register-ruleForm">
-                        <el-form-item label="公司名称" label-width="80px" class="register-ruleForm-item">
-                            <el-input v-model="registerFrom.tenant" placeholder="请输入公司名称"></el-input>
-                        </el-form-item>
                         <el-form-item label="用户姓名" label-width="80px" class="register-ruleForm-item">
                             <el-input v-model="registerFrom.realname" placeholder="请输入用户姓名"></el-input>
                         </el-form-item>
+                        <el-form-item label="公司名称" label-width="80px" class="register-ruleForm-item">
+                            <el-input v-model="registerFrom.tenant" placeholder="请输入公司名称"></el-input>
+                        </el-form-item>                        
                         <el-form-item label="所属行业" label-width="80px" class="register-ruleForm-item">
                             <el-select class="register-ruleForm-select" v-model="registerFrom.industry" placeholder="请选择所属行业">
                                 <el-option class="register-option" v-for="item in industryList" :label="item.name" :value="item.id" :key="JSON.stringify(item.id)"></el-option>

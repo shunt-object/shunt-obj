@@ -151,10 +151,24 @@ export default{
             this.providerList[index].boolean==false?this.providerList[index].boolean=true:this.providerList[index].boolean=false;
         },
         getprovider:function(){//云厂商列表
-           this.$this.get('/broker/compare/cloud/provider').then((response)=>{
-                for(let i=0;i<response.data.data.length;i++){
-                    this.providerList.push({boolean:true,data:response.data.data[i]});
+           this.$this.get('/broker/compare/cloud/provider/'+this.appId).then((response)=>{
+                for(let i=0;i<response.data.data.all.length;i++){
+                    this.providerList.push({boolean:false,data:response.data.data.all[i]});
                 }
+                if(response.data.data.active.length>0){
+                    for(let n=0;n<response.data.data.active.length;n++){
+                        for(let j=0;j<this.providerList.length;j++){
+                            if(response.data.data.active[n]==this.providerList[j].data.id){
+                                this.providerList[j].boolean = true;
+                            }
+                        }
+                    }
+                }else{
+                    for(let k=0;k<this.providerList.length;k++){
+                        this.providerList[k].boolean = true;
+                    }
+                }
+                
            }).catch((error)=>{})
         },
         getTypes:function(){

@@ -203,8 +203,9 @@ export default{
                     appid:this.appId,
                     sid:this.$route.query.cloudId
                 };
-            }            
-            this.$this.post('/broker/compare/result',JSON.stringify(resultObj)).then((response)=>{
+            }  
+            let time = new Date();       
+            this.$this.post('/broker/compare/result?time='+time.getTime(),JSON.stringify(resultObj)).then((response)=>{
                 this.compareResultList = response.data.data.datas; 
             }).catch((error)=>{})
         },
