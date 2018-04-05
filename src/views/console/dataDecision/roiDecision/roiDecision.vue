@@ -103,6 +103,11 @@ export default{
         }
     },
     mounted:function(){
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                return false;
+            }
+        });
         this.getAppMsg();//获取应用
     },
     methods:{
@@ -196,6 +201,7 @@ export default{
             })
         },
         appchange:function(){
+            this.budgetprice = '';
             this.getPrice(this.appidModel);
         },
         budget:function(){//预算
