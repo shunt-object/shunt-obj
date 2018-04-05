@@ -137,10 +137,11 @@ export default{
                             this.$router.push({path:'/consolePage'}); 
                         }
                     }else if(res.data.code=='0'){//用户名或密码不正确
-                        this.isaccount=true;
+                        // this.isaccount=true;
+                        this.isaccount=false;
                         this.ishave=true;
-                        this.accountText = '用户名不正确';
-                        this.passwordText = '密码不正确';
+                        //this.accountText = '用户名不正确';
+                        this.passwordText = '账号不存在或密码错误，请重新输入';
                     }else if(res.data.code=='-1'){//邮箱未激活
                         this.isaccount=true;
                         this.ishave=true;

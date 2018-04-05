@@ -171,15 +171,19 @@ export default{
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.getdata();
-        this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
-            this.details =  response.data.data;
-            for(let variable  in this.details){   //variable 为属性名
-                this.confirm = this.details[variable][0].servers;
-            }
-            this.length = this.confirm.length+3;
-        }).catch((error)=>{})
+        // this.getfeature();
     },
     methods:{
+        getfeature:function(){
+            let time = new Date();   
+            this.$this.get('/broker/compare/selected/feature/'+this.appId+'?time='+time.getTime()).then((response)=>{
+                this.details =  response.data.data;
+                for(let variable  in this.details){   //variable 为属性名
+                    this.confirm = this.details[variable][0].servers;
+                }
+                this.length = this.confirm.length+3;
+            }).catch((error)=>{})
+        },
         getdata:function(){
             this.$this.get('/broker/app/resource/group/'+this.appId+'').then((response)=>{
                 if(response.data.data.appServer.length>0||response.data.data.dbServer.length>0||response.data.data.network!=null||response.data.data.storage.length>0||response.data.data.cdns.length>0){
@@ -207,6 +211,7 @@ export default{
             let time = new Date();       
             this.$this.post('/broker/compare/result?time='+time.getTime(),JSON.stringify(resultObj)).then((response)=>{
                 this.compareResultList = response.data.data.datas; 
+                this.getfeature();
             }).catch((error)=>{})
         },
         prev:function(){

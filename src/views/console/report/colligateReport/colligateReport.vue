@@ -675,7 +675,7 @@ export default{
         this.getdesign();        
         this.getplan();//云规划        
         this.getdata();// 云选型
-        this.compareDiffer();//云选型做题记录
+        //this.compareDiffer();//云选型做题记录
         this.gettype();//获取类型
         this.getPrice();//获取价格列表
         this.topology();  //拓扑图
@@ -969,7 +969,8 @@ export default{
             }) 
         },
         compareDiffer:function(){
-            this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
+            let time = new Date(); 
+            this.$this.get('/broker/compare/selected/feature/'+this.appId+'?time='+time.getTime()).then((response)=>{
                 this.details =  response.data.data;
                 for(let variable  in this.details){   //variable 为属性名
                     this.confirm = this.details[variable][0].servers;
@@ -1456,6 +1457,7 @@ export default{
             let time = new Date();     
             this.$this.post('/broker/compare/result?time='+time.getTime(),JSON.stringify(resultObj)).then((response)=>{
                 this.compareResultList = response.data.data.datas; 
+                this.compareDiffer();
             }).catch((error)=>{})
         },
        getPdf:function(){
