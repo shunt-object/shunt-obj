@@ -423,7 +423,7 @@
                         <i class="iconfont icon-pingjiabaogao main-color"></i>上云分析建议
                     </div>
                     <!--投资回报率--> 
-                    <div class="colligateInvest">
+                    <div class="colligateInvest" v-if="isclick!=2">
                         <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>预算收益统计分析</p>
                         <div class="colligate-list" style="padding:0 2em;">
                             <div class="colligateBuy-echarts">
@@ -618,6 +618,7 @@ export default{
             isgraph:'',
             allInvest:false,
             issort:'0',//排序
+            iszijian:'',//自建私有云
         }
     },
     updated:function(){
