@@ -299,6 +299,7 @@ export default{
             }).catch((error)=>{});
         },
         getPrice:function(appId){
+            //alert(111);
             let obj = {"ids":[]};
             this.pricelistOne = [];
             this.pricelist = [];
@@ -310,8 +311,8 @@ export default{
                     for(let i=1;i<response.data.data.length;i++){
                         this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
-                    pname.push(this.pricelist[0].data.pname);
-                    series.push(this.pricelist[0].data.cloudPrice);
+                    pname.push(this.pricelistOne[0].data.pname);
+                    series.push(this.pricelistOne[0].data.cloudPrice);
                     // for(let i=0;i<response.data.data.length;i++){
                     //     pname.push(response.data.data[i].pname);
                     //     series.push(response.data.data[i].cloudPrice);
