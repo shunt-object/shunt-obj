@@ -154,7 +154,7 @@
        height:30px;
    }
    .notification-mainTabletr tr{
-       height:70px;
+       height:50px;
    }
    .kongbottom{
        height:1px;

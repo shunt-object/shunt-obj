@@ -16,10 +16,10 @@
                     <div style="text-align:center;font-size:12px;margin-top:20px;color:#393b3d;">为了更好的为您服务，请您首先选择咨询分类，随后点击<span style="color:#da121a">“咨询”</span>按钮开始与在线支持人员进行交谈。</div>
                     <div class="shipeidiv" style="border:1px solid #ececec;background:#fbfbfb;border-radius:2px;margin:0 auto;margin-top:40px;">
                          <div>
-                            <p style="font-size:12px;color:#515151 !important;text-align:center;margin-top:30px;">请选择您要咨询的服务类型</p>
+                            <p style="font-size:12px;color:#515151 !important;text-align:center;margin-top:30px;">请您选择要咨询的服务类型</p>
                             <ul style="line-height:40px;padding:0 !important;font-size:14px;color:#222222;text-align:center;" class="ulinput">
-                                <li v-on:click="xixun" ><input type="radio" name="q" value="0" id="male"><label for="male">顾问咨询</label></li>
-                                <li ><input type="radio" name="q" value="1" id="mela"><label for="mela">在线销售</label></li>
+                                <li><input type="radio" name="q" value="0" id="male"><label for="male">顾问咨询</label></li>
+                                <li><input type="radio" name="q" value="1" id="mela"><label for="mela">在线销售</label></li>
                             <!-- 
                                 <li><input type="radio" name="q" value="2">合作伙伴</li>
                                 <li><input type="radio" name="q" value="3">在线投诉</li>
@@ -44,9 +44,9 @@
                     </div>
                 </div>
                 <div style="margin-top:50px;text-align:left;margin-left:15px;font-size:12px;color:#515151;"><span>请描述您的问题...</span></div>
-                <div style="width:100%;position:relative;margin-top:5%;">
+               <!-- <div style="width:100%;position:relative;margin-top:5%;">
                     <span style="width:215px;position:absolute;right:30px;bottom:20px;padding:6px 20px;border:1px solid #db101b;display:inline-block;text-align:center;border-radius:5px;color:#fff;background:#da121a;font-size:14px;">请您选择要咨询的服务类型</span>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
