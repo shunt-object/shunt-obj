@@ -21,7 +21,7 @@
                     
                     <div class="login-from-list login-list-two" :class="ishave==true?'error':''">
                         <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="密码" v-model="password" v-on:focus="focustwo()" v-on:blur="PhoneReg('password')">
+                        <input type="password" placeholder="密码" v-model="password" v-on:focus="focustwo()" class='ikl' v-on:blur="PhoneReg('password')">
                         <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
                     </div>                
                     <button class="login-from-btn" v-on:click="login()">登录</button>
@@ -74,7 +74,14 @@ export default{
             this.account = localStorage.getItem('remAccount');
         }
         let that = this;
-        document.onkeyup = function(evnet){
+        $(".ikl").focus();
+        //   $(document).ready(function(){
+        //     // $(".inpuys").focus();
+        //     $(".inpuys").onkeyup(function(){
+        //         alert(1)
+        //     })
+        // })
+        $(".ikl").get(0).onkeyup = function(evnet){
             if (evnet.keyCode == '13') {
                 that.login();
             }
