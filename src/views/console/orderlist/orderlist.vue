@@ -214,13 +214,30 @@ export default{
             })
         },
         select:function(index){
-            if(this.orderlist[index].model==true){
-                this.orderlist[index].model = false;
-                this.sumprice = this.sumprice - this.orderlist[index].data.cloudPrice;
+            //console.log('aaa',this.orderlist[index].model);
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
+                if(this.orderlist[index].model==true){
+                    this.orderlist[index].model = false;
+                    this.sumprice = this.sumprice - this.orderlist[index].data.cloudPrice;
+                }else{
+                    this.orderlist[index].model = true;
+                    this.sumprice = this.sumprice + this.orderlist[index].data.cloudPrice;
+                }
             }else{
-                this.orderlist[index].model = true;
-                this.sumprice = this.sumprice + this.orderlist[index].data.cloudPrice;
+                if(this.orderlist[index].model==false){
+                    this.orderlist[index].model = false;
+                }else{
+                    this.orderlist[index].model = true;                    
+                }
+                this.sumprice = 0;
+                for(let i=0;i<this.orderlist.length;i++){
+                    if(this.orderlist[i].model==true){
+                        this.sumprice =this.sumprice + this.orderlist[i].data.cloudPrice;
+                    }                        
+                }
             }
+            
         },
         pay:function(){
             this.$router.push({path:'/pay',query:{id:this.appId,type:this.$route.query.type,enter:'1'}});

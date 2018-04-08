@@ -35,7 +35,7 @@
                         <td>规格</td>
                         <td>数量</td>
                         <td>时间</td>
-                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i v-if="issort!=0" class="iconfont" :class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"></i></td>
+                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i v-if="issort!=0" class="iconfont icon-sanjiao"></i></td><!--:class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"-->
                         <td>京玉折扣价</td>
                     </tr>                
                 </thead>
@@ -331,8 +331,9 @@ export default{
             })
         },
         canvasROI:function(dom,x,series,centerline){
-            // let arr = series;
-            // arr.push(centerline);
+            let arr = series;
+            arr.push(centerline);
+            console.log('aaa',x);
             // let max = Math.max.apply(null,arr);
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
@@ -368,6 +369,14 @@ export default{
                     name:'价格',
                     type: 'value',
                     //max:max,
+                    // type: 'category',
+                    // data: arr,
+                    // name:'价格',
+                    // axisLabel:{
+                    //     color:'#333',
+                    //     interval:0,  
+                    //     rotate:20                    
+                    // },
                 },
                 color:['#da121a'],
                 series: [

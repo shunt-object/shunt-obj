@@ -418,7 +418,7 @@ export default{
         // this.appId = '542';
         // this.lookobj.appid = '542';
         this.getRegion(-1);
-        console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
+       // console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
         selectClould:function(id){//0=多云厂商  1=指定云厂商
@@ -560,6 +560,7 @@ export default{
         },
         radio:function(index){
             let n = 0;
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
             for(let i=0;i<this.priceClould.length;i++){
                 if(this.priceClould[i].model==true){
                     n++;
@@ -569,32 +570,64 @@ export default{
             if(n>0){
                 this.allselect = false;
             }
-            if(this.priceClould[index].model==false){
-                this.num++;
-                //this.sumprice = Number(this.sumprice).toFixed(2);
-                this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+            if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
+                if(this.priceClould[index].model==false){
+                    this.num++;
+                    //this.sumprice = Number(this.sumprice).toFixed(2);
+                    this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                }else{
+                    this.num--;
+                    this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                }
             }else{
-                this.num--;
-                this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                if(this.priceClould[index].model==true){
+                    this.num++;
+                    //this.sumprice = Number(this.sumprice).toFixed(2);
+                    this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                }else{
+                    this.num--;
+                    this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                }
             }
         },
         whole:function(){
             //this.sumprice = 0;
-            console.log(this.allselect);
-            if(this.allselect==false){
-                this.sumprice = 0;
-                for(let i=0;i<this.priceClould.length;i++){
-                    this.priceClould[i].model = true;
-                    this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+            console.log('aaaa',this.allselect);
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
+                if(this.allselect==false){
+                    this.sumprice = 0;
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = true;
+                        this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = this.priceClould.length;
+                }else{
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = false;
+                        this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = 0;
                 }
-                this.num = this.priceClould.length;
+
             }else{
-                for(let i=0;i<this.priceClould.length;i++){
-                    this.priceClould[i].model = false;
-                    this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                if(this.allselect==true){
+                    this.sumprice = 0;
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = true;
+                        this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = this.priceClould.length;
+                }else{
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = false;
+                        this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = 0;
                 }
-                this.num = 0;
+
             }
+            
             
         },
         gobuy:function(id){

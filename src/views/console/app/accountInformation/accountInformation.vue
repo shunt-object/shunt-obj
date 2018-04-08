@@ -49,10 +49,12 @@
         <span class="accountInfor-list-key">
             <span class="account-icon"><i class="iconfont icon-qiyeleixing"></i></span>用户类型：
         </span>
-        <span class="accountInfor-list-val-type" v-if="information.utype==null">个人</span>
+        <!--1=个人；2=企业；3=运营商；4=政府；5=运营-->
+        <span class="accountInfor-list-val-type" v-if="information.utype==1">个人</span>
         <span class="accountInfor-list-val-type" v-if="information.utype==2">企业</span>
         <span class="accountInfor-list-val-type" v-if="information.utype==3">运营商</span>
         <span class="accountInfor-list-val-type" v-if="information.utype==4">政府</span>
+        <span class="accountInfor-list-val-type" v-if="information.utype==5">运营</span>
     </div>
     <div class="accountInfor-list">
         <span class="accountInfor-list-key">
