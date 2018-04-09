@@ -2,7 +2,7 @@
 <div class="total detadcision-box">
 <div class="total-header detadcision-header">
     <span></span>
-    舆情监控
+    数据洞察
 </div>
 <div class="datadecision">
     <div class="row">

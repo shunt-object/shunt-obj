@@ -30,7 +30,7 @@
             <div class="forget-content">
                 <div class="forget-list" v-if="index==0||index==1">
                     <div class="forget-username" v-if="index==0" :class="isRegister==true?'error':''">
-                        <input type="text" class="username-input" v-model="useraccount" placeholder="请输入注册手机号或注册邮箱">
+                        <input type="text" class="username-input" v-model="useraccount" placeholder="请输入注册手机号或绑定邮箱">
                         <button class="username-btn" v-on:click="check()">确认</button>
                     </div>
                     <div class="forget-type" v-if="index==1">
