@@ -106,7 +106,7 @@
                     <td class="designHalf-w-28" align="center" valign="middle" colspan="4">购买规格</td>
                     <td class="designHalf-w-6" rowspan="2">数量</td>
                     <td class="designHalf-w-6" rowspan="2">购买周期</td>
-                    <td class="designHalf-w-6" rowspan="2">费用参考</td>
+                    <td class="designHalf-w-6" style="cursor:pointer;" rowspan="2" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
                     <td class="designHalf-w-6" rowspan="2">京玉折扣价</td>
                     <td class="designHalf-w-6" rowspan="2">意向购买</td>
                 </tr>
@@ -409,18 +409,72 @@ export default{
             dbEcharts:[],
             appX:[],
             dbX:[],
-            islookecharts:false
+            islookecharts:false,
+            issort:'0'
         }
     },
     mounted:function(){
         this.appId = this.id;
         this.lookobj.appid = this.id;
-        // this.appId = '542';
-        // this.lookobj.appid = '542';
         this.getRegion(-1);
        // console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
+        sortPrice:function(){
+            let list = [],arr=[];
+            for(let i=0;i<this.priceClould.length;i++){
+                list.push(this.priceClould[i]);
+            }
+            this.priceClould = [];
+            if(this.issort=='1'){
+                this.issort = '0';//从小到大
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
+                        } 
+                    } 
+                }
+                this.priceClould = list;
+            }else if(this.issort=='0'){//从大到小
+                this.issort = '1';
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice > list[j].data.cloudPrice){ //从大到小
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
+                        } 
+                    } 
+                }
+                this.priceClould = list;           
+            }
+            this.dbX = [];
+            this.appX = [];
+            this.appEcharts = [];
+            this.dbEcharts = [];
+            let appInd = 0,dbInd = 0;
+            for(let i=0;i<this.priceClould.length;i++){
+                if(this.priceClould[i].data.rtype==1){//应用服务
+                    appInd++;
+                    if(appInd<11){
+                        this.appX.push(this.priceClould[i].data.sname+'/'+this.priceClould[i].data.pname);
+                        this.appEcharts.push(this.priceClould[i].data.cloudPrice);  
+                    }                                              
+                }else if(this.priceClould[i].data.rtype==2){//数据库服务
+                    dbInd++;
+                    if(dbInd<11){
+                        this.dbX.push(this.priceClould[i].data.sname+'/'+this.priceClould[i].data.pname);
+                        this.dbEcharts.push(this.priceClould[i].data.cloudPrice);
+                    }
+                    
+                }
+            }
+            this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
+            this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
+        },
         selectClould:function(id){//0=多云厂商  1=指定云厂商
             if(id==0){
                 this.style.appointelect = false;
@@ -534,24 +588,27 @@ export default{
             this.islookecharts = true; 
             this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
                 // console.log('----',response);   
-                 
+                let appInd=0,dbInd=0;
                 for(let i=0;i<response.data.data.length;i++){
                     this.priceClould.push({data:response.data.data[i],model:false});
                     if(response.data.data[i].rtype==1){//应用服务
-                        this.appX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
-                        this.appEcharts.push(response.data.data[i].cloudPrice);                        
+                        appInd++;
+                        if(appInd<11){
+                            this.appX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                            this.appEcharts.push(response.data.data[i].cloudPrice);  
+                        }                                              
                     }else if(response.data.data[i].rtype==2){//数据库服务
-                        this.dbX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
-                        this.dbEcharts.push(response.data.data[i].cloudPrice);
+                        dbInd++;
+                        if(dbInd<11){
+                            this.dbX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                            this.dbEcharts.push(response.data.data[i].cloudPrice);
+                        }
+                        
                     }
                 } 
                 this.islook = true;
-                //if(this.appEcharts.length>0){
-                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
-                //} 
-                //if(this.dbEcharts.length>0){
-                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
-                //}
+                this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
+                this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
                 if(this.priceClould.length==0){
                     this.islookecharts = false; 
                 }      
