@@ -16,8 +16,8 @@
                     </div>
                     <div class="designTabj row" v-show="digaopeis">
                         <p class="col-md-12" style="width:300px;margin-left:15px;">
-                            <span v-on:click="dipei" class="col-md-4">低配</span>
-                            <span v-on:click="gaopei" class="col-md-4" style="margin-left:20px;">高配</span>
+                            <span v-on:click="dipei" class="col-md-4 col-xs-4">低配</span>
+                            <span v-on:click="gaopei" class="col-md-4 col-xs-4 gaopeiss">高配</span>
                         </p>
                     </div>
                     <div  class="col-md-12">
@@ -164,6 +164,9 @@ height:100%;
         margin-left:30px;
         margin-right:30px;
     }
+    .gaopeiss{
+        margin-left:0px;
+    }
      #idexEcharts{
       margin:200px auto 0 auto;
       width:270px;
@@ -176,6 +179,9 @@ height:100%;
         border-bottom:1px solid #ccc;
         margin-left:30px;
         margin-right:30px;
+    }
+    .gaopeiss{
+        margin-left:20px;
     }
     #idexEcharts{
       margin:0 auto;

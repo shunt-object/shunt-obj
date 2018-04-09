@@ -11,7 +11,7 @@
                 <div><p>1.请选择发布消息类型</p></div>
                 <div >
                     <select name="isAudit" id="isAudit" v-model="vals">
-                        <option value="val" selected = "selected" class="opSelected">--选择消息发布类型--</option>
+                        <option value="val"  class="opSelected">--选择消息发布类型--</option>
                         <option :value="le.value" :data="le.id" v-for="(le,index) in lei" class="optis">{{le.name}}</option>
                     </select>
                 </div>
@@ -117,6 +117,7 @@
             },
             mounted:function(){
                   this.initCenter();
+                  $("#isAudit option:first").prop("selected", 'selected');  
             },
             methods:{
                 initCenter:function(){
@@ -141,7 +142,15 @@
                                          };
                                 this.$this.post('/broker/content/add/content',obj).then((pon)=>{  //获取消息类型
                                     this.scsss = pon.data.msg
-                                    console.log(this.scsss)
+                                         this.$alert('发布成功', '温馨提示', {
+                                            confirmButtonText: '我知道了',
+                                            showClose:false,
+                                            confirmButtonClass:'lay-btn-red',
+                                            type: 'warning'
+                                        });
+                                      this.textareaVal = "" ;
+                                      //$("#isAudit").first("option").attr()
+                                      this.initCenter();
                                     }).catch((error)=>{
                                 })
                            }else{
