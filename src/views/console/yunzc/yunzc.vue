@@ -5,8 +5,24 @@
         用户数据
     </div>  
         <!--<input type="button" value="导出" style="width:50px;height:30px;left:30px;top:50px;color:#333" v-on:click="daochu">-->
-    <div class="dvsmain">
-        
+    <div class="dvsmain" style="position:relative">
+        <input  type="button" class="btnDAo" value="导出" v-on:click="fiaer"/>
+
+        <el-dialog 
+            title="数据导出"
+            :visible.sync="dialogVisible"
+            width="30%"
+            >
+            <div style="margin:0 auto;text-align:center;">
+                <div style="margin-buttom:20px"><input type="radio" name="w" value="0">&nbsp&nbsp今日用户</div>
+                <div><input type="radio" name="w" value="1">&nbsp&nbsp全部用户</div>          
+            </div>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="qucenters" class="enterDing">确定</el-button>
+                <el-button type="primary" @click="dialogVisible = false" class="clsey">取消</el-button>
+            </span>
+        </el-dialog>
+
         <div class="zhengtab">
             <table class="table table-bordered" id="tabelId">
                 <thead class="row">
@@ -60,6 +76,35 @@
  </div>   
 </template>
 <style>
+.el-dialog{
+    text-align:left;
+   
+}
+.clsey{
+    background:#fff;
+    border-color:#ccc;
+    color:#ccc;
+}
+.clsey:hover{
+      background:#fff;
+    border-color:#ccc;
+    color:#ccc;
+}
+.enterDing:hover{
+      color:#fff !important;
+}
+.enterDing{
+    background: #da121a !important;
+     color:#fff;
+}
+.btnDAo{
+    width:50px;
+    height:30px;
+    position:absolute;
+    right:250px;
+    top:12px;
+    z-index:99;
+}
     .btnDao:hover{
         cursor:pointer
     }
@@ -117,7 +162,8 @@ import "../plan/planList/datatable.css";
     export default{
          data () {
             return {
-                responers:[]
+                responers:[],
+                dialogVisible:false
             }
          },
      updated:function(){
@@ -184,19 +230,32 @@ import "../plan/planList/datatable.css";
             })
          },
          methods:{
-             daochu:function(){
-                    require.ensure([], () => {
-        　　　　　　　　const { export_json_to_excel } = require('../../../vendor/vendor/Export2Excel.js');
-        　　　　　　　　const tHeader = ['用户名', '登录名', '公司信息', '注册地址','行业信息','手机号码','邮箱地址','注册时间']; //对应表格输出的title
-        　　　　　　　　const filterVal = ['username', 'realname','tenant','addr','industryStr.name','phone','email','createDt']; // 对应表格输出的数据
-        　　　　　　　　const list = this.responers;
-        　　　　　　　　const data = this.formatJson(filterVal, list);
-        　　　　　　　　export_json_to_excel(tHeader, data, '列表excel'); //对应下载文件的名字
-        　　　　　　})
+             fiaer:function(){
+                this.dialogVisible = true;
              },
-             formatJson:function(filterVal, jsonData) {
-　　　　　　      return jsonData.map(v => filterVal.map(j => v[j]))
-　　　　       },
+             qucenters:function(){
+                var ac =  document.getElementsByName("w");
+                for(var i = 0;i<ac.length;i++){
+                    if(ac[i].value==0){
+                        window.location.href="http://172.16.10.39:8080/broker/template/exportByExcel/today"                            
+                    }else if(ac[i].value==1){
+                         window.location.href="http://172.16.10.39:8080/broker/template/exportByExcel/all"   
+                    }
+                }
+             }
+//              daochu:function(){
+//                     require.ensure([], () => {
+//         　　　　　　　　const { export_json_to_excel } = require('../../../vendor/vendor/Export2Excel.js');
+//         　　　　　　　　const tHeader = ['用户名', '登录名', '公司信息', '注册地址','行业信息','手机号码','邮箱地址','注册时间']; //对应表格输出的title
+//         　　　　　　　　const filterVal = ['username', 'realname','tenant','addr','industryStr.name','phone','email','createDt']; // 对应表格输出的数据
+//         　　　　　　　　const list = this.responers;
+//         　　　　　　　　const data = this.formatJson(filterVal, list);
+//         　　　　　　　　export_json_to_excel(tHeader, data, '列表excel'); //对应下载文件的名字
+//         　　　　　　})
+//              },
+//              formatJson:function(filterVal, jsonData) {
+// 　　　　　　      return jsonData.map(v => filterVal.map(j => v[j]))
+// 　　　　       },
              
          }
     }
