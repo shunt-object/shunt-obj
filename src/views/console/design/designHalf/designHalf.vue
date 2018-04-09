@@ -571,14 +571,29 @@ export default{
                 this.allselect = false;
             }
             if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
-                if(this.priceClould[index].model==false){
-                    this.num++;
-                    //this.sumprice = Number(this.sumprice).toFixed(2);
-                    this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                if(userAgent.indexOf("Edge") > -1){
+                    if(this.priceClould[index].model==true){
+                        this.num++;
+                    }else{
+                        this.num--;
+                    }
+                    this.sumprice = 0;
+                    for(let i=0;i<this.priceClould.length;i++){
+                        if(this.priceClould[i].model==true){
+                            this.sumprice =this.sumprice + this.priceClould[i].data.cloudPrice;
+                        }                        
+                    }
                 }else{
-                    this.num--;
-                    this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                    if(this.priceClould[index].model==false){
+                        this.num++;
+                        //this.sumprice = Number(this.sumprice).toFixed(2);
+                        this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                    }else{
+                        this.num--;
+                        this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                    }
                 }
+                
             }else{
                 if(this.priceClould[index].model==true){
                     this.num++;
@@ -595,22 +610,41 @@ export default{
             console.log('aaaa',this.allselect);
             var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
             if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
-                if(this.allselect==false){
-                    this.sumprice = 0;
-                    for(let i=0;i<this.priceClould.length;i++){
-                        this.priceClould[i].model = true;
-                        this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                if(userAgent.indexOf("Edge") > -1){
+                    if(this.allselect==true){
+                        this.sumprice = 0;
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = true;
+                            this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = this.priceClould.length;
+                    }else{
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = false;
+                            this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = 0;
                     }
-                    this.num = this.priceClould.length;
-                }else{
-                    for(let i=0;i<this.priceClould.length;i++){
-                        this.priceClould[i].model = false;
-                        this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
-                    }
-                    this.num = 0;
-                }
 
-            }else{
+                }else{
+                    if(this.allselect==false){
+                        this.sumprice = 0;
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = true;
+                            this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = this.priceClould.length;
+                    }else{
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = false;
+                            this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = 0;
+                    }
+                }
+                
+
+            }else if(userAgent.indexOf("Chrome") > -1&&userAgent.indexOf("Edge") > -1){
                 if(this.allselect==true){
                     this.sumprice = 0;
                     for(let i=0;i<this.priceClould.length;i++){
