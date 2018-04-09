@@ -349,6 +349,14 @@
     margin-top:10px;
     margin-right:10px;
 }
+.graphlegenged-box{
+    height:75px;
+}
+@media (max-width: 768px) {
+    .graphlegenged-box{
+        min-height:150px;
+    }
+}
 /*云设计*/
 .colligate-design{
     width:100%;

@@ -56,7 +56,7 @@
                     <i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a"></i>拓扑图
                 </div>
                 <div class="graph-lenged">
-                    <div style="min-height:150px;" v-if="isgraph==false">
+                    <div class="graphlegenged-box" v-if="isgraph==false">
                         <div class="graphLenged" v-if="isgraph==false">
                             <div class="graphLenged-head">图例说明</div>
                             <div class="graphLenged-list"><img src="../../../../assets/report/appline.png" alt="">公网与前端应用交互</div>

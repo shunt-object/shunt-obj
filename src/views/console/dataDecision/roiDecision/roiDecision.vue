@@ -333,7 +333,6 @@ export default{
         canvasROI:function(dom,x,series,centerline){
             let arr = series;
             arr.push(centerline);
-            console.log('aaa',x);
             // let max = Math.max.apply(null,arr);
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
@@ -368,15 +367,6 @@ export default{
                 yAxis: {
                     name:'价格',
                     type: 'value',
-                    //max:max,
-                    // type: 'category',
-                    // data: arr,
-                    // name:'价格',
-                    // axisLabel:{
-                    //     color:'#333',
-                    //     interval:0,  
-                    //     rotate:20                    
-                    // },
                 },
                 color:['#da121a'],
                 series: [
