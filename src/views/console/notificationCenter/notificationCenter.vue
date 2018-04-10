@@ -52,7 +52,7 @@
             <div class="notification-undata" v-show="isopen">
                 <img src="../../../assets/compare-nodata.png" alt="">
                 <br>
-                暂无数据
+                <span class="spla">暂无数据</span>
             </div>
         </div>
     
@@ -136,11 +136,13 @@
    }
   
    .notification-undata{
-        background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+        background:#ffffff; width:100%; height:100%; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center; padding-bottom:16%;
    }
    .notification-undata img{
        margin-top:20%;
+       
    }
+  
    .notificationTable{
       margin-top:30px !important;
    }

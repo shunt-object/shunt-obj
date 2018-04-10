@@ -429,7 +429,7 @@
                                     
                                 }
                         }
-                         this.$confirm('您确定要删除该应用吗？', '温馨提示', {
+                         this.$confirm('您确定要删除该消息吗？', '温馨提示', {
                                 confirmButtonText: '确定',
                                 cancelButtonText: '取消',
                                 confirmButtonClass:'lay-btn-red',
@@ -456,6 +456,7 @@
                                         }).then(function(response) {
                                             that.huoqu();
                                              that.checkboxAll =false;
+                                              $("#tryes input[type='checkbox']").prop("checked",false);
                                         }).catch(function(error) {
                                             console.log(error);
                                         });
