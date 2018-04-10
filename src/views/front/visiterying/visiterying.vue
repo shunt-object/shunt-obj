@@ -5,6 +5,20 @@
             总览
         </div>
         <div class="vis-main">
+                 <el-form>
+                    <el-form-item class="resourceGroup-from-item" label="购买开始时间" :label-width="formLabelWidth" required>
+                        <el-form-item  class="resourceGroup-from-item">
+                            <el-date-picker v-model="startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
+                            <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
+                        </el-form-item>
+                    </el-form-item>
+                    <el-form-item class="resourceGroup-from-item" label="购买结束时间" :label-width="formLabelWidth" required>
+                        <el-form-item >
+                            <el-date-picker v-model="expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
+                            <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
+                        </el-form-item>
+                    </el-form-item>
+                 </el-form>
               <table id="examples" class="table table-striped table-bordered planlist-table" border="1">
                     <thead>
                         <tr style="margin-top:50px; text-align:center" id="tryeer">
@@ -61,15 +75,32 @@
 export default {
      name:"vis",
     data (){
+        let that = this;
         return {
             currentPage1: 1,
              totalPages:"",
-             sizePage:6
+             sizePage:6,
+             formLabelWidth: '190px',
+             startDate:"",
+             expireDate:"",
+  
+            pickerOptions0: {
+                disabledDate(time) {
+                       // return time.getTime() < Date.now() - 8.64e7;
+                    }
+            },
+            pickerOptions1: {
+                disabledDate(time) {
+                    return //time.getTime() < Date.now() - 8.64e7 ||
+                        //time.getTime() < new Date(that.startDate).getTime()||
+                        time.getTime()>new Date(that.startDate).getTime()
+                }
+            }
         }
     },
     methods:{
          handleSizeChange:function(val){
-                    alert(val)
+                    
                 },
                 handleCurrentChange:function(val){
                       
