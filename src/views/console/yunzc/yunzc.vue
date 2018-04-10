@@ -19,7 +19,7 @@
             </div>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="qucenters" class="enterDing">确定</el-button>
-                <el-button type="primary" @click="dialogVisible = false" class="clsey">取消</el-button>
+                <el-button type="primary" @click="dialogVisible = false" class="clseys">取消</el-button>
             </span>
         </el-dialog>
 
@@ -76,6 +76,11 @@
  </div>   
 </template>
 <style>
+.clseys{
+    color:#ccc !important;
+    background:#fff !important;
+    border-color:#ccc !important;
+}
 .el-dialog{
     text-align:left;
    
@@ -168,9 +173,9 @@ import "../plan/planList/datatable.css";
          },
      updated:function(){
         
-                $(document).ready(function(){
+                
                    
-                        $.noConflict();
+                    $.noConflict();
                     $("#tabelId").dataTable().fnDestroy();
                         $('#tabelId').DataTable({
                              dom: "<'toolbar'>Bfrtip",  
@@ -215,7 +220,7 @@ import "../plan/planList/datatable.css";
                             },  
                         });
                        
-                    });
+                    
   },
          created:function(){
              this.$this.get('/broker/admin/user/list').then((respone)=>{

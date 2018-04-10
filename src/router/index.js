@@ -44,7 +44,7 @@ import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
 import pay from '@/views/console/pay/pay'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
-
+import vis from "../views/front/visiterying/visiterying.vue"
 
 
 
@@ -190,6 +190,11 @@ export default new Router({
           path:"/messAdd",
           name:"messAdd",
           component:messAdd
+        },
+         {
+          path:"/vis",
+          name:"vis",
+          component:vis
         },
         {
           path:'/accountInformation',
