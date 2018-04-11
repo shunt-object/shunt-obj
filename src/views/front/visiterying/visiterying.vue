@@ -193,8 +193,8 @@ export default {
                     if(this.startDate==""&&this.phones==""&&this.expireDate==""){
                         return false;
                     }else if(this.startDate!=""&&this.expireDate!=""&&this.phones==""){
-                            var startTime = Date.parse(new Date(this.startDate))/1000;
-                            var endTime = Date.parse(new Date(this.expireDate))/1000;
+                            var startTime = Date.parse(new Date(this.startDate));
+                            var endTime = Date.parse(new Date(this.expireDate));
                             var obj = {
                                 "endTime": endTime,
                                 "pageReq": {
@@ -206,6 +206,7 @@ export default {
                                 "phone":this.phones,
                                 "startTime": startTime
                             }
+                        console.log(obj)
                     this.$this.post('/broker/result/result/list',obj).then((pon)=>{  //获取消息类型
                                 this.ine = pon.data.content;
                                 this.potal = pon.data.totalElements;
@@ -219,8 +220,8 @@ export default {
                    }else if(this.startDate!=""&&this.expireDate!=""&&this.phones!=""){
                        let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
                         if(phoneReg.test(this.phones)==true){
-                             var startTime = Date.parse(new Date(this.startDate))/1000;
-                            var endTime = Date.parse(new Date(this.expireDate))/1000;
+                             var startTime = Date.parse(new Date(this.startDate));
+                            var endTime = Date.parse(new Date(this.expireDate));
                              var obj = {
                                 "endTime": endTime,
                                 "pageReq": {
@@ -232,6 +233,7 @@ export default {
                                 "phone":this.phones,
                                 "startTime": startTime
                             }
+                            console.log(obj)
                             this.$this.post('/broker/result/result/list',obj).then((pon)=>{  //获取消息类型
                                         this.ine = pon.data.content;
                                         this.potal = pon.data.totalElements;
