@@ -6,14 +6,14 @@
         </div>
         <div class="vis-main">
                  <el-form class="row" style="padding-top:20px;">
-                       <div class="col-md-2"> 
-                            <el-form-item  class="resourceGroup-from-item">
+                       <div > 
+                            <el-form-item  class="resourceGroup-from-item col-md-2">
                                 <el-date-picker v-model="startDate"  type="date" placeholder="选择开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
                                 <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
                             </el-form-item>
                        </div>
-                       <div class="col-md-2">
-                            <el-form-item >
+                       <div >
+                            <el-form-item class="col-md-2">
                                 <el-date-picker v-model="expireDate"  type="date"  placeholder="选择结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
                                 <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
                             </el-form-item>
