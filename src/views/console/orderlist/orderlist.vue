@@ -311,9 +311,12 @@ export default{
                     type: 'value',
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc'
+                            color: '#c2c2c2'
                         }
                     },
+                    nameTextStyle:{
+                        color:'#333'
+                    }
                 },
                 xAxis: {
                     name:name+'订单意向实例',
@@ -326,9 +329,12 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc'
+                            color: '#c2c2c2'
                         }
                     },
+                    nameTextStyle:{
+                        color:'#333'
+                    }
                 },
                 color:[color],
                 series: [{

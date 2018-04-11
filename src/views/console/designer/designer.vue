@@ -301,6 +301,14 @@ height:100%;
                                         data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
                                         axisTick: {
                                             alignWithLabel: true
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: '#c2c2c2'
+                                            }
+                                        },
+                                        nameTextStyle:{
+                                            color:'#333'
                                         }
                                     }
                                 ],
@@ -312,21 +320,20 @@ height:100%;
                                 },
                                 axisLine: {
                                     lineStyle: {
-                                        color: '#999'
+                                        color: '#c2c2c2'
                                     }
                                 },
                                 nameTextStyle:{
-                                    color:'#999'
-                                },
+                                    color:'#333'
                                 }
-                                ],
+                                }],
                                 series : [
                                            
                               
                                     {
                                         name:'数量',
                                         type:'bar',
-                                        barWidth: '60%',
+                                        barWidth : 25,//柱图宽度
                                         data:this.valuters
                                     }
                                 ]

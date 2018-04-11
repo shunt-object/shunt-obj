@@ -18,7 +18,7 @@
        <table id="example" class="table table-striped table-bordered compareList-table" border="1">
              <thead>
                 <tr class="text-center">
-                    <th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>
+                    <!--<th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>-->
                     <th class="col-md-1">应用名称</th>
                     <th class="col-md-1">云分析名称</th>
                     <th class="col-md-3">对比供应商</th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody  id="myTable" v-if="res.length>0" >
                 <tr width="100%" v-for="re in res">
-                    <td><input type="checkbox" name="checkbox" :data-id="re.id"></td>
+                    <!--<td><input type="checkbox" name="checkbox" :data-id="re.id"></td>-->
                     <td>{{re.appname}}</td>
                     <td>{{re.proname}}</td>
                     <td v-if="re.appResults[0]!=null" >
@@ -93,10 +93,10 @@ line-height:30px; float:left; margin-top:13px;
     line-height:30px; background:#fff; color:#2b2b2b;
 }
 .table>thead>tr>th{
-    background:#ebebeb; color:#555; height:50px; text-align:center;
+    background:#f3f3f3; color:#555; height:50px; text-align:center;
 }
 .table>tbody>tr:nth-child(2n)>td{
-    background:#f7f7f7;
+    background:rgb(247, 247, 247);
 }
 .firm-name{
     min-width:100px; text-align:left;

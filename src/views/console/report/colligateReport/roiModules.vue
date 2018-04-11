@@ -1,27 +1,11 @@
 <template>
-<div class="total detadcision-box">
-<div class="total-header detadcision-header">
-    <span></span>
-    预算分析
-</div>
-<div class="roi-content">
-    <div class="roi-main">
-        <div class="roi-header row">
-            <div class="col-md-6 roi-header-left">预算收益统计分析</div>
-            <div class="col-md-6 roi-header-right">工作负载名称：
-                <select class="roiapp-select" v-model="appidModel" v-on:change="appchange()">
-                    <option v-for="item in appmsg" :value="item.id" >{{item.appname}}</option>
-                </select>
+<div>
+    <div class="colligateInvest" v-if="isclick!=2">
+        <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>预算收益统计分析</p>
+        <div class="colligate-list" style="padding:0 2em;">
+            <div class="colligateBuy-echarts">
+                <div class="Invest-echarts" id="Invest-echarts" style="width:100%;height:100%;"></div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10 roi-echats-box">
-                <div class="roi-echarts" id="roi-echarts" style="width:100%;height:100%;"></div>
-            </div>
-            <div class="col-md-1"></div>      
-        </div>
-        <div class="roi-table-box">
             <table class="Invest-table" id="Invest-table" v-if="pricelistOne.length>0">
                 <thead>
                     <tr>                   
@@ -35,7 +19,7 @@
                         <td>规格</td>
                         <td>数量</td>
                         <td>时间</td>
-                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td><!-- v-if="issort!=0" :class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"-->
+                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
                         <td>京玉折扣价</td>
                     </tr>                
                 </thead>
@@ -82,35 +66,43 @@
         </div>
     </div>
 </div>
-</div>
 </template>
 <script>
-import '../roiDecision/roiDecision.css';
-import echarts from 'echarts';
+import echarts from 'echarts'
 export default{
-    name:'roiDecision',
+    props:["appId","type","isclick"],
     data(){
         return {
-            appmsg:[],//应用列表
-            appidModel:'',//默认应用id
-            pricelistOne:[],
             pricelist:[],
-            budgetprice:'',
-            isbudget:false,
-            priceRate:'',
+            pricelistOne:[],
+            issort:'0',//排序
             allInvest:false,
-            issort:'0',
+            budgetprice:'',//预算
+            priceRate:'',//收益率
+            isbudget:false,//是否输入预算
+            charts:'',
         }
     },
     mounted:function(){
-        $(document).keyup(function (evnet) {
-            if (evnet.keyCode == '13') {
-                return false;
-            }
-        });
-        this.getAppMsg();//获取应用
+        this.getPrice();
     },
     methods:{
+        getPrice:function(){
+            let obj = {"ids":[]};
+            this.$this.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
+                //console.log('----',response); 
+                if(response.data.data.length>0){
+                    this.pricelistOne.push({boolean:true,data:response.data.data[0]});
+                    this.$nextTick(function() {
+                        this.canvasInvest('Invest-echarts',[response.data.data[0].pname],[response.data.data[0].cloudPrice],0);
+                    })
+                    for(let i=1;i<response.data.data.length;i++){
+                        this.pricelist.push({boolean:false,data:response.data.data[i]});
+                    }
+                }
+            }).catch((error)=>{
+            })
+        },
         sortPrice:function(){
             let list = [],arr=[];
             list[0] = this.pricelistOne[0];
@@ -119,8 +111,8 @@ export default{
             }
             this.pricelistOne = [];
             this.pricelist = [];
-            if(this.issort=='0'){
-                this.issort = '1';//从小到大
+            if(this.issort=='1'){
+                this.issort = '0';//从小到大
                 for(let i=0; i<list.length; i++){ 
                     for(let j=0; j<list.length; j++){ 
                         if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
@@ -134,38 +126,21 @@ export default{
                 for(let k=1;k<list.length;k++){
                     this.pricelist.push(list[k]);
                 }
-            }else{
-                if(this.issort == '1'){
-                    this.issort = '2';//从大到小
-                    for(let i=0; i<list.length; i++){ 
-                        for(let j=0; j<list.length; j++){ 
-                            if(list[i].data.cloudPrice > list[j].data.cloudPrice){ //从大到小
-                                arr = list[j]; 
-                                list[j] = list[i]; 
-                                list[i] = arr; 
-                            } 
+            }else if(this.issort == '0'){
+                this.issort = '1';//从大到小
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice > list[j].data.cloudPrice){ //从大到小
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
                         } 
-                    }
-                    this.pricelistOne.push(list[0]);
-                    for(let k=1;k<list.length;k++){
-                        this.pricelist.push(list[k]);
-                    }  
-                }else{
-                    this.issort = '1';//从小到大
-                    for(let i=0; i<list.length; i++){ 
-                        for(let j=0; j<list.length; j++){ 
-                            if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
-                                arr = list[j]; 
-                                list[j] = list[i]; 
-                                list[i] = arr; 
-                            } 
-                        } 
-                    }
-                    this.pricelistOne.push(list[0]);
-                    for(let k=1;k<list.length;k++){
-                        this.pricelist.push(list[k]);
-                    }
-                }            
+                    } 
+                }
+                this.pricelistOne.push(list[0]);
+                for(let k=1;k<list.length;k++){
+                    this.pricelist.push(list[k]);
+                }                    
             }
         },
         allClick:function(){
@@ -197,12 +172,8 @@ export default{
                 price = this.budgetprice;
             }
             this.$nextTick(function() {
-                this.canvasROI('roi-echarts',pname,series,price);
+                this.canvasInvest('Invest-echarts',pname,series,price);
             })
-        },
-        appchange:function(){
-            this.budgetprice = '';
-            this.getPrice(this.appidModel);
         },
         budget:function(){//预算
             let arr = 0;
@@ -243,12 +214,11 @@ export default{
                     pname.push(this.pricelistOne[0].data.pname);
                     series.push(this.pricelistOne[0].data.cloudPrice);
                 }
-                //console.log('aaaa',series);
                 this.$nextTick(function() {
-                    this.canvasROI('roi-echarts',pname,series,this.budgetprice);
+                    this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
                 })
                 let obj = {
-                    appid:[this.appidModel],
+                    appid:[this.appId],
                     budget:this.budgetprice,
                     purchaseIds:arr
                 };
@@ -284,57 +254,21 @@ export default{
                     a++;
                 }
             }
+            if(a>0){
+                this.allInvest = false;
+            }
             //console.log('aaaa',series);
             if(this.budgetprice!=''){
                 price = this.budgetprice;
             }
-            if(a>0){
-                this.allInvest = false;
-            }
             this.$nextTick(function() {
-                this.canvasROI('roi-echarts',pname,series,price);
+                this.canvasInvest('Invest-echarts',pname,series,price);
             })
+            
             this.budgetYes();
+            //console.log('-----',this.pricelistOne);
         },
-        getAppMsg:function(){//应用
-            this.$this.get('/broker/app/getAppMsg').then((response)=>{//应用
-                //console.log('bbbbbbb',response);  
-                this.appmsg = response.data.data; 
-                this.appidModel =  response.data.data[0].id; 
-                this.getPrice(response.data.data[0].id);         
-            }).catch((error)=>{});
-        },
-        getPrice:function(appId){
-            //alert(111);
-            let obj = {"ids":[]};
-            this.pricelistOne = [];
-            this.pricelist = [];
-            this.$this.post('/broker/price/purchasing/list/'+appId,JSON.stringify(obj)).then((response)=>{
-                //console.log('----',response); 
-                let pname = [],series = [];
-                if(response.data.data.length>0){
-                    this.pricelistOne.push({boolean:true,data:response.data.data[0]});
-                    for(let i=1;i<response.data.data.length;i++){
-                        this.pricelist.push({boolean:false,data:response.data.data[i]});
-                    }
-                    pname.push(this.pricelistOne[0].data.pname);
-                    series.push(this.pricelistOne[0].data.cloudPrice);
-                    // for(let i=0;i<response.data.data.length;i++){
-                    //     pname.push(response.data.data[i].pname);
-                    //     series.push(response.data.data[i].cloudPrice);
-                    // }
-                }
-                this.$nextTick(function() {
-                    this.canvasROI('roi-echarts',pname,series,0);
-                })
-            }).catch((error)=>{
-            })
-        },
-        canvasROI:function(dom,x,series,centerline){
-            let arr = series;
-            arr.push(centerline);
-            //let max = Math.max.apply(null,arr);
-            //let max = 5000;
+        canvasInvest:function(dom,x,series,centerline){
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -343,11 +277,6 @@ export default{
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                     },
                     formatter:'{b0}: {c0}'
-                },
-                legend: {
-                    data: ['价格'],
-                    top:'10',
-                    right:'10'
                 },
                 grid: {
                     left: '2%',
@@ -385,6 +314,11 @@ export default{
                         color:'#333'
                     }
                 },
+                legend: {
+                    data: ['价格'],
+                    top:'10',
+                    right:'10'
+                },
                 color:['#da121a'],
                 series: [
                     {
@@ -406,7 +340,8 @@ export default{
                         }]
                     }
                 }]
-            },{notMerge: true});
+            });
+                       
         },
     }
 }

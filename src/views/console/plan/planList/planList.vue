@@ -14,31 +14,13 @@
     </div>
     <!-- <div>象限图</div> -->
     <div class="legend-box">
-        <!--<div class="legend">    
-            <div class="legend-list">
-                <span class="legend-block legend-high"></span>
-                高
-            </div> 
-            <div class="legend-list">
-                <span class="legend-block legend-heshi"></span>
-                合适
-            </div>
-            <div class="legend-list">
-                <span class="legend-block legend-yib"></span>
-                一般
-            </div>            
-            <div class="legend-list">
-                <span class="legend-block legend-di"></span>
-                低
-            </div>
-        </div>-->
         <div class="planlist-echarts" id="main"></div>
     </div>
     <!-- 有数据 -->
     <table id="example" class="table table-striped table-bordered planlist-table" border="1">
         <thead>
             <tr style="margin-top:50px; text-align:center" id="tryes">
-                <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
+                <!--<th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>-->
                 <th class="col-md-1 text-center">应用名称</th>
                 <th class="col-md-3 text-center">上云分析名称</th>
                 <th class="col-md-2 text-center">云定性</th>
@@ -49,7 +31,7 @@
         </thead>
         <tbody id="myTable" v-if="sps.length>0" >
             <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
+                <!--<td ><input type="checkbox" :data-id="sp.id" name='b'></td>-->
                 <td >{{sp.appname}}</td>
                 <td >{{sp.proname}}</td>
                 <td  v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>                
@@ -123,7 +105,7 @@ line-height:30px; float:left; margin-top:13px;
 }
 
 .planlist-table>thead>tr>th{
-    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
+    height:54px; background:#f3f3f3 !important; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
     font-size:14px;
@@ -132,7 +114,7 @@ line-height:30px; float:left; margin-top:13px;
     background:#fff;
 }
 .planlist-table>tbody>tr:nth-child(2n)>td{
-    background:#f7f7f7;
+    background:rgb(247, 247, 247);
 }
 .planlist-table tr th input,.planlist-table tr td input{
     width:16px; height:16px; 

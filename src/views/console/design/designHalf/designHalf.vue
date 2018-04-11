@@ -778,11 +778,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999'
+                            color: '#c2c2c2'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     },
                     nameLocation:'end',
                     axisLabel: {  
@@ -798,11 +798,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999'
+                            color: '#c2c2c2'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     },
                 }],
                 series: [

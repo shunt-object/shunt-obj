@@ -199,11 +199,11 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#999'
+                                color: '#c2c2c2'
                             }
                         },
                         nameTextStyle:{
-                            color:'#999'
+                            color:'#333'
                         },
                         nameLocation:'end'
                     }],
@@ -215,11 +215,11 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#999'
+                                color: '#c2c2c2'
                             }
                         },
                         nameTextStyle:{
-                            color:'#999'
+                            color:'#333'
                         },
                     },{
                         type:'value',
@@ -234,11 +234,11 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
-                                color: '#fff'
+                                color: '#c2c2c2'
                             }
                         },
                         nameTextStyle:{
-                            color:'#999'
+                            color:'#333'
                         },
                     }],
                     series: [
