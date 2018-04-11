@@ -5,39 +5,41 @@
             总览
         </div>
         <div class="vis-main">
-                 <el-form>
-                    <el-form-item class="resourceGroup-from-item" label="购买开始时间" :label-width="formLabelWidth" required>
-                        <el-form-item  class="resourceGroup-from-item">
-                            <el-date-picker v-model="startDate"  type="date" placeholder="选择购买开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
-                            <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
-                        </el-form-item>
-                    </el-form-item>
-                    <el-form-item class="resourceGroup-from-item" label="购买结束时间" :label-width="formLabelWidth" required>
-                        <el-form-item >
-                            <el-date-picker v-model="expireDate"  type="date"  placeholder="选择购买结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
-                            <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
-                        </el-form-item>
-                    </el-form-item>
+                 <el-form class="row">
+                       <div class="col-md-2"> 
+                            <el-form-item  class="resourceGroup-from-item">
+                                <el-date-picker v-model="startDate"  type="date" placeholder="选择开始时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :picker-options="pickerOptions0" > </el-date-picker>
+                                <div class="el-form-item__error" v-show="false">起始时间不能为空</div>
+                            </el-form-item>
+                       </div>
+                       <div class="col-md-2">
+                            <el-form-item >
+                                <el-date-picker v-model="expireDate"  type="date"  placeholder="选择结束时间" format="yyyy-MM-dd" value-format="yyyy-MM-dd"  :picker-options="pickerOptions1"> </el-date-picker>
+                                <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
+                            </el-form-item>
+                        </div>
+                        <div class="col-md-2"><input type="text" placeholder="请选择手机号" v-model="phones"></div>
+                        <div class="col-md-1" v-on:click="sxu">筛选</div>
                  </el-form>
               <table id="examples" class="table table-striped table-bordered planlist-table" border="1">
                     <thead>
                         <tr style="margin-top:50px; text-align:center" id="tryeer">
                             <th class="col-md-1 text-center">用户姓名</th>
                             <th class="col-md-3 text-center">应用名称</th>
-                            <th class="col-md-2 text-center">云定性</th>
-                            <th class="col-md-2 text-center">云收益度</th>
-                            <th class="col-md-1 text-center">云亲和度</th>
-                            <th class="col-md-2 text-center">操作</th>
+                            <th class="col-md-2 text-center">模块</th>
+                            <th class="col-md-1 text-center">状态</th>
+                            <th class="col-md-2 text-center">时间</th>
                         </tr>
                     </thead>
-                    <tbody id="myTable" >
-                        <tr  class="  ls text-left" id="trs" width="100%">
-                            <td >{{}}</td>
-                            <td >{{}}</td>
-                            <td >{{}}</td>
-                            <td >{{}}</td>
-                            <td >{{}}</td>
-                            <td >{{}}</td>
+                    <tbody id="myTables" >
+                        <tr  class="  ls text-left" id="trs" width="100%" v-for="ine in ine">
+                            <td >{{ine.username}}</td>
+                            <td >{{ine.appname}}</td>
+                            <td >{{ine.name}}</td>
+                            <td v-if="ine.task_status==2">已完成</td>
+                            <td v-else-if="ine.task_status==1">已做未完成</td>
+                            <td v-else-if="ine.task_status==0">未完成</td>
+                            <td >{{ine.update_time}}</td>
                         </tr>
                     </tbody>    
             </table>  
@@ -46,9 +48,9 @@
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page.sync="currentPage1"
-                        :page-size="sizePage"
+                        :page-size="6"
                         layout="total, prev, pager, next"
-                        :total="Number(this.totalPages)">
+                        :total="Number(this.potal)">
                     </el-pagination>
                 </div>
             </div>                  
@@ -64,11 +66,23 @@
     .vis-main tr{
         height:40px !important;
     }
-    .vis-main tr{
-        line-height:40px;
-    }
     .vis-main th{
+        height:40px !important;
+    }
+    .vis-main tr{
         line-height:40px !important;
+    }
+    .vis-main  th{
+        line-height:40px !important;
+    }
+    .el-pager li.active {
+        color: #da121a !important;
+    }
+    .el-pager li:hover {
+        color: #da121a !important;
+    }
+    .el-pagination button:hover {
+        color: #da121a !important;
     }
 </style>
 <script>
@@ -83,7 +97,10 @@ export default {
              formLabelWidth: '190px',
              startDate:"",
              expireDate:"",
-  
+             ine:[],
+             pages:0,
+             potal:"",
+             phones:"",
             pickerOptions0: {
                 disabledDate(time) {
                        // return time.getTime() < Date.now() - 8.64e7;
@@ -99,14 +116,103 @@ export default {
         }
     },
     methods:{
-         handleSizeChange:function(val){
+                handleSizeChange:function(val){
                     
                 },
                 handleCurrentChange:function(val){
-                      
-                   alert(val)
+                    this.pages = val-1;
+                     this.diao();
+                    // var obj = {
+                    //         "endTime": -1,
+                    //         "pageReq": {
+                    //             "page": 0,
+                    //             "size": 6,
+                    //         },
+                    //         "startTime": -1
+                    //     };
+                    // this.$this.get('/broker/result/result/list').then((pon)=>{  //获取消息类型
+                    //             this.lei = pon.data.data
+                    //     }).catch((error)=>{
+                    // })
 
                 },
+                diao:function(){
+                     var obj = {
+                                "endTime": -1,
+                                "pageReq": {
+                                    "order": "",
+                                    "page": this.pages,
+                                    "size": 6,
+                                    "sort": ""
+                                },
+                                "phone":this.phones,
+                                "startTime": -1
+                            }
+                    this.$this.post('/broker/result/result/list',obj).then((pon)=>{  //获取消息类型
+                                this.ine = pon.data.content;
+                                console.log(pon)
+                                this.potal = pon.data.totalElements;
+                        }).catch((error)=>{
+                    })
+                },
+                sxu:function(){
+                //   if(this.startDate==""){
+                      
+                //   }
+                    if(this.startDate==""&&this.phones==""&&this.expireDate==""){
+                        return false;
+                    }else if(this.startDate!=""&&this.expireDate!=""&&this.phones==""){
+                            var startTime = Date.parse(new Date(this.startDate))/1000;
+                            var endTime = Date.parse(new Date(this.expireDate))/1000;
+                            var obj = {
+                                "endTime": endTime,
+                                "pageReq": {
+                                    "order": "",
+                                    "page": this.pages,
+                                    "size": 6,
+                                    "sort": ""
+                                },
+                                "phone":this.phones,
+                                "startTime": startTime
+                            }
+                    this.$this.post('/broker/result/result/list',obj).then((pon)=>{  //获取消息类型
+                                this.ine = pon.data.content;
+                                this.potal = pon.data.totalElements;
+                        }).catch((error)=>{
+                    })
+                   }else if(this.startDate==""&&this.expireDate==""&&this.phones!=""){
+                        let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+                        if(phoneReg.test(this.phones)==true){
+                            this.diao();
+                        }
+                   }else if(this.startDate!=""&&this.expireDate!=""&&this.phones!=""){
+                       let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+                        if(phoneReg.test(this.phones)==true){
+                             var startTime = Date.parse(new Date(this.startDate))/1000;
+                            var endTime = Date.parse(new Date(this.expireDate))/1000;
+                             var obj = {
+                                "endTime": endTime,
+                                "pageReq": {
+                                    "order": "",
+                                    "page": this.pages,
+                                    "size": 6,
+                                    "sort": ""
+                                },
+                                "phone":this.phones,
+                                "startTime": startTime
+                            }
+                            this.$this.post('/broker/result/result/list',obj).then((pon)=>{  //获取消息类型
+                                        this.ine = pon.data.content;
+                                        this.potal = pon.data.totalElements;
+                                }).catch((error)=>{
+                            })
+                        }
+                      
+                   }
+                }
+    },
+    mounted:function(){
+                   this.diao();
     }
 }
 </script>
