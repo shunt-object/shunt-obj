@@ -18,7 +18,7 @@
                                 <div class="el-form-item__error" v-show="false">结束时间不能为空</div>
                             </el-form-item>
                         </div>
-                        <div class="col-md-2"><input type="text" placeholder="请选择手机号" v-model="phones"></div>
+                        <div class="col-md-2"><input type="text" placeholder="请输入手机号" v-model="phones"></div>
                         <div class="col-md-1" v-on:click="sxu">筛选</div>
                  </el-form>
               <table id="examples" class="table table-striped table-bordered planlist-table" border="1">
