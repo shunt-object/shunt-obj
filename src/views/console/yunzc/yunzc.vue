@@ -76,6 +76,11 @@
  </div>   
 </template>
 <style>
+.el-button:active {
+    color: #fff !important;
+    border-color: #da121a !important;
+    outline: 0;
+}
 .clseys{
     color:#ccc !important;
     background:#fff !important;
@@ -100,7 +105,7 @@
 }
 .enterDing{
     background: #da121a !important;
-     color:#fff;
+     color:#fff !important;
 }
 .btnDAo{
     width:50px;
@@ -242,9 +247,9 @@ import "../plan/planList/datatable.css";
                 var ac =  document.getElementsByName("w");
                 for(var i = 0;i<ac.length;i++){
                     if(ac[i].value==0){
-                        window.location.href="http://172.16.10.39:8080/broker/template/exportByExcel/today"                            
+                        window.location.href="/broker/template/exportByExcel/today"                            
                     }else if(ac[i].value==1){
-                         window.location.href="http://172.16.10.39:8080/broker/template/exportByExcel/all"   
+                         window.location.href="/broker/template/exportByExcel/all"   
                     }
                 }
              }
