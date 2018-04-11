@@ -56,7 +56,7 @@
 </template>
 <style>
 .spana{
-    line-height:50px;
+    /*line-height:50px;*/line-height:50px;
 }
 .compareList{
     min-height:500px; background:#fff; padding:0 15px;
