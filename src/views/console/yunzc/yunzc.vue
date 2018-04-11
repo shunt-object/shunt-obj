@@ -14,8 +14,8 @@
             width="30%"
             >
             <div style="margin:0 auto;text-align:center;">
-                <div style="margin-buttom:20px"><input type="radio" name="w" value="0">&nbsp&nbsp今日用户</div>
-                <div><input type="radio" name="w" value="1">&nbsp&nbsp全部用户</div>          
+                <div style="margin-bottom:10px"><input type="radio" name="w" value="0">&nbsp&nbsp今日用户</div>
+                <div><input type="radio" name="w" value="1">&nbsp&nbsp全部用户</div>
             </div>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="qucenters" class="enterDing">确定</el-button>
@@ -78,7 +78,7 @@
 <style>
 .el-button:active {
     color: #fff !important;
-    border-color: #da121a !important;
+    border-color: #fff !important;
     outline: 0;
 }
 .clseys{
@@ -228,7 +228,11 @@ import "../plan/planList/datatable.css";
                     
   },
          created:function(){
-             this.$this.get('/broker/admin/user/list').then((respone)=>{
+            this.ap();
+         },
+         methods:{
+             ap:function(){
+                    this.$this.get('/broker/admin/user/list').then((respone)=>{
               this.responers = respone.data.data;
               console.log(this.responers)
             //    for(var i=0;i<this.responers.length;i++){
@@ -238,19 +242,26 @@ import "../plan/planList/datatable.css";
             //    }
             }).catch((error)=>{
             })
-         },
-         methods:{
+             },
              fiaer:function(){
                 this.dialogVisible = true;
              },
              qucenters:function(){
-                var ac =  document.getElementsByName("w");
-                for(var i = 0;i<ac.length;i++){
-                    if(ac[i].value==0){
-                        window.location.href="/broker/template/exportByExcel/today"                            
-                    }else if(ac[i].value==1){
-                         window.location.href="/broker/template/exportByExcel/all"   
-                    }
+                var val=$('input:radio[name="w"]:checked')
+                var vals = val.val();
+                var rad = document.getElementsByName("w");
+                if(vals==0){
+                      this.dialogVisible = false;
+                      for(var i=0;i<rad.length;i++){   //为了点击确定之后清楚选中 
+                          rad[i].checked = false;
+                      }
+                      window.location.href="/broker/template/exportByExcel/today";
+                }else if(vals==1){
+                     window.location.href="/broker/template/exportByExcel/all";
+                     for(var i=0;i<rad.length;i++){
+                          rad[i].checked = false;
+                      }
+                     this.dialogVisible = false;
                 }
              }
 //              daochu:function(){
