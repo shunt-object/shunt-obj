@@ -16,6 +16,7 @@
                 </div>
             </div>
            
+           <div style="width:100%;min-height:82vh;background:#fff;" :class="isopens==false?'paddingtop':''">
             <div class="notification-main" v-show="isopens">
                 <div class="kongkong"></div>
                 <div class="notification-mainTable">
@@ -55,7 +56,7 @@
                 <span class="spla">暂无数据</span>
             </div>
         </div>
-    
+    </div>
     
     </div>
 </template>
@@ -136,11 +137,21 @@
    }
   
    .notification-undata{
-        background:#ffffff; width:100%; height:100%; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center; padding-bottom:16%;
+        /*background:#ffffff; width:100%; height:100%; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center; padding-bottom:16%;*/
+        background:#ffffff;
+        width:100%;
+        height:300px;
+        font-size:12px;
+        color:#999;
+        margin-bottom:20px;
+        line-height:24px;
+        text-align:center;
+        border:1px solid #ebebeb;
    }
    .notification-undata img{
-       margin-top:20%;
-       
+       /*margin-top:20%;*/
+       margin-top:100px;
+        margin-bottom:20px;
    }
   
    .notificationTable{

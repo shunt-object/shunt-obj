@@ -1,5 +1,5 @@
 <template>
-<div class="consolePage " id="container">
+<div class="consolePage" id="container">
     <header class="header white-bg not-print">
         <div class="header-logo">
             <div class="sidebar-toggle-box">

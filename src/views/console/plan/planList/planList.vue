@@ -76,10 +76,19 @@
 
 /*暂无数据*/
 .planList-nodata{
-    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+    background:#ffffff;
+    width:100%;
+    height:300px;
+    font-size:12px;
+    color:#999;
+    margin-bottom:20px;
+    line-height:24px;
+    text-align:center;
+    border:1px solid #ebebeb;
 }
 .planList-nodata img{
-    margin-top:200px;
+    margin-top:100px;
+    margin-bottom:20px;
 }
 .planList{
     min-height:500px; background:#fff; padding:0 15px;
