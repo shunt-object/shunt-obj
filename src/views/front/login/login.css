@@ -7,6 +7,7 @@
     font-family:'Microsoft YaHei';
     background:#f7f7f7;
     position:relative;
+    padding-bottom:100px;
 }
 .login-content{
     width:100%;
@@ -33,14 +34,9 @@
     position:relative !important;
 }
 .login-from{
-    /*width:384px;*/
-    /*height:368px;*/
     padding:0 0 50px 0 !important;
     border-radius:5px;
     background:#fff;
-    /*position:absolute !important;
-    right:5%;
-    top:20%;*/
     margin-top:50px !important;
     border:1px solid #efefef;
     box-shadow:0 2px 2px 0 rgba(201,201,201,0.40);
@@ -53,8 +49,6 @@
     text-align:center;
     line-height:60px;
     margin-top:20px;
-    /*border-bottom:1px solid #e4e0e0;*/
-    /*margin-bottom:46px;*/
 }
 .login-fu-title{
     color:#888;
@@ -66,7 +60,6 @@
     position:relative;
     border:1px solid #cccccc;
     border-radius:4px;
-    /*width:315px;*/
     width:100%;
     height:42px;
     margin:0 auto 20px auto;
@@ -76,13 +69,11 @@
 }
 .error{
     border:1px solid red;
-    /*margin-bottom:0;*/
 }
 .phone-notice{
     color:red;
     font-size:12px;
     text-align:left;
-   /* text-indent:80px;*/
     line-height:20px;
 }
 .login-from-list i{
@@ -92,7 +83,6 @@
 }
 .login-from-list input{
     height:38px;
-    /*width:260px;*/
     width:83%;
     border:none;
     outline:none;
@@ -110,7 +100,6 @@
     background:#da121a;
     border:1px solid #da121a;
     border-radius:4px;
-    /*width:315px;*/
     width:100%;
     height:36px;
     font-size:14px;
@@ -121,7 +110,6 @@
     background:#EF131D;
 }
 .login-from-remember{
-    /*width:315px;*/
     width:100%;
     margin:20px auto;
     font-size:12px;
@@ -142,10 +130,9 @@
     text-align: right;
 }
 .login-footer{
-    /*margin-bottom:44px;*/
     position:absolute;
     left:0;
-    bottom:20px;
+    bottom:10px;
     width:100%;
     text-align:center;
 }
@@ -154,4 +141,40 @@
     color:#555;
     line-height:20px;
     text-align:center;
+}
+/*其他方式登录*/
+.otherLogin{
+    width:100%;
+    padding-top:60px;
+}
+.otherLogin-line{
+    width:100%;
+    position:relative;
+}
+.otherLogin-line span{
+    width:100%;
+    height:1px; background:#e0e0e0;
+    position:absolute;
+    left:0;
+    top:8px;
+}
+.otherLogin-line .otherLogin-desc{
+    position:absolute;
+    width:120px;
+    background:#fff;
+    font-size:12px;
+    left:50%;
+    margin-left:-60px;
+    top:0;
+    color:#999;
+}
+.otherLogin-logo{
+    margin-top: 30px;
+    color:#3EB135;    
+}
+.otherLogin-logo span{
+    cursor:pointer;
+}
+.otherLogin-logo i{
+    font-size:32px !important;
 }

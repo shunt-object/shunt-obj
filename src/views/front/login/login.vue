@@ -33,6 +33,16 @@
                             <router-link to="/registerOne" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
                         </div>
                     </div>
+                    <!--其他方式登录-->
+                    <div class="otherLogin">
+                        <div class="otherLogin-line">
+                            <span></span>
+                            <p class="otherLogin-desc">使用其他账号登录</p>
+                        </div>
+                        <div class="otherLogin-logo">
+                            <span><i class="iconfont icon-weixin"></i></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -44,7 +54,6 @@
         <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
-    <router-view></router-view>
 </div>
 </template>
 <script>
@@ -65,6 +74,8 @@ export default{
         }
     },
     mounted:function(){
+        let uuid = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+        console.log('uuid',uuid+uuid+uuid);
         // if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
         //     this.remember = true;
         //     this.password = localStorage.getItem('remPassword');
@@ -87,8 +98,6 @@ export default{
             }
         }
         this.nextTo = this.$route.query.redirect;
-        
-        //console.log('------',this.$route.query.redirect);
     },
     methods:{
         focusone:function(){
