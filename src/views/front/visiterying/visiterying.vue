@@ -19,7 +19,7 @@
                             </el-form-item>
                         </div>
                         <div class="col-md-2"><input type="text" placeholder="请输入手机号" v-model="phones" style="height:40px;border:1px solid #dcdfe6;border-radius: 4px;text-indent:4px;color:#606266"></div>
-                        <div class="col-md-1 shuai" v-on:click="sxu">筛选</div>
+                        <div class="col-md-1 shuai" v-on:click="sxu">搜索</div>
                  </el-form>
               <table id="examples" class="table table-striped table-bordered planlist-table" border="1">
                     <thead>
