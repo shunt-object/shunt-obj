@@ -2,12 +2,12 @@
     <div class="total notification-box">
         <div>
             <div class="row notification-header">
-                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">消息列表</div>
-                    <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
-                        <div style="padding-top:10px">
-                            <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
-                        </div>
+                <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">消息列表</div>
+                <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
+                    <div style="padding-top:10px">
+                        <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
                     </div>
+                </div>
             </div>
             <div class="row notification-xuze">
                 <div class="col-md-1 text-right spanleft" style="margin-top:20px;margin-bottom:20px;margin-left:44px;"><span class="shanrems" v-on:click="creatAdd()" style="background:#da121a;color:#fff !important;"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="font-size:12px;padding-right:6px"></i>添加信息</span></div>
@@ -16,27 +16,27 @@
                      <span class="sp1" v-on:click="zongs">全部</span><p v-for="(le,index) in lei" class="psed"><span  class="sps2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
                 </div>-->
             </div>
-           
-            <div class="notification-main" v-show="isopens">
-                <div class="kongkong"></div>
-                <div class="notification-mainTable">
-                    <table border="1" class="notificationTable containers" borderColor="#e5e5e5">
-                         <thead class="notificationTableth" >
-                            <th class="text-center col-md-1" ><input type="checkbox" v-model="checkboxAll" @change="changeSta" id="tre" /></th>
-                            <th class="text-center col-md-1">发布人</th>
-                            <th class="text-center col-md-6">消息内容</th>
-                            <th class="text-center col-md-2">发生时间</th>
-                            <th class="text-center col-md-2">消息类型</th>
-                         </thead>
-                         <tbody class="notification-mainTabletr" id="tyus">
-                            <tr v-for="dat in dats" id="tryes">
-                                <td class="text-center col-md-1"><input type="checkbox" :data="dat.contentUserId" :ids="dat.id" :statu="dat.status"/></td>
-                                <td class="text-center col-md-1">{{dat.userName}}</td>
-                                <td class="text-center col-md-6"><i :class="dat.status==1?'iconfont icon-yiduxiaoxi':'iconfont icon-zhanneixiaoxi'"></i><span :class="dat.status==1?'yidu':'weidu'">{{dat.content}}</span></td>
-                                <td class="text-center col-md-2">{{dat.modifyDt}}</td>
-                                <td class="text-center col-md-2">{{dat.typeName}}</td>
-                            </tr>
-                         </tbody>
+           <div style="width:100%;min-height:82vh;background:#fff;" :class="isopens==false?'paddingtop':''">
+                <div class="notification-main" v-show="isopens">
+                    <div class="kongkong"></div>
+                    <div class="notification-mainTable">
+                        <table border="1" class="notificationTable containers" borderColor="#e5e5e5">
+                            <thead class="notificationTableth" >
+                                <th class="text-center col-md-1" ><input type="checkbox" v-model="checkboxAll" @change="changeSta" id="tre" /></th>
+                                <th class="text-center col-md-1">发布人</th>
+                                <th class="text-center col-md-6">消息内容</th>
+                                <th class="text-center col-md-2">发生时间</th>
+                                <th class="text-center col-md-2">消息类型</th>
+                            </thead>
+                            <tbody class="notification-mainTabletr" id="tyus">
+                                <tr v-for="dat in dats" id="tryes">
+                                    <td class="text-center col-md-1"><input type="checkbox" :data="dat.contentUserId" :ids="dat.id" :statu="dat.status"/></td>
+                                    <td class="text-center col-md-1">{{dat.userName}}</td>
+                                    <td class="text-center col-md-6"><i :class="dat.status==1?'iconfont icon-yiduxiaoxi':'iconfont icon-zhanneixiaoxi'"></i><span :class="dat.status==1?'yidu':'weidu'">{{dat.content}}</span></td>
+                                    <td class="text-center col-md-2">{{dat.modifyDt}}</td>
+                                    <td class="text-center col-md-2">{{dat.typeName}}</td>
+                                </tr>
+                            </tbody>
                     </table>
                 </div>
                 <div class="kongbottom"></div>
@@ -58,7 +58,7 @@
                 暂无数据
             </div>
         </div>
-    
+    </div>
     
     </div>
 </template>
@@ -139,10 +139,21 @@
    }
   
    .notification-undata{
-        background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+        /*background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;*/
+        background:#ffffff;
+        width:100%;
+        height:300px;
+        font-size:12px;
+        color:#999;
+        margin-bottom:20px;
+        line-height:24px;
+        text-align:center;
+        border:1px solid #ebebeb;
    }
    .notification-undata img{
-       margin-top:20%;
+       /*margin-top:20%;*/
+       margin-top:100px;
+        margin-bottom:20px;
    }
    .notificationTable{
       margin-top:30px !important;
@@ -225,6 +236,9 @@
 }
 .ac{
     color:red
+}
+.paddingtop{
+    padding:50px 20px;
 }
 </style>
 <script>

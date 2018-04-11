@@ -59,7 +59,7 @@
     line-height:50px;
 }
 .compareList{
-    min-height:500px; background:#fff; padding:0 15px;
+    min-height:81vh; background:#fff; padding:0 15px;
 }
 .compareList-search{
     background:#ffffff; box-shadow:0 1px 1px 0 rgba(222,222,222,0.50); width:100%; height:57px;border-bottom:1px solid #e5e5e5;
@@ -106,10 +106,20 @@ line-height:30px; float:left; margin-top:13px;
 }
 /*暂无数据*/
 .compareList-nodata{
-    background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+    /*background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;*/
+    background:#ffffff;
+    width:100%;
+    height:300px;
+    font-size:12px;
+    color:#999;
+    margin-bottom:20px;
+    line-height:24px;
+    text-align:center;
+    border:1px solid #ebebeb;
 }
 .compareList-nodata img{
-    margin-top:20%;
+    margin-top:100px;
+    margin-bottom:20px;
 }
 *{
     margin:0px;
