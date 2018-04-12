@@ -178,3 +178,40 @@
 .otherLogin-logo i{
     font-size:32px !important;
 }
+/*微信扫码弹框*/
+.wechart-box .el-dialog{
+    width:30%;
+}
+.wechart-box .el-dialog__header{
+    border:none !important;
+}
+.wechart-img img{
+    width:90%;
+}
+.wechart-title{
+    font-size:16px;
+    font-family:'微软雅黑';
+    color:#333;
+}
+.wechart-desc{
+    font-size:12px;
+    line-height:20px;
+    color:#666;
+}
+.wechart-success{
+    text-align:left;
+    font-size:16px;
+    color:#333;
+    line-height:28px;
+}
+.wechart-success i{
+    color:#3EB135;
+    font-size:28px !important;
+    float:left;
+    margin-right:5px;
+}
+@media (max-width: 768px) {
+    .wechart-box .el-dialog{
+        width:90%;
+    }
+}

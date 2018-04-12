@@ -158,6 +158,7 @@ Vue.prototype.logout = function(){
             sessionStorage.removeItem("utype");
             sessionStorage.removeItem("accountId");
             sessionStorage.removeItem("account");
+            sessionStorage.removeItem('uuid')
             sessionStorage.clear();
             localStorage.removeItem("as");
             this.$router.push({path:'/'});
@@ -169,7 +170,7 @@ Vue.prototype.logout = function(){
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-        if (sessionStorage.getItem("accountId")) {  // 通过vuex state获取当前的token是否存在
+        if (sessionStorage.getItem("account")) {  // 通过vuex state获取当前的token是否存在
             next();
         }else {
             next({

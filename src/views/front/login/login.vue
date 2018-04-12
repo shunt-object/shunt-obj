@@ -40,7 +40,7 @@
                             <p class="otherLogin-desc">使用其他账号登录</p>
                         </div>
                         <div class="otherLogin-logo">
-                            <span><i class="iconfont icon-weixin"></i></span>
+                            <span v-on:click="wechart()"><i class="iconfont icon-weixin"></i></span>
                         </div>
                     </div>
                 </div>
@@ -54,6 +54,19 @@
         <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
         <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
+    <!-- 微信登录弹框 -->
+    <el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
+        <div class="wechart-title">微信登录</div>
+        <div class="wechart-img">
+            <img :src="wechartUrl" alt="">
+        </div>
+        <div class="wechart-desc">
+            请使用微信扫描二维码登录<br>CloudBroker²
+        </div>
+        <div class="wechart-success" v-show="success">
+            <i class="iconfont icon-duihao2"></i>扫描成功
+        </div>
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -70,12 +83,14 @@ export default{
             ishave:false,
             passwordText:'',
             remember:true,
-            nextTo:''
+            nextTo:'',
+            dialogUnbing:false,
+            wechartUrl:'',
+            timer:'',
+            success:false
         }
     },
     mounted:function(){
-        let uuid = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-        console.log('uuid',uuid+uuid+uuid);
         // if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
         //     this.remember = true;
         //     this.password = localStorage.getItem('remPassword');
@@ -100,6 +115,45 @@ export default{
         this.nextTo = this.$route.query.redirect;
     },
     methods:{
+        closeDialog:function(){
+            clearInterval(this.timer);
+        },
+        chekwechart:function(sceneid){
+            let that = this;
+            this.timer = setInterval(function(){
+                that.$this.get('/broker/auth/check/wxscan/'+sceneid).then((res)=>{
+                    if(res.data.data=='-1'){
+                        //console.log('未扫描');
+                    }else{
+                        clearInterval(that.timer);
+                        sessionStorage.setItem("utype",res.data.data.utype);
+                        sessionStorage.setItem("account",JSON.stringify(res.data.data));
+                        that.success = true;
+                        setTimeout(function(){
+                            that.dialogUnbing = false;
+                            that.$router.push({path:'/consolePage'});
+                        },1000)
+                    }
+                }).catch((error)=>{})
+            },1000)
+        },
+        wechart:function(){//微信登录
+            let uuid='',sceneid='';
+            if(sessionStorage.getItem('uuid')){
+                sceneid = sessionStorage.getItem('uuid');
+            }else{
+                uuid = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+                sceneid = uuid+uuid+uuid;
+                sessionStorage.setItem('uuid',sceneid)
+            }
+            //console.log('uuid',uuid+uuid+uuid);
+            this.$this.get('/broker/auth/wxqcode/'+sceneid).then((res)=>{
+                //console.log('wechart',res.data);
+                this.wechartUrl = res.data.data;
+                this.dialogUnbing = true;
+                this.chekwechart(sceneid);
+            }).catch((error)=>{})
+        },
         focusone:function(){
             $(".login-list-one").addClass('login-from-list-focus');
         },
@@ -137,14 +191,7 @@ export default{
                 let that = this;
                 this.$this.post('/broker/auth/login',str).then((res)=>{
                     //console.log('login',res);
-                    if(res.data.code=='1'){
-                        // if(this.$route.query.redirect==undefined){
-                        //     this.$router.push({path:'/'});
-                        // }else{
-                        //     this.$router.push({path:'/consolePage'});  
-                        // }
-                        //console.log(this.$route.query.redirect);
-                                             
+                    if(res.data.code=='1'){                                             
                         //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);
