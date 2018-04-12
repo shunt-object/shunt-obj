@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     
-    <transition  enter-active-class="fadeIn" leave-active-class="fadeIn">
+    <!--<transition  enter-active-class="fadeIn" leave-active-class="fadeIn">
         <router-view class="animated"></router-view>
-    </transition>
+    </transition>-->
+    <router-view></router-view>
   </div>
 </template>
 
