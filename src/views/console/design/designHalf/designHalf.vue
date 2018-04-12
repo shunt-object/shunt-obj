@@ -384,9 +384,7 @@ export default{
                 {name:'11个月',month:11}
             ],
             clouldcompany:[
-                {id:'11',name:'华为云'},
-                {id:'10',name:'腾讯云'},
-                {id:'7',name:'阿里云'}
+                // {id:'11',name:'华为云'},
             ],
             selectcompany:'11',
             month:-1,
@@ -417,9 +415,21 @@ export default{
         this.appId = this.id;
         this.lookobj.appid = this.id;
         this.getRegion(-1);
+        this.getCloudlist();//云厂商列表
        // console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
+        getCloudlist:function(){
+            this.$this.get('/broker/price/suppliers/list').then((res)=>{
+               // console.log(res.data.data);
+                for(let i=0;i<res.data.data.length;i++){                    
+                    for(let n in res.data.data[i]){
+                        this.clouldcompany.push({id:n,name:res.data.data[i][n]})
+                    }
+                }
+                console.log(this.clouldcompany);
+            }).catch((error)=>{})
+        },
         sortPrice:function(){
             let list = [],arr=[];
             for(let i=0;i<this.priceClould.length;i++){
