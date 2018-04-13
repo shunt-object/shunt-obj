@@ -295,13 +295,13 @@ export default{
         $('.icon-reorder').click(function () {
             if ($('#sidebar > ul').is(":visible") === true) {
                 $('#main-content').css({
-                    'margin-left': '30px'
+                    'margin-left': '0px'
                 });
-                // $('#sidebar').css({
-                //     'margin-left': '-180px'
-                // });
-                // /$('#sidebar > ul').hide();
-                //$("#container").addClass("sidebar-closed");
+                $('#sidebar').css({
+                    'margin-left': '-180px'
+                });
+                $('#sidebar > ul').hide();
+                $("#container").addClass("sidebar-closed");
             } else {
                 $('#main-content').css({
                     'margin-left': '180px'
