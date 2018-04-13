@@ -89,7 +89,7 @@
     <aside>
         <div id="sidebar"  class="nav-collapse not-print">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" >
                 <li class="active" v-on:click="index()" style="border-bottom:none !important;">
                     <a class="outhover" href="javascript:;">
                         <!--<i class="icon-dashboard"></i>-->
@@ -146,7 +146,13 @@
                 </li>
             </ul>
             <!-- sidebar menu end-->
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
         </div>
+     
     </aside>
     <section id="main-content" style="min-height:100vh;background:#f3f3f3;">
         <section class="wrapper">
@@ -216,8 +222,9 @@ import '../consolePage/consolePage.css'
 
 
 
-
+var  la = 0; 
 export default{
+
     name:'consolePage',
     data(){
         return {
@@ -271,7 +278,7 @@ export default{
             
         });
         
-
+        $("#sidebar>ol").hide();
         $('#sidebar .sub-menu > a').click(function () {
             var last = $('.sub-menu.open', $('#sidebar'));
             last.removeClass("open");
@@ -293,24 +300,58 @@ export default{
         $(window).on('load', this.responsiveView());
         $(window).on('resize', this.responsiveView());
         $('.icon-reorder').click(function () {
-            if ($('#sidebar > ul').is(":visible") === true) {
-                $('#main-content').css({
-                    'margin-left': '30px'
-                });
-                // $('#sidebar').css({
-                //     'margin-left': '-180px'
+            la++;
+           if (la%2) {
+                // $('#main-content').css({
+                //     'margin-left': '20px'
+                //alert(1)
                 // });
-                // /$('#sidebar > ul').hide();
+                $('#sidebar > ul').css({
+                    'margin-left': '-180px',
+                    "diaplay":"none"
+                });
+                $("#sidebar>ol").show();
+                $(".sub").hide();
+                $(".sub-menu > a ").css({
+                    "display":"none"
+                })
+                $("#sidebar").css({
+                    "width":"90px"
+                })
+            //    $('#sidebar > ul').hide();
+                $('#main-content').css({
+                    'margin-left': '90px'
+                });  
+                $(".active").hide();
                 //$("#container").addClass("sidebar-closed");
             } else {
+                // $('#main-content').css({
+                //     //'margin-left': '180px'
+                // });
+                // $('#sidebar > ul').show();
+                // $('#sidebar').css({
+                //     'margin-left': '0'
+                // });
+                // $("#container").removeClass("sidebar-closed");
+                // alert(2)
+                //  this.thise = true;
+                // this.thisa = false;
+                 $('#sidebar > ul').css({
+                    'margin-left': '0',
+                    
+                });
+                $(".sub-menu > a ").css({
+                    "display":"block"
+                })
+                $("#sidebar").css({
+                    "width":"180px"
+                })
+            //    $('#sidebar > ul').hide();
                 $('#main-content').css({
                     'margin-left': '180px'
-                });
-                $('#sidebar > ul').show();
-                $('#sidebar').css({
-                    'margin-left': '0'
-                });
-                $("#container").removeClass("sidebar-closed");
+                }); 
+                $("#sidebar>ol").hide();
+                $(".active").show();
             }
         });
         this.username = JSON.parse(sessionStorage.getItem("account")).realname;
