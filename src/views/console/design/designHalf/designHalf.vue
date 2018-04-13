@@ -116,7 +116,7 @@
                     <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
                     <td class="designHalf-public-bg designHalf-w-5">内存</td>
                     <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
-                    <td class="designHalf-public-bg designHalf-w-10">云厂商评星</td>
+                    <td class="designHalf-public-bg designHalf-w-10">优选评星</td>
                     <td class="designHalf-public-bg designHalf-w-10">价格评星</td>
                 </tr>                
             </thead>
