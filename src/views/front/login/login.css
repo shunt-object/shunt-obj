@@ -188,6 +188,11 @@
 .wechart-box .el-dialog__header{
     border:none !important;
 }
+.wechart-box .el-dialog__headerbtn{
+    width:40px;
+    height:40px;
+    cursor:pointer;
+}
 .wechart-img img{
     width:80%;
     display:block;
