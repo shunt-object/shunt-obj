@@ -98,45 +98,51 @@
             <thead>
                 <tr>
                     <td class="designHalf-w-5" rowspan="2"><input type="checkbox" v-model="allselect" v-on:click="whole()"><br>全选</td>
-                    <td class="designHalf-w-6" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-6" rowspan="2">产品名称</td>
+                    <td class="designHalf-w-5" rowspan="2">云厂商</td>
+                    <td class="designHalf-w-5" rowspan="2">产品名称</td>
                     <td class="designHalf-w-6" rowspan="2">角色类型</td>
                     <td class="designHalf-w-6" rowspan="2">配置类型</td>                    
-                    <td class="designHalf-w-6" rowspan="2">区域</td>
-                    <td class="designHalf-w-28" align="center" valign="middle" colspan="4">购买规格</td>
-                    <td class="designHalf-w-6" rowspan="2">数量</td>
+                    <td class="designHalf-w-5" rowspan="2">区域</td>
+                    <td class="designHalf-w-20" align="center" valign="middle" colspan="4">购买规格</td>
+                    <td class="designHalf-w-5" rowspan="2">数量</td>
                     <td class="designHalf-w-6" rowspan="2">购买周期</td>
-                    <td class="designHalf-w-6" style="cursor:pointer;" rowspan="2" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
+                    <td class="designHalf-w-5" style="cursor:pointer;" rowspan="2" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
                     <td class="designHalf-w-6" rowspan="2">京玉折扣价</td>
-                    <td class="designHalf-w-6" rowspan="2">意向购买</td>
+                    <td class="" align="center" valign="middle" colspan="2">评星</td>
+                    <td class="designHalf-w-10" rowspan="2">意向购买</td>
                 </tr>
                 <tr>
-                    <td class="designHalf-public-bg designHalf-w-7">CPU</td>
-                    <td class="designHalf-public-bg designHalf-w-7">处理器主频</td>
-                    <td class="designHalf-public-bg designHalf-w-7">内存</td>
-                    <td class="designHalf-public-bg designHalf-w-7">系统盘</td>
+                    <td class="designHalf-public-bg designHalf-w-5">CPU</td>
+                    <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
+                    <td class="designHalf-public-bg designHalf-w-5">内存</td>
+                    <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
+                    <td class="designHalf-public-bg designHalf-w-10">云厂商评星</td>
+                    <td class="designHalf-public-bg designHalf-w-10">价格评星</td>
                 </tr>                
             </thead>
             <tbody>
                 <tr v-for="(item,index) in priceClould">
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio(index)"></td>
-                    <td class="designHalf-w-6">{{item.data.sname}}</td>
-                    <td class="designHalf-w-6">{{item.data.pname}}</td>
-                    <td class="designHalf-w-6">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':'--'}}</td>
-                    <td class="designHalf-w-6">{{item.data.vmtype=='17'?'高配':item.data.vmtype=='18'?'低配':'--'}}</td>
-                    <td class="designHalf-w-6">{{item.data.region}}</td>
-                    <td class="designHalf-w-7">{{item.data.cores}}</td>
-                    <td class="designHalf-w-7"><!--{{item.data.ghz}}-->--</td>
-                    <td class="designHalf-w-7">{{item.data.ram}}</td>
-                    <td class="designHalf-w-7"><!--{{item.data.localDisk}}-->40GB</td>
-                    <td class="designHalf-w-6">{{item.data.num}}</td>
-                    <td class="designHalf-w-6">{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.cloudPrice==0?'原厂在线暂不支持':item.data.cloudPrice}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'线下联系':item.data.csbPrice}}</td>
-                    <td class="designHalf-w-10">
-                        <button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
+                    <td style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio(index)"></td>
+                    <td>{{item.data.sname}}</td>
+                    <td>{{item.data.pname}}</td>
+                    <td>{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':'--'}}</td>
+                    <td>{{item.data.vmtype=='17'?'高配':item.data.vmtype=='18'?'低配':'--'}}</td>
+                    <td>{{item.data.region}}</td>
+                    <td>{{item.data.cores}}</td>
+                    <td><!--{{item.data.ghz}}-->--</td>
+                    <td>{{item.data.ram}}</td>
+                    <td><!--{{item.data.localDisk}}-->40GB</td>
+                    <td>{{item.data.num}}</td>
+                    <td>{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
+                    <td>￥{{item.data.cloudPrice==0?'原厂在线暂不支持':item.data.cloudPrice}}</td>
+                    <td>￥{{item.data.csbPrice==0?'线下联系':item.data.csbPrice}}</td>
+                    <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="item.data.serverStar>index?'startd-active':'startd'"></i></td>
+                    <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="item.data.priceStar>index?'startd-active':'startd'"></i></td>
+                    <td>
+                        <!--<button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
                             <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>加入购物车
-                        </button>
+                        </button>-->
+                        <span style="color:#f7a72c;" v-on:click="gobuy(item.data.id)"><i class="iconfont icon-gouwuche1" style="margin-right:3px;font-size:20px !important;"></i></span>
                     </td>
                 </tr>
             </tbody>

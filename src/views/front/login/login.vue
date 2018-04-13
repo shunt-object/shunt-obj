@@ -40,7 +40,7 @@
                             <p class="otherLogin-desc">使用其他账号登录</p>
                         </div>
                         <div class="otherLogin-logo">
-                            <span v-on:click="wechart()"><i class="iconfont icon-weixin"></i></span>
+                            <span v-on:click="wechart()"><i class="iconfont icon-weixin weixin-logo"></i></span>
                         </div>
                     </div>
                 </div>

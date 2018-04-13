@@ -50,17 +50,17 @@ export default{
                     size:12,
                     face:'Microsoft YaHei'
                 },
-                //image:'aa.jpg'
+                fixed:false
             },
             interaction:{
                 zoomView:false,
                 hover: false,//鼠标移过后加粗该节点和连接线
-                dragNodes:true,//是否能拖动节点
+                dragNodes:false,//是否能拖动节点
                 dragView:false,//是否能拖动画布
                 selectConnectedEdges:false,//选择节点后是否显示连接线
                 hoverConnectedEdges:false,//鼠标滑动节点后是否显示连接线
-                selectable:true,//是否可以点击选择
-                multiselect:true,//按 ctrl 多选
+                selectable:false,//是否可以点击选择
+                multiselect:false,//按 ctrl 多选
                 navigationButtons:false,//是否显示控制按钮
             },
             edges: {
@@ -122,6 +122,25 @@ export default{
                         edges: edges
                     };
                     var network = new vis.Network(this.container, this.graphdata, this.graphoptions);
+                    let that = this;
+                    // network.on('click',function(params){
+                    //     //console.log('edges',network.getSelectedEdges());
+                    //     console.log(network.getSelectedNodes());
+                        
+                    //     that.graphoptions.layout = {};
+                    //     console.log('click',params);
+                    //     if(params.items.length==0){
+                    //         let aa = network.getSelectedNodes();
+                    //         network.addEdgeMode({from:2,to:aa,label:'最新'});
+                    //     }
+                    //     if(params.nodes.length>0){                         
+                    //         //network.clustering.updateClusteredNode(params.nodes[0], {shape : 'star',});
+                    //     }else{
+                    //         console.log('edges',edges);
+                    //         network.deleteSelected();;
+                    //         //network.clustering.updateEdge(params.edges[0],{from:2,to:3,label:'最新'});
+                    //     }
+                    // })
                 }
                 
             }).catch((error)=>{})

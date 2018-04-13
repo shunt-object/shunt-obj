@@ -178,6 +178,9 @@
 .otherLogin-logo i{
     font-size:32px !important;
 }
+.weixin-logo:hover{
+    color:#47C43E;
+}
 /*微信扫码弹框*/
 .wechart-box .el-dialog{
     width:30%;
@@ -186,18 +189,18 @@
     border:none !important;
 }
 .wechart-img img{
-    width:90%;
+    width:80%;
     display:block;
     margin:0 auto;
 }
 .wechart-title{
-    font-size:16px;
+    font-size:18px;
     font-family:'微软雅黑';
     color:#333;
     text-align:center;
 }
 .wechart-desc{
-    font-size:12px;
+    font-size:14px;
     line-height:20px;
     color:#666;
     text-align:center;
@@ -216,6 +219,6 @@
 }
 @media (max-width: 768px) {
     .wechart-box .el-dialog{
-        width:90%;
+        width:80%;
     }
 }
