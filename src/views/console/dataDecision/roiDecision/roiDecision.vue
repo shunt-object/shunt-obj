@@ -360,7 +360,6 @@ export default{
                     data: x,
                     name:'实例',
                     axisLabel:{
-                        color:'#333',
                         interval:0,  
                         rotate:20                    
                     },
@@ -398,11 +397,14 @@ export default{
                                 color: "#f7a72c",
                                 type: 'solid',
                                 width: 2,
+                            },
+                            emphasis: {
+                                color: "#f7a72c"
                             }
                         },
                         data: [ {
                             yAxis: centerline,
-                            name: '预算'
+                            name: '预算',
                         }]
                     }
                 }]

@@ -239,7 +239,7 @@
     float:right;
     margin-top:10px;
 }
-.designHalfbtn:hover{
+.designHalfbtn:hover,.go-balance:hover{
     background:#EF131D;
 }
 .designHalfprev{
@@ -296,13 +296,11 @@
 .go-balance{
     background:#da121a;
     border-radius:2px;
-    width:98px;
-    height:44px;
+    width:94px;
+    height:35px;
     font-size:14px;
-    color:#ffffff;
-    margin-top:24px;
-}
-.go-balance{
+    color:#f0f0f0;
+    margin-top:30px;
     margin-left:20px;
 }
 .balance-right span,.balance-left span{

@@ -100,18 +100,23 @@ export default{
             this.account = localStorage.getItem('remAccount');
         }
         let that = this;
-        $(".ikl").focus();
+        //$(".ikl").focus();
         //   $(document).ready(function(){
         //     // $(".inpuys").focus();
         //     $(".inpuys").onkeyup(function(){
         //         alert(1)
         //     })
         // })
-        $(".ikl").get(0).onkeyup = function(evnet){
+        // $(".ikl").get(0).onkeyup = function(evnet){
+        //     if (evnet.keyCode == '13') {
+        //         that.login();
+        //     }
+        // }
+        $(document).keyup(function (evnet) {
             if (evnet.keyCode == '13') {
                 that.login();
             }
-        }
+        });
         this.nextTo = this.$route.query.redirect;
     },
     methods:{

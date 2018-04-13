@@ -284,7 +284,6 @@ export default{
                     boundaryGap: false,
                     data: this.compareTypes,
                     axisLabel:{
-                        color:'#333',
                         interval:0,  
                         rotate:30                   
                     },
@@ -294,7 +293,7 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#333'
+                        color:'#c2c2c2'
                     }
                 },
                 yAxis: {
@@ -309,6 +308,7 @@ export default{
                         color:'#333'
                     }
                 },
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 series: compareSeries
             },{notMerge: true});
         },
@@ -339,7 +339,6 @@ export default{
                     data:designType,
                     name:'类型',                    
                     axisLabel:{
-                        color:'#333',
                         interval:0,  
                         rotate:30                   
                     },
@@ -355,9 +354,6 @@ export default{
                 yAxis: {
                     type: 'value',
                     name:'数量',                    
-                    axisLabel:{
-                        color:'#333'                   
-                    },
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2'

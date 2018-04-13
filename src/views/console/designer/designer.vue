@@ -16,8 +16,8 @@
                     </div>
                     <div class="designTabj row" v-show="digaopeis">
                         <p class="col-md-12" style="width:300px;margin-left:15px;">
-                            <span v-on:click="dipei" class="col-md-4 col-xs-4">低配</span>
-                            <span v-on:click="gaopei" class="col-md-4 col-xs-4 gaopeiss">高配</span>
+                            <span v-on:click="dipei" class="col-md-4 col-xs-4 peiSpan">低配</span>
+                            <span v-on:click="gaopei" class="col-md-4 col-xs-4 peiSpan gaopeiss">高配</span>
                         </p>
                     </div>
                     <div  class="col-md-12">
@@ -25,7 +25,7 @@
                     </div>
                     <div v-show="yyshow">
                         <div style="margin-bottom:50px;">应用服务月度数量统计分析</div>
-                       <table class="designHalf-table-public" id="example" style="margin-left:30px">
+                       <table class="designHalf-table-public designerTable" id="example" style="margin-left:30px">
                        
                             <thead>
                                 <tr>
@@ -86,7 +86,7 @@
                     </div>
                     <div v-show="sjshow">
                     <div style="margin-bottom:50px;">数据库服务月度数量统计分析</div>
-                       <table class="designHalf-table-appServer designHalf-table-public" id="example" style="margin-left:30px">
+                       <table class="designHalf-table-appServer designHalf-table-public designerTable" id="example" style="margin-left:30px">
                             <thead>
                                 <tr>
                                     <td class="designHalf-w-6" rowspan="2">应用名称</td>
@@ -150,7 +150,7 @@
 </template>
 <style>
 .hoverspanRouter:hover{ cursor:pointer;  }
-.designHalf-table-public{ width:95% !important;  }
+.designerTable{ width:95% !important;  }
 .designHeader{ padding-bottom:20px; margin-top:20px; }
 .designTop{
 width:100%;
@@ -246,6 +246,12 @@ height:100%;
       border-radius:1px;
       color:#fff !important;
       border:1px solid #f7a72c  !important;
+  }
+  .designTabjBj:hover{
+      background:#FFB730 !important;
+  }
+  .peiSpan:hover{
+    background:#F5F7FA;
   }
  
 </style>

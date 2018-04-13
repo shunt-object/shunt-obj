@@ -40,8 +40,8 @@
         </div>
         <div class="designTabj row" v-show="digaopei">
             <p style="width:300px;margin-left:15px;" class="col-md-12">
-                <span v-on:click="dipeis" class="col-md-4">低配</span>
-                <span v-on:click="gaopeis" class="col-md-4"  style="margin-left:20px;">高配</span>
+                <span v-on:click="dipeis" class="col-md-4 peiSpan">低配</span>
+                <span v-on:click="gaopeis" class="col-md-4 peiSpan"  style="margin-left:20px;">高配</span>
             </p>
         </div>
         <div class="design-notice col-md-12" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
@@ -298,7 +298,8 @@
     border-top:1px solid #ddd !important;
 }
     .HoverSPAN:hover{
-        cursor:pointer
+        cursor:pointer;
+        color:#666;
     }
     .designHeader{
         /*min-height:90vh;
@@ -382,7 +383,7 @@
 .ys{ color:#da121a; font-size:12px; }
 .ds{ font-size:12px; color:#969696; }
 .trds{ font-size:14px; color:#777777; }
-.designTabjBj{ background:#f7a72c; border-radius:1px; color:#fff !important; border:1px solid #f7a72c  !important; }
+.designTabjBj{ background:#f7a72c !important; border-radius:1px; color:#fff !important; border:1px solid #f7a72c  !important; }
 .buttonHovers:hover{ color:#da121a; }
 @media (min-width: 768px) {   /* pc */
     /*.icon-tiam{padding-left:200px}*/
@@ -667,6 +668,12 @@ a:hover{
 .el-input--suffix .el-input__inner{
     padding-right:15px !important
 }
+ .designTabjBj:hover{
+      background:#FFB730 !important;
+  }
+  .peiSpan:hover{
+    background:#F5F7FA;
+  }
 
 </style>
 <script>
