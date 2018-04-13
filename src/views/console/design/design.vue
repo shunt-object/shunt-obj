@@ -793,11 +793,13 @@ export default{
             interaction:{
                 zoomView:false,
                 hover: false,//鼠标移过后加粗该节点和连接线
-                dragNodes:false,//是否能拖动节点
+                dragNodes:true,//是否能拖动节点
                 dragView:false,//是否能拖动画布
                 selectConnectedEdges:false,//选择节点后是否显示连接线
                 hoverConnectedEdges:false,//鼠标滑动节点后是否显示连接线
-                selectable:false,//是否可以点击选择
+                selectable:true,//是否可以点击选择
+                multiselect:false,//按 ctrl 多选
+                navigationButtons:false,//是否显示控制按钮
             },
             edges: {
                 shadow:false,//连接线阴影配置
@@ -814,6 +816,9 @@ export default{
                     sortMethod: 'directed' 
                 }, //层级结构显示}
             },
+            physics:{
+                enabled:false
+            }
         };
         this.index = 1;  //1是应用服务
         this.gaopeis();
