@@ -228,9 +228,9 @@ export default{
                             formatter: '{value}'
                         },
                         max: function(value) {
-                            for(let i=0;i<12;i++){
-                                that.maxY[i]=Math.ceil((value.max-1)/5)*5;
-                            }
+                            // for(let i=0;i<12;i++){
+                            //     that.maxY[i]=Math.ceil((value.max-1)/5)*5;
+                            // }
                         },
                         axisLine: {
                             lineStyle: {
@@ -242,17 +242,17 @@ export default{
                         },
                     }],
                     series: [
-                        { // For shadow
-                        type: 'bar',
-                        itemStyle: {
-                            normal: {color: 'rgba(247,247,247,0.4)'}
-                        },
-                        barWidth:'25',
-                        barGap:'-100%',
-                        barCategoryGap:'40%',
-                        data: this.maxY,
-                        animation: false
-                    },
+                    //     { // For shadow
+                    //     type: 'bar',
+                    //     itemStyle: {
+                    //         normal: {color: 'rgba(247,247,247,0.4)'}
+                    //     },
+                    //     barWidth:'25',
+                    //     barGap:'-100%',
+                    //     barCategoryGap:'40%',
+                    //     data: this.maxY,
+                    //     animation: false
+                    // },
                     {
                         name:'上云总数',
                         type:'bar',
