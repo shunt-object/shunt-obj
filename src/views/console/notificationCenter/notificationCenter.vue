@@ -329,6 +329,7 @@
 
                 }
             },
+          
             // updated:function(){
             //     this.handleCurrentChange(1)
             // },
@@ -413,8 +414,10 @@
                                         "sort": null
                                     }
                             }
+                            console.log(a)
                     this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                 this.dats = response.data.data.content;      
+                                 this.dats = response.data.data.content;  
+                                 console.log(this.dats)    
                                   this.totalPages = response.data.data.totalElements;
                                    this.weidulook();
                                 if(this.totalPages ==0){
