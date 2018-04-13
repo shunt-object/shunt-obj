@@ -251,7 +251,7 @@
         <h4 class="text-center" style="font-weight:100">
           现在开启您的上云分析之旅
         </h4>
-        <span class="PlanLj" v-on:click="ctaCloundCsbs">立即体验</span>
+        <span class="PlanLj" v-on:click="ctaCloundCsbsD">立即体验</span>
       </div>
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
@@ -581,8 +581,11 @@ export default {
 
         // },
         ctaCloundCsbs:function(){
-            //window.open("http://demo.csb-china.com")
-             this.$router.push({path: '/registerOne'});
+            var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
+             //this.$router.push({path: '/registerOne'});
+        },
+        ctaCloundCsbsD:function(){
+            this.$router.push({path: '/registerOne'});
         },
         PlanLj:function(){
              this.$router.push({path: '/registerOne'});
