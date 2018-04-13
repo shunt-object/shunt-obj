@@ -123,65 +123,7 @@
                 loading.close();
                 }, 2000);
             },
-        // xixun(){
-            
-           
-             
-        //    var adw = document.getElementById("rys")
-        //    var relname = "游客";
-        //    var username = "tourist";
-        //    var accounts = sessionStorage.getItem('account');
-           
-        //    if(accounts !==null){
-        //         accounts= JSON.parse(accounts);
-        //         relname = accounts.realname;
-        //         username = accounts.username; 
-        //    }
-          
-        //    var obj = {
-        //             "portraitUri": "",
-        //             "realName":relname,
-        //             "userName": username
-        //         }
-        //     console.log(obj)
-        //    this.$this.post('/broker/rongcloud/user/token',obj).then((response)=>{
-        //         this.tokens = response.data.data;
-        //         var ra = document.getElementsByName("q");
-        //         // for(var i=0;i<ra.length;i++){
-        //         //     if(ra[i].checked==true){
-        //         //         if(ra[i].value == 0){
-        //                     this.service = "consultantservice";
-        //                     rongClouds(adw,this.service,this.tokens,relname)
-        //                      setInterval(this.zixunShows,2000);
-        //                       this.kkl();
-        //                 // }else if(ra[i].value == 1){
-                           
-        //                 //     this.service = "onlinesale";
-        //                 //     rongClouds(adw,this.service,this.tokens,relname)
-        //                 //     setInterval(this.zixunShows,2000);
-        //                 // }
-        //                 // else if(ra[i].value == 2){
-        //                 //     this.service = "service3";
-        //                 //     rongClouds(adw,this.service,this.tokens,relname)
-        //                 //     setInterval(this.zixunShows,2000);
-        //                 // }else if(ra[i].value == 3){
-        //                 //     this.service = "service4";
-        //                 //     rongClouds(adw,this.service,this.tokens,relname)
-        //                 //     setInterval(this.zixunShows,2000);
-        //                 // }else{
-        //                 //     this.service = "service5";
-        //                 //     rongClouds(adw,this.service,this.tokens,relname)
-        //                 //     setInterval(this.zixunShows,2000);
-        //                 // }
-        //             // }else{
-                      
-        //             // }
-        //     //}
-        //     }).catch((error)=>{
-        //         console.log("不好意思")
-        //     })
-      
-        //  },
+ 
          zixun(){
                
             var adw = document.getElementById("rys")
@@ -207,12 +149,11 @@
                 for(var i=0;i<ra.length;i++){
                     if(ra[i].checked==true){
                         if(ra[i].value == 0){
-                            this.service = "onlinesale";
+                            this.service = "consultantservice";
                             rongClouds(adw,this.service,this.tokens,relname)
                              setInterval(this.zixunShows,2000);
                              this.kkl();
                         }else if(ra[i].value == 1){
-                           
                             this.service = "onlinesale";
                             rongClouds(adw,this.service,this.tokens,relname)
                             setInterval(this.zixunShows,2000);

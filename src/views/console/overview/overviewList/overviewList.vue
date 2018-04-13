@@ -60,7 +60,7 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <input type="text" id="loginers" class="col-md-1 col-xs-1 proanmes proInput" autofocus="autofocus" v-if="vars[index]==true" v-model="vp.proname" v-on:blur="shiBlur(vp.proname,index,vp.id)">
+                    <input type="text" id="loginers" class="col-md-1 col-xs-1 proanmess proInput" autofocus="autofocus" v-if="vars[index]==true" v-model="vp.proname" v-on:blur="shiBlur(vp.proname,index,vp.id)">
                     <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname" @click="bianjiZt(index)" v-if="vars[index]==false">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-7 removeIng col-xs-6">
@@ -143,9 +143,13 @@
 .creatAll{
     width:114px !important;
 }
+#loginers{
+    width:100px !important;
+}
 .proInput{
     margin-top:5px;
     height:70%;
+   
 }
 #myInput:focus{
     border:1px solid #409EFF;
@@ -211,6 +215,12 @@
     text-overflow:ellipsis;
     white-space: nowrap;
     width:40px;
+   }
+   .proanmess{
+       display:inline-block;
+       overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
    }
    .Jips{
     font-size:10px;
@@ -349,9 +359,7 @@ line-height:30px; float:left; margin-top:13px;
     display:block;
   
 }
-.activs{
-  border-bottom:1px solid #ccc;
-}
+
 #pol{
     display:BLOCK;
 }
@@ -751,7 +759,21 @@ export default {
             console.log(this.vpd[e])
         },
         shiBlur:function(pronames,e,appid){
-            if(pronames==""){
+if(pronames==""){
+                this.vars[e] = false;
+                this.createding();
+            }else if(pronames!==""){
+                this.vars[e] = false;
+                let obj = {
+                    "analysisName":pronames,
+                    "proId": appid,
+                }
+                this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                            this.createding();
+                },(err)=>{
+                    console.log("不好意思")
+                })
+            }if(pronames==""){
                 this.vars[e] = false;
                 this.createding();
             }else if(pronames!==""){

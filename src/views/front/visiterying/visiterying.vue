@@ -2,7 +2,7 @@
     <div class="total Lists">
         <div class="total-header">
             <span></span>
-            总览
+            用户行为
         </div>
         <div class="vis-main">
                  <el-form class="row" style="padding-top:20px;">
@@ -75,14 +75,27 @@ color:#c1c5cd;
 :-ms-input-placeholder { /* Internet Explorer 10+ */ 
 color: #c1c5cd; 
 } 
-.shuai{
-    height:40px;
-    width:50px;
-    color:#fff;
-    border-radius:4px;
-    line-height:40px;
-    background:#ccc;
-}
+@media (min-width: 768px) {  /** pc */
+    .shuai{
+        height:40px;
+        width:50px;
+        color:#fff;
+        border-radius:4px;
+        line-height:40px;
+        background:#ccc;
+    }
+} 
+@media (max-width: 768px) {  /** mobile */
+    .shuai{
+        height:40px;
+        width:200px;
+        color:#fff;
+        border-radius:4px;
+        line-height:40px;
+        background:#ccc;
+        margin:10px auto;
+    }
+} 
 .shuai:hover{
     cursor:pointer;
 }

@@ -3,15 +3,15 @@
         <div>
             <div class="row notification-header">
                 <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">消息列表</div>
-                <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
+                <div class="col-md-6 PlansearchBoxs text-right col-xs-12 pb">
                     <div style="padding-top:10px">
                         <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
             <div class="row notification-xuze">
-                <div class="col-md-1 text-right spanleft" style="margin-top:20px;margin-bottom:20px;margin-left:44px;"><span class="shanrems" v-on:click="creatAdd()" style="background:#da121a;color:#fff !important;"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="font-size:12px;padding-right:6px"></i>添加信息</span></div>
-                <div class="col-md-2 text-left spanleft" style="margin-top:20px;margin-bottom:20px"><span class="shanrems" v-on:click="removes()" style="width:88px !important"><i class="iconfont icon-shanchu"></i>删除</span></div>
+                <div class="col-md-1 text-right spanleft tos" ><span class="shanrems" v-on:click="creatAdd()" style="background:#da121a;color:#fff !important;"><i class="iconfont icon-wangpanxinjianwenjianjia-copy" style="font-size:12px;padding-right:6px"></i>添加信息</span></div>
+                <div class="col-md-2 text-left spanleft tus" ><span class="shanrems remes" v-on:click="removes()" ><i class="iconfont icon-shanchu"></i>删除</span></div>
                 <!--<div class="col-md-8 text-right hangyeselect" style="margin-top:20px;margin-bottom:20px" >
                      <span class="sp1" v-on:click="zongs">全部</span><p v-for="(le,index) in lei" class="psed"><span  class="sps2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
                 </div>-->
@@ -63,6 +63,55 @@
     </div>
 </template>
 <style>
+ @media(min-width:768px){ /* pc */
+        .pb{
+            padding-right:47px;
+        }
+        .tos{
+           margin-top:20px;margin-bottom:20px;margin-left:44px;
+        }
+        .tus{
+            margin-top:20px;margin-bottom:20px
+        }
+        .shanrems{
+            background:#ffffff;
+            border:1px solid #ebebeb;
+            width:90px;
+            height:30px;
+            display:inline-block
+        }
+        .remes{
+            width:88px !important
+        }
+        #myInputs{
+            border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
+        }
+   }
+   @media(max-width:768px){ /* mobile */
+        .pb{
+            padding-right:28%;
+            margin-bottom:10px;
+        }
+        .tos{
+           margin-top:20px;margin-bottom:5px;
+        }
+        .tus{
+            margin-top:5px;margin-bottom:20px
+        }
+        .shanrems{
+            background:#ffffff;
+            border:1px solid #ebebeb;
+            width:100%;
+            height:30px;
+            display:inline-block
+        }
+        .remes{
+            width:100% !important
+        }
+        #myInputs{
+            border:1px solid #cccccc; width:126px; height:30px; padding:0 10px;
+        }
+   }
     .notification-header{
         background:#ffffff;
         height:47px;
@@ -89,13 +138,7 @@
     .shanrems,.shandu,.shanyidu:hover{
         cursor:pointer
     }
-    .shanrems{
-        background:#ffffff;
-        border:1px solid #ebebeb;
-        width:90px;
-        height:30px;
-        display:inline-block
-    }
+  
     .shandu{
         background:#ffffff;
         border:1px solid #ebebeb;
@@ -201,9 +244,7 @@
 #myInputs:focus{
     border:1px solid #409EFF;
 }
-#myInputs{
-    border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
-}
+
 .PlansearchBtns{
    background:#da121a; width:42px; height:30px; color:#fff;
 }

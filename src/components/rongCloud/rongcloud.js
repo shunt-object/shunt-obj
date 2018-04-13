@@ -27,7 +27,8 @@ function rongClouds(idsName,services,tokens,relname){
                     "name":relname
                 },
                 "requestInfo":{
-                    "referrer":"20002"
+                    referrer:"20002",
+                    //define: "{carInfo:'宝马车系',userId:'user11',quInfo:'xxx'}" // 自定义信息
                 }
             }
         })

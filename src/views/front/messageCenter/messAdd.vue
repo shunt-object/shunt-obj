@@ -19,7 +19,7 @@
            <div class="fabu">
                 <div><p>2.请填写发布内容</p></div>
                 <div >
-                   <textarea style="width:600px;height:180px" v-model="textareaVal" placeholder=" 请输入文字...">
+                   <textarea class="tea" v-model="textareaVal" placeholder=" 请输入文字...">
                     
                    </textarea>
                    <p class="titMsg">* 请仔细检查您发布内容，确认发布</p>
@@ -43,10 +43,56 @@
         font-size: 14px;
         height:600px;
     }
-    .fabu{
-        text-align:left;
-        margin-left:72px;
-        margin-top:30px;
+    @media (min-width: 768px) {  /** pc */
+          .fabu{
+                text-align:left;
+                margin-left:72px;
+                margin-top:30px;
+            }
+          .tea{
+            width:600px;height:180px
+          }
+          .centerfabu{
+                width:100px;
+                height:36px;
+                text-align:center;
+                line-height:33px;
+                background:#da121a;
+                display:inline-block;
+                border:1px solid #da1a12;
+                border-radius:3px;
+                margin-left:90px;
+                color:#fff;
+                margin-right:20px;
+        }
+        .centerrys{
+            margin-top:50px;
+        }
+    }
+     @media (max-width: 768px) {  /** mobile */
+          .fabu{
+                margin-top:30px;
+            }
+          .tea{
+             width:100%;height:180px
+           }
+          .centerfabu{
+            width:100px;
+            height:36px;
+            text-align:center;
+            line-height:33px;
+            background:#da121a;
+            display:inline-block;
+            border:1px solid #da1a12;
+            border-radius:3px;
+            margin:0 auto;
+            color:#fff;
+            
+        }
+         .centerrys{
+            text-align:center;
+            margin-top:20px;
+        }
     }
     .fabu p{
         color:#000;
@@ -67,19 +113,7 @@
         font-size:12px !important;
         margin-top:10px;
     }
-    .centerfabu{
-        width:100px;
-        height:36px;
-        text-align:center;
-        line-height:33px;
-        background:#da121a;
-        display:inline-block;
-        border:1px solid #da1a12;
-        border-radius:3px;
-        margin-left:90px;
-        color:#fff;
-        margin-right:20px;
-    }
+  
     .outfabu:hover{
         cursor:pointer;
         background:#F5F7FA;
@@ -98,9 +132,7 @@
         text-align:center;
         background:#fff;
     }
-    .centerrys{
-        margin-top:50px;
-    }
+   
 </style>
 <script>
     //     })
