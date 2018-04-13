@@ -94,21 +94,21 @@
     </div>
     <div class="designHalf-table" v-show="islook">
         <!-- 应用服务 -->
-        <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
+        <table class="designHalf-table-appServer designHalf-table-public" v-if="priceClould.length>0">
             <thead>
                 <tr>
                     <td class="designHalf-w-5" rowspan="2"><input type="checkbox" v-model="allselect" v-on:click="whole()"><br>全选</td>
                     <td class="designHalf-w-5" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-5" rowspan="2">产品名称</td>
+                    <td class="designHalf-w-7" rowspan="2">产品名称</td>
                     <td class="designHalf-w-6" rowspan="2">角色类型</td>
                     <td class="designHalf-w-6" rowspan="2">配置类型</td>                    
-                    <td class="designHalf-w-5" rowspan="2">区域</td>
+                    <td class="designHalf-w-7" rowspan="2">区域</td>
                     <td class="designHalf-w-20" align="center" valign="middle" colspan="4">购买规格</td>
                     <td class="designHalf-w-5" rowspan="2">数量</td>
                     <td class="designHalf-w-6" rowspan="2">购买周期</td>
                     <td class="designHalf-w-5" style="cursor:pointer;" rowspan="2" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
                     <td class="designHalf-w-6" rowspan="2">京玉折扣价</td>
-                    <td class="" align="center" valign="middle" colspan="2">评星</td>
+                    <td class="designHalf-w-16" align="center" valign="middle" colspan="2">评星</td>
                     <td class="designHalf-w-10" rowspan="2">意向购买</td>
                 </tr>
                 <tr>
@@ -116,8 +116,8 @@
                     <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
                     <td class="designHalf-public-bg designHalf-w-5">内存</td>
                     <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
-                    <td class="designHalf-public-bg designHalf-w-10">优选评星</td>
-                    <td class="designHalf-public-bg designHalf-w-10">价格评星</td>
+                    <td class="designHalf-public-bg designHalf-w-8">优选评星</td>
+                    <td class="designHalf-public-bg designHalf-w-8">价格评星</td>
                 </tr>                
             </thead>
             <tbody>
