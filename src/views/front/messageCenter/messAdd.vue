@@ -12,7 +12,7 @@
                 <div >
                     <select name="isAudit" id="isAudit" v-model="vals">
                         <option value="val"  class="opSelected">--选择消息发布类型--</option>
-                        <option :value="le.value" :data="le.id" v-for="(le,index) in lei" class="optis">{{le.name}}</option>
+                        <option :value="le.id" :key="le.value" v-for="(le,index) in lei" class="optis">{{le.name}}</option>
                     </select>
                 </div>
            </div>
@@ -143,8 +143,8 @@
                    vals:"",
                    lei:[],
                    textareaVal:"",
-                   scsss:[]
-
+                   scsss:[],
+                   dataId:""
                 }
             },
             mounted:function(){
@@ -162,18 +162,17 @@
                 },
                 fabuCenter:function(){
                      if(this.vals!="val"){
-                        
                            if(this.textareaVal!=""){
-                                var ids= $(".optis").attr("data");
+                               // var ids= $(".optis").attr("ids");
                                 var obj ={
                                             "content": this.textareaVal,
                                             "isDel": 0,
                                             "isTop": 1,
-                                            "type": ids,
-                                            "typeName":this.vals
-                                         };
+                                            "type": this.vals
+                                        };
+                                         console.log(this.vals)
                                 this.$this.post('/broker/content/add/content',obj).then((pon)=>{  //获取消息类型
-                                    this.scsss = pon.data.msg
+                                    //this.scsss = pon.data.msg
                                          this.$alert('发布成功', '温馨提示', {
                                             confirmButtonText: '我知道了',
                                             showClose:false,
