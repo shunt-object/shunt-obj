@@ -2,7 +2,7 @@
 <div>
     <div class="colligateInvest" v-if="isclick!=2">
         <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>预算收益统计分析</p>
-        <div class="colligate-list" style="padding:0 2em;">
+        <div class="colligate-list" style="padding:0 2em;" v-show="lengthnum">
             <div class="colligateBuy-echarts">
                 <div class="Invest-echarts" id="Invest-echarts" style="width:100%;height:100%;"></div>
             </div>
@@ -64,6 +64,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="nodata" v-if="lengthnum==false">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>        
+            因多云价格优选未做或没有把优选实际加入到购物车，所以暂无数据。
+        </div>
     </div>
 </div>
 </template>
@@ -81,6 +86,7 @@ export default{
             priceRate:'',//收益率
             isbudget:false,//是否输入预算
             charts:'',
+            lengthnum:false
         }
     },
     mounted:function(){
@@ -92,6 +98,7 @@ export default{
             this.$this.post('/broker/price/purchasing/list/'+this.appId,JSON.stringify(obj)).then((response)=>{
                 //console.log('----',response); 
                 if(response.data.data.length>0){
+                    this.lengthnum = true;
                     this.pricelistOne.push({boolean:true,data:response.data.data[0]});
                     this.$nextTick(function() {
                         this.canvasInvest('Invest-echarts',[response.data.data[0].pname],[response.data.data[0].cloudPrice],0);
@@ -99,6 +106,8 @@ export default{
                     for(let i=1;i<response.data.data.length;i++){
                         this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
+                }else{
+                    this.lengthnum = false;
                 }
             }).catch((error)=>{
             })

@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <!--其他方式登录-->
-                    <div class="otherLogin">
+                    <!--<div class="otherLogin">
                         <div class="otherLogin-line">
                             <span></span>
                             <p class="otherLogin-desc">使用其他账号登录</p>
@@ -42,7 +42,7 @@
                         <div class="otherLogin-logo">
                             <span v-on:click="wechart()"><i class="iconfont icon-weixin weixin-logo"></i></span>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -55,7 +55,7 @@
         <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
     <!-- 微信登录弹框 -->
-    <el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
+    <!--<el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
         <div class="wechart-title">微信登录</div>
         <div class="wechart-img">
             <img :src="wechartUrl" alt="">
@@ -66,7 +66,7 @@
         <div class="wechart-success" v-show="success">
             <i class="iconfont icon-duihao2"></i>扫描成功
         </div>
-    </el-dialog>
+    </el-dialog>-->
 </div>
 </template>
 <script>
