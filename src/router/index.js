@@ -45,6 +45,7 @@ import pay from '@/views/console/pay/pay'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
 import vis from "../views/front/visiterying/visiterying.vue"
+import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
 
 
 
@@ -128,6 +129,11 @@ export default new Router({
       name:'login',
       component:login
     },
+      {
+          path:"/leame",
+          name:"leame",
+          component:leame
+        },
     {
       path:'/consolePage',
       name:'consolePage',
@@ -196,6 +202,7 @@ export default new Router({
           name:"vis",
           component:vis
         },
+  
         {
           path:'/accountInformation',
           name:'accountInformation',

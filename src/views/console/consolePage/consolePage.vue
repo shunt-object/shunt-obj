@@ -68,7 +68,7 @@
                         </div>                
                     </el-popover>
                     <a class="dropdown-toggle navli user-hover" v-on:click="tongzhiCenter()"  data-toggle="dropdown"  v-popover:popover2 >
-                        <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>通知中心<span class="Redreg" v-show="redreg"></span>
+                        <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>消息中心<span class="Redreg" v-show="redreg"></span>
                     </a>                    
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">

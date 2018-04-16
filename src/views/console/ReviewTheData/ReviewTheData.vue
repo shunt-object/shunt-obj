@@ -3,17 +3,17 @@
 <div class="total-header">
     <span></span>
     总览
-    ><p class="comback">点评数据</p>
+    ><p class="comback">意见反馈</p>
 </div>
 <div class="row reviewthe-echarts">
     <div class="col-md-7">
-        <div class="reviewthe-tu-title">点评数据采集统计</div>
+        <div class="reviewthe-tu-title">意见反馈采集统计</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-bar" id="reviewthe-bar" style="width:100%;height:100%;"></div>
         </div>
     </div>
     <div class="col-md-5">
-        <div class="reviewthe-tu-title">点评类型占比分析</div>
+        <div class="reviewthe-tu-title">意见反馈占比分析</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-pie" id="reviewthe-pie" style="width:100%;height:100%;"></div>
         </div>

@@ -34,6 +34,8 @@
                         <th class="text-center thtop" prop="industryStr.name">行业信息</th>
                         <th class="text-center thtop" prop="phone">手机号码</th>
                         <th class="text-center thtop" prop="email">邮件地址</th>
+                        <th class="text-center thtop" prop="jue">用户角色</th>
+                        <th class="text-center thtop" prop="lei">注册类型</th>
                         <th class="text-center thtop" prop="createDt">注册时间</th>
                     </tr>
                 </thead>
@@ -65,6 +67,18 @@
                         <td v-else>{{re.phone}}</td>
                         <td v-if="re.email==null">未填写</td>
                         <td v-else>{{re.email}}</td>
+                        <td v-if="re.utype==1">个人</td>
+                        <td v-if="re.utype==2">企业</td>
+                        <td v-if="re.utype==3">运营商</td>
+                        <td v-if="re.utype==4">政府</td>
+                        <td v-if="re.utype==5">运营</td>
+                        <td v-if="re.utype==6">代理商</td>
+                        <td v-if="re.utype==7">独立顾问</td>
+                        <td v-if="re.registerType==null">无</td>
+                        <td v-if="re.registerType==1">手机注册</td>
+                        <td v-if="re.registerType==2">微信注册</td>
+                        <td v-if="re.registerType==3">关注微信号注册</td>
+                        <td v-if="re.registerType==4">运营注册</td>
                         <td>{{re.createDt}}</td>
                     </tr>
                 
