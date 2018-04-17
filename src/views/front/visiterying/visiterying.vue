@@ -82,7 +82,7 @@ color: #c1c5cd;
         color:#fff;
         border-radius:4px;
         line-height:40px;
-        background:#ccc;
+        background:#da121a;
     }
 } 
 @media (max-width: 768px) {  /** mobile */
