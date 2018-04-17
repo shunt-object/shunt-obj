@@ -23,6 +23,9 @@
      width:202px;
      margin:0 auto;
  }
+ .mes-mains>input{
+     border:1px solid #ccc;
+ }
 </style>
 <script>
     
@@ -38,25 +41,35 @@
                 }
             },
             methods:{
+               
                 send:function(){
-                   var leaveMessage ={
-                        "company":this.userBm,
-                        "email": this.useremail,
-                        "phone":this.userphone,
-                        "qq":this.userqq,
-                        "realname": this.userName
+                    if(this.userName==""||this.userBm==""||this.useremail==""||this.userphone==""||this.userqq==""){
+                         this.$alert('请补全留言信息，谢谢！', '温馨提示', {
+                                                    confirmButtonText: '我知道了',
+                                                    showClose:false,
+                                                    confirmButtonClass:'lay-btn-red',
+                                                    type: 'warning'
+                          }); 
+                    }else{
+                        var leaveMessage ={
+                                "company":this.userBm,
+                                "email": this.useremail,
+                                "phone":this.userphone,
+                                "qq":this.userqq,
+                                "realname": this.userName
+                            }
+                        this.$this.post('/broker/leave/msg/saveLeaveMsg',leaveMessage).then((pon)=>{  //获取消息类型
+                                        this.$alert('留言成功', '温馨提示', {
+                                                    confirmButtonText: '我知道了',
+                                                    showClose:false,
+                                                    confirmButtonClass:'lay-btn-red',
+                                                    type: 'warning'
+                                        });  
+                            }).catch((error)=>{
+                                console.log("不好意思")
+                        })
                     }
-                 this.$this.post('/broker/leave/msg/saveLeaveMsg',leaveMessage).then((pon)=>{  //获取消息类型
-                                 this.$alert('留言成功', '温馨提示', {
-                                            confirmButtonText: '我知道了',
-                                            showClose:false,
-                                            confirmButtonClass:'lay-btn-red',
-                                            type: 'warning'
-                                 });  
-                    }).catch((error)=>{
-                        console.log("不好意思")
-                 })
-            }
+                }
          
             }
        }
