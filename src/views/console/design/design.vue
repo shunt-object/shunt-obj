@@ -416,9 +416,6 @@
     }
      .designTab p{
         height:40px;
-        /*border-bottom:1px solid #ccc;
-        margin-left:30px;
-        margin-right:30px;*/
     }
 }
 .operation{
@@ -765,7 +762,15 @@ export default{
             graphdata:{},
             graphoptions:{},
             appfrom:[],
-            isgraph:false
+            isgraph:false,
+            appsave:{
+                appgao:[],
+                appdi:[]
+            },
+            dbsave:{
+                dbgao:[],
+                dbdi:[]
+            }
         }
     },
     mounted:function(){
@@ -934,6 +939,7 @@ export default{
                         }
                     }
                 }
+                this.appsave.appdi = this.dats;
             }else{
                 if(this.dats[index].boolean==false){
                     this.checkIdappG.push(this.dats[index].data.id);
@@ -944,6 +950,7 @@ export default{
                         }
                     }
                 }
+                this.appsave.appgao = this.dats;
             }
         },
         checkDB:function(index){
@@ -957,6 +964,7 @@ export default{
                         }
                     }
                 }
+                this.dbsave.dbdi = this.datis;
             }else{
                 if(this.datis[index].boolean==false){
                     this.checkIddbG.push(this.datis[index].data.id);
@@ -967,6 +975,7 @@ export default{
                         }
                     }
                 }
+                this.dbsave.dbgao = this.datis;
             }
         },
         dbWhole:function(){
@@ -1192,9 +1201,15 @@ export default{
                 this.dats = [];
                     this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
                             //this.dats = ris.data.data;
-                        for(let i=0;i<ris.data.data.length;i++){
-                            this.dats.push({data:ris.data.data[i],boolean:false});
+                        if(this.appsave.appdi.length>0){
+                            this.dats = this.appsave.appdi;
+                        }else{
+                            for(let i=0;i<ris.data.data.length;i++){
+                                this.dats.push({data:ris.data.data[i],boolean:false});
+                            }
+                            this.appsave.appdi = this.dats;
                         }
+                        
                             //console.log(this.dats)
                             this.yyshow=true;
                             if(this.dats.length>0){
@@ -1204,16 +1219,20 @@ export default{
                                 this.noSj = true;
                                 this.haveSj = false
                             }
-                    },(err)=>{
-                        console.log("不好意思")    
-                    });  
+                    },(err)=>{});  
             }else if(this.index == 2){
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
                             //this.datis = ros.data.data;
-                            for(let i=0;i<ros.data.data.length;i++){
-                                this.datis.push({data:ros.data.data[i],boolean:false});
+                            if(this.dbsave.dbdi.length>0){
+                                this.datis = this.dbsave.dbdi;
+                            }else{
+                                for(let i=0;i<ros.data.data.length;i++){
+                                    this.datis.push({data:ros.data.data[i],boolean:false});
+                                }
+                                this.dbsave.dbdi = this.datis;
                             }
+                            
                             this.sjshow=true;
                             if(this.datis.length>0){
                                 this.haveSj = true;
@@ -1239,9 +1258,15 @@ export default{
                 this.dats = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
                     //this.dats = ris.data.data;
-                    for(let i=0;i<ris.data.data.length;i++){
-                        this.dats.push({data:ris.data.data[i],boolean:false});
+                    if(this.appsave.appgao.length>0){
+                        this.dats = this.appsave.appgao;
+                    }else{
+                        for(let i=0;i<ris.data.data.length;i++){
+                            this.dats.push({data:ris.data.data[i],boolean:false});
+                        }
+                        this.appsave.appgao = this.dats;
                     }
+                    
                     this.yyshow=true;
                     if(this.dats.length>0){
                         this.haveSj = true;
@@ -1251,16 +1276,20 @@ export default{
                         this.haveSj = false
                     }
                     //console.log(this.dats)
-            },(err)=>{
-                        console.log("不好意思")    
-                });  
+            },(err)=>{});  
             }else if(this.index == 2){
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
                     //this.datis = ros.data.data;
-                    for(let i=0;i<ros.data.data.length;i++){
-                        this.datis.push({data:ros.data.data[i],boolean:false});
+                    if(this.dbsave.dbgao.length>0){
+                        this.datis = this.dbsave.dbgao;
+                    }else{
+                        for(let i=0;i<ros.data.data.length;i++){
+                            this.datis.push({data:ros.data.data[i],boolean:false});
+                        }
+                        this.dbsave.dbgao = this.datis;
                     }
+                    
                     this.sjshow=true;
                     if(this.datis.length>0){
                                 this.haveSj = true;

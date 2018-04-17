@@ -136,7 +136,9 @@
                     <!-- -->
             </div>
         </div>  
-    </div>   
+    </div> 
+    <!-- 弹框 -->  
+    <feedback :feedback="feeddialog"  @my-event="getMyEvent"></feedback>
 </div>
 </template>
 
@@ -153,6 +155,7 @@ import compareModules from '../colligateReport/compareModules.vue'
 import designModules from '../colligateReport/designModules.vue'
 import roiModules from '../colligateReport/roiModules.vue'
 import sceneModules from '../colligateReport/sceneModules.vue'
+import feedback from '../../consolePage/feedback.vue'
 export default{
     name:'colligateReport',
     data(){
@@ -173,6 +176,11 @@ export default{
             Issystem:false,
             systemold:'',
             isClass:false,
+            feeddialog:{
+                boolean:false
+            },
+            point:false,
+            pdfs:false,
         }
     },
     mounted:function(){
@@ -188,6 +196,18 @@ export default{
         }
     },
     methods:{ 
+        getMyEvent:function(msg){
+            if(msg==false){
+                let that = this;
+                setTimeout(function(){
+                    if(that.point==true){
+                        that.getpoint();
+                    }else if(that.pdfs==true){
+                        that.pdf();
+                    }
+                },500)
+            }
+        },
         getplan:function(){
             this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
                 //console.log('结果',response);
@@ -482,10 +502,15 @@ export default{
             })
         },
        getPdf:function(){
+            this.feeddialog.boolean = true;
+            this.point = false; 
+            this.pdfs = true;
+       },
+       pdf:function(){
             let date = new Date();
             let time = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
             var pdf = new jsPDF('p', 'pt','a4');
-            pdf.internal.scaleFactor = 2.5;//可以调整缩放比例
+            pdf.internal.scaleFactor = 1.8;//可以调整缩放比例
             var options = {
                 pagesplit: true
             };
@@ -498,13 +523,18 @@ export default{
             });
        },
       pointers:function(){
-        var a =$("#difference-box").html();
-        $("#boxinnerHtml").html(a);
-        $("#difference-box").addClass("pala");
-          window.print();   //打印当前窗口
-           $("#boxinnerHtml").html("");
-           $("#difference-box").removeClass("pala");            
-     }
+            this.feeddialog.boolean = true;
+            this.point = true; 
+            this.pdfs = false; 
+     },
+        getpoint:function(){
+            var a =$("#difference-box").html();
+            $("#boxinnerHtml").html(a);
+            $("#difference-box").addClass("pala");
+            window.print();   //打印当前窗口
+            $("#boxinnerHtml").html("");
+            $("#difference-box").removeClass("pala");    
+        },
     },
     components:{
         child,
@@ -512,7 +542,8 @@ export default{
         compareModules,
         designModules,
         roiModules,
-        sceneModules
+        sceneModules,
+        feedback
     }
 }
 </script>

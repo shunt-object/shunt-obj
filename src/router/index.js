@@ -44,6 +44,7 @@ import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
 import pay from '@/views/console/pay/pay'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
+import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
 
@@ -181,6 +182,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:orderlist
+        },
+        {
+          path:'/shoppingCar',
+          name:'shoppingCar',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:shoppingCar
         },
         {
           path:'/notification',
