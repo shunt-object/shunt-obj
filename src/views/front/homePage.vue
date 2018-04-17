@@ -581,7 +581,7 @@ export default {
 
         // },
         ctaCloundCsbs:function(){
-            window.open("http://demo.csb-china.com")
+            window.open("http://demo.csb-china.com/#/consolePage")
              //this.$router.push({path: '/registerOne'});
         },
         ctaCloundCsbsD:function(){
