@@ -231,7 +231,7 @@ export default{
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2',
-                            width:'3'
+                            width:'2'
                         }
                     },
                     nameTextStyle:{

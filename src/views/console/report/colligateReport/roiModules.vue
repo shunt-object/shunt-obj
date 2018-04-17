@@ -161,22 +161,25 @@ export default{
                     this.pricelist[i].boolean = true;
                 }
                 this.pricelistOne[0].boolean = true;
+                if(this.pricelistOne[0].boolean==true){
+                    pname.push(this.pricelistOne[0].data.pname);
+                    series.push(this.pricelistOne[0].data.cloudPrice);
+                }
+                for(let i=0;i<this.pricelist.length;i++){
+                    if(this.pricelist[i].boolean==true){
+                        pname.push(this.pricelist[i].data.pname);
+                        series.push(this.pricelist[i].data.cloudPrice);
+                    }
+                }
             }else{
                 for(let i=0;i<this.pricelist.length;i++){
                     this.pricelist[i].boolean = false;
                 }
                 this.pricelistOne[0].boolean = false;
+                pname = [];
+                series = [];
             }
-            if(this.pricelistOne[0].boolean==true){
-                pname.push(this.pricelistOne[0].data.pname);
-                series.push(this.pricelistOne[0].data.cloudPrice);
-            }
-            for(let i=0;i<this.pricelist.length;i++){
-                if(this.pricelist[i].boolean==true){
-                    pname.push(this.pricelist[i].data.pname);
-                    series.push(this.pricelist[i].data.cloudPrice);
-                }
-            }
+            this.getroi();//获取收益率
             if(this.budgetprice!=''){
                 price = this.budgetprice;
             }
@@ -207,37 +210,52 @@ export default{
         },
         budgetYes:function(){
             this.isbudget = false;
-            let arr = [];
+            if(this.budgetprice!=''){
+                this.blurClick();
+                this.getroi();
+            } 
+        },
+        blurClick:function(){
             let pname = [];
             let series = [];
-            if(this.budgetprice!=''){
-                for(let i=0;i<this.pricelist.length;i++){
-                    if(this.pricelist[i].boolean==true){
-                        arr.push(this.pricelist[i].data.id);
-                        pname.push(this.pricelist[i].data.pname);
-                        series.push(this.pricelist[i].data.cloudPrice);
-                    }
+            for(let i=0;i<this.pricelist.length;i++){
+                if(this.pricelist[i].boolean==true){
+                    pname.push(this.pricelist[i].data.pname);
+                    series.push(this.pricelist[i].data.cloudPrice);
                 }
-                if(this.pricelistOne[0].boolean==true){
-                    arr.push(this.pricelistOne[0].data.id);
-                    pname.push(this.pricelistOne[0].data.pname);
-                    series.push(this.pricelistOne[0].data.cloudPrice);
-                }
-                this.$nextTick(function() {
-                    this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
-                })
-                let obj = {
-                    appid:[this.appId],
-                    budget:this.budgetprice,
-                    purchaseIds:arr
-                };
-                this.$this.post('/broker/price/roi',JSON.stringify(obj)).then((response)=>{
-                    if(response.data.code==1){
-                        this.priceRate = response.data.data.roi;
-                    }
-                }).catch((error)=>{})
             }
-            
+            if(this.pricelistOne[0].boolean==true){
+                pname.push(this.pricelistOne[0].data.pname);
+                series.push(this.pricelistOne[0].data.cloudPrice);
+            }
+            if(series.length==1){
+                pname.push('');
+                series.push(0);
+            }
+            this.$nextTick(function() {
+                this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
+            })
+        },
+        getroi:function(){
+            let arr = [];
+            for(let i=0;i<this.pricelist.length;i++){
+                if(this.pricelist[i].boolean==true){
+                    arr.push(this.pricelist[i].data.id);
+                }
+            }
+            if(this.pricelistOne[0].boolean==true){
+                arr.push(this.pricelistOne[0].data.id);
+            }
+            let obj = {
+                appid:[this.appId],
+                budget:this.budgetprice,
+                purchaseIds:arr
+            };
+            this.$this.post('/broker/price/roi',JSON.stringify(obj)).then((response)=>{
+                if(response.data.code==1){
+                    this.priceRate = response.data.data.roi;
+                }
+            }).catch((error)=>{})
         },
         investInput:function(arrname,index){
             let pname = [];
@@ -266,18 +284,32 @@ export default{
             if(a>0){
                 this.allInvest = false;
             }
-            //console.log('aaaa',series);
             if(this.budgetprice!=''){
                 price = this.budgetprice;
+                this.getroi();//获取收益率
+            }
+            if(series.length==1){
+                pname.push('');
+                series.push(0);
             }
             this.$nextTick(function() {
                 this.canvasInvest('Invest-echarts',pname,series,price);
             })
-            
-            this.budgetYes();
+            //this.budgetYes();
             //console.log('-----',this.pricelistOne);
         },
         canvasInvest:function(dom,x,series,centerline){
+            if(series.length>0){
+                let sortarr = series;
+                sortarr.push(this.budgetprice);
+                var max = sortarr[0];
+                for(var i=1;i<sortarr.length;i++){ 
+                    if(max<sortarr[i]){
+                        max=sortarr[i];
+                    }
+                }
+            }
+            
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -314,6 +346,7 @@ export default{
                 yAxis: {
                     name:'价格',
                     type: 'value',
+                    //max:max,
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2'
