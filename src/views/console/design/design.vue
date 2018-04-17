@@ -275,6 +275,9 @@
 </div>
 </template>
 <style>
+#mynetwork .vis-network{
+    outline:none !important;
+}
 .planList-nodata{
     background:#ffffff; width:100%; height:500px; font-size:14px; color:#555;line-height:30px; text-align:center;
 }

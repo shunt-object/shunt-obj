@@ -13,6 +13,9 @@
         </div>
     </div>
     <div class="col-md-5">
+
+        <!--<div class="reviewthe-tu-title">意见反馈占比分析</div>-->
+
         <div class="reviewthe-tu-title">意见反馈类型占比分析</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-pie" id="reviewthe-pie" style="width:100%;height:100%;"></div>

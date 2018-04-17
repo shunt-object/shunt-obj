@@ -16,6 +16,11 @@
     </div> 
 </div>
 </template>
+<style>
+#mynetwork .vis-network{
+    outline:none !important;
+}
+</style>
 <script>
 import vis from "vis/dist/vis.min.js";
 import network from '../../../../../src/assets/report/publicnetwork.png'
