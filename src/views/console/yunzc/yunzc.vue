@@ -191,9 +191,8 @@ import "../plan/planList/datatable.css";
             }
          },
      updated:function(){
-        
-                
-                   
+         document.oncontextmenu=function(){return true};   
+         document.onselectstart=function(){return true};
                     $.noConflict();
                     $("#tabelId").dataTable().fnDestroy();
                         $('#tabelId').DataTable({
@@ -248,7 +247,7 @@ import "../plan/planList/datatable.css";
              ap:function(){
                     this.$this.get('/broker/admin/user/list').then((respone)=>{
               this.responers = respone.data.data;
-              console.log(this.responers)
+              //console.log(this.responers)
             //    for(var i=0;i<this.responers.length;i++){
             //         for(var j=0;j<this.responers[i].industryStr.length;j++){
             //             console.log(this.responers[i].industryStr[j].name)

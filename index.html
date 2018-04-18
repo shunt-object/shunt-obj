@@ -52,8 +52,8 @@ body {
   </style>
 <link rel="shortcut icon"type="image/x-icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <link rel="stylesheet" href="/static/rongCloud/cs.min.css">
-  <body oncopy = "return false" onselectstart = "return false" onload="disableInfo()"> 
-    <!--oncontextmenu="return false"禁止右键-->
+  <body onload="disableInfo()"> 
+    <!--oncontextmenu="return false"禁止右键  oncopy = "return false" onselectstart = "return false"-->
 
      <!--融云sdk-->
      <script src="//cdn.ronghub.com/RongEmoji-2.2.4.min.js"></script>
@@ -73,7 +73,9 @@ body {
     <!-- built files will be auto injected -->
     
     <script>
-           function disableInfo() {  
+           function disableInfo() { 
+              document.oncontextmenu=function(){return false};   
+              document.onselectstart=function(){return false};  
               document.onkeydown = function() {  
                   var e = window.event || arguments[0];  
                   //屏蔽F12  

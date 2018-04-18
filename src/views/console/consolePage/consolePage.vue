@@ -6,7 +6,7 @@
                 <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips" style="color:#fff;"></div>
             </div>
             <!--logo start-->
-            <a href="javascript:;" class="logo"><router-link to="/"><img src="../../../assets/logo1.png" alt=""></router-link></a>
+            <a href="javascript:;" class="logo"><img src="../../../assets/logo1.png" alt="" v-on:click="homepage()"></a>
         </div>
         <!-- 公告信息 -->
        <!-- <div class="notice">
@@ -317,24 +317,30 @@ export default{
         },
         buycar:function(){
             this.$router.push({path:'/orderlist'});
+            this.nocopy();
         },
         cart:function(){
             this.$router.push({path:'/shoppingCar'});
+            this.nocopy();
         },
         planning:function(){
             this.$router.push({path:'/planList'});
+            this.nocopy();
         },
         compare:function(){
             this.$router.push({path:'/compareList'});
+            this.nocopy();
         },
         measure:function(){
              this.$router.push({path:'/measured'});
+             this.nocopy();
         },
         zhic:function(){
              this.$router.push({path:'/yunzc'});
         },
         designer:function(){
             this.$router.push({path:'/designer'});
+            this.nocopy();
         },
         TheirAllies:function(){
            this.$router.push({path:'/TheirAllies'});
@@ -352,28 +358,41 @@ export default{
         },
         index:function(){
             this.$router.push({path:'/consolePage'});
+            this.nocopy();
         },
         smarter:function(){
             this.$router.push({path:'/smarterDecision'});
+            this.nocopy();
         },
         sus:function(){
             this.$router.push({path:'/susDecision'});
+            this.nocopy();
         },
         ReviewTheData:function(){
             this.$router.push({path:'/ReviewTheData'});
         },
           tongzhiCenter:function(){
              this.$router.push({path:'/notification'});
+             this.nocopy();
         },
         roi:function(){
             this.$router.push({path:'/roiDecision'});
+            this.nocopy();
         },
         messageCenter:function(){
              this.$router.push({path:'/messageCenter'});
         },
         messageCenters:function(){
              this.$router.push({path:'/vis'});
-        }
+        },
+        homepage:function(){
+            this.$router.push({path:'/'});
+            this.nocopy();
+        },
+        nocopy:function(){
+            document.oncontextmenu=function(){return false};   
+            document.onselectstart=function(){return false};
+        },
 
     },
     components:{

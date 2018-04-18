@@ -86,6 +86,8 @@ export default{
         }
     },
     created:function(){
+        document.oncontextmenu=function(){return true};   
+         document.onselectstart=function(){return true};
         let obj = {
             "pageReq": {
                 "page": 0,

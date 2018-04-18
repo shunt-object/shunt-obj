@@ -346,9 +346,11 @@
 
                 }
             },
-            // updated:function(){
-            //     this.handleCurrentChange(1)
-            // },
+            updated:function(){
+                document.oncontextmenu=function(){return true};   
+                document.onselectstart=function(){return true};
+                //this.handleCurrentChange(1)
+            },
             methods:{
                  zongs:function(){
                     this.huoqu();

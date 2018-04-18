@@ -258,6 +258,8 @@ export default {
                 }
     },
     mounted:function(){
+        document.oncontextmenu=function(){return true};   
+        document.onselectstart=function(){return true};
                    this.diao();
     }
 }

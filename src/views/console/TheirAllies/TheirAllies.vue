@@ -83,6 +83,10 @@
 
     export default{
             name:"measured",
+            mounted:function(){
+                document.oncontextmenu=function(){return true};   
+                document.onselectstart=function(){return true};
+            },
             methods:{
                 tingyun:function(){
                     this.$http.get('/broker/action/click/19').then((response)=>{
