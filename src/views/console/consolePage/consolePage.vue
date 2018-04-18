@@ -129,6 +129,17 @@
                         <li v-on:click="sus()"><a href="javascript:;">数据洞察</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu" v-if="utype!=3&&utype!=4">
+                    <a href="javascript:;" class="">
+                        <!--<i class="icon-book"></i>-->
+                        <img src="../../../assets/shuju.png" alt="">
+                        <span>应用中心</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li v-on:click="appcenterList()"><a href="javascript:;">应用中心</a></li>
+                    </ul>
+                </li>
                   <li class="sub-menu" v-show="istrue">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
@@ -373,7 +384,10 @@ export default{
         },
         messageCenters:function(){
              this.$router.push({path:'/vis'});
-        }
+        },
+        appcenterList:function(){
+            this.$router.push({path:'/appcenterList'});
+        },
 
     },
     components:{
