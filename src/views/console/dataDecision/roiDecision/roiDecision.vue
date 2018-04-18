@@ -244,10 +244,10 @@ export default{
                     pname.push(this.pricelistOne[0].data.pname);
                     series.push(this.pricelistOne[0].data.cloudPrice);
                 }
-                if(series.length==1){
-                    pname.push('');
-                    series.push(0);
-                }
+                // if(series.length==1){
+                //     pname.push('');
+                //     series.push(0);
+                // }
                 //console.log('aaaa',series);
                 this.$nextTick(function() {
                     this.canvasROI('roi-echarts',pname,series,this.budgetprice);
@@ -349,16 +349,16 @@ export default{
             })
         },
         canvasROI:function(dom,x,series,centerline){
-            if(series.length>0){
-                let sortarr = series;
-                sortarr.push(this.budgetprice);
-                var max = sortarr[0];
-                for(var i=1;i<sortarr.length;i++){ 
-                    if(max<sortarr[i]){
-                        max=sortarr[i];
-                    }
-                }
-            }
+            // let sortarr = series;
+            // let max = sortarr[0];
+            // if(series.length>0){                
+            //     sortarr.push(this.budgetprice);                
+            //     for(let i=1;i<sortarr.length;i++){ 
+            //         if(max<sortarr[i]){
+            //             max=sortarr[i];
+            //         }
+            //     }
+            // }
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -399,8 +399,8 @@ export default{
                 yAxis: {
                     name:'价格',
                     type: 'value',
-                    data:series,
-                    max:max,
+                    //data:series,
+                    //max:max,
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2'

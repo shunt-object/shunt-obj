@@ -228,10 +228,10 @@ export default{
                 pname.push(this.pricelistOne[0].data.pname);
                 series.push(this.pricelistOne[0].data.cloudPrice);
             }
-            if(series.length==1){
-                pname.push('');
-                series.push(0);
-            }
+            // if(series.length==1){
+            //     pname.push('');
+            //     series.push(0);
+            // }
             this.$nextTick(function() {
                 this.canvasInvest('Invest-echarts',pname,series,this.budgetprice);
             })
@@ -299,16 +299,16 @@ export default{
             //console.log('-----',this.pricelistOne);
         },
         canvasInvest:function(dom,x,series,centerline){
-            if(series.length>0){
-                let sortarr = series;
-                sortarr.push(this.budgetprice);
-                var max = sortarr[0];
-                for(var i=1;i<sortarr.length;i++){ 
-                    if(max<sortarr[i]){
-                        max=sortarr[i];
-                    }
-                }
-            }
+            // if(series.length>0){
+            //     let sortarr = series;
+            //     sortarr.push(this.budgetprice);
+            //     var max = sortarr[0];
+            //     for(var i=1;i<sortarr.length;i++){ 
+            //         if(max<sortarr[i]){
+            //             max=sortarr[i];
+            //         }
+            //     }
+            // }
             
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
