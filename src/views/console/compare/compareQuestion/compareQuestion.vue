@@ -58,13 +58,12 @@
 
     </div>
     <!-- 做题 -->
-    <div v-for="(out,i) in typelist" v-else style="margin-top:20px;">
+    <div v-for="(out,i) in firsttitle" v-else style="margin-top:20px;">
         <div class="compare-question-title" v-if="out.selected==true" style="background:#dedede;">
             <span>{{out.gname}}</span>
             <span class="add-toggle" v-on:click="zong(i)">+</span>
         </div>
-        <!-- v-if="numlist[i].boolean==true"-->
-        <div v-if="numlist[i].boolean==true">
+        <div><!-- v-if="numlist[i].boolean==true"-->
             <div class="compare-box" v-for="(item,index) in typeCheck" v-if="item.type.gname==out.gname">
                 <div class="compare-question-title">
                     <span>{{item.name}}</span>
@@ -119,7 +118,8 @@ export default{
             Ind:0,
             allindex:0,
             providerList:[],
-            providerId:[]
+            providerId:[],
+            firsttitle:[]
         }
     },
     mounted:function(){
@@ -178,8 +178,12 @@ export default{
                 this.havelist = response.data.data;
                 let arr =[];
                 let arry = [];
+                this.firsttitle = [];//选中的最大标题
                 for(let n=0;n<response.data.data.length;n++){
                     this.allLsit.push({boolean:false});
+                    if(response.data.data[n].selected==true){
+                        this.firsttitle.push(response.data.data[n]);
+                    }
                     for(let i=0;i<response.data.data[n].childGroups.length;i++){
                         this.numlist.push({boolean:true});
                         if(response.data.data[n].childGroups[i].selected==true){
@@ -217,7 +221,6 @@ export default{
             }
         },
         changeType:function(Ind,index){
-            //console.log(this.typelist[Ind].childGroups[index]);
             if(this.typelist[Ind].childGroups[index].selected==false){
                 this.typelist[Ind].childGroups[index].selected=true;
                 this.questionList(this.typelist[Ind].childGroups[index].id,true,Ind,this.typelist[Ind].childGroups[index].gname);
@@ -245,6 +248,20 @@ export default{
                         this.typelist[i].selected = true;
                     }
                 }
+            }
+            this.firsttitle = [];//选中的最大标题
+            //let aa = [];
+            for(let i=0;i<this.typelist.length;i++){
+                if(this.typelist[i].selected==true){
+                    if(this.typelist[i].gname!=this.typelist[Ind].gname){
+                        this.firsttitle.push(this.typelist[i]);
+                        //aa.push(this.typelist[i].gname);
+                    }
+                }
+            }
+            //console.log(aa);
+            if(this.typelist[Ind].selected==true){
+                this.firsttitle.push(this.typelist[Ind]);
             }
         },
         questionList:function(Id,boolean,Index,listname){
@@ -341,6 +358,17 @@ export default{
                         this.typelist[e].childGroups[i].selected=false;
                     }
                 }
+            }
+            this.firsttitle = [];//选中的最大标题
+            for(let i=0;i<this.typelist.length;i++){
+                if(this.typelist[i].selected==true){
+                    if(this.typelist[i].gname!=this.typelist[e].gname){
+                        this.firsttitle.push(this.typelist[i]);
+                    }                    
+                }
+            }
+            if(this.typelist[e].selected==true){
+                this.firsttitle.push(this.typelist[e]);
             }
             
         },
