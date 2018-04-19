@@ -299,16 +299,22 @@ export default{
             //console.log('-----',this.pricelistOne);
         },
         canvasInvest:function(dom,x,series,centerline){
-            // if(series.length>0){
-            //     let sortarr = series;
-            //     sortarr.push(this.budgetprice);
-            //     var max = sortarr[0];
-            //     for(var i=1;i<sortarr.length;i++){ 
-            //         if(max<sortarr[i]){
-            //             max=sortarr[i];
-            //         }
-            //     }
-            // }
+            if(series.length>0){
+                let sortarr = series;
+                sortarr.push(this.budgetprice);
+                var max = sortarr[0];
+                for(var i=1;i<sortarr.length;i++){ 
+                    if(max<sortarr[i]){
+                        max=sortarr[i];
+                    }
+                }
+            }
+            let list = [];
+            for(let j=0;j<series.length;j++){
+                if(series[j]!=centerline){
+                    list.push(series[j]);
+                }
+            }
             
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
@@ -346,7 +352,7 @@ export default{
                 yAxis: {
                     name:'价格',
                     type: 'value',
-                    //max:max,
+                    max:max,
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2'
@@ -365,7 +371,7 @@ export default{
                 series: [
                     {
                     name:'价格',
-                    data: series,
+                    data: list,
                     barWidth : 25,//柱图宽度
                     type: 'bar',
                     markLine: {
