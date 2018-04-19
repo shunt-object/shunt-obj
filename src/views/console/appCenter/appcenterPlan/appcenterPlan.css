@@ -1,0 +1,38 @@
+.appcenterplan{
+    background:#fff;
+    min-height:82vh;
+    padding:20px;
+}
+.appcplan-item{
+    text-align:left;
+    margin-bottom:20px;
+}
+.appcplan-input{
+    display:inline-block;
+    width:auto;
+}
+.appcplan-btn{
+    text-align:left;
+    padding-left:46px;
+}
+.appcplan-button{
+    width:118px;
+    height:30px;
+    border-radius:3px;
+    background:#da121a;
+    color:#fff;
+    font-size:14px;
+}
+.appcplan-result-echarts{
+    margin-top:30px;
+}
+.appcplan-clould-box{
+    margin-bottom:20px !important;
+}
+.appcplan-clould{
+    text-align:left;
+    padding-left:0 !important;
+}
+.appcplan-result-desc{
+    padding-bottom:100px;
+}

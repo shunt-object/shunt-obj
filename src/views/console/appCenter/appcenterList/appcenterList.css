@@ -1,0 +1,28 @@
+.appcenterlist{
+    background:#f7f7f7;
+    min-height:82vh;
+}
+.appcenterlist-list{
+    width:100%;
+}
+.appcenterlist-item{
+    height:100px;
+    background:#fff;
+    float:left;
+    box-shadow: 0 2px 2px 0 hsla(0,0%,79%,.4);
+}
+.appcenterlist-plan{
+    height:100px;
+    background:#fff;
+    box-shadow: 0 2px 2px 0 hsla(0,0%,79%,.4);
+    width:97%;
+    margin:2% 1% 2% 2%;
+}
+.appcenterlist-itemL{
+    width:42%;
+    margin:2% 1% 2% 2%;
+}
+.appcenterlist-itemR{
+    width:52%;
+    margin:2% 2% 2% 1%;
+}
