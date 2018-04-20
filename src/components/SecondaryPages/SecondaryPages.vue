@@ -24,12 +24,44 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li @click="cloundPlan"><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">云规划</a></li>
-            <li @click="cloundPlen"><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">云选型</a></li>
-            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
-                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
-                            <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
-                        </div> </li>
+            <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
+                        <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link">
+                                    产品服务
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
+                                    <el-dropdown-item ><span @click="cloundPlan">云规划</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlen">云选型</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundplysn">云设计</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlsn">云实测</span></el-dropdown-item>
+                                    <el-dropdown-item ><span >Prof.吴数据</span></el-dropdown-item>
+                                    <el-dropdown-item ><span>技术服务</span></el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>
+            </a></li>
+            <li @click="cloundPlen"><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
+                    <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link">
+                                    生态
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
+                                    <el-dropdown-item ><span>招募顾问</span></el-dropdown-item>
+                                    <el-dropdown-item ><span>合作伙伴</span></el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>
+            </a></li>
+            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
+                       <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link">
+                                    动态
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
+                                    <el-dropdown-item ><span>新闻动态</span></el-dropdown-item>
+                                    <el-dropdown-item ><span>行业头条</span></el-dropdown-item>
+                                    <el-dropdown-item ><span>CloudBroker²社群</span></el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>              
+            </a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
             <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
             <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
@@ -61,7 +93,13 @@
 </div>
 </template>
 <script>
-
+          $(window).scroll(function(){
+                if($(this).scrollTop() > 550){
+                    $('.navbar').css("background","#2b2b2b")
+                }else if($(this).scrollTop() < 550){
+                    $('.navbar').css("background","none")
+                 }
+          });
 export default { 
     props:["active"],  
     data() {
@@ -73,6 +111,7 @@ export default {
       }
     },
     mounted: function() {
+         
          
         if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
           this.islogin = false;
@@ -126,6 +165,9 @@ export default {
       listwer:function(){
            this.$router.push({path: '/seleconeFour'})
       },
+      cloundplysn:function(){
+          this.$router.push({path: '/designer'})
+      }
     
     }
   }
@@ -134,6 +176,30 @@ export default {
 </script>
 
 <style>
+.dropCsb{
+    width:130px;
+    top:60px !important;
+    background:#161b25;
+    border-color:#161b25;
+    text-align:center;
+   
+}
+.el-dropdown-menu__item{
+     font-size:14px;
+    color:#f5f5f5 !important;
+}
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover{
+    color:#da121a !important;
+   
+    background:none !important;
+}
+.el-dropdown-menu__item:not(.is-disabled) span:hover{
+     border-bottom:1px solid #da121a !important;
+     padding-bottom:10px;
+}
+.el-popper .popper__arrow{
+   display:none;
+}
 .liHoverxg span:hover{
     background:#fff;
     color:#da121a;
@@ -147,7 +213,7 @@ export default {
     background:#F5F7FA !important
 }
 .border_active{
-    border-bottom:1px solid #fff;
+    border-bottom:1px solid #da121a;
 }
 .dropdown {
     position: relative;
@@ -233,7 +299,8 @@ ul,ol li {
     height:80%;
 }
 .navbar {
-    background: #2b2b2b; border: none
+    /*background: #2b2b2b;*/ 
+    border: none
 }
 .carousel-inner{
     margin-bottom:0px !important;
@@ -271,9 +338,7 @@ ul,ol li {
   .tuPa {
       left: 2%; height: 288px; position: absolute; bottom: -14%
   }
-  .cla {
-      margin-left: 8%;
-  }
+
   .cl {
       margin-left: 28% !important;
   }
@@ -296,7 +361,7 @@ ul,ol li {
      margin-top: 15px;
   }
   .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #fff; cursor: pointer;
+      border-bottom: 1px solid #da121a; cursor: pointer;
       background:none;
   }
   .navbar ul li .hovers:visited {
@@ -508,9 +573,7 @@ ul,ol li {
 .footer .container {
     width: 60%;
 }
-.footer .footer-left {
-    border-left:1px solid #2e383e;
-}
+
 .footer .footer-jx {
     font-weight: 200; font-size:14px; color:#ccc;
 }
@@ -536,7 +599,10 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
-
+ .navbar ul li .hovers:hover {
+      border-bottom: 1px solid #da121a; cursor: pointer;
+      background:none;
+  }
 
 .right{
     height:100%;
@@ -631,9 +697,9 @@ a:hover {
 .logout-ul li {
     width:100%;text-align: center; line-height: 20px;
 }
-.bluar-ccc {
+/*.bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
-}
+}*/
 h2 {
     font-size: 20px;
 }
@@ -659,7 +725,7 @@ h2 {
     color:#999;
 }
 .mainPd {
-    margin-top: 20px; color: #666666; display: block
+    margin-top: 12px; color: #666666; display: block
 }
 .mainpa {
     font-size: 14px; color: #666666; line-height: 12px;

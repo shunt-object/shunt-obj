@@ -3,29 +3,32 @@
         <div class="container">
       <!--<div class="container"> -->
         <div class="row" style="margin:0 auto !important;">
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts pag">
                 <p class="text-left footer-jx">联系我们</p>
                 <p class="text-left footer-list hoverRed hovera"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="tel:4008287308">400-828-7308</a></p>
-                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="mailto:Help@csb-china.com">Help@csb-china.com</a></p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3;width:auto !important;display:inline" href="mailto:Help@csb-china.com" >Help@csb-china.com</a></p>
                 <p class="text-left footer-list hoverRed"><img src="../../assets/dizhiicon.svg" alt="" style="width:9px;height:10px">&nbsp江苏无锡惠山区信息港</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-                <p class="text-left footer-jx">产品功能</p>
-                <p class="text-left footer-list hoverRed" @click="cloundPlan">云规划</p>
-                <p class="text-left footer-list hoverRed" @click="cloundSelect">云选型</p>
-                <p class="text-left footer-list hoverRed" @click="cloundCe">云实测</p>
+                
+                <div class="col-xs-12 col-sm-4 obj-what-dv footer-ts pkd">
+                <p class=" footer-jx text-left">功能</p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px">云设计</span></p>
+                <p class="text-left footer-list hoverRed"><span>云选型</span><span style="margin-left:10px">Prof. 吴数据</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span style="margin-left:10px">云测试</span></p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+                <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
                 <p class="text-left footer-jx">服务支持</p>
-                <p class="text-left footer-list hoverRed" @click="helpCenter">帮助中心</p>
-                <p class="text-left footer-list hoverRed" @click="fuwuLook">服务条款</p>
+                <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
+                <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
+                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left pagd">
+                    <div class="lerf">
                 <p class="footer-jx">CloudBroker²</p>
                     <div class="footer-ke">
                         <p>您的专属服务顾问</p>
-                        <img src="../../assets/erweima.jpg" alt="">
+                        <img src="../../assets/erweima.jpg" alt="" style="width:60px;height:60px">
                     </div>
+                </div>
                 </div>
         </div>
             
@@ -49,7 +52,10 @@
 /**{
    overflow:hidden
 }*/
-.hoverRed:hover{
+.hoverRed span:hover{
+    color:#e41e2b
+}
+.hoverReds:hover{
     color:#e41e2b
 }
 .hovera a:hover{
@@ -147,8 +153,22 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
-.footer .footer-left {
+.pkd{
+    padding-left:8%;
+}
+.pag{
+    padding-left:20px;
+}
+.pad{
+    padding-left:3%;
+}   
+.pagd{
+    padding-left:5%;
+}
+
+.lerf{
     border-left:1px solid #2e383e;
+    padding-left:8%;
 }
  .footer-inert{
     width:101.2%;
@@ -414,7 +434,10 @@ ul,ol li {
 }
 @media (max-width: 768px) {
     .footer .footer-left {
-        border-left:0px solid #2e383e;
+       
+    }
+    .lerf{
+         border-left:0px solid #2e383e;
     }
 .footer-inert{
     width:0;
@@ -504,9 +527,9 @@ a:hover {
 .logout-ul li {
     width:100%;text-align: center; line-height: 20px;
 }
-.bluar-ccc {
+/*.bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
-}
+}*/
 h2 {
     font-size: 20px;
 }
