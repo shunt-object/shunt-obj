@@ -1,41 +1,48 @@
 <template>
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <router-link class="zong" to="/appcenterList">应用市场</router-link>
+    ><p class="comback">云规划</p>
+</div>
 <div class="appcenterplan">
-<div class="appcplan-list"> 
-    <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="60px">
-        <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
-            <el-input class="appcplan-input" type="number" placeholder="请输入CPU" v-model="matchBo.cores"></el-input>
-        </el-form-item>
-        <el-form-item label="内存" prop="ram" class="appcplan-from-item">
-            <el-input class="appcplan-input" type="number" placeholder="请输入内存" v-model="matchBo.ram"></el-input>
-        </el-form-item>
-        <el-form-item label="硬盘" prop="disk" class="appcplan-from-item">
-            <el-input class="appcplan-input" type="number" placeholder="请输入硬盘" v-model="matchBo.disk"></el-input>
-        </el-form-item>
-        <el-form-item class="appcplan-btn">
-            <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
-        </el-form-item>
-    </el-form>   
-    <div class="appcplan-result" v-if="matchdata!=undefined&&matchdata!=''">
-        <div class="appcplan-result-echarts" style="width:100%;height:300px;">
-            <div id="appcplan-result-echarts" style="width:100%;height:100%"></div>
+    <div class="appcplan-list"> 
+        <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="60px">
+            <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
+                <el-input class="appcplan-input" type="number" placeholder="请输入CPU" v-model="matchBo.cores"></el-input>
+            </el-form-item>
+            <el-form-item label="内存" prop="ram" class="appcplan-from-item">
+                <el-input class="appcplan-input" type="number" placeholder="请输入内存" v-model="matchBo.ram"></el-input>
+            </el-form-item>
+            <el-form-item label="硬盘" prop="disk" class="appcplan-from-item">
+                <el-input class="appcplan-input" type="number" placeholder="请输入硬盘" v-model="matchBo.disk"></el-input>
+            </el-form-item>
+            <el-form-item class="appcplan-btn">
+                <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
+            </el-form-item>
+        </el-form>   
+        <div class="appcplan-result" v-if="matchdata!=undefined&&matchdata!=''">
+            <div class="appcplan-result-echarts" style="width:100%;height:300px;">
+                <div id="appcplan-result-echarts" style="width:100%;height:100%"></div>
+            </div>
+            <div class="row appcplan-clould-box">
+                <div class="col-md-4 appcplan-clould">
+                    <div class="appcplan-clould-scoce1"><span>云定性</span>{{matchdata.serviceName}}</div>
+                </div>
+                <div class="col-md-4 appcplan-clould">
+                    <div class="appcplan-clould-scoce2"><span>云亲和度</span>{{matchdata.affinityScope}}</div>
+                </div>
+                <div class="col-md-4 appcplan-clould">
+                    <div class="appcplan-clould-scoce3"><span>云收益度</span>{{matchdata.benefitScope}}</div>
+                </div>
+            </div>
+            <div class="appcplan-result-desc" v-html="matchdata.serviceDesc"></div>
         </div>
-        <div class="row appcplan-clould-box">
-            <div class="col-md-4 appcplan-clould">
-                <div class="appcplan-clould-scoce1"><span>云定性</span>{{matchdata.serviceName}}</div>
-            </div>
-            <div class="col-md-4 appcplan-clould">
-                <div class="appcplan-clould-scoce2"><span>云亲和度</span>{{matchdata.affinityScope}}</div>
-            </div>
-            <div class="col-md-4 appcplan-clould">
-                <div class="appcplan-clould-scoce3"><span>云收益度</span>{{matchdata.benefitScope}}</div>
-            </div>
+        <div class="nodata" v-if="matchdata==undefined">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无此配置数据，吴老师会马上学习和匹配。如果您需要全方面的定制，请去我们的专业流程云规划。
         </div>
-        <div class="appcplan-result-desc" v-html="matchdata.serviceDesc"></div>
-    </div>
-    <div class="nodata" v-if="matchdata==undefined">
-        <img src="../../../../assets/compare-nodata.png" alt="">
-        <br>
-        暂无此配置数据，吴老师会马上学习和匹配。如果您需要全方面的定制，请去我们的专业流程云规划。
     </div>
 </div>
 </div>
@@ -76,7 +83,7 @@ export default{
                         //console.log(response.data.data);
                         this.matchdata = response.data.data;
                         this.opiniondata =  [{
-                            name:response.data.data.serviceName,
+                            name:'',//response.data.data.serviceName
                             value:[response.data.data.benefitScope,response.data.data.affinityScope]
                         }] 
                         //console.log(this.opiniondata);
@@ -94,13 +101,19 @@ export default{
             this.charts = echarts.init(document.getElementById(id));
             this.charts.setOption({
                 title: {
-                    text: '云规划报告',
+                    text: '',
                     textStyle:{
                         color:'#333333',
                         fontWeight:'normal',
                         fontSize:'15'
                     },
                     left: 'left'
+                },
+                grid:{
+                    x:50,
+                    y:50,
+                    x2:80,
+                    y2:50
                 },
                 tooltip: {
                     trigger: 'item',
@@ -161,7 +174,7 @@ export default{
                         }
                     },
                     nameTextStyle:{
-                        color:'#333'
+                        color:'#666'
                     }
                 },
                 yAxis: {
@@ -180,11 +193,11 @@ export default{
                     axisLine: {
                         lineStyle: {
                             color: '#c2c2c2',
-                            width:'2'
+                            width:'1'
                         }
                     },
                     nameTextStyle:{
-                        color:'#333'
+                        color:'#666'
                     }
                 },
                 visualMap: {
