@@ -32,7 +32,9 @@
         </div>
         <div class="appcplan-result-desc" v-html="matchdata.serviceDesc"></div>
     </div>
-    <div class="" v-if="matchdata==undefined">
+    <div class="nodata" v-if="matchdata==undefined">
+        <img src="../../../../assets/compare-nodata.png" alt="">
+        <br>
         暂无此配置数据，吴老师会马上学习和匹配。如果您需要全方面的定制，请去我们的专业流程云规划。
     </div>
 </div>

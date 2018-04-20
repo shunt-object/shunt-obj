@@ -132,12 +132,12 @@
                 <li class="sub-menu" v-if="utype!=3&&utype!=4">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
-                        <img src="../../../assets/shuju.png" alt="">
-                        <span>应用中心</span>
+                        <img src="../../../assets/appcenter.png" alt=""><!-- 8a8a8a-->
+                        <span>应用市场</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li v-on:click="appcenterList()"><a href="javascript:;">应用中心</a></li>
+                        <li v-on:click="appcenterList()"><a href="javascript:;">应用市场</a></li>
                     </ul>
                 </li>
                   <li class="sub-menu" v-show="istrue">
