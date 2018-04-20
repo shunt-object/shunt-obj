@@ -179,10 +179,13 @@ export default {
 .dropCsb{
     width:130px;
     top:60px !important;
-    background:#161b25;
-    border-color:#161b25;
-    text-align:center;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    text-align:center !important;
    
+}
+.el-dropdown-menu{
+    
 }
 .el-dropdown-menu__item{
      font-size:14px;

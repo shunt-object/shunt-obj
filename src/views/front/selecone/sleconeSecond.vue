@@ -75,6 +75,7 @@
                     </div>
                  </div>
             </div>
+            <div style="width:100%;background:#f8f8f8">
             <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                 <div class=" text-left redtitle">
                     <span class="redLine"></span><span class="redlasttitle">核心优势</span>
@@ -126,6 +127,7 @@
                 </div>
                 
                 </div>
+            </div>
             </div>
             <div style="width:100%;">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >

@@ -19,11 +19,11 @@
     <!-------------------------------banner------------------------------------------>
 <div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-                       <ol class="carousel-indicators">
+                       <!--<ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
+                        </ol>-->
       <div class="carousel-inner">
         
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
