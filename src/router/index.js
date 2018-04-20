@@ -42,6 +42,8 @@ import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
 import pay from '@/views/console/pay/pay'
+import appcenterList from '@/views/console/appCenter/appcenterList/appcenterList'
+import appcenterPlan from '@/views/console/appCenter/appcenterPlan/appcenterPlan'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
@@ -235,6 +237,22 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:compareList
+        },
+        {
+          path:'/appcenterList',
+          name:'appcenterList',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterList
+        },
+        {
+          path:'/appcenterPlan',
+          name:'appcenterPlan',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterPlan
         },
         {
           path:'/planList',
