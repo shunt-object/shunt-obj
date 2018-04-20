@@ -203,6 +203,9 @@ export default {
 ..popper__arrow{
     display:none !important;
 }
+.el-popper .popper__arrow, .el-popper .popper__arrow:after{
+    display:none !important;
+}
 .el-popper .popper__arrow{
    display:none !important;
 }
