@@ -200,8 +200,11 @@ export default {
      border-bottom:1px solid #da121a !important;
      padding-bottom:10px;
 }
+..popper__arrow{
+    display:none !important;
+}
 .el-popper .popper__arrow{
-   display:none;
+   display:none !important;
 }
 .liHoverxg span:hover{
     background:#fff;
