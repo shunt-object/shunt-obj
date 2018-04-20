@@ -7,21 +7,27 @@
     text-align:left;
     margin-bottom:20px;
 }
-.appcplan-input{
-    display:inline-block;
-    width:auto;
+.appcplan-from-item{
+    text-align:left;
+}
+.appcplan-from-item .el-form-item__label{
+    font-weight:normal !important;
+}
+.appcplan-input .el-input__inner{
+    height:30px !important;
 }
 .appcplan-btn{
     text-align:left;
-    padding-left:46px;
 }
 .appcplan-button{
     width:118px;
     height:30px;
+    line-height:0 !important;
     border-radius:3px;
-    background:#da121a;
-    color:#fff;
+    background:#da121a !important;
+    color:#fff !important;
     font-size:14px;
+    border:none !important;
 }
 .appcplan-result-echarts{
     margin-top:30px;
@@ -30,9 +36,24 @@
     margin-bottom:20px !important;
 }
 .appcplan-clould{
-    text-align:left;
-    padding-left:0 !important;
+    width:95%;
+    padding:20px 0 !important;
+}
+.appcplan-clould-scoce1,.appcplan-clould-scoce2,.appcplan-clould-scoce3{
+    width:90%;
+    height:42px;
+    line-height:42px;
+    background:yellow;
 }
 .appcplan-result-desc{
-    padding-bottom:100px;
+    width:100%;
+    height:100%;
+    padding:20px 30px;
+    background:#f9f9f9;
+    border-radius:1px;
+}
+@media (min-width: 768px){
+    .appcplan-input{
+        width:260px !important;
+    }
 }
