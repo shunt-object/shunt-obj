@@ -399,7 +399,6 @@ export default{
         },
         messageCenters:function(){
              this.$router.push({path:'/vis'});
-<<<<<<< HEAD
              this.nocopy();
         },
         homepage:function(){
@@ -409,11 +408,9 @@ export default{
         nocopy:function(){
             document.oncontextmenu=function(){return true};   
             document.onselectstart=function(){return true};
-=======
         },
         appcenterList:function(){
             this.$router.push({path:'/appcenterList'});
->>>>>>> feature/appcenter
         },
 
     },
