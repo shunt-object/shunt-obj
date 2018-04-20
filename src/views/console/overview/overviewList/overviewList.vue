@@ -829,8 +829,13 @@ if(pronames==""){
             this.welcom = true;
         },
         Jips:function(even){
-            console.log(even)
+            //console.log(even)
+            this.copy();
             this.$router.push({path:'/colligateReport',query:{id:even}});
+        },
+        copy:function(){
+            document.oncontextmenu=function(){return false};   
+            document.onselectstart=function(){return false};
         },
         // treeTip:function(e){
         //         var x=-210;
@@ -932,12 +937,15 @@ if(pronames==""){
             var n = n;
             if(n == 4){
                     this.$router.push({path:'/compareQuestion',query:{id:o}});
+                    this.copy();
             }else if(n == 5){
                     this.$router.push({path:'/resourceGroup',query:{id:o}});
             }else if(n == 6){
                  this.$router.push({path:'/design',query:{id:o}});
+                 this.copy();
             }else{
                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                    this.copy();
             }
             
         },

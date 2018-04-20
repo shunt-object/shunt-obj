@@ -337,6 +337,7 @@ export default{
         },
         zhic:function(){
              this.$router.push({path:'/yunzc'});
+             this.nocopy();
         },
         designer:function(){
             this.$router.push({path:'/designer'});
@@ -344,6 +345,7 @@ export default{
         },
         TheirAllies:function(){
            this.$router.push({path:'/TheirAllies'});
+           this.nocopy();
         },
         responsiveView:function () {
             var wSize = $(window).width();
@@ -370,6 +372,7 @@ export default{
         },
         ReviewTheData:function(){
             this.$router.push({path:'/ReviewTheData'});
+            this.nocopy();
         },
           tongzhiCenter:function(){
              this.$router.push({path:'/notification'});
@@ -381,17 +384,19 @@ export default{
         },
         messageCenter:function(){
              this.$router.push({path:'/messageCenter'});
+             this.nocopy();
         },
         messageCenters:function(){
              this.$router.push({path:'/vis'});
+             this.nocopy();
         },
         homepage:function(){
             this.$router.push({path:'/'});
             this.nocopy();
         },
         nocopy:function(){
-            document.oncontextmenu=function(){return false};   
-            document.onselectstart=function(){return false};
+            document.oncontextmenu=function(){return true};   
+            document.onselectstart=function(){return true};
         },
 
     },

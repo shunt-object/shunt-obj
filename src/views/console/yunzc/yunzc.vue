@@ -191,8 +191,6 @@ import "../plan/planList/datatable.css";
             }
          },
      updated:function(){
-         document.oncontextmenu=function(){return true};   
-         document.onselectstart=function(){return true};
                     $.noConflict();
                     $("#tabelId").dataTable().fnDestroy();
                         $('#tabelId').DataTable({

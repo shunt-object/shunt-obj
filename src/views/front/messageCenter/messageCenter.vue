@@ -347,8 +347,6 @@
                 }
             },
             updated:function(){
-                document.oncontextmenu=function(){return true};   
-                document.onselectstart=function(){return true};
                 //this.handleCurrentChange(1)
             },
             methods:{
