@@ -10,7 +10,13 @@
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
                     <img src="../../../../assets/appcenter/appcen-plan.png" alt="">
                 </div>
-                云规划
+                收益度和亲和度
+            </div>
+            <div class="appcenterlist-item" v-on:click="goPrice()">
+                <div class="appcenterlist-item-img appcenterlist-item-img1">
+                    <img src="../../../../assets/appcenter/appcen-price.png" alt="">
+                </div>
+                价格计算器
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2">
@@ -30,14 +36,9 @@
                 </div>
                 预算分析
             </div>
-            <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
-                    <img src="../../../../assets/appcenter/appcen-price.png" alt="">
-                </div>
-                价格优选
-            </div>
+            <div class="clear"></div>
         </div>
-        <div class="clear"></div>
+        
     </div>
 </div>
 </template>
@@ -48,7 +49,10 @@ export default{
     methods:{
         goPlan:function(){
             this.$router.push({path:'/appcenterPlan'});
-        }
+        },
+        goPrice:function(){
+            this.$router.push({path:'/appcenterPrice'});
+        },
     }
 }
 </script>

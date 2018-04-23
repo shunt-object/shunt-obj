@@ -40,7 +40,7 @@
                 <td  v-else></td>
                 <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                 <td  v-else></td>
-                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
+                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom"><i class="iconfont icon-chakan font12" style="margin-right:5px;"></i>查看报告</a></td>
             </tr>
         </tbody>    
     </table>
@@ -114,10 +114,10 @@ line-height:30px; float:left; margin-top:13px;
 }
 
 .planlist-table>thead>tr>th{
-    height:54px; background:#f3f3f3 !important; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
+    height:54px; background:#f3f3f3 !important; text-align:center; font-size:12px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
-    font-size:14px;
+    font-size:12px;
     color:#2b2b2b;
     border-right:1px solid #e5e5e5;
     background:#fff;

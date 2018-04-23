@@ -11,7 +11,8 @@
     text-align:left;
 }
 .appcplan-from-item .el-form-item__label{
-    font-weight:normal !important;
+    font-weight:400 !important; 
+    padding-right:5px !important;
 }
 .appcplan-input .el-input__inner{
     height:30px !important;

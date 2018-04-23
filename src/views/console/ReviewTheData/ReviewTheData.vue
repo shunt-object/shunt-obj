@@ -63,7 +63,7 @@
     width:100%;
 }
 .reviewthe-table thead tr td{
-    background: #f3f3f3; border: 1px solid #e5e5e5; padding: 10px 0; color: #555; font-weight: 700;
+    background: #f3f3f3; border: 1px solid #e5e5e5; padding: 10px 0; color: #555; font-weight: 700; font-size:12px;
 }
 .reviewthe-table tbody tr td{
     font-size: 12px; color: #2b2b2b; border: 1px solid #e5e5e5; padding: 15px 0; line-height: 20px;

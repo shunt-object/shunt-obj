@@ -75,6 +75,9 @@ color:#c1c5cd;
 :-ms-input-placeholder { /* Internet Explorer 10+ */ 
 color: #c1c5cd; 
 } 
+.planlist-table thead th,.planlist-table tbody td{
+    font-size:12px;
+}
 @media (min-width: 768px) {  /** pc */
     .shuai{
         height:40px;

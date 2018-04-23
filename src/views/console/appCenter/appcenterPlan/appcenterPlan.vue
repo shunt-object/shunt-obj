@@ -3,7 +3,7 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/appcenterList">应用市场</router-link>
-    ><p class="comback">云规划</p>
+    ><p class="comback">收益度和亲和度</p>
 </div>
 <div class="appcenterplan">
     <div class="appcplan-list"> 

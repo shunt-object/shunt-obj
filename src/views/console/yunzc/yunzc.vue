@@ -90,6 +90,9 @@
  </div>   
 </template>
 <style>
+#tabelId thead th,#tabelId tbody td{
+    font-size:12px;
+}
 .el-button:active {
     color: #fff !important;
     border-color: #fff !important;

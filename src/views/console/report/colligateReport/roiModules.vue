@@ -26,7 +26,7 @@
                 <tbody>
                     <tr v-for="(item,index) in pricelistOne">
                         <td :rowspan="pricelist.length+1">
-                            <p :class="budgetprice==''?'Invest-table-color':''" style="cursor:pointer;" v-if="isbudget==false" v-on:click="budget()">{{budgetprice==''?'请输入您的预算':budgetprice}}<span style="color:#666;margin-left:3px;"><i class="iconfont icon-bianji"></i></span></p>
+                            <p :class="budgetprice==''?'Invest-table-color':''" style="cursor:pointer;" v-if="isbudget==false" v-on:click="budget()">{{budgetprice==''?'请输入您的预算':budgetprice}}<span style="color:#666;margin-left:3px;"><i class="iconfont icon-bianji font12"></i></span></p>
                             <p class="inputbudget" v-if="isbudget==true"><input type="number" v-model="budgetprice" v-on:blur="budgetYes()"></p>元
                         </td>
                         <td><input type="checkbox" class="invest-checbox" v-model="item.boolean" v-on:click="investInput('pricelistOne',index)">{{item.data.pname}}</td>

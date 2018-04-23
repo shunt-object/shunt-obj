@@ -319,6 +319,10 @@ ul.sidebar-menu li.sub-menu{
 ul.sidebar-menu li a img{
     width:20px;
 }
+ul.sidebar-menu li a .sub-bigimg{
+    width:16px;
+    margin-right:4px;
+}
 
 ul.sidebar-menu li a span{
     display: inline-block;

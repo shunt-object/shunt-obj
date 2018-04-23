@@ -41,7 +41,7 @@
                         </ul>
                     </td>
                     <td v-else></td>
-                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7 !important;"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
+                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7 !important;"><i class="iconfont icon-chakan font12" style="margin-right:5px;"></i>查看报告</a></td>
                 </tr>
             </tbody>
         </table>
@@ -90,10 +90,10 @@ line-height:30px; float:left; margin-top:13px;
     vertical-align:middle !important;
 }
 .table>tbody>tr>td{
-    line-height:30px; background:#fff; color:#2b2b2b;
+    line-height:30px; background:#fff; color:#2b2b2b; font-size:12px;
 }
 .table>thead>tr>th{
-    background:#f3f3f3; color:#555; height:50px; text-align:center;
+    background:#f3f3f3; color:#555; height:50px; text-align:center; font-size:12px;
 }
 .table>tbody>tr:nth-child(2n)>td{
     background:rgb(247, 247, 247);

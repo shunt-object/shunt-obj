@@ -213,6 +213,12 @@
    .notification-mainTabletr tr{
        height:70px;
    }
+   .notification-mainTable thead th{
+       font-size:12px;
+   }
+   .notification-mainTable tbody td{
+       font-size:12px;
+   }
    .kongbottom{
        height:1px;
        width:93%;

@@ -49,7 +49,7 @@
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.cores}}</td>
                                      <td>{{Math.round(dat.cpu)}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" style="font-size:14px;" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan font12"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
@@ -109,7 +109,7 @@
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.cores}}</td>
                                      <td>{{Math.round(dati.cpu)}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan font12"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>

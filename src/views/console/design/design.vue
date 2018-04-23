@@ -70,7 +70,7 @@
                                     <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                 </ul>
                             </td>
-                            <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.data.id,index,dat.data.typeLevel,dat.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                            <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.data.id,index,dat.data.typeLevel,dat.data.type)"><i class="iconfont icon-bianji font12"></i>&nbsp修正</span></td>
                         </tr>
                     
                     </tbody>
@@ -106,7 +106,7 @@
                                     <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>
                                 </ul>
                             </td>
-                            <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.data.id,index,dati.data.typeLevel,dati.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                            <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.data.id,index,dati.data.typeLevel,dati.data.type)"><i class="iconfont icon-bianji font12"></i>&nbsp修正</span></td>
                         </tr>
                     
                     </tbody>
@@ -292,7 +292,10 @@
     margin-bottom:10px;
 }
 .table>thead>tr>th{
-    border-bottom-width:0px !important;
+    border-bottom-width:0px !important; font-size:12px;
+}
+.table>tbody>tr>td{
+    font-size:12px;
 }
 .table{
     border-top:none !important;

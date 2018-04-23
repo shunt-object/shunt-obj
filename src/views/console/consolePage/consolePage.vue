@@ -129,21 +129,16 @@
                         <li v-on:click="sus()"><a href="javascript:;">数据洞察</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu" v-if="utype!=3&&utype!=4">
-                    <a href="javascript:;" class="">
-                        <!--<i class="icon-book"></i>-->
-                        <img src="../../../assets/appcenter.png" alt=""><!-- 8a8a8a-->
+                <li class="sub-menu" v-if="utype!=3&&utype!=4" v-on:click="appcenterList()">
+                    <a class="outhover" href="javascript:;">
+                        <img src="../../../assets/appcenter.png" class="sub-bigimg" alt=""><!-- 8a8a8a-->
                         <span>应用市场</span>
-                        <span class="arrow"></span>
                     </a>
-                    <ul class="sub">
-                        <li v-on:click="appcenterList()"><a href="javascript:;">应用市场</a></li>
-                    </ul>
                 </li>
                   <li class="sub-menu" v-show="istrue">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
-                        <img src="../../../assets/y.png" alt="">
+                        <img src="../../../assets/y.png" class="sub-bigimg" alt="">
                         <span>运营支撑</span>
                         <span class="arrow"></span>
                     </a>
