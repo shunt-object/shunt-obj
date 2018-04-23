@@ -58,7 +58,7 @@
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item ><span>新闻动态</span></el-dropdown-item>
                                     <el-dropdown-item ><span>行业头条</span></el-dropdown-item>
-                                    <el-dropdown-item ><span>CloudBroker²社群</span></el-dropdown-item>
+                                    <el-dropdown-item ><span>CSB²社群</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>

@@ -1,6 +1,14 @@
 <!--云规划-->
-<template>
-<div style="background:#eceef3">
+<template >
+<div style="background:#eceef3" id="he">
+      <div class="rightBs">
+            <ul>
+                <li class="nexton" data-to="go1"></li>
+                <li class="nextsec" data-to="go2"></li>
+                <li class="nextthe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
+            </ul>
+      </div>
       <div class="fixed-box">
         <ul class="fixed-ul">
             <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
@@ -15,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#">产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg">产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy">核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr">快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz">时间轴</a></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -38,14 +46,14 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#">产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#">时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg">产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy">核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr">快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz">时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
-            <div>
+            <div id="cg" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">产品功能</span>
@@ -75,7 +83,7 @@
                     </div>
                  </div>
             </div>
-            <div style="width:100%;background:#f8f8f8">
+            <div style="width:100%;background:#f8f8f8" id="hy" class="go2">
             <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                 <div class=" text-left redtitle">
                     <span class="redLine"></span><span class="redlasttitle">核心优势</span>
@@ -129,7 +137,7 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;">
+            <div style="width:100%;" id="kr" class="go3">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">快速入门</span>
@@ -181,7 +189,7 @@
                 </div>
             </div>
        
-             <div style="background:#f8f8f8;width:100%">
+             <div style="background:#f8f8f8;width:100%" id="sz" class="go4">
                 <div class="seleconeMain-echarts container broundU erfs">
                      <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">时间轴</span>
@@ -228,6 +236,24 @@
 
 </template>
 <style>
+.rightBs ul li{
+    background:#d8d8d8;
+    width:10px;
+    height:10px;
+    border-radius:100%;
+   margin-bottom:10px;
+}
+.rightBs ul li a{
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    display:inline-block;
+}
+.rightBs ul{
+    position:fixed;
+    right:20px;
+    top:40%;
+}
 .timeli,.timeli1,.timeli2,.timeli3,.timeli4{
     font-size:14px;
     color:#e41e2b;
@@ -811,7 +837,12 @@
 </style>
 <script>
     $(document).ready(function(){ 
-                   
+                        // $(".rightBs ul li").find("a").click(function(){
+                        //     // $(".rightBs ul li").css("background","#d8d8d8");
+                        //     // $(this).css("background","#da121a");
+                        //     alert(1)
+                        // });
+                      
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -829,14 +860,34 @@
                             $(".sectb").css("display","block");
                           
                         };
-                        if($(".naver").length==1){
-                            var topa = $(".naver").offset().top - $(window).scrollTop();
-                             if(topa<0){
-                                 $(".displayshow").css("display","block") 
-                             }else if(topa>0){
-                                  $(".displayshow").css("display","none") 
-                             }  
-                        }
+                        // if($(".naver").length==1){
+                        //      $(".rightBs ul li").css("background","#d8d8d8") 
+                        //     var topa = $(".naver").offset().top - $(window).scrollTop();
+                        //      if(topa<0){
+                        //          $(".displayshow").css("display","block") 
+                        //      }else if(topa>0){
+                        //           $(".displayshow").css("display","none") 
+                        //      }
+                        //      if($("#cg").offset().top - $(window).scrollTop()<0){
+                        //         $(".rightBs ul li").css("background","#d8d8d8") 
+                        //         $(".rightBs ul li").first().css("background","#da121a")
+                        //      }
+                        //      if($("#hy").offset().top - $(window).scrollTop()<0){
+                        //           $(".rightBs ul li").css("background","#d8d8d8") 
+                        //             $(".nextsec").css("background","#da121a")
+                        //      }
+                        //      if($("#kr").offset().top - $(window).scrollTop()<0){
+                        //           $(".rightBs ul li").css("background","#d8d8d8") 
+                        //             $(".nextthe").css("background","#da121a")
+                        //      }
+                        //      if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                        //          $(".rightBs ul li").css("background","#d8d8d8") 
+                        //           $(".nextf").css("background","#da121a")
+                        //      }
+                
+            
+                        //     console.log()
+                        // }
                     });
             
                     $(".scrollUp").click(function(){
@@ -884,7 +935,18 @@
             }
         },
         mounted:function(){
-           
+                        //   $(".rightBs ul li").click(function(e){
+                        //      var target = e.target;
+                        //      var id = $(target).data("to");
+                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
+                        //      $(".rightBs ul li").css("background","#d8d8d8");
+                        //      $(this).next().css("background","#da121a")
+                        //     //  if($(this).index()==0){
+                        //     //      var a = '<a href="#cg"></a>';
+                        //     //      $(this).append(a)
+                        //     //       $(this).find("a").trigger("click");
+                        //     //  }
+                        //  })
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

@@ -345,7 +345,7 @@
                             "pageReq": {
                                         "order": null,
                                         "page": val-1,
-                                        "size": this.sizePage,
+                                        "size": 6,
                                         "sort": null
                                     }
                         }
@@ -376,12 +376,12 @@
                                 "pageReq": {
                                     "order": null,
                                     "page": 0,
-                                    "size": this.sizePage,
+                                    "size": 6,
                                     "sort": null
                                 },
                                 "type": id
                                 }
-                        
+                  
                      this.$this.post('/broker/content/user/get/content',obj).then((pons)=>{  //获取分类的消息
                                 this.dats = pons.data.data.content;
                                
@@ -410,48 +410,51 @@
                             "pageReq": {
                                         "order": null,
                                         "page": 0,
-                                        "size": this.sizePage,
+                                        "size": 6,
                                         "sort": null
                                     }
                             }
-                            console.log(a)
+                    
                     this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                 this.dats = response.data.data.content;  
-                                 console.log(this.dats)    
-                                  this.totalPages = response.data.data.totalElements;
-                                   this.weidulook();
-                                if(this.totalPages ==0){
-                                    this.isopens= false;
-                                    this.isopen = true;
-                                }else{  
-                                    this.isopens=true;
-                                    this.isopen = false;
+                                  console.log(response)
+                                  if(responsee.data.data.totalElements!=0){
+                                    this.dats = response.data.data.content;  
+                                    console.log(this.dats)    
+                                    this.totalPages = response.data.data.totalElements;
+                                    this.weidulook();
+                                    if(this.totalPages ==0){
+                                        this.isopens= false;
+                                        this.isopen = true;
+                                    }else{  
+                                        this.isopens=true;
+                                        this.isopen = false;
+                                    }
                                 }
                                 //this.titleWeidu(this.totalPages);
                         }).catch((error)=>{
                     });
                },
-               titleWeidu:function(e){
-                    var a = {
-                            "pageReq": {
-                                        "order": null,
-                                        "page": 0,
-                                        "size": e,
-                                        "sort": null
-                                    }
-                            }
-                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                this.dats = response.data.data.content;      
-                                for(let k = 0;k<e;k++){
-                                    if(this.dats[k].status==null){
-                                       this.acp.push(this.dats[k])
-                                    }
-                                }
-                                console.log(this.acp)
+            //    titleWeidu:function(e){
+            //         var a = {
+            //                 "pageReq": {
+            //                             "order": null,
+            //                             "page": 0,
+            //                             "size": e,
+            //                             "sort": null
+            //                         }
+            //                 }
+            //         this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
+            //                     this.dats = response.data.data.content;      
+            //                     for(let k = 0;k<e;k++){
+            //                         if(this.dats[k].status==null){
+            //                            this.acp.push(this.dats[k])
+            //                         }
+            //                     }
+            //                     console.log(this.acp)
                                 
-                        }).catch((error)=>{
-                    });
-               },
+            //             }).catch((error)=>{
+            //         });
+            //    },
                changeSta:function(item){
                     if(this.checkboxAll){
                          $("#tryes input[type='checkbox']").prop("checked",true)
