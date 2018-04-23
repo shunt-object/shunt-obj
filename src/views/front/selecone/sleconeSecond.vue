@@ -23,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#cg">产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy">核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr">快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz">时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -46,10 +46,10 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#cg">产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy">核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr">快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz">时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -236,6 +236,36 @@
 
 </template>
 <style>
+.naver i{
+    color:#c2c2c2;
+}
+.fixshow i{
+    color:#c2c2c2;
+}
+/*悬浮框*/
+.fixed-box{
+ width:55px; position:fixed;right:0;bottom:100px;z-index:10;
+}
+.fixed-box .scrollUp{
+    position:fixed;
+    right:12px;
+    display:none;
+}
+.fixed-ul li{
+    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
+    padding-top:1px; line-height:2px; cursor:pointer;
+    font-size:10px;
+}
+.phone-li{
+    margin-top:7px; position:relative;
+}
+.phone-box{
+    width:185px; height:60px; position:absolute; right:68px; top:0;
+}
+.fixed-icon{
+    display:block; margin:10px auto; width:18px; height:18px;
+}
+/**/
 .rightBs ul li{
     background:#d8d8d8;
     width:10px;
@@ -509,8 +539,8 @@
 }
 .redLine{
     display:inline-block;
-    border:2px solid #da121a;
-    width:0px;
+    background:#da121a;
+    width:4px;
     height:16px;
     margin-right:5px;
 }
@@ -860,34 +890,33 @@
                             $(".sectb").css("display","block");
                           
                         };
-                        // if($(".naver").length==1){
-                        //      $(".rightBs ul li").css("background","#d8d8d8") 
-                        //     var topa = $(".naver").offset().top - $(window).scrollTop();
-                        //      if(topa<0){
-                        //          $(".displayshow").css("display","block") 
-                        //      }else if(topa>0){
-                        //           $(".displayshow").css("display","none") 
-                        //      }
-                        //      if($("#cg").offset().top - $(window).scrollTop()<0){
-                        //         $(".rightBs ul li").css("background","#d8d8d8") 
-                        //         $(".rightBs ul li").first().css("background","#da121a")
-                        //      }
-                        //      if($("#hy").offset().top - $(window).scrollTop()<0){
-                        //           $(".rightBs ul li").css("background","#d8d8d8") 
-                        //             $(".nextsec").css("background","#da121a")
-                        //      }
-                        //      if($("#kr").offset().top - $(window).scrollTop()<0){
-                        //           $(".rightBs ul li").css("background","#d8d8d8") 
-                        //             $(".nextthe").css("background","#da121a")
-                        //      }
-                        //      if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                        //          $(".rightBs ul li").css("background","#d8d8d8") 
-                        //           $(".nextf").css("background","#da121a")
-                        //      }
-                
-            
-                        //     console.log()
-                        // }
+                         if($(".naver").length==1){
+                          
+                            var topa = $(".naver").offset().top - $(window).scrollTop();
+                             if(topa<0){
+                                 $(".displayshow").css("display","block") 
+                             }else if(topa>0){
+                                  $(".displayshow").css("display","none") 
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                             }
+                             console.log($("#cg").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                                $(".rightBs ul li").css("background","#d8d8d8") 
+                                $(".nexton").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextsec").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#kr").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextthe").css("background","#da121a")
+                             }
+                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                  $(".nextf").css("background","#da121a")  
+                             }
+                        }
                     });
             
                     $(".scrollUp").click(function(){
@@ -935,6 +964,18 @@
             }
         },
         mounted:function(){
+               $(".rightBs ul li").click(function(e){
+                               //$(".rightBs ul li").css("background","#d8d8d8");
+                               var s = $(this).index();
+                               console.log(s)
+                             $(".rightBs ul li").not($(this)).css("background","#d8d8d8")
+                             $(this).css("background","#da121a")
+                             var target = e.target;
+                             var id = $(target).data("to");
+                             $('html,body').animate({scrollTop:$('.'+id).offset().top+90}, 800);
+                            
+                         
+                         })
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");
