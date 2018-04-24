@@ -9,3 +9,47 @@
 .appcenter-from-select .el-select{
     float:left;
 }
+.appcenterPrice{
+    background:#fff;
+    padding:20px;
+}
+.appcenterPrice-table table{
+    border-collapse:collapse;
+    border:1px solid #e5e5e5;
+    width:100%;
+    font-size:12px;
+    margin:0 auto;
+}
+.appcenterPrice-table table thead tr th{
+    text-align:center;
+    height:54px;
+    line-height:54px;
+    border-right:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    color:#555;
+    background:#f3f3f3;
+}
+.appcenterPrice-table table tbody tr td{
+    text-align:center;
+    padding:10px 0;
+    border-right:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    color:#2b2b2b;
+}
+.appcenterPrice-table table tbody tr:nth-child(2n) td{
+    background:rgb(247, 247, 247);
+}
+.appcenterPrice-table table tbody{
+    display:block;
+    overflow-y:scroll;
+    max-height:500px;
+    width:100%;
+}
+.appcenterPrice-table table tbody tr,.appcenterPrice-table table thead{
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.appcenterPrice-table table tbody::-webkit-scrollbar {
+    display: none;
+}

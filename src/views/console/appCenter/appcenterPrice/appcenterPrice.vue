@@ -7,7 +7,7 @@
     </div>
     <div class="appcenterPrice">
         <div class="appcplan-list"> 
-            <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="100px">
+            <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
                 <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
                     <el-input class="appcplan-input" type="number" placeholder="请输入CPU" v-model="matchBo.cores"></el-input>
                 </el-form-item>
@@ -33,6 +33,26 @@
                     <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
                 </el-form-item>
             </el-form>
+        </div>
+        <div class="appcenterPrice-table" v-if="pricelist.length>0">
+            <table>
+                <thead>
+                    <tr>
+                        <th>云厂商</th>
+                        <th>产品名称</th>
+                        <th>区域</th>
+                        <th>费用参考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="it in pricelist">
+                        <td>{{it.sname}}</td>
+                        <td>{{it.pname}}</td>
+                        <td>{{it.region}}</td>
+                        <td>¥{{it.cloudPrice}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -88,7 +108,8 @@ export default {
                 ]
             },
             clouldcompany:[],
-            region:[]
+            region:[],
+            pricelist:[]
         }
     },
     mounted:function(){
@@ -125,7 +146,10 @@ export default {
                     this.match.priceParamBo.month = this.matchBo.months;
                     this.match.priceParamBo.regions.push(this.matchBo.region);
                     this.match.priceParamBo.serverId = this.matchBo.firm;
-                    console.log('---',this.match);
+                    this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
+                        console.log('---',response.data);
+                        this.pricelist = response.data.data;
+                    }).catch((error)=>{})
                 } else {
                     return false;
                 }

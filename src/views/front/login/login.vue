@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <!--其他方式登录-->
-                    <!--<div class="otherLogin">
+                    <div class="otherLogin">
                         <div class="otherLogin-line">
                             <span></span>
                             <p class="otherLogin-desc">使用其他账号登录</p>
@@ -42,7 +42,7 @@
                         <div class="otherLogin-logo">
                             <span v-on:click="wechart()"><i class="iconfont icon-weixin weixin-logo"></i></span>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -51,11 +51,9 @@
     </div>
     <div class="login-footer">
         <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a style="color:#555" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-2</a>&nbsp&nbspTEL：400-828-7308</p>
-        <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
     <!-- 微信登录弹框 -->
-    <!--<el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
+    <el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
         <div class="wechart-title">微信登录</div>
         <div class="wechart-img">
             <img :src="wechartUrl" alt="">
@@ -66,7 +64,7 @@
         <div class="wechart-success" v-show="success">
             <i class="iconfont icon-duihao2"></i>扫描成功
         </div>
-    </el-dialog>-->
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -201,9 +199,19 @@ export default{
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));
-                        if(sessionStorage.getItem("accountId")){
+                        // if(sessionStorage.getItem("accountId")){
+                        //     this.$router.push({path:'/consolePage'}); 
+                        // }
+                        if(this.url==''){
                             this.$router.push({path:'/consolePage'}); 
+                        }else{
+                            for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                                if(this.url[i].indexOf('redirect=appstore')>-1){
+                                    this.$router.push({path:'/appcenterList'});
+                                }
+                            }
                         }
+                        
                     }else if(res.data.code=='0'){//用户名或密码不正确
                         // this.isaccount=true;
                         this.isaccount=false;
