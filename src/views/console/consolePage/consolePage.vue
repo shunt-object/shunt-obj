@@ -401,6 +401,7 @@ export default{
             this.nocopy();
         },
         nocopy:function(){
+            //禁止copy
             document.oncontextmenu=function(){return true};   
             document.onselectstart=function(){return true};
         },

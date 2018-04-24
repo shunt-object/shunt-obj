@@ -34,6 +34,8 @@ import colligateReport from '@/views/console/report/colligateReport/colligateRep
 import CustomerService from '@/views/front/CustomerService'
 import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
 import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
+import seleconeSix from "../views/front/selecone/seleconeSix.vue"
+import seleconeSeven from "../views/front/selecone/seleconeSeven.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
@@ -81,6 +83,16 @@ export default new Router({
       path:"/seleconeFour",
       name:"seleconeFour",
       component:seleconeFour
+    },
+     {
+      path:"/seleconeSix",
+      name:"seleconeSix",
+      component:seleconeSix
+    },
+    {
+      path:"/seleconeSeven",
+      name:"seleconeSeven",
+      component:seleconeSeven
     },
      
     {

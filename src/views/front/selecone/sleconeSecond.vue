@@ -91,7 +91,7 @@
                 <div class="col-xs-12 cla text-left">
                 <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/e.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/jb.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block;">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">专业化</pstyle>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/homepage/5.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/Group 340.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">AI化</pstyle>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/homepage/5.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/444.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">便捷化</pstyle>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/c.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/yemian122.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">多样性</pstyle>
@@ -325,7 +325,7 @@
 .licheng1{
        position:absolute;
         top:45px;
-        left:28%;
+        left:27%;
 }
 
 .licheng2{
@@ -872,7 +872,16 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                      
+                       $(".fixshow a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
+                         $(".naver a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())

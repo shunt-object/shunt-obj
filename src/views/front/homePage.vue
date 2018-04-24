@@ -29,7 +29,7 @@
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
             <div class="container" style="position:relative">
-                <img src="../../assets/tu.png" alt="" class="tuPa">
+                <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
               <div class="col-md-12 lun-le animated rollIn">
                 <h1 style="font-size:26px !important;font-weight:100">CloudBroker²以“云”为核心，</h1>
                 <h1 style="font-size:26px !important;font-weight:100">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
@@ -41,16 +41,17 @@
         </div>
        
        
-        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
+        <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
-                    <div class="container">
+                    <div class="container"  style="position:relative">
+                    <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
                         <div class="col-md-5 lun-le animated rollIn">
                             <h1>360°智能专家咨询服务</h1>
                             <p class="pCenter" style="font-weight:100">六大场景，数百个专业问题，确保您360° 评估自身需求和目标云的匹配，结合大数据及智能算法，帮助您轻松获取行业及上云建议，快速有效的形成专业选云评估报告。</p>
                             <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
-                        <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
+                        <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/shouye.png" alt="" style="width:70%;height:70%;"></div>
                     </div>
                 </div>
 
@@ -875,7 +876,7 @@ ul,ol li {
    color: #666666; display: block
 }
   .tuPa {
-      left: -20%; height:400px; position: absolute; bottom: -68%
+      left: 2%; height:300px; position: absolute; bottom: -66%
   }
  
   .cl {

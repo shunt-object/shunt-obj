@@ -166,7 +166,7 @@ export default {
            this.$router.push({path: '/seleconeFour'})
       },
       cloundplysn:function(){
-          this.$router.push({path: '/designer'})
+          this.$router.push({path: '/seleconeSix'})
       }
     
     }
