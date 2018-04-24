@@ -200,7 +200,7 @@
                             <div class="gd"><div></div></div>
                             <div class="gf"><div></div></div>
                             <div class="gg"><div></div></div>
-                            <div class="gh"><div></div></div>
+                            <div class="gm"><div></div></div>
                             <div class="gj"><div></div></div>
                             <div class="gk"><div></div></div>
                             <div class="tm">2017.10</div>
@@ -406,7 +406,7 @@
     left:56%;
     top:-10px;
 }
-.gh{
+.gm{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
@@ -481,7 +481,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gh div{
+.gm div{
     background:#da121a;
     width:10px;
     height:10px;
