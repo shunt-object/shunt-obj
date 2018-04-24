@@ -333,6 +333,7 @@
  import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
+
 export default {
     name: 'homePage',
     components:{
@@ -350,8 +351,19 @@ export default {
       }
     },
     mounted: function() {
-          
-
+        //判断是否是从微信点击的，需要直接跳转应用市场
+        if(this.url!=''){
+            for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                if(this.url[i].indexOf('redirect=appstore')>-1){
+                    if(sessionStorage.getItem('account')){
+                        this.$router.push({path:'/appcenterList'});
+                    }else{
+                        this.$router.push({path:'/login'});
+                    }
+                }
+            }
+        }
+        
         $(document).ready(function(){ 
                 // $("#xiaowei").click(function(){
                 //      var adw = document.getElementById("rys")

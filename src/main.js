@@ -19,6 +19,9 @@ import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import url from '../src/components/js/url.js'//公共方法获取url
+
+
 // import "../rongCloud/RongIMLib-cs"
 // import "../rongCloud/cs.min.css"
 // import "../rongCloud/cs.min.js"
@@ -31,6 +34,7 @@ axios.defaults.withCredentials=true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
 Vue.use(ElementUI);
+Vue.use(url);
 let load;
 let loading;
 /* Vue.http.interceptors.push((request, next) => {  
