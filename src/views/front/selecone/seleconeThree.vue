@@ -918,6 +918,7 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
+                    
                        $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
