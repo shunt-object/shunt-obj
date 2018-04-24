@@ -412,7 +412,7 @@
     left:56%;
     top:-10px;
 }
-.gh{
+/*.gh{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
@@ -421,7 +421,7 @@
     position:absolute;
     left:72%;
     top:-10px;
-}
+}*/
 .gj{
     width:20px;height:20px;
     background:#cccccc;
@@ -487,7 +487,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gh div{
+/*.gh div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -495,7 +495,7 @@
     margin:0 auto;
     line-height:10px;
     margin-top:5px;
-}
+}*/
 .gj div{
     background:#da121a;
     width:10px;
