@@ -914,10 +914,11 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
+                             if($("#kr").length>0){
                              if($(window).scrollTop()+70>=$("#kr").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextthe").css("background","#da121a")
-                             }
+                             }}
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
                                  $(".rightBs ul li").css("background","#d8d8d8") 
                                   $(".nextf").css("background","#da121a")  

@@ -41,7 +41,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/cloundPlan.png" alt="" style="float: right;width:85%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/2333333@1x.png" alt="" style="float: right;width:100%"></div>
                  </div>
             </div>
             <div class="container naver">            
@@ -626,7 +626,7 @@
 }
 @media (min-width: 768px) {
     .lasilasi{
-        margin-top:110px;
+        margin-top:140zpx;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -646,6 +646,16 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
+    .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 }
    .container{
      
@@ -917,12 +927,14 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                             if($(window).scrollTop()+70>=$("#kr").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextthe").css("background","#da121a")
-                             }
+                            if($("#kr").length>0){
+                                if($(window).scrollTop()+70>=$("#kr").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextthe").css("background","#da121a")
+                                }
+                            }
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                 $(".rightBs ul li").css("background","#d8d8d8");
                                   $(".nextf").css("background","#da121a")  
                              }
                         }

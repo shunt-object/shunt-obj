@@ -1022,12 +1022,12 @@ ul,ol li {
     /*width: 120px; height: 75px;*/
 }
 .obj-main .obj-cta {
-    width:120px; height:35px; line-height:35px; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
-  font-size: 14px;
+    width:100px !important; height:30px !important; line-height:30px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
+  font-size: 12px!important;
 }
 .obj-demo{
-    width:120px; height:35px; line-height:35px; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
-  font-size: 14px; margin-right:10px;
+    width:100px !important; height:30px !important; line-height:30px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
+  font-size: 12px!important; margin-right:10px;
 }
 .obj-main p {
     font-size: 14px; color: #666666;

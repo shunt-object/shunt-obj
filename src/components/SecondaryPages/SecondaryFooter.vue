@@ -36,7 +36,7 @@
         </div>
         <div>
             <div class="footer-inert"></div>
-            <div class="row footer-last" >       
+            <div class="row footer-last" style="margin-bottom:0px !important">       
                 <p class="text-center thin col-xs-12" style="text-align:center;margin-left:20px;">
                     版权所有 © 2018 江苏京玉信息技术有限公司
                     <a style="color:#b3b3b3;width:180px !important;" href="http://www.miitbeian.gov.cn/" target="_blank">
@@ -392,7 +392,7 @@ ul,ol li {
     font-size:12px; color:#b3b3b3;
 }
 .footer .footer-last {
-    margin-top: 20px; line-height: 62px;
+    margin-top: 20px; line-height: 62px;background:#2b2b2b;
 }
 .footer .footer-last p {
     font-size: 12px; color: #b3b3b3; text-indent:-50px; line-height:10px;
