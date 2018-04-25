@@ -1,0 +1,57 @@
+.appcenterRoi-budget{
+    border:1px solid #dcdfe6;
+}
+.budget-item{
+    width:50%;
+    height:100px;
+    line-height:30px;
+    padding:20px 0;
+    float:left;
+    color:#606266;
+    background:#fff;
+    border-right:1px solid #dcdfe6;
+    border-bottom:1px solid #dcdfe6;
+}
+.budget-item:nth-child(n+5){
+    border-bottom:none;
+}
+.budget-item:nth-child(2n){
+    border-right:none;
+}
+.budget-item input{
+    width:80%;
+    height:30px;
+    border:none;
+    background:#fff;
+    border-bottom:1px #dcdfe6 solid;
+    text-align:center;
+}
+@media (min-width: 768px){
+    .appcenterRoi-budget{
+        width:302px;
+        border:1px solid #dcdfe6;
+    }
+    .budget-item{
+        width:100px;
+        height:100px;
+        color:#606266;
+        line-height:30px;
+        padding:20px 0;
+        float:left;
+        background:#fff;
+        border-right:1px solid #dcdfe6;
+        border-bottom:1px solid #dcdfe6;
+    }
+    .budget-item:nth-child(n+5){
+        border-bottom:1px solid #dcdfe6;
+    }
+    .budget-item:nth-child(2n){
+        border-right:1px solid #dcdfe6;
+    }
+    .budget-item:nth-child(n+4){
+        border-bottom:none;
+    }
+    .budget-item:nth-child(3n){
+        border-right:none;
+    }
+}

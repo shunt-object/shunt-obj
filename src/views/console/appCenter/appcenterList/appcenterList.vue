@@ -18,9 +18,8 @@
                 </div>
                 价格计算器
             </div>
-            <!--  v-on:click="goRoi()" -->
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
+                <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
                     <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
                 </div>
                 预算收益分析

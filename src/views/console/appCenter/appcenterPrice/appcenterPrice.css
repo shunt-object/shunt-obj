@@ -8,10 +8,24 @@
 }
 .appcenter-from-select .el-select{
     float:left;
+    width:100%;
+}
+.appcenter-from-select .el-input__inner{
+    width:100% !important;
+}
+@media (min-width: 768px){
+    .appcenter-from-select .el-select{
+        float:left;
+        width:302px;
+    }
+    .appcenter-from-select .el-input__inner{
+        width:302px !important;
+    }
 }
 .appcenterPrice{
     background:#fff;
     padding:20px;
+    min-height:82vh;
 }
 .appcenterPrice-table table{
     border-collapse:collapse;

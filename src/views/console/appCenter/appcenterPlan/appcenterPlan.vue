@@ -18,7 +18,7 @@
                 <el-input class="appcplan-input" type="number" placeholder="请输入硬盘" v-model="matchBo.disk"></el-input>
             </el-form-item>
             <el-form-item class="appcplan-btn">
-                <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
+                <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">查询</el-button>
             </el-form-item>
         </el-form>   
         <div class="appcplan-result" v-if="matchdata!=undefined&&matchdata!=''">
@@ -79,7 +79,7 @@ export default{
         submit:function(matchobj){
             this.$refs[matchobj].validate((valid) => {
                 if (valid) {
-                    this.$this.post('/broker/match/getConfig',JSON.stringify(this.matchBo)).then((response)=>{
+                    this.$this.post('/broker/app/math/plan',JSON.stringify(this.matchBo)).then((response)=>{
                         //console.log(response.data.data);
                         this.matchdata = response.data.data;
                         this.opiniondata =  [{

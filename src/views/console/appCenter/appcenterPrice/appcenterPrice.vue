@@ -30,7 +30,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item class="appcplan-btn">
-                    <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
+                    <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">查询</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -147,7 +147,7 @@ export default {
                     this.match.priceParamBo.regions.push(this.matchBo.region);
                     this.match.priceParamBo.serverId = this.matchBo.firm;
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
-                        console.log('---',response.data);
+                        //console.log('---',response.data);
                         this.pricelist = response.data.data;
                     }).catch((error)=>{})
                 } else {
