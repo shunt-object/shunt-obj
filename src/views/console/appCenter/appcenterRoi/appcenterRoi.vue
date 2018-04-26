@@ -9,10 +9,10 @@
         <div class="appcplan-list"> 
             <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
                 <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
-                    <el-input class="appcplan-input" type="number" placeholder="请输入CPU" v-model="matchBo.cores"></el-input>
+                    <el-input class="appcplan-input" type="number" min="1" placeholder="请输入CPU" v-model="matchBo.cores" v-on:blur="onblur('cores')"></el-input>
                 </el-form-item>
                 <el-form-item label="内存" prop="ram" class="appcplan-from-item">
-                    <el-input class="appcplan-input" type="number" placeholder="请输入内存" v-model="matchBo.ram"></el-input>
+                    <el-input class="appcplan-input" type="number" min="1" placeholder="请输入内存" v-model="matchBo.ram" v-on:blur="onblur('ram')"></el-input>
                 </el-form-item>
                 <el-form-item label="云厂商" prop="sid" class="appcenter-from-select">
                     <el-select v-model="matchBo.sid" placeholder="请选择云厂商">
@@ -86,6 +86,13 @@ export default {
         this.getCloudlist();
     },
     methods:{
+        onblur:function(dom){
+            if(dom=='cores'){
+                this.matchBo.cores<0?this.matchBo.cores=1:this.matchBo.cores=this.matchBo.cores;
+            }else if(dom=='ram'){
+                this.matchBo.ram<0?this.matchBo.ram=1:this.matchBo.ram=this.matchBo.ram;
+            }
+        },
         getCloudlist:function(){
             this.$this.get('/broker/price/suppliers/list').then((res)=>{
                // console.log(res.data.data);
