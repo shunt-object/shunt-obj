@@ -6,6 +6,7 @@ import registerOne from '@/views/front/register/registerOne'
 import registerTwo from '@/views/front/register/registerTwo'
 import registerThree from '@/views/front/register/registerThree'
 import login from '@/views/front/login/login'
+import wechartAbout from '@/views/front/wechartAbout/wechartAbout'
 import activate from '@/views/front/activate/activate'
 import sendEmail from '@/views/front/send/sendEmail'
 import agreenment from '@/views/front/agreenment/agreenment'
@@ -50,11 +51,13 @@ import appcenterList from '@/views/console/appCenter/appcenterList/appcenterList
 import appcenterPlan from '@/views/console/appCenter/appcenterPlan/appcenterPlan'
 import appcenterPrice from '@/views/console/appCenter/appcenterPrice/appcenterPrice'
 import appcenterRoi from '@/views/console/appCenter/appcenterRoi/appcenterRoi'
+import appcenterProxy from '@/views/console/appCenter/appcenterProxy/appcenterProxy'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
+
 
 
 
@@ -156,6 +159,11 @@ export default new Router({
       path:'/login',
       name:'login',
       component:login
+    },
+    {
+      path:'/wechartAbout',
+      name:'wechartAbout',
+      component:wechartAbout
     },
       {
           path:"/leame",
@@ -294,6 +302,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:appcenterRoi
+        },
+        {
+          path:'/appcenterProxy',
+          name:'appcenterProxy',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterProxy
         },
         {
           path:'/planList',

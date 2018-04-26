@@ -9,16 +9,16 @@
     <div class="appcplan-list"> 
         <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="60px">
             <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
-                <el-input class="appcplan-input" type="number" placeholder="请输入CPU" v-model="matchBo.cores"></el-input>
+                <el-input class="appcplan-input" type="number" min="1" placeholder="请输入CPU" v-model="matchBo.cores" v-on:blur="onblur('cores')"></el-input>
             </el-form-item>
             <el-form-item label="内存" prop="ram" class="appcplan-from-item">
-                <el-input class="appcplan-input" type="number" placeholder="请输入内存" v-model="matchBo.ram"></el-input>
+                <el-input class="appcplan-input" type="number" min="1" placeholder="请输入内存" v-model="matchBo.ram" v-on:blur="onblur('ram')"></el-input>
             </el-form-item>
             <el-form-item label="硬盘" prop="disk" class="appcplan-from-item">
-                <el-input class="appcplan-input" type="number" placeholder="请输入硬盘" v-model="matchBo.disk"></el-input>
+                <el-input class="appcplan-input" min="1" type="number" placeholder="请输入硬盘" v-model="matchBo.disk" v-on:blur="onblur('disk')"></el-input>
             </el-form-item>
             <el-form-item class="appcplan-btn">
-                <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">提交</el-button>
+                <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">查询</el-button>
             </el-form-item>
         </el-form>   
         <div class="appcplan-result" v-if="matchdata!=undefined&&matchdata!=''">
@@ -79,7 +79,7 @@ export default{
         submit:function(matchobj){
             this.$refs[matchobj].validate((valid) => {
                 if (valid) {
-                    this.$this.post('/broker/match/getConfig',JSON.stringify(this.matchBo)).then((response)=>{
+                    this.$this.post('/broker/app/math/plan',JSON.stringify(this.matchBo)).then((response)=>{
                         //console.log(response.data.data);
                         this.matchdata = response.data.data;
                         this.opiniondata =  [{
@@ -96,6 +96,15 @@ export default{
                 }
             });
             
+        },
+        onblur:function(dom){
+            if(dom=='cores'){
+                this.matchBo.cores<0?this.matchBo.cores=1:this.matchBo.cores=this.matchBo.cores;
+            }else if(dom=='ram'){
+                this.matchBo.ram<0?this.matchBo.ram=1:this.matchBo.ram=this.matchBo.ram;
+            }else if(dom=='disk'){
+                this.matchBo.disk<0?this.matchBo.disk=1:this.matchBo.disk=this.matchBo.disk;
+            }
         },
         draw:function(id){
             this.charts = echarts.init(document.getElementById(id));

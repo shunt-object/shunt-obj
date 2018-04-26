@@ -14,16 +14,21 @@
             </div>
             <div class="appcenterlist-item" v-on:click="goPrice()">
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
-                    <img src="../../../../assets/appcenter/appcen-price.png" alt="">
+                    <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
                 </div>
                 价格计算器
             </div>
-            <!--  v-on:click="goRoi()" -->
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
-                    <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
+                <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
+                    <img src="../../../../assets/appcenter/appcen-price.png" alt="">
                 </div>
                 预算收益分析
+            </div>
+            <div class="appcenterlist-item">
+                <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goProxy()">
+                    <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
+                </div>
+                查询代理商
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2">
@@ -37,7 +42,6 @@
                 </div>
                 云设计
             </div>
-            
             <div class="clear"></div>
         </div>
         
@@ -57,6 +61,9 @@ export default{
         },
         goRoi:function(){
             this.$router.push({path:'/appcenterRoi'});
+        },
+        goProxy:function(){
+            this.$router.push({path:'/appcenterProxy'});
         },
     }
 }

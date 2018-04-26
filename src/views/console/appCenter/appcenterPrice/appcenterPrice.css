@@ -8,10 +8,24 @@
 }
 .appcenter-from-select .el-select{
     float:left;
+    width:100%;
+}
+.appcenter-from-select .el-input__inner{
+    width:100% !important;
+}
+@media (min-width: 768px){
+    .appcenter-from-select .el-select{
+        float:left;
+        width:302px;
+    }
+    .appcenter-from-select .el-input__inner{
+        width:302px !important;
+    }
 }
 .appcenterPrice{
     background:#fff;
     padding:20px;
+    min-height:82vh;
 }
 .appcenterPrice-table table{
     border-collapse:collapse;
@@ -35,9 +49,16 @@
     border-right:1px solid #e5e5e5;
     border-bottom:1px solid #e5e5e5;
     color:#2b2b2b;
+    word-wrap:break-word ;
 }
 .appcenterPrice-table table tbody tr:nth-child(2n) td{
     background:rgb(247, 247, 247);
+}
+.appcenterPrice-table table tbody tr:last-child td{
+    border-bottom:none;
+}
+.appcenterPrice-table table tbody tr td:last-child{
+    border-right:none;
 }
 .appcenterPrice-table table tbody{
     display:block;
