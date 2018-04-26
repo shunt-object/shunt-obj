@@ -27,15 +27,16 @@
             <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
                         <el-dropdown placement="bottom">
                                 <span class="el-dropdown-link">
-                                    产品服务
+                                    产品与服务
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item ><span @click="cloundPlan">云规划</span></el-dropdown-item>
                                     <el-dropdown-item ><span @click="cloundPlen">云选型</span></el-dropdown-item>
                                     <el-dropdown-item ><span @click="cloundplysn">云设计</span></el-dropdown-item>
                                     <el-dropdown-item ><span @click="cloundPlsn">云实测</span></el-dropdown-item>
-                                    <el-dropdown-item ><span >Prof.吴数据</span></el-dropdown-item>
-                                    <el-dropdown-item ><span>技术服务</span></el-dropdown-item>
+                                     <el-dropdown-item ><span @click="cloundPlbn">云买手</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlin">Prof.吴数据</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlon">技术服务</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -167,6 +168,15 @@ export default {
       },
       cloundplysn:function(){
           this.$router.push({path: '/seleconeSix'})
+      },
+      cloundPlin:function(){
+          this.$router.push({path: '/seleconeSeven'})
+      },
+      cloundPlon:function(){
+            this.$router.push({path: '/seleconeEight'})
+      },
+      cloundPlbn:function(){
+            this.$router.push({path: '/seleconenight'})
       }
     
     }

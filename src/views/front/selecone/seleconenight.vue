@@ -34,14 +34,14 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">有高效购买性价比高的云资源和服务方式吗？</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
-                                <p style="font-weight:100;text-align:left;font-size:18px">有没有一个既专业又简单的工具，科学的获得结论呢？</p>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
+                               
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lasilasi"><img src="../../../assets/2333333@1x.png" alt="" style="float: right;width:100%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lastimgs"><img src="../../../assets/er-icon/ii3@1x (1).png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
             <div class="container naver">            
@@ -60,26 +60,20 @@
                     </div>
                     <div class="row text-center">
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/fang.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">云定性</h2>
+                            <div class="crounds"><img src="../../../assets/bs.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">意向订单统计分析</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持6种云类型助您精确定性工作负载</br>是否可以上云？助您精确上哪种类型的云？</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持公有云厂商、购买实例规格和数量等</br>多个维度展现意向订单数据</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/fang3.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">云收益度</h2>
+                            <div class="crounds"><img src="../../../assets/as.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">已支付订单</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载上云所获得的收益值</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供已购买的订单列表，    </br>                                 方便用户记录和做综合统计。</br></span></p>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/fang2.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">云亲和度</h2>
-                            <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载适合云上环境</span></p>
-                            </div>
-                        </div>
+                   
                     </div>
                  </div>
             </div>
@@ -91,44 +85,44 @@
                 <div class="col-xs-12 cla text-left">
                 <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/jb.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block;">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">专业化</pstyle>
-                                <p class="mainPds">凝聚数百位云专家的上云咨询和管云经验。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">灵活化</pstyle>
+                                <p class="mainPds">根据自身实际需求，企业用户随意修改意向订单实例范围。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/Group 340.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44444.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">AI化</pstyle>
-                                <p class="mainPds">通过机器学习技术，不断完善上云咨询题库和平台计算数据模型。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">图表联动</pstyle>
+                                <p class="mainPds">快速的、直观的、交互式的和多维度的展现订单内容。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/444.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/555.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">便捷化</pstyle>
-                                <p class="mainPds">5分钟内助您科学的和快速的判断该工作负载是否可上云？</br>和上那种类型的云？</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">简单化</pstyle>
+                                <p class="mainPds">帮助企业用户从复杂的购买云实例和服务的工作中解决出来，                可以更加关注业务与的融合和管控。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/yemian122.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/22.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">多样性</pstyle>
-                                <p class="mainPds">提供6种云服务类型，满足不同行业不同用户的使用场景需求。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
+                                <p class="mainPds">用户随时随地了解已经选择的意向购买实例，轻松判断是否需要下单购买？</p>
                             </div>
                         </dd>
                     </dl>
@@ -142,46 +136,31 @@
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">快速入门</span>
                     </div>
-                    <div>
-                        <div class="  ljs">
+                    <div style="text-align:left;">
+                        <div class="  ljs lijh" >
                             <div class="bigFang">
                                 <div class="dv1">注册／登录</div>
                                 <div class="dv2">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class="imgets imghs"><img src="/src/assets/line-long.png" alt="" class="bigimg1 bigimg"></div>
                         <div class=" ljs">
                             <div class="bigFang">
-                                <div class="dv1">云规划／云定性</div>
+                                <div class="dv1">云买手／意向订单分析</div>
                                 <div class="dv2">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class="imgets imghs"><img src="/src/assets/line-long.png" alt="" class="bigimg2 bigimg"></div>
                         <div class=" ljs">
                             <div class="bigFang">
-                                <div class="dv1">云规划／云收益度</div>
+                                <div class="dv1">云买手／已支付订单</div>
                                 <div class="dv2">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
-                        <div class="imgets"> <img src="/src/assets/line.png" alt="" class="bigimg3 bigimg"></div>
-                        <div class="  ljs">
-                           <div class="bigFang">    
-                                <div class="dv1">云规划／云亲和度</div>
-                                <div class="dv2">立即体验 > </div>
-                                <div class="dv3">4</div>
-                           </div>
-                        </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg4 bigimg"></div>
-                        <div class=" ljs">
-                            <div class="bigFang">
-                                <div class="dv1">云规划报告</div>
-                                <div class="dv2">立即体验 > </div>
-                                <div class="dv3">5</div>
-                            </div>
-                        </div>
+                       
                         <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
                             <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Selconetwo.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
@@ -203,16 +182,16 @@
                             <div class="gr"><div></div></div>
                             <div class="gt"><div></div></div>
                             <div class="gy"><div></div></div>
-                            <div class="timeli">2017.09</div>
-                            <div class="timeli1">2017.11</div>
+                            <div class="timeli">2017.12</div>
+                            <div class="timeli1">2017.12</div>
                             <div class="timeli2">2017.12</div>
                             <div class="timeli3">2018.01</div>
-                            <div class="timeli4">2018.03</div>
-                            <div class="licheng">云规划V1.0设计开始</div>
-                            <div class="licheng1">云规划V1.0 正式开发</div>
-                            <div class="licheng2">云定性功能上线</div>
-                            <div class="licheng3">云亲和度和收益度上线</div>
-                            <div class="licheng4">云规划经典版上线</div>
+                            <div class="timeli4">2018.04</div>
+                            <div class="licheng">云买手V1.0设计开始</div>
+                            <div class="licheng1">云买手V1.0真实开发</div>
+                            <div class="licheng7">购物车功能上线</div>
+                            <div class="licheng3">云买手图表联动功能上线</div>
+                            <div class="licheng4">云买手订单分类功能上线</div>
                        </div>
                     </div>
                   
@@ -273,12 +252,7 @@
     border-radius:100%;
    margin-bottom:10px;
 }
-.rightBs ul li a{
-    width:10px;
-    height:10px;
-    border-radius:100%;
-    display:inline-block;
-}
+
 .rightBs ul{
     position:fixed;
     right:20px;
@@ -313,7 +287,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.licheng7,.licheng4{
     font-size:14px;
     color:#666666;
 }
@@ -328,10 +302,10 @@
         left:27%;
 }
 
-.licheng2{
+.licheng7{
        position:absolute;
         top:45px;
-        left:46%;
+        left:44%;
 }
 
 .licheng3{
@@ -486,6 +460,19 @@
         .imgets{
             display:none;
         }
+        .lijh{
+            margin-left:0px
+        }
+        .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 }
 @media (min-width: 768px) {
       .ljs{
@@ -494,7 +481,14 @@
         }
      .imgets{
           display:inline-block;
+         
      }
+     .imghs img{
+          width:160px !important;
+     }
+    .lijh{
+        margin-left:20px
+    }
 }
 .mainPds{
     line-height:20px;
@@ -516,6 +510,9 @@
     color:#da121a;
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
+}
+.fixshow a:hover{
+    color:#da121a !important;
 }
 .displayshow{
     display:none;
@@ -625,7 +622,7 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lasilasi{
+    .lastimgs{
         margin-top:140px;
     }
     .seleconeMain-mainfir{
@@ -636,7 +633,7 @@
     }
 }
 @media (max-width: 768px) {
-    .lasilasi{
+    .lastimgs{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -646,16 +643,6 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver .row div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
 }
    .container{
      
@@ -882,7 +869,7 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                       $(".fixshow a").hover(function(){
+                        $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
@@ -909,7 +896,7 @@
                             $(".sectb").css("display","block");
                           
                         };
-                         if($(".naver").length==1){
+                        if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
                              if(topa<0){
@@ -927,14 +914,13 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                            if($("#kr").length>0){
-                                if($(window).scrollTop()+70>=$("#kr").offset().top){
-                                    $(".rightBs ul li").css("background","#d8d8d8") 
-                                        $(".nextthe").css("background","#da121a")
-                                }
-                            }
+                             if($("#kr").length>0){
+                             if($(window).scrollTop()+70>=$("#kr").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextthe").css("background","#da121a")
+                             }}
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8");
+                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                   $(".nextf").css("background","#da121a")  
                              }
                         }
@@ -985,7 +971,7 @@
             }
         },
         mounted:function(){
-               $(".rightBs ul li").click(function(e){
+                          $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
                                console.log(s)
@@ -997,18 +983,6 @@
                             
                          
                          })
-                        //   $(".rightBs ul li").click(function(e){
-                        //      var target = e.target;
-                        //      var id = $(target).data("to");
-                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
-                        //      $(".rightBs ul li").css("background","#d8d8d8");
-                        //      $(this).next().css("background","#da121a")
-                        //     //  if($(this).index()==0){
-                        //     //      var a = '<a href="#cg"></a>';
-                        //     //      $(this).append(a)
-                        //     //       $(this).find("a").trigger("click");
-                        //     //  }
-                        //  })
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

@@ -34,7 +34,7 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:36px;color:#f6f6f6">场景化、智能化、专业化</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">场景化、智能化、专业化</span></p>
                             <div class="seclone-dv">
                                 <p style="font-weight:100;text-align:left;font-size:18px;color:#f2f2f2">借助大数据和AI技术，只需导入资源，一键智能完成云推荐配置和设计拓扑，助您省时和省钱！</p>
                             </div>
