@@ -34,9 +34,9 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">上云应用画像、可视化数据分析</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">上云应用画像、可视化数据分析</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">立足上云工作负载的大数据，利用科学研究模型，
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;line-height:30px;">立足上云工作负载的大数据，利用科学研究模型，
 精准掌握企业内外的上云状态，从多维角度解析上云数据，为您提供辅助决策支撑。</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
@@ -152,7 +152,7 @@
                            </div>
                         </div>
                         <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
-                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/Selconetwo.png" alt="" style="width:63%;height:63%;"></div>
+                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/er-icon/qietu.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
                     </div>
                 </div>

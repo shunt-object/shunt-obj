@@ -39,6 +39,10 @@ import seleconeSix from "../views/front/selecone/seleconeSix.vue"
 import seleconeSeven from "../views/front/selecone/seleconeSeven.vue"
 import seleconeEight from "../views/front/selecone/seleconeEight.vue"
 import seleconenight from "../views/front/selecone/seleconenight.vue"
+import seleconeTen from "../views/front/selecone/seleconeTen.vue"
+import seleconetones from "../views/front/selecone/seleconetones.vue"
+import seleconettwos from "../views/front/selecone/seleconettwos.vue"
+import seleconetth from "../views/front/selecone/seleconetth.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
@@ -95,6 +99,11 @@ export default new Router({
       name:"seleconeSix",
       component:seleconeSix
     },
+     {
+      path:"/seleconeTen",
+      name:"seleconeTen",
+      component:seleconeTen
+    },
     {
       path:"/seleconeSeven",
       name:"seleconeSeven",
@@ -109,6 +118,21 @@ export default new Router({
       path:"/seleconenight",
       name:"seleconenight",
       component:seleconenight
+    },
+    {
+      path:"/seleconetones",
+      name:"seleconetones",
+      component:seleconetones
+    },
+    {
+      path:"/seleconettwos",
+      name:"seleconettwos",
+      component:seleconettwos
+    },
+     {
+      path:"/seleconetth",
+      name:"seleconetth",
+      component:seleconetth
     },
     {
       path: '/CustomerService',

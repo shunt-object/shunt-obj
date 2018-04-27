@@ -40,7 +40,7 @@
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lastuss"><img src="../../../assets/er-icon/yunweis.png" alt="" style="float: right;width:85%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lastyyy"><img src="../../../assets/er-icon/yunweis.png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
             <div class="container naver">            
@@ -66,7 +66,7 @@
                 <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                     <div class=" text-left redtitle">
                         <span class="redLine"></span><span class="redlasttitle">服务能力</span>
-                        <div >
+                        <div style="margin-top:20px;">
                             <table id="servesTab" class="table table-bordered">
                                 <thead class="">
                                     <th class="col-md-1">服务类别</thclass>
@@ -1607,35 +1607,35 @@
                     </div>
                        <div class="row text-center">
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/e.png" alt="" class="Yunimg"></div>
+                            <div class="croundey"><img src="../../../assets/icon1/5.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">全方位的系统托管服务</h2>
                             <div class="bluar-ccc mt" style="text-align:left !important">
                                 <p class="text-left" style="text-align:left !important"><span class="color_999 text-left" style="font-size:14px;color:#666666;">提供行业成熟的架构方案，从部署上线到业务爆发的全程架构指导与优化，减少客户的运维成本与压力，从而更加专注于自身的业务发展。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/d.png" alt="" class="Yunimg"></div>
+                            <div class="croundey"><img src="../../../assets/icon1/4.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">云主机数据备份/恢复</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-left" style="text-align:left !important;"><span class="color_999 text-left" style="font-size:14px;color:#666666;">提供行业成熟的架构方案，从部署上线到业务爆发的全程架构指导与优化，减少客户的运维成本与压力，从而更加专注于自身的业务发展。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <div class="croundey"><img src="../../../assets/icon1/3.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">网站数据库服务</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-left"  style="text-align:left !important;"><span class="color_999 text-left" style="font-size:14px;color:#666666;">提供从在线技术支持到现场保障的全方位服务，评估数据库系统的性能瓶颈和风险隐患，提供相应的优化扩容专业建议及解决方案，共同保障客户的业务高峰期。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta" style="margin:40px 0;">
-                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <div class="croundey"><img src="../../../assets/icon1/2.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">架构优化与解决方案咨询服务</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-left"  style="text-align:left !important;"><span class="color_999 text-left" style="font-size:14px;color:#666666;">运维保障团队提供业务流程架构、应用软件架构、信息数据架构、基础设施架构等的远程及现场支持服务，设置专家支持和应急响应机制，保障业务安全稳定。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta" style="margin:40px 0;">
-                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <div class="croundey"><img src="../../../assets/icon1/1.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">网站与系统安全优化</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-left" style="text-align:left !important;"><span class="color_999 text-left" style="font-size:14px;color:#666666;">提供针对网站与系统的全面安全排查，包括但不限于OpenSSL，BASH，Nginx，MySQL等在内的安全问题，最大程度降低网站服务器被入侵的可能性。</span></p>
@@ -1652,28 +1652,28 @@
                     </div>
                        <div class="row text-center">
                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/e.png" alt="" class="Yunimg"></div>
+                            <div class="crounds "><img src="../../../assets/icon1/6.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">管家服务团队</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-center" style="text-align:center !important"><span class="color_999 text-center" style="font-size:14px;color:#666666;">处理客户发起的投诉建议</br>分配服务请求及工单跟踪</br>订单需求配置与管理交付</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/d.png" alt="" class="Yunimg"></div>
+                            <div class="crounds "><img src="../../../assets/icon1/7.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">VIP保障团队</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-center" style="text-align:center !important;"><span class="color_999 text-center" style="font-size:14px;color:#666666;">分配跟踪服务请求和事件</br>日常巡检和处理各类告警</br>管家服务配置交付与支持</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <div class="crounds "><img src="../../../assets/icon1/8.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">运维专家团队</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-center"  style="text-align:center !important;"><span class="color_999 text-center" style="font-size:14px;color:#666666;">处理升级事件和相关报障</br>全程一对一技术专家支持</br>技术咨询及技术方案确定</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta" >
-                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <div class="crounds "><img src="../../../assets/icon1/9.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">产品研发团队</h2>
                             <div class="bluar-ccc mt">
                                 <p class="text-center"  style="text-align:center !important;"><span class="color_999 text-center" style="font-size:14px;color:#666666;">处理升级事件和相关报障</br>业务架构设计与开发实施</br>运维管理和优化平台工具</span></p>
@@ -2036,6 +2036,14 @@
     margin:0 auto;
     line-height:80px;
 }
+.croundey{
+       background:#f5f5f5;
+        border-radius:100px;
+        width:92px;
+        height:91px;
+        margin:0 auto;
+        line-height:80px;
+}
 .fixshow a{
     font-size:14px;
     color:#333333;
@@ -2154,8 +2162,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lastuss{
-        margin-top:210px;
+    .lastyyy{
+        margin-top:90px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -2165,7 +2173,7 @@
     }
 }
 @media (max-width: 768px) {
-    .lastuss{
+    .lastyyy{
         margin-top:10px;
         margin-bottom:20px;
     }

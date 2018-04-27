@@ -40,26 +40,26 @@
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li @click="cloundPlen"><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
+            <li><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
                     <el-dropdown placement="bottom">
                                 <span class="el-dropdown-link">
                                     生态
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
-                                    <el-dropdown-item ><span>招募顾问</span></el-dropdown-item>
-                                    <el-dropdown-item ><span>合作伙伴</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlvn">招募顾问</span></el-dropdown-item>
+                                    <el-dropdown-item ><span >合作伙伴</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
+            <li class="lihovzan"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
                        <el-dropdown placement="bottom">
                                 <span class="el-dropdown-link">
                                     动态
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
-                                    <el-dropdown-item ><span>新闻动态</span></el-dropdown-item>
-                                    <el-dropdown-item ><span>行业头条</span></el-dropdown-item>
-                                    <el-dropdown-item ><span>CSB²社群</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlqn">新闻动态</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlfn">行业头条</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlgn">CSB²社群</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
@@ -177,6 +177,18 @@ export default {
       },
       cloundPlbn:function(){
             this.$router.push({path: '/seleconenight'})
+      },
+      cloundPlvn:function(){
+          this.$router.push({path: '/seleconeTen'})
+      },
+      cloundPlgn:function(){
+        this.$router.push({path: "/seleconetones"})
+      },
+      cloundPlfn:function(){
+          this.$router.push({path: "/seleconettwos"})
+      },
+      cloundPlqn:function(){
+           this.$router.push({path: "/seleconetth"})
       }
     
     }

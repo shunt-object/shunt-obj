@@ -37,7 +37,7 @@
         <div>
             <div class="footer-inert"></div>
             <div class="row footer-last" style="margin-bottom:0px !important">       
-                <p class="text-center thin col-xs-12" style="text-align:center;margin-left:20px;">
+                <p class="text-center thin col-xs-12" style="text-align:center;margin-left:20px;line-height:20px">
                     版权所有 © 2018 江苏京玉信息技术有限公司
                     <a style="color:#b3b3b3;width:180px !important;" href="http://www.miitbeian.gov.cn/" target="_blank">
                         苏ICP备18002559号-2
