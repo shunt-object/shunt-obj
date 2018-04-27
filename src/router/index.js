@@ -50,6 +50,7 @@ import pay from '@/views/console/pay/pay'
 import appcenterList from '@/views/console/appCenter/appcenterList/appcenterList'
 import appcenterPlan from '@/views/console/appCenter/appcenterPlan/appcenterPlan'
 import appcenterPrice from '@/views/console/appCenter/appcenterPrice/appcenterPrice'
+import appcenterCheck from '@/views/console/appCenter/appcenterCheck/appcenterCheck'
 import appcenterRoi from '@/views/console/appCenter/appcenterRoi/appcenterRoi'
 import appcenterProxy from '@/views/console/appCenter/appcenterProxy/appcenterProxy'
 import notification from "@/views/console/notificationCenter/notificationCenter"
@@ -294,6 +295,14 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:appcenterPrice
+        },
+        {
+          path:'/appcenterCheck',
+          name:'appcenterCheck',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterCheck
         },
         {
           path:'/appcenterRoi',

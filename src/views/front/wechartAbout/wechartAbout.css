@@ -41,12 +41,12 @@
 }
 .pizeeled-head-eng,.solve-head-eng,.know-head-eng,.force-head-eng,.mission-head-eng,.choose-head-eng{
     font-size:18px;
-    color:#666;
+    color:#333;
     margin:0;
 }
 .pizeeled-head-word,.solve-head-word,.know-head-word,.force-head-word,.mission-head-word,.choose-head-word{
-    font-size:20px;
-    color:#333;
+    font-size:16px;
+    color:#666;
     line-height: 36px;
 }
 .pizeeled-head-word span,.solve-head-word span,.know-head-word span,.force-head-word span,.mission-head-word span,.choose-head-word span{

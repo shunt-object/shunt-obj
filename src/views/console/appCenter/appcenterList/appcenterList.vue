@@ -14,21 +14,28 @@
             </div>
             <div class="appcenterlist-item" v-on:click="goPrice()">
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
-                    <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
+                    <img src="../../../../assets/appcenter/wechartprice.png" alt="">
                 </div>
                 价格计算器
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
-                    <img src="../../../../assets/appcenter/appcen-price.png" alt="">
+                    <img src="../../../../assets/appcenter/wechartshouyi.png" alt="">
                 </div>
                 预算收益分析
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goProxy()">
-                    <img src="../../../../assets/appcenter/appcen-roi.png" alt="" style="width: 70px;">
+                    <img src="../../../../assets/appcenter/weichartdaili.png" alt="">
                 </div>
                 查询代理商
+            </div>
+            <div class="appcenterlist-item">
+                <!-- v-on:click="goCheck()"  -->
+                <div class="appcenterlist-item-img appcenterlist-item-img2">
+                    <img src="../../../../assets/appcenter/wechartjianyan.png" alt="">
+                </div>
+                云适合度检验器
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2">
@@ -64,6 +71,9 @@ export default{
         },
         goProxy:function(){
             this.$router.push({path:'/appcenterProxy'});
+        },
+        goCheck:function(){
+            this.$router.push({path:'/appcenterCheck'});
         },
     }
 }
