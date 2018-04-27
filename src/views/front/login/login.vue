@@ -140,6 +140,8 @@ export default{
                                 for(let i=0;i<this.url.length;i++){//this.url公共的方法 
                                     if(this.url[i].indexOf('redirect=appstore')>-1){
                                         this.$router.push({path:'/appcenterList'});
+                                    }else{
+                                        this.$router.push({path:'/consolePage'}); 
                                     }
                                 }
                             }
@@ -210,12 +212,15 @@ export default{
                         // if(sessionStorage.getItem("accountId")){
                         //     this.$router.push({path:'/consolePage'}); 
                         // }
+                        //console.log('aaa',this.url);
                         if(this.url==''){
                             this.$router.push({path:'/consolePage'}); 
                         }else{
                             for(let i=0;i<this.url.length;i++){//this.url公共的方法 
                                 if(this.url[i].indexOf('redirect=appstore')>-1){
                                     this.$router.push({path:'/appcenterList'});
+                                }else{
+                                    this.$router.push({path:'/consolePage'}); 
                                 }
                             }
                         }

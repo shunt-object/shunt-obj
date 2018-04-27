@@ -12,8 +12,8 @@
         <!--  -->
         <div class="wxabout-puzzled">
             <div class="pizzled-head">
-                <p class="pizeeled-head-eng">Do you have the following confusion</p>
-                <p class="pizeeled-head-word">您是否<span>存在以</span>下困惑</p>
+                <p class="pizeeled-head-eng">您是否存在以下困惑</p>
+                <p class="pizeeled-head-word">Do you <span>have the following</span> confusion</p>
             </div>
             <div class="pizzled-main">
                 <div class="pizzled-main-item">
@@ -46,8 +46,8 @@
          <!--  -->
         <div class="wxabout-solve">
             <div class="solve-head">
-                <p class="solve-head-eng">How to solve the above problems</p>
-                <p class="solve-head-word">如何解<span>决以</span>上困惑</p>
+                <p class="solve-head-eng">如何解决以上困惑</p>
+                <p class="solve-head-word">How to <span>solve the above</span> problems</p>
             </div>
             <div class="solve-main">
                 <div class="solve-item">
@@ -83,8 +83,8 @@
         <!--  -->
         <div class="wxchart-know">
             <div class="know-head">
-                <p class="know-head-eng">Look at a picture</p>
-                <p class="know-head-word">看看<span>图片了解</span>我们</p>
+                <p class="know-head-eng">看看图片了解我们</p>
+                <p class="know-head-word">Look <span>at a</span> picture</p>
             </div>
             <div class="know-main">
                 <div class="know-img">
@@ -95,8 +95,8 @@
         <!--  -->
         <div class="wxabout-force">
             <div class="force-head">
-                <p class="force-head-eng">We’re committed to solving it </p>
-                <p class="force-head-word">我们<span>致力于</span>解决</p>
+                <p class="force-head-eng">我们致力于解决 </p>
+                <p class="force-head-word">We’re <span>committed to</span> solving it</p>
             </div>
             <div class="force-main">
                 <div class="force-item">打造从上云咨询、云迁移和云运维的一站式SaaS服务模式，助您完善上云和管云的最后一公里！</div>
@@ -105,8 +105,8 @@
         <!--  -->
         <div class="wxabout-mission">
             <div class="mission-head">
-                <p class="mission-head-eng">Our mission</p>
-                <p class="mission-head-word">我们<span>的</span>愿景</p>
+                <p class="mission-head-eng">我们的愿景</p>
+                <p class="mission-head-word">Our <span>mission</span></p>
             </div>
             <div class="mission-main">
                 <div class="mission-item">
@@ -124,8 +124,8 @@
         <!--  -->
         <div class="wxabout-choose">
             <div class="choose-head">
-                <p class="choose-head-eng">Choose what you want to know</p>
-                <p class="choose-head-word">选择您<span>想了解</span>的内容</p>
+                <p class="choose-head-eng">选择您想了解的内容</p>
+                <p class="choose-head-word">Choose <span>what you want</span> to know</p>
             </div>
             <div class="choose-main">
                 <div class="choose-item">
@@ -176,7 +176,7 @@ export default {
         },
         getcode:function(index){
             this.typelist[index].boolean = true;
-            let strid='&&',stringid='';
+            let strid='@@',stringid='';
             for(let i=0;i<this.typelist.length;i++){
                 if(this.typelist[i].boolean==true){
                     strid+=this.typelist[i].data.id+',';
