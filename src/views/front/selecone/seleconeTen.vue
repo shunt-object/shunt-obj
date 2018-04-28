@@ -482,8 +482,8 @@
         padding-left:20px;
         border:1px solid #dedede;
         border-radius:4px;
-        width:407px;
-        height:40px;
+        width:407px !important;
+        height:40px !important;
     }
 }
 .mainPds{
