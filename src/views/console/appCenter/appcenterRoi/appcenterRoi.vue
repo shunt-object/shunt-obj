@@ -3,7 +3,7 @@
     <div class="total-header">
         <span></span>
         <router-link class="zong" to="/appcenterList">应用市场</router-link>
-        ><p class="comback">预算分析</p>
+        ><p class="comback">预算收益分析助手</p>
     </div>
     <div class="appcenterRoi appcenterPrice" style="padding-bottom:100px;">
         <div class="appcplan-list"> 
@@ -21,9 +21,9 @@
                 </el-form-item>
                 <el-form-item label="预算" prop="" class="appcenter-from-select">
                     <div class="appcenterRoi-budget">
-                        <div class="budget-item" v-for="year in years">
+                        <div class="budget-item" v-for="(year,index) in years">
                             {{year.name}}<br>
-                            <input type="number" v-model="year.value">
+                            <input placeholder="请输入预算" type="number" v-model="year.value" min="1" v-on:blur="numberblur(index)">
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -86,6 +86,13 @@ export default {
         this.getCloudlist();
     },
     methods:{
+        numberblur:function(index){
+            if(this.years[index].value<0){
+                this.years[index].value = 1;
+            }else{
+                this.years[index].value = this.years[index].value;
+            }
+        },
         onblur:function(dom){
             if(dom=='cores'){
                 this.matchBo.cores<0?this.matchBo.cores=1:this.matchBo.cores=this.matchBo.cores;
@@ -136,7 +143,7 @@ export default {
             });
         },
         draw:function(linedata,bardata){
-            console.log(bardata);
+            //console.log(bardata);
             //var data = [['6个月',15], ['1年',50], ['2年',100], ['3年',150], ['4年',180]];
             this.charts= echarts.init(document.getElementById('main'));
             this.charts.setOption({
@@ -221,7 +228,10 @@ export default {
                     {
                         name: '价格',
                         type: 'bar',
+                        barWidth : 20,//柱图宽度
+                        barMaxWidth:30,//最大宽度
                         data: bardata
+
                     },
                     {
                         name: '预算',

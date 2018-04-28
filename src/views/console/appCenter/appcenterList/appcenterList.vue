@@ -6,48 +6,47 @@
     </div>
     <div class="appcenterlist">
         <div class="appcenterlist-list">
-            <div class="appcenterlist-item" v-on:click="goPlan()">
+            <!-- <div class="appcenterlist-item" v-on:click="goPlan()">
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
                     <img src="../../../../assets/appcenter/appcen-plan.png" alt="">
                 </div>
                 收益度和亲和度
-            </div>
+            </div> -->
             <div class="appcenterlist-item" v-on:click="goPrice()">
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
                     <img src="../../../../assets/appcenter/wechartprice.png" alt="">
                 </div>
-                价格计算器
+                云价格计算器
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
                     <img src="../../../../assets/appcenter/wechartshouyi.png" alt="">
                 </div>
-                预算收益分析
+                预算收益分析助手
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goProxy()">
                     <img src="../../../../assets/appcenter/weichartdaili.png" alt="">
                 </div>
-                查询代理商
+                云代理查询助手
             </div>
             <div class="appcenterlist-item">
-                <!-- v-on:click="goCheck()"  -->
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
+                <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goCheck()">
                     <img src="../../../../assets/appcenter/wechartjianyan.png" alt="">
                 </div>
-                云适合度检验器
+                云匹配度分析器
             </div>
-            <div class="appcenterlist-item">
+            <!-- <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2">
                     <img src="../../../../assets/appcenter/appcen-compare.png" alt="">
                 </div>
                 云选型
-            </div>
+            </div> -->
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2">
-                    <img src="../../../../assets/appcenter/appcen-design.png" alt="">
+                    <img src="../../../../assets/appcenter/appcen-design 2.png" alt="">
                 </div>
-                云设计
+                云实例快搜器
             </div>
             <div class="clear"></div>
         </div>

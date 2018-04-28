@@ -26,6 +26,25 @@
     border-bottom:1px #dcdfe6 solid;
     text-align:center;
 }
+.budget-item input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ccc;
+    font-size:12px;
+}
+.budget-item input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #ccc;
+    font-size:12px;
+}
+.budget-item input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #ccc;
+    font-size:12px;
+}
+.budget-item input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #ccc;
+    font-size:12px;
+}
+.budget-item input:focus{
+    border-bottom:1px solid #409EFF;
+}
 @media (min-width: 768px){
     .appcenterRoi-budget{
         width:302px;

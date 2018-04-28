@@ -3,7 +3,7 @@
     <div class="total-header">
         <span></span>
         <router-link class="zong" to="/appcenterList">应用市场</router-link>
-        ><p class="comback">查询代理商</p>
+        ><p class="comback">云代理查询助手</p>
     </div>
     <div class="appcenterProxy appcenterPrice">
         <div class="appcplan-list"> 
