@@ -32,50 +32,50 @@
                     <div class="container" style="margin-bottom:140px">
                         <div class="group-money">新闻动态</div>
                         <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，打造一站式全流程SaaS服务模式，专注帮助上云企业完善上云最后一公里。作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，同时也成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的CloudBroker²新闻。我们欢迎各界媒体参与我们的活动，报道我们的产品。 在这里，你可以看到最新的行业新闻。</div>
-                        <div  style="margin-top:120px;">
-                            <div class="row" >
+                        <div  style="margin-top:60px;">
+                            <div class="row hying" >
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104424@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">1.10步教你安全上云</div>
+                                        <div class="fifters">根据麦肯锡的调查报告，企业应遵循以下10个步骤安全地将其工作负载转移到公共云。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104002@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">Gartner 2018年 MSP魔力象限：没有MSP，管理云很难</div>
+                                        <div class="fifters">Gartner最近发布了公共云基础设施托管服务提供商年度魔力象限。Gartner充分认识到托管服务提供商（MSP）对于公共云的重要性。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104041@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">企业构建多云架构的四个步骤</div>
+                                        <div class="fifters">企业可以采取四个步骤来更好地处理他们的多云架构。</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="margin-top:0px !important;">
+                            <div class="row hying" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104124@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">成功进行云计算迁移的八个步骤</div>
+                                        <div class="fifters">准备工作对于项目的成功至关重要，通过以下关键阶段的进展可以为企业提供以最小的干扰顺利实施云迁移的一个更好的机会。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104325@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">公有云选型：8项最有力的调查数据</div>
+                                        <div class="fifters">本文汇总了一些有助于帮助企业做2018年公有和混合云研究的数据支撑，并回答了一些相关问题：如云在CIO的优先级列表中的位置如何？它实现了节约成本的承诺吗？转向公有云的工作负载是多少？</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104253@2x.png" alt="" ></div>
+                                        <div class="fifter text-left">最新：全球公有云服务市场预测报告</div>
+                                        <div class="fifters">4月20日，Gartner发布了全球公有云服务市场预测报告。根据这份报告，2018年全球公有云服务市场规模为1864亿美元，同比涨幅21.4%；2018年中国公有云市场规模则为224亿人民币，同比增幅为35%。</div>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                             <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:21%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -116,12 +116,17 @@
     color: black;
     padding-left:25px;
 }
+.hying img{
+    width: 250px;
+    height: 177px;
+}
 .fifters{
     font-size: 14px;
     height: 40px;
     overflow: hidden;
     color: #6E6E6E;
     margin-bottom:60px;
+    text-align:left;
 }
 .alifloat{
    display:inline-block;
@@ -529,6 +534,12 @@
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
 }
+.fixshow i:hover{
+    font-size:14px;
+    color:#da121a;
+    border-bottom:1px solid #da121a;
+    padding-bottom:20px;
+}
 .displayshow{
     display:none;
     position:fixed;
@@ -575,6 +586,12 @@
     color:#333333;  
 }
 .naver a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.naver a i:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;

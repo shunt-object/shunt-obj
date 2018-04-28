@@ -32,50 +32,50 @@
                     <div class="container" style="margin-bottom:140px">
                         <div class="group-money">行业动态</div>
                         <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，以“云”为核心，是您上云咨询、云迁移和云运维的贴身服务专家！作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的行业新闻。</div>
-                        <div  style="margin-top:120px;">
-                            <div class="row" >
+                        <div  style="margin-top:60px;">
+                            <div class="row hynews" >
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.jpg" alt="" ></div>
+                                        <div class="fifter text-left">在线抓娃娃的风口中，奇艺果为何能先飞起来？</div>
+                                        <div class="fifters">2017年末，当我们还在犹豫在线抓娃娃到底是不是风口的时候，已经有多个在线抓娃娃的平台拿到了投融资。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801031622051819.jpg" alt="" ></div>
+                                        <div class="fifter text-left">2018年SAAS企业“吃鸡”生存指南</div>
+                                        <div class="fifters">新年伊始，万象更新，但对于中国的SAAS企业来说，2018年可谓依旧是一个生死年，就像当下最火热的游戏“吃鸡”（绝地求生）一样，越来越多的企业都加入到了SAAS这个生存战场中。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801081554268434.jpg" alt="" ></div>
+                                        <div class="fifter text-left">手工测试已死？Python更火？2018测试预测</div>
+                                        <div class="fifters">2017就在晃晃悠悠中离我们越来越远，软件测试也在2017年中经历了刺激的一年，许多趋势正在形成或者已经形成中。</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="margin-top:0px !important;">
+                            <div class="row hynews" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201711071504091015.jpg" alt="" ></div>
+                                        <div class="fifter text-left">至少12%的Facebook帐号是虚假或重复帐号</div>
+                                        <div class="fifters">至少12%的Facebook帐号是虚假或重复帐号；《王者荣耀》外挂牟利可能被刑拘;上海已清理50万辆过度投放共享单车......以下为您奉上更多热点事件。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201429153623.jpg" alt="" ></div>
+                                        <div class="fifter text-left">IT安全漏洞、威胁与风险的区别，你都知道吗？ </div>
+                                        <div class="fifters">在当前的世界中，数据和数据保护是企业至关重要的考虑因素。客户希望您确保其信息的安全性，如果您不能保证信息安全，就会失去业务。许多拥有敏感信息的客户在与您开展业务之前，会要求您部署坚固的数据安全基础架构。基于这种考虑，您是否相信自己企业内的IT安全性？</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="" alt="" ></div>
-                                        <div class="fifter text-left">2017世界物联网博览会——CloudBroker²在这里等您</div>
-                                        <div class="fifters">2017世界物联网博览会将于9月10日-9月13日在无锡太湖博览中心举行。本届物博会由工信部、科技部和江苏省政府联合主办，无锡市政府、江南大学参与承办，主题为“物联世界，共创未来”。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201437181812.jpg" alt="" ></div>
+                                        <div class="fifter text-left">有效服务台管理的5个关键度量指标</div>
+                                        <div class="fifters">有两句商业格言说：1）无法度量则无法管理，2）无法度量则无法改进。这些说辞对服务台管理和企业在使用信息技术基础架构库（ITIL）框架来实施信息技术服务管理（ITSM）系统时创建的良性循环是非常贴切的。</div>
                                     </div>
                                 </div>
                             </div>
@@ -83,19 +83,13 @@
                     </div>
 
             </div>
-        
-         
-       
-       
-           
-      
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:21%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -130,6 +124,10 @@
    font-size:18px;
    color:#333333;
 
+}
+.hynews img{
+    width: 250px;
+    height: 177px;
 }
 .group-money{
     font-size:24px;
@@ -529,6 +527,12 @@
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
 }
+.fixshow i:hover{
+    font-size:14px;
+    color:#da121a;
+    border-bottom:1px solid #da121a;
+    padding-bottom:20px;
+}
 .displayshow{
     display:none;
     position:fixed;
@@ -575,6 +579,12 @@
     color:#333333;  
 }
 .naver a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.naver a i:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;

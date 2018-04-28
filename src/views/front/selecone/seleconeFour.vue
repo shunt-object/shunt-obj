@@ -27,7 +27,9 @@
                     <div class="cloundMains">
                         <div class="container">
                             <div class="cloundMains-main">
-                                <p style="margin-bottom:30px">关于我们</p>
+                               <div class=" text-left redtitle">
+                                 <span class="redLine"></span><span class="redlasttitle">关于我们</span>
+                               </div>
                               
                                     <div class="text-left" style="color:#666666;text-indent:1cm;">江苏京玉信息技术有限公司是全新一代云服务提供商，全力打造以CloudBroker²（简称：CSB²）为核心的云服务产品家族，致力于为企业提供一站式云服务，规划上云、选云，和云上管理与成本管理。帮助客户真正的选好云、用好云，通过经验的累积和工具的创新，成为您最信任的云中4S店。</div>
                                       <div class="city" style="padding-top:40px;padding-bottom:30px">
@@ -41,9 +43,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cloundMains-go">
+                    <div class="cloundMains-go" style="margin-top:50px;">
                         <div class="container">
-                            <div class="wer">我们的发展</div>
+                            <div class=" text-left redtitle">
+                                 <span class="redLine"></span><span class="redlasttitle">我们的发展</span>
+                            </div>
                             <div class="cccspans">
                                 <ul class="col-md-5 col-xs-12 ulsMains" style="padding-top:5px">
                                     <li style="margin-top:13px;"><p><span class="cccspan" style="padding-right:20px;text-align:right">CSB²团队成立</span><span class="yellowSpan">2017.09</span></p></li>
@@ -58,43 +62,58 @@
                         </div>
                     </div>
                    
-                    <div class="belief" style="margin-bottom:40px;">
+                    <div class="belief" style="margin-bottom:40px;margin-top:30px">
                                 <div class="container">
-                                    <div style="font-size:26px;color:#333333;font-weight:100;margin-bottom:40px;margin-top:40px">我们的信念</div>
-                                        <div style="background:#f8f8f8;height:440px;width:100%;">
+                                    <div class=" text-left redtitle">
+                                        <span class="redLine"></span><span class="redlasttitle">企业文化</span>
+                                    </div>
+                                        <div style="background:#f8f8f8;height:440px;width:100%;margin-top:45px;">
+                                            <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
                                             <div class="col-md-6 col-xs-12"   >
-                                                <div class=" werxin">
-                                                    <p>这一路走来，我们经历过坎坷、经历过风雨；</p>
-                                                    <p>为此，我们曾经彷徨过、迷茫过、哭过、笑过；</p>
-                                                    <p><span style="font-size:22px;color:#f7a72c">但</span>我们从未放弃、倔强而努力；</p>
-                                                    <p>我们从未停下脚步，为了明天的朝阳；</p>
-                                                    <p>我们有我们的<span style="font-size:22px;color:#f7a72c">理想</span>，因为我们坚信：</p>
-                                                    <p>我们每前进小一步，都将为您带来更好的云上体验！</p>
+                                                <div class=" werxins">
+                                                   <div>
+                                                        <div class=" Wemls"><i class="iconfont icon-refresh"></i> 我们的使命</div>
+                                                        <div class="dsh dhz">对社会：</div>
+                                                        <div class="dsh">建立一个有远大抱负，勇于创新，锐意进取，技术专业的云服务品牌</div>
+                                                        <div class="dsh dhz">对云客户：</div>
+                                                        <div class="dsh">有能力并且不断强化能力为客户提供更省钱、省力和专业的服务。</div>
+                                                        <div class="dsh dhz">对合作伙伴：</div>
+                                                        <div class="dsh">提供海量、准确、标准、有深度的云中咨讯</div>
+                                                   </div>
+                                                   <div>
+                                                        <div class="Weml"><i class="iconfont icon-quanzi"></i> 我们的愿景</div>
+                                                        <div class="wey">“服务的创新者，行业的领导者"</div>
+                                                   </div>
+                                                  
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
+                                            
                                         </div>
                                 </div>
                      </div>
-                      <div class="cloundzi">
-                        <div style="font-size:26px;color:#333333;font-weight:100;" class="zizhi">我们的资质</div>
-                        <div class="weiduduan clearfix">
+                      <div class="cloundzi container"  style="margin-top:50px;">
+                        <div class=" text-left redtitle" >
+                                 <span class="redLine"></span><span class="redlasttitle">我们的资质</span>
+                        </div>
+                        <div class="weiduduan clearfix" style="margin-top:80px;">
                             <div id="phoneCarousel">
                                 <div class="previous arrow">&nbsp;</div>
                                 <div class="next arrow">&nbsp;</div>
                                 <div id="stage">
-                                    <a><img src="../../../assets/qualification1.jpg" alt="iPhone" id="iphone" class="default defaimg"/></a>
-                                    <a><img src="../../../assets/qualification2.jpg" alt="Nexus One" id="nexus"  class="defaimg"/> </a>
-                                    <a><img src="../../../assets/qualification3.jpg" alt="Nokia" id="nokia"  class="defaimg"/> </a>
-                                    <a><img src="../../../assets/qualification4.jpg" alt="BlackBerry" id="blackberry"  class="defaimg"/></a>
+                                    <a><img src="../../../assets/a1.png" alt="iPhone" id="iphone" class="default defaimg"/></a>
+                                    <a><img src="../../../assets/a2.png" alt="Nexus One" id="nexus"  class="defaimg"/> </a>
+                                    <a><img src="../../../assets/a3.png" alt="Nokia" id="nokia"  class="defaimg"/> </a>
+                                    <a><img src="../../../assets/a4.png" alt="BlackBerry" id="blackberry"  class="defaimg"/></a>
                                 </div>
                             </div>
                         </div> 
                     </div>
-                     <div class="callme">
+                     <div class="callme" style="margin-top:80px;">
                         <div class="container">
-                            <div class="callme-call" style=";margin-top:70px">我们在这里</div>
-                            <div class="callme-dist" style="margin-bottom:30px"><span @click="wuxiHover" class="moren" id="wxs">无锡办公室</span><span v-on:click="beijingHover()" class="mospan" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span></div>
+                            <div class=" text-left redtitle" style="margin-bottom:60px">
+                                 <span class="redLine"></span><span class="redlasttitle">联系我们</span>
+                            </div>
+                            <div class="callme-dist" style="margin-bottom:30px;"><span @click="wuxiHover" class="moren" id="wxs">无锡办公室</span><span v-on:click="beijingHover()" class="mospan" id="bjs">北京办公室</span><span v-on:click="hangzhouHover" class="mospan" id="hzs">杭州办公室</span></div>
                             <div class="callmain" style="margin-bottom:30px;">
                                 <img src="../../../assets/beijing.png" alt="" v-show="Asd">
                                 <img src="../../../assets/hangzhou.png" alt="" v-show="Ais">
@@ -109,7 +128,7 @@
                             <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:21%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -118,6 +137,50 @@
     </div>
 </template>
 <style>
+.redtitle{
+    margin:40px 0 40px 0;
+}
+.redLine{
+    display:inline-block;
+    background:#da121a;
+    width:4px;
+    height:16px;
+    margin-right:5px;
+}
+.redlasttitle{
+    font-size:20px;
+    color:#2b2b2b;
+}
+    .Weml{
+        font-size:16px;
+        color:#333333;
+        margin-top:40px;
+    }
+    .Weml i{
+        color:#da121a;
+    }
+    .Wemls{
+       font-size:16px;
+        color:#333333;
+        margin-top:50px;
+       
+    }
+    .Wemls i{
+        color:#da121a;
+    }
+    .dsh{
+        font-size:14px;
+        color:#333333;
+        text-indent:1em;
+    }
+    .dhz{
+        margin-bottom:10px;
+         margin-top:20px;
+    }
+    .wey{
+        margin-top:20px;
+        
+    }
     .defaimg{
         width:550px;
         height:400px;
@@ -152,8 +215,10 @@
             height:auto;
             width:100%;
         }
-        .werxin{
-            padding:106px 0px 0px 110px;font-size:16px;color:#666666;text-align:left;
+        .werxins{
+            /*padding:106px 0px 0px 110px;*/
+            font-size:16px;color:#666666;text-align:left;
+            padding-left:20px;
         }
     }
     @media (max-width: 768px) {
@@ -190,8 +255,10 @@
             height:auto;
             width:100%;
         }
-       .werxin{
-            padding:106px 0px 0px 0px;font-size:16px;color:#666666;text-align:center;
+       .werxins{
+            /*padding:106px 0px 0px 0px;*/
+            padding-left:0px;
+            font-size:16px;color:#666666;text-align:center;
         }
 
     }
@@ -221,7 +288,7 @@
       
         margin-right:20px;
         margin-left:20px;
-        background:#f7a72c;
+        background:#da121a;
         color:#fff;
         
     }
@@ -260,7 +327,7 @@
         line-height:40px;
     }
     .cccspans{
-          margin-top:40px;
+          margin-top:60px;
          
     }
     .cloundMains-go .wer{

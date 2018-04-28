@@ -43,6 +43,7 @@ import seleconeTen from "../views/front/selecone/seleconeTen.vue"
 import seleconetones from "../views/front/selecone/seleconetones.vue"
 import seleconettwos from "../views/front/selecone/seleconettwos.vue"
 import seleconetth from "../views/front/selecone/seleconetth.vue"
+import seleconetg from "../views/front/selecone/seleconetg.vue"
 import seleconeThree from "../views/front/selecone/seleconeThree.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
@@ -130,10 +131,15 @@ export default new Router({
       name:"seleconettwos",
       component:seleconettwos
     },
-     {
+    {
       path:"/seleconetth",
       name:"seleconetth",
       component:seleconetth
+    },
+    {
+      path:"/seleconetg",
+      name:"seleconetg",
+      component:seleconetg
     },
     {
       path: '/CustomerService',

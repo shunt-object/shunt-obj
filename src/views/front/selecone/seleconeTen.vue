@@ -24,8 +24,8 @@
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
                     <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-hexin"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-feiji"></i> 加入我们</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
     </div>
@@ -37,7 +37,7 @@
                             <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px;color:#ffffff;line-height:30px">想让自己的IT圈和别人不同，也让他人的IT圈因自己不同，</br>
-立即加入CloudBroker²的IT顾问圈！携手为他人、为企业、为行业赋能！</h3>
+立即加入CloudBroker²的IT顾问圈；携手为他人、为企业、为行业赋能！</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="lj">加入我们</span></p>
                         </div>
@@ -46,8 +46,8 @@
             <div class="container naver">            
                 <div class="row" style="width:100%!important">
                     <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-hexin"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-feiji"></i> 加入我们</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-xs-12 cla text-center">
                      <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
-                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线销售</span>
+                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
                      <span style="position:absolute;left:36.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
                      <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
                      <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
@@ -100,9 +100,9 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="text-left rightDiv">
                             <div class="rightDiv-child">
-                                <div style=" font-size:14px;color:#000;">温馨提示：</div>
+                                <div style=" font-size:14px;color:#000;"><i class="iconfont icon-tishi" style="color:#da121a"></i> 温馨提示：</div>
                                 <div class="rightDiv-child-S" style="margin-top:10px;">点击右面悬浮窗口，进入“Pro. 吴”或拨打 400-828-7308</div>
-                                <div class="rightDiv-child-S">可随时和我们联系</div>
+                                <div class="rightDiv-child-S">可随时和我们联系。</div>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:21%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -456,8 +456,8 @@
             padding-left:20px;
             border:1px solid #dedede;
             border-radius:4px;
-            width:207px;
-            height:40px;
+            width:207px !important;
+            height:40px !important;
         }
 }
 @media (min-width: 768px) {
@@ -502,6 +502,12 @@
     color:#333333;
 }
 .fixshow a:hover{
+    font-size:14px;
+    color:#da121a;
+    border-bottom:1px solid #da121a;
+    padding-bottom:20px;
+}
+.fixshow i:hover{
     font-size:14px;
     color:#da121a;
     border-bottom:1px solid #da121a;
@@ -553,6 +559,12 @@
     color:#333333;  
 }
 .naver a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.naver a i:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;

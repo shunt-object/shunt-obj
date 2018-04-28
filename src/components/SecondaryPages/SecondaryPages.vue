@@ -47,7 +47,7 @@
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item ><span @click="cloundPlvn">招募顾问</span></el-dropdown-item>
-                                    <el-dropdown-item ><span >合作伙伴</span></el-dropdown-item>
+                                    <el-dropdown-item ><span @click="cloundPlkn">合作伙伴</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -189,6 +189,9 @@ export default {
       },
       cloundPlqn:function(){
            this.$router.push({path: "/seleconetth"})
+      },
+      cloundPlkn:function(){
+          this.$router.push({path: "/seleconetg"})
       }
     
     }
