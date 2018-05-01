@@ -11,13 +11,14 @@
                 </div>
                 
                 <div class="col-xs-12 col-sm-4 obj-what-dv footer-ts pkd">
-                <p class=" footer-jx text-left">功能</p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px">云设计</span></p>
-                <p class="text-left footer-list hoverRed"><span>云选型</span><span style="margin-left:10px">Prof. 吴数据</span></p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span style="margin-left:10px">云测试</span></p>
+                <p class=" footer-jx text-left">产品与功能</p>
+                <p class="text-left footer-list hoverRed"><span @click="yungh">云规划</span><span style="margin-left:10px" @click="yunsj">云设计</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px" @click="yungm">云购买</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span style="margin-left:10px">综合报告</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundsj">Prof. 吴数据</span></p>
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
-                <p class="text-left footer-jx">服务支持</p>
+                <p class="text-left footer-jx">服务与支持</p>
                 <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
                 <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
                 </div>
@@ -751,6 +752,22 @@ h2 {
             fuwuLook:function(){
                   this.$router.push({path: '/agreenment'});
                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            yungh:function(){
+                    this.$router.push({path: '/sleconesecond'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            yungm:function(){
+                    this.$router.push({path: '/seleconenight'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            yunsj:function(){
+                    this.$router.push({path: '/seleconenight'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            cloundsj:function(){
+                    this.$router.push({path: '/seleconeSeven'});
+                   $('html ,body').animate({scrollTop: 0},0); 
             },
             helpCenter:function(){
                 //   var that = this; 

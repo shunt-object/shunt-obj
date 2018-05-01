@@ -35,8 +35,8 @@
                                     <el-dropdown-item ><span @click="cloundplysn">云设计</span></el-dropdown-item>
                                     <el-dropdown-item ><span @click="cloundPlsn">云实测</span></el-dropdown-item>
                                      <el-dropdown-item ><span @click="cloundPlbn">云买手</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlin">Prof.吴数据</span></el-dropdown-item>
                                     <el-dropdown-item ><span @click="cloundPlon">技术服务</span></el-dropdown-item>
+                                     <el-dropdown-item ><span @click="cloundPlin">Prof. 吴数据</span></el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -95,10 +95,15 @@
 </template>
 <script>
           $(window).scroll(function(){
-                if($(this).scrollTop() > 550){
-                    $('.navbar').css("background","#2b2b2b")
-                }else if($(this).scrollTop() < 550){
-                    $('.navbar').css("background","none")
+                // if($(this).scrollTop() > 550){
+                //     $('.navbar').css("background","#2b2b2b")
+                // }else if($(this).scrollTop() < 550){
+                //     $('.navbar').css("background","none")
+                //  }
+                if($(this).scrollTop() > 50){
+                    $('.navbar').css("display","none")
+                }else if($(this).scrollTop() < 50){
+                    $('.navbar').css("display","block")
                  }
           });
 export default { 

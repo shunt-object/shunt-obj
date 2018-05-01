@@ -70,14 +70,14 @@
                             <div class="crounds"><img src="../../../assets/fang3.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">云收益度</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载上云所获得的收益值</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载上云所获得的收益值。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
                             <div class="crounds"><img src="../../../assets/fang2.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">云亲和度</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载适合云上环境</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">从开发和运维等技术维度，</br>助您科学计算工作负载适合云上环境。</span></p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/Group 340.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">AI化</pstyle>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">AI智能化</pstyle>
                                 <p class="mainPds">通过机器学习技术，不断完善上云咨询题库和平台计算数据模型。</p>
                             </div>
                         </dd>
@@ -117,7 +117,7 @@
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">便捷化</pstyle>
-                                <p class="mainPds">5分钟内助您科学的和快速的判断该工作负载是否可上云？</br>和上那种类型的云？</p>
+                                <p class="mainPds">5分钟内助您科学的和快速的判断该工作负载</br>是否可上云？和上那种类型的云？</p>
                             </div>
                         </dd>
                     </dl>
@@ -150,7 +150,7 @@
                                 <div class="dv3">1</div>
                             </div>
                         </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class="imgets"><img src="../../../assets/line.png" alt="" class="bigimg1 bigimg"></div>
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划／云定性</div>
@@ -158,7 +158,7 @@
                                 <div class="dv3">2</div>
                             </div>
                         </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class="imgets"><img src="../../../assets/line.png" alt="" class="bigimg2 bigimg"></div>
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划／云收益度</div>
@@ -166,7 +166,7 @@
                                 <div class="dv3">3</div>
                             </div>
                         </div>
-                        <div class="imgets"> <img src="/src/assets/line.png" alt="" class="bigimg3 bigimg"></div>
+                        <div class="imgets"> <img src="../../../assets/line.png" alt="" class="bigimg3 bigimg"></div>
                         <div class="  ljs">
                            <div class="bigFang">    
                                 <div class="dv1">云规划／云亲和度</div>
@@ -174,7 +174,7 @@
                                 <div class="dv3">4</div>
                            </div>
                         </div>
-                        <div class="imgets"><img src="/src/assets/line.png" alt="" class="bigimg4 bigimg"></div>
+                        <div class="imgets"><img src="../../../assets/line.png" alt="" class="bigimg4 bigimg"></div>
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划报告</div>
@@ -225,7 +225,7 @@
                             <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:21%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>

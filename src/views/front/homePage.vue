@@ -19,13 +19,12 @@
     <!-------------------------------banner------------------------------------------>
 <div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-                       <!--<ol class="carousel-indicators">
+                      <!-- <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>-->
       <div class="carousel-inner">
-        
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
             <div class="container" style="position:relative">
@@ -35,10 +34,21 @@
                 <h1 style="font-size:26px !important;font-weight:100">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
                 <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
               </div>
-              
             </div>
           </div>
         </div>
+        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
+          <div class=" lunmain lun2">
+            <div class="container" style="position:relative">
+                <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
+              <div class="col-md-12 lun-le animated rollIn">
+                <h1 style="font-size:26px !important;font-weight:100">CloudBroker²以“云”为核心，</h1>
+                <h1 style="font-size:26px !important;font-weight:100">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
+                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+              </div>
+            </div>
+          </div>
+        </div>-->
        
        
         <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
@@ -105,7 +115,7 @@
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/13.png" alt="" class="Yunimg"></div>
             <h2>云规划</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">我们的工作负载可上云吗？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我们的工作负载可上云吗？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">通过“云规划最佳实践”，CloudBroker²为您全面分析工作负载，助您规划最适合的云场景。</span></p>
             </div>
@@ -114,7 +124,7 @@
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
             <h2>云选型</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">云厂商如何选择？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云厂商如何选择？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">根据业务需求，通过CloudBroker²提供的百个指标进行多维度和多场景对比，为您优选最佳服务商。</span></p>
             </div>
@@ -123,7 +133,7 @@
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
             <h2>云设计</h2>  
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">总是要邀请专家上门吗？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">总是要邀请专家上门吗？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">通过大数据积累，对上云负载采取场景化设计，科学获得该负载的云规格配置和自动生成云拓扑。</span></p>
             </div>
@@ -132,7 +142,7 @@
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
             <h2>云买手</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">有高效购买性价比高的云资源和服务方式吗？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有高效购买性价比高的云资源和服务方式吗？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</span></p>
             </div>
@@ -141,7 +151,7 @@
            <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
             <h2>云实测</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">可以找到既专业又性价比高的真机实测吗？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以找到既专业又性价比高的真机实测吗？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">根据云选场景，CloudBroker²实现对目标云厂商的测试可视化，助上云和选云更具科学性。</span></p>
             </div>
@@ -150,7 +160,7 @@
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
             <h2>Prof. 吴数据</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:20px;">可以快速洞察企业内外的上云状态吗？</h4>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以快速洞察企业内外的上云状态吗？</h4>
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">CloudBroker²通过对上云应用的精准画像和可视化数据分析服务，为您多维角度进行解析。</span></p>
             </div>
@@ -267,7 +277,7 @@
             <div class="li-sec lis-hov"><img src="../../assets/pict-3.png" alt="" class="picts">
               <div class="obj-clear"></div>
               <h2>专业</h2>
-              <p style="padding-top:39%">集结上百位专家心血，<br/> 为了您提供科学规划和上云</p>
+              <p style="padding-top:39%">集结上百位专家心血，<br/> 为了您提供科学上云和管云</p>
             </div>
           </li>
           
@@ -313,7 +323,7 @@
     <div class=" obj-frees"   style="height:200px;position:relative;">
       <div class="pder">
         <h4 class="text-center" style="font-weight:100">
-          现在开启您的上云分析之旅
+          现在开启您的上云之旅
         </h4>
         <span class="PlanLj" v-on:click="ctaCloundCsbsD">立即体验</span>
       </div>
@@ -880,6 +890,9 @@ ul,ol li {
 .lunmain {
        background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; 
 }
+.lun2{
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
     .jzfei{
         padding-right:10px;
         margin-left:26px
@@ -1022,11 +1035,11 @@ ul,ol li {
     /*width: 120px; height: 75px;*/
 }
 .obj-main .obj-cta {
-    width:100px !important; height:30px !important; line-height:30px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
+    width:88px !important; height:30px !important; line-height:30px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
   font-size: 12px!important;
 }
 .obj-demo{
-    width:100px !important; height:30px !important; line-height:30px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
+    width:88px !important; height:30px !important; line-height:30px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
   font-size: 12px!important; margin-right:10px;
 }
 .obj-main p {
