@@ -36,27 +36,27 @@
                             <div class="row hynews" >
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.jpg" alt="" ></div>
-                                        <div class="fifter text-left">在线抓娃娃的风口中，奇艺果为何能先飞起来？</div>
-                                        <div class="fifters">2017年末，当我们还在犹豫在线抓娃娃到底是不是风口的时候，已经有多个在线抓娃娃的平台拿到了投融资。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.png" alt="" ></div>
+                                        <div class="fifter text-left">1.云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%</div>
+                                        <div class="fifters">纷纷公布的2018年第一季度财报显示，对各大基础设施服务提供商来说，云计算是收入持续增长的摇钱树。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801031622051819.jpg" alt="" ></div>
-                                        <div class="fifter text-left">2018年SAAS企业“吃鸡”生存指南</div>
-                                        <div class="fifters">新年伊始，万象更新，但对于中国的SAAS企业来说，2018年可谓依旧是一个生死年，就像当下最火热的游戏“吃鸡”（绝地求生）一样，越来越多的企业都加入到了SAAS这个生存战场中。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/12.png" alt="" ></div>
+                                        <div class="fifter text-left">2.微信小游戏上线广告新形态：banner 广告和激励式视频广告</div>
+                                        <div class="fifters">微信官方今日发文介绍微信小游戏广告新形态：banner 广告和激励式视频广告。小游戏开发者开通流量主后，就可以在小游戏中接入广告，</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801081554268434.jpg" alt="" ></div>
-                                        <div class="fifter text-left">手工测试已死？Python更火？2018测试预测</div>
-                                        <div class="fifters">2017就在晃晃悠悠中离我们越来越远，软件测试也在2017年中经历了刺激的一年，许多趋势正在形成或者已经形成中。</div>
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/13.png" alt="" ></div>
+                                        <div class="fifter text-left">3.2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲 </div>
+                                        <div class="fifters">当下，以工业、政务、医疗为代表的传统行业上云进程加快，使得私有云市场得到越来越多云服务商、系统集成商、IDC服务商、各行业用户以及新进入者的广泛关注。</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row hynews" style="margin-top:0px !important;">
+                            <!--<div class="row hynews" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201711071504091015.jpg" alt="" ></div>
@@ -78,7 +78,7 @@
                                         <div class="fifters">有两句商业格言说：1）无法度量则无法管理，2）无法度量则无法改进。这些说辞对服务台管理和企业在使用信息技术基础架构库（ITIL）框架来实施信息技术服务管理（ITSM）系统时创建的良性循环是非常贴切的。</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
