@@ -20,9 +20,9 @@
             <div class="seleconeMain-banners  row rusets">
                  <div class="container" >
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">最前沿的云资讯、最新的产品动态、</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">最前沿的云资讯、最新的产品动态、</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff;">最实时的头条新闻就在CloudBroker²</h3>
+                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">最实时的头条新闻就在CloudBroker²</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
                         </div>
@@ -35,21 +35,21 @@
                         <div  style="margin-top:60px;">
                             <div class="row hying" >
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104424@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">1.10步教你安全上云</div>
-                                        <div class="fifters">根据麦肯锡的调查报告，企业应遵循以下10个步骤安全地将其工作负载转移到公共云。</div>
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/qushi.jpg" alt="" ></div>
+                                        <div class="fifter text-left">公有云选型：选对云供应商，原来真的可以节省很多费用</div>
+                                        <div class="fifters" title="选择云供应商是一个十分关键和具有战略意义的流程。为了确保能够选择满足业务需要的、最好的云服务，CloudBroker²为您提供6大方向，18个场景，近200个指标，助您省时、省钱。">选择云供应商是一个十分关键和具有战略意义的流程。为了确保能够选择满足业务需要的、最好的云服务，CloudBroker²为您提供6大方向，18个场景，近200个指标，助您省时、省钱。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104002@2x.png" alt="" ></div>
                                         <div class="fifter text-left">Gartner 2018年 MSP魔力象限：没有MSP，管理云很难</div>
-                                        <div class="fifters">Gartner最近发布了公共云基础设施托管服务提供商年度魔力象限。Gartner充分认识到托管服务提供商（MSP）对于公共云的重要性。</div>
+                                        <div class="fifters">基于2018年3月份Gartner发布的MSP年度魔力象限，建议充分认识MSP对于公有云的重要性。CloudBroker²一直致力于打造全流程一站式云管服务，助您上真云、真上云和用好云。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104041@2x.png" alt="" ></div>
                                         <div class="fifter text-left">企业构建多云架构的四个步骤</div>
                                         <div class="fifters">企业可以采取四个步骤来更好地处理他们的多云架构。</div>
@@ -58,21 +58,21 @@
                             </div>
                             <div class="row hying" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104124@2x.png" alt="" ></div>
                                         <div class="fifter text-left">成功进行云计算迁移的八个步骤</div>
-                                        <div class="fifters">准备工作对于项目的成功至关重要，通过以下关键阶段的进展可以为企业提供以最小的干扰顺利实施云迁移的一个更好的机会。</div>
+                                        <div class="fifters">在调查中，90%的企业表示难以迁移到云中，复杂性是最常被引用的问题。那么如何面对这一问题，CloudBroker²建议采取八步骤上云方案，通过在每个阶段的实施方法，确保顺利实施云迁移。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104325@2x.png" alt="" ></div>
                                         <div class="fifter text-left">公有云选型：8项最有力的调查数据</div>
                                         <div class="fifters">本文汇总了一些有助于帮助企业做2018年公有和混合云研究的数据支撑，并回答了一些相关问题：如云在CIO的优先级列表中的位置如何？它实现了节约成本的承诺吗？转向公有云的工作负载是多少？</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104253@2x.png" alt="" ></div>
                                         <div class="fifter text-left">最新：全球公有云服务市场预测报告</div>
                                         <div class="fifters">4月20日，Gartner发布了全球公有云服务市场预测报告。根据这份报告，2018年全球公有云服务市场规模为1864亿美元，同比涨幅21.4%；2018年中国公有云市场规模则为224亿人民币，同比增幅为35%。</div>
@@ -481,6 +481,9 @@
         padding:20px 10px ;
         
     }
+    .color_999{
+        line-height:20px !important;
+    }
     .menospp{
         line-height:30px;
     }
@@ -599,7 +602,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -929,13 +932,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                      
                     });
             

@@ -34,7 +34,7 @@
             <div class="seleconeMain-banners  row ruset">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px;color:#ffffff;line-height:30px">想让自己的IT圈和别人不同，也让他人的IT圈因自己不同，</br>
 立即加入CloudBroker²的IT顾问圈；携手为他人、为企业、为行业赋能！</h3>
@@ -464,6 +464,9 @@
     .positionSpans{
         font-size:16px;
     }
+    .color_999{
+        line-height:20px !important;
+    }
       .ljs{
             width:16%;
             display:inline-block;
@@ -572,7 +575,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -902,13 +905,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                          if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();

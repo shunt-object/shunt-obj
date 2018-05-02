@@ -31,10 +31,10 @@
     </div>
     <Sec active="2" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row ruset">
+            <div class="seleconeMain-banners  row rusety">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">赋能生态合作伙伴 助力行业数字化创新</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能生态合作伙伴 助力行业数字化创新</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px;color:#ffffff;line-height:30px">立即加入CloudBroker²渠道合作伙伴体系，为客户构建基于全流程一站式云的服务，</br>
                                         携手打造新型云服务模式，聚力共赢，共建生态
@@ -130,8 +130,8 @@
 
 </template>
 <style>
-.ruset{
-    background:url("../../../assets/er-icon/bannert.png") no-repeat;
+.rusety{
+    background:url("../../../assets/er-icon/bannerts.png") no-repeat;
     text-align:center;background-size:100% 100%;
    
 }
@@ -139,6 +139,9 @@
     .jzfei{
         padding-right: 10px;
         margin-left: 26px;
+    }
+    .color_999{
+        line-height:20px !important;
     }
 }
 @media (max-width: 768px){
@@ -590,7 +593,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -920,13 +923,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                          if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();

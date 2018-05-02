@@ -530,6 +530,9 @@
           width:16%;
           display:inline-block;
       }
+      .color_999{
+            line-height:20px !important;
+        }
       .imgets{
           display:inline-block;
       }
@@ -626,7 +629,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -949,13 +952,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                         //  if($(".naver").length==1){
                           
                         //     var topa = $(".naver").offset().top - $(window).scrollTop();

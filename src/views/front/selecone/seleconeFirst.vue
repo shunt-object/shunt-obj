@@ -579,7 +579,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -635,13 +635,16 @@
 }
 @media (min-width: 768px) {
     .lastimgs{
-        margin-top:140px;
+        margin-top:148px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
     }
     .imgeys{
         margin-left:20px !important
+    }
+    .color_999{
+        line-height:20px !important;
     }
 }
 @media (max-width: 768px) {
@@ -901,13 +904,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                         if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();

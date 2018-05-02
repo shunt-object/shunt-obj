@@ -17,12 +17,12 @@
 
     <Sec active="3" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row rusets">
+            <div class="seleconeMain-banners  row rusetsd">
                  <div class="container" >
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff;">这里有温度，有专业，有多元化，是云服务的集结号！</h3>
+                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">这里有温度，有专业，有多元化，是云服务的集结号！</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="" ></span></p>
                         </div>
@@ -35,7 +35,7 @@
                         <div style="text-align:left;text-indent:2em;line-height:30px;">CloudBroker²团队在云服务管理领域有10多年的沉淀，公司核心产品CSB²在今年3月推出后深受好评，我们将再接再厉，与您共同共同成长，携手设“MSP+”，共同打造“云服务新型生态圈”。</div>
                         <div  style="margin-top:120px;">
                             <div class=" CsbSao" style="margin:0 auto;">
-                                <div class=" text-center" style="display:inline-block;"><img src="../../../assets/weichat.png" alt=""></div>
+                                <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/weichat.png" alt=""></div>
                                 <div class="alifloat">
                                     <div class="text-left">
                                         <div>CSB²社群</div>
@@ -45,14 +45,7 @@
                             </div>
                         </div>
                     </div>
-
             </div>
-        
-         
-       
-       
-           
-      
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -66,14 +59,13 @@
     </div>
     <Sex></Sex>
 </div>
-
-
 </template>
 <style>
 .alifloat{
    display:inline-block;
-   margin-left:30px;
+   margin-left:-66px;
    line-height:30px;
+   margin-top:40px;
    font-size:18px;
    color:#333333;
 
@@ -84,12 +76,12 @@
     text-align:center;
     margin:40px 0 30px 0;
 }
-.rusets{
-    background:url("../../../assets/er-icon/bannertr.png") no-repeat;
+
+.rusetsd{
+    background:url("../../../assets/er-icon/sv.png") no-repeat;
     text-align:center;background-size:100% 100%;
    
 }
-
 
 .welecone span{
     background:#da121a;
@@ -373,6 +365,9 @@
     .menospp{
         line-height:40px;
     }
+    .tuoguan{
+        padding-left:0px;
+    }
      .positionSpans{
         font-size:12px;
       }
@@ -422,6 +417,12 @@
         height:184px;
         padding:20px 10px ;
         
+    }
+    .tuoguan{
+        padding-left:100px;
+    }
+    .color_999{
+        line-height:20px !important;
     }
     .menospp{
         line-height:30px;
@@ -541,7 +542,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -871,13 +872,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                      
                     });
             

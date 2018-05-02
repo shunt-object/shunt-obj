@@ -26,7 +26,7 @@
                     <div class="lerf">
                 <p class="footer-jx">CloudBroker</p>
                     <div class="footer-ke">
-                        <p>您专属上云顾问</p>
+                        <p>您专属的云顾问</p>
                         <img src="../../assets/erweima.jpg" alt="" style="width:60px;height:60px">
                     </div>
                 </div>

@@ -242,6 +242,7 @@
 .fixshow i{
     color:#c2c2c2;
 }
+
 /*悬浮框*/
 .fixed-box{
  width:55px; position:fixed;right:0;bottom:100px;z-index:10;
@@ -495,6 +496,9 @@
      .imgets{
           display:inline-block;
      }
+     .color_999{
+        line-height:20px !important;
+    }
 }
 .mainPds{
     line-height:20px;
@@ -582,7 +586,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -638,7 +642,7 @@
 }
 @media (min-width: 768px) {
     .lasilasi{
-        margin-top:140px;
+        margin-top:154px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -914,13 +918,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                          if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
@@ -930,7 +934,7 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#cg").offset().top - $(window).scrollTop());
+                            
                              if($(window).scrollTop()+70>=$("#cg").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")

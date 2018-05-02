@@ -26,17 +26,39 @@
             </li>
             <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
                         <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link">
+                                <span class="el-dropdown-link ">
                                     产品与服务
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
-                                    <el-dropdown-item ><span @click="cloundPlan">云规划</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlen">云选型</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundplysn">云设计</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlsn">云实测</span></el-dropdown-item>
-                                     <el-dropdown-item ><span @click="cloundPlbn">云买手</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlon">技术服务</span></el-dropdown-item>
-                                     <el-dropdown-item ><span @click="cloundPlin">Prof. 吴数据</span></el-dropdown-item>
+                                    <el-dropdown-item class="text-left ">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
+                                        <div class="row">
+                                            <span @click="cloundPlan" class="col-md-1 gms">云规划</span>
+                                            <span @click="cloundPlen" class="col-md-1 gms">云选型</span>
+                                            <span @click="cloundplysn" class="col-md-1 gms">云设计</span>
+                                            <span @click="cloundPlsn" class="col-md-1 gms">云实测</span>
+                                            <span @click="cloundPlbn" class="col-md-1 gms">云购买</span>
+                                        </div>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
+                                        <div class="row"><span class="col-md-1 gms" @click="cloundPlin">Prof. 吴数据</span></div>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术服务</div>
+                                        <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
+                                    </el-dropdown-item>
+                                     <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <i class="iconfont icon-newxiankuang" style="color:#da121a"></i></div>
+                                        <div class="row">
+                                            <span class="col-md-1 gms " >云价格计算器</span>
+                                            <span class="col-md-1 gms ">云实例快搜器</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;">云代理查询助手</span>
+                                            <span class="col-md-1 gms " >云匹配度分析器</span>
+                                            <span class=" gms text-left" style="margin-left:10px;">预算收益分析助手</span>
+                                             <span class=" gms " style="margin-left:10px;">云眼</span>
+                                        </div>
+                                    </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -45,9 +67,13 @@
                                 <span class="el-dropdown-link">
                                     生态
                                 </span>
-                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
-                                    <el-dropdown-item ><span @click="cloundPlvn">招募顾问</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlkn">合作伙伴</span></el-dropdown-item>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsbs">
+                                    <el-dropdown-item >
+                                        <p class="row text-center" >
+                                            <span @click="cloundPlvn" class="col-md-6">招募顾问</span>
+                                            <span @click="cloundPlkn" class="col-md-6">合作伙伴</span>
+                                        </p>
+                                    </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -56,10 +82,14 @@
                                 <span class="el-dropdown-link">
                                     动态
                                 </span>
-                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
-                                    <el-dropdown-item ><span @click="cloundPlqn">新闻动态</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlfn">行业头条</span></el-dropdown-item>
-                                    <el-dropdown-item ><span @click="cloundPlgn">CSB²社群</span></el-dropdown-item>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsbse">
+                                    <el-dropdown-item >
+                                        <p class="row text-center"> 
+                                            <span @click="cloundPlqn" class="col-md-4">新闻动态</span>
+                                            <span @click="cloundPlfn" class="col-md-4">行业头条</span>
+                                            <span @click="cloundPlgn" class="col-md-4">CSB²社群</span>
+                                        </p>
+                                    </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
@@ -95,13 +125,13 @@
 </template>
 <script>
           $(window).scroll(function(){
-                // if($(this).scrollTop() > 550){
-                //     $('.navbar').css("background","#2b2b2b")
-                // }else if($(this).scrollTop() < 550){
-                //     $('.navbar').css("background","none")
-                //  }
                 if($(this).scrollTop() > 50){
-                    $('.navbar').css("display","none")
+                    $('.navbar').css("background","#2b2b2b")
+                }else if($(this).scrollTop() < 50){
+                    $('.navbar').css("background","none")
+                 }
+                if($(this).scrollTop() > 50){
+                    $('.navbar').css("display","block")
                 }else if($(this).scrollTop() < 50){
                     $('.navbar').css("display","block")
                  }
@@ -207,12 +237,38 @@ export default {
 
 <style>
 .dropCsb{
-    width:130px;
+    width:100%;
     top:60px !important;
     background:#161b25 !important;
     border-color:#161b25 !important;
-    text-align:center !important;
-   
+    /*text-align:center !important;*/
+ 
+       max-width: 1090px;
+    
+}
+.dropCsbs{
+    width:30%;
+    top:60px !important;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    /*text-align:center !important;*/
+ 
+       max-width: 1090px;
+    
+}
+.dropCsbse{
+    width:30%;
+    top:60px !important;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    /*text-align:center !important;*/
+ 
+       max-width: 1090px;
+    
+}
+.gms{
+    color:#A8A8A8;
+    font-size:12px;
 }
 .el-dropdown-menu{
     
@@ -222,13 +278,14 @@ export default {
     color:#f5f5f5 !important;
 }
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover{
-    color:#da121a !important;
+   
    
     background:none !important;
 }
 .el-dropdown-menu__item:not(.is-disabled) span:hover{
-     border-bottom:1px solid #da121a !important;
-     padding-bottom:10px;
+    /* border-bottom:1px solid #da121a !important;*/
+     color:#da121a;
+     /*padding-bottom:10px;*/
 }
 .popper__arrow{
     display:none !important;

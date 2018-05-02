@@ -19,13 +19,14 @@
     <!-------------------------------banner------------------------------------------>
 <div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-                      <!-- <ol class="carousel-indicators">
+                       <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>-->
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        </ol>
       <div class="carousel-inner">
-        <div class="item active" style="width:100%;min-width:100%;height:100%;">
+        <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain">
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
@@ -37,7 +38,7 @@
             </div>
           </div>
         </div>
-        <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
+        <div class="item" style="width:100%;min-width:100%;height:100%;">
           <div class=" lunmain lun2">
             <div class="container" style="position:relative">
                 <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
@@ -49,25 +50,58 @@
             </div>
           </div>
         </div>-->
-       
-       
-        <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
+        <div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
                     <div class="container"  style="position:relative">
                     <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
-                        <div class="col-md-5 lun-le animated rollIn">
-                            <h1>360°智能专家咨询服务</h1>
-                            <p class="pCenter" style="font-weight:100">六大场景，数百个专业问题，确保您360° 评估自身需求和目标云的匹配，结合大数据及智能算法，帮助您轻松获取行业及上云建议，快速有效的形成专业选云评估报告。</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">省钱、快捷、专业，助您轻松上云！</h1>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;">上云，如何实施？</p>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;">我们为您量身定制最适合的上云方案！</p>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
-                        <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/shouye.png" alt="" style="width:70%;height:70%;"></div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:12%;"><img src="../../assets/smart.png" alt="" style="width:90%;height:90%;"></div>
                     </div>
                 </div>
-
-
          </div>
-         <div class="item" style="width:100%;min-width:100%;height:100%;">
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
+                <div class=" lunmain lun2">
+                    <div class="container" style="position:relative">
+                       
+                    <div class="col-md-12 lun-le animated rollIn">
+                        <h1 style="font-size:26px !important;font-weight:100">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:14px !important;font-weight:100">30%降低上云咨询成本，50%减少上云投入时间</h1>
+                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+           <div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain lunmaen lun3">
+                    <div class="container"  style="position:relative">
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式，</h1>
+                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里！</h1>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                        </div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:100%;height:100%;"></div>
+                    </div>
+                </div>
+         </div>
+         <!-- <div class="item" style="width:100%;min-width:100%;height:100%;" id="itms">
+                <div class=" lunmain lun4">
+                    <div class="container" style="position:relative">
+                        <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
+                    <div class="col-md-12 lun-le animated rollIn">
+                        <h1 style="font-size:26px !important;font-weight:100;color:#333333;">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:16px !important;font-weight:100;color:#333333">30%降低上云咨询成本，50%减少上云投入时间!</h1>
+                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn" style="color:#da121a !important;border-color:#da121a !important;">DEMO体验</span></p>
+                    </div>
+                    </div>
+                </div>
+            </div>-->
+         <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmirn">
                     <div class="container">
                         <div class="col-md-6 lun-le animated rollIn">
@@ -119,7 +153,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">通过“云规划最佳实践”，CloudBroker²为您全面分析工作负载，助您规划最适合的云场景。</span></p>
             </div>
-            <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta" @click="ctaCloundCsb()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+            <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
@@ -128,7 +162,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">根据业务需求，通过CloudBroker²提供的百个指标进行多维度和多场景对比，为您优选最佳服务商。</span></p>
             </div>
-            <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta"  @click="ctaClound()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+            <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
@@ -137,7 +171,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">通过大数据积累，对上云负载采取场景化设计，科学获得该负载的云规格配置和自动生成云拓扑。</span></p>
             </div>
-           <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta" @click="cloundScc()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+           <span class="obj-cta" @click="cloundScc()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
@@ -146,7 +180,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</span></p>
             </div>
-            <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta"  @click="ctaCloundf()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+            <span class="obj-cta"  @click="ctaCloundf()">&nbsp查看更多</span>
           </div>
            <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
@@ -155,7 +189,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">根据云选场景，CloudBroker²实现对目标云厂商的测试可视化，助上云和选云更具科学性。</span></p>
             </div>
-            <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta"  @click="ctaCloundk()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+           <span class="obj-cta"  @click="ctaCloundk()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
             <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
@@ -164,7 +198,7 @@
             <div class="bluar-ccc">
               <p class="text-left"><span class="color_999">CloudBroker²通过对上云应用的精准画像和可视化数据分析服务，为您多维角度进行解析。</span></p>
             </div>
-            <span class="obj-demo"><i class="iconfont icon-yanjing"></i>&nbspDEMO体验</span><span class="obj-cta"  @click="ctaClound()"><i class="iconfont icon-jibenxinxi"></i>&nbsp查看更多</span>
+            <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
          
         </div>
@@ -373,6 +407,7 @@ export default {
                 }
             }
         }
+       
         
         $(document).ready(function(){ 
                 // $("#xiaowei").click(function(){
@@ -380,7 +415,11 @@ export default {
                 //       rongClouds(adw)
                 //     //   $(".rongcloud-Messages-date").hide();
                 // })    
-            
+                    //  if($("#itms").hasClass("active")){
+                    //     alert(1)
+                    // }else{
+                    //     alert(2)
+                    // }
                
                      $.fn.extend({
                         animateCss: function (animationName) {
@@ -885,13 +924,19 @@ ul,ol li {
 /**/
 @media (min-width: 768px) {
 .lunmain .lun-le .pBottom {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .lunmain {
-       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; 
+       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 100%; width: 100%; height: 600px; 
 }
 .lun2{
    background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
+.lun3{
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
+.lun4{
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
 }
     .jzfei{
         padding-right:10px;
@@ -901,7 +946,7 @@ ul,ol li {
    color: #666666; display: block
 }
   .tuPa {
-      left: 2%; height:300px; position: absolute; bottom: -66%
+      left: 2%; height:300px; position: absolute; bottom: -40%
   }
  
   .cl {
@@ -1167,11 +1212,26 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
+.tiuis{
+    display:none;   
+}
+.hsa{
+    text-align:center!important; 
+}
 .lunmain {
     background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 370px; 
 }
+.lun2{
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
+.lun3{
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
+.lun4{
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
 .lunmain .lun-le .pBottom {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 .lunmain .container {
     width: 100%;

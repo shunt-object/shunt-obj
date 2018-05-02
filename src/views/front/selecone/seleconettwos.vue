@@ -20,9 +20,9 @@
             <div class="seleconeMain-banners  row rusets">
                  <div class="container" >
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff">最前沿的云资讯、最新的产品动态、最实时的头条新闻</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">最前沿的云资讯、最新的产品动态、最实时的头条新闻</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:36px;color:#ffffff;">就在CloudBroker²</h3>
+                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">就在CloudBroker²</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
                         </div>
@@ -35,21 +35,21 @@
                         <div  style="margin-top:60px;">
                             <div class="row hynews" >
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.jpg" alt="" ></div>
                                         <div class="fifter text-left">在线抓娃娃的风口中，奇艺果为何能先飞起来？</div>
                                         <div class="fifters">2017年末，当我们还在犹豫在线抓娃娃到底是不是风口的时候，已经有多个在线抓娃娃的平台拿到了投融资。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801031622051819.jpg" alt="" ></div>
                                         <div class="fifter text-left">2018年SAAS企业“吃鸡”生存指南</div>
                                         <div class="fifters">新年伊始，万象更新，但对于中国的SAAS企业来说，2018年可谓依旧是一个生死年，就像当下最火热的游戏“吃鸡”（绝地求生）一样，越来越多的企业都加入到了SAAS这个生存战场中。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201801081554268434.jpg" alt="" ></div>
                                         <div class="fifter text-left">手工测试已死？Python更火？2018测试预测</div>
                                         <div class="fifters">2017就在晃晃悠悠中离我们越来越远，软件测试也在2017年中经历了刺激的一年，许多趋势正在形成或者已经形成中。</div>
@@ -58,21 +58,21 @@
                             </div>
                             <div class="row hynews" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201711071504091015.jpg" alt="" ></div>
                                         <div class="fifter text-left">至少12%的Facebook帐号是虚假或重复帐号</div>
                                         <div class="fifters">至少12%的Facebook帐号是虚假或重复帐号；《王者荣耀》外挂牟利可能被刑拘;上海已清理50万辆过度投放共享单车......以下为您奉上更多热点事件。</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201429153623.jpg" alt="" ></div>
                                         <div class="fifter text-left">IT安全漏洞、威胁与风险的区别，你都知道吗？ </div>
                                         <div class="fifters">在当前的世界中，数据和数据保护是企业至关重要的考虑因素。客户希望您确保其信息的安全性，如果您不能保证信息安全，就会失去业务。许多拥有敏感信息的客户在与您开展业务之前，会要求您部署坚固的数据安全基础架构。基于这种考虑，您是否相信自己企业内的IT安全性？</div>
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style="border:1px solid #ccc;padding:10px">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201437181812.jpg" alt="" ></div>
                                         <div class="fifter text-left">有效服务台管理的5个关键度量指标</div>
                                         <div class="fifters">有两句商业格言说：1）无法度量则无法管理，2）无法度量则无法改进。这些说辞对服务台管理和企业在使用信息技术基础架构库（ITIL）框架来实施信息技术服务管理（ITSM）系统时创建的良性循环是非常贴切的。</div>
@@ -474,6 +474,9 @@
         padding:20px 10px ;
         
     }
+    .color_999{
+        line-height:20px !important;
+    }
     .menospp{
         line-height:30px;
     }
@@ -592,7 +595,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -922,13 +925,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                      
                     });
             

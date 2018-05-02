@@ -36,7 +36,7 @@
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">以“云”为核心，覆盖云生命周期</span></p>
                             <div class="seclone-dv">
-                                <p style="font-weight:100;text-align:left;font-size:18px;color:#f2f2f2">CloudBroker²致力于为客户提供从上云、迁移到运维的全流程一站式标准管家云服务和基于特定业务场景深度定制的解决方案，最大程度减少客户上云和管理成本和风险，让客户专注其核心业务发展。</p>
+                                <p style="font-weight:100;text-align:left;font-size:18px;color:#f2f2f2">CloudBroker²致力于为客户提供全流程一站式标准管家云服务和基于特定业务场景深度定制的解决方案，最大程度减少客户上云管云成本及风险，让客户专注核心业务发展。</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
@@ -2014,6 +2014,9 @@
         }
 }
 @media (min-width: 768px){
+    .color_999{
+        line-height:20px !important;
+    }
       .ljs{
           width:16%;
           display:inline-block;
@@ -2122,7 +2125,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -2444,21 +2447,23 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                          if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
                              if(topa<0){
-                                 $(".displayshow").css("display","block") 
+                                 $(".displayshow").css("display","block") ;
+                                  $(".sectb").css("display","none");
                              }else if(topa>0){
                                   $(".displayshow").css("display","none") 
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                  $(".rightBs ul li").css("background","#d8d8d8");
+                                  $(".sectb").css("display","block"); 
                              }
                              console.log($("#cg").offset().top - $(window).scrollTop());
                              if($(window).scrollTop()+70>=$("#cg").offset().top){

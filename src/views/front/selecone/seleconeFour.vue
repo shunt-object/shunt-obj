@@ -68,7 +68,7 @@
                                         <span class="redLine"></span><span class="redlasttitle">企业文化</span>
                                     </div>
                                         <div style="background:#f8f8f8;height:440px;width:100%;margin-top:45px;">
-                                            <div class="col-md-6 col-xs-12"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
+                                            <div class="col-md-6 col-xs-12" style="padding:0 !important"><img src="../../../assets/tu2.png" alt="" style="height:440px;width:103%;"></div>
                                             <div class="col-md-6 col-xs-12"   >
                                                 <div class=" werxins">
                                                    <div>
@@ -192,6 +192,9 @@
        .ulsMains{
            margin-left:82px;
        }
+       .color_999{
+            line-height:20px !important;
+        }
        .imgeys{
             margin-left:20px !important;
         }

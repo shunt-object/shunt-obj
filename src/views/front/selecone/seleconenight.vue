@@ -34,7 +34,7 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">有高效购买性价比高的云资源和服务方式吗？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">有高效购买性价比高的云资源方式吗？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;line-height:30px;">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
                                
@@ -579,7 +579,7 @@
 }
 .nav-bottom-kk{
     width:100%;
-    height:2px;
+    height:1px;
     background:#d6d6d6
 }
 .mt{
@@ -635,7 +635,10 @@
 }
 @media (min-width: 768px) {
     .lastimgs{
-        margin-top:140px;
+        margin-top:143px;
+    }
+    .color_999{
+        line-height:20px !important;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -901,13 +904,13 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        if($(this).scrollTop()>80){
-                            $(".sectb").css("display","none");
-                        };
-                        if($(this).scrollTop()<80){
-                            $(".sectb").css("display","block");
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
                           
-                        };
+                        // };
                         if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
