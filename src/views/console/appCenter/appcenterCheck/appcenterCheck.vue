@@ -21,6 +21,7 @@
         <div class="button">
             <button class="aoocheck-btn" v-on:click="submit()">提交</button>
         </div>
+        <div v-show="isshow" class="appcheck-canvastitle">云收益度和云亲和度分析示意图</div>
         <div v-show="isshow" id="main" style="width:100%;height:500px;"></div>
     </div>
 </div>
@@ -43,7 +44,7 @@ export default {
     },
     methods:{
         getQuestion:function(){
-            this.$this.post('/broker/app/tool/plan/simple/questions/32').then((response)=>{
+            this.$this.get('/broker/app/tool/plan/simple/questions/32').then((response)=>{
                 //console.log('---',response.data);
                 for(let i in response.data.data){
                     this.questionlist.push({name:i,question:[]});
@@ -176,23 +177,23 @@ export default {
                         name:'云收益度',
                         type:'bar',
                         barWidth:'20',
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'inside'
-                            }
-                        },
+                        // label: {
+                        //     normal: {
+                        //         show: true,
+                        //         position: 'inside'
+                        //     }
+                        // },
                         data:biz
                     },
                     {
                         name:'云亲和度',
                         type:'bar',
                         barWidth:'20',
-                        label: {
-                            normal: {
-                                show: true
-                            }
-                        },
+                        // label: {
+                        //     normal: {
+                        //         show: true
+                        //     }
+                        // },
                         data:tech
                     },
                 ]
