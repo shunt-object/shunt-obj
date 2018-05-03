@@ -51,12 +51,12 @@
                                      <el-dropdown-item class="text-left" style="margin-top:20px">
                                         <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <i class="iconfont icon-newxiankuang" style="color:#da121a"></i></div>
                                         <div class="row">
-                                            <span class="col-md-1 gms " >云价格计算器</span>
-                                            <span class="col-md-1 gms ">云实例快搜器</span>
-                                            <span class="col-md-1 gms " style="margin-right:10px !important;">云代理查询助手</span>
-                                            <span class="col-md-1 gms " >云匹配度分析器</span>
-                                            <span class=" gms text-left" style="margin-left:10px;">预算收益分析助手</span>
-                                             <span class=" gms " style="margin-left:10px;">云眼</span>
+                                            <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
+                                            <span class="col-md-1 gms " @click="yunshili">云实例快搜器</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">云代理查询助手</span>
+                                            <span class="col-md-1 gms " @click="yunpei">云匹配度分析器</span> 
+                                            <span class=" gms text-left" style="margin-left:10px;" @click="yusuan">预算收益分析助手</span> 
+                                             <span class=" gms " style="margin-left:10px;" @click="yunshili">云眼</span>
                                         </div>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
@@ -126,7 +126,7 @@
 <script>
           $(window).scroll(function(){
                 if($(this).scrollTop() > 50){
-                    $('.navbar').css("background","#2b2b2b")
+                    $('.navbar').css("background","#1D1E20")
                 }else if($(this).scrollTop() < 50){
                     $('.navbar').css("background","none")
                  }
@@ -227,6 +227,21 @@ export default {
       },
       cloundPlkn:function(){
           this.$router.push({path: "/seleconetg"})
+      },
+      yunjia:function(){
+         this.$router.push({path: "/appcenterPrice"}) 
+      },
+      yunshili:function(){
+          this.$router.push({path:"/registerOne"})
+      },
+      yunproxy:function(){
+          this.$router.push({path:"/appcenterProxy"})
+      },
+      yunpei:function(){
+           this.$router.push({path:"/appcenterCheck"})
+      },
+      yusuan:function(){
+           this.$router.push({path:"/appcenterRoi"})
       }
     
     }
@@ -242,7 +257,7 @@ export default {
     background:#161b25 !important;
     border-color:#161b25 !important;
     /*text-align:center !important;*/
- 
+    opacity:0.9;
        max-width: 1090px;
     
 }
@@ -252,7 +267,7 @@ export default {
     background:#161b25 !important;
     border-color:#161b25 !important;
     /*text-align:center !important;*/
- 
+    opacity:0.9;
        max-width: 1090px;
     
 }
@@ -262,7 +277,7 @@ export default {
     background:#161b25 !important;
     border-color:#161b25 !important;
     /*text-align:center !important;*/
- 
+     opacity:0.9;
        max-width: 1090px;
     
 }
@@ -396,7 +411,8 @@ ul,ol li {
 }
 .navbar {
     /*background: #2b2b2b;*/ 
-    border: none
+    border: none;
+    opacity:0.9;
 }
 .carousel-inner{
     margin-bottom:0px !important;

@@ -1645,7 +1645,7 @@
                 </div>
             </div>
        
-             <div style="width:100%;background:rgb(248, 248, 248)" id="kr" class="go4">
+             <div style="width:100%;background:rgb(248, 248, 248)" id="sz" class="go4">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">服务团队</span>

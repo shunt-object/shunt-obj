@@ -68,7 +68,7 @@
                 <div class="col-xs-12 cla text-center">
                      <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
                      <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
-                     <span style="position:absolute;left:36.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
+                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
                      <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
                      <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
                 </div>

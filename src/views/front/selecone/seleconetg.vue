@@ -57,7 +57,7 @@
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
                     </div>
-                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，与客户共同创造协同价值链，现已形成了众多的大型品牌合伙伙伴，树立了行业的品牌形象。同时，CloudBroker²重视建立长期的合作关系，与合作伙伴紧密合作开拓服务管理软件市场，通过针对性地创新务实的解决方案， 为客户带来巨大利益，同时贯穿整个产品生命周期的协同合作，不断提升客户满意度。CloudBroker²始终珍惜服务商资源，与合作伙伴共同成长，携手建设“MSP+”，共同打造“云服务生态圈”。
+                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，与客户共同创造协同价值链，现已形成了众多的大型品牌合伙伙伴，树立了行业的品牌形象。同时，CSB²重视建立长期的合作关系，与合作伙伴紧密合作开拓服务管理软件市场，通过针对性地创新务实的解决方案， 为客户带来巨大利益，同时贯穿整个产品生命周期的协同合作，不断提升客户满意度。CSB²始终珍惜服务商资源，与合作伙伴共同成长，携手建设“MSP+”，共同打造“云服务生态圈”。
                     </div>
                  </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="col-xs-12 cla text-center">
                      <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
                      <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
-                     <span style="position:absolute;left:36.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
+                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
                      <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
                      <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
                 </div>

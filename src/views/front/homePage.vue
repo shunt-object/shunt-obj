@@ -407,7 +407,7 @@ export default {
                 }
             }
         }
-       
+        
         
         $(document).ready(function(){ 
                 // $("#xiaowei").click(function(){

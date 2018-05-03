@@ -74,7 +74,7 @@
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104253@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">最新：全球公有云服务市场预测报告</div>
+                                        <div class="fifter text-left">最新：公有云服务市场预测报告</div>
                                         <div class="fifters">4月20日，Gartner发布了全球公有云服务市场预测报告。根据这份报告，2018年全球公有云服务市场规模为1864亿美元，同比涨幅21.4%；2018年中国公有云市场规模则为224亿人民币，同比增幅为35%。</div>
                                     </div>
                                 </div>

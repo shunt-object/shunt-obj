@@ -774,6 +774,14 @@ h2 {
                 //   var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
 var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
             }
+        },
+        mounted:function(){
+            if(document.documentElement.clientWidth>=1024){
+                    $(".liHoversBj a").removeAttr('href');
+               
+            }else if(document.documentElement.clientWidth<1024){
+                    $(".liHoversBj a").attr('href',"tel:4008287308");
+            }
         }
     }
 </script>
