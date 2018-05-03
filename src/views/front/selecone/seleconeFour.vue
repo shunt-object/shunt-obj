@@ -29,8 +29,8 @@
                                     <div class="col-md-2 col-xs-2"><a href="#cg"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
                                     <div class="col-md-2 col-xs-2"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
                                     <div class="col-md-2 col-xs-2"><a href="#kr"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-tuandui"></i> 我们的资质</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-tuandui"></i> 联系我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
                                 </div>
                             </div>
                            <div class="nav-bottom-kk"></div>      
