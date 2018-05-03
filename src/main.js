@@ -20,6 +20,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 import url from '../src/components/js/url.js'//公共方法获取url
+import mobile from '../src/components/js/mobile.js'//判断移动端
 
 // import "../rongCloud/RongIMLib-cs"
 // import "../rongCloud/cs.min.css"
@@ -34,6 +35,7 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 Vue.use(VueResource);
 Vue.use(ElementUI);
 Vue.use(url);
+Vue.use(mobile);
 let load;
 let loading;
 /* Vue.http.interceptors.push((request, next) => {  
