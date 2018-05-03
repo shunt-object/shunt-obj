@@ -23,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-tuandui"></i> 服务团队</a></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#cg"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#hy"><i class="iconfont icon-zuanshi"></i> 服务能力</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#kr"><i class="iconfont icon-sheji"></i> 深度定制</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#sz"><i class="iconfont icon-tuandui"></i> 服务团队</a></span></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -36,7 +36,7 @@
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">以“云”为核心，覆盖云生命周期</span></p>
                             <div class="seclone-dv">
-                                <p style="font-weight:100;text-align:left;font-size:18px;color:#f2f2f2">CloudBroker²致力于为客户提供全流程一站式标准管家云服务和基于特定业务场景深度定制的解决方案，最大程度减少客户上云管云成本及风险，让客户专注核心业务发展。</p>
+                                <p style="font-weight:100;text-align:left;font-size:16px;color:#f2f2f2;line-height:26px;">CloudBroker²致力于为客户提供全流程一站式管家云服务和基于特定业务场景深度定制的解决方案，最大程度减少客户上云管云成本及风险，让客户专注核心业务发展。</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
@@ -44,7 +44,7 @@
                  </div>
             </div>
             <div class="container naver">            
-                <div class="row">
+                <div class="row narow">
                     <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
@@ -1687,10 +1687,10 @@
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -1701,6 +1701,9 @@
 
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
 #servesTab thead th{
     height:40px;
     text-align:center;
@@ -2111,18 +2114,17 @@
     font-size:14px;
     color:#333333;  
 }
-.naver a:hover{
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
+}
+.naver div a:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.naver a i:hover{
-    cursor:pointer;
-    color:#da121a;
-    display:inline-block;
-    border-bottom:1px solid #da121a;
-}
+
 .nav-bottom-kk{
     width:100%;
     height:1px;

@@ -36,7 +36,7 @@
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">有高效购买性价比高的云资源方式吗？</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;line-height:30px;">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;line-height:26px;">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
                                
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
@@ -63,7 +63,7 @@
                             <div class="crounds"><img src="../../../assets/bs.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">意向订单统计分析</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持公有云厂商、购买实例规格和数量等</br>多个维度展现意向订单数据</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持公有云厂商、购买实例规格和数量等</br>多个维度展现意向订单数据。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
@@ -140,7 +140,7 @@
                         <div class="  ljs lijh" >
                             <div class="bigFang">
                                 <div class="dv1">注册／登录</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云买手／意向订单分析</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云买手／已支付订单</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
@@ -201,10 +201,10 @@
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -215,6 +215,9 @@
 
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
 .naver i{
     color:#c2c2c2;
 }
@@ -564,6 +567,10 @@
 .naver a{
     font-size:14px;
     color:#333333;  
+}
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
 }
 .naver a:hover{
     cursor:pointer;
@@ -963,6 +970,9 @@
             }
         },
         methods:{
+            dls:function(){
+                 this.$router.push({path: '/login'});
+            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },

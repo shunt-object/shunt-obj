@@ -38,21 +38,21 @@
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.png" alt="" ></div>
                                         <div class="fifter text-left">云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%</div>
-                                        <div class="fifters">纷纷公布的2018年第一季度财报显示，对各大基础设施服务提供商来说，云计算是收入持续增长的摇钱树。</div>
+                                        <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/12.png" alt="" ></div>
                                         <div class="fifter text-left">微信小游戏上线广告新形态：banner 广告和激励式视频广告</div>
-                                        <div class="fifters">微信官方今日发文介绍微信小游戏广告新形态：banner 广告和激励式视频广告。小游戏开发者开通流量主后，就可以在小游戏中接入广告，</div>
+                                        <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/13.png" alt="" ></div>
                                         <div class="fifter text-left">2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲 </div>
-                                        <div class="fifters">当下，以工业、政务、医疗为代表的传统行业上云进程加快，使得私有云市场得到越来越多云服务商、系统集成商、IDC服务商、各行业用户以及新进入者的广泛关注。</div>
+                                        <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -86,10 +86,10 @@
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -100,6 +100,9 @@
 
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
 .fifter{
     font-size: 18px;
     line-height: 26px;
@@ -580,6 +583,10 @@
 .naver a{
     font-size:14px;
     color:#333333;  
+}
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
 }
 .naver a:hover{
     cursor:pointer;

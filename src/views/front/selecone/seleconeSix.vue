@@ -36,7 +36,7 @@
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">场景化、智能化、专业化</span></p>
                             <div class="seclone-dv">
-                                <p style="font-weight:100;text-align:left;font-size:18px;color:#f2f2f2">借助大数据和AI技术，只需导入资源，一键智能完成云推荐配置和设计拓扑，助您省时和省钱！</p>
+                                <p style="font-weight:100;text-align:left;font-size:16px;color:#f2f2f2;line-height:26px;">借助大数据和AI技术，只需导入资源，一键智能完成云推荐配置和设计拓扑，助您省时和省钱！</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
@@ -62,28 +62,28 @@
                             <div class="crounds"><img src="../../../assets/k.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">推荐配置规格</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成             推荐云规格配置；同时提供手动修正功能</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成             推荐云规格配置；同时提供手动修正功能。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/j.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">自动化拓扑</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，                          用户可根据实际情况进行调整和优化</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，                          用户可根据实际情况进行调整和优化。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/i.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">多云厂商价格优选</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等云厂商在线价格比较，通过TOP排名和星级评定助用户快速优选</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等云厂商在线价格比较，通过TOP排名和星级评定助用户快速优选。</span></p>
                             </div>
                         </div>
                          <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/h.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">星级评定</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格                            和云厂商两个维度的星级评定</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格                            和云厂商两个维度的星级评定。</span></p>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                         <div class="ljs iks">
                             <div class="bigFang ">
                                 <div class="dv1">注册／登录</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                         <div class="ljs">
                             <div class="bigFang">
                                 <div class="dv1">云设计／自动化拓扑</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                         <div class="ljs">
                             <div class="bigFang">
                                 <div class="dv1">云设计／价格优选</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                         <div class="  ljs">
                            <div class="bigFang">    
                                 <div class="dv1">云设计／购买</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">4</div>
                            </div>
                         </div>
@@ -224,10 +224,10 @@
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -238,6 +238,9 @@
 
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
 .naver i{
     color:#c2c2c2;
 }
@@ -617,6 +620,10 @@
 .naver a{
     font-size:14px;
     color:#333333;  
+}
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
 }
 .naver a:hover{
     cursor:pointer;

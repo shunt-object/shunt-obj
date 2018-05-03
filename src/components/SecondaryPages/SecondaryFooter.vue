@@ -14,8 +14,8 @@
                 <p class=" footer-jx text-left">产品与功能</p>
                 <p class="text-left footer-list hoverRed"><span @click="yungh">云规划</span><span style="margin-left:10px" @click="yunsj">云设计</span></p>
                 <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px" @click="yungm">云购买</span></p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span style="margin-left:10px">综合报告</span></p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundsj">Prof. 吴数据</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span  style="margin-left:10px" @click="cloundsj">Prof. 吴数据</span></p>
+                <p class="text-left footer-list hoverRed"></p>
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
                 <p class="text-left footer-jx">服务与支持</p>
@@ -376,7 +376,7 @@ ul,ol li {
     margin-top: 20px;
 }
 .footer p {
-    font-size: 12px; color: #b3b3b3; line-height:15px;
+    font-size: 12px; color: #b3b3b3; line-height:17px;
 }
 .footer-ts img {
     width: 59px; height: 59px;

@@ -24,7 +24,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cloundMains">
+                            <div class="container navers">            
+                                <div class="" style="width:100%!important;">
+                                    <div class="col-md-2 col-xs-2"><a href="#cg"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#kr"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-tuandui"></i> 我们的资质</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-tuandui"></i> 联系我们</a></div>
+                                </div>
+                            </div>
+                           <div class="nav-bottom-kk"></div>      
+                    <div class="cloundMains" id="cg">
                         <div class="container">
                             <div class="cloundMains-main">
                                <div class=" text-left redtitle">
@@ -43,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cloundMains-go" style="margin-top:50px;">
+                    <div class="cloundMains-go" style="margin-top:50px;" id="hy">
                         <div class="container">
                             <div class=" text-left redtitle">
                                  <span class="redLine"></span><span class="redlasttitle">我们的发展</span>
@@ -62,7 +72,7 @@
                         </div>
                     </div>
                    
-                    <div class="belief" style="margin-bottom:40px;margin-top:30px">
+                    <div class="belief" style="margin-bottom:40px;margin-top:30px" id="kr">
                                 <div class="container">
                                     <div class=" text-left redtitle">
                                         <span class="redLine"></span><span class="redlasttitle">企业文化</span>
@@ -91,7 +101,7 @@
                                         </div>
                                 </div>
                      </div>
-                      <div class="cloundzi container"  style="margin-top:50px;">
+                      <div class="cloundzi container"  style="margin-top:50px;" id="vb">
                         <div class=" text-left redtitle" >
                                  <span class="redLine"></span><span class="redlasttitle">我们的资质</span>
                         </div>
@@ -108,7 +118,7 @@
                             </div>
                         </div> 
                     </div>
-                     <div class="callme" style="margin-top:80px;">
+                     <div class="callme" style="margin-top:80px;" id="mn">
                         <div class="container">
                             <div class=" text-left redtitle" style="margin-bottom:60px">
                                  <span class="redLine"></span><span class="redlasttitle">联系我们</span>
@@ -125,10 +135,10 @@
                       <div style="background:#f8f8f8;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -137,6 +147,38 @@
     </div>
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
+.nav-bottom-kk{
+    width:100%;
+    height:1px;
+    background:#d6d6d6
+}
+.navers{
+    height:70px;
+    line-height:70px;
+}
+.navers a{
+    font-size:14px;
+    color:#333333;  
+}
+.navers a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
+}
+.navers a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.navers a i:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
 /*悬浮框*/
 .fixed-box{
  width:55px; position:fixed;right:0;bottom:100px;z-index:10;
@@ -213,6 +255,9 @@
         background:#EF131D;
     }
     @media (min-width: 768px) {
+        .navers div{
+            margin-right:30px;
+        }
        .ulsMains{
            margin-left:82px;
        }
@@ -249,6 +294,11 @@
         }
     }
     @media (max-width: 768px) {
+            .navers  div{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
         .zizhi{
             margin-bottom:40px
         }
@@ -403,13 +453,13 @@
    }
    .clound-pa{
            font-weight: 100;
-           font-size: 18px;
+           font-size: 16px !important;
            color: rgb(248, 248, 248);
    }
    .clound-pd{
            font-weight: 100;
            color: rgb(248, 248, 248);
-           font-size: 18px;
+           font-size: 16px !important;
    }
    .clound-pg{
        margin-top:30px;

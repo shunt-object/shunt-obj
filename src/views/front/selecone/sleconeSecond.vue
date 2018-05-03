@@ -34,10 +34,10 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:18px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;color:#f8f8f8">我可以上云吗？上哪种类型的云？</span></p>
                             <div class="seclone-dv">
                                 <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">三步让您科学上云</h3>
-                                <p style="font-weight:100;text-align:left;font-size:18px">有没有一个既专业又简单的工具，科学的获得结论呢？</p>
+                                <p style="font-weight:100;text-align:left;font-size:16px">有没有一个既专业又简单的工具，科学的获得结论呢？</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
@@ -146,7 +146,7 @@
                         <div class="  ljs">
                             <div class="bigFang">
                                 <div class="dv1">注册／登录</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划／云定性</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划／云收益度</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                         <div class="  ljs">
                            <div class="bigFang">    
                                 <div class="dv1">云规划／云亲和度</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">4</div>
                            </div>
                         </div>
@@ -178,7 +178,7 @@
                         <div class=" ljs">
                             <div class="bigFang">
                                 <div class="dv1">云规划报告</div>
-                                <div class="dv2">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">5</div>
                             </div>
                         </div>
@@ -222,10 +222,10 @@
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -242,7 +242,9 @@
 .fixshow i{
     color:#c2c2c2;
 }
-
+.dv2:hover{
+    cursor:pointer;
+}
 /*悬浮框*/
 .fixed-box{
  width:55px; position:fixed;right:0;bottom:100px;z-index:10;
@@ -577,6 +579,10 @@
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
+}
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
 }
 .naver a i:hover{
     cursor:pointer;

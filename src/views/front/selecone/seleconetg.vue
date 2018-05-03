@@ -36,7 +36,7 @@
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
                             <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能生态合作伙伴 助力行业数字化创新</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:18px;color:#ffffff;line-height:30px">立即加入CloudBroker²渠道合作伙伴体系，为客户构建基于全流程一站式云的服务，</br>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:16px;color:#ffffff;line-height:26px">立即加入CloudBroker²渠道合作伙伴体系，为客户构建基于全流程一站式云的服务，</br>
                                         携手打造新型云服务模式，聚力共赢，共建生态
                                 </h3>
                             </div>
@@ -75,9 +75,9 @@
                 </div>
                 <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
                     <div class="zhaomu">招募规则备注：</div>
-                    <div class="zhaomu1 zhaomu2"><span>1. 在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308</div>
-                    <div class="zhaomu1"><span>2.准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式</div>
-                    <div class="zhaomu1"><span>3.申请规则</span> 合作伙伴活动最终解释权归京玉所有</div>
+                    <div class="zhaomu1 zhaomu2"><span>1、 在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
+                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
+                    <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
                 </div>
             </div>
             </div>
@@ -115,11 +115,11 @@
       
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container text-left" style="width:60%;padding-left:cd30px;">
-                            <div class="col-md-3 col-xs-12" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:20px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:20px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                    <div class="container text-left" style="width:60%;padding-left:30px;">
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -130,6 +130,9 @@
 
 </template>
 <style>
+.dv2:hover{
+    cursor:pointer;
+}
 .rusety{
     background:url("../../../assets/er-icon/bannerts.png") no-repeat;
     text-align:center;background-size:100% 100%;
@@ -573,6 +576,10 @@
     font-size:14px;
     color:#333333;  
 }
+.naver a i{
+    font-size:14px;
+    color:#A5A5A5 !important;  
+}
 .naver a i:hover{
     cursor:pointer;
     color:#da121a;
@@ -669,7 +676,7 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver .row div{
+    .naver  div{
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;

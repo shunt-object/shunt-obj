@@ -26,7 +26,7 @@
             </li>
             <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
                         <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link ">
+                                <span class="el-dropdown-link " style="outline:none">
                                     产品与服务
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
@@ -45,7 +45,7 @@
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlin">Prof. 吴数据</span></div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术服务</div>
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
                                     </el-dropdown-item>
                                      <el-dropdown-item class="text-left" style="margin-top:20px">
@@ -64,7 +64,7 @@
             </a></li>
             <li><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
                     <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link">
+                                <span class="el-dropdown-link" style="outline:none">
                                     生态
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbs">
@@ -79,7 +79,7 @@
             </a></li>
             <li class="lihovzan"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
                        <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link">
+                                <span class="el-dropdown-link" style="outline:none">
                                     动态
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbse">
@@ -147,7 +147,16 @@ export default {
       }
     },
     mounted: function() {
-         
+                         $(".fixshow a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
+                         $(".naver a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
          
         if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
           this.islogin = false;
@@ -155,8 +164,7 @@ export default {
           this.islogin = true;
           this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
         };
-      
-
+     
           
     },
     methods: {
