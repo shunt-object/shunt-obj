@@ -55,9 +55,9 @@
                     <div class="container"  style="position:relative">
                     <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
                         <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">省钱、快捷、专业，助您轻松上云！</h1>
-                            <p class="pCenter hsa" style="font-weight:100;text-align:left;">上云，如何实施？</p>
-                            <p class="pCenter hsa" style="font-weight:100;text-align:left;">我们为您量身定制最适合的上云方案！</p>
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">省钱、快捷、专业，助您轻松上云！</h1>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">上云，如何实施？</p>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">我们为您量身定制最适合的上云方案！</p>
                             <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
@@ -70,8 +70,8 @@
                     <div class="container" style="position:relative">
                        
                     <div class="col-md-12 lun-le animated rollIn">
-                        <h1 style="font-size:26px !important;font-weight:100">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
-                        <h1 style="font-size:14px !important;font-weight:100">30%降低上云咨询成本，50%减少上云投入时间</h1>
+                        <h1 style="font-size:32px !important;font-weight:100">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:18px !important;font-weight:100">30%降低上云咨询成本，50%减少上云投入时间</h1>
                         <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                     </div>
                     </div>
@@ -81,11 +81,11 @@
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式</h1>
-                            <h1 style="font-size:14px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里</h1>
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式</h1>
+                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里</h1>
                             <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:100%;height:100%;"></div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:110%;height:100%;"></div>
                     </div>
                 </div>
          </div>
@@ -93,11 +93,11 @@
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">CloudBroker²以“云”为核心</h1>
-                            <h1 style="font-size:14px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">CloudBroker²以“云”为核心</h1>
+                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
                             <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:100%;height:100%;"></div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:130%;height:100%;"></div>
                     </div>
                 </div>
          </div>

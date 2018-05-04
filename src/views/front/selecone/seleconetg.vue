@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
                     <div class="zhaomu">招募规则备注：</div>
-                    <div class="zhaomu1 zhaomu2"><span>1、 在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
+                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
                     <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
                     <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
                 </div>
