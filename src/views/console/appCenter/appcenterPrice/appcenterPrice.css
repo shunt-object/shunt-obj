@@ -27,6 +27,9 @@
     padding:20px;
     min-height:82vh;
 }
+.appcenterPrice-table{
+    margin-top:20px;
+}
 .appcenterPrice-table table{
     border-collapse:collapse;
     border:1px solid #e5e5e5;

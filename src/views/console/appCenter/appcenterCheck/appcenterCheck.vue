@@ -127,7 +127,7 @@ export default {
                 },
                 legend: {
                     data:['云亲和度', '云收益度'],
-                    top:'10px',
+                    top:'0px',
                     right:'10px'
                 },
                 grid: {
@@ -176,7 +176,7 @@ export default {
                     {
                         name:'云收益度',
                         type:'bar',
-                        barWidth:'20',
+                        barWidth:'25',
                         // label: {
                         //     normal: {
                         //         show: true,
@@ -188,7 +188,7 @@ export default {
                     {
                         name:'云亲和度',
                         type:'bar',
-                        barWidth:'20',
+                        barWidth:'25',
                         // label: {
                         //     normal: {
                         //         show: true
