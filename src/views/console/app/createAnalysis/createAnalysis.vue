@@ -20,7 +20,7 @@
                         <span class="create-radio-span">
                             <input type="radio" name="aaa" checked class="create-radio-input" v-on:click="clickI(1)">创建云分析
                         </span>
-                        <span class="create-radio-span">
+                        <span class="create-radio-span" v-if="existing.length>0">
                             <input type="radio"  name="aaa" class="create-radio-input" v-on:click="clickI(2)">选用现有云分析
                         </span>
                     </div>
@@ -29,8 +29,11 @@
                         <select v-if="radio2==true" id="select" class="create-select" v-model="changeyun" :class="ischangeyun==false?'error':''">
                             <option :value="item" v-for="item in existing">{{item.proname}}</option>
                         </select>
-                        <input v-if="radio1==true" type="text" id="input" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称">
+                        <input v-if="radio1==true" type="text" id="input" class="create-input" :class="isproName==false?'error':''"  v-model="proName" placeholder="请输入上云分析名称" v-on:blur="checkproname()">
                     </div>
+                    <div class="clear"></div>
+                    <div class="create-errornotice" v-if="isproName==false">{{Proerrornptice}}</div>
+                    <div class="create-errornotice" v-if="ischangeyun==false">请选择现有云分析</div>
                 </div>
                 <div class="clear"></div>
                 <div class="createAnalysis-list">
@@ -38,29 +41,34 @@
                         <span class="createAnalysis-fang">2</span>
                         请输入工作负载名称：
                     </div>
-                    <input type="text" class="create-input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入工作负载名称">
+                    <input type="text" class="create-input" :class="isappName==false?'error':''"  v-model="appName" placeholder="请输入工作负载名称" v-on:blur="checkappname()">
+                    <div class="clear"></div>
+                    <div class="create-errornotice" v-if="isappName==false">{{appnameNotice}}</div>
                 </div>
-                <div class="clear"></div>
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">3</span>
                         请选择工作负载类型：
                     </div>
-                    <select class="create-select" v-model="type" :class="istype==false?'error':''" >
+                    <select class="create-select" v-model="type" :class="istype==false?'error':''" v-on:change="changeType()" >
                         <option :value="item.id" v-for="item in typeList">{{item.gname}}</option>
                     </select>
+                    <div class="clear"></div>
+                    <div class="create-errornotice" v-if="istype==false">请选择工作负载类型</div>
                 </div>
-                <div class="clear"></div>
+                
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">4</span>
                         请选择工作负载架构：
                     </div>
-                    <select class="create-select" v-model="frame" :class="isframe==false?'error':''" >
+                    <select class="create-select" v-model="frame" :class="isframe==false?'error':''" v-on:change="changeFrame()" >
                         <option :value="item.id" v-for="item in frameList">{{item.gname}}</option>
                     </select>
+                    <div class="clear"></div>
+                    <div class="create-errornotice" v-if="isframe==false">请选择工作负载架构</div>
                 </div>
-                <div class="clear"></div>
+                
                 <div class="createAnalysis-list">
                     <div class="createAnalysis-list-title">
                         <span class="createAnalysis-fang">5</span>
@@ -140,7 +148,9 @@ export default{
             areaList:[],
             province:'',
             city:'',
-            area:''
+            area:'',
+            Proerrornptice:'请输入上云分析名称',
+            appnameNotice:'请输入工作负载名称'
         }
     },
     mounted:function(){
@@ -165,7 +175,11 @@ export default{
         //获取所有云分析名称
         this.$this.get('/broker/app/analysis').then((response)=>{
             this.existing = response.data.data;
-            console.log('aaa',response.data.data);
+            if(this.existing.length>0){
+                this.changeyun = this.existing[0];
+            }
+            
+            //console.log('aaa',response.data.data);
         }).catch((error)=>{
             console.log(error);
         })
@@ -177,6 +191,64 @@ export default{
         });
     },
     methods:{
+        changeFrame:function(){
+            if(this.frame==''){
+                this.isframe = false;
+            }else{
+                this.isframe = true;
+            }
+        },
+        changeType:function(){
+            if(this.type==''){
+                this.istype = false;
+            }else{
+                this.istype = true;
+            }
+        },
+        checkproname:function(){
+            // console.log('----',this.proName);
+            if(this.proName==''){
+                this.isproName = false;
+                this.Proerrornptice = '请输入上云分析名称';
+            }else{
+                this.$this.get('/broker/app/analysisname/judgment/'+this.proName).then((response)=>{
+                    if(response.data.data>0){
+                        this.isproName = false;
+                        this.Proerrornptice = '当前上云分析名称已存在，请您重新命名。';
+                    }else{
+                        this.isproName = true;
+                    }
+                }).catch((error)=>{})
+            }
+            
+        },
+        checkappname:function(){
+            if(this.radio2==true){
+                if(this.appName==''){
+                    this.isappName = false;
+                    this.appnameNotice = '请输入工作负载名称';
+                }else{
+                    this.$this.get('/broker/app/appname/judgment/'+this.appName+'/'+this.changeyun.id).then((response)=>{
+                        if(response.data.data>0){
+                            this.isappName = false;
+                            this.appnameNotice = '当前工作负载名称已存在，请您重新命名。';
+                        }else{
+                            this.isappName = true;
+                        }
+                    }).catch((error)=>{})
+                } 
+
+            }else{
+                if(this.appName==''){
+                    this.isappName = false;
+                    this.appnameNotice = '请输入工作负载名称';
+                }else{
+                    this.isappName = true;
+                }
+            }
+              
+            
+        },
         getIndustry:function(){
             this.$this.get('/broker/prop/industry/').then((response)=>{
                 this.industryList = response.data.data;
@@ -226,7 +298,7 @@ export default{
                 proid = this.changeyun.id;
                 analysisName = this.changeyun.proname; 
             }
-            console.log(this.changeyun);
+            //console.log(this.changeyun);
             let obj = {
                 "analysisName": analysisName,
                 "appFrame": this.frame,
@@ -240,11 +312,11 @@ export default{
             };
             let that = this;
             let str = JSON.stringify(obj);
-            console.log(this.radio1,'----',this.radio2);
+            //console.log(this.radio1,'----',this.radio2);
             if(this.radio2==true){
                 //console.log(this.changeyun.proname);
                 this.reg2(str);
-            }else if(this.radio1==true){
+            }else if(this.radio1==true){//输入
                 this.reg1(str);
             }else{
                 this.regall();
@@ -253,16 +325,24 @@ export default{
         },
         reg1:function(str){
             if(this.proName!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
-                this.isproName = true;
+                if(this.isproName==true){
+                    this.isproName = true;
+                    this.push(str);
+                }
                 this.istype = true;
                 this.isframe = true;
                 this.isappName = true;
-                this.push(str);
             }else{
-                this.proName == ''?this.isproName = false:this.isproName = true;
+                this.checkproname();
                 this.type == ''?this.istype = false:this.istype = true;
                 this.frame == ''?this.isframe = false:this.isframe = true;
-                this.appName ==''?this.isappName = false:this.isappName = true;  
+                if(this.appName==''){
+                    this.isappName = false;
+                    this.appnameNotice = '请输入工作负载名称';
+                }else{
+                    this.isappName = true;  
+                }
+                //this.appName ==''?this.isappName = false:this.isappName = true;  
             }
         },
         reg2:function(str){
@@ -270,28 +350,39 @@ export default{
                 this.ischangeyun = true;
                 this.istype = true;
                 this.isframe = true;
-                this.isappName = true;
-                this.push(str);
+                if(this.isappName==true){
+                    this.isappName = true;
+                    this.push(str);
+                }
+                
             }else{
                 this.changeyun == ''?this.ischangeyun = false:this.ischangeyun = true;
                 this.type == ''?this.istype = false:this.istype = true;
                 this.frame == ''?this.isframe = false:this.isframe = true;
-                this.appName ==''?this.isappName = false:this.isappName = true;  
+                //this.appName ==''?this.isappName = false:this.isappName = true; 
+                this.checkappname(); 
             }
         },
         regall:function(){
             if(this.proName!=''&&this.ischangeyun!=''&&this.type!=''&&this.frame!=''&&this.appName!=''){
                 this.ischangeyun = true;
-                this.isproName = true;
+                //this.isproName = true;
                 this.istype = true;
                 this.isframe = true;
-                this.isappName = true;
+                if(this.isappName==true){
+                    this.isappName = true;
+                }else if(this.isproName==true){
+                    this.isproName = true;
+                }
+                //this.isappName = true;
             }else{
                 this.changeyun == ''?this.ischangeyun = false:this.ischangeyun = true;
-                this.proName == ''?this.isproName = false:this.isproName = true;
+                //this.proName == ''?this.isproName = false:this.isproName = true;
                 this.type == ''?this.istype = false:this.istype = true;
                 this.frame == ''?this.isframe = false:this.isframe = true;
-                this.appName ==''?this.isappName = false:this.isappName = true;  
+                //this.appName ==''?this.isappName = false:this.isappName = true; 
+                this.checkproname(); 
+                this.checkappname();
             }
         },
         clickI:function(ind){

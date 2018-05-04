@@ -94,6 +94,13 @@ select,input{
     margin:15px 0;
     /*font-weight:bold;*/
 }
+.create-errornotice{
+    text-align: left;
+    padding-left: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: red;
+}
 .createAnalysis-fang{
     width:20px;
     height:20px;

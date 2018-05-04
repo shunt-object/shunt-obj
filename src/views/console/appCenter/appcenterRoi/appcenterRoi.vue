@@ -33,7 +33,7 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="length>0" class="appcheck-canvastitle">预算收益分析图</div>
+        <div v-if="length>0" class="appcheck-canvastitle"><span></span>预算收益分析图</div>
         <div v-if="length>0">
             <div id="main" style="width:100%;height:500px;"></div>
         </div>
