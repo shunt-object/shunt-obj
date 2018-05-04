@@ -63,6 +63,7 @@ import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
+import adviserList from "../views/front/adviser/adviserList.vue"
 
 
 
@@ -150,22 +151,22 @@ export default new Router({
     //   path:'/register',
     //   name:'register',
     //   component:register
-    // }, 
+    // },
     {
       path:'/registerOne',
       name:'registerOne',
       component:registerOne
-    }, 
+    },
     {
       path:'/registerTwo',
       name:'registerTwo',
       component:registerTwo
-    }, 
+    },
     {
       path:'/registerThree',
       name:'registerThree',
       component:registerThree
-    },   
+    },
     {
       path:'/sendEmail',
       name:'sendEmail',
@@ -267,6 +268,15 @@ export default new Router({
           name:"messageCenter",
           component:messageCenter
         },
+        {
+          path:"/adviserList",
+          name:"adviserList",
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:adviserList
+        },
+
          {
           path:"/messAdd",
           name:"messAdd",
@@ -277,7 +287,7 @@ export default new Router({
           name:"vis",
           component:vis
         },
-  
+
         {
           path:'/accountInformation',
           name:'accountInformation',
@@ -374,7 +384,7 @@ export default new Router({
           },
           component:yunzc
         },
-         
+
         {
           path:'/TheirAllies',
           name:'TheirAllies',

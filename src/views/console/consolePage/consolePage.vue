@@ -45,7 +45,7 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover" id="xiaowei">
                         <i class="iconfont icon-kefu"></i><!--小微-->Prof. 吴
-                    </a>                    
+                    </a>
                 </li>
                 <li id="header_inbox_bar" class="dropdown idicon">
                    <el-popover
@@ -65,25 +65,25 @@
                             </div>
                             <div class="kongMsg"></div>
                             <div class="lookmangMsg" v-on:click="tongzhiCenter()" >查看全部消息</div>
-                        </div>                
+                        </div>
                     </el-popover>
                     <a class="dropdown-toggle navli user-hover" v-on:click="tongzhiCenter()"  data-toggle="dropdown"  v-popover:popover2 >
                         <i class="iconfont icon-icon-- " style="font-size:18px !important;float: left;"></i>消息中心<span class="Redreg" v-show="redreg"></span>
-                    </a>                    
+                    </a>
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <i class="iconfont icon-dianping"></i>意见反馈
-                    </a>                    
+                    </a>
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="cart()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <i class="iconfont icon-gouwuche"></i>购物车
-                    </a>                    
+                    </a>
                 </li>
             </ul>
         </div>
-       
+
     </header>
     <!--侧导航-->
     <aside>
@@ -108,9 +108,9 @@
                         <li v-on:click="planning()"><a href="javascript:;">云规划</a></li>
                         <li v-on:click="compare()"><a href="javascript:;">云选型</a></li>
 
-                        <li v-on:click="designer()"><a href="javascript:;">云设计</a></li> 
+                        <li v-on:click="designer()"><a href="javascript:;">云设计</a></li>
 
-                        <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>--> 
+                        <!--<li v-on:click="design()"><a href="javascript:;">云设计</a></li>-->
                         <li v-on:click="buycar()"><a href="javascript:;">云买手</a></li>
 
                         <li v-on:click="measure()"><a href="javascript:;">云实测</a></li>
@@ -148,6 +148,7 @@
                         <li v-on:click="TheirAllies()"><a href="javascript:;">友盟数据</a></li>
                         <li v-on:click="messageCenter()"><a href="javascript:;">消息中心</a></li>
                          <li v-on:click="messageCenters()"><a href="javascript:;">用户行为</a></li>
+                        <li v-on:click="adviserList()"><a href="javascript:;">加盟顾问</a></li>
                     </ul>
                 </li>
             </ul>
@@ -214,13 +215,13 @@ export default{
             this.contactway = JSON.parse(sessionStorage.getItem("account")).email;
         }
         $("#xiaowei").click(function(){
-             var that = this; 
+             var that = this;
               var win = window.open("#/CustomerService");
             //  var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
            //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
-            
+
         });
-        
+
 
         $('#sidebar .sub-menu > a').click(function () {
             var last = $('.sub-menu.open', $('#sidebar'));
@@ -238,7 +239,7 @@ export default{
                 sub.slideDown(200);
             }
         });
-        
+
         this.responsiveView();
         $(window).on('load', this.responsiveView());
         $(window).on('resize', this.responsiveView());
@@ -276,12 +277,12 @@ export default{
        // console.log(JSON.parse(sessionStorage.getItem("account")));
        this.getHttpMsgCenter();
       // setInterval( this.getHttpMsgCenter(),1000)
- 
+
     },
     created:function(){
         var that = this;
         setInterval( function(){that.getHttpMsgCenter()},300000);
-        
+
     },
     // updated:function(){
     //     this.getHttpMsgCenter();
@@ -304,13 +305,13 @@ export default{
                         "sort": null
                     }
             }
-            this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                            this.dates = response.data.data.content;      
+            this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容
+                            this.dates = response.data.data.content;
                             this.totalPages = response.data.data.totalElements;
                         if(this.totalPages ==0){
                             this.noMsg= true;
                             this.haveMsg =false;
-                        }else{  
+                        }else{
                             this.haveMsg=true;
                             this.noMsg = false;
                         }
@@ -402,13 +403,15 @@ export default{
         },
         nocopy:function(){
             //禁止copy
-            document.oncontextmenu=function(){return true};   
+            document.oncontextmenu=function(){return true};
             document.onselectstart=function(){return true};
         },
         appcenterList:function(){
             this.$router.push({path:'/appcenterList'});
         },
-
+        adviserList:function(){
+            this.$router.push({path:'/adviserList'});
+        }
     },
     components:{
         feedback
