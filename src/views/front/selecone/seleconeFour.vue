@@ -12,6 +12,15 @@
             
             <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
         </div>
+          <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
+            <div class=" fixshow container">
+                     <div class="col-md-2 col-xs-2"><a href="#cg"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#kr"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
+            </div>
+        </div>
             <Sec active="4"></Sec>
             <div class="cloundcompare">
                     <div class="cloundbanner">
@@ -26,11 +35,11 @@
                     </div>
                             <div class="container navers">            
                                 <div class="" style="width:100%!important;">
-                                    <div class="col-md-2 col-xs-2"><a href="#cg"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#kr"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#cg" class="hoover-a"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#hy" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#kr" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#vb" class="hoover-a"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#mn" class="hoover-a"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
                                 </div>
                             </div>
                            <div class="nav-bottom-kk"></div>      
@@ -147,6 +156,40 @@
     </div>
 </template>
 <style>
+.navers a i{
+    font-size:14px;
+    color:#A5A5A5;  
+}
+.navers a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+
+.navers i{
+    color:#c2c2c2;
+}
+.fixshow i{
+    color:#c2c2c2;
+}
+.fixshow a{
+    font-size:14px;
+    color:#333333;
+}
+.fixshow a:hover{
+    font-size:14px;
+    color:#da121a;
+    border-bottom:1px solid #da121a;
+    padding-bottom:20px;
+}
+
+.displayshow{
+    display:none;
+    position:fixed;
+    top:0;
+    z-index:999999999;
+}
 .dv2:hover{
     cursor:pointer;
 }
@@ -165,7 +208,7 @@
 }
 .navers a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .navers a:hover{
     cursor:pointer;
@@ -173,12 +216,7 @@
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.navers a i:hover{
-    cursor:pointer;
-    color:#da121a;
-    display:inline-block;
-    border-bottom:1px solid #da121a;
-}
+
 /*悬浮框*/
 .fixed-box{
  width:55px; position:fixed;right:0;bottom:100px;z-index:10;
@@ -258,6 +296,9 @@
         .navers div{
             margin-right:30px;
         }
+        .fixshow div{
+            margin-right:30px;
+        }
        .ulsMains{
            margin-left:82px;
        }
@@ -295,6 +336,11 @@
     }
     @media (max-width: 768px) {
             .navers  div{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .fixshow  div{
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -483,6 +529,69 @@
 </style>
 
 <script>
+    $(document).ready(function(){ 
+                        // $(".rightBs ul li").find("a").click(function(){
+                        //     // $(".rightBs ul li").css("background","#d8d8d8");
+                        //     // $(this).css("background","#da121a");
+                        //     alert(1)
+                        // });
+                    
+                     $(window).scroll(function(){
+                    // console.log($(this).scrollTop());
+                        // console.log("p",$(".naver").offset().top - $(window).scrollTop())
+                        // console.log($(window).scrollTop())
+                    //当window的scrolltop距离大于1时，go to 
+                        if($(this).scrollTop() > 550){
+                            $('.scrollUp').css("display","block")
+                            }else{
+                                    $('.scrollUp').fadeOut();
+                            }
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
+                          
+                        // };
+                        
+                         if($(".navers").length==1){
+                          
+                            var topa = $(".navers").offset().top - $(window).scrollTop();
+                             if(topa<0){
+                                 $(".displayshow").css("display","block") 
+                             }else if(topa>0){
+                                  $(".displayshow").css("display","none") 
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                             }
+                             console.log($("#cg").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                                $(".rightBs ul li").css("background","#d8d8d8") 
+                                $(".nexton").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextsec").css("background","#da121a")
+                             }
+                            if($("#kr").length>0){
+                                if($(window).scrollTop()+70>=$("#kr").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextthe").css("background","#da121a")
+                                }
+                            }
+                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                                 $(".rightBs ul li").css("background","#d8d8d8");
+                                  $(".nextf").css("background","#da121a")  
+                             }
+                        }
+                    });
+            
+                    $(".scrollUp").click(function(){
+                        $('html ,body').animate({scrollTop: 0}, 300);
+                        return false;
+                    });
+
+
+              })
         import '../selecone/bais.css'
         import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
         import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"

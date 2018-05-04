@@ -45,9 +45,9 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#cg" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#hy" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#kr" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
                     <div class="zhaomu">招募规则备注：</div>
-                    <div class="zhaomu1 zhaomu2"><span>1、 在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
+                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
                     <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
                     <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
                 </div>
@@ -565,7 +565,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;

@@ -67,7 +67,7 @@
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104325@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">公有云选型：8项最有力的调查数据</div>
+                                        <div class="fifter text-left">公有云选型：8项有力的调查数据</div>
                                         <div class="fifters">本文汇总了一些有助于帮助企业做2018年公有和混合云研究的数据支撑，并回答了一些相关问题：如云在CIO的优先级列表中的位置如何？它实现了节约成本的承诺吗？转向公有云的工作负载是多少？</div>
                                     </div>
                                 </div>
@@ -110,14 +110,14 @@
     cursor:pointer;
 }
 .fifter{
-    font-size: 18px;
+      font-size: 16px;
     line-height: 26px;
     margin-bottom: 16px;
-    margin-top:10px;
+    margin-top: 10px;
     overflow: hidden;
-    min-height: 52px;
+    min-height: 46px;
     color: black;
-    padding-left:25px;
+    padding-left: 25px;
 }
 .hying img{
     width: 250px;
@@ -128,7 +128,7 @@
     height: 40px;
     overflow: hidden;
     color: #6E6E6E;
-    margin-bottom:60px;
+    margin-bottom:20px;
     text-align:left;
 }
 .alifloat{
@@ -593,7 +593,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;

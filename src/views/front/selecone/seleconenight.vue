@@ -46,10 +46,10 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -570,7 +570,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;
@@ -886,21 +886,7 @@
 </style>
 <script>
     $(document).ready(function(){ 
-                        // $(".rightBs ul li").find("a").click(function(){
-                        //     // $(".rightBs ul li").css("background","#d8d8d8");
-                        //     // $(this).css("background","#da121a");
-                        //     alert(1)
-                        // });
-                        $(".fixshow a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
-                         $(".naver a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
+                        
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -911,13 +897,7 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        // if($(this).scrollTop()>80){
-                        //     $(".sectb").css("display","none");
-                        // };
-                        // if($(this).scrollTop()<80){
-                        //     $(".sectb").css("display","block");
-                          
-                        // };
+                       
                         if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();

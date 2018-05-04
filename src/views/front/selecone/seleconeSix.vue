@@ -45,10 +45,10 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -62,28 +62,28 @@
                             <div class="crounds"><img src="../../../assets/k.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">推荐配置规格</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成             推荐云规格配置；同时提供手动修正功能。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成推荐云规格配置；同时提供手动修正功能。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/j.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">自动化拓扑</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，                          用户可根据实际情况进行调整和优化。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，用户可根据实际需求进行优化。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/i.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">多云厂商价格优选</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等云厂商在线价格比较，通过TOP排名和星级评定助用户快速优选。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等厂商在线价格比较，借助TOP排名和星级评定助用户优选。</span></p>
                             </div>
                         </div>
                          <div class="col-xs-12 col-sm-3 blurb-cta">
                             <div class="crounds"><img src="../../../assets/h.png" alt="" class="Yunimg"></div>
                             <h2 class="h2-18">星级评定</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格                            和云厂商两个维度的星级评定。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格和云厂商两个维度的星级评定。</span></p>
                             </div>
                         </div>
                     </div>
@@ -623,7 +623,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;

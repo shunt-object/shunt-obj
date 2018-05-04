@@ -533,7 +533,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;

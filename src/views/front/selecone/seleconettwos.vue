@@ -104,7 +104,7 @@
     cursor:pointer;
 }
 .fifter{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 26px;
     margin-bottom: 16px;
     margin-top:10px;
@@ -586,7 +586,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;

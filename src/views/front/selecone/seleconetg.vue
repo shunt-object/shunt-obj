@@ -46,9 +46,9 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#cg" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#hy" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#kr" class="hoover-a"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -578,7 +578,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a i:hover{
     cursor:pointer;

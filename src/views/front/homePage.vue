@@ -23,7 +23,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                           <!-- <li data-target="#carousel-example-generic" data-slide-to="3"></li>-->
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
       <div class="carousel-inner">
         <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
@@ -81,11 +81,23 @@
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式，</h1>
-                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里！</h1>
+                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式</h1>
+                            <h1 style="font-size:14px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里</h1>
                             <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                         </div>
                         <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:100%;height:100%;"></div>
+                    </div>
+                </div>
+         </div>
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain lunmaen lun3">
+                    <div class="container"  style="position:relative">
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:26px;font-weight:100;text-align:left;" class="hsa">CloudBroker²以“云”为核心</h1>
+                            <h1 style="font-size:14px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                        </div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:100%;height:100%;"></div>
                     </div>
                 </div>
          </div>

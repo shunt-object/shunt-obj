@@ -45,10 +45,10 @@
             </div>
             <div class="container naver">            
                 <div class="row narow">
-                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-tuandui"></i> 服务团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#cg" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#hy" class="hoover-a"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#kr" class="hoover-a"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#sz" class="hoover-a"><i class="iconfont icon-tuandui"></i> 服务团队</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -2116,7 +2116,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver div a:hover{
     cursor:pointer;

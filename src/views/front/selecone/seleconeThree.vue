@@ -46,10 +46,10 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#cg" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#hy" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>-->
-                    <div class="col-md-4 col-xs-4"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#sz" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -620,7 +620,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 !important;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;
