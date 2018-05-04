@@ -37,21 +37,42 @@
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.png" alt="" ></div>
-                                        <div class="fifter text-left">云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%</div>
+                                        <div class="fifter text-left">云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%。</div>
                                         <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/12.png" alt="" ></div>
-                                        <div class="fifter text-left">微信小游戏上线广告新形态：banner 广告和激励式视频广告</div>
+                                        <div class="fifter text-left">微信小游戏上线广告新形态：banner 广告和激励式视频广告。</div>
                                         <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
                                     <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
                                         <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/13.png" alt="" ></div>
-                                        <div class="fifter text-left">2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲 </div>
+                                        <div class="fifter text-left">2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲。 </div>
+                                        <!--<div class="fifters"></div>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/0.png" alt="" ></div>
+                                        <div class="fifter text-left">腾讯控股 3 个月蒸发 6500 亿，马化腾“闪退”华人首富。 </div>
+                                        <!--<div class="fifters"></div>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/01.png" alt="" ></div>
+                                        <div class="fifter text-left">百度张亚勤：类脑技术、量子计算和5G是AI的未来方向。 </div>
+                                        <!--<div class="fifters"></div>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/02.png" alt="" ></div>
+                                        <div class="fifter text-left">未受数据泄露丑闻影响，Facebook Q1业绩超预期 盘后上涨7%。 </div>
                                         <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>

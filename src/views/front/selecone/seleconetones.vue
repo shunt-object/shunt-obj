@@ -33,7 +33,7 @@
                         <div class="group-money">社群价值</div>
                         <div style="text-align:left;text-indent:2em;line-height:30px;margin-bottom:10px;">CloudBroker²于2018年4月1号创办“CloudBroker²”微信公众号，是国内首家以上云咨询、云迁移和云运维话题为核心的公益交流平台， 旨在为广大IT朋友分享云服务的经验和技巧；期待大家的参与！</div>
                         <div style="text-align:left;text-indent:2em;line-height:30px;">CloudBroker²团队在云服务管理领域有10多年的沉淀，公司核心产品CSB²在今年3月推出后深受好评，我们将再接再厉，与您共同共同成长，携手设“MSP+”，共同打造“云服务新型生态圈”。</div>
-                        <div  style="margin-top:120px;">
+                        <div  style="margin-top:90px;">
                             <div class=" CsbSao" style="margin:0 auto;">
                                 <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/weichat.png" alt=""></div>
                                 <div class="alifloat">

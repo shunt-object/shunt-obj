@@ -89,13 +89,16 @@
                         <div><input type="text" placeholder="姓名" v-model="names"></div>
                         <div><input type="text" placeholder="联系电话" v-model="phones"></div>
                         <div><input type="text" placeholder="公司名称" v-model="gs"></div>
+
                         <div>
                             <select name="" id="" v-model="hys">
                                 <option value="">选择行业</option>
                                 <option :value="ins.id" v-for="ins in resulters">{{ins.name}}</option>
                             </select>
                         </div>
-                        <div class="welecone"><span @click="wle">欢迎加入我们</span></div>
+                        <div class="inpusa"><input type="text" placeholder="请输入短信验证码" v-model="dx" ><div class="dvsa" @click="hyDemo">获取验证码</div></div>
+                        <div class="welecone"><span @click="wle">{{haha}}</span></div>
+                        
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="text-left rightDiv">
@@ -128,6 +131,10 @@
 
 </template>
 <style>
+
+.dvsa:hover{
+    cursor:pointer;
+}
 .ruset{
     background:url("../../../assets/er-icon/bannert.png") no-repeat;
     text-align:center;background-size:100% 100%;
@@ -416,7 +423,14 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
-
+    .inpusa{
+        position:relative;
+        width:257px;
+    }
+    .dvsa{
+        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
+        right:5px;top:5px;
+    }
     .el-message-box{
         width:274px !important;
     }
@@ -458,11 +472,19 @@
             padding-left:20px;
             border:1px solid #dedede;
             border-radius:4px;
-            width:207px !important;
+            width:257px !important;
             height:40px !important;
         }
 }
 @media (min-width: 768px) {
+    .inpusa{
+        position:relative;
+        width:407px;
+    }
+    .dvsa{
+        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
+        right:5px;top:5px;
+    }
     .positionSpans{
         font-size:16px;
     }
@@ -480,7 +502,7 @@
         border:1px solid #dedede;
         border-radius:4px;
         width:457px;
-        height:220px;   
+        height:280px;   
     }
     .iuols input,.iuols select{
         margin-bottom:20px;
@@ -971,7 +993,9 @@
                  names:"",
                  phones:"",
                  gs:"",
-                 hys:""
+                 hys:"",
+                 dx:"",
+                 haha:"欢迎加入我们"
             }
         },
         methods:{
@@ -996,8 +1020,23 @@
             phoneleave:function(){
                     this.phoneBox = false;
             },
+            hyDemo:function(){
+                 if(this.names==""||this.phones==""||this.gs==""||this.hys==""){
+                     return false;
+                 }else{
+                     var oas = {
+                            "mobile":this.phones,
+                            "username":this.names,
+                            }
+                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取消息类型
+                                                                
+                                   
+                                }).catch((error)=>{
+                    })
+                 }
+            },
             wle:function(){
-               if(this.names==""||this.phones==""||this.gs==""||this.hys==""){
+               if(this.names==""||this.phones==""||this.gs==""||this.hys==""||this.dx==""){
                    return false;
                }else{
                    var obj = {
@@ -1007,7 +1046,8 @@
                         "tel": this.phones,
                         "type": 1
                    }
-                    this.$this.post('/broker/portal/join/us',obj).then((pon)=>{  //获取消息类型
+                    let strObj = JSON.stringify(obj);
+                    this.$this.post('/broker/portal/join/us/'+this.dx,strObj).then((pon)=>{  //获取消息类型
                                 //this.scsss = pon.data.msg
                                         this.$alert('留言成功，我们会尽快与您联系。', '温馨提示', {
                                         confirmButtonText: '我知道了',
@@ -1019,6 +1059,7 @@
                                     this.names = "";
                                     this.phones = "";
                                     this.gs = "";
+                                    this.dx = "";
                                 }).catch((error)=>{
                     })
                }
