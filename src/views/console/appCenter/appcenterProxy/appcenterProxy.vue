@@ -48,7 +48,7 @@
         <div class="nodata" v-if="proxyshow==true">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>
-            暂无此信息，具体请联系Prof. 吴
+            暂无此信息，具体请联系Prof. 吴。
         </div>
     </div>
 </div>
