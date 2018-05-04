@@ -23,7 +23,7 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="proxylist.length>0" class="appcheck-canvastitle">云代理匹配结果</div>
+        <div v-if="proxylist.length>0" class="appcheck-canvastitle"><span></span>云代理匹配结果</div>
         <div class="appcenterPrice-table" v-if="proxylist.length>0">
             <table>
                 <thead>

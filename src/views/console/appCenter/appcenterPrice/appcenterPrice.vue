@@ -34,7 +34,7 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="pricelist.length>0" class="appcheck-canvastitle">云实例匹配结果列表</div>
+        <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
         <div class="appcenterPrice-table" v-if="pricelist.length>0">
             <table>
                 <thead>

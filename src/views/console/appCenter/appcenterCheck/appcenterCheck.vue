@@ -21,7 +21,7 @@
         <div class="button">
             <button class="aoocheck-btn" v-on:click="submit()">提交</button>
         </div>
-        <div v-show="isshow" class="appcheck-canvastitle">云收益度和云亲和度分析示意图</div>
+        <div v-show="isshow" class="appcheck-canvastitle"><span></span>云收益度和云亲和度分析示意图</div>
         <div v-show="isshow" id="main" style="width:100%;height:500px;"></div>
     </div>
 </div>
