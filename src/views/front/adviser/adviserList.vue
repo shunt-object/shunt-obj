@@ -1,15 +1,11 @@
 <template>
+<div class="total">
+<div class="total-header">
+    <span></span>
+    <p class="comback">加盟顾问数据</p>
+</div>
     <div class="total notification-box">
         <div>
-            <div class="row notification-header">
-                <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">加盟顾问数据</div>
-               <!-- <div class="col-md-6 PlansearchBoxs text-right col-xs-12 pb">
-                    <div style="padding-top:10px">
-                        <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>-->
-            </div>
-
            <div style="width:100%;min-height:82vh;background:#fff;" :class="isopens==false?'paddingtop':''">
                 <div class="notification-main" v-show="isopens">
                     <div class="kongkong"></div>
@@ -55,6 +51,7 @@
     </div>
 
     </div>
+</div>
 </template>
 <style>
  @media(min-width:768px){ /* pc */
