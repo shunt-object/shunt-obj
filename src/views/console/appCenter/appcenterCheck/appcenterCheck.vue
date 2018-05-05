@@ -21,6 +21,23 @@
         <div class="button">
             <button class="aoocheck-btn" v-on:click="submit()">提交</button>
         </div>
+        <div v-show="isshow" class="appcheck-canvastitle"><span></span>云收益度和云亲和度分析数据</div>
+        <table class="appcheck-table" v-show="isshow">
+            <thead>
+                <tr>
+                    <th>场景</th>
+                    <th>云亲和度</th>
+                    <th>云收益度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in resultTble">
+                    <td>{{item.scene}}</td>
+                    <td>{{item.tech}}</td>
+                    <td>{{item.biz}}</td>
+                </tr>
+            </tbody>
+        </table>
         <div v-show="isshow" class="appcheck-canvastitle"><span></span>云收益度和云亲和度分析示意图</div>
         <div v-show="isshow" id="main" style="width:100%;height:500px;"></div>
     </div>
@@ -35,7 +52,8 @@ export default {
         return {
             questionlist:[],
             charts:'',
-            isshow:false
+            isshow:false,
+            resultTble:[]
         }
     },
     mounted:function(){
@@ -105,6 +123,7 @@ export default {
             };
             this.$this.post('/broker/app/tool/plan/simple/questions/result',JSON.stringify(obj)).then((response)=>{
                 //console.log('---',response.data);
+                this.resultTble = response.data.data;
                 this.drawBar(response.data.data);
             }).catch((error)=>{})
         },

@@ -93,6 +93,7 @@ export default {
             }else{
                 this.years[index].value = this.years[index].value;
             }
+            this.getData();
         },
         onblur:function(dom){
             if(dom=='cores'){
@@ -114,34 +115,37 @@ export default {
         submit:function(value){
             this.$refs[value].validate((valid) => {
                 if (valid) {
-                    this.matchBo.budgetParams = [];
-                    let n = 0;
-                    for(let i=0;i<this.years.length;i++){
-                        if(this.years[i].value!=''){
-                            this.matchBo.budgetParams.push({budget:this.years[i].value,months:this.years[i].months});
-                            n++;
-                        }
-                    }
-                    //console.log(this.matchBo);
-                    this.$this.post('/broker/app/math/roi',JSON.stringify(this.matchBo)).then((response)=>{
-                        //console.log('---',response.data);
-                        this.length = response.data.data.length;
-                        let linedata = [],bardata = [];
-                        for(let j=0;j<response.data.data.length;j++){
-                            bardata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].price]);
-                            if(n>0){
-                                linedata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].roi]);
-                            }
-                        }
-                        this.$nextTick(function() {
-                            this.draw(linedata,bardata);
-                        })
-                        
-                    }).catch((error)=>{})
+                    this.getData();
                 } else {
                     return false;
                 }
             });
+        },
+        getData:function(){
+            this.matchBo.budgetParams = [];
+            let n = 0;
+            for(let i=0;i<this.years.length;i++){
+                if(this.years[i].value!=''){
+                    this.matchBo.budgetParams.push({budget:this.years[i].value,months:this.years[i].months});
+                    n++;
+                }
+            }
+            //console.log(this.matchBo);
+            this.$this.post('/broker/app/math/roi',JSON.stringify(this.matchBo)).then((response)=>{
+                //console.log('---',response.data);
+                this.length = response.data.data.length;
+                let linedata = [],bardata = [];
+                for(let j=0;j<response.data.data.length;j++){
+                    bardata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].price]);
+                    if(n>0){
+                        linedata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].roi]);
+                    }
+                }
+                this.$nextTick(function() {
+                    this.draw(linedata,bardata);
+                })
+                
+            }).catch((error)=>{})
         },
         draw:function(linedata,bardata){
             //console.log(bardata);
