@@ -195,7 +195,7 @@ export default {
                     {
                         name:'云收益度',
                         type:'bar',
-                        barWidth:'25',
+                        barWidth:'22',
                         // label: {
                         //     normal: {
                         //         show: true,
@@ -207,7 +207,7 @@ export default {
                     {
                         name:'云亲和度',
                         type:'bar',
-                        barWidth:'25',
+                        barWidth:'22',
                         // label: {
                         //     normal: {
                         //         show: true
