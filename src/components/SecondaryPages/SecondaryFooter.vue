@@ -11,7 +11,7 @@
                 </div>
                 
                 <div class="col-xs-12 col-sm-4 obj-what-dv footer-ts pkd">
-                <p class=" footer-jx text-left">产品与功能</p>
+                <p class=" footer-jx text-left">产品与服务</p>
                 <p class="text-left footer-list hoverRed"><span @click="yungh">云规划</span><span style="margin-left:10px" @click="yunsj">云设计</span></p>
                 <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px" @click="yungm">云购买</span></p>
                 <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span  style="margin-left:10px" @click="cloundsj">Prof. 吴数据</span></p>
