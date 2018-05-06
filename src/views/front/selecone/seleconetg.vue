@@ -23,9 +23,9 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#cg"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
     </div>
@@ -46,13 +46,13 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#cg" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#hy" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#kr" class="hoover-a"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
-            <div id="cg" class="go1">
+            <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
@@ -61,7 +61,7 @@
                     </div>
                  </div>
             </div>
-            <div style="width:100%;background:#f8f8f8" id="hy" class="go2">
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
             <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
                 <div class=" text-left redtitle">
                     <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;" id="kr" class="go3" >
+            <div style="width:100%;" id="QuickStart" class="go3" >
                 <div class="seleconeMain-shrts container " style="padding-top:20px;padding-bottom:40px;margin:0 auto;" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">合作伙伴</span>
@@ -946,17 +946,17 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#cg").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
                              }
-                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                            if($("#kr").length>0){
-                                if($(window).scrollTop()+70>=$("#kr").offset().top){
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                     $(".rightBs ul li").css("background","#d8d8d8") 
                                         $(".nextthe").css("background","#da121a")
                                 }

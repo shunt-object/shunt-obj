@@ -23,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#cg"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -46,14 +46,14 @@
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#cg" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
-            <div id="cg" class="go1">
+            <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">产品功能</span>
@@ -77,7 +77,7 @@
                     </div>
                  </div>
             </div>
-            <div style="width:100%;background:#f8f8f8" id="hy" class="go2">
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
             <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                 <div class=" text-left redtitle">
                     <span class="redLine"></span><span class="redlasttitle">核心优势</span>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;" id="kr" class="go3">
+            <div style="width:100%;" id="QuickStart" class="go3">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">快速入门</span>
@@ -168,7 +168,7 @@
                 </div>
             </div>
        
-             <div style="background:#f8f8f8;width:100%" id="sz" class="go4">
+             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
                 <div class="seleconeMain-echarts container broundU erfs">
                      <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">时间轴</span>
@@ -907,17 +907,17 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#cg").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
                              }
-                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                             if($("#kr").length>0){
-                             if($(window).scrollTop()+70>=$("#kr").offset().top){
+                             if($("#QuickStart").length>0){
+                             if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextthe").css("background","#da121a")
                              }}

@@ -23,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><span><a href="#cg"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></span></div>
-                    <div class="col-md-3 col-xs-3"><span><a href="#hy"><i class="iconfont icon-zuanshi"></i> 服务能力</a></span></div>
-                    <div class="col-md-3 col-xs-3"><span><a href="#kr"><i class="iconfont icon-sheji"></i> 深度定制</a></span></div>
-                    <div class="col-md-3 col-xs-3"><span><a href="#sz"><i class="iconfont icon-tuandui"></i> 服务团队</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#ProductFeatures"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#CoreStrengths"><i class="iconfont icon-zuanshi"></i> 服务能力</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#QuickStart"><i class="iconfont icon-sheji"></i> 深度定制</a></span></div>
+                    <div class="col-md-3 col-xs-3"><span><a href="#TheTimeline"><i class="iconfont icon-tuandui"></i> 服务团队</a></span></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -45,14 +45,14 @@
             </div>
             <div class="container naver">            
                 <div class="row narow">
-                    <div class="col-md-3 col-xs-3"><a href="#cg" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#hy" class="hoover-a"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#kr" class="hoover-a"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#sz" class="hoover-a"><i class="iconfont icon-tuandui"></i> 服务团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-zuanshi"></i> 服务能力</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-sheji"></i> 深度定制</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-tuandui"></i> 服务团队</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
-            <div id="cg" class="go1">
+            <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">服务流程</span>
@@ -62,7 +62,7 @@
                     </div>
                  </div>
             </div>
-            <div style="width:100%;background:#f8f8f8" id="hy" class="go2">
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
                 <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                     <div class=" text-left redtitle">
                         <span class="redLine"></span><span class="redlasttitle">服务能力</span>
@@ -1600,7 +1600,7 @@
                     </div>
                 </div>
             </div>
-            <div style="width:100%;" id="kr" class="go3">
+            <div style="width:100%;" id="QuickStart" class="go3">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">深度定制</span>
@@ -1645,7 +1645,7 @@
                 </div>
             </div>
        
-             <div style="width:100%;background:rgb(248, 248, 248)" id="sz" class="go4">
+             <div style="width:100%;background:rgb(248, 248, 248)" id="TheTimeline" class="go4">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">服务团队</span>
@@ -2467,17 +2467,17 @@
                                   $(".rightBs ul li").css("background","#d8d8d8");
                                   $(".sectb").css("display","block"); 
                              }
-                             console.log($("#cg").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
                              }
-                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                            if($("#kr").length>0){
-                                if($(window).scrollTop()+70>=$("#kr").offset().top){
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                     $(".rightBs ul li").css("background","#d8d8d8") 
                                         $(".nextthe").css("background","#da121a")
                                 }

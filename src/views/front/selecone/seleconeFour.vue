@@ -14,11 +14,11 @@
         </div>
           <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                     <div class="col-md-2 col-xs-2"><a href="#cg"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#hy"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#kr"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#vb"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#mn"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
+                     <div class="col-md-2 col-xs-2"><a href="#ProductFeatures"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#QuickStart"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#qualification"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
+                    <div class="col-md-2 col-xs-2"><a href="#ContactUs"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
             </div>
         </div>
             <Sec active="4"></Sec>
@@ -35,15 +35,15 @@
                     </div>
                             <div class="container navers">            
                                 <div class="" style="width:100%!important;">
-                                    <div class="col-md-2 col-xs-2"><a href="#cg" class="hoover-a"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#hy" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#kr" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#vb" class="hoover-a"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
-                                    <div class="col-md-2 col-xs-2"><a href="#mn" class="hoover-a"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#qualification" class="hoover-a"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
+                                    <div class="col-md-2 col-xs-2"><a href="#ContactUs" class="hoover-a"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
                                 </div>
                             </div>
                            <div class="nav-bottom-kk"></div>      
-                    <div class="cloundMains" id="cg">
+                    <div class="cloundMains" id="ProductFeatures">
                         <div class="container">
                             <div class="cloundMains-main">
                                <div class=" text-left redtitle">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cloundMains-go" style="margin-top:50px;" id="hy">
+                    <div class="cloundMains-go" style="margin-top:50px;" id="CoreStrengths">
                         <div class="container">
                             <div class=" text-left redtitle">
                                  <span class="redLine"></span><span class="redlasttitle">我们的发展</span>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                    
-                    <div class="belief" style="margin-bottom:40px;margin-top:30px" id="kr">
+                    <div class="belief" style="margin-bottom:40px;margin-top:30px" id="QuickStart">
                                 <div class="container">
                                     <div class=" text-left redtitle">
                                         <span class="redLine"></span><span class="redlasttitle">企业文化</span>
@@ -110,7 +110,7 @@
                                         </div>
                                 </div>
                      </div>
-                      <div class="cloundzi container"  style="margin-top:50px;" id="vb">
+                      <div class="cloundzi container"  style="margin-top:50px;" id="qualification">
                         <div class=" text-left redtitle" >
                                  <span class="redLine"></span><span class="redlasttitle">我们的资质</span>
                         </div>
@@ -127,7 +127,7 @@
                             </div>
                         </div> 
                     </div>
-                     <div class="callme" style="margin-top:80px;" id="mn">
+                     <div class="callme" style="margin-top:80px;" id="ContactUs">
                         <div class="container">
                             <div class=" text-left redtitle" style="margin-bottom:60px">
                                  <span class="redLine"></span><span class="redlasttitle">联系我们</span>
@@ -563,17 +563,17 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#cg").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#cg").offset().top){
+                            
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
                              }
-                             if($(window).scrollTop()+70>=$("#hy").offset().top){
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                            if($("#kr").length>0){
-                                if($(window).scrollTop()+70>=$("#kr").offset().top){
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                     $(".rightBs ul li").css("background","#d8d8d8") 
                                         $(".nextthe").css("background","#da121a")
                                 }
