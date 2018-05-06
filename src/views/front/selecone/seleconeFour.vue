@@ -13,7 +13,7 @@
             <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
         </div>
           <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
-            <div class=" fixshow container">
+            <div class=" fixshow fis container">
                      <div class="col-md-2 col-xs-2"><a href="#ProductFeatures"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
                     <div class="col-md-2 col-xs-2"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
                     <div class="col-md-2 col-xs-2"><a href="#QuickStart"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
@@ -296,7 +296,7 @@
         .navers div{
             margin-right:30px;
         }
-        .fixshow div{
+        .fis div{
             margin-right:30px;
         }
        .ulsMains{
