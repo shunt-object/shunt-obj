@@ -123,22 +123,22 @@ export default{
     methods:{
         compare:function(){
             //alert(this.isclick);
-            this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
-            // if( this.isclick!=1 && this.isclick!=2 ){
-            //     this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
-            // }else{
-            //     let that = this;
-            //     this.$alert('因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。', '温馨提示', {
-            //         confirmButtonText: '我知道了',
-            //         showClose:false,
-            //         confirmButtonClass:'lay-btn-red',
-            //         type: 'warning',
-            //         callback:function(action){
-            //             that.$router.push({path:'/colligateReport',query:{id:that.appId,type:that.queryType}});
-            //         }
-            //     });
+            //this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            if( this.isclick!=1 && this.isclick!=2 ){
+                this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            }else{
+                let that = this;
+                this.$alert('因在云规划后不属于公有云服务类型，所以后台将助您直接进入综合报告。', '温馨提示', {
+                    confirmButtonText: '我知道了',
+                    showClose:false,
+                    confirmButtonClass:'lay-btn-red',
+                    type: 'warning',
+                    callback:function(action){
+                        that.$router.push({path:'/colligateReport',query:{id:that.appId,type:that.queryType}});
+                    }
+                });
                 
-            // }            
+            }            
         },
         drawPie:function(id){
            // console.log(this.opiniondata);
