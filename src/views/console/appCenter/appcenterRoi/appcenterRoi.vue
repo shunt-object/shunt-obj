@@ -3,7 +3,7 @@
     <div class="total-header">
         <span></span>
         <router-link class="zong" to="/appcenterList">应用市场</router-link>
-        ><p class="comback">预算收益分析助手</p>
+        ><p class="comback">多云预算差异分析助手</p>
     </div>
     <div class="appcenterRoi appcenterPrice" style="padding-bottom:100px;">
         <div class="appcplan-list"> 
@@ -33,7 +33,7 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="length>0" class="appcheck-canvastitle"><span></span>预算收益分析图</div>
+        <div v-if="length>0" class="appcheck-canvastitle"><span></span>预算差异分析图</div>
         <div v-if="length>0">
             <div id="main" style="width:100%;height:500px;"></div>
         </div>

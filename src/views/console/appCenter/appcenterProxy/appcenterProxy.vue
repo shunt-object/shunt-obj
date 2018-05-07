@@ -112,6 +112,8 @@ export default {
                         this.proxylist = response.data.data;
                         if(response.data.data.length<1){
                             this.proxyshow = true;
+                        }else{
+                            this.proxyshow = false;
                         }
                     }).catch((error)=>{})
                 } else {

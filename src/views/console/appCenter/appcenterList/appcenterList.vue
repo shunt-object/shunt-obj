@@ -22,7 +22,7 @@
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
                     <img src="../../../../assets/appcenter/wechartshouyi.png" alt="">
                 </div>
-                预算收益分析助手
+                多云预算差异分析助手
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goProxy()">
