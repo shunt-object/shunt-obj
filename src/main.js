@@ -14,7 +14,6 @@ import "datatables/media/css/jquery.dataTables.min.css"
 import "datatables/media/js/jquery.dataTables.min.js"
 import '../src/components/fontCss/icon.css'
 import '../src/components/fontCss/common.css'
-import '../src/components/fontCss/fontcss.css'
 import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

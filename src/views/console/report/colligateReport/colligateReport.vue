@@ -97,7 +97,7 @@
                     <sceneModules :type="$route.query.type" :appId="$route.query.id"></sceneModules>
                     <!--建议-->
                     <div class="system-advise">
-                        <p class="advise-title"><i class="iconfont icon-gongnengjianyi main-color"></i>上云分析CloudBroker²评估建议</p>
+                        <p class="advise-title"><i class="iconfont icon-sheji1 main-color"></i>上云分析CloudBroker²评估建议</p>
                         <p class="advise-content" v-if="Issystem==false">{{system}}
                             <span style="cursor:pointer;margin-left:20px;" v-on:click="systemEdit()"><i class="iconfont icon-bianji"></i><span style="color:#555;">编辑</span></span><!--#2eabf5-->
                         </p>

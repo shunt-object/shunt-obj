@@ -762,7 +762,7 @@ h2 {
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             yunsj:function(){
-                    this.$router.push({path: '/cloudbuying'});
+                    this.$router.push({path: '/clouddesignning'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             cloundsj:function(){
