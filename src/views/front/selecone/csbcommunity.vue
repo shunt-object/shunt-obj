@@ -35,7 +35,7 @@
                         <div style="text-align:left;text-indent:2em;line-height:30px;">CloudBroker²团队在云服务管理领域有10多年的沉淀，公司核心产品CSB²在今年3月推出后深受好评，我们将再接再厉，与您共同共同成长，携手设“MSP+”，共同打造“云服务新型生态圈”。</div>
                         <div  style="margin-top:90px;">
                             <div class=" CsbSao" style="margin:0 auto;">
-                                <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/weichat.png" alt=""></div>
+                                <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/erweima.jpg" alt=""></div>
                                 <div class="alifloat">
                                     <div class="text-left">
                                         <div>CSB²社群</div>
