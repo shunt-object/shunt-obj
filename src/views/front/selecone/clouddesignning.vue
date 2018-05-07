@@ -5,8 +5,8 @@
             <ul>
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
-                
-                <li class="nextf" data-to="go3"></li>
+                <li class="nextthe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
             </ul>
       </div>
       <div class="fixed-box">
@@ -23,97 +23,203 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
-                    <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
             </div>
     </div>
-    <Sec active="2" class="sectb"></Sec>
+    <Sec active="1" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row ruset">
+            <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">场景化、智能化、专业化</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:16px;color:#ffffff;line-height:26px">想让自己的IT圈和别人不同，也让他人的IT圈因自己不同，</br>
-立即加入CloudBroker²的IT顾问圈，携手为他人、为企业、为行业赋能！</h3>
+                                <p style="font-weight:100;text-align:left;font-size:16px;color:#f2f2f2;line-height:26px;">借助大数据和AI技术，只需导入资源，一键智能完成云推荐配置和设计拓扑，助您省时和省钱！</p>
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="lj">加入我们</span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
+                        <div class="col-md-6 col-xs-12 text-left lastus"><img src="../../../assets/ii2@1x.png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
             <div class="container naver">            
-                <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
             <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
+                       <span class="redLine"></span><span class="redlasttitle">产品功能</span>
                     </div>
-                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，帮助企业、顾问和服务商之间建立起稳定的合作关系，为三方创建开放的、公平的、专业的第三方服务平台。CloudBroker²同他的成长历程一样，始终尊重宝贵的顾问资源，并与之共同成长，携手建设新型的顾问服务生态圈，共同提供集顾问的第三方培训、咨询和                   技术服务的为一体的全新生态圈。
+                    <div class="row text-center">
+                        <div class="col-xs-12 col-sm-3 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/k.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">推荐配置规格</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成推荐云规格配置；同时提供手动修正功能。</span></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/j.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">自动化拓扑</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，用户可根据实际需求进行优化。</span></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/i.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">多云厂商价格优选</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等厂商在线价格比较，借助TOP排名和星级评定助用户优选。</span></p>
+                            </div>
+                        </div>
+                         <div class="col-xs-12 col-sm-3 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/h.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">星级评定</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格和云厂商两个维度的星级评定。</span></p>
+                            </div>
+                        </div>
                     </div>
                  </div>
             </div>
             <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
-            <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
+            <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
                 <div class=" text-left redtitle">
-                    <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
+                    <span class="redLine"></span><span class="redlasttitle">核心优势</span>
                 </div>
-                <div class="col-xs-12 cla text-center">
-                     <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
-                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
-                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
-                     <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
-                     <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
+                <div class="col-xs-12 cla text-left">
+                <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/2222222.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block;">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">科学化</pstyle>
+                                <p class="mainPds">汇集数万个工作负载画像，结合AI学习， 云方案设计越来越准确和科学。</p>
+                            </div>
+                        </dd>
+                    </dl>
                 </div>
-                <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
-                    <div class="zhaomu">招募规则备注：</div>
-                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
-                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
-                    <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/3333.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">低成本化</pstyle>
+                                <p class="mainPds">3分钟内完成多个云厂商实例价格优选，5分钟内完成购买实例下单，简化上云难度，实现降本增效。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/444.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">便捷化</pstyle>
+                                <p class="mainPds">一键导入资源，一键完成云方案设计，一键生成云分析综合报告。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/66666.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
+                                <p class="mainPds">交互式的图表设计，直观的、便捷的展现了上云方案设计和多云价格优选过程。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
                 </div>
             </div>
             </div>
             <div style="width:100%;" id="QuickStart" class="go3">
-                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:40px" >
+                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">加入我们</span>
+                       <span class="redLine"></span><span class="redlasttitle">快速入门</span>
                     </div>
-                    <div class="col-md-6 text-left iuols col-xs-12">
-                        <div><input type="text" placeholder="姓名" v-model="names"></div>
-                        <div><input type="text" placeholder="联系电话" v-model="phones"></div>
-                        <div class="inpusa"><input type="text" placeholder="请输入短信验证码" v-model="dx" ><div class="dvsa" @click="hyDemo">获取验证码</div></div>
-                        <div><input type="text" placeholder="公司名称" v-model="gs"></div>
-
-                        <div>
-                            <select name="" id="" v-model="hys">
-                                <option value="">选择行业</option>
-                                <option :value="ins.id" v-for="ins in resulters">{{ins.name}}</option>
-                            </select>
+                    <div style="text-align:left;">
+                        <div class="ljs iks">
+                            <div class="bigFang ">
+                                <div class="dv1">注册／登录</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv3">1</div>
+                            </div>
+                        </div>
+                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class="ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云设计／自动化拓扑</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv3">2</div>
+                            </div>
+                        </div>
+                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class="ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云设计／价格优选</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv3">3</div>
+                            </div>
+                        </div>
+                        <div class="imgets ik"> <img src="../../../assets/line.png" alt="" class="bigimg3 bigimg"></div>
+                        <div class="  ljs">
+                           <div class="bigFang">    
+                                <div class="dv1">云设计／购买</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv3">4</div>
+                           </div>
                         </div>
                         
-                        <div class="welecone"><span @click="wle" class="welecone-span">{{haha}}</span></div>
-                        
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="text-left rightDiv">
-                            <div class="rightDiv-child">
-                                <div style=" font-size:14px;color:#000;"><i class="iconfont icon-tishi" style="color:#da121a"></i> 温馨提示：</div>
-                                <div class="rightDiv-child-S" style="margin-top:10px;">点击右面悬浮窗口，进入“Pro. 吴”或拨打 400-828-7308</div>
-                                <div class="rightDiv-child-S">可随时和我们联系。</div>
-                            </div>
+                        <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
+                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/tuopu.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
        
-           
+             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
+                <div class="seleconeMain-echarts container broundU erfs">
+                     <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">时间轴</span>
+                    </div>
+                    <div class="col-md-12 seleconeMain-img" >
+                       <div class="timezhou">
+                            <div class="ga"><div></div></div>
+                            <div class="gs"><div></div></div>
+                            <div class="gd"><div></div></div>
+                            <div class="gf"><div></div></div>
+                            <div class="gg"><div></div></div>
+                            <div class="gm"><div></div></div>
+                            <div class="gj"><div></div></div>
+                            <div class="gk"><div></div></div>
+                            <div class="tm">2017.10</div>
+                            <div class="tm1">2017.11</div>
+                            <div class="tm2">2017.11</div>
+                            <div class="tm3">2018.01</div>
+                            <div class="tm4">2018.02</div>
+                            <div class="tm5">2018.04</div>
+                            <div class="lc">云设计V1.0设计开始</div>
+                            <div class="lc1">云设计V1.0 正式开发</div>
+                            <div class="lc2">推荐配置功能上线</div>
+                            <div class="lc3">自动化拓扑功能上线</div>
+                            <div class="lc4">多云价格优选功能上线</div>
+                            <div class="lc5">云设计经典版上线</div>
+                       </div>
+                    </div>
+                  
+                </div>
+            </div>
       
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
@@ -132,60 +238,8 @@
 
 </template>
 <style>
-.dvsa:hover{
-    background:#EF131D;
-}
-.welecone-span:hover{
-     background:#EF131D;
-}
-.dvsa:hover{
-    cursor:pointer;
-}
-.ruset{
-    background:url("../../../assets/er-icon/bannert.png") no-repeat;
-    text-align:center;background-size:100% 100%;
-   
-}
 .dv2:hover{
     cursor:pointer;
-}
-
-.welecone span{
-    background:#da121a;
-    border-radius:4px;
-    width:129px;
-    height:32px;
-    line-height:32px;
-    color:#fff;
-    text-align:center;
-    display:inline-block;
-}
-.welecone span:hover{
-    cursor:pointer;
-}
-
-.rightDiv .rightDiv-child{
-    padding:20px 30px;
-}
-.rightDiv-child-S{
-     font-size:14px;
-    color:#999;
-    line-height:30px;
-}
-.zhaomu{
-    font-size:14px;
-    color:#333333;
-}
-.zhaomu1{
-    font-size:12px;
-    color:#333333;
-    line-height:30px;
-}
-.zhaomu2{
-    margin-top:10px;
-}
-.zhaomu1 span{
-    color:#000;
 }
 .naver i{
     color:#c2c2c2;
@@ -235,67 +289,77 @@
     right:20px;
     top:40%;
 }
-.timeli,.timeli1,.timeli2,.timeli3,.timeli4{
-    font-size:14px;
+.tm,.tm1,.tm2,.tm3,.tm4,.tm5{
+    font-size:12px;
     color:#e41e2b;
 }
-.timeli{
+.tm{
      position:absolute;
     top:-45px;
-    left:15%;
+    left:8%;
 }
-.timeli1{
+.tm1{
      position:absolute;
     top:-45px;
-    left:32%;
+    left:25%;
 }
-.timeli2{
+.tm2{
      position:absolute;
     top:-45px;
-    left:49%;
+    left:39%;
 }
-.timeli3{
+.tm3{
      position:absolute;
     top:-45px;
-    left:66%;
+    left:54%;
 }
-.timeli4{
+.tm4{
      position:absolute;
     top:-45px;
-    left:83%;
+    left:70%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
-    font-size:14px;
+.tm5{
+    position:absolute;
+    top:-45px;
+    left:89%;
+}
+.lc,.lc1,.lc2,.lc3,.lc4,.lc5{
+    font-size:12px;
     color:#666666;
 }
-.licheng{
+.lc{
        position:absolute;
         top:45px;
-        left:10%;
+        left:4%;
 }
-.licheng1{
+.lc1{
        position:absolute;
         top:45px;
-        left:27%;
-}
-
-.licheng2{
-       position:absolute;
-        top:45px;
-        left:46%;
+        left:20%;
 }
 
-.licheng3{
+.lc2{
        position:absolute;
         top:45px;
-        left:61%;
+        left:36%;
 }
-.licheng4{
+
+.lc3{
        position:absolute;
         top:45px;
-        left:80%;
+        left:50%;
 }
-.gh{
+.lc4{
+       position:absolute;
+        top:45px;
+        left:66%;
+}
+.lc5{
+       position:absolute;
+        top:45px;
+        left:85%;
+}
+.ga{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
@@ -305,57 +369,67 @@
     top:-10px;
     left:-2px;
 }
-.gq{
+.gs{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
     border-radius:100px;
     display: table-cell;vertical-align: middle;
     position:absolute;
-    left:17%;
+    left:10%;
     top:-10px;
 }
-.gw{
+.gd{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
     border-radius:100px;
     display: table-cell;vertical-align: middle;
     position:absolute;
-    left:34%;
+    left:27%;
     top:-10px;
 }
-.ge{
+.gf{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
     border-radius:100px;
     display: table-cell;vertical-align: middle;
     position:absolute;
-    left:51%;
+    left:41%;
     top:-10px;
 }
-.gr{
+.gg{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
     border-radius:100px;
     display: table-cell;vertical-align: middle;
     position:absolute;
-    left:68%;
+    left:56%;
     top:-10px;
 }
-.gt{
+.gm{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
     border-radius:100px;
     display: table-cell;vertical-align: middle;
     position:absolute;
-    left:85%;
+    left:72%;
     top:-10px;
 }
-.gy{
+.gj{
+    width:20px;height:20px;
+    background:#cccccc;
+    box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
+    border-radius:100px;
+    display: table-cell;vertical-align: middle;
+    position:absolute;
+    left:90%;
+    top:-10px;
+}
+.gk{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
@@ -365,7 +439,7 @@
     left:100%;
     top:-10px;
 }
-.gh div{
+.ga div{
     background:#ffffff;
     width:10px;
     height:10px;
@@ -374,7 +448,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gq div{
+.gs div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -383,7 +457,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gw div{
+.gd div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -392,7 +466,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.ge div{
+.gf div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -401,7 +475,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gr div{
+.gg div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -410,7 +484,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gt div{
+.gm div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -419,7 +493,16 @@
     line-height:10px;
     margin-top:5px;
 }
-.gy div{
+.gj div{
+    background:#da121a;
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    margin:0 auto;
+    line-height:10px;
+    margin-top:5px;
+}
+.gk div{
     background:#fff;
     width:10px;
     height:10px;
@@ -428,33 +511,7 @@
     line-height:10px;
     margin-top:5px;
 }
-@media (max-width: 768px) {
-    .inpusa{
-        position:relative;
-        width:257px;
-    }
-    .dvsa{
-        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
-        right:5px;top:5px;
-    }
-    .el-message-box{
-        width:274px !important;
-    }
-     .positionSpans{
-        font-size:12px;
-      }
-      .positionSpans1{
-          left:3.2% !important;
-      }
-      .positionSpans2{
-          left:33.2% !important;
-      }
-      .positionSpans3{
-        left:58% !important;
-      }
-      .positionSpans4{
-          right:1.6% !important;
-      }
+@media (max-width: 768px){
       .ljs{
             width:100%;
             display:inline-block;
@@ -463,61 +520,34 @@
         .imgets{
             display:none;
         }
-        .cla img{
-            width:100%;
+        .iks{
+            margin-left:0px !important;
         }
-        .rightDiv{
-            margin-top:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:220px;
-            height:220px;   
+        .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
-        .iuols input,.iuols select{
-            margin-bottom:20px;
-            padding-left:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:257px !important;
-            height:40px !important;
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 }
-@media (min-width: 768px) {
-    .inpusa{
-        position:relative;
-        width:407px;
-    }
-    .dvsa{
-        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
-        right:5px;top:5px;
-    }
-    .positionSpans{
-        font-size:16px;
-    }
-    .color_999{
-        line-height:20px !important;
-    }
+@media (min-width: 768px){
       .ljs{
-            width:16%;
-            display:inline-block;
-        }
-     .imgets{
+          width:16%;
           display:inline-block;
-     }
-     .rightDiv{
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:457px;
-        height:280px;   
-    }
-    .iuols input,.iuols select{
-        margin-bottom:20px;
-        padding-left:20px;
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:407px !important;
-        height:40px !important;
-    }
+      }
+      .imgets{
+          display:inline-block;
+      }
+      .ik img{
+         width:80px;
+      }
+      .iks{
+        margin-left:20px !important;
+      }
 }
 .mainPds{
     line-height:20px;
@@ -664,8 +694,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lasilasis{
-          margin-top:190px;
+    .lastus{
+        margin-top:138px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -673,9 +703,12 @@
     .imgeys{
         margin-left:20px !important
     }
+    .color_999{
+        line-height:20px !important;
+    }
 }
 @media (max-width: 768px) {
-    .lasilasis{
+    .lastus{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -685,16 +718,6 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver  div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
 }
    .container{
      
@@ -729,7 +752,9 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   
+   .selectHelp{
+        background:#222222;text-align:center;background-size:100% 100%;
+   }
 
    .seleconeMain-mainfir{margin-top:160px;}
    .nfir{margin-bottom:48px}
@@ -971,20 +996,20 @@
                                 }
                             }
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8");
+                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                   $(".nextf").css("background","#da121a")  
                              }
                         }
                     });
             
-                    
+                   
 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'clouddesignning',
         components:{
             Sec,
             Sex
@@ -992,13 +1017,7 @@
         data(){
             return{
                  phoneBox:false,
-                 resulters:[],
-                 names:"",
-                 phones:"",
-                 gs:"",
-                 hys:"",
-                 dx:"",
-                 haha:"欢迎加入我们"
+                 
             }
         },
         methods:{
@@ -1022,50 +1041,6 @@
             },
             phoneleave:function(){
                     this.phoneBox = false;
-            },
-            hyDemo:function(){
-                 if(this.names==""||this.phones==""){
-                     return false;
-                 }else{
-                     var oas = {
-                            "mobile":this.phones,
-                            "username":this.names,
-                            }
-                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取消息类型
-                                                                
-                                   
-                                }).catch((error)=>{
-                    })
-                 }
-            },
-            wle:function(){
-               if(this.names==""||this.phones==""||this.gs==""||this.hys==""||this.dx==""){
-                   return false;
-               }else{
-                   var obj = {
-                        "company":this.gs,
-                        "industryId":this.hys,
-                        "name":this.names,
-                        "tel": this.phones,
-                        "type": 1
-                   }
-                    let strObj = JSON.stringify(obj);
-                    this.$this.post('/broker/portal/join/us/'+this.dx,strObj).then((pon)=>{  //获取消息类型
-                                //this.scsss = pon.data.msg
-                                        this.$alert('留言成功，我们会尽快与您联系。', '温馨提示', {
-                                        confirmButtonText: '我知道了',
-                                        showClose:false,
-                                        confirmButtonClass:'lay-btn-red',
-                                        type: 'warning'
-                                    });
-                                    this.hys = "";
-                                    this.names = "";
-                                    this.phones = "";
-                                    this.gs = "";
-                                    this.dx = "";
-                                }).catch((error)=>{
-                    })
-               }
             }
         },
         mounted:function(){
@@ -1080,20 +1055,23 @@
                              $('html,body').animate({scrollTop:$('.'+id).offset().top+90}, 800);
                             
                          
-                })
-                $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                });
-
-                this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
-                                   
-                                    this.resulters = pon.data.data;
-                                                               
-                }).catch((error)=>{
-                    console.log("失败")
-                })
-            
+                         })
+                          $(".scrollUp").click(function(){
+                                $('html ,body').animate({scrollTop: 0}, 300);
+                                return false;
+                            });
+                        //   $(".rightBs ul li").click(function(e){
+                        //      var target = e.target;
+                        //      var id = $(target).data("to");
+                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
+                        //      $(".rightBs ul li").css("background","#d8d8d8");
+                        //      $(this).next().css("background","#da121a")
+                        //     //  if($(this).index()==0){
+                        //     //      var a = '<a href="#cg"></a>';
+                        //     //      $(this).append(a)
+                        //     //       $(this).find("a").trigger("click");
+                        //     //  }
+                        //  })
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

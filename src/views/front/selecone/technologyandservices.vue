@@ -2496,7 +2496,7 @@
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'seleconeSix',
+         name: 'clouddesignning',
         components:{
             Sec,
             Sex

@@ -5,7 +5,7 @@
             <ul>
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
-                <li class="nextthe" data-to="go3"></li>
+                <!--<li class="nextthe" data-to="go3"></li>-->
                 <li class="nextf" data-to="go4"></li>
             </ul>
       </div>
@@ -23,10 +23,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                   <!-- <div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>-->
+                    <div class="col-md-4 col-xs-4"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -34,21 +34,22 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f6f6f6">场景化、智能化、专业化</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;color:#f6f6f6">云实测——进一步科学验证</span></p>
                             <div class="seclone-dv">
-                                <p style="font-weight:100;text-align:left;font-size:16px;color:#f2f2f2;line-height:26px;">借助大数据和AI技术，只需导入资源，一键智能完成云推荐配置和设计拓扑，助您省时和省钱！</p>
+                             <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">1:1还原真实业务场景</h3>
+                                <p style="font-weight:100;text-align:left;font-size:16px;color:#f2f2f2">有没有一个全流程工具，专业验证规划和选型结论呢？</p>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lastus"><img src="../../../assets/ii2@1x.png" alt="" style="float: right;width:85%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lastuss"><img src="../../../assets/shicesss.png" alt="" style="float: right;width:90%"></div>
                  </div>
             </div>
             <div class="container naver">            
                 <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <!--<div class="col-md-3 col-xs-3"><a href="#kr"><i class="iconfont icon-feiji"></i> 快速入门</a></div>-->
+                    <div class="col-md-4 col-xs-4"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -59,33 +60,20 @@
                     </div>
                     <div class="row text-center">
                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/k.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">推荐配置规格</h2>
+                            <div class="crounds"><img src="../../../assets/bs.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">标准服务</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">云分析对象资源导入后，一键生成推荐云规格配置；同时提供手动修正功能。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持典型场景，典型区域、                       经典应用的真机测试。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/j.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">自动化拓扑</h2>
+                            <div class="crounds"><img src="../../../assets/as.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">定制服务</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持交互式的自动化拓扑设计，用户可根据实际需求进行优化。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供灵活的、多维度的和场景化的                          线下云实测服务。</span></p>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/i.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">多云厂商价格优选</h2>
-                            <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持阿里云、腾讯云、华为云、Azure等厂商在线价格比较，借助TOP排名和星级评定助用户优选。</span></p>
-                            </div>
-                        </div>
-                         <div class="col-xs-12 col-sm-3 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/h.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">星级评定</h2>
-                            <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供独立、公开、透明的价格和云厂商两个维度的星级评定。</span></p>
-                            </div>
-                        </div>
+                        
                     </div>
                  </div>
             </div>
@@ -97,44 +85,44 @@
                 <div class="col-xs-12 cla text-left">
                 <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/2222222.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block;">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">科学化</pstyle>
-                                <p class="mainPds">汇集数万个工作负载画像，结合AI学习， 云方案设计越来越准确和科学。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">全景分析</pstyle>
+                                <p class="mainPds">从PC端、浏览器端、移动客户端到服务端，监控定位崩溃、卡顿、交互慢等多维复杂的网络和性能问题。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/3333.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/4555.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">低成本化</pstyle>
-                                <p class="mainPds">3分钟内完成多个云厂商实例价格优选，5分钟内完成购买实例下单，简化上云难度，实现降本增效。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">大数据化</pstyle>
+                                <p class="mainPds">挖掘和分析海量的用户性能数据，提供端到端的完整应用性能优化策略，帮助企业优化产品性能，提升用户体验和竞争力。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/444.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/11.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">便捷化</pstyle>
-                                <p class="mainPds">一键导入资源，一键完成云方案设计，一键生成云分析综合报告。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">专业性</pstyle>
+                                <p class="mainPds">与国内领先的云实测厂商强强联合，共同打造线上和                          线下云实测服务。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/66666.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/22.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
-                                <p class="mainPds">交互式的图表设计，直观的、便捷的展现了上云方案设计和多云价格优选过程。</p>
+                                <p class="mainPds">提供精确掌握云实测的实时性能状况，为用户做性能优化                                或购买实例提供决策支撑。</p>
                             </div>
                         </dd>
                     </dl>
@@ -143,7 +131,7 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;" id="QuickStart" class="go3">
+            <!--<div style="width:100%;" id="kr" class="go3">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">快速入门</span>
@@ -152,31 +140,31 @@
                         <div class="ljs iks">
                             <div class="bigFang ">
                                 <div class="dv1">注册／登录</div>
-                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv2">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
-                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class="imgets ik"><img src="/src/assets/line.png" alt="" class="bigimg1 bigimg"></div>
                         <div class="ljs">
                             <div class="bigFang">
                                 <div class="dv1">云设计／自动化拓扑</div>
-                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv2">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
-                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class="imgets ik"><img src="/src/assets/line.png" alt="" class="bigimg2 bigimg"></div>
                         <div class="ljs">
                             <div class="bigFang">
                                 <div class="dv1">云设计／价格优选</div>
-                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv2">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
-                        <div class="imgets ik"> <img src="../../../assets/line.png" alt="" class="bigimg3 bigimg"></div>
+                        <div class="imgets ik"> <img src="/src/assets/line.png" alt="" class="bigimg3 bigimg"></div>
                         <div class="  ljs">
                            <div class="bigFang">    
                                 <div class="dv1">云设计／购买</div>
-                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv2">立即体验 > </div>
                                 <div class="dv3">4</div>
                            </div>
                         </div>
@@ -186,9 +174,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
        
-             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
+             <div style="background:#fff;width:100%" id="TheTimeline" class="go4">
                 <div class="seleconeMain-echarts container broundU erfs">
                      <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">时间轴</span>
@@ -197,24 +185,24 @@
                        <div class="timezhou">
                             <div class="ga"><div></div></div>
                             <div class="gs"><div></div></div>
-                            <div class="gd"><div></div></div>
+                            <!--<div class="gd"><div></div></div>
                             <div class="gf"><div></div></div>
                             <div class="gg"><div></div></div>
-                            <div class="gm"><div></div></div>
-                            <div class="gj"><div></div></div>
+                            <div class="gh"><div></div></div>
+                            <div class="gj"><div></div></div>-->
                             <div class="gk"><div></div></div>
-                            <div class="tm">2017.10</div>
-                            <div class="tm1">2017.11</div>
+                            <div class="tms"><img src="../../../assets/pageing.png" alt=""></div>
+                            <!-- <div class="tm1">2017.11</div>
                             <div class="tm2">2017.11</div>
                             <div class="tm3">2018.01</div>
                             <div class="tm4">2018.02</div>
-                            <div class="tm5">2018.04</div>
-                            <div class="lc">云设计V1.0设计开始</div>
-                            <div class="lc1">云设计V1.0 正式开发</div>
+                            <div class="tm5">2018.04</div>-->
+                            <div class="lcs">正在开发中</div>
+                            <!--<div class="lc1">云设计V1.0 正式开发</div>
                             <div class="lc2">推荐配置功能上线</div>
                             <div class="lc3">自动化拓扑功能上线</div>
                             <div class="lc4">多云价格优选功能上线</div>
-                            <div class="lc5">云设计经典版上线</div>
+                            <div class="lc5">云设计经典版上线</div>-->
                        </div>
                     </div>
                   
@@ -293,10 +281,13 @@
     font-size:12px;
     color:#e41e2b;
 }
-.tm{
+.tms img{
+    width:70% !important;
+}
+.tms{
      position:absolute;
     top:-45px;
-    left:8%;
+    left:9.2%;
 }
 .tm1{
      position:absolute;
@@ -323,14 +314,17 @@
     top:-45px;
     left:89%;
 }
-.lc,.lc1,.lc2,.lc3,.lc4,.lc5{
+.lc,.lc1,.lc2,.lc3,.lc4,.lc5,.lcs{
     font-size:12px;
     color:#666666;
 }
-.lc{
+.lcs{
        position:absolute;
-        top:45px;
-        left:4%;
+       top:45px;
+       left:5%;
+       padding:5px 20px;
+       background:#fff;
+       text-align:center;
 }
 .lc1{
        position:absolute;
@@ -409,7 +403,7 @@
     left:56%;
     top:-10px;
 }
-.gm{
+/*.gh{
     width:20px;height:20px;
     background:#cccccc;
     box-shadow:0 0 1px 0 rgba(182,182,182,0.50);
@@ -418,7 +412,7 @@
     position:absolute;
     left:72%;
     top:-10px;
-}
+}*/
 .gj{
     width:20px;height:20px;
     background:#cccccc;
@@ -484,7 +478,7 @@
     line-height:10px;
     margin-top:5px;
 }
-.gm div{
+/*.gh div{
     background:#da121a;
     width:10px;
     height:10px;
@@ -492,7 +486,7 @@
     margin:0 auto;
     line-height:10px;
     margin-top:5px;
-}
+}*/
 .gj div{
     background:#da121a;
     width:10px;
@@ -539,6 +533,9 @@
           width:16%;
           display:inline-block;
       }
+      .color_999{
+            line-height:20px !important;
+        }
       .imgets{
           display:inline-block;
       }
@@ -635,7 +632,7 @@
     cursor:pointer;
     color:#da121a;
     display:inline-block;
-    border-bottom:1px solid #da121a;
+  
 }
 .nav-bottom-kk{
     width:100%;
@@ -694,8 +691,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lastus{
-        margin-top:138px;
+    .lastuss{
+        margin-top:165px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -703,12 +700,9 @@
     .imgeys{
         margin-left:20px !important
     }
-    .color_999{
-        line-height:20px !important;
-    }
 }
 @media (max-width: 768px) {
-    .lastus{
+    .lastuss{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -944,16 +938,8 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                       $(".fixshow a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
-                         $(".naver a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
+                    
+                   
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -971,45 +957,43 @@
                         //     $(".sectb").css("display","block");
                           
                         // };
-                         if($(".naver").length==1){
+                        //  if($(".naver").length==1){
                           
-                            var topa = $(".naver").offset().top - $(window).scrollTop();
-                             if(topa<0){
-                                 $(".displayshow").css("display","block") 
-                             }else if(topa>0){
-                                  $(".displayshow").css("display","none") 
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                             }
-                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
-                                $(".rightBs ul li").css("background","#d8d8d8") 
-                                $(".nexton").css("background","#da121a")
-                             }
-                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextsec").css("background","#da121a")
-                             }
-                            if($("#QuickStart").length>0){
-                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                    $(".rightBs ul li").css("background","#d8d8d8") 
-                                        $(".nextthe").css("background","#da121a")
-                                }
-                            }
-                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8") 
-                                  $(".nextf").css("background","#da121a")  
-                             }
-                        }
+                        //     var topa = $(".naver").offset().top - $(window).scrollTop();
+                        //      if(topa<0){
+                        //          $(".displayshow").css("display","block") 
+                        //      }else if(topa>0){
+                        //           $(".displayshow").css("display","none") 
+                        //           $(".rightBs ul li").css("background","#d8d8d8") 
+                        //      }
+                        //      console.log($("#cg").offset().top - $(window).scrollTop());
+                        //      if($(window).scrollTop()+70>=$("#cg").offset().top){
+                        //         $(".rightBs ul li").css("background","#d8d8d8") 
+                        //         $(".nexton").css("background","#da121a")
+                        //      }
+                        //      if($(window).scrollTop()+70>=$("#hy").offset().top){
+                        //           $(".rightBs ul li").css("background","#d8d8d8") 
+                        //             $(".nextsec").css("background","#da121a")
+                        //      }
+                        //      if($(window).scrollTop()+70>=$("#kr").offset().top){
+                        //           $(".rightBs ul li").css("background","#d8d8d8") 
+                        //             $(".nextthe").css("background","#da121a")
+                        //      }
+                        //      if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                        //          $(".rightBs ul li").css("background","#d8d8d8") 
+                        //           $(".nextf").css("background","#da121a")  
+                        //      }
+                        // }
                     });
             
-                   
+                    
 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'seleconeSix',
+         name: 'clouddesignning',
         components:{
             Sec,
             Sex
@@ -1056,10 +1040,10 @@
                             
                          
                          })
-                          $(".scrollUp").click(function(){
-                                $('html ,body').animate({scrollTop: 0}, 300);
-                                return false;
-                            });
+                        $(".scrollUp").click(function(){
+                            $('html ,body').animate({scrollTop: 0}, 300);
+                            return false;
+                        });
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");
@@ -1072,8 +1056,8 @@
                         //     //       $(this).find("a").trigger("click");
                         //     //  }
                         //  })
-        }
-    //     mounted:function(){
+        },
+       mounted:function(){
     //         $(document).ready(function(){ 
     //                    $.fn.extend({
     //                     animateCss: function (animationName) {
@@ -1107,9 +1091,18 @@
     //            }
                   
     //     })
-             
+                            $(".fixshow a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
+                         $(".naver a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
                
     //     })
-    // }
+    }
     }
 </script>

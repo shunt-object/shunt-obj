@@ -195,46 +195,46 @@ export default {
         this.$router.push({path: '/registerOne'})
       },
       cloundPlan:function(){
-           this.$router.push({path: '/sleconesecond'})
+           this.$router.push({path: '/cloudplanning'})
       },
       cloundPlen:function(){
-          this.$router.push({path: '/seleconefirst'})
+          this.$router.push({path: '/cloudselection'})
       },
       homePager:function(){
            this.$router.push({path: '/'})
       },
       cloundPlsn:function(){
-           this.$router.push({path: '/seleconeThree'})
+           this.$router.push({path: '/cloudmeasured'})
       },
       listwer:function(){
-           this.$router.push({path: '/seleconeFour'})
+           this.$router.push({path: '/aboutus'})
       },
       cloundplysn:function(){
-          this.$router.push({path: '/seleconeSix'})
+          this.$router.push({path: '/clouddesignning'})
       },
       cloundPlin:function(){
-          this.$router.push({path: '/seleconeSeven'})
+          this.$router.push({path: '/wudata'})
       },
       cloundPlon:function(){
-            this.$router.push({path: '/seleconeEight'})
+            this.$router.push({path: '/technologyandservices'})
       },
       cloundPlbn:function(){
-            this.$router.push({path: '/seleconenight'})
+            this.$router.push({path: '/cloudbuying'})
       },
       cloundPlvn:function(){
-          this.$router.push({path: '/seleconeTen'})
+          this.$router.push({path: '/recruitmentconsultant'})
       },
       cloundPlgn:function(){
-        this.$router.push({path: "/seleconetones"})
+        this.$router.push({path: "/csbcommunity"})
       },
       cloundPlfn:function(){
-          this.$router.push({path: "/seleconettwos"})
+          this.$router.push({path: "/industryheadlines"})
       },
       cloundPlqn:function(){
-           this.$router.push({path: "/seleconetth"})
+           this.$router.push({path: "/newsdynamic"})
       },
       cloundPlkn:function(){
-          this.$router.push({path: "/seleconetg"})
+          this.$router.push({path: "/partners"})
       },
       yunjia:function(){
          this.$router.push({path: "/appcenterPrice"}) 

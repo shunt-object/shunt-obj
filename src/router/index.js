@@ -33,21 +33,21 @@ import designHalf from '@/views/console/design/designHalf/designHalf'
 import designOrder from '@/views/console/design/designOrder/designOrder'
 import colligateReport from '@/views/console/report/colligateReport/colligateReport'
 import CustomerService from '@/views/front/CustomerService'
-import seleconefirst from "../views/front/selecone/seleconeFirst.vue"
-import sleconesecond from "../views/front/selecone/sleconeSecond.vue"
-import seleconeSix from "../views/front/selecone/seleconeSix.vue"
-import seleconeSeven from "../views/front/selecone/seleconeSeven.vue"
-import seleconeEight from "../views/front/selecone/seleconeEight.vue"
-import seleconenight from "../views/front/selecone/seleconenight.vue"
-import seleconeTen from "../views/front/selecone/seleconeTen.vue"
-import seleconetones from "../views/front/selecone/seleconetones.vue"
-import seleconettwos from "../views/front/selecone/seleconettwos.vue"
-import seleconetth from "../views/front/selecone/seleconetth.vue"
-import seleconetg from "../views/front/selecone/seleconetg.vue"
-import seleconeThree from "../views/front/selecone/seleconeThree.vue"
+import cloudselection from "../views/front/selecone/cloudselection.vue"
+import cloudplanning from "../views/front/selecone/cloudplanning.vue"
+import clouddesignning from "../views/front/selecone/clouddesignning.vue"
+import wudata from "../views/front/selecone/wudata.vue"
+import technologyandservices from "../views/front/selecone/technologyandservices.vue"
+import cloudbuying from "../views/front/selecone/cloudbuying.vue"
+import recruitmentconsultant from "../views/front/selecone/recruitmentconsultant.vue"
+import csbcommunity from "../views/front/selecone/csbcommunity.vue"
+import industryheadlines from "../views/front/selecone/industryheadlines.vue"
+import newsdynamic from "../views/front/selecone/newsdynamic.vue"
+import partners from "../views/front/selecone/partners.vue"
+import cloudmeasured from "../views/front/selecone/cloudmeasured.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
-import seleconeFour from "../views/front/selecone/seleconeFour.vue"
+import aboutus from "../views/front/selecone/aboutus.vue"
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
@@ -78,69 +78,82 @@ export default new Router({
       component: homePage
     },
     {
-      path:"/seleconefirst",
-      name:"seleconefirst",
-      component: seleconefirst
+      // 云选型
+      path:"/cloudselection",
+      name:"cloudselection",
+      component: cloudselection
     },
     {
-      path:"/sleconesecond",
-      name:"sleconesecond",
-      component:sleconesecond
+      // 云规划
+      path:"/cloudplanning",
+      name:"cloudplanning",
+      component:cloudplanning
     },
     {
-      path:"/seleconeThree",
-      name:"seleconeThree",
-      component:seleconeThree
+      // 云实测
+      path:"/cloudmeasured",
+      name:"cloudmeasured",
+      component:cloudmeasured
     },
       {
-      path:"/seleconeFour",
-      name:"seleconeFour",
-      component:seleconeFour
+      //关于我们 
+      path:"/aboutus",
+      name:"aboutus",
+      component:aboutus
     },
      {
-      path:"/seleconeSix",
-      name:"seleconeSix",
-      component:seleconeSix
+      //  云设计
+      path:"/clouddesignning",
+      name:"clouddesignning",
+      component:clouddesignning
     },
      {
-      path:"/seleconeTen",
-      name:"seleconeTen",
-      component:seleconeTen
+      // 招募顾问
+      path:"/recruitmentconsultant",
+      name:"recruitmentconsultant",
+      component:recruitmentconsultant
     },
     {
-      path:"/seleconeSeven",
-      name:"seleconeSeven",
-      component:seleconeSeven
+      // Pro.吴数据
+      path:"/wudata",  
+      name:"wudata",
+      component:wudata
     },
      {
-      path:"/seleconeEight",
-      name:"seleconeEight",
-      component:seleconeEight
+      //  技术与服务
+      path:"/technologyandservices",
+      name:"technologyandservices",
+      component:technologyandservices
     },
     {
-      path:"/seleconenight",
-      name:"seleconenight",
-      component:seleconenight
+      // 云购买
+      path:"/cloudbuying",
+      name:"cloudbuying",
+      component:cloudbuying
     },
     {
-      path:"/seleconetones",
-      name:"seleconetones",
-      component:seleconetones
+      // csb社群
+      path:"/csbcommunity",
+      name:"csbcommunity",
+      component:csbcommunity
     },
     {
-      path:"/seleconettwos",
-      name:"seleconettwos",
-      component:seleconettwos
+      // 行业头条
+      path:"/industryheadlines",
+      name:"industryheadlines",
+      component:industryheadlines
     },
     {
-      path:"/seleconetth",
-      name:"seleconetth",
-      component:seleconetth
+      // 新闻动态
+      path:"/newsdynamic",
+      name:"newsdynamic",
+      component:newsdynamic
     },
     {
-      path:"/seleconetg",
-      name:"seleconetg",
-      component:seleconetg
+      // 合作伙伴
+      path:"/partners",
+      name:"partners",
+      component:partners
     },
     {
       path: '/CustomerService',

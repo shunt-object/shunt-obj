@@ -738,15 +738,15 @@ h2 {
     export default{
         methods:{
             cloundPlan:function(){
-                  this.$router.push({path: '/sleconesecond'});
+                  this.$router.push({path: '/cloudplanning'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             cloundSelect:function(){
-                  this.$router.push({path: '/seleconefirst'});
+                  this.$router.push({path: '/cloudselection'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             cloundCe:function(){
-                  this.$router.push({path: '/seleconeThree'});
+                  this.$router.push({path: '/cloudmeasured'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             fuwuLook:function(){
@@ -754,19 +754,19 @@ h2 {
                    $('html ,body').animate({scrollTop: 0},0);
             },
             yungh:function(){
-                    this.$router.push({path: '/sleconesecond'});
+                    this.$router.push({path: '/cloudplanning'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             yungm:function(){
-                    this.$router.push({path: '/seleconenight'});
+                    this.$router.push({path: '/cloudbuying'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             yunsj:function(){
-                    this.$router.push({path: '/seleconenight'});
+                    this.$router.push({path: '/cloudbuying'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             cloundsj:function(){
-                    this.$router.push({path: '/seleconeSeven'});
+                    this.$router.push({path: '/wudata'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             helpCenter:function(){

@@ -701,22 +701,22 @@ export default {
           this.$router.push({path: '/consolePage'});
       },
       ctaCloundk:function(){
-         this.$router.push({path: '/seleconeThree'});
+         this.$router.push({path: '/cloudmeasured'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       reset: function() {
         this.$router.push({path: '/registerOne'})
       },
       ctaClound:function(){
-          this.$router.push({path: '/seleconefirst'});
+          this.$router.push({path: '/cloudselection'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaCloundCsb:function(){
-          this.$router.push({path: '/sleconesecond'});
+          this.$router.push({path: '/cloudplanning'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaSc:function(){
-          this.$router.push({path: '/seleconeThree'});
+          this.$router.push({path: '/cloudmeasured'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       cloundScc:function(){
@@ -760,9 +760,9 @@ export default {
                
 .carousel-indicators .active{
     width:32px !important;
-   transition:width 1s !important;
--moz-transition:width 1s !important; /* Firefox 4 */
--webkit-transition:width 1s !important; /* Safari and Chrome */ 
+    transition:width 1s !important;
+    -moz-transition:width 1s !important; /* Firefox 4 */
+    -webkit-transition:width 1s !important; /* Safari and Chrome */ 
 }
 .obj-clear{
     width:36px;

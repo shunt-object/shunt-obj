@@ -1,7 +1,14 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-   
+      <div class="rightBs">
+            <ul>
+                <li class="nexton" data-to="go1"></li>
+                <li class="nextsec" data-to="go2"></li>
+                <li class="nextthe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
+            </ul>
+      </div>
       <div class="fixed-box">
         <ul class="fixed-ul">
             <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
@@ -14,96 +21,183 @@
         
         <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
-
-    <Sec active="3" class="sectb"></Sec>
+    <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
+            <div class=" fixshow container">
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+            </div>
+    </div>
+    <Sec active="1" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row rusets">
-                 <div class="container" >
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">最前沿的云资讯、最新的产品动态、最实时的头条新闻</span></p>
+            <div class="seleconeMain-banners selectHelp row ">
+                 <div class="container">
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;color:#f8f8f8">如何选择云厂商服务呢？</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">就在CloudBroker²</h3>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">六大场景、两百个指标</h3>
+                                <p style="font-weight:100;text-align:left;font-size:16px">有没有一个第三方的选型工具，专业的告诉我结论？</p>
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
+                        <div class="col-md-6 col-xs-12 text-left lastimgs"><img src="../../../assets/jjjk.png" alt="" style="float: right;width:100%"></div>
                  </div>
             </div>
-            <div>
-                    <div class="container" style="margin-bottom:140px">
-                        <div class="group-money">行业动态</div>
-                        <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，以“云”为核心，是您上云咨询、云迁移和云运维的贴身服务专家！作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的行业新闻。</div>
-                        <div  style="margin-top:60px;">
-                            <div class="row hynews" >
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.png" alt="" ></div>
-                                        <div class="fifter text-left">云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%。</div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/12.png" alt="" ></div>
-                                        <div class="fifter text-left">微信小游戏上线广告新形态：banner 广告和激励式视频广告。</div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/13.png" alt="" ></div>
-                                        <div class="fifter text-left">2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/0.png" alt="" ></div>
-                                        <div class="fifter text-left">腾讯控股 3 个月蒸发 6500 亿，马化腾“闪退”华人首富。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/01.png" alt="" ></div>
-                                        <div class="fifter text-left">百度张亚勤：类脑技术、量子计算和5G是AI的未来方向。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/02.png" alt="" ></div>
-                                        <div class="fifter text-left">未受数据泄露丑闻影响，Facebook Q1业绩超预期 盘后上涨7%。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
+            <div class="container naver">            
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                </div>
+            </div>
+            <div class="nav-bottom-kk"></div>
+            <div id="ProductFeatures" class="go1">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">产品功能</span>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-xs-12 col-sm-4 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/m.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">终端用户选型</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持6大场景和18个小场景，终端用户对公有云厂商进行科学选型和指标分析。</span></p>
                             </div>
-                            <!--<div class="row hynews" style="margin-top:0px !important;">
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201711071504091015.jpg" alt="" ></div>
-                                        <div class="fifter text-left">至少12%的Facebook帐号是虚假或重复帐号</div>
-                                        <div class="fifters">至少12%的Facebook帐号是虚假或重复帐号；《王者荣耀》外挂牟利可能被刑拘;上海已清理50万辆过度投放共享单车......以下为您奉上更多热点事件。</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201429153623.jpg" alt="" ></div>
-                                        <div class="fifter text-left">IT安全漏洞、威胁与风险的区别，你都知道吗？ </div>
-                                        <div class="fifters">在当前的世界中，数据和数据保护是企业至关重要的考虑因素。客户希望您确保其信息的安全性，如果您不能保证信息安全，就会失去业务。许多拥有敏感信息的客户在与您开展业务之前，会要求您部署坚固的数据安全基础架构。基于这种考虑，您是否相信自己企业内的IT安全性？</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201437181812.jpg" alt="" ></div>
-                                        <div class="fifter text-left">有效服务台管理的5个关键度量指标</div>
-                                        <div class="fifters">有两句商业格言说：1）无法度量则无法管理，2）无法度量则无法改进。这些说辞对服务台管理和企业在使用信息技术基础架构库（ITIL）框架来实施信息技术服务管理（ITSM）系统时创建的良性循环是非常贴切的。</div>
-                                    </div>
-                                </div>
-                            </div>-->
+                        </div>
+                        <div class="col-xs-12 col-sm-4 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/l.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">代理商选型</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供代理商角色，借助6大场景和18个小场景，对公有云选型场景进行综合评估和分析。</br></span></p>
+                            </div>
+                        </div>
+                   
+                    </div>
+                 </div>
+            </div>
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
+            <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
+                <div class=" text-left redtitle">
+                    <span class="redLine"></span><span class="redlasttitle">核心优势</span>
+                </div>
+                <div class="col-xs-12 cla text-left">
+                <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/jb.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block;">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">专业化</pstyle>
+                                <p class="mainPds">凝聚数百位云专家的上云选型经验，同时</br>结合了数万个上云应用的数据画像。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/tc.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">公正性</pstyle>
+                                <p class="mainPds">构建独立于云厂商之外的全新科学选型标准，实现公正、</br>公平、透明。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/66666.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
+                                <p class="mainPds">支持云厂商选型分数、选型指标等维度，</br>直观展现了云厂商选型结果。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/222222.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">场景化</pstyle>
+                                <p class="mainPds">提供了6大场景和18个小场景的优选指标，满足不同行业</br>不同用户的使用场景需求。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                </div>
+            </div>
+            </div>
+            <div style="width:100%;" id="QuickStart" class="go3">
+                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">快速入门</span>
+                    </div>
+                    <div style="text-align:left;">
+                        <div class="  ljs lijh" >
+                            <div class="bigFang">
+                                <div class="dv1">注册／登录</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">1</div>
+                            </div>
+                        </div>
+                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class=" ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云选型／选型标准</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">2</div>
+                            </div>
+                        </div>
+                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class=" ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云选型／云选型报告</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">3</div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
+                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/126.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
                     </div>
-
+                </div>
             </div>
+       
+             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
+                <div class="seleconeMain-echarts container broundU erfs">
+                     <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">时间轴</span>
+                    </div>
+                    <div class="col-md-12 seleconeMain-img" >
+                       <div class="timezhou">
+                            <div class="gh"><div></div></div>
+                            <div class="gq"><div></div></div>
+                            <div class="gw"><div></div></div>
+                            <div class="ge"><div></div></div>
+                            <div class="gr"><div></div></div>
+                            <div class="gt"><div></div></div>
+                            <div class="gy"><div></div></div>
+                            <div class="timeli">2017.10</div>
+                            <div class="timeli1">2017.11</div>
+                            <div class="timeli2">2017.12</div>
+                            <div class="timeli3">2018.01</div>
+                            <div class="timeli4">2018.03</div>
+                            <div class="licheng">云选型V1.0设计开始</div>
+                            <div class="licheng1">云选型V1.0 正式开发</div>
+                            <div class="licheng7">六大场景优选功能上线</div>
+                            <div class="licheng3">支持代理商场景上线</div>
+                            <div class="licheng4">云选型经典版上线</div>
+                       </div>
+                    </div>
+                  
+                </div>
+            </div>
+      
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -123,85 +217,6 @@
 <style>
 .dv2:hover{
     cursor:pointer;
-}
-.fifter{
-    font-size: 16px;
-    line-height: 26px;
-    margin-bottom: 16px;
-    margin-top:10px;
-    overflow: hidden;
-    min-height: 52px;
-    color: black;
-    padding-left:25px;
-}
-.fifters{
-    font-size: 14px;
-    height: 40px;
-    overflow: hidden;
-    color: #6E6E6E;
-    margin-bottom:60px;
-}
-.alifloat{
-   display:inline-block;
-   margin-left:30px;
-   line-height:30px;
-   font-size:18px;
-   color:#333333;
-
-}
-.hynews img{
-    width: 250px;
-    height: 177px;
-}
-.group-money{
-    font-size:24px;
-    color:#333333;
-    text-align:center;
-    margin:40px 0 30px 0;
-}
-.rusets{
-    background:url("../../../assets/er-icon/bannertr.png") no-repeat;
-    text-align:center;background-size:100% 100%;
-   
-}
-
-
-.welecone span{
-    background:#da121a;
-    border-radius:4px;
-    width:129px;
-    height:32px;
-    line-height:32px;
-    color:#fff;
-    text-align:center;
-    display:inline-block;
-}
-.welecone span:hover{
-    cursor:pointer;
-}
-
-.rightDiv .rightDiv-child{
-    padding:20px 30px;
-}
-.rightDiv-child-S{
-     font-size:14px;
-    color:#999;
-    line-height:30px;
-}
-.zhaomu{
-    font-size:14px;
-    color:#333333;
-}
-.zhaomu1{
-    font-size:12px;
-    color:#333333;
-    line-height:30px;
-}
-.zhaomu2{
-    margin-top:10px;
-}
-.zhaomu1 span{
-    color:#000;
 }
 .naver i{
     color:#c2c2c2;
@@ -240,12 +255,7 @@
     border-radius:100%;
    margin-bottom:10px;
 }
-.rightBs ul li a{
-    width:10px;
-    height:10px;
-    border-radius:100%;
-    display:inline-block;
-}
+
 .rightBs ul{
     position:fixed;
     right:20px;
@@ -280,7 +290,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.licheng7,.licheng4{
     font-size:14px;
     color:#666666;
 }
@@ -295,10 +305,10 @@
         left:27%;
 }
 
-.licheng2{
+.licheng7{
        position:absolute;
         top:45px;
-        left:46%;
+        left:44%;
 }
 
 .licheng3{
@@ -445,24 +455,6 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
-    .menospp{
-        line-height:40px;
-    }
-     .positionSpans{
-        font-size:12px;
-      }
-      .positionSpans1{
-          left:3.2% !important;
-      }
-      .positionSpans2{
-          left:33.2% !important;
-      }
-      .positionSpans3{
-        left:58% !important;
-      }
-      .positionSpans4{
-          right:1.6% !important;
-      }
       .ljs{
             width:100%;
             display:inline-block;
@@ -471,66 +463,34 @@
         .imgets{
             display:none;
         }
-        .cla img{
-            width:100%;
+        .lijh{
+            margin-left:0px
         }
-        .rightDiv{
-            margin-top:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:220px;
-            height:220px;   
+        .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
-        .iuols input,.iuols select{
-            margin-bottom:20px;
-            padding-left:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:207px;
-            height:40px;
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 }
 @media (min-width: 768px) {
-    .CsbSao{
-        border:1px solid #979797;
-        width:545px;
-        height:184px;
-        padding:20px 10px ;
-        
-    }
-    .color_999{
-        line-height:20px !important;
-    }
-    .menospp{
-        line-height:30px;
-    }
-    .CsbSao img{
-        width:150px;
-        height:150px;
-    }
-    .positionSpans{
-        font-size:16px;
-    }
       .ljs{
             width:16%;
             display:inline-block;
         }
      .imgets{
           display:inline-block;
+         
      }
-     .rightDiv{
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:457px;
-        height:220px;   
-    }
-    .iuols input,.iuols select{
-        margin-bottom:20px;
-        padding-left:20px;
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:407px;
-        height:40px;
+     .imghs img{
+          width:160px !important;
+     }
+    .lijh{
+        margin-left:20px
     }
 }
 .mainPds{
@@ -559,6 +519,9 @@
     color:#da121a;
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
+}
+.fixshow a:hover{
+    color:#da121a !important;
 }
 .displayshow{
     display:none;
@@ -607,7 +570,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5;  
+    color:#A5A5A5 ;  
 }
 .naver a:hover{
     cursor:pointer;
@@ -678,8 +641,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lasilasis{
-          margin-top:190px;
+    .lastimgs{
+        margin-top:148px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -687,9 +650,12 @@
     .imgeys{
         margin-left:20px !important
     }
+    .color_999{
+        line-height:20px !important;
+    }
 }
 @media (max-width: 768px) {
-    .lasilasis{
+    .lastimgs{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -699,16 +665,6 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver .row div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
 }
    .container{
      
@@ -743,7 +699,9 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   
+   .selectHelp{
+        background:#222222;text-align:center;background-size:100% 100%;
+   }
 
    .seleconeMain-mainfir{margin-top:160px;}
    .nfir{margin-bottom:48px}
@@ -933,7 +891,7 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                       $(".fixshow a").hover(function(){
+                        $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
@@ -960,17 +918,44 @@
                         //     $(".sectb").css("display","block");
                           
                         // };
-                     
+                        if($(".naver").length==1){
+                          
+                            var topa = $(".naver").offset().top - $(window).scrollTop();
+                             if(topa<0){
+                                 $(".displayshow").css("display","block") 
+                             }else if(topa>0){
+                                  $(".displayshow").css("display","none") 
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                             }
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
+                                $(".rightBs ul li").css("background","#d8d8d8") 
+                                $(".nexton").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextsec").css("background","#da121a")
+                             }
+                             if($("#QuickStart").length>0){
+                             if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextthe").css("background","#da121a")
+                             }}
+                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                  $(".nextf").css("background","#da121a")  
+                             }
+                        }
                     });
             
-                   
+                  
 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -978,10 +963,13 @@
         data(){
             return{
                  phoneBox:false,
-               
+                 
             }
         },
         methods:{
+              dls:function(){
+                this.$router.push({path: '/login'});
+              },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -1002,11 +990,10 @@
             },
             phoneleave:function(){
                     this.phoneBox = false;
-            },
-          
+            }
         },
         mounted:function(){
-               $(".rightBs ul li").click(function(e){
+                          $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
                                console.log(s)
@@ -1017,25 +1004,11 @@
                              $('html,body').animate({scrollTop:$('.'+id).offset().top+90}, 800);
                             
                          
-                })
-                 $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                    });
-
-               
-                        //   $(".rightBs ul li").click(function(e){
-                        //      var target = e.target;
-                        //      var id = $(target).data("to");
-                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
-                        //      $(".rightBs ul li").css("background","#d8d8d8");
-                        //      $(this).next().css("background","#da121a")
-                        //     //  if($(this).index()==0){
-                        //     //      var a = '<a href="#cg"></a>';
-                        //     //      $(this).append(a)
-                        //     //       $(this).find("a").trigger("click");
-                        //     //  }
-                        //  })
+                         })
+                           $(".scrollUp").click(function(){
+                                $('html ,body').animate({scrollTop: 0}, 300);
+                                return false;
+                            });
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

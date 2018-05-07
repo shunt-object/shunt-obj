@@ -34,14 +34,14 @@
             <div class="seleconeMain-banners selectHelp row ">
                  <div class="container">
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">有高效购买性价比高的云资源方式吗？</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">上云应用画像、可视化数据分析</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;line-height:26px;">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
-                               
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;line-height:26px;">立足上云工作负载的大数据，利用科学研究模型，
+精准掌握企业内外的上云状态，从多维角度解析上云数据，为您提供辅助决策支撑。</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lastimgs"><img src="../../../assets/er-icon/ii3@1x (1).png" alt="" style="float: right;width:85%"></div>
+                        <div class="col-md-6 col-xs-12 text-left lasilasis"><img src="../../../assets/zhi.png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
             <div class="container naver">            
@@ -60,20 +60,26 @@
                     </div>
                     <div class="row text-center">
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/bs.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">意向订单统计分析</h2>
+                            <div class="crounds"><img src="../../../assets/er-icon/e.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">智慧分析</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持公有云厂商、购买实例规格和数量等</br>多个维度展现意向订单数据。</span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">多维度，多视角，为企业内部的</br>                       上云工作负载提供数据挖掘和分析。</span></p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/as.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">已支付订单</h2>
+                            <div class="crounds"><img src="../../../assets/er-icon/d.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">预算分析</h2>
                             <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供已购买的订单列表，    </br>                                 方便用户记录和做综合统计。</br></span></p>
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供预算收益分析功能，    </br>让用户随时看清楚自己在云上的费用花销。</span></p>
                             </div>
                         </div>
-                   
+                        <div class="col-xs-12 col-sm-4 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/er-icon/c.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">数据洞察</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">供行业、和区域两种维度的      </br>全局性上云数据和分析。</span></p>
+                            </div>
+                        </div>
                     </div>
                  </div>
             </div>
@@ -85,33 +91,11 @@
                 <div class="col-xs-12 cla text-left">
                 <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
                     <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44.png" alt="" class="tranImg"></dt>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/4555.png" alt="" class="tranImg"></dt>
                         <dd style="diaplay:inline-block;">
                             <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">灵活化</pstyle>
-                                <p class="mainPds">根据自身需求，企业用户随意修改意向订单实例范围。</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44444.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">图表联动</pstyle>
-                                <p class="mainPds">快速的、直观的、交互式的和多维度的展现订单内容。</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/555.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">简单化</pstyle>
-                                <p class="mainPds">帮助企业用户从复杂的购买云实例和服务的工作中解决出来，                可以更加关注业务与的融合和管控。</p>
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">大数据</pstyle>
+                                <p class="mainPds">采集企业内外上云负载数据，进行挖掘分析，通过数据化，为企业上云提供辅助决策支撑。</p>
                             </div>
                         </dd>
                     </dl>
@@ -122,12 +106,11 @@
                         <dd style="diaplay:inline-block">
                             <div class="mainpa text-left">
                                 <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
-                                <p class="mainPds">用户随时随地了解已经选择的意向购买实例，轻松判断是否需要下单购买？</p>
+                                <p class="mainPds">丰富的统计图表，全景展现企业内上云状态和费用花销，并全局展现行业和区域上云趋势。</p>
                             </div>
                         </dd>
                     </dl>
                 </div>
-                
                 </div>
             </div>
             </div>
@@ -136,33 +119,40 @@
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">快速入门</span>
                     </div>
-                    <div style="text-align:left;">
-                        <div class="  ljs lijh" >
-                            <div class="bigFang">
+                    <div>
+                        <div class="ljs iks">
+                            <div class="bigFang ">
                                 <div class="dv1">注册／登录</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">1</div>
                             </div>
                         </div>
-                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg1 bigimg"></div>
-                        <div class=" ljs">
+                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class="ljs">
                             <div class="bigFang">
-                                <div class="dv1">云买手／意向订单分析</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv1">Prof. 吴数据／智慧分析</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">2</div>
                             </div>
                         </div>
-                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg2 bigimg"></div>
-                        <div class=" ljs">
+                        <div class="imgets ik"><img src="../../../assets/line.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class="ljs">
                             <div class="bigFang">
-                                <div class="dv1">云买手／已支付订单</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv1">Prof. 吴数据／预算分析</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
                                 <div class="dv3">3</div>
                             </div>
                         </div>
-                       
+                        <div class="imgets ik"> <img src="../../../assets/line.png" alt="" class="bigimg3 bigimg"></div>
+                        <div class="  ljs">
+                           <div class="bigFang">    
+                                <div class="dv1">Prof. 吴数据／数据洞察</div>
+                                <div class="dv2" @click="spanTy">立即体验 > </div>
+                                <div class="dv3">4</div>
+                           </div>
+                        </div>
                         <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
-                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/er-icon/aqietu.png" alt="" style="width:63%;height:63%;"></div>
+                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/er-icon/qietu.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
                     </div>
                 </div>
@@ -182,16 +172,16 @@
                             <div class="gr"><div></div></div>
                             <div class="gt"><div></div></div>
                             <div class="gy"><div></div></div>
-                            <div class="timeli">2017.12</div>
-                            <div class="timeli1">2017.12</div>
+                            <div class="timeli">2017.10</div>
+                            <div class="timeli1">2017.11</div>
                             <div class="timeli2">2017.12</div>
                             <div class="timeli3">2018.01</div>
-                            <div class="timeli4">2018.04</div>
-                            <div class="licheng">云买手V1.0设计开始</div>
-                            <div class="licheng1">云买手V1.0真实开发</div>
-                            <div class="licheng7">购物车功能上线</div>
-                            <div class="l2">云买手图表联动功能上线</div>
-                            <div class="licheng4">云买手订单分类功能上线</div>
+                            <div class="timeli4">2018.03</div>
+                            <div class="licheng">Prof. 吴V1.0 正式开发</div>
+                            <div class="licheng1">Prof. 吴客服功能上线</div>
+                            <div class="licheng2">智慧分析功能上线</div>
+                            <div class="licheng3">数据洞察功能上线</div>
+                            <div class="l4">预算收益分析功能上线</div>
                        </div>
                     </div>
                   
@@ -255,7 +245,12 @@
     border-radius:100%;
    margin-bottom:10px;
 }
-
+.rightBs ul li a{
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    display:inline-block;
+}
 .rightBs ul{
     position:fixed;
     right:20px;
@@ -290,7 +285,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.l2,.licheng7,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.licheng4,.l4{
     font-size:14px;
     color:#666666;
 }
@@ -305,22 +300,22 @@
         left:27%;
 }
 
-.licheng7{
+.licheng2{
        position:absolute;
         top:45px;
-        left:44%;
+        left:46%;
 }
 
-.l2{
+.licheng3{
        position:absolute;
         top:45px;
-        left:61%;
+        left:62.5%;
 }
-
-.licheng4{
+.l4{
        position:absolute;
         top:45px;
         left:80%;
+        font-size:13px !important
 }
 .gh{
     width:20px;height:20px;
@@ -464,35 +459,18 @@
         .imgets{
             display:none;
         }
-        .lijh{
-            margin-left:0px
-        }
-        .naver .row div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
 }
 @media (min-width: 768px) {
       .ljs{
             width:16%;
             display:inline-block;
         }
+        .color_999{
+            line-height:20px !important;
+        }
      .imgets{
           display:inline-block;
-         
      }
-     .imghs img{
-          width:160px !important;
-     }
-    .lijh{
-        margin-left:20px
-    }
 }
 .mainPds{
     line-height:20px;
@@ -520,9 +498,6 @@
     color:#da121a;
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
-}
-.fixshow a:hover{
-    color:#da121a !important;
 }
 .displayshow{
     display:none;
@@ -571,7 +546,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5;  
+    color:#A5A5A5 ;  
 }
 .naver a:hover{
     cursor:pointer;
@@ -642,11 +617,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lastimgs{
-        margin-top:143px;
-    }
-    .color_999{
-        line-height:20px !important;
+    .lasilasis{
+          margin-top:190px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -656,7 +628,7 @@
     }
 }
 @media (max-width: 768px) {
-    .lastimgs{
+    .lasilasis{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -666,6 +638,16 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
+    .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 }
    .container{
      
@@ -887,7 +869,21 @@
 </style>
 <script>
     $(document).ready(function(){ 
-                        
+                        // $(".rightBs ul li").find("a").click(function(){
+                        //     // $(".rightBs ul li").css("background","#d8d8d8");
+                        //     // $(this).css("background","#da121a");
+                        //     alert(1)
+                        // });
+                       $(".fixshow a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
+                         $(".naver a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -898,8 +894,14 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                       
-                        if($(".naver").length==1){
+                        // if($(this).scrollTop()>80){
+                        //     $(".sectb").css("display","none");
+                        // };
+                        // if($(this).scrollTop()<80){
+                        //     $(".sectb").css("display","block");
+                          
+                        // };
+                         if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
                              if(topa<0){
@@ -917,26 +919,26 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                             if($("#QuickStart").length>0){
-                             if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextthe").css("background","#da121a")
-                             }}
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextthe").css("background","#da121a")
+                                }
+                            }
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                 $(".rightBs ul li").css("background","#d8d8d8");
                                   $(".nextf").css("background","#da121a")  
                              }
                         }
                     });
             
-                  
-
+                 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -948,9 +950,6 @@
             }
         },
         methods:{
-            dls:function(){
-                 this.$router.push({path: '/login'});
-            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -962,7 +961,7 @@
             },
              xiaowei:function(){
                 // var that = this; 
-                 //var win = window.open("#/CustomerService");
+                // var win = window.open("#/CustomerService");
                 var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
                //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
             },
@@ -974,7 +973,7 @@
             }
         },
         mounted:function(){
-                          $(".rightBs ul li").click(function(e){
+               $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
                                console.log(s)
@@ -986,10 +985,23 @@
                             
                          
                          })
-                           $(".scrollUp").click(function(){
+                            $(".scrollUp").click(function(){
                                 $('html ,body').animate({scrollTop: 0}, 300);
                                 return false;
                             });
+
+                        //   $(".rightBs ul li").click(function(e){
+                        //      var target = e.target;
+                        //      var id = $(target).data("to");
+                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
+                        //      $(".rightBs ul li").css("background","#d8d8d8");
+                        //      $(this).next().css("background","#da121a")
+                        //     //  if($(this).index()==0){
+                        //     //      var a = '<a href="#cg"></a>';
+                        //     //      $(this).append(a)
+                        //     //       $(this).find("a").trigger("click");
+                        //     //  }
+                        //  })
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

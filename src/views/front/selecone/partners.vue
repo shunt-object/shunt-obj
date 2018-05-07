@@ -1,7 +1,14 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-   
+      <div class="rightBs">
+            <ul>
+                <li class="nexton" data-to="go1"></li>
+                <li class="nextsec" data-to="go2"></li>
+                
+                <li class="nextf" data-to="go3"></li>
+            </ul>
+      </div>
       <div class="fixed-box">
         <ul class="fixed-ul">
             <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
@@ -14,84 +21,101 @@
         
         <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
-
-    <Sec active="3" class="sectb"></Sec>
+    <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
+            <div class=" fixshow container">
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
+                    <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
+            </div>
+    </div>
+    <Sec active="2" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row rusets">
-                 <div class="container" >
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">最前沿的云资讯、最新的产品动态、</span></p>
+            <div class="seleconeMain-banners  row rusety">
+                 <div class="container">
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能生态合作伙伴 助力行业数字化创新</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">最实时的头条新闻就在CloudBroker²</h3>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:16px;color:#ffffff;line-height:26px">立即加入CloudBroker²渠道合作伙伴体系，为客户构建基于全流程一站式云的服务，</br>
+                                        携手打造新型云服务模式，聚力共赢，共建生态
+                                </h3>
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="lj">加入我们</span></p>
                         </div>
                  </div>
             </div>
-            <div>
-                    <div class="container" style="margin-bottom:140px">
-                        <div class="group-money">新闻动态</div>
-                        <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，打造一站式全流程SaaS服务模式，专注帮助上云企业完善上云最后一公里。作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，同时也成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的CloudBroker²新闻。我们欢迎各界媒体参与我们的活动，报道我们的产品。 在这里，你可以看到最新的行业新闻。</div>
-                        <div  style="margin-top:60px;">
-                            <div class="row hying" >
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/qushi.jpg" alt="" ></div>
-                                        <div class="fifter text-left">公有云选型：选对云供应商，原来真的可以节省很多费用</div>
-                                        <div class="fifters" title="选择云供应商是一个十分关键和具有战略意义的流程。为了确保能够选择满足业务需要的、最好的云服务，CloudBroker²为您提供6大方向，18个场景，近200个指标，助您省时、省钱。">选择云供应商是一个十分关键和具有战略意义的流程。为了确保能够选择满足业务需要的、最好的云服务，CloudBroker²为您提供6大方向，18个场景，近200个指标，助您省时、省钱。</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104002@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">Gartner 2018年 MSP魔力象限：没有MSP，管理云很难</div>
-                                        <div class="fifters">基于2018年3月份Gartner发布的MSP年度魔力象限，建议充分认识MSP对于公有云的重要性。CloudBroker²一直致力于打造全流程一站式云管服务，助您上真云、真上云和用好云。</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104041@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">企业构建多云架构的四个步骤</div>
-                                        <div class="fifters">企业可以采取四个步骤来更好地处理他们的多云架构。</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row hying" style="margin-top:0px !important;">
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104124@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">成功进行云计算迁移的八个步骤</div>
-                                        <div class="fifters">在调查中，90%的企业表示难以迁移到云中，复杂性是最常被引用的问题。那么如何面对这一问题，CloudBroker²建议采取八步骤上云方案，通过在每个阶段的实施方法，确保顺利实施云迁移。</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;margin: 0 auto;border:1px solid #ccc"><img src="../../../assets/newey/WX20180428-104325@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">公有云选型：8项有力的调查数据</div>
-                                        <div class="fifters">本文汇总了一些有助于帮助企业做2018年公有和混合云研究的数据支撑，并回答了一些相关问题：如云在CIO的优先级列表中的位置如何？它实现了节约成本的承诺吗？转向公有云的工作负载是多少？</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/newey/WX20180428-104253@2x.png" alt="" ></div>
-                                        <div class="fifter text-left">最新：公有云服务市场预测报告</div>
-                                        <div class="fifters">4月20日，Gartner发布了全球公有云服务市场预测报告。根据这份报告，2018年全球公有云服务市场规模为1864亿美元，同比涨幅21.4%；2018年中国公有云市场规模则为224亿人民币，同比增幅为35%。</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+            <div class="container naver">            
+                <div class="" style="width:100%!important">
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
+                </div>
             </div>
-        
-         
-       
+            <div class="nav-bottom-kk"></div>
+            <div id="ProductFeatures" class="go1">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
+                    </div>
+                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，与客户共同创造协同价值链，现已形成了众多的大型品牌合伙伙伴，树立了行业的品牌形象。同时，CSB²重视建立长期的合作关系，与合作伙伴紧密合作开拓服务管理软件市场，通过针对性地创新务实的解决方案， 为客户带来巨大利益，同时贯穿整个产品生命周期的协同合作，不断提升客户满意度。CSB²始终珍惜服务商资源，与合作伙伴共同成长，携手建设“MSP+”，共同打造“云服务生态圈”。
+                    </div>
+                 </div>
+            </div>
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
+            <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
+                <div class=" text-left redtitle">
+                    <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
+                </div>
+                <div class="col-xs-12 cla text-center">
+                     <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
+                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
+                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
+                     <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
+                     <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
+                </div>
+                <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
+                    <div class="zhaomu">招募规则备注：</div>
+                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
+                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
+                    <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
+                </div>
+            </div>
+            </div>
+            <div style="width:100%;" id="QuickStart" class="go3" >
+                <div class="seleconeMain-shrts container " style="padding-top:20px;padding-bottom:40px;margin:0 auto;" >
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">合作伙伴</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+                        <img src="../../../assets/Group 30.png" alt=""  class="jz-img">
+                        <img src="../../../assets/Group 43.png" alt=""  class="jz-img">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+                        <img src="../../../assets/Group 34.png" alt=""  class="jz-img">
+                        <img src="../../../assets/Group 41.png" alt=""  class="jz-img">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+                        <img src="../../../assets/Group 38.png" alt=""  class="jz-img">
+                        <img src="../../../assets/Group-45-new.png" alt=""  class="jz-img">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+                        <img src="../../../assets/Group 39.png" alt=""  class="jz-img">
+                        <img src="../../../assets/Group-36-new.png" alt=""  class="jz-img">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
+                        <img src="../../../assets/ali.png" alt="" class="jz-img">
+                        <!--<img src="../../assets/Group44.png" alt=""  class="jz-img">-->
+                        <img src="../../../assets/Group44-new.png" alt=""  class="jz-img">
+                    </div>
+                   
+                </div>
+            </div>
        
            
       
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container text-left" style="width:60%;padding-left:cd30px;">
+                    <div class="container text-left" style="width:60%;padding-left:30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
@@ -109,49 +133,26 @@
 .dv2:hover{
     cursor:pointer;
 }
-.fifter{
-      font-size: 16px;
-    line-height: 26px;
-    margin-bottom: 16px;
-    margin-top: 10px;
-    overflow: hidden;
-    min-height: 46px;
-    color: black;
-    padding-left: 25px;
-}
-.hying img{
-    width: 250px;
-    height: 177px;
-}
-.fifters{
-    font-size: 14px;
-    height: 40px;
-    overflow: hidden;
-    color: #6E6E6E;
-    margin-bottom:20px;
-    text-align:left;
-}
-.alifloat{
-   display:inline-block;
-   margin-left:30px;
-   line-height:30px;
-   font-size:18px;
-   color:#333333;
-
-}
-.group-money{
-    font-size:24px;
-    color:#333333;
-    text-align:center;
-    margin:40px 0 30px 0;
-}
-.rusets{
-    background:url("../../../assets/er-icon/bannertr.png") no-repeat;
+.rusety{
+    background:url("../../../assets/er-icon/bannerts.png") no-repeat;
     text-align:center;background-size:100% 100%;
    
 }
-
-
+@media (min-width: 768px){
+    .jzfei{
+        padding-right: 10px;
+        margin-left: 26px;
+    }
+    .color_999{
+        line-height:20px !important;
+    }
+}
+@media (max-width: 768px){
+    .jzfei{
+        padding-right: 10px;
+        margin-left: 0px;
+    }
+}
 .welecone span{
     background:#da121a;
     border-radius:4px;
@@ -431,8 +432,9 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
-    .menospp{
-        line-height:40px;
+
+    .el-message-box{
+        width:274px !important;
     }
      .positionSpans{
         font-size:12px;
@@ -477,23 +479,6 @@
         }
 }
 @media (min-width: 768px) {
-    .CsbSao{
-        border:1px solid #979797;
-        width:545px;
-        height:184px;
-        padding:20px 10px ;
-        
-    }
-    .color_999{
-        line-height:20px !important;
-    }
-    .menospp{
-        line-height:30px;
-    }
-    .CsbSao img{
-        width:150px;
-        height:150px;
-    }
     .positionSpans{
         font-size:16px;
     }
@@ -540,7 +525,7 @@
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
 }
-.fixshow i:hover{
+.fixshow a i:hover{
     font-size:14px;
     color:#da121a;
     border-bottom:1px solid #da121a;
@@ -595,15 +580,21 @@
     font-size:14px;
     color:#A5A5A5;  
 }
-.naver a:hover{
+.naver a i:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.naver a i:hover{
+.naver div a:hover{
     cursor:pointer;
-    color:#da121a;
+    color:#da121a !important;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.naver div a i:hover{
+    cursor:pointer;
+    color:#da121a !important;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
@@ -685,7 +676,7 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver .row div{
+    .naver  div{
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -946,7 +937,35 @@
                         //     $(".sectb").css("display","block");
                           
                         // };
-                     
+                         if($(".naver").length==1){
+                          
+                            var topa = $(".naver").offset().top - $(window).scrollTop();
+                             if(topa<0){
+                                 $(".displayshow").css("display","block") 
+                             }else if(topa>0){
+                                  $(".displayshow").css("display","none") 
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                             }
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
+                                $(".rightBs ul li").css("background","#d8d8d8") 
+                                $(".nexton").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextsec").css("background","#da121a")
+                             }
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextthe").css("background","#da121a")
+                                }
+                            }
+                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                                 $(".rightBs ul li").css("background","#d8d8d8");
+                                  $(".nextf").css("background","#da121a")  
+                             }
+                        }
                     });
             
                    
@@ -956,7 +975,7 @@
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -964,7 +983,11 @@
         data(){
             return{
                  phoneBox:false,
-               
+                 resulters:[],
+                 names:"",
+                 phones:"",
+                 gs:"",
+                 hys:""
             }
         },
         methods:{
@@ -979,8 +1002,8 @@
             },
              xiaowei:function(){
                 // var that = this; 
-                 //var win = window.open("#/CustomerService");
-                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+                // var win = window.open("#/CustomerService");
+                 var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
                //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
             },
             phoneEnter:function(){
@@ -989,7 +1012,33 @@
             phoneleave:function(){
                     this.phoneBox = false;
             },
-          
+            wle:function(){
+               if(this.names==""||this.phones==""||this.gs==""||this.hys==""){
+                   return false;
+               }else{
+                   var obj = {
+                        "company":this.gs,
+                        "industryId":this.hys,
+                        "name":this.names,
+                        "tel": this.phones,
+                        "type": 1
+                   }
+                    this.$this.post('/broker/portal/join/us',obj).then((pon)=>{  //获取消息类型
+                                //this.scsss = pon.data.msg
+                                        this.$alert('留言成功，我们会尽快与您联系', '温馨提示', {
+                                        confirmButtonText: '我知道了',
+                                        showClose:false,
+                                        confirmButtonClass:'lay-btn-red',
+                                        type: 'warning'
+                                    });
+                                    this.hys = "";
+                                    this.names = "";
+                                    this.phones = "";
+                                    this.gs = "";
+                                }).catch((error)=>{
+                    })
+               }
+            }
         },
         mounted:function(){
                $(".rightBs ul li").click(function(e){
@@ -1007,9 +1056,15 @@
                  $(".scrollUp").click(function(){
                         $('html ,body').animate({scrollTop: 0}, 300);
                         return false;
-                    });
+                });
 
-               
+                this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
+                                   
+                                    this.resulters = pon.data.data;
+                                                               
+                }).catch((error)=>{
+                    console.log("失败")
+                })
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");

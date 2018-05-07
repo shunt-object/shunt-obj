@@ -5,8 +5,8 @@
             <ul>
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
-                <li class="nextthe" data-to="go3"></li>
-                <li class="nextf" data-to="go4"></li>
+                
+                <li class="nextf" data-to="go3"></li>
             </ul>
       </div>
       <div class="fixed-box">
@@ -23,180 +23,97 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
+                    <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
     </div>
-    <Sec active="1" class="sectb"></Sec>
+    <Sec active="2" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners selectHelp row ">
+            <div class="seleconeMain-banners  row ruset">
                  <div class="container">
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;color:#f8f8f8">如何选择云厂商服务呢？</span></p>
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px">六大场景、两百个指标</h3>
-                                <p style="font-weight:100;text-align:left;font-size:16px">有没有一个第三方的选型工具，专业的告诉我结论？</p>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:16px;color:#ffffff;line-height:26px">想让自己的IT圈和别人不同，也让他人的IT圈因自己不同，</br>
+立即加入CloudBroker²的IT顾问圈，携手为他人、为企业、为行业赋能！</h3>
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="lj">加入我们</span></p>
                         </div>
-                        <div class="col-md-6 col-xs-12 text-left lastimgs"><img src="../../../assets/jjjk.png" alt="" style="float: right;width:100%"></div>
                  </div>
             </div>
             <div class="container naver">            
-                <div class="row">
-                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                <div class="" style="width:100%!important">
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
             <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">产品功能</span>
+                       <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/m.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">终端用户选型</h2>
-                            <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持6大场景和18个小场景，终端用户对公有云厂商进行科学选型和指标分析。</span></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 blurb-cta">
-                            <div class="crounds"><img src="../../../assets/l.png" alt="" class="Yunimg"></div>
-                            <h2 class="h2-18">代理商选型</h2>
-                            <div class="bluar-ccc mt">
-                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供代理商角色，借助6大场景和18个小场景，对公有云选型场景进行综合评估和分析。</br></span></p>
-                            </div>
-                        </div>
-                   
+                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，帮助企业、顾问和服务商之间建立起稳定的合作关系，为三方创建开放的、公平的、专业的第三方服务平台。CloudBroker²同他的成长历程一样，始终尊重宝贵的顾问资源，并与之共同成长，携手建设新型的顾问服务生态圈，共同提供集顾问的第三方培训、咨询和                   技术服务的为一体的全新生态圈。
                     </div>
                  </div>
             </div>
             <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
-            <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
+            <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
                 <div class=" text-left redtitle">
-                    <span class="redLine"></span><span class="redlasttitle">核心优势</span>
+                    <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
                 </div>
-                <div class="col-xs-12 cla text-left">
-                <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/jb.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block;">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">专业化</pstyle>
-                                <p class="mainPds">凝聚数百位云专家的上云选型经验，同时</br>结合了数万个上云应用的数据画像。</p>
-                            </div>
-                        </dd>
-                    </dl>
+                <div class="col-xs-12 cla text-center">
+                     <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
+                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
+                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
+                     <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
+                     <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
                 </div>
-                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/tc.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">公正性</pstyle>
-                                <p class="mainPds">构建独立于云厂商之外的全新科学选型标准，实现公正、</br>公平、透明。</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/66666.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
-                                <p class="mainPds">支持云厂商选型分数、选型指标等维度，</br>直观展现了云厂商选型结果。</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
-                    <dl>
-                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/222222.png" alt="" class="tranImg"></dt>
-                        <dd style="diaplay:inline-block">
-                            <div class="mainpa text-left">
-                                <p style="padding-top:6px;font-size:18px;color:#333333;">场景化</pstyle>
-                                <p class="mainPds">提供了6大场景和18个小场景的优选指标，满足不同行业</br>不同用户的使用场景需求。</p>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                
+                <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
+                    <div class="zhaomu">招募规则备注：</div>
+                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
+                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
+                    <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
                 </div>
             </div>
             </div>
             <div style="width:100%;" id="QuickStart" class="go3">
-                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
+                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:40px" >
                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">快速入门</span>
+                       <span class="redLine"></span><span class="redlasttitle">加入大咖团队</span>
                     </div>
-                    <div style="text-align:left;">
-                        <div class="  ljs lijh" >
-                            <div class="bigFang">
-                                <div class="dv1">注册／登录</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
-                                <div class="dv3">1</div>
-                            </div>
+                    <div class="col-md-6 text-left iuols col-xs-12">
+                        <div><input type="text" placeholder="姓名" v-model="names"></div>
+                        <div><input type="text" placeholder="联系电话" v-model="phones"></div>
+                        <div class="inpusa"><input type="text" placeholder="请输入短信验证码" v-model="dx" ><div class="dvsa" @click="hyDemo">获取验证码</div></div>
+                        <div><input type="text" placeholder="公司名称" v-model="gs"></div>
+
+                        <div>
+                            <select name="" id="" v-model="hys">
+                                <option value="">选择行业</option>
+                                <option :value="ins.id" v-for="ins in resulters">{{ins.name}}</option>
+                            </select>
                         </div>
-                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg1 bigimg"></div>
-                        <div class=" ljs">
-                            <div class="bigFang">
-                                <div class="dv1">云选型／选型标准</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
-                                <div class="dv3">2</div>
+                        
+                        <div class="welecone"><span @click="wle" class="welecone-span">{{haha}}</span></div>
+                        
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="text-left rightDiv">
+                            <div class="rightDiv-child">
+                                <div style=" font-size:14px;color:#000;"><i class="iconfont icon-tishi" style="color:#da121a"></i> 温馨提示：</div>
+                                <div class="rightDiv-child-S" style="margin-top:10px;">点击右面悬浮窗口，进入“Pro. 吴”或拨打 400-828-7308</div>
+                                <div class="rightDiv-child-S">可随时和我们联系。</div>
                             </div>
-                        </div>
-                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg2 bigimg"></div>
-                        <div class=" ljs">
-                            <div class="bigFang">
-                                <div class="dv1">云选型／云选型报告</div>
-                                <div class="dv2" @click="dls">立即体验 > </div>
-                                <div class="dv3">3</div>
-                            </div>
-                        </div>
-                       
-                        <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
-                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/126.png" alt="" style="width:63%;height:63%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
        
-             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
-                <div class="seleconeMain-echarts container broundU erfs">
-                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">时间轴</span>
-                    </div>
-                    <div class="col-md-12 seleconeMain-img" >
-                       <div class="timezhou">
-                            <div class="gh"><div></div></div>
-                            <div class="gq"><div></div></div>
-                            <div class="gw"><div></div></div>
-                            <div class="ge"><div></div></div>
-                            <div class="gr"><div></div></div>
-                            <div class="gt"><div></div></div>
-                            <div class="gy"><div></div></div>
-                            <div class="timeli">2017.10</div>
-                            <div class="timeli1">2017.11</div>
-                            <div class="timeli2">2017.12</div>
-                            <div class="timeli3">2018.01</div>
-                            <div class="timeli4">2018.03</div>
-                            <div class="licheng">云选型V1.0设计开始</div>
-                            <div class="licheng1">云选型V1.0 正式开发</div>
-                            <div class="licheng7">六大场景优选功能上线</div>
-                            <div class="licheng3">支持代理商场景上线</div>
-                            <div class="licheng4">云选型经典版上线</div>
-                       </div>
-                    </div>
-                  
-                </div>
-            </div>
+           
       
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
@@ -215,8 +132,60 @@
 
 </template>
 <style>
+.dvsa:hover{
+    background:#EF131D;
+}
+.welecone-span:hover{
+     background:#EF131D;
+}
+.dvsa:hover{
+    cursor:pointer;
+}
+.ruset{
+    background:url("../../../assets/er-icon/bannert.png") no-repeat;
+    text-align:center;background-size:100% 100%;
+   
+}
 .dv2:hover{
     cursor:pointer;
+}
+
+.welecone span{
+    background:#da121a;
+    border-radius:4px;
+    width:129px;
+    height:32px;
+    line-height:32px;
+    color:#fff;
+    text-align:center;
+    display:inline-block;
+}
+.welecone span:hover{
+    cursor:pointer;
+}
+
+.rightDiv .rightDiv-child{
+    padding:20px 30px;
+}
+.rightDiv-child-S{
+     font-size:14px;
+    color:#999;
+    line-height:30px;
+}
+.zhaomu{
+    font-size:14px;
+    color:#333333;
+}
+.zhaomu1{
+    font-size:12px;
+    color:#333333;
+    line-height:30px;
+}
+.zhaomu2{
+    margin-top:10px;
+}
+.zhaomu1 span{
+    color:#000;
 }
 .naver i{
     color:#c2c2c2;
@@ -255,7 +224,12 @@
     border-radius:100%;
    margin-bottom:10px;
 }
-
+.rightBs ul li a{
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    display:inline-block;
+}
 .rightBs ul{
     position:fixed;
     right:20px;
@@ -290,7 +264,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng7,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
     font-size:14px;
     color:#666666;
 }
@@ -305,10 +279,10 @@
         left:27%;
 }
 
-.licheng7{
+.licheng2{
        position:absolute;
         top:45px;
-        left:44%;
+        left:46%;
 }
 
 .licheng3{
@@ -455,6 +429,32 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
+    .inpusa{
+        position:relative;
+        width:257px;
+    }
+    .dvsa{
+        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
+        right:5px;top:5px;
+    }
+    .el-message-box{
+        width:274px !important;
+    }
+     .positionSpans{
+        font-size:12px;
+      }
+      .positionSpans1{
+          left:3.2% !important;
+      }
+      .positionSpans2{
+          left:33.2% !important;
+      }
+      .positionSpans3{
+        left:58% !important;
+      }
+      .positionSpans4{
+          right:1.6% !important;
+      }
       .ljs{
             width:100%;
             display:inline-block;
@@ -463,34 +463,60 @@
         .imgets{
             display:none;
         }
-        .lijh{
-            margin-left:0px
+        .cla img{
+            width:100%;
         }
-        .naver .row div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        .rightDiv{
+            margin-top:20px;
+            border:1px solid #dedede;
+            border-radius:4px;
+            width:220px;
+            height:220px;   
         }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        .iuols input,.iuols select{
+            margin-bottom:20px;
+            padding-left:20px;
+            border:1px solid #dedede;
+            border-radius:4px;
+            width:257px !important;
+            height:40px !important;
         }
 }
 @media (min-width: 768px) {
+    .inpusa{
+        position:relative;
+        width:407px;
+    }
+    .dvsa{
+        width:100px;height:32px;line-height:32px;text-align:center;background:#da121a;color:#fff;border-radius:4px;position:absolute;
+        right:5px;top:5px;
+    }
+    .positionSpans{
+        font-size:16px;
+    }
+    .color_999{
+        line-height:20px !important;
+    }
       .ljs{
             width:16%;
             display:inline-block;
         }
      .imgets{
           display:inline-block;
-         
      }
-     .imghs img{
-          width:160px !important;
-     }
-    .lijh{
-        margin-left:20px
+     .rightDiv{
+        border:1px solid #dedede;
+        border-radius:4px;
+        width:457px;
+        height:280px;   
+    }
+    .iuols input,.iuols select{
+        margin-bottom:20px;
+        padding-left:20px;
+        border:1px solid #dedede;
+        border-radius:4px;
+        width:407px !important;
+        height:40px !important;
     }
 }
 .mainPds{
@@ -519,9 +545,6 @@
     color:#da121a;
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
-}
-.fixshow a:hover{
-    color:#da121a !important;
 }
 .displayshow{
     display:none;
@@ -570,7 +593,7 @@
 }
 .naver a i{
     font-size:14px;
-    color:#A5A5A5 ;  
+    color:#A5A5A5;  
 }
 .naver a:hover{
     cursor:pointer;
@@ -641,8 +664,8 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lastimgs{
-        margin-top:148px;
+    .lasilasis{
+          margin-top:190px;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -650,12 +673,9 @@
     .imgeys{
         margin-left:20px !important
     }
-    .color_999{
-        line-height:20px !important;
-    }
 }
 @media (max-width: 768px) {
-    .lastimgs{
+    .lasilasis{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -665,6 +685,16 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
+    .naver  div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 }
    .container{
      
@@ -699,9 +729,7 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   .selectHelp{
-        background:#222222;text-align:center;background-size:100% 100%;
-   }
+   
 
    .seleconeMain-mainfir{margin-top:160px;}
    .nfir{margin-bottom:48px}
@@ -891,7 +919,7 @@
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                        $(".fixshow a").hover(function(){
+                       $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
@@ -918,7 +946,7 @@
                         //     $(".sectb").css("display","block");
                           
                         // };
-                        if($(".naver").length==1){
+                         if($(".naver").length==1){
                           
                             var topa = $(".naver").offset().top - $(window).scrollTop();
                              if(topa<0){
@@ -936,26 +964,27 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
-                             if($("#QuickStart").length>0){
-                             if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextthe").css("background","#da121a")
-                             }}
+                            if($("#QuickStart").length>0){
+                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextthe").css("background","#da121a")
+                                }
+                            }
                              if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                 $(".rightBs ul li").css("background","#d8d8d8");
                                   $(".nextf").css("background","#da121a")  
                              }
                         }
                     });
             
-                  
+                    
 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -963,13 +992,16 @@
         data(){
             return{
                  phoneBox:false,
-                 
+                 resulters:[],
+                 names:"",
+                 phones:"",
+                 gs:"",
+                 hys:"",
+                 dx:"",
+                 haha:"欢迎加入我们"
             }
         },
         methods:{
-              dls:function(){
-                this.$router.push({path: '/login'});
-              },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -990,10 +1022,54 @@
             },
             phoneleave:function(){
                     this.phoneBox = false;
+            },
+            hyDemo:function(){
+                 if(this.names==""||this.phones==""){
+                     return false;
+                 }else{
+                     var oas = {
+                            "mobile":this.phones,
+                            "username":this.names,
+                            }
+                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取消息类型
+                                                                
+                                   
+                                }).catch((error)=>{
+                    })
+                 }
+            },
+            wle:function(){
+               if(this.names==""||this.phones==""||this.gs==""||this.hys==""||this.dx==""){
+                   return false;
+               }else{
+                   var obj = {
+                        "company":this.gs,
+                        "industryId":this.hys,
+                        "name":this.names,
+                        "tel": this.phones,
+                        "type": 1
+                   }
+                    let strObj = JSON.stringify(obj);
+                    this.$this.post('/broker/portal/join/us/'+this.dx,strObj).then((pon)=>{  //获取消息类型
+                                //this.scsss = pon.data.msg
+                                        this.$alert('留言成功，我们会尽快与您联系。', '温馨提示', {
+                                        confirmButtonText: '我知道了',
+                                        showClose:false,
+                                        confirmButtonClass:'lay-btn-red',
+                                        type: 'warning'
+                                    });
+                                    this.hys = "";
+                                    this.names = "";
+                                    this.phones = "";
+                                    this.gs = "";
+                                    this.dx = "";
+                                }).catch((error)=>{
+                    })
+               }
             }
         },
         mounted:function(){
-                          $(".rightBs ul li").click(function(e){
+               $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
                                console.log(s)
@@ -1004,11 +1080,20 @@
                              $('html,body').animate({scrollTop:$('.'+id).offset().top+90}, 800);
                             
                          
-                         })
-                           $(".scrollUp").click(function(){
-                                $('html ,body').animate({scrollTop: 0}, 300);
-                                return false;
-                            });
+                })
+                $(".scrollUp").click(function(){
+                        $('html ,body').animate({scrollTop: 0}, 300);
+                        return false;
+                });
+
+                this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
+                                   
+                                    this.resulters = pon.data.data;
+                                                               
+                }).catch((error)=>{
+                    console.log("失败")
+                })
+            
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

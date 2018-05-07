@@ -1,7 +1,14 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-   
+      <div class="rightBs">
+            <ul>
+                <li class="nexton" data-to="go1"></li>
+                <li class="nextsec" data-to="go2"></li>
+                <li class="nextthe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
+            </ul>
+      </div>
       <div class="fixed-box">
         <ul class="fixed-ul">
             <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
@@ -14,38 +21,183 @@
         
         <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
-
-    <Sec active="3" class="sectb"></Sec>
+    <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
+            <div class=" fixshow container">
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+            </div>
+    </div>
+    <Sec active="1" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row rusetsd">
-                 <div class="container" >
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
+            <div class="seleconeMain-banners selectHelp row ">
+                 <div class="container">
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-6" style="padding-left:50px">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#f8f8f8">有高效购买性价比高的云资源方式吗？</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">这里有温度，有专业，有多元化，是云服务的集结号！</h3>
+                                <h3 class="selecone-pfir" style="font-weight:100;text-align:left;font-size:16px;line-height:26px;">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</h3>
+                               
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="" ></span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:0px;text-align:left;padding:0 !important"><span class="spanTy" @click="lj">立即注册</span><span class="panTy" @click="ctaCloundCsbs()">DEMO体验</span></p>
                         </div>
+                        <div class="col-md-6 col-xs-12 text-left lastimgs"><img src="../../../assets/er-icon/ii3@1x (1).png" alt="" style="float: right;width:85%"></div>
                  </div>
             </div>
-            <div>
-                    <div class="container" style="margin-bottom:140px">
-                        <div class="group-money">社群价值</div>
-                        <div style="text-align:left;text-indent:2em;line-height:30px;margin-bottom:10px;">CloudBroker²已开通微信公众号，是一个以云迁移和云运维话题为核心的公益交流平台，能够提供方便的上云咨询，并为广大IT朋友分享云服务的经验和技巧。期待大家的关注！</div>
-                        <div style="text-align:left;text-indent:2em;line-height:30px;">CloudBroker²团队在云服务管理领域有10多年的沉淀，公司核心产品CSB²在今年3月推出后深受好评，我们将再接再厉，与您共同共同成长，携手设“MSP+”，共同打造“云服务新型生态圈”。</div>
-                        <div  style="margin-top:90px;">
-                            <div class=" CsbSao" style="margin:0 auto;">
-                                <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/weichat.png" alt=""></div>
-                                <div class="alifloat">
-                                    <div class="text-left">
-                                        <div>CSB²社群</div>
-                                        <div>二维码扫描加入</div>
-                                    </div>
-                                </div>
+            <div class="container naver">            
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                </div>
+            </div>
+            <div class="nav-bottom-kk"></div>
+            <div id="ProductFeatures" class="go1">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">产品功能</span>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-xs-12 col-sm-4 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/bs.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">意向订单统计分析</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">支持公有云厂商、购买实例规格和数量等</br>多个维度展现意向订单数据。</span></p>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-4 blurb-cta">
+                            <div class="crounds"><img src="../../../assets/as.png" alt="" class="Yunimg"></div>
+                            <h2 class="h2-18">已支付订单</h2>
+                            <div class="bluar-ccc mt">
+                                <p class="text-center"><span class="color_999 text-center" style="font-size:14px;color:#666666;">提供已购买的订单列表，    </br>                                 方便用户记录和做综合统计。</br></span></p>
+                            </div>
+                        </div>
+                   
                     </div>
+                 </div>
             </div>
+            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
+            <div class="container  erfs" style="padding-top:20px;padding-bottom:20px">
+                <div class=" text-left redtitle">
+                    <span class="redLine"></span><span class="redlasttitle">核心优势</span>
+                </div>
+                <div class="col-xs-12 cla text-left">
+                <div class="col-xs-12 col-sm-6 claes " style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block;">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">灵活化</pstyle>
+                                <p class="mainPds">根据自身需求，企业用户随意修改意向订单实例范围。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/44444.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">图表联动</pstyle>
+                                <p class="mainPds">快速的、直观的、交互式的和多维度的展现订单内容。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/555.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">简单化</pstyle>
+                                <p class="mainPds">帮助企业用户从复杂的购买云实例和服务的工作中解决出来，                可以更加关注业务与的融合和管控。</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6 claes" style="padding-left:1px;">
+                    <dl>
+                        <dt style="float:left;margin-right:20px;margin-left:10px;"><img src="../../../assets/er-icon/22.png" alt="" class="tranImg"></dt>
+                        <dd style="diaplay:inline-block">
+                            <div class="mainpa text-left">
+                                <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
+                                <p class="mainPds">用户随时随地了解已经选择的意向购买实例，轻松判断是否需要下单购买？</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                
+                </div>
+            </div>
+            </div>
+            <div style="width:100%;" id="QuickStart" class="go3">
+                <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:20px" >
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">快速入门</span>
+                    </div>
+                    <div style="text-align:left;">
+                        <div class="  ljs lijh" >
+                            <div class="bigFang">
+                                <div class="dv1">注册／登录</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">1</div>
+                            </div>
+                        </div>
+                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg1 bigimg"></div>
+                        <div class=" ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云买手／意向订单分析</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">2</div>
+                            </div>
+                        </div>
+                        <div class="imgets imghs"><img src="../../../assets/line-long.png" alt="" class="bigimg2 bigimg"></div>
+                        <div class=" ljs">
+                            <div class="bigFang">
+                                <div class="dv1">云买手／已支付订单</div>
+                                <div class="dv2" @click="dls">立即体验 > </div>
+                                <div class="dv3">3</div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-12 seleconeMain-img" style="margin-top:72px;">
+                            <div class="col-md-12 col-xs-12 text-center"><img src="../../../assets/er-icon/aqietu.png" alt="" style="width:63%;height:63%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
+                <div class="seleconeMain-echarts container broundU erfs">
+                     <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">时间轴</span>
+                    </div>
+                    <div class="col-md-12 seleconeMain-img" >
+                       <div class="timezhou">
+                            <div class="gh"><div></div></div>
+                            <div class="gq"><div></div></div>
+                            <div class="gw"><div></div></div>
+                            <div class="ge"><div></div></div>
+                            <div class="gr"><div></div></div>
+                            <div class="gt"><div></div></div>
+                            <div class="gy"><div></div></div>
+                            <div class="timeli">2017.12</div>
+                            <div class="timeli1">2017.12</div>
+                            <div class="timeli2">2017.12</div>
+                            <div class="timeli3">2018.01</div>
+                            <div class="timeli4">2018.04</div>
+                            <div class="licheng">云买手V1.0设计开始</div>
+                            <div class="licheng1">云买手V1.0真实开发</div>
+                            <div class="licheng7">购物车功能上线</div>
+                            <div class="l2">云买手图表联动功能上线</div>
+                            <div class="licheng4">云买手订单分类功能上线</div>
+                       </div>
+                    </div>
+                  
+                </div>
+            </div>
+      
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -59,69 +211,12 @@
     </div>
     <Sex></Sex>
 </div>
+
+
 </template>
 <style>
 .dv2:hover{
     cursor:pointer;
-}
-.alifloat{
-   display:inline-block;
-   margin-left:-66px;
-   line-height:30px;
-   margin-top:40px;
-   font-size:18px;
-   color:#333333;
-
-}
-.group-money{
-    font-size:24px;
-    color:#333333;
-    text-align:center;
-    margin:40px 0 30px 0;
-}
-
-.rusetsd{
-    background:url("../../../assets/er-icon/sv.png") no-repeat;
-    text-align:center;background-size:100% 100%;
-   
-}
-
-.welecone span{
-    background:#da121a;
-    border-radius:4px;
-    width:129px;
-    height:32px;
-    line-height:32px;
-    color:#fff;
-    text-align:center;
-    display:inline-block;
-}
-.welecone span:hover{
-    cursor:pointer;
-}
-
-.rightDiv .rightDiv-child{
-    padding:20px 30px;
-}
-.rightDiv-child-S{
-     font-size:14px;
-    color:#999;
-    line-height:30px;
-}
-.zhaomu{
-    font-size:14px;
-    color:#333333;
-}
-.zhaomu1{
-    font-size:12px;
-    color:#333333;
-    line-height:30px;
-}
-.zhaomu2{
-    margin-top:10px;
-}
-.zhaomu1 span{
-    color:#000;
 }
 .naver i{
     color:#c2c2c2;
@@ -160,12 +255,7 @@
     border-radius:100%;
    margin-bottom:10px;
 }
-.rightBs ul li a{
-    width:10px;
-    height:10px;
-    border-radius:100%;
-    display:inline-block;
-}
+
 .rightBs ul{
     position:fixed;
     right:20px;
@@ -200,7 +290,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.l2,.licheng7,.licheng4{
     font-size:14px;
     color:#666666;
 }
@@ -215,17 +305,18 @@
         left:27%;
 }
 
-.licheng2{
+.licheng7{
        position:absolute;
         top:45px;
-        left:46%;
+        left:44%;
 }
 
-.licheng3{
+.l2{
        position:absolute;
         top:45px;
         left:61%;
 }
+
 .licheng4{
        position:absolute;
         top:45px;
@@ -365,27 +456,6 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
-    .menospp{
-        line-height:40px;
-    }
-    .tuoguan{
-        padding-left:0px;
-    }
-     .positionSpans{
-        font-size:12px;
-      }
-      .positionSpans1{
-          left:3.2% !important;
-      }
-      .positionSpans2{
-          left:33.2% !important;
-      }
-      .positionSpans3{
-        left:58% !important;
-      }
-      .positionSpans4{
-          right:1.6% !important;
-      }
       .ljs{
             width:100%;
             display:inline-block;
@@ -394,69 +464,34 @@
         .imgets{
             display:none;
         }
-        .cla img{
-            width:100%;
+        .lijh{
+            margin-left:0px
         }
-        .rightDiv{
-            margin-top:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:220px;
-            height:220px;   
+        .naver .row div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
-        .iuols input,.iuols select{
-            margin-bottom:20px;
-            padding-left:20px;
-            border:1px solid #dedede;
-            border-radius:4px;
-            width:207px;
-            height:40px;
+        .fixshow div{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 }
 @media (min-width: 768px) {
-    .CsbSao{
-        border:1px solid #979797;
-        width:545px;
-        height:184px;
-        padding:20px 10px ;
-        
-    }
-    .tuoguan{
-        padding-left:100px;
-    }
-    .color_999{
-        line-height:20px !important;
-    }
-    .menospp{
-        line-height:30px;
-    }
-    .CsbSao img{
-        width:150px;
-        height:150px;
-    }
-    .positionSpans{
-        font-size:16px;
-    }
       .ljs{
             width:16%;
             display:inline-block;
         }
      .imgets{
           display:inline-block;
+         
      }
-     .rightDiv{
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:457px;
-        height:220px;   
-    }
-    .iuols input,.iuols select{
-        margin-bottom:20px;
-        padding-left:20px;
-        border:1px solid #dedede;
-        border-radius:4px;
-        width:407px;
-        height:40px;
+     .imghs img{
+          width:160px !important;
+     }
+    .lijh{
+        margin-left:20px
     }
 }
 .mainPds{
@@ -485,6 +520,9 @@
     color:#da121a;
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
+}
+.fixshow a:hover{
+    color:#da121a !important;
 }
 .displayshow{
     display:none;
@@ -604,8 +642,11 @@
     position:relative;
 }
 @media (min-width: 768px) {
-    .lasilasis{
-          margin-top:190px;
+    .lastimgs{
+        margin-top:143px;
+    }
+    .color_999{
+        line-height:20px !important;
     }
     .seleconeMain-mainfir{
         margin-bottom:50px;
@@ -615,7 +656,7 @@
     }
 }
 @media (max-width: 768px) {
-    .lasilasis{
+    .lastimgs{
         margin-top:10px;
         margin-bottom:20px;
     }
@@ -625,16 +666,6 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver .row div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .fixshow div{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
 }
    .container{
      
@@ -669,7 +700,9 @@
        margin-top:5px;
    }
    *{margin:0px;padding:0px;}
-   
+   .selectHelp{
+        background:#222222;text-align:center;background-size:100% 100%;
+   }
 
    .seleconeMain-mainfir{margin-top:160px;}
    .nfir{margin-bottom:48px}
@@ -854,21 +887,7 @@
 </style>
 <script>
     $(document).ready(function(){ 
-                        // $(".rightBs ul li").find("a").click(function(){
-                        //     // $(".rightBs ul li").css("background","#d8d8d8");
-                        //     // $(this).css("background","#da121a");
-                        //     alert(1)
-                        // });
-                       $(".fixshow a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
-                         $(".naver a").hover(function(){
-                                $(this).find("i").css("color","#da121a")
-                        },function(){
-                                $(this).find("i").css("color","#c2c2c2")
-                        })
+                        
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -879,24 +898,45 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        // if($(this).scrollTop()>80){
-                        //     $(".sectb").css("display","none");
-                        // };
-                        // if($(this).scrollTop()<80){
-                        //     $(".sectb").css("display","block");
+                       
+                        if($(".naver").length==1){
                           
-                        // };
-                     
+                            var topa = $(".naver").offset().top - $(window).scrollTop();
+                             if(topa<0){
+                                 $(".displayshow").css("display","block") 
+                             }else if(topa>0){
+                                  $(".displayshow").css("display","none") 
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                             }
+                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
+                                $(".rightBs ul li").css("background","#d8d8d8") 
+                                $(".nexton").css("background","#da121a")
+                             }
+                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextsec").css("background","#da121a")
+                             }
+                             if($("#QuickStart").length>0){
+                             if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
+                                  $(".rightBs ul li").css("background","#d8d8d8") 
+                                    $(".nextthe").css("background","#da121a")
+                             }}
+                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
+                                 $(".rightBs ul li").css("background","#d8d8d8") 
+                                  $(".nextf").css("background","#da121a")  
+                             }
+                        }
                     });
             
-                   
+                  
 
 
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -904,10 +944,13 @@
         data(){
             return{
                  phoneBox:false,
-               
+                 
             }
         },
         methods:{
+            dls:function(){
+                 this.$router.push({path: '/login'});
+            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -919,8 +962,8 @@
             },
              xiaowei:function(){
                 // var that = this; 
-                // var win = window.open("#/CustomerService");
-                 var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+                 //var win = window.open("#/CustomerService");
+                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
                //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
             },
             phoneEnter:function(){
@@ -928,11 +971,10 @@
             },
             phoneleave:function(){
                     this.phoneBox = false;
-            },
-          
+            }
         },
         mounted:function(){
-               $(".rightBs ul li").click(function(e){
+                          $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
                                console.log(s)
@@ -943,25 +985,11 @@
                              $('html,body').animate({scrollTop:$('.'+id).offset().top+90}, 800);
                             
                          
-                })
-                 $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                });
-
-               
-                        //   $(".rightBs ul li").click(function(e){
-                        //      var target = e.target;
-                        //      var id = $(target).data("to");
-                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
-                        //      $(".rightBs ul li").css("background","#d8d8d8");
-                        //      $(this).next().css("background","#da121a")
-                        //     //  if($(this).index()==0){
-                        //     //      var a = '<a href="#cg"></a>';
-                        //     //      $(this).append(a)
-                        //     //       $(this).find("a").trigger("click");
-                        //     //  }
-                        //  })
+                         })
+                           $(".scrollUp").click(function(){
+                                $('html ,body').animate({scrollTop: 0}, 300);
+                                return false;
+                            });
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

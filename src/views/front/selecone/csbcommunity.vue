@@ -1,14 +1,7 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-      <div class="rightBs">
-            <ul>
-                <li class="nexton" data-to="go1"></li>
-                <li class="nextsec" data-to="go2"></li>
-                
-                <li class="nextf" data-to="go3"></li>
-            </ul>
-      </div>
+   
       <div class="fixed-box">
         <ul class="fixed-ul">
             <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
@@ -21,101 +14,41 @@
         
         <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
-    <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
-            <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
-                    <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
-            </div>
-    </div>
-    <Sec active="2" class="sectb"></Sec>
+
+    <Sec active="3" class="sectb"></Sec>
     <div class="selecMain ">
-            <div class="seleconeMain-banners  row rusety">
-                 <div class="container">
-                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能生态合作伙伴 助力行业数字化创新</span></p>
+            <div class="seleconeMain-banners  row rusetsd">
+                 <div class="container" >
+                        <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">赋能，聚力，生态，共赢</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:16px;color:#ffffff;line-height:26px">立即加入CloudBroker²渠道合作伙伴体系，为客户构建基于全流程一站式云的服务，</br>
-                                        携手打造新型云服务模式，聚力共赢，共建生态
-                                </h3>
+                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">这里有温度，有专业，有多元化，是云服务的集结号！</h3>
                             </div>
-                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy" @click="lj">加入我们</span></p>
+                             <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="" ></span></p>
                         </div>
                  </div>
             </div>
-            <div class="container naver">            
-                <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 合作和伙伴</a></div>
-                </div>
+            <div>
+                    <div class="container" style="margin-bottom:140px">
+                        <div class="group-money">社群价值</div>
+                        <div style="text-align:left;text-indent:2em;line-height:30px;margin-bottom:10px;">CloudBroker²已开通微信公众号，是一个以云迁移和云运维话题为核心的公益交流平台，能够提供方便的上云咨询，并为广大IT朋友分享云服务的经验和技巧。期待大家的关注！</div>
+                        <div style="text-align:left;text-indent:2em;line-height:30px;">CloudBroker²团队在云服务管理领域有10多年的沉淀，公司核心产品CSB²在今年3月推出后深受好评，我们将再接再厉，与您共同共同成长，携手设“MSP+”，共同打造“云服务新型生态圈”。</div>
+                        <div  style="margin-top:90px;">
+                            <div class=" CsbSao" style="margin:0 auto;">
+                                <div class=" text-center tuoguan" style="float:left;"><img src="../../../assets/weichat.png" alt=""></div>
+                                <div class="alifloat">
+                                    <div class="text-left">
+                                        <div>CSB²社群</div>
+                                        <div>二维码扫描加入</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <div class="nav-bottom-kk"></div>
-            <div id="ProductFeatures" class="go1">
-                <div class="container erfs whyContainer" style="margin-bottom:50px;">
-                    <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
-                    </div>
-                    <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，与客户共同创造协同价值链，现已形成了众多的大型品牌合伙伙伴，树立了行业的品牌形象。同时，CSB²重视建立长期的合作关系，与合作伙伴紧密合作开拓服务管理软件市场，通过针对性地创新务实的解决方案， 为客户带来巨大利益，同时贯穿整个产品生命周期的协同合作，不断提升客户满意度。CSB²始终珍惜服务商资源，与合作伙伴共同成长，携手建设“MSP+”，共同打造“云服务生态圈”。
-                    </div>
-                 </div>
-            </div>
-            <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
-            <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
-                <div class=" text-left redtitle">
-                    <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
-                </div>
-                <div class="col-xs-12 cla text-center">
-                     <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
-                     <span style="position:absolute;left:7.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans1">在线咨询</span>
-                     <span style="position:absolute;left:34%;bottom:-20px;color:#333333;" class="positionSpans positionSpans2">准备材料</span>
-                     <span style="position:absolute;left:61.2%;bottom:-20px;color:#333333;" class="positionSpans positionSpans3">线下洽谈</span>
-                     <span style="position:absolute;right:5.6%;bottom:-20px;color:#333333;" class="positionSpans positionSpans4">最终通过</span>
-                </div>
-                <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
-                    <div class="zhaomu">招募规则备注：</div>
-                    <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
-                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
-                    <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
-                </div>
-            </div>
-            </div>
-            <div style="width:100%;" id="QuickStart" class="go3" >
-                <div class="seleconeMain-shrts container " style="padding-top:20px;padding-bottom:40px;margin:0 auto;" >
-                    <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">合作伙伴</span>
-                    </div>
-                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-                        <img src="../../../assets/Group 30.png" alt=""  class="jz-img">
-                        <img src="../../../assets/Group 43.png" alt=""  class="jz-img">
-                    </div>
-                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-                        <img src="../../../assets/Group 34.png" alt=""  class="jz-img">
-                        <img src="../../../assets/Group 41.png" alt=""  class="jz-img">
-                    </div>
-                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-                        <img src="../../../assets/Group 38.png" alt=""  class="jz-img">
-                        <img src="../../../assets/Group-45-new.png" alt=""  class="jz-img">
-                    </div>
-                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-                        <img src="../../../assets/Group 39.png" alt=""  class="jz-img">
-                        <img src="../../../assets/Group-36-new.png" alt=""  class="jz-img">
-                    </div>
-                    <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-                        <img src="../../../assets/ali.png" alt="" class="jz-img">
-                        <!--<img src="../../assets/Group44.png" alt=""  class="jz-img">-->
-                        <img src="../../../assets/Group44-new.png" alt=""  class="jz-img">
-                    </div>
-                   
-                </div>
-            </div>
-       
-           
-      
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container text-left" style="width:60%;padding-left:30px;">
+                    <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
                             <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
@@ -126,33 +59,33 @@
     </div>
     <Sex></Sex>
 </div>
-
-
 </template>
 <style>
 .dv2:hover{
     cursor:pointer;
 }
-.rusety{
-    background:url("../../../assets/er-icon/bannerts.png") no-repeat;
+.alifloat{
+   display:inline-block;
+   margin-left:-66px;
+   line-height:30px;
+   margin-top:40px;
+   font-size:18px;
+   color:#333333;
+
+}
+.group-money{
+    font-size:24px;
+    color:#333333;
+    text-align:center;
+    margin:40px 0 30px 0;
+}
+
+.rusetsd{
+    background:url("../../../assets/er-icon/sv.png") no-repeat;
     text-align:center;background-size:100% 100%;
    
 }
-@media (min-width: 768px){
-    .jzfei{
-        padding-right: 10px;
-        margin-left: 26px;
-    }
-    .color_999{
-        line-height:20px !important;
-    }
-}
-@media (max-width: 768px){
-    .jzfei{
-        padding-right: 10px;
-        margin-left: 0px;
-    }
-}
+
 .welecone span{
     background:#da121a;
     border-radius:4px;
@@ -432,9 +365,11 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
-
-    .el-message-box{
-        width:274px !important;
+    .menospp{
+        line-height:40px;
+    }
+    .tuoguan{
+        padding-left:0px;
     }
      .positionSpans{
         font-size:12px;
@@ -479,6 +414,26 @@
         }
 }
 @media (min-width: 768px) {
+    .CsbSao{
+        border:1px solid #979797;
+        width:545px;
+        height:184px;
+        padding:20px 10px ;
+        
+    }
+    .tuoguan{
+        padding-left:100px;
+    }
+    .color_999{
+        line-height:20px !important;
+    }
+    .menospp{
+        line-height:30px;
+    }
+    .CsbSao img{
+        width:150px;
+        height:150px;
+    }
     .positionSpans{
         font-size:16px;
     }
@@ -525,7 +480,7 @@
     border-bottom:1px solid #da121a;
     padding-bottom:20px;
 }
-.fixshow a i:hover{
+.fixshow i:hover{
     font-size:14px;
     color:#da121a;
     border-bottom:1px solid #da121a;
@@ -580,21 +535,15 @@
     font-size:14px;
     color:#A5A5A5;  
 }
-.naver a i:hover{
+.naver a:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.naver div a:hover{
+.naver a i:hover{
     cursor:pointer;
-    color:#da121a !important;
-    display:inline-block;
-    border-bottom:1px solid #da121a;
-}
-.naver div a i:hover{
-    cursor:pointer;
-    color:#da121a !important;
+    color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
@@ -676,7 +625,7 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
-    .naver  div{
+    .naver .row div{
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -937,35 +886,7 @@
                         //     $(".sectb").css("display","block");
                           
                         // };
-                         if($(".naver").length==1){
-                          
-                            var topa = $(".naver").offset().top - $(window).scrollTop();
-                             if(topa<0){
-                                 $(".displayshow").css("display","block") 
-                             }else if(topa>0){
-                                  $(".displayshow").css("display","none") 
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                             }
-                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
-                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
-                                $(".rightBs ul li").css("background","#d8d8d8") 
-                                $(".nexton").css("background","#da121a")
-                             }
-                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextsec").css("background","#da121a")
-                             }
-                            if($("#QuickStart").length>0){
-                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                    $(".rightBs ul li").css("background","#d8d8d8") 
-                                        $(".nextthe").css("background","#da121a")
-                                }
-                            }
-                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8");
-                                  $(".nextf").css("background","#da121a")  
-                             }
-                        }
+                     
                     });
             
                    
@@ -975,7 +896,7 @@
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'SleconeSecond',
+         name: 'cloudplanning',
         components:{
             Sec,
             Sex
@@ -983,11 +904,7 @@
         data(){
             return{
                  phoneBox:false,
-                 resulters:[],
-                 names:"",
-                 phones:"",
-                 gs:"",
-                 hys:""
+               
             }
         },
         methods:{
@@ -1012,33 +929,7 @@
             phoneleave:function(){
                     this.phoneBox = false;
             },
-            wle:function(){
-               if(this.names==""||this.phones==""||this.gs==""||this.hys==""){
-                   return false;
-               }else{
-                   var obj = {
-                        "company":this.gs,
-                        "industryId":this.hys,
-                        "name":this.names,
-                        "tel": this.phones,
-                        "type": 1
-                   }
-                    this.$this.post('/broker/portal/join/us',obj).then((pon)=>{  //获取消息类型
-                                //this.scsss = pon.data.msg
-                                        this.$alert('留言成功，我们会尽快与您联系', '温馨提示', {
-                                        confirmButtonText: '我知道了',
-                                        showClose:false,
-                                        confirmButtonClass:'lay-btn-red',
-                                        type: 'warning'
-                                    });
-                                    this.hys = "";
-                                    this.names = "";
-                                    this.phones = "";
-                                    this.gs = "";
-                                }).catch((error)=>{
-                    })
-               }
-            }
+          
         },
         mounted:function(){
                $(".rightBs ul li").click(function(e){
@@ -1058,13 +949,7 @@
                         return false;
                 });
 
-                this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
-                                   
-                                    this.resulters = pon.data.data;
-                                                               
-                }).catch((error)=>{
-                    console.log("失败")
-                })
+               
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");
