@@ -88,6 +88,7 @@
                     <div class="col-md-6 text-left iuols col-xs-12">
                         <div><input type="text" placeholder="姓名" v-model="names"></div>
                         <div><input type="text" placeholder="联系电话" v-model="phones"></div>
+                        <div class="inpusa"><input type="text" placeholder="请输入短信验证码" v-model="dx" ><div class="dvsa" @click="hyDemo">获取验证码</div></div>
                         <div><input type="text" placeholder="公司名称" v-model="gs"></div>
 
                         <div>
@@ -96,7 +97,7 @@
                                 <option :value="ins.id" v-for="ins in resulters">{{ins.name}}</option>
                             </select>
                         </div>
-                        <div class="inpusa"><input type="text" placeholder="请输入短信验证码" v-model="dx" ><div class="dvsa" @click="hyDemo">获取验证码</div></div>
+                        
                         <div class="welecone"><span @click="wle">{{haha}}</span></div>
                         
                     </div>
@@ -1021,7 +1022,7 @@
                     this.phoneBox = false;
             },
             hyDemo:function(){
-                 if(this.names==""||this.phones==""||this.gs==""||this.hys==""){
+                 if(this.names==""||this.phones==""){
                      return false;
                  }else{
                      var oas = {
