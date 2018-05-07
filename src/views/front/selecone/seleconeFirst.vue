@@ -948,10 +948,7 @@
                         }
                     });
             
-                    $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                    });
+                  
 
 
               })
@@ -1008,6 +1005,10 @@
                             
                          
                          })
+                           $(".scrollUp").click(function(){
+                                $('html ,body').animate({scrollTop: 0}, 300);
+                                return false;
+                            });
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

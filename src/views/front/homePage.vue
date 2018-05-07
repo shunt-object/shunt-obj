@@ -510,7 +510,7 @@ export default {
     
             $(".scrollUp").click(function(){
                 $('html ,body').animate({scrollTop: 0}, 300);
-                return false;
+               
             });
         });
 
@@ -705,18 +705,7 @@ export default {
           
     },
     methods: {
-        // cloudertye:function(){
-            
-        //             // window.open("#/wei",'','width=600,height=600')    
-        //               var adw = document.getElementById("rys")
-        //               rongClouds(adw)
-              
-               
-
-
-
-
-        // },
+    
         ctaCloundCsbs:function(){
             window.open("http://demo.csb-china.com/#/consolePage")
              //this.$router.push({path: '/registerOne'});

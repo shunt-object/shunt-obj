@@ -98,7 +98,7 @@
                             </select>
                         </div>
                         
-                        <div class="welecone"><span @click="wle">{{haha}}</span></div>
+                        <div class="welecone"><span @click="wle" class="welecone-span">{{haha}}</span></div>
                         
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -132,7 +132,12 @@
 
 </template>
 <style>
-
+.dvsa:hover{
+    background:#EF131D;
+}
+.welecone-span:hover{
+     background:#EF131D;
+}
 .dvsa:hover{
     cursor:pointer;
 }
@@ -972,10 +977,7 @@
                         }
                     });
             
-                    $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                    });
+                    
 
 
               })
@@ -1079,6 +1081,10 @@
                             
                          
                 })
+                $(".scrollUp").click(function(){
+                        $('html ,body').animate({scrollTop: 0}, 300);
+                        return false;
+                });
 
                 this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
                                    

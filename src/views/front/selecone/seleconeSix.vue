@@ -1002,10 +1002,7 @@
                         }
                     });
             
-                    $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                    });
+                   
 
 
               })
@@ -1059,6 +1056,10 @@
                             
                          
                          })
+                          $(".scrollUp").click(function(){
+                                $('html ,body').animate({scrollTop: 0}, 300);
+                                return false;
+                            });
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");
