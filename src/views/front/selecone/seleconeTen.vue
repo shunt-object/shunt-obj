@@ -1087,18 +1087,7 @@
                 }).catch((error)=>{
                     console.log("失败")
                 })
-                        //   $(".rightBs ul li").click(function(e){
-                        //      var target = e.target;
-                        //      var id = $(target).data("to");
-                        //      $('html,body').animate({scrollTop:$('.'+id).offset().top}, 800);
-                        //      $(".rightBs ul li").css("background","#d8d8d8");
-                        //      $(this).next().css("background","#da121a")
-                        //     //  if($(this).index()==0){
-                        //     //      var a = '<a href="#cg"></a>';
-                        //     //      $(this).append(a)
-                        //     //       $(this).find("a").trigger("click");
-                        //     //  }
-                        //  })
+            
         }
     //     mounted:function(){
     //         $(document).ready(function(){ 

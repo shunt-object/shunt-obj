@@ -181,7 +181,7 @@
                             <div class="licheng1">Prof. 吴客服功能上线</div>
                             <div class="licheng2">智慧分析功能上线</div>
                             <div class="licheng3">数据洞察功能上线</div>
-                            <div class="licheng4">预算收益分析功能上线</div>
+                            <div class="l4">预算收益分析功能上线</div>
                        </div>
                     </div>
                   
@@ -285,7 +285,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.licheng4,.l4{
     font-size:14px;
     color:#666666;
 }
@@ -311,10 +311,11 @@
         top:45px;
         left:62.5%;
 }
-.licheng4{
+.l4{
        position:absolute;
         top:45px;
         left:80%;
+        font-size:13px !important
 }
 .gh{
     width:20px;height:20px;

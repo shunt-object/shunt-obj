@@ -469,7 +469,7 @@
                                         <td class="text-center"><i class="iconfont icon-duigou"></i></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">35、收集，汇总和存储性能数据 (标准的性能数据管理)</td>
+                                        <td>35、收集，汇总和存储性能数据 (标准的性能数据管理)</td>
                                         <td class="text-center"></td>
                                         <td class="text-center"></td>
                                         <td class="text-center"><i class="iconfont icon-duigou"></i></td>
