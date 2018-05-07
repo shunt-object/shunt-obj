@@ -190,7 +190,7 @@
                             <div class="licheng">云买手V1.0设计开始</div>
                             <div class="licheng1">云买手V1.0真实开发</div>
                             <div class="licheng7">购物车功能上线</div>
-                            <div class="licheng3">云买手图表联动功能上线</div>
+                            <div class="l2">云买手图表联动功能上线</div>
                             <div class="licheng4">云买手订单分类功能上线</div>
                        </div>
                     </div>
@@ -290,7 +290,7 @@
     top:-45px;
     left:83%;
 }
-.licheng,.licheng1,.licheng2,.licheng3,.licheng7,.licheng4{
+.licheng,.licheng1,.licheng2,.licheng3,.l2,.licheng7,.licheng4{
     font-size:14px;
     color:#666666;
 }
@@ -311,11 +311,12 @@
         left:44%;
 }
 
-.licheng3{
+.l2{
        position:absolute;
         top:45px;
         left:61%;
 }
+
 .licheng4{
        position:absolute;
         top:45px;
@@ -964,8 +965,8 @@
             },
              xiaowei:function(){
                 // var that = this; 
-                 var win = window.open("#/CustomerService");
-                // var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+                 //var win = window.open("#/CustomerService");
+                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
                //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
             },
             phoneEnter:function(){
