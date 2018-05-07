@@ -26,30 +26,6 @@
                             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
       <div class="carousel-inner">
-        <!--<div class="item active" style="width:100%;min-width:100%;height:100%;">
-          <div class=" lunmain">
-            <div class="container" style="position:relative">
-                <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
-              <div class="col-md-12 lun-le animated rollIn">
-                <h1 style="font-size:26px !important;font-weight:100">CloudBroker²以“云”为核心，</h1>
-                <h1 style="font-size:26px !important;font-weight:100">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item" style="width:100%;min-width:100%;height:100%;">
-          <div class=" lunmain lun2">
-            <div class="container" style="position:relative">
-                <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
-              <div class="col-md-12 lun-le animated rollIn">
-                <h1 style="font-size:26px !important;font-weight:100">CloudBroker²以“云”为核心，</h1>
-                <h1 style="font-size:26px !important;font-weight:100">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
-              </div>
-            </div>
-          </div>
-        </div>-->
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
                     <div class="container"  style="position:relative">
@@ -422,17 +398,6 @@ export default {
         
         
         $(document).ready(function(){ 
-                // $("#xiaowei").click(function(){
-                //      var adw = document.getElementById("rys")
-                //       rongClouds(adw)
-                //     //   $(".rongcloud-Messages-date").hide();
-                // })    
-                    //  if($("#itms").hasClass("active")){
-                    //     alert(1)
-                    // }else{
-                    //     alert(2)
-                    // }
-               
                      $.fn.extend({
                         animateCss: function (animationName) {
                             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
@@ -792,6 +757,13 @@ export default {
 /**{
    overflow:hidden
 }*/
+               
+.carousel-indicators .active{
+    width:32px !important;
+   transition:width 1s !important;
+-moz-transition:width 1s !important; /* Firefox 4 */
+-webkit-transition:width 1s !important; /* Safari and Chrome */ 
+}
 .obj-clear{
     width:36px;
     height:2px;
