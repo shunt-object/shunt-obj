@@ -1,12 +1,12 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-      <div class="rightBs">
+      <div class="rightBs hideens">
             <ul>
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
                 <li class="nextthe" data-to="go3"></li>
-                <li class="nextf" data-to="go4"></li>
+                <li class="nextf  hideens" data-to="go4"></li>
             </ul>
       </div>
       <div class="fixed-box">
@@ -26,7 +26,7 @@
                     <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3 hideens"><a href="#TheTimeline"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
             </div>
     </div>
     <Sec active="1" class="sectb"></Sec>
@@ -49,7 +49,7 @@
                     <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"  class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 产品功能</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-hexin"></i> 核心优势</a></div>
                     <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-feiji"></i> 快速入门</a></div>
-                    <div class="col-md-3 col-xs-3"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
+                    <div class="col-md-3 col-xs-3  hideens"><a href="#TheTimeline" class="hoover-a"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -189,7 +189,7 @@
                 </div>
             </div>
        
-             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4">
+             <div style="background:#f8f8f8;width:100%" id="TheTimeline" class="go4  hideens">
                 <div class="seleconeMain-echarts container broundU erfs">
                      <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">时间轴</span>
@@ -223,9 +223,9 @@
                 <div class="seleconeMain-footer row">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 juright" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -481,6 +481,12 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
+      .juright,.juzhong{
+          text-align:left !important;
+      }
+      .hideens{
+          display:none;
+      }
       .ljs{
             width:100%;
             display:inline-block;
@@ -491,6 +497,12 @@
         }
 }
 @media (min-width: 768px) {
+    .juright{
+        text-align:right;
+    }
+    .juzhong{
+        text-align:center;
+    }
       .ljs{
             width:16%;
             display:inline-block;
