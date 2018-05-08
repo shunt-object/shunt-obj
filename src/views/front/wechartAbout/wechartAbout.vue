@@ -96,7 +96,7 @@
         <div class="wxabout-force">
             <div class="force-head">
                 <p class="force-head-eng">我们致力于解决 </p>
-                <p class="force-head-word">We’re <span>committed to</span> solve it</p>
+                <p class="force-head-word">We’re <span>committed to</span> solving it</p>
             </div>
             <div class="force-main">
                 <div class="force-item">打造从上云咨询、云迁移和云运维的一站式SaaS服务模式，助您完善上云和管云的最后一公里！</div>
