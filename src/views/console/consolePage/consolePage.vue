@@ -281,7 +281,7 @@ export default{
     },
     created:function(){
         var that = this;
-        setInterval( function(){that.getHttpMsgCenter()},300000);
+        setInterval( function(){that.getHttpMsgCenter()},1000);
 
     },
     // updated:function(){
@@ -305,6 +305,7 @@ export default{
                         "sort": null
                     }
             }
+            this.$this.defaults.headers['loading'] = false;
             this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容
                             this.dates = response.data.data.content;
                             this.totalPages = response.data.data.totalElements;
