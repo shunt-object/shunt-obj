@@ -42,7 +42,7 @@
                     <th rowspan="2">时间周期</th>
                     <th rowspan="2">价格</th>
                     <th rowspan="2">预算</th>
-                    <th rowspan="2">收益率</th>
+                    <th rowspan="2">预算收益率</th>
                 </tr>
                 <tr>
                     <th>CPU</th>
