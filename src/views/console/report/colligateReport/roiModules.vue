@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="colligateInvest" v-if="isclick!=2">
+    <div class="colligateInvest" v-if="isclick!=2 && isclick!=3">
         <p class="advise-title"><i class="iconfont icon-touzizuhe main-color" style="font-size:20px !important;"></i>预算收益统计分析</p>
         <div class="colligate-list" style="padding:0 2em;" v-show="lengthnum">
             <div class="colligateBuy-echarts">

@@ -94,7 +94,7 @@
                     <!--投资回报率--> 
                     <roiModules :type="$route.query.type" :appId="$route.query.id" :isclick="isclick"></roiModules>
                     <!--场景占比分析 多云优选意向订单场景分析图-->
-                    <sceneModules :type="$route.query.type" :appId="$route.query.id"></sceneModules>
+                    <sceneModules :type="$route.query.type" :appId="$route.query.id" :isclick="isclick"></sceneModules>
                     <!--建议-->
                     <div class="system-advise">
                         <p class="advise-title"><i class="iconfont icon-sheji1 main-color"></i>上云分析CloudBroker²评估建议</p>
@@ -194,6 +194,7 @@ export default{
                 return false;
             }
         }
+        console.log('aaaa',this.isclick);
     },
     methods:{ 
         getMyEvent:function(msg){
@@ -233,6 +234,7 @@ export default{
                         this.systemold = JSON.parse(response.data.data.appResults[i].result).advice;
                         this.desc = JSON.parse(response.data.data.appResults[i].result).description;
                         this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
+                        console.log(JSON.parse(response.data.data.appResults[i].result).id);
                     }
                 }
                 this.opiniondata =  [{
