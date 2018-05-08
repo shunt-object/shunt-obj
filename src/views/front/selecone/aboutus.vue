@@ -293,6 +293,12 @@
         background:#EF131D;
     }
     @media (min-width: 768px) {
+        .juright{
+        text-align:right;
+    }
+    .juzhong{
+        text-align:center;
+    }
         .navers div{
             margin-right:30px;
         }
@@ -335,6 +341,9 @@
         }
     }
     @media (max-width: 768px) {
+          .juright,.juzhong{
+                text-align:left !important;
+            }
             .navers  div{
                 overflow: hidden;
                 white-space: nowrap;
