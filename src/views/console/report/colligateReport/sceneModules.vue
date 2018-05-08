@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="colligateBuy">
+    <div class="colligateBuy" v-if="isclick!=2 && isclick!=3">
         <p class="advise-title"><i class="iconfont icon-equipments main-color"></i>多云优选意向订单场景分析图</p>
         <div style="padding:0 2em;">
             <div class="colligateBuy-echarts">
@@ -13,7 +13,7 @@
 <script>
 import echarts from 'echarts'
 export default{
-    props:["appId","type"],
+    props:["appId","type","isclick"],
     data(){
         return {
             dbScaleservies:[],

@@ -215,7 +215,7 @@
         暂无数据
 </div>
 <!-- v-show="haveSj" -->
-<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
+<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG" :isclick="isclick"></designHalf>
 <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
     <el-form :model="form">
         <!-- <el-form-item label="角色" :label-width="formLabelWidth">
@@ -773,7 +773,8 @@ export default{
             dbsave:{
                 dbgao:[],
                 dbdi:[]
-            }
+            },
+            isclick:''
         }
     },
     mounted:function(){
@@ -867,9 +868,21 @@ export default{
             console.log("不好意思")    
         });
 
-        this.topology();      
+        this.topology();   
+        this.servied();   
     },
     methods:{
+        servied:function(){
+            this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
+                //console.log('结果',response);
+                for(let i=0;i<response.data.data.appResults.length;i++){
+                    if(response.data.data.appResults[i].moduleId==1){
+                        this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
+                    }
+                }        
+            }).catch((error)=>{
+            }) 
+        },
         goGroup:function(){
             this.$router.push({path:'/resourceGroup',query:{id:this.appId,type:this.$route.query.type}});
         },

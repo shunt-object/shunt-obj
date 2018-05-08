@@ -124,7 +124,8 @@ export default{
         compare:function(){
             //alert(this.isclick);
             //this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
-            if( this.isclick!=1 && this.isclick!=2 ){
+            //if( this.isclick!=1 && this.isclick!=2 ){
+            if( this.isclick!=1){//物理机
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
             }else{
                 let that = this;
