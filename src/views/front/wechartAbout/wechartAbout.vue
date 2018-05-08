@@ -84,7 +84,7 @@
         <div class="wxchart-know">
             <div class="know-head">
                 <p class="know-head-eng">了解我们的产品及服务组合</p>
-                <p class="know-head-word">learn <span>more about</span> portfolio</p>
+                <p class="know-head-word">Learn <span>more about</span> portfolio</p>
             </div>
             <div class="know-main">
                 <div class="know-img">
