@@ -50,7 +50,8 @@
                         <td>{{it.sname}}</td>
                         <td>{{it.pname}}</td>
                         <td>{{it.region}}</td>
-                        <td>¥{{it.cloudPrice}}</td>
+                        <td v-if="it.cloudPrice==0">￥原厂在线暂不支持</td>
+                        <td v-else>¥{{it.cloudPrice}}</td>
                     </tr>
                 </tbody>
             </table>
