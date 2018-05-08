@@ -70,7 +70,7 @@
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
                             <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">CloudBroker²以“云”为核心</h1>
-                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家!</h1>
+                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家</h1>
                             <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                         </div>
                         <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:130%;height:100%;"></div>

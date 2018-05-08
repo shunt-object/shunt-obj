@@ -23,7 +23,7 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
                     <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
                     <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
@@ -45,7 +45,7 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 合作伙伴计划</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
                     <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
                     <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                 </div>
@@ -54,7 +54,7 @@
             <div id="ProductFeatures" class="go1">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
-                       <span class="redLine"></span><span class="redlasttitle">合作伙伴计划</span>
+                       <span class="redLine"></span><span class="redlasttitle">招募顾问计划</span>
                     </div>
                     <div class="row text-left" style="margin-left:10px !important;font-size:14px;color:#666666;line-height:30px;">我们致力于打造新型的云服务管理MSP+模式，帮助企业、顾问和服务商之间建立起稳定的合作关系，为三方创建开放的、公平的、专业的第三方服务平台。CloudBroker²同他的成长历程一样，始终尊重宝贵的顾问资源，并与之共同成长，携手建设新型的顾问服务生态圈，共同提供集顾问的第三方培训、咨询和                   技术服务的为一体的全新生态圈。
                     </div>

@@ -24,7 +24,7 @@
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
                     <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-jibenxinxi"></i> 合作伙伴计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募合作伙伴流程</a></div>
                     <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入我们</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
@@ -64,7 +64,7 @@
             <div style="width:100%;background:#f8f8f8" id="CoreStrengths" class="go2">
             <div class="container  erfs" style="padding-top:20px;padding-bottom:50px">
                 <div class=" text-left redtitle">
-                    <span class="redLine"></span><span class="redlasttitle">招募顾问合作流程</span>
+                    <span class="redLine"></span><span class="redlasttitle">招募合作伙伴流程</span>
                 </div>
                 <div class="col-xs-12 cla text-center">
                      <img src="../../../assets/er-icon/zhaomu.png" alt="" style="position:relative">   
@@ -76,7 +76,7 @@
                 <div class="col-xs-12 text-left" style="margin-top:70px;padding-left:7%;">
                     <div class="zhaomu">招募规则备注：</div>
                     <div class="zhaomu1 zhaomu2"><span>1、在线咨询</span> 点击右面悬浮窗口，进入“Pro. 吴” 或拨打 400-828-7308。</div>
-                    <div class="zhaomu1"><span>2、准备材料</span> 个人介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
+                    <div class="zhaomu1"><span>2、准备材料</span> 公司介绍、文档实例介绍、联系电话、EMALL、望期望合作模式。</div>
                     <div class="zhaomu1"><span>3、申请规则</span> 合作伙伴活动最终解释权归京玉所有。</div>
                 </div>
             </div>

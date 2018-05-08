@@ -83,8 +83,8 @@
         <!--  -->
         <div class="wxchart-know">
             <div class="know-head">
-                <p class="know-head-eng">看看图片了解我们</p>
-                <p class="know-head-word">Look <span>at a</span> picture</p>
+                <p class="know-head-eng">了解我们的产品及服务组合</p>
+                <p class="know-head-word">Learn <span>more about</span> portfolio</p>
             </div>
             <div class="know-main">
                 <div class="know-img">
@@ -106,7 +106,7 @@
         <div class="wxabout-mission">
             <div class="mission-head">
                 <p class="mission-head-eng">我们的愿景</p>
-                <p class="mission-head-word">Our <span>mission</span></p>
+                <p class="mission-head-word"><span>Our mission</span></p>
             </div>
             <div class="mission-main">
                 <div class="mission-item">
