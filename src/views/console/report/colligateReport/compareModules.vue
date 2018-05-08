@@ -6,7 +6,7 @@
                 <tr>
                     <th>云供应商</th>
                     <th>分数</th>
-                    <th>区域价格范围</th>
+                    <th>官网地址</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,7 +14,7 @@
                     <td>{{item.serverName}}</td>
                     <td>{{item.scope}}</td>
                     <td>
-                        <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':item.sid==13?'https://www.vmware.com/cn.html':item.sid==14?'https://www.openstack.org/community':item.sid==15?'http://e.huawei.com/cn/solutions/technical/Cloud-Computing':item.sid==16?'https://www.aliyun.com/solution/dedicatedcloud':item.sid==17?'http://www.h3c.com/cn/Solution/TechnologySolution/CloudComputing/':item.sid==18?'http://www.china-entercom.com/cn/product-services/smartcloud-vone':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>参考链接</a>
+                        <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':item.sid==13?'https://www.vmware.com/cn.html':item.sid==14?'https://www.openstack.org/community':item.sid==15?'http://e.huawei.com/cn/solutions/technical/Cloud-Computing':item.sid==16?'https://www.aliyun.com/solution/dedicatedcloud':item.sid==17?'http://www.h3c.com/cn/Solution/TechnologySolution/CloudComputing/':item.sid==18?'http://www.china-entercom.com/cn/product-services/smartcloud-vone':''"><i class="iconfont icon-lianjie" style="margin-right:5px;"></i>参考链接</a>
                     </td>
                 </tr>
             </tbody>

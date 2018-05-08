@@ -1,7 +1,7 @@
 <!--云规划-->
 <template >
 <div style="background:#eceef3" id="he">
-      <div class="rightBs">
+      <div class="rightBs hideens">
             <ul>
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
@@ -115,11 +115,11 @@
       
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer row">
-                    <div class="container text-left" style="width:60%;padding-left:30px;">
+                    <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
-                            <div class="col-md-3 col-xs-12 text-center" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
-                            <div class="col-md-3 col-xs-12 text-right" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 juright" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
                     </div>
                 </div>
             </div>
@@ -148,6 +148,9 @@
     }
 }
 @media (max-width: 768px){
+      .juright,.juzhong{
+          text-align:left !important;
+      }
     .jzfei{
         padding-right: 10px;
         margin-left: 0px;
@@ -479,6 +482,12 @@
         }
 }
 @media (min-width: 768px) {
+    .juright{
+        text-align:right;
+    }
+    .juzhong{
+        text-align:center;
+    }
     .positionSpans{
         font-size:16px;
     }
@@ -666,6 +675,9 @@
     }
 }
 @media (max-width: 768px) {
+    .hideens{
+        display:none;
+    }
     .lasilasis{
         margin-top:10px;
         margin-bottom:20px;

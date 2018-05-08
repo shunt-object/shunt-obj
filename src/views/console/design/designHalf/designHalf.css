@@ -147,7 +147,7 @@
 .designHalf-table-poition tbody{
      display:block;
      overflow-y:scroll;
-     height:500px;
+     max-height:500px;
      width:100%;
 }
 .designHalf-table-poition tbody tr,.designHalf-table-poition thead{
