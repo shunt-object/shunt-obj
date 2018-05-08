@@ -33,6 +33,34 @@
                 </el-form-item>
             </el-form>
         </div>
+        <div v-if="length>0" class="appcheck-canvastitle"><span></span>预算差异统计分析结果</div>
+        <table class="appcenterRoi-table" v-if="length>0">
+            <thead>
+                <tr>
+                    <th rowspan="2">云厂商</th>
+                    <th colspan="2">配置</th>
+                    <th rowspan="2">时间周期</th>
+                    <th rowspan="2">价格</th>
+                    <th rowspan="2">预算</th>
+                    <th rowspan="2">收益率</th>
+                </tr>
+                <tr>
+                    <th>CPU</th>
+                    <th>内存</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in resultData">
+                    <td>{{item.sname}}</td>
+                    <td>{{item.cores}}</td>
+                    <td>{{item.ram}}</td>
+                    <td>{{item.months/6==1?'6个月':item.months/6==2?'1年':item.months/6==4?'2年':item.months/6==6?'3年':item.months/6==8?'4年':item.months/6==10?'5年':''}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.budget}}</td>
+                    <td>{{item.roi}}</td>
+                </tr>
+            </tbody>
+        </table>
         <div v-if="length>0" class="appcheck-canvastitle"><span></span>预算差异分析图</div>
         <div v-if="length>0">
             <div id="main" style="width:100%;height:500px;"></div>
@@ -79,7 +107,8 @@ export default {
                 {name:'4年',months:'48',value:''},
                 {name:'5年',months:'60',value:''}
             ],
-            length:0
+            length:0,
+            resultData:[]
         }
     },
     mounted:function(){
@@ -132,13 +161,36 @@ export default {
             }
             //console.log(this.matchBo);
             this.$this.post('/broker/app/math/roi',JSON.stringify(this.matchBo)).then((response)=>{
-                //console.log('---',response.data);
-                this.length = response.data.data.length;
+                //console.log('---',response.data.data.roi);
+                this.resultData = [];
+                let budgetParams = response.data.data.params.budgetParams,roilist = response.data.data.roi;
+                if(budgetParams.length>0){
+                    for(let i=0;i<budgetParams.length;i++){
+                        this.resultData.push({budget:budgetParams[i].budget,months:budgetParams[i].months,cores:response.data.data.params.cores,ram:response.data.data.params.ram,price:'',roi:'',sname:''});
+                    }
+                    for(let h=0;h<this.resultData.length;h++){
+                        for(let l=0;l<roilist.length;l++){
+                            if(this.resultData[h].months==roilist[l].months){
+                                this.resultData[h].price = roilist[l].price;
+                                this.resultData[h].roi = roilist[l].roi+'%';
+                                this.resultData[h].sname = roilist[l].sname;
+                            }
+                        }
+                    }
+                }else{
+                    for(let m=0;m<roilist.length;m++){
+                        this.resultData.push({budget:'--',months:roilist[m].months,cores:response.data.data.params.cores,ram:response.data.data.params.ram,price:roilist[m].price,roi:'--',sname:roilist[m].sname});
+                    }
+                }
+                
+                //console.log('========',result);
+                
+                this.length = response.data.data.roi.length;
                 let linedata = [],bardata = [];
-                for(let j=0;j<response.data.data.length;j++){
-                    bardata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].price]);
+                for(let j=0;j<response.data.data.roi.length;j++){
+                    bardata.push([response.data.data.roi[j].months/6==1?'6个月':response.data.data.roi[j].months/6==2?'1年':response.data.data.roi[j].months/6==4?'2年':response.data.data.roi[j].months/6==6?'3年':response.data.data.roi[j].months/6==8?'4年':response.data.data.roi[j].months/6==10?'5年':'',response.data.data.roi[j].price]);
                     if(n>0){
-                        linedata.push([response.data.data[j].months/6==1?'6个月':response.data.data[j].months/6==2?'1年':response.data.data[j].months/6==4?'2年':response.data.data[j].months/6==6?'3年':response.data.data[j].months/6==8?'4年':response.data.data[j].months/6==10?'5年':'',response.data.data[j].roi]);
+                        linedata.push([response.data.data.roi[j].months/6==1?'6个月':response.data.data.roi[j].months/6==2?'1年':response.data.data.roi[j].months/6==4?'2年':response.data.data.roi[j].months/6==6?'3年':response.data.data.roi[j].months/6==8?'4年':response.data.data.roi[j].months/6==10?'5年':'',response.data.data.roi[j].roi]);
                     }
                 }
                 this.$nextTick(function() {
@@ -148,7 +200,7 @@ export default {
             }).catch((error)=>{})
         },
         draw:function(linedata,bardata){
-            //console.log(bardata);
+            console.log(bardata);
             //var data = [['6个月',15], ['1年',50], ['2年',100], ['3年',150], ['4年',180]];
             this.charts= echarts.init(document.getElementById('main'));
             this.charts.setOption({

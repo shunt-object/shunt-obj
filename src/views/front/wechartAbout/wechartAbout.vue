@@ -83,8 +83,8 @@
         <!--  -->
         <div class="wxchart-know">
             <div class="know-head">
-                <p class="know-head-eng">看看图片了解我们</p>
-                <p class="know-head-word">Look <span>at a</span> picture</p>
+                <p class="know-head-eng">了解我们的产品及服务组合</p>
+                <p class="know-head-word">learn <span>more about</span> portfolio</p>
             </div>
             <div class="know-main">
                 <div class="know-img">
@@ -96,7 +96,7 @@
         <div class="wxabout-force">
             <div class="force-head">
                 <p class="force-head-eng">我们致力于解决 </p>
-                <p class="force-head-word">We’re <span>committed to</span> solving it</p>
+                <p class="force-head-word">We’re <span>committed to</span> solve it</p>
             </div>
             <div class="force-main">
                 <div class="force-item">打造从上云咨询、云迁移和云运维的一站式SaaS服务模式，助您完善上云和管云的最后一公里！</div>
@@ -106,7 +106,7 @@
         <div class="wxabout-mission">
             <div class="mission-head">
                 <p class="mission-head-eng">我们的愿景</p>
-                <p class="mission-head-word">Our <span>mission</span></p>
+                <p class="mission-head-word"><span>Our mission</span></p>
             </div>
             <div class="mission-main">
                 <div class="mission-item">
