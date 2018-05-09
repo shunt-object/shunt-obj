@@ -58,6 +58,8 @@ import appcenterPrice from '@/views/console/appCenter/appcenterPrice/appcenterPr
 import appcenterCheck from '@/views/console/appCenter/appcenterCheck/appcenterCheck'
 import appcenterRoi from '@/views/console/appCenter/appcenterRoi/appcenterRoi'
 import appcenterProxy from '@/views/console/appCenter/appcenterProxy/appcenterProxy'
+import appcenterSearch from '@/views/console/appCenter/appcenterSearch.vue'
+import appcenterCloudEye from '@/views/console/appCenter/appcenterCloudEye.vue'
 import notification from "@/views/console/notificationCenter/notificationCenter"
 import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
@@ -340,6 +342,22 @@ export default new Router({
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:appcenterPlan
+        },
+        {
+          path:'/appcenterSearch',
+          name:'appcenterSearch',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterSearch
+        },
+        {
+          path:'/appcenterCloudEye',
+          name:'appcenterCloudEye',
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:appcenterCloudEye
         },
         {
           path:'/appcenterPrice',

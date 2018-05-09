@@ -43,13 +43,13 @@
                 云选型
             </div> -->
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
-                    <img src="../../../../assets/appcenter/appcen-design-2.png" alt="">
+                <div class="appcenterlist-item-img appcenterlist-item-img2" @click="goSeacher">
+                    <img src="../../../../assets/homepage/osa.png" alt="">
                 </div>
                 云实例快搜器
             </div>
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
+                <div class="appcenterlist-item-img appcenterlist-item-img2" @click="goEye">
                     <img src="../../../../assets/appcenter/wechartseye2.png" alt="">
                 </div>
                 云眼
@@ -80,6 +80,12 @@ export default{
         goCheck:function(){
             this.$router.push({path:'/appcenterCheck'});
         },
+        goSeacher:function(){
+            this.$router.push({path:'/appcenterSearch'});
+        },
+        goEye:function(){
+             this.$router.push({path:'/appcenterCloudEye'});
+        }
     }
 }
 </script>
