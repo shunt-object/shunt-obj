@@ -41,7 +41,7 @@
                     <tr>
                         <th>云厂商</th>
                         <th>产品名称</th>
-                        <th>Vcpu</th>
+                        <th>CPU</th>
                         <th>内存</th>
                     </tr>
                 </thead>

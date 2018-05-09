@@ -43,13 +43,13 @@
                 云选型
             </div> -->
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2" @click="goSeacher">
+                <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="goSeacher">
                     <img src="../../../../assets/homepage/osa.png" alt="">
                 </div>
                 云实例快搜器
             </div>
             <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2" @click="goEye">
+                <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="goEye">
                     <img src="../../../../assets/appcenter/wechartseye2.png" alt="">
                 </div>
                 云眼
