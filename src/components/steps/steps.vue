@@ -172,7 +172,8 @@ export default{
             }else if(I==3){
                 this.$router.push({path:'/planQuestion',query:{type:'plan',id:this.id,name:'1'}});
             }else if(I==4){
-                if( this.isnot!=1 && this.isnot!=2 ){
+                //this.isnot!=1 && this.isnot!=2
+                if( this.isnot!=1 ){
                     this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
                 }                
             }else if(I==5){
