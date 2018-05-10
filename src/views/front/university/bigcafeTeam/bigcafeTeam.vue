@@ -163,9 +163,15 @@ export default {
         }
     },
     mounted:function(){
+        let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
-         $(window).scroll(function(){
+        if(readytop>=_top){
+            this.isfixed = true;
+        }else{
+            this.isfixed = false;
+        }
+        $(window).scroll(function(){
             if($(this).scrollTop()>=_top){
                 that.isfixed = true;
             }else{

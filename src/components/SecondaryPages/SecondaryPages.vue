@@ -142,18 +142,18 @@
 </div>
 </template>
 <script>
-          $(window).scroll(function(){
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("background","#1D1E20")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("background","none")
-                 }
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("display","block")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("display","block")
-                 }
-          });
+$(window).scroll(function(){
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("background","#1D1E20")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("background","none")
+    }
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("display","block")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("display","block")
+    }
+});
 export default { 
     props:["active"],  
     data() {

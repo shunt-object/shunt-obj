@@ -186,6 +186,54 @@
         </div>
     </div>
     <finish></finish>
+    <!-- 预约课程弹框 -->
+    <!-- <el-dialog title="意见反馈" :visible.sync="feedback.boolean" style="text-align:left;" @close='closeDialog'>
+        <div class="comment-box">
+            <div class="comment-word">您的反馈，是我们前进的动力！</div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">我的评分</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <span class="comment-star" :class="item.boolean==false?'star1':'star2'" v-for="(item,index) in starlist" v-on:click="selectstar(index)"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key"><span style="color:#da121a;">*</span>意见类型</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <button class="comment-type" :class="item.boolean==false?'comment-default':'comment-active'" v-for="(item,index) in commentlist" v-on:click="selectcomment(index)">{{item.data.name}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">意见内容</div>
+                    <div class="col-md-10" style="padding-left:0px !important;">
+                        <textarea class="comment-text" placeholder="欢迎将使用中遇到的问题反馈给我们" v-model="confirmobj.content"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-list">
+                <div class="row">
+                    <div class="col-md-2 comment-key">联系方式</div>
+                    <div class="col-md-10 contactway" style="padding-left:0px !important;">{{contactway}}</div>
+                </div>
+            </div>            
+            <div class="">
+                <div class="comment-notice">
+                    <p>温馨提示：</p>
+                    1、反馈会在1-3个工作日与您联系(工作时间：周一至周五，9:00-18:00)。<br>
+                    2、产品使用中遇到的问题您可以联系<span>Prof. 吴</span> 。<br>
+                    3、紧急问题建议您拨打<span> 400-828-7308 </span>或发邮件到<span> Help@csb-china.com </span>。
+                </div>
+            </div>
+            <div class="email-btn">
+                <button class="safe-save-btn" v-on:click="success()">提交</button>
+                <button class="safe-cel-btn" v-on:click="undialog()">取消</button>
+            </div>   
+        </div>         
+    </el-dialog> -->
 </div>
 </template>
 <script>
@@ -201,8 +249,14 @@ export default {
         }
     },
     mounted:function(){
+        let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
+        if(readytop>=_top){
+            this.isfixed = true;
+        }else{
+            this.isfixed = false;
+        }
          $(window).scroll(function(){
             if($(this).scrollTop()>=_top){
                 that.isfixed = true;
