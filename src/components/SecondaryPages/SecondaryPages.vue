@@ -93,9 +93,27 @@
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
+            <li class="lihovzan">
+                <a class="page-scroll  hovers" :class="active=='4'?'border_active':''">
+                    <el-dropdown placement="bottom">
+                        <span class="el-dropdown-link" style="outline:none">
+                            智始学院
+                        </span>
+                        <el-dropdown-menu slot="dropdown"  class="dropCsbse">
+                            <el-dropdown-item >
+                                <p class="row text-center"> 
+                                    <span v-on:click="university('1')" class="col-md-4">大咖团队</span>
+                                    <span v-on:click="university('2')" class="col-md-4">上课流程</span>
+                                    <span v-on:click="university('3')" class="col-md-4">公开课程</span>
+                                </p>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>              
+                </a>
+            </li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='5'?'border_active':''">关于我们</a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='6'?'border_active':''">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -168,6 +186,16 @@ export default {
           
     },
     methods: {
+        university:function(id){
+            //id==1 大咖团队  id==2上课流程 id==3公开课程
+            if(id==1){
+                this.$router.push({path: '/bigcafeTeam'});
+            }else if(id==2){
+
+            }else{
+                this.$router.push({path: '/openCourse'});
+            }
+        },
         
         PlanLj:function(){
              this.$router.push({path: '/registerOne'});

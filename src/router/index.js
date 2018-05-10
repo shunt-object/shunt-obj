@@ -48,6 +48,8 @@ import cloudmeasured from "../views/front/selecone/cloudmeasured.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
 import aboutus from "../views/front/selecone/aboutus.vue"
+import bigcafeTeam from '@/views/front/university/bigcafeTeam/bigcafeTeam'
+import openCourse from '@/views/front/university/openCourse/openCourse'
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
@@ -64,7 +66,6 @@ import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
 import adviserList from "../views/front/adviser/adviserList.vue"
-
 
 
 
@@ -159,6 +160,16 @@ export default new Router({
       path: '/CustomerService',
       name: 'CustomerService',
       component: CustomerService
+    },
+    {//大咖团队
+      path:'/bigcafeTeam',
+      name: 'bigcafeTeam',
+      component: bigcafeTeam
+    },
+    {//公开课程
+      path:'/openCourse',
+      name: 'openCourse',
+      component: openCourse
     },
     // {
     //   path:'/register',
