@@ -54,6 +54,12 @@
                 </div>
                 云眼
             </div>
+            <div class="appcenterlist-item">
+                <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="gomoney">
+                    <img src="../../../../assets/appcenter/wechartseye2.png" alt="">
+                </div>
+                多云价格优选分析助手
+            </div>
             <div class="clear"></div>
         </div>
         
@@ -85,6 +91,9 @@ export default{
         },
         goEye:function(){
              this.$router.push({path:'/appcenterCloudEye'});
+        },
+        gomoney:function(){
+            this.$router.push({path:"/appcenterOptimization"})
         }
     }
 }

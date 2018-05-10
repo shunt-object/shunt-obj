@@ -281,7 +281,7 @@ export default{
     },
     created:function(){
         var that = this;
-        setInterval( function(){that.getHttpMsgCenter()},1000);
+        setInterval( function(){that.getHttpMsgCenter()},300000);
 
     },
     // updated:function(){

@@ -49,7 +49,7 @@
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
                                     </el-dropdown-item>
                                      <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <i class="iconfont icon-newxiankuang" style="color:#FF3A42"></i></div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <i class="iconfont icon-new" style="color:#FF3A42;font-size:22px;"></i></div>
                                         <div class="row">
                                             <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
                                             <span class="col-md-1 gms " @click="yunshili">云实例快搜器</span>
