@@ -8,14 +8,14 @@
 <div class="datadecisions">
     <div class="">
         <div class="col-md-12 col-xs-12 padding10">
-            <div class="decision-titles">上云趋势统计分析
-                <select class="year-select col-xs-7" v-model="year" v-on:change="lineModel()" >
+            <div class="decision-titles"><div class="col-md-2">  上云趋势统计分析</div>
+                <select class="year-select col-xs-7 col-md-2" v-model="year" v-on:change="lineModel()" >
                     <option v-for="item in yearList" :value="item">{{item}}</option>
                 </select>
-                <select class="up-select col-xs-7" v-model="lineArea" v-on:change="lineModel()" >
+                <select class="up-select col-xs-7 col-md-2" v-model="lineArea" v-on:change="lineModel()" >
                     <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
                 </select>
-                <select class="up-select col-xs-7" v-model="lineInsdusty" v-on:change="lineModel()">
+                <select class="up-select col-xs-7 col-md-2" v-model="lineInsdusty" v-on:change="lineModel()">
                     <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
                 </select>
             </div>
@@ -73,7 +73,7 @@
     /*position:absolute;
     right:100px;
     top:8px;*/
-    float:right;
+    float:right !important;
     margin-top:8px;
     margin-right:10px;
     width:88px;
@@ -108,7 +108,7 @@
     /*position:absolute;
     right:10px;
     top:8px;*/
-    float:right;
+    float:right !important;
     margin-top:8px;
     background:#e9e9e9;
     border:none;

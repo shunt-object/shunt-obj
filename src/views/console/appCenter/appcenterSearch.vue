@@ -28,7 +28,7 @@
                     <el-select v-model="matchBo.region" placeholder="请选择区域">
                         <el-option v-for="item in region" :label="item.region" :value="item.code" :key="JSON.stringify(item.code)"></el-option>
                     </el-select>
-                </el-form-item>
+                </el-form-item>                                               
                 <el-form-item class="appcplan-btn">
                     <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">查询</el-button>
                 </el-form-item>
