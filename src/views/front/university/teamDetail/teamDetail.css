@@ -1,8 +1,5 @@
-.openCourse{
-    padding:0 !important;
-}
 /* banner */
-.openCourse-banner{
+.teamDetail-banner{
     background: url('../../../../assets/university/openCourse-banner.png') no-repeat;
     text-align: center;
     background-size: 100% 100%;
@@ -30,14 +27,55 @@
     font-weight:100;
     color:#ccc;
 }
-.openCourse-yu{
+.teamDetail-yu{
     border:1px solid #e41e2b;font-size:12px;color:#fff;padding:10px 25px;display:inline-block;text-align:center;background:#e41e2b;margin-right:10px;
 }
-.openCourse-yu:hover{
+.teamDetail-yu:hover{
     cursor:pointer;
     background:#fff;
     color:#e41e2b;
     border:1px solid #fff;
+}
+/* 悬浮框 */
+.fixed-box{
+    width: 55px;
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    z-index: 10;
+}
+.fixed-box .scrollUp{
+    position: fixed;
+    right: 12px;
+    display: none;
+}
+.fixed-ul li{
+    background: #da121a;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    padding-top: 1px;
+    line-height: 2px;
+    cursor: pointer;
+    font-size: 10px;
+}
+.phone-li{
+    margin-top:7px; position:relative;
+}
+.phone-box{
+    width: 185px;
+    height: 60px;
+    position: absolute;
+    right: 68px;
+    top: 0;
+}
+.fixed-icon{
+    display:block; margin:10px auto; width:18px; height:18px;
+}
+.liHoversBj:hover{
+    background:#EF131D;
 }
 /* 副导航 */
 .smallnav{
@@ -90,17 +128,20 @@
     background:#fff;
 }
 /*  */
-.openCourse-line{
+.teamDetail-line{
     width:100%;
     height:1px;
     background:#d6d6d6;
 }
 /*  */
-.openCourse-outline-title{
+.teamDetail-introduce{
+    max-width: 1020px !important;
+}
+.teamDetail-outline-title{
     margin: 40px 0 40px 0;
     text-align: left;
 }
-.openCourse-outline-title-line{
+.teamDetail-outline-title-line{
     background: #da121a;
     width: 3px;
     height: 25px;
@@ -108,130 +149,90 @@
     margin-right: 10px;
     margin-top: 2px;
 }
-.openCourse-outline-title-desc{
+.teamDetail-outline-title-desc{
     font-size: 20px;
     color: #2b2b2b;
 }
-.openCourse-outline-list{
-    margin-bottom:30px;
-    min-height:160px;
-}
-.openCourse-outline-desc{
-    font-size:18px;
-    color:#333333;
-    text-align:center;
-    line-height:30px;
-    margin:15px 0;
-}
-.openCourse-check{
-    border-bottom:1px solid #d6d6d6;
-}
-.openCourse-check-box{
+.teamDetail-introduce-img img{
     float:left;
-    border-bottom:1px solid #da121a;
-}
-.openCourse-check-btn{
-    background:#da121a;
-    width:95px;
-    height:30px;
-    font-size:14px;
-    color:#ffffff;
     margin-bottom:10px;
 }
-.openCourse-select{
-    float:right;
-    font-size:14px;
-    color:#323232;
-}
-/*  */
-.openCourse-class{
-    max-width: 1020px !important;
-}
-.openCourse-class-list{
-    padding:15px 0;
-    border-bottom:1px solid #d6d6d6;
-}
-.openCourse-class-img img{
-    float:left;
-    margin:10px 0;
-}
-.openCourse-class-name{
+.teamDetail-introduce-name{
     font-size:18px;
     color:#333333;
     text-align:left;
-    margin-top:10px;
+    margin-top:15px;
 }
-.openCourse-class-honour{
+.teamDetail-introduce-honour{
     text-align:left;
     margin-top:10px;
+    font-size:12px;
+    color:#666666;
 }
-.openCourse-class-honour span{
-    font-size:14px;
-    color:#6e6c6a;
-    margin-right:20px;
-}
-.openCourse-class-honour span i{
-    color:#da121a;
-    margin-right:5px;
-}
-.openCourse-class-desc{
+.teamDetail-introduce-desc{
     font-size:12px;
     color:#999999;
     line-height:20px;
     text-align:left;
     margin-top:10px;
 }
-.openCourse-class-yu{
-    background:#da121a;
-    border-radius:4px;
-    width:80px;
-    height:30px;
+/* 资质和荣誉 */
+.teamDetail-honour-item{
+    padding:0 !important;
+}
+.teamDetail-honour-item img{
+    margin: 0 auto;
+    display: block;
+}
+.teamDetail-honour-desc{
+    width:94%;
+    margin:0 auto;
+    font-size:14px;
+    color:#333333;
+    text-align:center;
+    line-height:24px;
+    margin-top:20px;
+}
+/* 工作经历 */
+.teamDetail-jobs-list{
+    font-size:14px;
+    color:#333333;
+    text-align:left;
+    margin-bottom:15px;
+}
+/* 专业特长 */
+.teamDetail-tc-img{
+    background:#f5f5f5;
+    border-radius:50%;
+    width:117px;
+    height:113px;
+    margin:0 auto;
+}
+.teamDetail-tc-img img{
+    margin:35px auto 0 auto;
+}
+.teamDetail-tc-title{
+    font-size:14px;
+    color:#333333;
+    text-align:left;
+    margin:10px 0;
+}
+.teamDetail-tc-desc{
     font-size:12px;
-    color:#ffffff;
-    float:left;
-    margin-top:19px;
+    color:#999999;
+    line-height:24px;
+    text-align:left;
 }
-.openCourse-check-btn:hover,.openCourse-class-yu:hover{
-    background:#EF131D;
+/* 原创专区 */
+.teamDetail-yuan-img{
+    padding:10px;
+    border:1px solid #d9d9d9;
+    box-shadow:0 0 4px 2px rgba(215,215,215,0.50);
+    border-radius:2px;
+    background:#ffffff;
+    width: 225px;
+    margin: 0 auto;
 }
-/* 悬浮框 */
-.fixed-box{
-    width: 55px;
-    position: fixed;
-    right: 0;
-    bottom: 100px;
-    z-index: 10;
-}
-.fixed-box .scrollUp{
-    position: fixed;
-    right: 12px;
-    display: none;
-}
-.fixed-ul li{
-    background: #da121a;
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    padding-top: 1px;
-    line-height: 2px;
-    cursor: pointer;
-    font-size: 10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width: 185px;
-    height: 60px;
-    position: absolute;
-    right: 68px;
-    top: 0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
-}
-.liHoversBj:hover{
-    background:#EF131D;
+.teamDetail-yuan{
+    margin-bottom:20px;
 }

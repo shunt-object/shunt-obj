@@ -936,7 +936,7 @@
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-                         $(".naver a").hover(function(){
+                        $(".naver a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")

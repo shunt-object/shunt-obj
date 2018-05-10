@@ -50,6 +50,7 @@ import messAdd from "../views/front/messageCenter/messAdd.vue"
 import aboutus from "../views/front/selecone/aboutus.vue"
 import bigcafeTeam from '@/views/front/university/bigcafeTeam/bigcafeTeam'
 import openCourse from '@/views/front/university/openCourse/openCourse'
+import teamDetail from '@/views/front/university/teamDetail/teamDetail'
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
@@ -172,6 +173,11 @@ export default new Router({
       path:'/openCourse',
       name: 'openCourse',
       component: openCourse
+    },
+    {//团队详情
+      path:'/teamDetail',
+      name: 'teamDetail',
+      component: teamDetail
     },
     // {
     //   path:'/register',

@@ -26,10 +26,14 @@
     <!-- header -->
     <start active="4"></start>
     <!--  -->
-    <div class="container naver" id="title-small">            
+    <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
-            <div class="col-md-6 col-xs-6 bigcafeTeam-titles-left"><a href="#bigcafe-team" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 大咖团队</a></div>
-            <div class="col-md-6 col-xs-6 bigcafeTeam-titles-right"><a href="#bigcafe-desc" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 大咖介绍</a></div>
+            <div class="col-md-6 col-xs-6 bigcafeTeam-titles-left">
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-team')"><i class="iconfont icon-mn_gongneng"></i> 大咖团队</a>
+            </div>
+            <div class="col-md-6 col-xs-6 bigcafeTeam-titles-right">
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-shenpiliucheng"></i> 大咖介绍</a>
+            </div>
         </div>
     </div>
     <div class="bigcafeTeam-line"></div>
@@ -79,7 +83,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
+                    <img src="../../../../assets/university/teampeople-desc2.png" alt="" v-on:click="teamdetail()">
                     <div class="bigcafe-desc-name">戴剑</div>
                     <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
                     <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
@@ -154,10 +158,29 @@ export default {
     name:'bigcafeTeam',
     data(){
         return {
-            phoneBox:false
+            phoneBox:false,
+            isfixed:false
         }
     },
+    mounted:function(){
+        let _top = $(".smallnav").offset().top;
+        let that = this;
+         $(window).scroll(function(){
+            if($(this).scrollTop()>=_top){
+                that.isfixed = true;
+            }else{
+                that.isfixed = false;
+            }
+            //console.log('----',$(this).scrollTop());
+         })
+    },
     methods:{
+        jump:function(dom){
+            $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
+        },
+        teamdetail:function(){
+            this.$router.push({path:'/teamDetail'});
+        },
         phoneEnter:function(){
             this.phoneBox = true;
         },

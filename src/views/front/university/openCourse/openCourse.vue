@@ -19,22 +19,26 @@
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">为您开始五彩缤纷的云世界</h3>
                 </div>
-                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="openCourse-yu">预约大咖</span></p>
+                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="openCourse-yu">预约课程</span></p>
             </div>
         </div>
     </div>
     <!-- header -->
     <start active="4"></start>
     <!-- 副导航 -->
-    <div class="container naver" id="title-small">            
+    <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
-            <div class="col-md-6 col-xs-6 openCourse-titles-left"><a href="#bigcafe-team" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 公开课程大纲</a></div>
-            <div class="col-md-6 col-xs-6 openCourse-titles-right"><a href="#bigcafe-desc" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 预约课程</a></div>
+            <div class="col-md-6 col-xs-6 openCourse-titles-left">
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-outline')"><i class="iconfont icon-mn_gongneng"></i> 公开课程大纲</a>
+            </div>
+            <div class="col-md-6 col-xs-6 openCourse-titles-right">
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-class')"><i class="iconfont icon-shenpiliucheng"></i> 预约课程</a>
+            </div>
         </div>
     </div>
     <div class="openCourse-line"></div>
     <!-- 公开课程大纲  -->
-    <div class="container openCourse-outline">
+    <div class="container openCourse-outline" id="openCourse-outline">
         <div class="openCourse-outline-title">
             <span class="openCourse-outline-title-line"></span>
             <span class="openCourse-outline-title-desc">公开课程大纲</span>
@@ -75,7 +79,7 @@
         </div>
     </div>
     <!-- 预约课程 -->
-    <div class="container openCourse-class">
+    <div class="container openCourse-class" id="openCourse-class"> 
         <div class="openCourse-outline-title">
             <span class="openCourse-outline-title-line"></span>
             <span class="openCourse-outline-title-desc">预约课程</span>
@@ -171,6 +175,17 @@
         </div>
 
     </div>
+    <div style="background:#ededed;;width:100%;height:auto;">
+        <div class="seleconeMain-footer row">
+            <div class="container text-left" style="width:60%;padding-left:cd30px;">
+                    <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                    <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                    <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                    <div class="col-md-3 col-xs-12 juright" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+            </div>
+        </div>
+    </div>
+    <finish></finish>
 </div>
 </template>
 <script>
@@ -181,10 +196,26 @@ export default {
     name:'openCourse',
     data(){
         return {
-            phoneBox:false
+            phoneBox:false,
+            isfixed:false
         }
     },
+    mounted:function(){
+        let _top = $(".smallnav").offset().top;
+        let that = this;
+         $(window).scroll(function(){
+            if($(this).scrollTop()>=_top){
+                that.isfixed = true;
+            }else{
+                that.isfixed = false;
+            }
+            //console.log('----',$(this).scrollTop());
+         })
+    },
     methods:{
+        jump:function(dom){
+            $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
+        },
         phoneEnter:function(){
             this.phoneBox = true;
         },

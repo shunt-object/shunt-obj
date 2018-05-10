@@ -40,34 +40,34 @@
     border:1px solid #fff;
 }
 /* 副导航 */
-.naver{
+.smallnav{
     height:70px;
     line-height:70px;
 }
-.naver i{
+.smallnav i{
     color:#c2c2c2;
 }
-.naver a{
+.smallnav a{
     font-size:14px;
     color:#333333;  
 }
-.naver a i{
+.smallnav a i{
     font-size:14px;
     color:#A5A5A5;  
 }
-.naver a:hover{
+.smallnav a:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.naver a i:hover{
+.smallnav a i:hover{
     cursor:pointer;
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
 }
-.naver  div{
+.smallnav  div{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -87,6 +87,7 @@
     z-index: 999999999;
     border: 1px #d6d6d6 solid;
     line-height: 68px;
+    background:#fff;
 }
 /*  */
 .bigcafeTeam-line{
