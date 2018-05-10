@@ -274,27 +274,14 @@ export default{
             this.istrue = false
         }
 
-       // console.log(JSON.parse(sessionStorage.getItem("account")));
        this.getHttpMsgCenter();
-      // setInterval( this.getHttpMsgCenter(),1000)
-
     },
     created:function(){
         var that = this;
         setInterval( function(){that.getHttpMsgCenter()},300000);
 
     },
-    // updated:function(){
-    //     this.getHttpMsgCenter();
-    // },
-    // watch:{
-    //     dates:{
-    //         handler:function(val,oldval){
-    //             if(oldval!=val)this.getHttpMsgCenter();
-    //         },
-    //         deep:true
-    //     }
-    // },
+
     methods:{
         getHttpMsgCenter:function(){
            var a = {

@@ -14,11 +14,7 @@
                 <el-form-item label="内存" prop="ram" class="appcplan-from-item">
                     <el-input class="appcplan-input" type="number" min="1" placeholder="请输入内存" v-model="matchBo.ram" v-on:blur="onblur('ram')"></el-input>
                 </el-form-item>
-                <el-form-item label="云厂商" prop="firm" class="appcenter-from-select">
-                    <el-select v-model="matchBo.firm" placeholder="请选择云厂商">
-                        <el-option v-for="item in clouldcompany" :label="item.name" :value="item.id" :key="JSON.stringify(item.id)"></el-option>
-                    </el-select>
-                </el-form-item>
+               
                 <el-form-item label="购买周期" prop="months" class="appcenter-from-select">
                     <el-select v-model="matchBo.months" placeholder="请选择购买周期">
                         <el-option v-for="item in month" :label="item.name" :value="item.months" :key="JSON.stringify(item.months)"></el-option>
@@ -43,6 +39,8 @@
                         <th>产品名称</th>
                         <th>CPU</th>
                         <th>内存</th>
+                        <th>选型评星</th>
+                        <th>价格评星</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,17 +49,29 @@
                         <td>{{it.pname}}</td>
                         <td>{{it.cores}}</td>
                         <td>{{it.ram}}</td>
+                        <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.serverStar>index?'startd-huang':'startd-ccc'"></i></td>
+                        <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.priceStar>index?'startd-huang':'startd-ccc'"></i></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+          <div id="designHalf-app" style="width:100%;height:300px;"></div>
     </div>
 </div>
 </template>
+<style>
+    .startd-huang{
+         color:rgb(247, 167, 44);
+    }
+    .startd-ccc{
+        color:#dfdfdf;
+    }
+</style>
 <script>
 import '../appCenter/appcenterPrice/appcenterPrice.css'
+import echarts from 'echarts'
 export default {
-    name:'appcenterPrice',
+    name:'appcenterOptimization',
     data(){
         return {
             matchBo:{
@@ -71,6 +81,9 @@ export default {
                 region:'',
                 months:''
             },
+            appX:[],
+            appXs:[],
+            appEcharts:[],
             match:{
                 "appMatchBo": {
                     "cores": '',
@@ -81,7 +94,7 @@ export default {
                     "month": '',//购买周期
                     "paymentType": 1,//预付费
                     "regions": [],//区域
-                    "serverId": ''//云厂商
+                    "serverId": -1//云厂商
                 }
             },
             month:[
@@ -146,17 +159,98 @@ export default {
             }).catch((error)=>{
             })
         },
+        hui:function(){
+            
+        },
+        canversBar:function(dom,xdata,datalist,text){
+            let that = this;
+            this.charts = echarts.init(document.getElementById(dom));
+            this.charts.setOption({              
+                tooltip:{
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        crossStyle: {
+                            color: '#999'
+                        }
+                    },
+                },
+                legend: {
+                    data: [text],
+                    x:'77%',
+                    //right:'10px',
+                    y:'10px'
+                },
+                xAxis: [{
+                    name:'云厂商',
+                    type:'category',
+                    data: xdata,
+                    axisPointer:{
+                        type:'shadow'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#c2c2c2'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                    nameLocation:'end',
+                    axisLabel: {  
+                        interval:0,  
+                        rotate:30  
+                    } 
+                }],
+                yAxis: [{
+                    type:'value',
+                    name:'价格',
+                    axisLabel: {
+                        formatter: '{value}'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#c2c2c2'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    },
+                }],
+                series: [
+                    {
+                        name:text,
+                        type:'bar',
+                        data:datalist,
+                        itemStyle:{
+                            normal:{
+                                color:'#f7a72c'
+                            }
+                        },
+                        barWidth : 25,//柱图宽度
+                    }
+                ]
+            })
+        },
         submit:function(value){
             this.$refs[value].validate((valid) => {
                 if (valid) {
+                    this.appXs = []; 
+                    this.appEcharts= [];  
                     this.match.appMatchBo.cores = this.matchBo.cores;
                     this.match.appMatchBo.ram = this.matchBo.ram;
                     this.match.priceParamBo.month = this.matchBo.months;
                     this.match.priceParamBo.regions.push(this.matchBo.region);
-                    this.match.priceParamBo.serverId = this.matchBo.firm;
+                   
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
-                        //console.log('---',response.data);
-                        this.pricelist = response.data.data;
+                    this.pricelist = response.data.data;
+                    this.appX = this.pricelist.slice(0,5);
+                    for(var a = 0 ;a<this.appX.length;a++){
+                        console.log(this.appX[a].cloudPrice)
+                        this.appXs.push(this.appX[a].cloudPrice)
+                        this.appEcharts.push(this.appX[a].sname+'/'+this.appX[a].pname);
+                    }
+                    this.canversBar('designHalf-app',this.appEcharts,this.appXs,'云厂商应用规格');
                     }).catch((error)=>{})
                 } else {
                     return false;

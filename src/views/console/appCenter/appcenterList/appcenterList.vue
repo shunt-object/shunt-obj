@@ -56,7 +56,7 @@
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="gomoney">
-                    <img src="../../../../assets/appcenter/wechartseye2.png" alt="">
+                    <img src="../../../../assets/appcenter/wechartseye3.png" alt="">
                 </div>
                 多云价格优选分析助手
             </div>
