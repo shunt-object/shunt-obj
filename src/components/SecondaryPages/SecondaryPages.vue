@@ -465,7 +465,7 @@ ul,ol li {
   }
 
   .cl {
-      margin-left: 28% !important;
+      margin-left: 20% !important;
   }
   .log {
       margin-right: 20px;
