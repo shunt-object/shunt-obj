@@ -17,7 +17,7 @@
             <tr>
                 <th>云供应商</th>
                 <th>分数</th>
-                <th>参考价格范围</th>
+                <th>官网地址</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                 <td>{{item.serverName}}</td>
                 <td>{{item.scope}}</td>
                 <td>
-                    <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':''"><i class="iconfont icon-jiagechaxun" style="margin-right:5px;"></i>查看价格</a>
+                    <a target="_blank" style="color:rgb(51, 122, 183) !important;" :href="item.sid==7?'https://ecs-buy.aliyun.com/':item.sid==8?'https://aws.amazon.com/cn/pricing/?nc2=h_ql_pr&awsm=ql-3':item.sid==9?'https://www.azure.cn/pricing/overview/':item.sid==10?'https://buy.cloud.tencent.com/price/cvm/calculator':item.sid==11?'https://portal.huaweicloud.com/pricing#ecs':item.sid==12?'https://www.qingcloud.com/pricing#/InstancesKVM':item.sid==13?'https://www.vmware.com/cn.html':item.sid==14?'https://www.openstack.org/community':item.sid==15?'http://e.huawei.com/cn/solutions/technical/Cloud-Computing':item.sid==16?'https://www.aliyun.com/solution/dedicatedcloud':item.sid==17?'http://www.h3c.com/cn/Solution/TechnologySolution/CloudComputing/':item.sid==18?'http://www.china-entercom.com/cn/product-services/smartcloud-vone':''"><i class="iconfont icon-lianjie font12" style="margin-right:5px;"></i>参考链接</a>
                 </td>
             </tr>
         </tbody>
@@ -171,15 +171,19 @@ export default{
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
         this.getdata();
-        this.$this.get('/broker/compare/selected/feature/'+this.appId+'').then((response)=>{
-            this.details =  response.data.data;
-            for(let variable  in this.details){   //variable 为属性名
-                this.confirm = this.details[variable][0].servers;
-            }
-            this.length = this.confirm.length+3;
-        }).catch((error)=>{})
+        // this.getfeature();
     },
     methods:{
+        getfeature:function(){
+            let time = new Date();   
+            this.$this.get('/broker/compare/selected/feature/'+this.appId+'?time='+time.getTime()).then((response)=>{
+                this.details =  response.data.data;
+                for(let variable  in this.details){   //variable 为属性名
+                    this.confirm = this.details[variable][0].servers;
+                }
+                this.length = this.confirm.length+3;
+            }).catch((error)=>{})
+        },
         getdata:function(){
             this.$this.get('/broker/app/resource/group/'+this.appId+'').then((response)=>{
                 if(response.data.data.appServer.length>0||response.data.data.dbServer.length>0||response.data.data.network!=null||response.data.data.storage.length>0||response.data.data.cdns.length>0){
@@ -191,16 +195,23 @@ export default{
                 this.storage = response.data.data.storage;
                 this.cdns = response.data.data.cdns;
             }).catch((error)=>{})
-            this.$this.get('/broker/compare/result/'+this.appId+'').then((response)=>{
-                // if(response.data.data.res!=null){
-                //     this.res = true;
-                // }
-                this.compareResultList = response.data.data.datas;
-                // this.appServer = JSON.parse(response.data.data.res.appServer);
-                // this.dbServer = JSON.parse(response.data.data.res.dbServer);
-                // this.network = JSON.parse(response.data.data.res.network);
-                // this.storage = JSON.parse(response.data.data.res.storage);
-                 
+            let resultObj;
+            if(this.$route.query.cloudId==undefined){
+                resultObj = {
+                    appid:this.appId,
+                    searchAble:true,
+                    sid:[]
+                };                 
+            }else{
+               resultObj = {
+                    appid:this.appId,
+                    sid:this.$route.query.cloudId
+                };
+            }  
+            let time = new Date();       
+            this.$this.post('/broker/compare/result?time='+time.getTime(),JSON.stringify(resultObj)).then((response)=>{
+                this.compareResultList = response.data.data.datas; 
+                this.getfeature();
             }).catch((error)=>{})
         },
         prev:function(){

@@ -3,8 +3,8 @@
 <div class="total-header">
     <span></span>
     <router-link class="zong" to="/consolePage">总览</router-link>
-    ><p class="comback" v-on:click="goBack('palnlist')">云规划</p>
-    ><p class="comback" v-on:click="goBack('planquestion')">选择标准</p>
+    ><p class="comback" v-on:click="goBack('planquestion')">云规划</p>
+    <!--<p class="comback" v-on:click="goBack('planquestion')">选择标准</p>-->
     ><p class="comback">云规划报表</p>
 </div>
 <child index="3" start="3" :type="$route.query.type" :id="$route.query.id"></child>
@@ -14,7 +14,7 @@
             <!--<button class="btn btn-default importbtn">导出</button>-->
         <div class="clear"></div>
     </div>
-    <div class="legend-box">
+    <!--<div class="legend-box">
         <div class="legend">  
             <div class="legend-list">
                 <span class="legend-block legend-high"></span>
@@ -32,7 +32,7 @@
                 <span class="legend-block legend-di"></span>
                 低
             </div>
-        </div>
+        </div>-->
         <div class="result-echarts" id="main"></div>
     </div>
     <div class="echarts-desc">工作负载分布图</div>
@@ -123,7 +123,9 @@ export default{
     methods:{
         compare:function(){
             //alert(this.isclick);
-            if( this.isclick!=1 && this.isclick!=2 ){
+            //this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
+            //if( this.isclick!=1 && this.isclick!=2 ){
+            if( this.isclick!=1){//物理机
                 this.$router.push({path:'/compareQuestion',query:{id:this.appId}});
             }else{
                 let that = this;
@@ -230,12 +232,36 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#c2c2c2'
+                            color: '#c2c2c2',
+                            width:'2'
                         }
                     },
                     nameTextStyle:{
                         color:'#333'
                     }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 100,
+                    dimension: 0,
+                    right:'5%',
+                    //left: '73%',
+                    top: '10',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: false,
+                    itemWidth: 10,
+                    itemHeight: 90,
+                    textStyle: {
+                        color: '#666',
+                        height: 56,
+                        fontSize: 11,
+                        lineHeight: 60,
+                    },
+                    inRange: {
+                        color: ['yellow', '#da121a']
+                    },
+                    //padding: [50, 20],
+                    orient: 'horizontal',
                 },
                 series: [{
                     type: 'scatter',
@@ -244,7 +270,7 @@ export default{
                     markLine: {
                         lineStyle: {
                             normal: {
-                                color: "#626c91",
+                                color: "#f7a72c",
                                 type: 'solid',
                                 width: 1,
                             },
@@ -254,7 +280,7 @@ export default{
                         },
                         data: [{
                             xAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -262,7 +288,7 @@ export default{
                             }
                         }, {
                             yAxis: 50,
-                            name: '',
+                            name: '平均线',
                             itemStyle: {
                                 normal: {
                                     color: "#b84a58",
@@ -277,7 +303,7 @@ export default{
                                 name: '',//合适
                                 itemStyle: {
                                     normal: {
-                                        color: '#e7faff'
+                                        color: '#fff'
                                     },
                                 },
                                 label: {
@@ -285,7 +311,7 @@ export default{
                                         show: true,
                                         position: 'insideTopLeft',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        color: "#fff",
                                         fontSize: 20,
                                     }
                                 },
@@ -297,7 +323,7 @@ export default{
                                 name: '',//低
                                 itemStyle: {
                                     normal: {
-                                        color: '#efefef',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -305,7 +331,7 @@ export default{
                                         show: true,
                                         position: 'insideTopRight',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        color: "#fff",
                                         fontSize: 20,
                                     }
                                 },
@@ -317,7 +343,7 @@ export default{
                                 name: '',//高
                                 itemStyle: {
                                     normal: {
-                                        color: '#ffe9ea',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -325,7 +351,7 @@ export default{
                                         show: true,
                                         position: 'insideBottomLeft',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        color: "#fff",
                                         fontSize: 20,
                                     }
                                 },
@@ -337,7 +363,7 @@ export default{
                                 name: '',//一般
                                 itemStyle: {
                                     normal: {
-                                        color: '#fff1e2',
+                                        color: '#fff',
                                     },
                                 },
                                 label: {
@@ -345,7 +371,7 @@ export default{
                                         show: true,
                                         position: 'insideBottomRight',
                                         fontStyle: 'normal',
-                                        color: "#409EFF",
+                                        color: "#fff",
                                         fontSize: 20,
                                     }
                                 },

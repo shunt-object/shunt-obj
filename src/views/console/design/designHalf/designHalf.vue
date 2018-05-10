@@ -1,322 +1,335 @@
 <template>
 <div class="designHalf-price">
-    <div class="designHalf-select">
-        <div class="designHalf-price-title">
-            <span style="color:#da121a;"><i class="iconfont icon-jiagechaxun main-color"></i></span>价格优选
-        </div>
-        <div class="designHalf-price-tab row">
-            <div class="col-md-1"></div>    
-            <div class="col-md-11 designHalf-price-box">
-                <button class="designHalf-tab-btn" v-on:click="selectClould(0)" :class="style.appointelect!=true?'designHalf-active1':'designHalf-default'" >多云优选</button>
-                <button class="designHalf-tab-btn" v-on:click="selectClould(1)" :class="style.appointelect==true?'designHalf-active1':'designHalf-default'" >单云优选</button>
-                
-                <div class="clear"></div>
-            </div>    
-        </div>
-        <div class="designHalf-price-list row" v-show="appointCloud">
-            <div class="designHalf-price-list-title col-md-1">
-                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-yunduan"></i></span>云厂商
+    <div  v-if="isclick!=2 && isclick!=3">
+        <div class="designHalf-select">
+            <div class="designHalf-price-title">
+                <span style="color:#da121a;"><i class="iconfont icon-jiagechaxun main-color"></i></span>价格优选
             </div>
-            <div class="designHalf-price-list-select col-md-11">
-                <select class="clould-company" v-model="selectcompany" v-on:change="selectS()">
-                    <option v-for="item in clouldcompany" :value="item.id">{{item.name}}</option>
-                </select>
+            <div class="designHalf-price-tab row">
+                <div class="col-md-1"></div>    
+                <div class="col-md-11 designHalf-price-box">
+                    <button class="designHalf-tab-btn" v-on:click="selectClould(0)" :class="style.appointelect!=true?'designHalf-active1':'designHalf-default'" >多云优选</button>
+                    <button class="designHalf-tab-btn" v-on:click="selectClould(1)" :class="style.appointelect==true?'designHalf-active1':'designHalf-default'" >单云优选</button>
+                    
+                    <div class="clear"></div>
+                </div>    
             </div>
-        </div>
-        <div class="designHalf-price-list row">
-            <div class="row">
-                <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-ditu"></i></span>区域
+            <div class="designHalf-price-list row" v-show="appointCloud">
+                <div class="designHalf-price-list-title col-md-1">
+                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-yunduan"></i></span>云厂商
                 </div>
-                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
-                    <button class="designHalf-select-buytype" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="designHalf-price-list-title col-md-1"></div>
-                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
-                    <button class="designHalf-select-box" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="designHalf-price-list-title col-md-1"></div>
-                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
-                    <button class="designHalf-select-box" v-for="(item,regionIndex) in regionthree" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegionthree(regionIndex)">{{item.data.region}}</button>
-                </div>
-            </div>
-        </div>
-        <div class="designHalf-price-list row">
-            <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-jifei"></i></span>购买方式
-            </div>
-            <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
-                <button class="designHalf-select-buytype" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
-            </div>
-        </div>
-        <div class="designHalf-price-list row">
-            <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
-            </div>
-            <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
-                <button class="designHalf-select-buytype" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
-            </div>
-        </div>
-        <div class="designHalf-price-list row">
-            <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
-                <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-14"></i></span>购买周期
-            </div>
-            <div class="designHalf-price-list-select col-md-11">
-                <div class="designHalf-price-buytime col-md-7" ><!--style="margin-left:0.7%;"-->
-                    <button class="designHalf-buytime-list border-left-no" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-for="(item,index) in monthlist" v-on:click="monthcycle(index)">{{item.data.name}}</button>
-                </div>
-                <div class="col-md-1">
-                    <select class="designHalf-buttime-select" v-model="month" v-on:change="morecycle()">
-                        <option :value="item.month" v-for="item in moremonth">{{item.name}}</option>
+                <div class="designHalf-price-list-select col-md-11">
+                    <select class="clould-company" v-model="selectcompany" v-on:change="selectS()">
+                        <option v-for="item in clouldcompany" :value="item.id">{{item.name}}</option>
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="designHalf-price-list row">
-            <div class="designHalf-price-list-title col-md-1"></div>
-            <div class="designHalf-price-list-select col-md-11">
-                <button class="designHalf-look-price" v-on:click="lookPrice()"><i class="iconfont icon-wuliaojiage" style="margin-right:3px;"></i>查看价格</button>
-                <!--<span class="go-datadcision">价格对比图可到数据分析中查看</span>-->
+            <div class="designHalf-price-list row">
+                <div class="row">
+                    <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
+                        <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-ditu"></i></span>区域
+                    </div>
+                    <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                        <button class="designHalf-select-buytype" v-for="(item,regionIndex) in region" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="selectRegion(regionIndex)">{{item.data.region}}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="designHalf-price-list-title col-md-1"></div>
+                    <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                        <button class="designHalf-select-box" v-for="(item,regionIndex) in regiontwo" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegiontwo(regionIndex)">{{item.data.region}}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="designHalf-price-list-title col-md-1"></div>
+                    <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                        <button class="designHalf-select-box" v-for="(item,regionIndex) in regionthree" :class="item.boolean==false?'designHalf-default':'designHalf-active'" v-on:click="selectRegionthree(regionIndex)">{{item.data.region}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="designHalf-price-list row">
+                <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
+                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-jifei"></i></span>购买方式
+                </div>
+                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                    <button class="designHalf-select-buytype" v-for="(item,index) in buytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="buy(index)">{{item.data.name}}</button>
+                </div>
+            </div>
+            <div class="designHalf-price-list row">
+                <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
+                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-fukuanfangshisel"></i></span>付费类型
+                </div>
+                <div class="designHalf-price-list-select col-md-11" style="padding-left:15px !important;">
+                    <button class="designHalf-select-buytype" v-for="(item,index) in paytype" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-on:click="payment(index)">{{item.data.name}}</button>
+                </div>
+            </div>
+            <div class="designHalf-price-list row">
+                <div class="designHalf-price-list-title col-md-1" style="line-height:30px;">
+                    <span style="color:#ccc;margin-right:3px;"><i class="iconfont icon-14"></i></span>购买周期
+                </div>
+                <div class="designHalf-price-list-select col-md-11">
+                    <div class="designHalf-price-buytime col-md-7" ><!--style="margin-left:0.7%;"-->
+                        <button class="designHalf-buytime-list border-left-no" :class="item.boolean==false?'designHalf-default':'designHalf-active1'" v-for="(item,index) in monthlist" v-on:click="monthcycle(index)">{{item.data.name}}</button>
+                    </div>
+                    <div class="col-md-1">
+                        <select class="designHalf-buttime-select" v-model="month" v-on:change="morecycle()">
+                            <option :value="item.month" v-for="item in moremonth">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="designHalf-price-list row">
+                <div class="designHalf-price-list-title col-md-1"></div>
+                <div class="designHalf-price-list-select col-md-11">
+                    <button class="designHalf-look-price" v-on:click="lookPrice()"><i class="iconfont icon-wuliaojiage" style="margin-right:3px;"></i>查看价格</button>
+                    <!--<span class="go-datadcision">价格对比图可到数据分析中查看</span>-->
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" v-show="islookecharts">
-        <div class="col-md-6">
-            <div id="designHalf-app" style="width:100%;height:300px;"></div>
+        <div class="row" v-show="islookecharts">
+            <div class="col-md-6">
+                <div id="designHalf-app" style="width:100%;height:300px;"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="designHalf-db" style="width:100%;height:300px;"></div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div id="designHalf-db" style="width:100%;height:300px;"></div>
-        </div>
-    </div>
-    <div class="designHalf-table" v-show="islook">
-        <!-- 应用服务 -->
-        <table class="designHalf-table-appServer designHalf-table-public" id="example" v-if="priceClould.length>0">
-            <thead>
-                <tr>
-                    <td class="designHalf-w-5" rowspan="2"><input type="checkbox" v-model="allselect" v-on:click="whole()"><br>全选</td>
-                    <td class="designHalf-w-6" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-6" rowspan="2">产品名称</td>
-                    <td class="designHalf-w-6" rowspan="2">角色类型</td>
-                    <td class="designHalf-w-6" rowspan="2">配置类型</td>                    
-                    <td class="designHalf-w-6" rowspan="2">区域</td>
-                    <td class="designHalf-w-28" align="center" valign="middle" colspan="4">购买规格</td>
-                    <td class="designHalf-w-6" rowspan="2">数量</td>
-                    <td class="designHalf-w-6" rowspan="2">购买周期</td>
-                    <td class="designHalf-w-6" rowspan="2">费用参考</td>
-                    <td class="designHalf-w-6" rowspan="2">京玉折扣价</td>
-                    <td class="designHalf-w-6" rowspan="2">意向购买</td>
-                </tr>
-                <tr>
-                    <td class="designHalf-public-bg designHalf-w-7">CPU</td>
-                    <td class="designHalf-public-bg designHalf-w-7">处理器主频</td>
-                    <td class="designHalf-public-bg designHalf-w-7">内存</td>
-                    <td class="designHalf-public-bg designHalf-w-7">系统盘</td>
-                </tr>                
-            </thead>
-            <tbody>
-                <tr v-for="(item,index) in priceClould">
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio(index)"></td>
-                    <td class="designHalf-w-6">{{item.data.sname}}</td>
-                    <td class="designHalf-w-6">{{item.data.pname}}</td>
-                    <td class="designHalf-w-6">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':'--'}}</td>
-                    <td class="designHalf-w-6">{{item.data.vmtype=='17'?'高配':item.data.vmtype=='18'?'低配':'--'}}</td>
-                    <td class="designHalf-w-6">{{item.data.region}}</td>
-                    <td class="designHalf-w-7">{{item.data.cores}}</td>
-                    <td class="designHalf-w-7"><!--{{item.data.ghz}}-->--</td>
-                    <td class="designHalf-w-7">{{item.data.ram}}</td>
-                    <td class="designHalf-w-7"><!--{{item.data.localDisk}}-->40GB</td>
-                    <td class="designHalf-w-6">{{item.data.num}}</td>
-                    <td class="designHalf-w-6">{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.cloudPrice==0?'原厂在线暂不支持':item.data.cloudPrice}}</td>
-                    <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'线下联系':item.data.csbPrice}}</td>
-                    <td class="designHalf-w-10">
-                        <button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
-                            <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>加入购物车
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- 空白 -->
-        <div class="design-nodata" v-if="priceClould.length<1">
-            <img src="../../../../assets/compare-nodata.png" alt="">
-            <br>
-            暂无云厂商匹配数据，请联系线下获取支持。
-        </div>
-        <!-- 数据库服务 -->
-        <!--<table class="designHalf-table-appServer designHalf-table-public">
-            <thead>
-                <tr>
-                    <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
-                    <td class="designHalf-w-8" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-8" rowspan="2">产品名称</td>
-                    <td class="designHalf-w-8" rowspan="2">角色类型</td>
-                    <td class="designHalf-w-8" rowspan="2">购买方式</td>
-                    <td class="designHalf-w-8" rowspan="2">区域</td>
-                    <td class="designHalf-w-31" align="center" valign="middle" colspan="6">购买规格</td>
-                    <td class="designHalf-w-8" rowspan="2">数量</td>
-                    <td class="designHalf-w-8" rowspan="2">费用参考</td>
-                    <td class="designHalf-w-8" rowspan="2">意向购买</td>
-                </tr>
-                <tr>
-                    <td class="designHalf-public-bg designHalf-w-5">CPU</td>
-                    <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
-                    <td class="designHalf-public-bg designHalf-w-5">内存</td>
-                    <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
-                    <td class="designHalf-public-bg designHalf-w-5">操作系统</td>
-                    <td class="designHalf-public-bg designHalf-w-5">资源平均利用率</td>
-                </tr>                
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
-                    <td class="designHalf-w-8">云厂商</td>
-                    <td class="designHalf-w-8">产品名称</td>
-                    <td class="designHalf-w-8">角色类型</td>
-                    <td class="designHalf-w-8">购买方式</td>
-                    <td class="designHalf-w-8">区域</td>
-                    <td class="designHalf-w-5">购买方式购买方式购买方式</td>
-                    <td class="designHalf-w-5">bbbbb</td>
-                    <td class="designHalf-w-5">cccccc</td>
-                    <td class="designHalf-w-5">fffff</td>
-                    <td class="designHalf-w-5">cccccc</td>
-                    <td class="designHalf-w-5">fffff</td>
-                    <td class="designHalf-w-8">数量</td>
-                    <td class="designHalf-w-8">费用参考</td>
-                    <td class="designHalf-w-8">
-                        <button class="designHalf-buy-btn">购买</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>-->
-        <!-- 网络存储 -->
-        <!--<table class="designHalf-table-network designHalf-table-public">
-            <thead>
-                <tr>
-                    <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
-                    <td class="designHalf-w-8" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-8" rowspan="2">产品名称</td>
-                    <td class="designHalf-w-8" rowspan="2">角色类型</td>
-                    <td class="designHalf-w-8" rowspan="2">购买方式</td>
-                    <td class="designHalf-w-8" rowspan="2">区域</td>
-                    <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
-                    <td class="designHalf-w-8" rowspan="2">数量</td>
-                    <td class="designHalf-w-8" rowspan="2">费用参考</td>
-                    <td class="designHalf-w-8" rowspan="2">意向购买</td>
-                </tr>
-                <tr>
-                    <td class="designHalf-public-bg designHalf-w-10">总量</td>
-                    <td class="designHalf-public-bg designHalf-w-10">入站</td>
-                    <td class="designHalf-public-bg designHalf-w-10">出站</td>
-                </tr>                
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
-                    <td class="designHalf-w-8">云厂商</td>
-                    <td class="designHalf-w-8">产品名称</td>
-                    <td class="designHalf-w-8">角色类型</td>
-                    <td class="designHalf-w-8">购买方式</td>
-                    <td class="designHalf-w-8">区域</td>
-                    <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
-                    <td class="designHalf-w-10">cccccc</td>
-                    <td class="designHalf-w-10">fffff</td>
-                    <td class="designHalf-w-8">数量</td>
-                    <td class="designHalf-w-8">费用参考</td>
-                    <td class="designHalf-w-8">
-                        <button class="designHalf-buy-btn">购买</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>-->
-        <!-- 存储 -->
-        <!--<table class="designHalf-table-network designHalf-table-public">
-            <thead>
-                <tr>
-                    <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
-                    <td class="designHalf-w-8" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-8" rowspan="2">产品名称</td>
-                    <td class="designHalf-w-8" rowspan="2">角色类型</td>
-                    <td class="designHalf-w-8" rowspan="2">购买方式</td>
-                    <td class="designHalf-w-8" rowspan="2">区域</td>
-                    <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
-                    <td class="designHalf-w-8" rowspan="2">数量</td>
-                    <td class="designHalf-w-8" rowspan="2">费用参考</td>
-                    <td class="designHalf-w-8" rowspan="2">意向购买</td>
-                </tr>
-                <tr>
-                    <td class="designHalf-public-bg designHalf-w-10">共享存储</td>
-                    <td class="designHalf-public-bg designHalf-w-10">网络存储</td>
-                    <td class="designHalf-public-bg designHalf-w-10">云存储</td>
-                </tr>                
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
-                    <td class="designHalf-w-8">云厂商</td>
-                    <td class="designHalf-w-8">产品名称</td>
-                    <td class="designHalf-w-8">角色类型</td>
-                    <td class="designHalf-w-8">购买方式</td>
-                    <td class="designHalf-w-8">区域</td>
-                    <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
-                    <td class="designHalf-w-10">cccccc</td>
-                    <td class="designHalf-w-10">fffff</td>
-                    <td class="designHalf-w-8">数量</td>
-                    <td class="designHalf-w-8">费用参考</td>
-                    <td class="designHalf-w-8">
-                        <button class="designHalf-buy-btn">购买</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>-->
-        <!-- CDN -->
-        <!--<table class="designHalf-table-network designHalf-table-public">
-            <thead>
-                <tr>
-                    <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
-                    <td class="designHalf-w-8" rowspan="2">云厂商</td>
-                    <td class="designHalf-w-8" rowspan="2">产品名称</td>
-                    <td class="designHalf-w-8" rowspan="2">角色类型</td>
-                    <td class="designHalf-w-8" rowspan="2">购买方式</td>
-                    <td class="designHalf-w-8" rowspan="2">区域</td>
-                    <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
-                    <td class="designHalf-w-8" rowspan="2">数量</td>
-                    <td class="designHalf-w-8" rowspan="2">费用参考</td>
-                    <td class="designHalf-w-8" rowspan="2">意向购买</td>
-                </tr>
-                <tr>
-                    <td class="designHalf-public-bg designHalf-w-10">流量</td>
-                    <td class="designHalf-public-bg designHalf-w-10">云厂商</td>
-                    <td class="designHalf-public-bg designHalf-w-10">购买起止时间</td>
-                </tr>                
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
-                    <td class="designHalf-w-8">云厂商</td>
-                    <td class="designHalf-w-8">产品名称</td>
-                    <td class="designHalf-w-8">角色类型</td>
-                    <td class="designHalf-w-8">购买方式</td>
-                    <td class="designHalf-w-8">区域</td>
-                    <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
-                    <td class="designHalf-w-10">cccccc</td>
-                    <td class="designHalf-w-10">fffff</td>
-                    <td class="designHalf-w-8">数量</td>
-                    <td class="designHalf-w-8">费用参考</td>
-                    <td class="designHalf-w-8">
-                        <button class="designHalf-buy-btn">购买</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>-->
-        <div class="designHalf-balance row" v-if="priceClould.length>1">
-            <div class="col-md-6 balance-left">已选择<span>{{num}}</span>件商品</div>
-            <div class="col-md-6 balance-right">
-                总价：<span>￥{{Number(sumprice).toFixed(2)}}</span><button class="go-balance" v-on:click="balance()">去结算</button>
+        <div class="designHalf-table" v-show="islook">
+            <!-- 应用服务 -->
+            <table class="designHalf-table-appServer designHalf-table-public designHalf-table-poition" v-if="priceClould.length>0">
+                <thead>
+                    <tr>
+                        <td class="designHalf-w-5" rowspan="2"><input type="checkbox" v-model="allselect" v-on:click="whole()"><br>全选</td>
+                        <td class="designHalf-w-5" rowspan="2">云厂商</td>
+                        <td class="designHalf-w-7" rowspan="2">产品名称</td>
+                        <td class="designHalf-w-6" rowspan="2">角色类型</td>
+                        <td class="designHalf-w-6" rowspan="2">配置类型</td>                    
+                        <td class="designHalf-w-7" rowspan="2">区域</td>
+                        <td class="designHalf-w-20" align="center" valign="middle" colspan="4">购买规格</td>
+                        <td class="designHalf-w-5" rowspan="2">数量</td>
+                        <td class="designHalf-w-6" rowspan="2">购买周期</td>
+                        <td class="designHalf-w-5" style="cursor:pointer;" rowspan="2" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td>
+                        <td class="designHalf-w-6" rowspan="2">京玉折扣价</td>
+                        <td class="designHalf-w-16" align="center" valign="middle" colspan="2">评星</td>
+                        <td class="designHalf-w-10" rowspan="2">意向购买</td>
+                    </tr>
+                    <tr>
+                        <td class="designHalf-public-bg designHalf-w-5">CPU</td>
+                        <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
+                        <td class="designHalf-public-bg designHalf-w-5">内存</td>
+                        <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
+                        <td class="designHalf-public-bg designHalf-w-8">选型评星</td>
+                        <td class="designHalf-public-bg designHalf-w-8">价格评星</td>
+                    </tr>                
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in priceClould">
+                        <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox" v-model="item.model" v-on:click="radio(index)"></td>
+                        <td class="designHalf-w-5">{{item.data.sname}}</td>
+                        <td class="designHalf-w-7">{{item.data.pname}}</td>
+                        <td class="designHalf-w-6">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':'--'}}</td>
+                        <td class="designHalf-w-6">{{item.data.vmtype=='17'?'高配':item.data.vmtype=='18'?'低配':'--'}}</td>
+                        <td class="designHalf-w-7">{{item.data.region}}</td>
+                        <td class="designHalf-w-5">{{item.data.cores}}</td>
+                        <td class="designHalf-w-5"><!--{{item.data.ghz}}-->--</td>
+                        <td class="designHalf-w-5">{{item.data.ram}}</td>
+                        <td class="designHalf-w-5"><!--{{item.data.localDisk}}-->40GB</td>
+                        <td class="designHalf-w-5">{{item.data.num}}</td>
+                        <td class="designHalf-w-6">{{item.data.month%12==0?item.data.month/12+'年':item.data.month%12+'个月'}}</td>
+                        <td class="designHalf-w-5">￥{{item.data.cloudPrice==0?'原厂在线暂不支持':item.data.cloudPrice}}</td>
+                        <td class="designHalf-w-6">￥{{item.data.csbPrice==0?'线下联系':item.data.csbPrice}}</td>
+                        <td class="designHalf-w-8"><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="item.data.serverStar>index?'startd-active':'startd'"></i></td>
+                        <td class="designHalf-w-8"><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="item.data.priceStar>index?'startd-active':'startd'"></i></td>
+                        <td class="designHalf-w-10">
+                            <!--<button class="designHalf-buy-btn" v-on:click="gobuy(item.data.id)">
+                                <i class="iconfont icon-gouwuche" style="margin-right:3px;"></i>加入购物车
+                            </button>-->
+                            <span style="color:#f7a72c;" v-on:click="gobuy(item.data.id)"><i class="iconfont icon-gouwuche1" style="margin-right:3px;font-size:20px !important;"></i></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 空白 -->
+            <div class="design-nodata" v-if="priceClould.length<1">
+                <img src="../../../../assets/compare-nodata.png" alt="">
+                <br>
+                <p>
+                当前暂无云厂商匹配数据，请您联系&nbsp;&nbsp;<span style="color:#da121a;">Prof. 吴</span>
+                </p>
+                <p>
+                或拨打我们热线：<span style="color:#da121a;">400-828-7308</span> 获取支持。
+                </p>
+            </div>
+            <!-- 数据库服务 -->
+            <!--<table class="designHalf-table-appServer designHalf-table-public">
+                <thead>
+                    <tr>
+                        <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
+                        <td class="designHalf-w-8" rowspan="2">云厂商</td>
+                        <td class="designHalf-w-8" rowspan="2">产品名称</td>
+                        <td class="designHalf-w-8" rowspan="2">角色类型</td>
+                        <td class="designHalf-w-8" rowspan="2">购买方式</td>
+                        <td class="designHalf-w-8" rowspan="2">区域</td>
+                        <td class="designHalf-w-31" align="center" valign="middle" colspan="6">购买规格</td>
+                        <td class="designHalf-w-8" rowspan="2">数量</td>
+                        <td class="designHalf-w-8" rowspan="2">费用参考</td>
+                        <td class="designHalf-w-8" rowspan="2">意向购买</td>
+                    </tr>
+                    <tr>
+                        <td class="designHalf-public-bg designHalf-w-5">CPU</td>
+                        <td class="designHalf-public-bg designHalf-w-5">处理器主频</td>
+                        <td class="designHalf-public-bg designHalf-w-5">内存</td>
+                        <td class="designHalf-public-bg designHalf-w-5">系统盘</td>
+                        <td class="designHalf-public-bg designHalf-w-5">操作系统</td>
+                        <td class="designHalf-public-bg designHalf-w-5">资源平均利用率</td>
+                    </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
+                        <td class="designHalf-w-8">云厂商</td>
+                        <td class="designHalf-w-8">产品名称</td>
+                        <td class="designHalf-w-8">角色类型</td>
+                        <td class="designHalf-w-8">购买方式</td>
+                        <td class="designHalf-w-8">区域</td>
+                        <td class="designHalf-w-5">购买方式购买方式购买方式</td>
+                        <td class="designHalf-w-5">bbbbb</td>
+                        <td class="designHalf-w-5">cccccc</td>
+                        <td class="designHalf-w-5">fffff</td>
+                        <td class="designHalf-w-5">cccccc</td>
+                        <td class="designHalf-w-5">fffff</td>
+                        <td class="designHalf-w-8">数量</td>
+                        <td class="designHalf-w-8">费用参考</td>
+                        <td class="designHalf-w-8">
+                            <button class="designHalf-buy-btn">购买</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <!-- 网络存储 -->
+            <!--<table class="designHalf-table-network designHalf-table-public">
+                <thead>
+                    <tr>
+                        <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
+                        <td class="designHalf-w-8" rowspan="2">云厂商</td>
+                        <td class="designHalf-w-8" rowspan="2">产品名称</td>
+                        <td class="designHalf-w-8" rowspan="2">角色类型</td>
+                        <td class="designHalf-w-8" rowspan="2">购买方式</td>
+                        <td class="designHalf-w-8" rowspan="2">区域</td>
+                        <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
+                        <td class="designHalf-w-8" rowspan="2">数量</td>
+                        <td class="designHalf-w-8" rowspan="2">费用参考</td>
+                        <td class="designHalf-w-8" rowspan="2">意向购买</td>
+                    </tr>
+                    <tr>
+                        <td class="designHalf-public-bg designHalf-w-10">总量</td>
+                        <td class="designHalf-public-bg designHalf-w-10">入站</td>
+                        <td class="designHalf-public-bg designHalf-w-10">出站</td>
+                    </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
+                        <td class="designHalf-w-8">云厂商</td>
+                        <td class="designHalf-w-8">产品名称</td>
+                        <td class="designHalf-w-8">角色类型</td>
+                        <td class="designHalf-w-8">购买方式</td>
+                        <td class="designHalf-w-8">区域</td>
+                        <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
+                        <td class="designHalf-w-10">cccccc</td>
+                        <td class="designHalf-w-10">fffff</td>
+                        <td class="designHalf-w-8">数量</td>
+                        <td class="designHalf-w-8">费用参考</td>
+                        <td class="designHalf-w-8">
+                            <button class="designHalf-buy-btn">购买</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <!-- 存储 -->
+            <!--<table class="designHalf-table-network designHalf-table-public">
+                <thead>
+                    <tr>
+                        <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
+                        <td class="designHalf-w-8" rowspan="2">云厂商</td>
+                        <td class="designHalf-w-8" rowspan="2">产品名称</td>
+                        <td class="designHalf-w-8" rowspan="2">角色类型</td>
+                        <td class="designHalf-w-8" rowspan="2">购买方式</td>
+                        <td class="designHalf-w-8" rowspan="2">区域</td>
+                        <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
+                        <td class="designHalf-w-8" rowspan="2">数量</td>
+                        <td class="designHalf-w-8" rowspan="2">费用参考</td>
+                        <td class="designHalf-w-8" rowspan="2">意向购买</td>
+                    </tr>
+                    <tr>
+                        <td class="designHalf-public-bg designHalf-w-10">共享存储</td>
+                        <td class="designHalf-public-bg designHalf-w-10">网络存储</td>
+                        <td class="designHalf-public-bg designHalf-w-10">云存储</td>
+                    </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
+                        <td class="designHalf-w-8">云厂商</td>
+                        <td class="designHalf-w-8">产品名称</td>
+                        <td class="designHalf-w-8">角色类型</td>
+                        <td class="designHalf-w-8">购买方式</td>
+                        <td class="designHalf-w-8">区域</td>
+                        <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
+                        <td class="designHalf-w-10">cccccc</td>
+                        <td class="designHalf-w-10">fffff</td>
+                        <td class="designHalf-w-8">数量</td>
+                        <td class="designHalf-w-8">费用参考</td>
+                        <td class="designHalf-w-8">
+                            <button class="designHalf-buy-btn">购买</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <!-- CDN -->
+            <!--<table class="designHalf-table-network designHalf-table-public">
+                <thead>
+                    <tr>
+                        <td class="designHalf-w-5" rowspan="2"><input type="checkbox"><br>全选</td>
+                        <td class="designHalf-w-8" rowspan="2">云厂商</td>
+                        <td class="designHalf-w-8" rowspan="2">产品名称</td>
+                        <td class="designHalf-w-8" rowspan="2">角色类型</td>
+                        <td class="designHalf-w-8" rowspan="2">购买方式</td>
+                        <td class="designHalf-w-8" rowspan="2">区域</td>
+                        <td class="designHalf-w-31" align="center" valign="middle" colspan="3">购买规格</td>
+                        <td class="designHalf-w-8" rowspan="2">数量</td>
+                        <td class="designHalf-w-8" rowspan="2">费用参考</td>
+                        <td class="designHalf-w-8" rowspan="2">意向购买</td>
+                    </tr>
+                    <tr>
+                        <td class="designHalf-public-bg designHalf-w-10">流量</td>
+                        <td class="designHalf-public-bg designHalf-w-10">云厂商</td>
+                        <td class="designHalf-public-bg designHalf-w-10">购买起止时间</td>
+                    </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="designHalf-w-5" style="line-height:0px;"><input type="checkbox"></td>
+                        <td class="designHalf-w-8">云厂商</td>
+                        <td class="designHalf-w-8">产品名称</td>
+                        <td class="designHalf-w-8">角色类型</td>
+                        <td class="designHalf-w-8">购买方式</td>
+                        <td class="designHalf-w-8">区域</td>
+                        <td class="designHalf-w-10">d角色类型角色类型角色类型角色类型角色类型</td>
+                        <td class="designHalf-w-10">cccccc</td>
+                        <td class="designHalf-w-10">fffff</td>
+                        <td class="designHalf-w-8">数量</td>
+                        <td class="designHalf-w-8">费用参考</td>
+                        <td class="designHalf-w-8">
+                            <button class="designHalf-buy-btn">购买</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <div class="designHalf-balance row" v-if="priceClould.length>1">
+                <div class="col-md-6 balance-left">已选择<span>{{num}}</span>件商品</div>
+                <div class="col-md-6 balance-right">
+                    总价：<span>￥{{Number(sumprice).toFixed(2)}}</span><button class="go-balance" v-on:click="balance()">去结算</button>
+                </div>
             </div>
         </div>
     </div>
@@ -337,7 +350,7 @@ import echarts from 'echarts'
 import '../designHalf/designHalf.css';
 export default{
     name:'designHalf',
-    props:["type","id","appG","appD","dbG","dbD"],
+    props:["type","id","appG","appD","dbG","dbD","isclick"],
     data(){
         return {
             charts:'',
@@ -379,9 +392,7 @@ export default{
                 {name:'11个月',month:11}
             ],
             clouldcompany:[
-                {id:'11',name:'华为云'},
-                {id:'10',name:'腾讯云'},
-                {id:'7',name:'阿里云'}
+                // {id:'11',name:'华为云'},
             ],
             selectcompany:'11',
             month:-1,
@@ -404,18 +415,84 @@ export default{
             dbEcharts:[],
             appX:[],
             dbX:[],
-            islookecharts:false
+            islookecharts:false,
+            issort:'0'
         }
     },
     mounted:function(){
         this.appId = this.id;
         this.lookobj.appid = this.id;
-        // this.appId = '542';
-        // this.lookobj.appid = '542';
         this.getRegion(-1);
-        console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
+        this.getCloudlist();//云厂商列表
+       // console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
+        getCloudlist:function(){
+            this.$this.get('/broker/price/suppliers/list').then((res)=>{
+               // console.log(res.data.data);
+                for(let i=0;i<res.data.data.length;i++){                    
+                    for(let n in res.data.data[i]){
+                        this.clouldcompany.push({id:n,name:res.data.data[i][n]})
+                    }
+                }
+                console.log(this.clouldcompany);
+            }).catch((error)=>{})
+        },
+        sortPrice:function(){
+            let list = [],arr=[];
+            for(let i=0;i<this.priceClould.length;i++){
+                list.push(this.priceClould[i]);
+            }
+            this.priceClould = [];
+            if(this.issort=='1'){
+                this.issort = '0';//从小到大
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice < list[j].data.cloudPrice){ //从小到大
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
+                        } 
+                    } 
+                }
+                this.priceClould = list;
+            }else if(this.issort=='0'){//从大到小
+                this.issort = '1';
+                for(let i=0; i<list.length; i++){ 
+                    for(let j=0; j<list.length; j++){ 
+                        if(list[i].data.cloudPrice > list[j].data.cloudPrice){ //从大到小
+                            arr = list[j]; 
+                            list[j] = list[i]; 
+                            list[i] = arr; 
+                        } 
+                    } 
+                }
+                this.priceClould = list;           
+            }
+            this.dbX = [];
+            this.appX = [];
+            this.appEcharts = [];
+            this.dbEcharts = [];
+            let appInd = 0,dbInd = 0;
+            for(let i=0;i<this.priceClould.length;i++){
+                if(this.priceClould[i].data.rtype==1){//应用服务
+                    appInd++;
+                    if(appInd<11){
+                        this.appX.push(this.priceClould[i].data.sname+'/'+this.priceClould[i].data.pname);
+                        this.appEcharts.push(this.priceClould[i].data.cloudPrice);  
+                    }                                              
+                }else if(this.priceClould[i].data.rtype==2){//数据库服务
+                    dbInd++;
+                    if(dbInd<11){
+                        this.dbX.push(this.priceClould[i].data.sname+'/'+this.priceClould[i].data.pname);
+                        this.dbEcharts.push(this.priceClould[i].data.cloudPrice);
+                    }
+                    
+                }
+            }
+            this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
+            this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
+        },
         selectClould:function(id){//0=多云厂商  1=指定云厂商
             if(id==0){
                 this.style.appointelect = false;
@@ -471,6 +548,7 @@ export default{
             this.regionthree = [];
         },
         selectRegiontwo:function(regionIndex){
+            this.lookobj.regions = [];
             let arr = [];
             for(let i=0;i<this.regiontwo.length;i++){
                 this.regiontwo[i].boolean = false;
@@ -528,24 +606,27 @@ export default{
             this.islookecharts = true; 
             this.$http.post('/broker/price/cloud/list',JSON.stringify(this.lookobj)).then((response)=>{
                 // console.log('----',response);   
-                 
+                let appInd=0,dbInd=0;
                 for(let i=0;i<response.data.data.length;i++){
                     this.priceClould.push({data:response.data.data[i],model:false});
                     if(response.data.data[i].rtype==1){//应用服务
-                        this.appX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
-                        this.appEcharts.push(response.data.data[i].cloudPrice);                        
+                        appInd++;
+                        if(appInd<11){
+                            this.appX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                            this.appEcharts.push(response.data.data[i].cloudPrice);  
+                        }                                              
                     }else if(response.data.data[i].rtype==2){//数据库服务
-                        this.dbX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
-                        this.dbEcharts.push(response.data.data[i].cloudPrice);
+                        dbInd++;
+                        if(dbInd<11){
+                            this.dbX.push(response.data.data[i].sname+'/'+response.data.data[i].pname);
+                            this.dbEcharts.push(response.data.data[i].cloudPrice);
+                        }
+                        
                     }
                 } 
                 this.islook = true;
-                //if(this.appEcharts.length>0){
-                    this.canversBar('designHalf-app',this.appX,this.appEcharts,'应用服务');
-                //} 
-                //if(this.dbEcharts.length>0){
-                    this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'数据库服务');
-                //}
+                this.canversBar('designHalf-app',this.appX,this.appEcharts,'云厂商应用规格');
+                this.canversBar('designHalf-db',this.dbX,this.dbEcharts,'云厂商数据库规格');
                 if(this.priceClould.length==0){
                     this.islookecharts = false; 
                 }      
@@ -554,6 +635,7 @@ export default{
         },
         radio:function(index){
             let n = 0;
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
             for(let i=0;i<this.priceClould.length;i++){
                 if(this.priceClould[i].model==true){
                     n++;
@@ -563,32 +645,98 @@ export default{
             if(n>0){
                 this.allselect = false;
             }
-            if(this.priceClould[index].model==false){
-                this.num++;
-                //this.sumprice = Number(this.sumprice).toFixed(2);
-                this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+            if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
+                if(userAgent.indexOf("Edge") > -1){
+                    if(this.priceClould[index].model==true){
+                        this.num++;
+                    }else{
+                        this.num--;
+                    }
+                    this.sumprice = 0;
+                    for(let i=0;i<this.priceClould.length;i++){
+                        if(this.priceClould[i].model==true){
+                            this.sumprice =this.sumprice + this.priceClould[i].data.cloudPrice;
+                        }                        
+                    }
+                }else{
+                    if(this.priceClould[index].model==false){
+                        this.num++;
+                        //this.sumprice = Number(this.sumprice).toFixed(2);
+                        this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                    }else{
+                        this.num--;
+                        this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                    }
+                }
+                
             }else{
-                this.num--;
-                this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                if(this.priceClould[index].model==true){
+                    this.num++;
+                    //this.sumprice = Number(this.sumprice).toFixed(2);
+                    this.sumprice = this.sumprice+this.priceClould[index].data.cloudPrice;
+                }else{
+                    this.num--;
+                    this.sumprice = this.sumprice-this.priceClould[index].data.cloudPrice;
+                }
             }
         },
         whole:function(){
             //this.sumprice = 0;
-            console.log(this.allselect);
-            if(this.allselect==false){
-                this.sumprice = 0;
-                for(let i=0;i<this.priceClould.length;i++){
-                    this.priceClould[i].model = true;
-                    this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+            console.log('aaaa',this.allselect);
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            if(userAgent.indexOf("Opera") > -1||userAgent.indexOf("Firefox") > -1||userAgent.indexOf("Safari") > -1||userAgent.indexOf("Chrome") > -1){
+                if(userAgent.indexOf("Edge") > -1){
+                    if(this.allselect==true){
+                        this.sumprice = 0;
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = true;
+                            this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = this.priceClould.length;
+                    }else{
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = false;
+                            this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = 0;
+                    }
+
+                }else{
+                    if(this.allselect==false){
+                        this.sumprice = 0;
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = true;
+                            this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = this.priceClould.length;
+                    }else{
+                        for(let i=0;i<this.priceClould.length;i++){
+                            this.priceClould[i].model = false;
+                            this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                        }
+                        this.num = 0;
+                    }
                 }
-                this.num = this.priceClould.length;
-            }else{
-                for(let i=0;i<this.priceClould.length;i++){
-                    this.priceClould[i].model = false;
-                    this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                
+
+            }else if(userAgent.indexOf("Chrome") > -1&&userAgent.indexOf("Edge") > -1){
+                if(this.allselect==true){
+                    this.sumprice = 0;
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = true;
+                        this.sumprice =this.sumprice+this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = this.priceClould.length;
+                }else{
+                    for(let i=0;i<this.priceClould.length;i++){
+                        this.priceClould[i].model = false;
+                        this.sumprice =this.sumprice-this.priceClould[i].data.cloudPrice;
+                    }
+                    this.num = 0;
                 }
-                this.num = 0;
+
             }
+            
             
         },
         gobuy:function(id){
@@ -648,11 +796,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999'
+                            color: '#c2c2c2'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     },
                     nameLocation:'end',
                     axisLabel: {  
@@ -668,11 +816,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999'
+                            color: '#c2c2c2'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     },
                 }],
                 series: [
@@ -685,7 +833,7 @@ export default{
                                 color:'#f7a72c'
                             }
                         },
-                        barWidth : 25,//柱图宽度
+                        barWidth : 15,//柱图宽度
                     }
                 ]
             })

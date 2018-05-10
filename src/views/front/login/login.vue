@@ -21,7 +21,7 @@
                     
                     <div class="login-from-list login-list-two" :class="ishave==true?'error':''">
                         <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="密码" v-model="password" v-on:focus="focustwo()" v-on:blur="PhoneReg('password')">
+                        <input type="password" placeholder="密码" v-model="password" v-on:focus="focustwo()" class='ikl' v-on:blur="PhoneReg('password')">
                         <div class="phone-notice" v-show="ishave">{{passwordText}}</div>
                     </div>                
                     <button class="login-from-btn" v-on:click="login()">登录</button>
@@ -30,7 +30,17 @@
                             <input type="checkbox" v-model="remember">记住用户
                         </div>
                         <div class="login-from-right">
-                            <router-link to="/register" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
+                            <router-link to="/registerOne" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
+                        </div>
+                    </div>
+                    <!--其他方式登录-->
+                    <div class="otherLogin">
+                        <div class="otherLogin-line">
+                            <span></span>
+                            <p class="otherLogin-desc">使用其他账号登录</p>
+                        </div>
+                        <div class="otherLogin-logo">
+                            <span v-on:click="wechart()"><i class="iconfont icon-weixin weixin-logo"></i></span>
                         </div>
                     </div>
                 </div>
@@ -41,10 +51,20 @@
     </div>
     <div class="login-footer">
         <p class="login-foot-list">版权所有 © 2018 江苏京玉信息技术有限公司&nbsp&nbsp&nbsp&nbsp&nbsp<a style="color:#555" href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18002559号-2</a>&nbsp&nbspTEL：400-828-7308</p>
-        <!--<p class="login-foot-list">京ICP证120829号 京ICP备12032080号-2 京网文（2014）0901-201号</p>
-        <p class="login-foot-list">京公网安备 11010802020326号</p>-->
     </div>
-    <router-view></router-view>
+    <!-- 微信登录弹框 -->
+    <el-dialog :visible.sync="dialogUnbing" class="wechart-box" @close='closeDialog'>
+        <div class="wechart-title">微信登录</div>
+        <div class="wechart-img">
+            <img :src="wechartUrl" alt="">
+        </div>
+        <div class="wechart-desc">
+            请使用微信扫描二维码登录<br>CloudBroker²
+        </div>
+        <div class="wechart-success" v-show="success">
+            <i class="iconfont icon-duihao2"></i>扫描成功
+        </div>
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -61,7 +81,11 @@ export default{
             ishave:false,
             passwordText:'',
             remember:true,
-            nextTo:''
+            nextTo:'',
+            dialogUnbing:false,
+            wechartUrl:'',
+            timer:'',
+            success:false
         }
     },
     mounted:function(){
@@ -74,16 +98,75 @@ export default{
             this.account = localStorage.getItem('remAccount');
         }
         let that = this;
+        //$(".ikl").focus();
+        //   $(document).ready(function(){
+        //     // $(".inpuys").focus();
+        //     $(".inpuys").onkeyup(function(){
+        //         alert(1)
+        //     })
+        // })
+        // $(".ikl").get(0).onkeyup = function(evnet){
+        //     if (evnet.keyCode == '13') {
+        //         that.login();
+        //     }
+        // }
         $(document).keyup(function (evnet) {
             if (evnet.keyCode == '13') {
                 that.login();
             }
         });
         this.nextTo = this.$route.query.redirect;
-        
-        //console.log('------',this.$route.query.redirect);
     },
     methods:{
+        closeDialog:function(){
+            clearInterval(this.timer);
+        },
+        chekwechart:function(sceneid){
+            let that = this;
+            this.timer = setInterval(function(){
+                that.$this.get('/broker/auth/check/wxscan/'+sceneid).then((res)=>{
+                    if(res.data.data=='-1'){
+                        //console.log('未扫描');
+                    }else{
+                        clearInterval(that.timer);
+                        sessionStorage.setItem("utype",res.data.data.utype);
+                        sessionStorage.setItem("account",JSON.stringify(res.data.data));
+                        that.success = true;
+                        setTimeout(function(){
+                            that.dialogUnbing = false;
+                            if(that.url==''){
+                                that.$router.push({path:'/consolePage'}); 
+                            }else{
+                                for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                                    if(that.url[i].indexOf('redirect=appstore')>-1){
+                                        that.$router.push({path:'/appcenterList'});
+                                    }else{
+                                        that.$router.push({path:'/consolePage'}); 
+                                    }
+                                }
+                            }
+                        },1000)
+                    }
+                }).catch((error)=>{})
+            },1000)
+        },
+        wechart:function(){//微信登录
+            let uuid='',sceneid='';
+            if(sessionStorage.getItem('uuid')){
+                sceneid = sessionStorage.getItem('uuid');
+            }else{
+                uuid = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+                sceneid = uuid+uuid+uuid;
+                sessionStorage.setItem('uuid',sceneid)
+            }
+            //console.log('uuid',uuid+uuid+uuid);
+            this.$this.get('/broker/auth/wxqcode/'+sceneid).then((res)=>{
+                //console.log('wechart',res.data);
+                this.wechartUrl = res.data.data;
+                this.dialogUnbing = true;
+                this.chekwechart(sceneid);
+            }).catch((error)=>{})
+        },
         focusone:function(){
             $(".login-list-one").addClass('login-from-list-focus');
         },
@@ -120,27 +203,34 @@ export default{
                 let str = JSON.stringify(obj);
                 let that = this;
                 this.$this.post('/broker/auth/login',str).then((res)=>{
-                    console.log('login',res);
-                    if(res.data.code=='1'){
-                        // if(this.$route.query.redirect==undefined){
-                        //     this.$router.push({path:'/'});
-                        // }else{
-                        //     this.$router.push({path:'/consolePage'});  
-                        // }
-                        //console.log(this.$route.query.redirect);
-                                             
+                    //console.log('login',res);
+                    if(res.data.code=='1'){                                             
                         //utype  3=运营商；4=政府；
                         sessionStorage.setItem("accountId",this.account);
                         sessionStorage.setItem("utype",res.data.data.utype);
                         sessionStorage.setItem("account",JSON.stringify(res.data.data));
-                        if(sessionStorage.getItem("accountId")){
+                        // if(sessionStorage.getItem("accountId")){
+                        //     this.$router.push({path:'/consolePage'}); 
+                        // }
+                        //console.log('aaa',this.url);
+                        if(this.url==''){
                             this.$router.push({path:'/consolePage'}); 
+                        }else{
+                            for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                                if(this.url[i].indexOf('redirect=appstore')>-1){
+                                    this.$router.push({path:'/appcenterList'});
+                                }else{
+                                    this.$router.push({path:'/consolePage'}); 
+                                }
+                            }
                         }
+                        
                     }else if(res.data.code=='0'){//用户名或密码不正确
-                        this.isaccount=true;
+                        // this.isaccount=true;
+                        this.isaccount=false;
                         this.ishave=true;
-                        this.accountText = '用户名不正确';
-                        this.passwordText = '密码不正确';
+                        //this.accountText = '用户名不正确';
+                        this.passwordText = '账号不存在或密码错误，请重新输入';
                     }else if(res.data.code=='-1'){//邮箱未激活
                         this.isaccount=true;
                         this.ishave=true;

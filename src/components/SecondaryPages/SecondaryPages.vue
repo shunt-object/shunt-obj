@@ -24,12 +24,75 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li @click="cloundPlan"><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">云规划</a></li>
-            <li @click="cloundPlen"><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">云选型</a></li>
-            <li class="lihovzan" @click="cloundPlsn"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">云实测</a> <div class="xians" style="padding:0px 0px;background:#ccc;display:none;">
-                            <i class="iconfont icon-xinxi" style="color:#999;font-size:18px !important;"></i>
-                            <div style="font-size:14px !important;color:#999;padding:0px 0 20px 0 ;line-height:0px !important">暂无消息</div>
-                        </div> </li>
+            <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
+                        <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link " style="outline:none">
+                                    产品与服务
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsb">
+                                    <el-dropdown-item class="text-left ">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
+                                        <div class="row">
+                                            <span @click="cloundPlan" class="col-md-1 gms">云规划</span>
+                                            <span @click="cloundPlen" class="col-md-1 gms">云选型</span>
+                                            <span @click="cloundplysn" class="col-md-1 gms">云设计</span>
+                                            <span @click="cloundPlsn" class="col-md-1 gms">云实测</span>
+                                            <span @click="cloundPlbn" class="col-md-1 gms">云购买</span>
+                                        </div>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
+                                        <div class="row"><span class="col-md-1 gms" @click="cloundPlin">Prof. 吴数据</span></div>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
+                                        <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
+                                    </el-dropdown-item>
+                                     <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <i class="iconfont icon-new" style="color:#FF3A42;font-size:22px;"></i></div>
+                                        <div class="row">
+                                            <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
+                                            <span class="col-md-1 gms " @click="yunshili">云实例快搜器</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">云代理查询助手</span>
+                                            <span class="col-md-1 gms " @click="yunpei">云匹配度分析器</span> 
+                                            <span class=" gms text-left" style="margin-left:10px;" @click="yusuan">预算收益分析助手</span> 
+                                             <span class=" gms " style="margin-left:10px;" @click="yunshili">云眼</span>
+                                        </div>
+                                    </el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>
+            </a></li>
+            <li><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
+                    <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link" style="outline:none">
+                                    生态
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsbs">
+                                    <el-dropdown-item >
+                                        <p class="row text-center" >
+                                            <span @click="cloundPlvn" class="col-md-6">招募顾问</span>
+                                            <span @click="cloundPlkn" class="col-md-6">合作伙伴</span>
+                                        </p>
+                                    </el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>
+            </a></li>
+            <li class="lihovzan"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
+                       <el-dropdown placement="bottom">
+                                <span class="el-dropdown-link" style="outline:none">
+                                    动态
+                                </span>
+                                <el-dropdown-menu slot="dropdown"  class="dropCsbse">
+                                    <el-dropdown-item >
+                                        <p class="row text-center"> 
+                                            <span @click="cloundPlqn" class="col-md-4">新闻动态</span>
+                                            <span @click="cloundPlfn" class="col-md-4">行业头条</span>
+                                            <span @click="cloundPlgn" class="col-md-4">CSB²社群</span>
+                                        </p>
+                                    </el-dropdown-item>
+                                </el-dropdown-menu>
+                         </el-dropdown>              
+            </a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
             <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
             <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
@@ -61,7 +124,18 @@
 </div>
 </template>
 <script>
-
+          $(window).scroll(function(){
+                if($(this).scrollTop() > 50){
+                    $('.navbar').css("background","#1D1E20")
+                }else if($(this).scrollTop() < 50){
+                    $('.navbar').css("background","none")
+                 }
+                if($(this).scrollTop() > 50){
+                    $('.navbar').css("display","block")
+                }else if($(this).scrollTop() < 50){
+                    $('.navbar').css("display","block")
+                 }
+          });
 export default { 
     props:["active"],  
     data() {
@@ -73,21 +147,30 @@ export default {
       }
     },
     mounted: function() {
-         
+                         $(".fixshow a").hover(function(){
+                                $(this).find("i").css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        });
+                         $(".hoover-a").hover(function(){
+                                $(this).children().css("color","#da121a")
+                        },function(){
+                                $(this).find("i").css("color","#c2c2c2")
+                        })
+                       
         if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
           this.islogin = false;
         } else {
           this.islogin = true;
           this.realname = JSON.parse(sessionStorage.getItem("account")).realname;
         };
-      
-
+     
           
     },
     methods: {
         
         PlanLj:function(){
-             this.$router.push({path: '/register'});
+             this.$router.push({path: '/registerOne'});
         },
         asd:function(){
             this.logoutlist==true?this.logoutlist=false:this.logoutlist=true;
@@ -109,23 +192,65 @@ export default {
           this.$router.push({path: '/consolePage'});
       },
       reset: function() {
-        this.$router.push({path: '/register'})
+        this.$router.push({path: '/registerOne'})
       },
       cloundPlan:function(){
-           this.$router.push({path: '/sleconesecond'})
+           this.$router.push({path: '/cloudplanning'})
       },
       cloundPlen:function(){
-          this.$router.push({path: '/seleconefirst'})
+          this.$router.push({path: '/cloudselection'})
       },
       homePager:function(){
            this.$router.push({path: '/'})
       },
       cloundPlsn:function(){
-           this.$router.push({path: '/seleconeThree'})
+           this.$router.push({path: '/cloudmeasured'})
       },
       listwer:function(){
-           this.$router.push({path: '/seleconeFour'})
+           this.$router.push({path: '/aboutus'})
       },
+      cloundplysn:function(){
+          this.$router.push({path: '/clouddesignning'})
+      },
+      cloundPlin:function(){
+          this.$router.push({path: '/wudata'})
+      },
+      cloundPlon:function(){
+            this.$router.push({path: '/technologyandservices'})
+      },
+      cloundPlbn:function(){
+            this.$router.push({path: '/cloudbuying'})
+      },
+      cloundPlvn:function(){
+          this.$router.push({path: '/recruitmentconsultant'})
+      },
+      cloundPlgn:function(){
+        this.$router.push({path: "/csbcommunity"})
+      },
+      cloundPlfn:function(){
+          this.$router.push({path: "/industryheadlines"})
+      },
+      cloundPlqn:function(){
+           this.$router.push({path: "/newsdynamic"})
+      },
+      cloundPlkn:function(){
+          this.$router.push({path: "/partners"})
+      },
+      yunjia:function(){
+         this.$router.push({path: "/appcenterPrice"}) 
+      },
+      yunshili:function(){
+          this.$router.push({path:"/registerOne"})
+      },
+      yunproxy:function(){
+          this.$router.push({path:"/appcenterProxy"})
+      },
+      yunpei:function(){
+           this.$router.push({path:"/appcenterCheck"})
+      },
+      yusuan:function(){
+           this.$router.push({path:"/appcenterRoi"})
+      }
     
     }
   }
@@ -134,6 +259,66 @@ export default {
 </script>
 
 <style>
+.dropCsb{
+    width:100%;
+    top:60px !important;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    /*text-align:center !important;*/
+    opacity:0.9;
+       max-width: 1090px;
+    
+}
+.dropCsbs{
+    width:30%;
+    top:60px !important;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    /*text-align:center !important;*/
+    opacity:0.9;
+       max-width: 1090px;
+    
+}
+.dropCsbse{
+    width:30%;
+    top:60px !important;
+    background:#161b25 !important;
+    border-color:#161b25 !important;
+    /*text-align:center !important;*/
+     opacity:0.9;
+       max-width: 1090px;
+    
+}
+.gms{
+    color:#A8A8A8;
+    font-size:12px;
+}
+.el-dropdown-menu{
+    
+}
+.el-dropdown-menu__item{
+     font-size:14px;
+    color:#f5f5f5 !important;
+}
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover{
+   
+   
+    background:none !important;
+}
+.el-dropdown-menu__item:not(.is-disabled) span:hover{
+    /* border-bottom:1px solid #da121a !important;*/
+     color:#FF3A42;
+     /*padding-bottom:10px;*/
+}
+.popper__arrow{
+    display:none !important;
+}
+.el-popper .popper__arrow, .el-popper .popper__arrow:after{
+    display:none !important;
+}
+.el-popper .popper__arrow{
+   display:none !important;
+}
 .liHoverxg span:hover{
     background:#fff;
     color:#da121a;
@@ -147,7 +332,7 @@ export default {
     background:#F5F7FA !important
 }
 .border_active{
-    border-bottom:1px solid #fff;
+    border-bottom:1px solid #da121a;
 }
 .dropdown {
     position: relative;
@@ -233,7 +418,9 @@ ul,ol li {
     height:80%;
 }
 .navbar {
-    background: #2b2b2b; border: none
+    /*background: #2b2b2b;*/ 
+    border: none;
+    opacity:0.9;
 }
 .carousel-inner{
     margin-bottom:0px !important;
@@ -241,39 +428,14 @@ ul,ol li {
 .ourPoint{
     background:#f7f7f7; padding-bottom: 30px;
 }
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:0px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:50px; height:50px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
-}
-/**/
+
 @media (min-width: 768px) {
   
 
   .tuPa {
       left: 2%; height: 288px; position: absolute; bottom: -14%
   }
-  .cla {
-      margin-left: 8%;
-  }
+
   .cl {
       margin-left: 28% !important;
   }
@@ -296,7 +458,7 @@ ul,ol li {
      margin-top: 15px;
   }
   .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #fff; cursor: pointer;
+      border-bottom: 1px solid #da121a; cursor: pointer;
       background:none;
   }
   .navbar ul li .hovers:visited {
@@ -508,9 +670,7 @@ ul,ol li {
 .footer .container {
     width: 60%;
 }
-.footer .footer-left {
-    border-left:1px solid #2e383e;
-}
+
 .footer .footer-jx {
     font-weight: 200; font-size:14px; color:#ccc;
 }
@@ -536,7 +696,10 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
-
+ .navbar ul li .hovers:hover {
+      border-bottom: 1px solid #da121a; cursor: pointer;
+      background:none;
+  }
 
 .right{
     height:100%;
@@ -631,9 +794,9 @@ a:hover {
 .logout-ul li {
     width:100%;text-align: center; line-height: 20px;
 }
-.bluar-ccc {
+/*.bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
-}
+}*/
 h2 {
     font-size: 20px;
 }
@@ -659,7 +822,7 @@ h2 {
     color:#999;
 }
 .mainPd {
-    margin-top: 20px; color: #666666; display: block
+    margin-top: 12px; color: #666666; display: block
 }
 .mainpa {
     font-size: 14px; color: #666666; line-height: 12px;

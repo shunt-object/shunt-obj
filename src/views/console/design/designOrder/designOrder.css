@@ -1,5 +1,5 @@
 .designOrder-box{
-    padding:0 30px 22px 30px;
+    padding:0 30px 80px 30px;
     background:#fff;
     margin-top:10px;
     min-height:100vh;
@@ -98,11 +98,11 @@
     float:right;
     background:#da121a;
     border-radius:2px;
-    width:103px;
-    height:28px;
-    line-height:28px;
+    width:94px;
+    height:35px;
+    line-height:35px;
     font-size:14px;
-    color:#fff;
+    color:#f0f0f0;
     margin-right:33px;
     margin-top:15px;
 }

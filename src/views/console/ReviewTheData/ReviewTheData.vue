@@ -3,17 +3,20 @@
 <div class="total-header">
     <span></span>
     总览
-    ><p class="comback">点评数据</p>
+    ><p class="comback">意见反馈</p>
 </div>
 <div class="row reviewthe-echarts">
     <div class="col-md-7">
-        <div class="reviewthe-tu-title">点评数据采集统计</div>
+        <div class="reviewthe-tu-title">意见反馈采集统计</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-bar" id="reviewthe-bar" style="width:100%;height:100%;"></div>
         </div>
     </div>
     <div class="col-md-5">
-        <div class="reviewthe-tu-title">点评类型占比分析</div>
+
+        <!--<div class="reviewthe-tu-title">意见反馈占比分析</div>-->
+
+        <div class="reviewthe-tu-title">意见反馈类型占比分析</div>
         <div class="reviewthe-tu-list">
             <div class="reviewthe-pie" id="reviewthe-pie" style="width:100%;height:100%;"></div>
         </div>
@@ -60,7 +63,7 @@
     width:100%;
 }
 .reviewthe-table thead tr td{
-    background: #f3f3f3; border: 1px solid #e5e5e5; padding: 10px 0; color: #555; font-weight: 700;
+    background: #f3f3f3; border: 1px solid #e5e5e5; padding: 10px 0; color: #555; font-weight: 700; font-size:12px;
 }
 .reviewthe-table tbody tr td{
     font-size: 12px; color: #2b2b2b; border: 1px solid #e5e5e5; padding: 15px 0; line-height: 20px;

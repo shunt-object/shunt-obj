@@ -14,10 +14,10 @@
                             <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed;width: 110px; height: 29px; ">存储服务</button></span>
                             <span><button disabled class="designTaba notclick" style="color:#B5B5B5;background:#EDEDED;cursor: not-allowed; width: 110px; height: 29px;">CDN</button></span></p>
                     </div>
-                    <div class="designTabj" v-show="digaopeis">
-                        <p style="width:200px;">
-                            <span v-on:click="dipei" style="float:right;">低配</span>
-                            <span v-on:click="gaopei">高配</span>
+                    <div class="designTabj row" v-show="digaopeis">
+                        <p class="col-md-12" style="width:300px;margin-left:15px;">
+                            <span v-on:click="dipei" class="col-md-4 col-xs-4 peiSpan">低配</span>
+                            <span v-on:click="gaopei" class="col-md-4 col-xs-4 peiSpan gaopeiss">高配</span>
                         </p>
                     </div>
                     <div  class="col-md-12">
@@ -25,7 +25,7 @@
                     </div>
                     <div v-show="yyshow">
                         <div style="margin-bottom:50px;">应用服务月度数量统计分析</div>
-                       <table class="designHalf-table-public" id="example" style="margin-left:30px">
+                       <table class="designHalf-table-public designerTable" id="example" style="margin-left:30px">
                        
                             <thead>
                                 <tr>
@@ -49,7 +49,7 @@
                                      <td v-if="dat.resServer==null">--</td>
                                      <td v-else>{{dat.resServer.cores}}</td>
                                      <td>{{Math.round(dat.cpu)}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" style="font-size:14px;" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dat.appid)"><i class="iconfont icon-chakan font12"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
@@ -86,7 +86,7 @@
                     </div>
                     <div v-show="sjshow">
                     <div style="margin-bottom:50px;">数据库服务月度数量统计分析</div>
-                       <table class="designHalf-table-appServer designHalf-table-public" id="example" style="margin-left:30px">
+                       <table class="designHalf-table-appServer designHalf-table-public designerTable" id="example" style="margin-left:30px">
                             <thead>
                                 <tr>
                                     <td class="designHalf-w-6" rowspan="2">应用名称</td>
@@ -109,7 +109,7 @@
                                      <td v-if="dati.resServer==null">--</td>
                                      <td v-else>{{dati.resServer.cores}}</td>
                                      <td>{{Math.round(dati.cpu)}}</td>
-                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan"></i>&nbsp查看详情</span></td>
+                                     <td rowspan="6" style="color:#206faf"><span class="hoverspanRouter" v-on:click="routerDesign(dati.appid)"><i class="iconfont icon-chakan font12"></i>&nbsp查看详情</span></td>
                                 </tr>
                                 <tr style="background:#f7f7f7">
                                     <td>处理器主频（GHZ）</td>
@@ -149,36 +149,54 @@
     </div>
 </template>
 <style>
-    .hoverspanRouter:hover{
-       cursor:pointer; 
+.hoverspanRouter:hover{ cursor:pointer;  }
+.designerTable{ width:95% !important;  }
+.designHeader{ padding-bottom:20px; margin-top:20px; }
+.designTop{
+width:100%;
+background:#fff;
+height:100%;
+}
+@media (max-width: 768px) {  /* 手机 */
+     .designTab p{
+        height:40px;
+        border-bottom:0px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
     }
-    .designHalf-table-public{
-        width:95% !important; 
+    .gaopeiss{
+        margin-left:0px;
     }
-     .designHeader{
-        /*min-height:90vh;
-        padding-bottom:5%;*/
-        padding-bottom:20px;
-        margin-top:20px;
+     #idexEcharts{
+      margin:200px auto 0 auto;
+      width:270px;
+      height:150px
     }
-     .designTop{
-        width:100%;
-        background:#fff;
-        height:100%;
+}
+@media (min-width: 768px) {  /* pc */
+     .designTab p{
+        height:40px;
+        border-bottom:1px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
     }
-    .designTop h2{
+    .gaopeiss{
+        margin-left:20px;
+    }
+    #idexEcharts{
+      margin:0 auto;
+      width:900px;
+      height:300px
+    }
+}
+.designTop h2{
         text-align:left;
         /*margin:0px 0 40px 18px;*/
         font-size:14px;
         /*padding-top:20px;*/
         color:#6e6e6e;
     }
-    .designTab p{
-        height:40px;
-        border-bottom:1px solid #ccc;
-        margin-left:30px;
-        margin-right:30px;
-    }
+   
     .designTab p span:hover{
         cursor:pointer
     }
@@ -204,13 +222,13 @@
     .designTabj p span:hover{
          cursor:pointer
     }
-     .designTabj p span{
-      float:left;
-      margin-left:30px;
-      font-size:12px;
-      color:#c0c0c0;
-      padding:5px 20px;
-      border:1px solid  #c0c0c0;
+    .designTabj p span{
+    float:left;
+    margin-right:30px;
+    font-size: 12px;
+    color: #c0c0c0;
+    padding: 5px 20px;
+    border: 1px solid #c0c0c0;
   }
   .designTabj{
       margin-bottom:50px;
@@ -229,11 +247,13 @@
       color:#fff !important;
       border:1px solid #f7a72c  !important;
   }
-  #idexEcharts{
-      margin:0 auto;
-      width:900px;
-      height:300px
+  .designTabjBj:hover{
+      background:#FFB730 !important;
   }
+  .peiSpan:hover{
+    background:#F5F7FA;
+  }
+ 
 </style>
 <script>
     import sds from '../../../components/steps/steps'
@@ -287,6 +307,14 @@
                                         data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
                                         axisTick: {
                                             alignWithLabel: true
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: '#c2c2c2'
+                                            }
+                                        },
+                                        nameTextStyle:{
+                                            color:'#333'
                                         }
                                     }
                                 ],
@@ -298,21 +326,20 @@
                                 },
                                 axisLine: {
                                     lineStyle: {
-                                        color: '#999'
+                                        color: '#c2c2c2'
                                     }
                                 },
                                 nameTextStyle:{
-                                    color:'#999'
-                                },
+                                    color:'#333'
                                 }
-                                ],
+                                }],
                                 series : [
                                            
                               
                                     {
                                         name:'数量',
                                         type:'bar',
-                                        barWidth: '60%',
+                                        barWidth : 25,//柱图宽度
                                         data:this.valuters
                                     }
                                 ]

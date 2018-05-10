@@ -3,6 +3,9 @@
     padding:0 12px !important;
     margin-top:-10px;
 }
+.idicon:hover{
+    cursor:pointer
+}
 .comment-word{
     font-size:14px;
     color:#555555;
@@ -83,4 +86,66 @@
 }
 .comment-notice span{
      color:#da121a;
+}
+/*消息中心*/
+.lilister{
+    width:359px;
+    height:60px;
+    background:#f5f6f8;
+    margin-bottom:20px
+}
+.listspan{
+    float:left;
+    color:#1e1e20;
+    font-weight:500;
+    margin-left:20px;
+    font-size:12px;
+
+}
+.listspan2{
+    float:right;
+    padding-right:18px;
+    font-size:12px;
+color:#a3a3a3;
+}
+.psp{
+    padding-top:10px;
+}
+.plp{
+  margin-left: 40px;
+   padding-top:16px;
+   text-align:left;
+   font-size:12px;
+color:#a3a3a3;
+overflow: hidden;
+width:300px;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.lookmangMsg{
+    font-size:12px;
+    color:#5a5a5a;
+}
+.lookmangMsg:hover{
+    cursor:pointer;
+    color:#da121a
+}
+.kongMsg{
+    border:1px solid #b9b2b2;
+width:359px;
+height:2px;
+margin-bottom: 20px
+}
+.Redreg{
+    position:absolute;
+    top:5px;
+    right:0;
+    display: inline-block;
+    width:6px;
+    height:6px;
+    border-radius: 100px;
+    background:#da121a
+}
+.navli{
+    position:relative;
 }

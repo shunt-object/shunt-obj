@@ -113,12 +113,6 @@ export default{
         this.judge(3);//3=亲和度
         this.judge(4);//4=比较标准
         this.judge(6);//6=云设计
-        // 云选型
-        // this.$this.get('/broker/compare/result/'+this.id).then((response)=>{ 
-        //     this.compare = response.data.data.datas;
-        // }).catch((error)=>{ 
-        //     this.compare = undefined;
-        // })
   },
   methods:{
     judge:function(moduleId){
@@ -178,7 +172,8 @@ export default{
             }else if(I==3){
                 this.$router.push({path:'/planQuestion',query:{type:'plan',id:this.id,name:'1'}});
             }else if(I==4){
-                if( this.isnot!=1 && this.isnot!=2 ){
+                //this.isnot!=1 && this.isnot!=2
+                if( this.isnot!=1 ){
                     this.$router.push({path:'/compareQuestion',query:{type:'plan',id:this.id}});
                 }                
             }else if(I==5){

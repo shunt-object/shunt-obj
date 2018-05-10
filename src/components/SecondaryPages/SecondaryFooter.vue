@@ -3,29 +3,33 @@
         <div class="container">
       <!--<div class="container"> -->
         <div class="row" style="margin:0 auto !important;">
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
+                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts pag">
                 <p class="text-left footer-jx">联系我们</p>
                 <p class="text-left footer-list hoverRed hovera"><img src="../../assets/phones.svg" alt="" style="width:9px;height:12px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="tel:4008287308">400-828-7308</a></p>
-                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3;width:auto !important" href="mailto:Help@csb-china.com">Help@csb-china.com</a></p>
+                <p class="text-left footer-list hoverRed hovera"><img src="../../assets/mes.svg" alt="" style="width:9px;height:10px">&nbsp<a style="color:#b3b3b3;width:auto !important;display:inline" href="mailto:Help@csb-china.com" >Help@csb-china.com</a></p>
                 <p class="text-left footer-list hoverRed"><img src="../../assets/dizhiicon.svg" alt="" style="width:9px;height:10px">&nbsp江苏无锡惠山区信息港</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-                <p class="text-left footer-jx">产品功能</p>
-                <p class="text-left footer-list hoverRed" @click="cloundPlan">云规划</p>
-                <p class="text-left footer-list hoverRed" @click="cloundSelect">云选型</p>
-                <p class="text-left footer-list hoverRed" @click="cloundCe">云实测</p>
+                
+                <div class="col-xs-12 col-sm-4 obj-what-dv footer-ts pkd">
+                <p class=" footer-jx text-left">产品与服务</p>
+                <p class="text-left footer-list hoverRed"><span @click="yungh">云规划</span><span style="margin-left:10px" @click="yunsj">云设计</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px" @click="yungm">云购买</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span  style="margin-left:10px" @click="cloundsj">Prof. 吴数据</span></p>
+                <p class="text-left footer-list hoverRed"></p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts">
-                <p class="text-left footer-jx">服务支持</p>
-                <p class="text-left footer-list hoverRed" @click="helpCenter">帮助中心</p>
-                <p class="text-left footer-list hoverRed" @click="fuwuLook">服务条款</p>
+                <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
+                <p class="text-left footer-jx">服务与支持</p>
+                <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
+                <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left">
-                <p class="footer-jx">CloudBroker²</p>
+                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left pagd">
+                    <div class="lerf">
+                <p class="footer-jx">CloudBroker</p>
                     <div class="footer-ke">
-                        <p>您的专属服务顾问</p>
-                        <img src="../../assets/erweima.jpg" alt="">
+                        <p>您专属的云顾问</p>
+                        <img src="../../assets/erweima.jpg" alt="" style="width:60px;height:60px">
                     </div>
+                </div>
                 </div>
         </div>
             
@@ -33,8 +37,8 @@
         </div>
         <div>
             <div class="footer-inert"></div>
-            <div class="row footer-last" >       
-                <p class="text-center thin col-xs-12" style="text-align:center;margin-left:20px;">
+            <div class="row footer-last" style="margin-bottom:0px !important">       
+                <p class="text-center thin col-xs-12" style="text-align:center;margin-left:20px;line-height:20px">
                     版权所有 © 2018 江苏京玉信息技术有限公司
                     <a style="color:#b3b3b3;width:180px !important;" href="http://www.miitbeian.gov.cn/" target="_blank">
                         苏ICP备18002559号-2
@@ -49,7 +53,10 @@
 /**{
    overflow:hidden
 }*/
-.hoverRed:hover{
+.hoverRed span:hover{
+    color:#e41e2b
+}
+.hoverReds:hover{
     color:#e41e2b
 }
 .hovera a:hover{
@@ -122,33 +129,24 @@ ul,ol li {
 .ourPoint{
     background:#f7f7f7; padding-bottom: 30px;
 }
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:0px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:50px; height:50px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
-}
-/**/
+
 @media (min-width: 768px) {
-.footer .footer-left {
+.pkd{
+    padding-left:8%;
+}
+.pag{
+    padding-left:20px;
+}
+.pad{
+    padding-left:3%;
+}   
+.pagd{
+    padding-left:5%;
+}
+
+.lerf{
     border-left:1px solid #2e383e;
+    padding-left:8%;
 }
  .footer-inert{
     width:101.2%;
@@ -378,7 +376,7 @@ ul,ol li {
     margin-top: 20px;
 }
 .footer p {
-    font-size: 12px; color: #b3b3b3; line-height:15px;
+    font-size: 12px; color: #b3b3b3; line-height:17px;
 }
 .footer-ts img {
     width: 59px; height: 59px;
@@ -395,7 +393,7 @@ ul,ol li {
     font-size:12px; color:#b3b3b3;
 }
 .footer .footer-last {
-    margin-top: 20px; line-height: 62px;
+    margin-top: 20px; line-height: 62px;background:#2b2b2b;
 }
 .footer .footer-last p {
     font-size: 12px; color: #b3b3b3; text-indent:-50px; line-height:10px;
@@ -414,7 +412,10 @@ ul,ol li {
 }
 @media (max-width: 768px) {
     .footer .footer-left {
-        border-left:0px solid #2e383e;
+       
+    }
+    .lerf{
+         border-left:0px solid #2e383e;
     }
 .footer-inert{
     width:0;
@@ -504,9 +505,9 @@ a:hover {
 .logout-ul li {
     width:100%;text-align: center; line-height: 20px;
 }
-.bluar-ccc {
+/*.bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
-}
+}*/
 h2 {
     font-size: 20px;
 }
@@ -737,24 +738,49 @@ h2 {
     export default{
         methods:{
             cloundPlan:function(){
-                  this.$router.push({path: '/sleconesecond'});
+                  this.$router.push({path: '/cloudplanning'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             cloundSelect:function(){
-                  this.$router.push({path: '/seleconefirst'});
+                  this.$router.push({path: '/cloudselection'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             cloundCe:function(){
-                  this.$router.push({path: '/seleconeThree'});
+                  this.$router.push({path: '/cloudmeasured'});
                     $('html ,body').animate({scrollTop: 0},0);
             },
             fuwuLook:function(){
                   this.$router.push({path: '/agreenment'});
                    $('html ,body').animate({scrollTop: 0},0);
             },
+            yungh:function(){
+                    this.$router.push({path: '/cloudplanning'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            yungm:function(){
+                    this.$router.push({path: '/cloudbuying'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            yunsj:function(){
+                    this.$router.push({path: '/clouddesignning'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            cloundsj:function(){
+                    this.$router.push({path: '/wudata'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
             helpCenter:function(){
-                  var that = this; 
+                //   var that = this; 
                   var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+//var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
+            }
+        },
+        mounted:function(){
+            if(document.documentElement.clientWidth>=1024){
+                    $(".liHoversBj a").removeAttr('href');
+               
+            }else if(document.documentElement.clientWidth<1024){
+                    $(".liHoversBj a").attr('href',"tel:4008287308");
             }
         }
     }

@@ -60,7 +60,7 @@
                 <!-- <li class="row sps" > -->
                 <li class="row sps-overall col-xs-12" >
                     <span class="col-md-1 col-xs-1"><input type="checkbox"></span>
-                    <input type="text" id="loginers" class="col-md-1 col-xs-1 proanmes proInput" autofocus="autofocus" v-if="vars[index]==true" v-model="vp.proname" v-on:blur="shiBlur(vp.proname,index,vp.id)">
+                    <input type="text" id="loginers" class="col-md-1 col-xs-1 proanmess proInput" autofocus="autofocus" v-if="vars[index]==true" v-model="vp.proname" v-on:blur="shiBlur(vp.proname,index,vp.id)">
                     <span class="col-md-1 col-xs-1 proanmes" :title="vp.proname" @click="bianjiZt(index)" v-if="vars[index]==false">{{vp.proname}}</span>
                     <span class="col-md-1 col-xs-1"></span>
                     <span class="col-md-7 removeIng col-xs-6">
@@ -73,7 +73,7 @@
                     </span>
                     <span class="col-md-2 col-xs-5">
                         <el-tooltip visible-arrow content="删除此云分析" placement="top" :popper-class="toolTipClass" effect="light">
-                            <i class="iconfont icon-shanchu-01 removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
+                            <i class="iconfont icon-shanchu removeBtn" style="font-size:20px !important;" v-on:click="rems(vp.id,index)"></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="折叠或展开" placement="top" effect="light" :popper-class="toolTipClass">
                             <i class="iconfont icon-zhediemianban" style="color:#a8a8a8;cursor:pointer;margin-left: 10px;font-size:20px !important;" v-on:click="toggleShow(index)"></i>
@@ -122,7 +122,7 @@
                     </span>
                      <span class="col-md-2 cs col-xs-3 remn" >
                         <el-tooltip visible-arrow content="删除此应用" placement="top" effect="light"  :popper-class="toolTipClass">
-                            <i class="iconfont icon-shanchu-01" style="font-size:20px !important;padding-right: 10px;" v-on:click="remYy(item.id,index,appindex)" ></i>
+                            <i class="iconfont icon-shanchu" style="font-size:25px !important;padding-right: 10px;" v-on:click="remYy(item.id,index,appindex)" ></i>
                         </el-tooltip>
                         <el-tooltip visible-arrow content="查看综合报表" placement="top" effect="light"  :popper-class="toolTipClass">   
                             <i class="iconfont icon-chakan" v-on:click="Jips(item.id)" style="font-size:19px !important"></i>
@@ -143,9 +143,13 @@
 .creatAll{
     width:114px !important;
 }
+#loginers{
+    width:100px !important;
+}
 .proInput{
     margin-top:5px;
     height:70%;
+   
 }
 #myInput:focus{
     border:1px solid #409EFF;
@@ -211,6 +215,12 @@
     text-overflow:ellipsis;
     white-space: nowrap;
     width:40px;
+   }
+   .proanmess{
+       display:inline-block;
+       overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
    }
    .Jips{
     font-size:10px;
@@ -349,9 +359,7 @@ line-height:30px; float:left; margin-top:13px;
     display:block;
   
 }
-.activs{
-  border-bottom:1px solid #ccc;
-}
+
 #pol{
     display:BLOCK;
 }
@@ -751,7 +759,21 @@ export default {
             console.log(this.vpd[e])
         },
         shiBlur:function(pronames,e,appid){
-            if(pronames==""){
+if(pronames==""){
+                this.vars[e] = false;
+                this.createding();
+            }else if(pronames!==""){
+                this.vars[e] = false;
+                let obj = {
+                    "analysisName":pronames,
+                    "proId": appid,
+                }
+                this.$this.post("broker/app/update/name",obj).then((rus)=>{
+                            this.createding();
+                },(err)=>{
+                    console.log("不好意思")
+                })
+            }if(pronames==""){
                 this.vars[e] = false;
                 this.createding();
             }else if(pronames!==""){
@@ -807,8 +829,13 @@ export default {
             this.welcom = true;
         },
         Jips:function(even){
-            console.log(even)
+            //console.log(even)
+            this.copy();
             this.$router.push({path:'/colligateReport',query:{id:even}});
+        },
+        copy:function(){
+            document.oncontextmenu=function(){return false};   
+            document.onselectstart=function(){return false};
         },
         // treeTip:function(e){
         //         var x=-210;
@@ -825,7 +852,7 @@ export default {
         //     // }).mousemove(function(e){
         //     //     $("#tplink").css({"top": (e.pageY+y) + "px","left": (e.pageX+x) + "px"});
             
-    
+        
         // },
              
         rems:function(e,index){
@@ -910,12 +937,15 @@ export default {
             var n = n;
             if(n == 4){
                     this.$router.push({path:'/compareQuestion',query:{id:o}});
+                    this.copy();
             }else if(n == 5){
                     this.$router.push({path:'/resourceGroup',query:{id:o}});
             }else if(n == 6){
                  this.$router.push({path:'/design',query:{id:o}});
+                 this.copy();
             }else{
                     this.$router.push({path:'/planQuestion',query:{id:o,name:n}});
+                    this.copy();
             }
             
         },

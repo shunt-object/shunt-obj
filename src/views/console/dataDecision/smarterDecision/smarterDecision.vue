@@ -284,15 +284,31 @@ export default{
                     boundaryGap: false,
                     data: this.compareTypes,
                     axisLabel:{
-                        color:'#333',
                         interval:0,  
                         rotate:30                   
                     },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#c2c2c2'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#c2c2c2'
+                    }
                 },
                 yAxis: {
                     name:'分数',
-                    type: 'value'
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#c2c2c2'
+                        }
+                    },
+                    nameTextStyle:{
+                        color:'#333'
+                    }
                 },
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
                 series: compareSeries
             },{notMerge: true});
         },
@@ -321,36 +337,31 @@ export default{
                 xAxis:  {
                     type: 'category',
                     data:designType,
-                    name:'类型',
-                    axisLine: {
-                        lineStyle: {
-                            color: '#ccc'
-                        }
-                    },
+                    name:'类型',                    
                     axisLabel:{
-                        color:'#333',
                         interval:0,  
                         rotate:30                   
                     },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#c2c2c2'
+                        }
+                    },
                     nameTextStyle:{
                         color:'#333'
-                    },
+                    }
                 },
                 yAxis: {
                     type: 'value',
-                    name:'数量',
-                    //data: ,
+                    name:'数量',                    
                     axisLine: {
                         lineStyle: {
-                            color: '#ccc'
+                            color: '#c2c2c2'
                         }
-                    },
-                    axisLabel:{
-                        color:'#333'                   
                     },
                     nameTextStyle:{
                         color:'#333'
-                    },
+                    }
                 },
                 series: series
             },{notMerge: true})
@@ -556,11 +567,11 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999'
+                            color: '#c2c2c2'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     }
                 },
                 yAxis: {
@@ -584,13 +595,13 @@ export default{
                     },
                     axisLine: {
                         lineStyle: {
-                            color: '#999',
+                            color: '#c2c2c2',
                             type: 'solid',
                             width: '1.5'
                         }
                     },
                     nameTextStyle:{
-                        color:'#999'
+                        color:'#333'
                     }
                 },
                 visualMap: {

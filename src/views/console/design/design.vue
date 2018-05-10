@@ -6,9 +6,22 @@
 </div>
 <sds index="5" start="4" :type="$route.query.type" :id="$route.query.id"></sds>
 <!-- 拓扑图 -->
-<div class="designTop" v-if="graphnodes.length>3">
+<div class="designTop designContent">
     <h2><i class="iconfont icon-erji-wangluotuopu main-color" style="color:#da121a;font-size:14px"></i>拓扑图</h2>
-    <div id="mynetwork" :class="graphnodes.length>3?'graph':''" v-if="graphnodes.length>3"></div>
+    <div class="graph-lenged">
+        <div class="graphlegenged-box" v-if="isgraph==false">
+            <div class="graphLenged" v-if="isgraph==false">
+                <div class="graphLenged-head">图例说明</div>
+                <div class="graphLenged-list"><img src="../../../assets/report/appline.png" alt="">公网与前端应用交互</div>
+                <div class="clear"></div>
+                <div class="graphLenged-list"><img src="../../../assets/report/dianline.png" alt="">公网与数据库交互</div>
+                <div class="clear"></div>
+                <div class="graphLenged-list"><img src="../../../assets/report/dbline.png" alt="">前端应用与数据库交互</div>
+            </div>
+        </div>
+        <div id="mynetwork" :class="isgraph==true?'':'graph'"></div>   
+        <div class="graph-notice" style="padding-left: 2em;" v-if="isgraph==true">当前没有工作负载相关信息，请您首先在第二步<span style="color:#da121a;cursor:pointer;" v-on:click="goGroup()">“资源组”</span>中进行配置。</div>
+    </div>
 </div>
 <div class="designHeader">
     <div class="designTop">
@@ -27,8 +40,8 @@
         </div>
         <div class="designTabj row" v-show="digaopei">
             <p style="width:300px;margin-left:15px;" class="col-md-12">
-                <span v-on:click="dipeis" class="col-md-4">低配</span>
-                <span v-on:click="gaopeis" class="col-md-4"  style="margin-left:20px;">高配</span>
+                <span v-on:click="dipeis" class="col-md-4 peiSpan">低配</span>
+                <span v-on:click="gaopeis" class="col-md-4 peiSpan"  style="margin-left:20px;">高配</span>
             </p>
         </div>
         <div class="design-notice col-md-12" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
@@ -37,7 +50,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -46,7 +59,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for="(dat,index) in dats">
-                            <td class="ds" style="line-height:110px">
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dat.boolean" v-on:click="clickCheck(index)">
                             </td>
                             <td class="ds" style="line-height:110px">应用服务</td>
@@ -57,7 +70,7 @@
                                     <li><span class="col-md-3 ds">( v ) CPU</span><span class="col-md-3 ds">内存</br> ( GB )</span><span class="col-md-3 ds">系统盘（GB）</span><span class="col-md-3 ds">操作系统</span></li>
                                 </ul>
                             </td>
-                            <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.data.id,index,dat.data.typeLevel,dat.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                            <td class="ds" style="line-height:110px"><span class="HoverSPAN" v-on:click="xiuzheng(dat.data.id,index,dat.data.typeLevel,dat.data.type)"><i class="iconfont icon-bianji font12"></i>&nbsp修正</span></td>
                         </tr>
                     
                     </tbody>
@@ -69,7 +82,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb">
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dbserall" v-on:click="dbWhole()">价格优选
                             </th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
@@ -80,7 +93,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for="(dati,index) in datis">
-                            <td class="ds" style="line-height:110px">
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dati.boolean" v-on:click="checkDB(index)">
                             </td>
                             <td class="ds" style="line-height:110px">数据库服务</td>
@@ -93,7 +106,7 @@
                                     <li><span class="col-md-6 ds">本地磁盘（GB）</span><span class="col-md-6 ds">操作系统</span><!--<span class="col-md-4 ds">数据库示例</span>--></li>
                                 </ul>
                             </td>
-                            <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.data.id,index,dati.data.typeLevel,dati.data.type)"><i class="iconfont icon-bianji"></i>&nbsp修正</span></td>
+                            <td class="ds" style="line-height:120px"><span class="HoverSPAN" v-on:click="xiuszheng(dati.data.id,index,dati.data.typeLevel,dati.data.type)"><i class="iconfont icon-bianji font12"></i>&nbsp修正</span></td>
                         </tr>
                     
                     </tbody>
@@ -133,7 +146,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -142,7 +155,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for=" sto in data.storage">
-                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox"></td>
                             <td class="ds" style="line-height:110px">存储服务</td>
                             <td class="ds" style="line-height:110px">{{sto.num}}</td>
                             <td>
@@ -167,7 +180,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -176,7 +189,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for=" stos in data.cdns">
-                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox"></td>
                             <td class="ds" style="line-height:110px">CDN</td>
                             <!--<td class="ds" style="line-height:110px">2</td>-->
                             <td>
@@ -202,7 +215,7 @@
         暂无数据
 </div>
 <!-- v-show="haveSj" -->
-<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG"></designHalf>
+<designHalf :type="$route.query.type" :id="$route.query.id" :appG="checkIdappG" :appD="checkIdappD" :dbD="checkIddbD" :dbG="checkIddbG" :isclick="isclick"></designHalf>
 <el-dialog title="修改云设计服务器" :visible.sync="dialogFormVisible">
     <el-form :model="form">
         <!-- <el-form-item label="角色" :label-width="formLabelWidth">
@@ -213,19 +226,19 @@
         </el-form-item>>-->
         <div class="yibazi" v-if="regionter=='server'" >
             <el-form :model="coresShj" :rules="rules" ref="coresShj" >
-                <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
+                <el-form-item class="design-from-item" label="数量"  :label-width="formLabelWidth" prop="num">
                     <el-input auto-complete="off" v-model="coresShj.num" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
+                <el-form-item class="design-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
                     <el-input  auto-complete="off" v-model="coresShj.cpu" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="design-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input  auto-complete="off" v-model="coresShj.ram" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="design-from-item" label="系统盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input  auto-complete="off" v-model="coresShj.localDisk" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="design-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select placeholder="请选择"  v-model="coresShj.osType" >
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
@@ -234,19 +247,19 @@
         </div>
         <div class="yibazi" v-if="regionter=='db'" >
             <el-form :model="inesShj" :rules="rules" ref="inesShj" >
-                <el-form-item label="数量"  :label-width="formLabelWidth" prop="num">
+                <el-form-item class="design-from-item" label="数量"  :label-width="formLabelWidth" prop="num">
                     <el-input auto-complete="off" v-model="inesShj.num" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
+                <el-form-item class="design-from-item" label="（v）CPU" :label-width="formLabelWidth" prop="cpu">
                     <el-input  auto-complete="off" v-model="inesShj.cpu" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="内存（GB）" :label-width="formLabelWidth" prop="ram">
+                <el-form-item class="design-from-item" label="内存（GB）" :label-width="formLabelWidth" prop="ram">
                     <el-input  auto-complete="off" v-model="inesShj.ram" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
+                <el-form-item class="design-from-item" label="本地磁盘（GB）" :label-width="formLabelWidth" prop="localDisk">
                     <el-input  auto-complete="off" v-model="inesShj.localDisk" type="number" min="1"></el-input>
                 </el-form-item>
-                <el-form-item label="操作系统" :label-width="formLabelWidth" prop="osType">
+                <el-form-item class="design-from-item" label="操作系统" :label-width="formLabelWidth" prop="osType">
                     <el-select placeholder="请选择"  v-model="inesShj.osType" >
                         <el-option :value="rs" v-for="rs in rs"  :key="JSON.stringify(rs)" :label="rs.name"></el-option>
                     </el-select>
@@ -262,6 +275,9 @@
 </div>
 </template>
 <style>
+#mynetwork .vis-network{
+    outline:none !important;
+}
 .planList-nodata{
     background:#ffffff; width:100%; height:500px; font-size:14px; color:#555;line-height:30px; text-align:center;
 }
@@ -276,7 +292,10 @@
     margin-bottom:10px;
 }
 .table>thead>tr>th{
-    border-bottom-width:0px !important;
+    border-bottom-width:0px !important; font-size:12px;
+}
+.table>tbody>tr>td{
+    font-size:12px;
 }
 .table{
     border-top:none !important;
@@ -285,7 +304,8 @@
     border-top:1px solid #ddd !important;
 }
     .HoverSPAN:hover{
-        cursor:pointer
+        cursor:pointer;
+        color:#666;
     }
     .designHeader{
         /*min-height:90vh;
@@ -307,12 +327,7 @@
         color:#6e6e6e;
         margin-bottom:0px;
     }
-    .designTab p{
-        height:40px;
-        border-bottom:1px solid #ccc;
-        margin-left:30px;
-        margin-right:30px;
-    }
+   
     .designTab p span:hover{
         cursor:pointer
     }
@@ -369,39 +384,14 @@
    .designConfigLis .spanslis{
       height:150px;
    }
-  .designTabj p span{
-      
-      
-      font-size:12px;
-      color:#c0c0c0;
-      padding:5px 20px;
-      border:1px solid  #c0c0c0;
-  }
-  .designTabj{
-      margin-bottom:60px;
-  }
-  .ys{
-      color:#da121a;
-      font-size:12px;
-  }
-  .ds{
-      font-size:12px;
-        color:#969696;
-  }
-  .trds{
-      font-size:14px;
-      color:#777777;
-  }
-  .designTabjBj{
-      background:#f7a72c;
-      border-radius:1px;
-      color:#fff !important;
-      border:1px solid #f7a72c  !important;
-  }
-  .buttonHovers:hover{
-    color:#da121a;
-}
-@media (min-width: 768px) {
+.designTabj p span{ font-size:12px; color:#c0c0c0; padding:5px 20px; border:1px solid  #c0c0c0; }
+.designTabj{ margin-bottom:60px; }
+.ys{ color:#da121a; font-size:12px; }
+.ds{ font-size:12px; color:#969696; }
+.trds{ font-size:14px; color:#777777; }
+.designTabjBj{ background:#f7a72c !important; border-radius:1px; color:#fff !important; border:1px solid #f7a72c  !important; }
+.buttonHovers:hover{ color:#da121a; }
+@media (min-width: 768px) {   /* pc */
     /*.icon-tiam{padding-left:200px}*/
     .regionheight{
         height:195px;
@@ -409,8 +399,14 @@
     .spanIcon{
         text-align:right;
     }
+     .designTab p{
+        height:40px;
+        border-bottom:1px solid #ccc;
+        margin-left:30px;
+        margin-right:30px;
+    }
 }
-@media (max-width: 768px) {
+@media (max-width: 768px) {  /* 手机 */
     .icon-tiam{padding-left:30px}
     .regionheight{
         height:auto;
@@ -418,8 +414,11 @@
     .spanIcon{
         text-align:center;
     }
-    .el-input__inner{
+    .design-from-item .el-input__inner{
         width:50px !important;
+    }
+     .designTab p{
+        height:40px;
     }
 }
 .operation{
@@ -455,7 +454,7 @@
     background:#EF131D !important;
 }
 .el-dialog{
-    width:40%;
+    width:50%;
     text-align:left;
     border-radius:4px;
 }
@@ -500,12 +499,16 @@
 .cuncul{
     margin-top:50px;
 }
-.el-form-item{
+ .design-from-item{
     width:500px;
     margin:0 auto 20px auto;
-}
-.el-input{
+    font-size:12px !important;
+ }
+.design-from-item .el-input{
     width:auto !important;
+}
+.design-from-item .el-input__inner{
+    height:30px !important; 
 }
 .enterDing{
     background:#da121a !important;
@@ -518,7 +521,6 @@
     border-color:#ccc !important;
 }
 .el-form-item__label{
-    width:190px !important;
    font-weight:200;
     color:#333333;
 }
@@ -526,7 +528,7 @@
     color:#666666 !important;
 }
 .el-form-item__content{
-    margin:0 !important;
+    /*margin:0 !important;*/
 }
 .el-checkbox__label{
     padding-left:5px !important;
@@ -536,10 +538,14 @@
 }
 @media (max-width: 768px) {
     .el-form-item__label{
-        width:70px !important;
         text-align:left !important;
     }
-    .resourceGroup input{
+    .design-from-item .el-form-item__label{
+        font-weight:200;
+        color:#333333;
+        font-size:12px !important;
+    }
+    .designContent input{
         width:50px !important;
     }
     .el-form-item__content{
@@ -551,9 +557,6 @@
     cursor:pointer;
     /*color:#000;*/
     color:#f7a72c !important;
-}
-.el-input{
-
 }
 .Pei ul li{
     margin-top:12px;
@@ -578,7 +581,7 @@
     width:100%;
     margin: 0 0 10px 0!important;
 }
-.resourceGroup img{
+.designContent img{
     width:60px; 
 }
 /*.nex{
@@ -622,7 +625,7 @@ a:hover{
 .ulss li:nth-child(1){
     margin-top:30px;
 }
-.resourceGroup input,select{
+.designContent input,select{
     width:236px; height:30px;
 }
 .Inp input{
@@ -649,7 +652,7 @@ a:hover{
 .Mainli span{
     margin-right:5px;
 }
-.el-form-item__error{
+.design-from-item .el-form-item__error{
     left:220px !important;
 }
 .iconfont:hover{
@@ -668,10 +671,12 @@ a:hover{
 .el-input--suffix .el-input__inner{
     padding-right:15px !important
 }
-.el-input__inner{
-    height:30px !important;
-    
-}
+ .designTabjBj:hover{
+      background:#FFB730 !important;
+  }
+  .peiSpan:hover{
+    background:#F5F7FA;
+  }
 
 </style>
 <script>
@@ -679,6 +684,9 @@ import sds from '../../../components/steps/steps'
 import designHalf from '../design/designHalf/designHalf'
 import jsPDF from 'jspdf/dist/jspdf.debug.js'
 import vis from "vis/dist/vis.min.js"
+import network from '../../../../src/assets/report/publicnetwork.png'
+import appnetwork from '../../../../src/assets/report/appnetwork.png'
+import dbnetwork from '../../../../src/assets/report/dbnetwork.png'
 export default{
     name:"design",
     data(){
@@ -705,7 +713,7 @@ export default{
                 num:""     //数量
             },    
                         
-            formLabelWidth: '120px',
+            formLabelWidth: '190px',
             dialogTableVisible: false,
             dialogFormVisible: false,
             yyshow:true,
@@ -750,26 +758,43 @@ export default{
             haveSj:false,
             noSj:false,
             graphnodes:[
-                {id: 1, label: 'app'},
-                {id: 2, label: '应用服务'},
-                {id: 3, label: '数据库服务'},
+                {id: 1, label: '公网', shape: 'image', image:network,color:{border:'#da121a'}},
             ],
-            graphedges:[
-                {from: 1, to: 2},
-                {from: 1, to: 3},
-            ],
+            graphedges:[],
             container:'',
             graphdata:{},
             graphoptions:{},
+            appfrom:[],
+            isgraph:false,
+            appsave:{
+                appgao:[],
+                appdi:[]
+            },
+            dbsave:{
+                dbgao:[],
+                dbdi:[]
+            },
+            isclick:''
         }
     },
     mounted:function(){
+        let self = this;
+        if($(window).width()<=768){
+            self.formLabelWidth= '70px';
+        }else{
+                self.formLabelWidth= '190px';
+        }
+        $(window).resize(function() {
+            if($(window).width()<=768){
+                self.formLabelWidth= '70px';
+            }else{
+                self.formLabelWidth= '190px';
+            }
+        });
         this.appId = this.$route.query.id;
         $(".designTab p").find("span").first().addClass("designSpanbg");
         $(".designTab p").find("span").find("a").first().addClass("designbg");
         $(".designTabj p").find("span").last().addClass("designTabjBj");
-        this.graph(this.$route.query.id,1);
-        this.graph(this.$route.query.id,2);
         this.graphoptions = {
             nodes:{
                 borderWidthSelected: 1,//节点被选中时边框的宽度，单位为px
@@ -778,23 +803,30 @@ export default{
                     background:'#fff',
                 },
                 font: {
-                color: '#333',
-                size:12,
+                    color: '#333',
+                    size:12,
+                    face:'Microsoft YaHei'
                 },
                 //image:'aa.jpg'
             },
             interaction:{
                 zoomView:false,
                 hover: false,//鼠标移过后加粗该节点和连接线
-                dragNodes:false,//是否能拖动节点
+                dragNodes:true,//是否能拖动节点
                 dragView:false,//是否能拖动画布
                 selectConnectedEdges:false,//选择节点后是否显示连接线
                 hoverConnectedEdges:false,//鼠标滑动节点后是否显示连接线
-                selectable:false,//是否可以点击选择
+                selectable:true,//是否可以点击选择
+                multiselect:false,//按 ctrl 多选
+                navigationButtons:false,//是否显示控制按钮
             },
             edges: {
                 shadow:false,//连接线阴影配置
-                smooth: false,//是否显示方向箭头
+                smooth: false,
+                arrows: {
+                    to: {enabled: true, scaleFactor: 1, type: 'arrow'},
+                    from: {enabled: true, scaleFactor: 1, type: 'arrow'},
+                }
             },
             layout:{
                 randomSeed:1,//配置每次生成的节点位置都一样，参数为数字1、2等
@@ -803,6 +835,9 @@ export default{
                     sortMethod: 'directed' 
                 }, //层级结构显示}
             },
+            physics:{
+                enabled:false
+            }
         };
         this.index = 1;  //1是应用服务
         this.gaopeis();
@@ -832,24 +867,49 @@ export default{
         },(err)=>{
             console.log("不好意思")    
         });
-                  
+
+        this.topology();   
+        this.servied();   
     },
     methods:{
-        graph:function(appid,serversid){//拓扑图
-            this.$this.get('/broker/design/list/'+appid+'/'+serversid+'/17').then((response)=>{
+        servied:function(){
+            console.log(111);
+            this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
+                //console.log('结果',response);
+                for(let i=0;i<response.data.data.appResults.length;i++){
+                    if(response.data.data.appResults[i].moduleId==1){
+                        this.isclick = JSON.parse(response.data.data.appResults[i].result).id;
+                    }
+                }        
+            }).catch((error)=>{
+            }) 
+        },
+        goGroup:function(){
+            this.$router.push({path:'/resourceGroup',query:{id:this.appId,type:this.$route.query.type}});
+        },
+        topology:function(){
+            this.$this.get('/broker/design/topology/'+this.appId+'/17').then((response)=>{
                 let index = this.graphnodes.length+1;
-                if(serversid==1){
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'应用服务'+(i+1)});
-                        this.graphedges.push({from: 2, to:this.graphnodes.length});
-                    }
-                }else{
-                    for(let i=0;i<response.data.data.length;i++){
-                        this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1)});
-                        this.graphedges.push({from: 3, to:this.graphnodes.length});
-                    }
+                if(response.data.data.app.length==0 && response.data.data.db.length==0){
+                    this.isgraph = true
                 }
-                if(this.graphnodes.length>3){
+                for(let i=0;i<response.data.data.app.length;i++){
+                    this.graphnodes.push({id:index+i,label:'应用服务'+(i+1),shape:'image',image:appnetwork,color:{border:'#f7a72c'}});
+                    this.appfrom.push(index+i);
+                    this.graphedges.push({from: 1, to:index+i,label: ''});
+                }
+                index = this.graphnodes.length+1;
+                for(let i=0;i<response.data.data.db.length;i++){
+                    this.graphnodes.push({id:index+i,label:'数据库服务'+(i+1),shape:'image',image:dbnetwork,group:3});
+                    if(response.data.data.app.length==0){                            
+                        this.graphedges.push({from:1,to:index+i,dashes:true, label: ''});
+                    }else{
+                        for(let n=0;n<this.appfrom.length;n++){
+                            this.graphedges.push({from:this.appfrom[n],to:index+i,label: ''});
+                        }  
+                    }                                              
+                }
+                if(response.data.data.app.length>0||response.data.data.db.length>0){
                     var nodes = new vis.DataSet(this.graphnodes);
                     // 创建关系数组
                     var edges = new vis.DataSet(this.graphedges);
@@ -896,6 +956,7 @@ export default{
                         }
                     }
                 }
+                this.appsave.appdi = this.dats;
             }else{
                 if(this.dats[index].boolean==false){
                     this.checkIdappG.push(this.dats[index].data.id);
@@ -906,6 +967,7 @@ export default{
                         }
                     }
                 }
+                this.appsave.appgao = this.dats;
             }
         },
         checkDB:function(index){
@@ -919,6 +981,7 @@ export default{
                         }
                     }
                 }
+                this.dbsave.dbdi = this.datis;
             }else{
                 if(this.datis[index].boolean==false){
                     this.checkIddbG.push(this.datis[index].data.id);
@@ -929,6 +992,7 @@ export default{
                         }
                     }
                 }
+                this.dbsave.dbgao = this.datis;
             }
         },
         dbWhole:function(){
@@ -1154,9 +1218,15 @@ export default{
                 this.dats = [];
                     this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
                             //this.dats = ris.data.data;
-                        for(let i=0;i<ris.data.data.length;i++){
-                            this.dats.push({data:ris.data.data[i],boolean:false});
+                        if(this.appsave.appdi.length>0){
+                            this.dats = this.appsave.appdi;
+                        }else{
+                            for(let i=0;i<ris.data.data.length;i++){
+                                this.dats.push({data:ris.data.data[i],boolean:false});
+                            }
+                            this.appsave.appdi = this.dats;
                         }
+                        
                             //console.log(this.dats)
                             this.yyshow=true;
                             if(this.dats.length>0){
@@ -1166,16 +1236,20 @@ export default{
                                 this.noSj = true;
                                 this.haveSj = false
                             }
-                    },(err)=>{
-                        console.log("不好意思")    
-                    });  
+                    },(err)=>{});  
             }else if(this.index == 2){
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
                             //this.datis = ros.data.data;
-                            for(let i=0;i<ros.data.data.length;i++){
-                                this.datis.push({data:ros.data.data[i],boolean:false});
+                            if(this.dbsave.dbdi.length>0){
+                                this.datis = this.dbsave.dbdi;
+                            }else{
+                                for(let i=0;i<ros.data.data.length;i++){
+                                    this.datis.push({data:ros.data.data[i],boolean:false});
+                                }
+                                this.dbsave.dbdi = this.datis;
                             }
+                            
                             this.sjshow=true;
                             if(this.datis.length>0){
                                 this.haveSj = true;
@@ -1201,9 +1275,15 @@ export default{
                 this.dats = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
                     //this.dats = ris.data.data;
-                    for(let i=0;i<ris.data.data.length;i++){
-                        this.dats.push({data:ris.data.data[i],boolean:false});
+                    if(this.appsave.appgao.length>0){
+                        this.dats = this.appsave.appgao;
+                    }else{
+                        for(let i=0;i<ris.data.data.length;i++){
+                            this.dats.push({data:ris.data.data[i],boolean:false});
+                        }
+                        this.appsave.appgao = this.dats;
                     }
+                    
                     this.yyshow=true;
                     if(this.dats.length>0){
                         this.haveSj = true;
@@ -1213,16 +1293,20 @@ export default{
                         this.haveSj = false
                     }
                     //console.log(this.dats)
-            },(err)=>{
-                        console.log("不好意思")    
-                });  
+            },(err)=>{});  
             }else if(this.index == 2){
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
                     //this.datis = ros.data.data;
-                    for(let i=0;i<ros.data.data.length;i++){
-                        this.datis.push({data:ros.data.data[i],boolean:false});
+                    if(this.dbsave.dbgao.length>0){
+                        this.datis = this.dbsave.dbgao;
+                    }else{
+                        for(let i=0;i<ros.data.data.length;i++){
+                            this.datis.push({data:ros.data.data[i],boolean:false});
+                        }
+                        this.dbsave.dbgao = this.datis;
                     }
+                    
                     this.sjshow=true;
                     if(this.datis.length>0){
                                 this.haveSj = true;
@@ -1241,7 +1325,10 @@ export default{
     },
     components:{
         sds,
-        designHalf
+        designHalf,
+        network,
+        appnetwork,
+        dbnetwork
     }
 }
 </script>

@@ -279,7 +279,8 @@ ul.sidebar-menu li ul.sub li a {
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    color: #737B83;
+    /*color: #737B83;*/
+    color: #e8e8e8;
 }
 .outhover:hover{
     /*background:#090909;*/
@@ -318,13 +319,18 @@ ul.sidebar-menu li.sub-menu{
 ul.sidebar-menu li a img{
     width:20px;
 }
+ul.sidebar-menu li a .sub-bigimg{
+    width:16px;
+    margin-right:4px;
+}
 
 ul.sidebar-menu li a span{
     display: inline-block;
 }
 
 ul.sidebar-menu li a{
-    color: #8b9199;
+    /*color: #8b9199;*/
+    color: #e8e8e8;
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;

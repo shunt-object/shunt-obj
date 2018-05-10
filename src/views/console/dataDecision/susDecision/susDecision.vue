@@ -2,7 +2,11 @@
 <div class="total detadcision-box">
 <div class="total-header detadcision-header">
     <span></span>
+<<<<<<< HEAD
     舆情监控
+=======
+    数据洞察
+>>>>>>> develop
 </div>
 <div class="datadecision">
     <div class="row">
@@ -199,11 +203,19 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
+<<<<<<< HEAD
                                 color: '#999'
                             }
                         },
                         nameTextStyle:{
                             color:'#999'
+=======
+                                color: '#c2c2c2'
+                            }
+                        },
+                        nameTextStyle:{
+                            color:'#333'
+>>>>>>> develop
                         },
                         nameLocation:'end'
                     }],
@@ -215,11 +227,19 @@ export default{
                         },
                         axisLine: {
                             lineStyle: {
+<<<<<<< HEAD
                                 color: '#999'
                             }
                         },
                         nameTextStyle:{
                             color:'#999'
+=======
+                                color: '#c2c2c2'
+                            }
+                        },
+                        nameTextStyle:{
+                            color:'#333'
+>>>>>>> develop
                         },
                     },{
                         type:'value',
@@ -228,6 +248,7 @@ export default{
                             formatter: '{value}'
                         },
                         max: function(value) {
+<<<<<<< HEAD
                             for(let i=0;i<12;i++){
                                 that.maxY[i]=Math.ceil((value.max-1)/5)*5;
                             }
@@ -253,6 +274,33 @@ export default{
                         data: this.maxY,
                         animation: false
                     },
+=======
+                            // for(let i=0;i<12;i++){
+                            //     that.maxY[i]=Math.ceil((value.max-1)/5)*5;
+                            // }
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#c2c2c2'
+                            }
+                        },
+                        nameTextStyle:{
+                            color:'#333'
+                        },
+                    }],
+                    series: [
+                    //     { // For shadow
+                    //     type: 'bar',
+                    //     itemStyle: {
+                    //         normal: {color: 'rgba(247,247,247,0.4)'}
+                    //     },
+                    //     barWidth:'25',
+                    //     barGap:'-100%',
+                    //     barCategoryGap:'40%',
+                    //     data: this.maxY,
+                    //     animation: false
+                    // },
+>>>>>>> develop
                     {
                         name:'上云总数',
                         type:'bar',

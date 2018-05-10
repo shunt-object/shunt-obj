@@ -1,14 +1,16 @@
 
-function rongClouds(idsName){
-    //console.log(a.id)
+function rongClouds(idsName,services,tokens,relname){
+    console.log(tokens)
     //console.log(document.getElementById(a.id).innerHTML);
     var idName = idsName.id;
-    console.log(idName)
+    // alert(idName)
+    // alert(services)
+    // alert(tokens)
    // console.log(document.getElementById(a).innerHTML)
    
        RCS.init({
             appKey:"cpj2xarlc73sn",
-            token:"GYffaK7bbBy92MsBCSBwQH/DWhY7rUdA55SJzMWKIPEYGzGXOBdtBtFeWPLYg/OMkcVs0dY7K/L3RDz7hdlrXewExd/yELe9",
+            token:tokens,
             upload:{
                 fileServer:"http://upload.qiniu.com",
                 isPrivate:false
@@ -19,16 +21,18 @@ function rongClouds(idsName){
                 console.log('连接中');
             },
             target:document.getElementById(idName),
-            customerServiceId:"service",
+            customerServiceId:services,
             extraInfo:{
                 "userInfo":{
-                    "name":"demo"
+                    "name":relname
                 },
                 "requestInfo":{
-                    "referrer":"20002"
+                    referrer:"20002",
+                    //define: "{carInfo:'宝马车系',userId:'user11',quInfo:'xxx'}" // 自定义信息
                 }
             }
         })
+        // document.getElementById("wawawa").style.display="block"
 }
 export {
     rongClouds

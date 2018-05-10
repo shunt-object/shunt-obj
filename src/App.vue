@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    
+    <!--<transition  enter-active-class="fadeIn" leave-active-class="fadeIn">
+        <router-view class="animated"></router-view>
+    </transition>-->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -34,7 +38,7 @@ export default {
         let refererUrl = '/' 
         window._czc.push(['_trackPageview', contentUrl, refererUrl])  
       }  
-    }  
+    },
   } 
 }
 </script>
@@ -50,4 +54,5 @@ export default {
 a{
   text-decoration:none !important;
 }
+
 </style>

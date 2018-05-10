@@ -14,31 +14,13 @@
     </div>
     <!-- <div>象限图</div> -->
     <div class="legend-box">
-        <div class="legend">    
-            <div class="legend-list">
-                <span class="legend-block legend-high"></span>
-                高
-            </div> 
-            <div class="legend-list">
-                <span class="legend-block legend-heshi"></span>
-                合适
-            </div>
-            <div class="legend-list">
-                <span class="legend-block legend-yib"></span>
-                一般
-            </div>            
-            <div class="legend-list">
-                <span class="legend-block legend-di"></span>
-                低
-            </div>
-        </div>
         <div class="planlist-echarts" id="main"></div>
     </div>
     <!-- 有数据 -->
     <table id="example" class="table table-striped table-bordered planlist-table" border="1">
         <thead>
             <tr style="margin-top:50px; text-align:center" id="tryes">
-                <th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>
+                <!--<th class="col-md-1 text-center" ><input type="checkbox"   name="a" id="cls" v-model="checkboxAll" @change="changeSta"></th>-->
                 <th class="col-md-1 text-center">应用名称</th>
                 <th class="col-md-3 text-center">上云分析名称</th>
                 <th class="col-md-2 text-center">云定性</th>
@@ -49,7 +31,7 @@
         </thead>
         <tbody id="myTable" v-if="sps.length>0" >
             <tr v-for="sp in sps" class="  ls text-left" id="trs" width="100%">
-                <td ><input type="checkbox" :data-id="sp.id" name='b'></td>
+                <!--<td ><input type="checkbox" :data-id="sp.id" name='b'></td>-->
                 <td >{{sp.appname}}</td>
                 <td >{{sp.proname}}</td>
                 <td  v-if="null!=sp.appResults[0]&&null!=sp.appResults[0].result">{{JSON.parse(sp.appResults[0].result).sname}}</td>                
@@ -58,7 +40,7 @@
                 <td  v-else></td>
                 <td  v-if="null!=sp.appResults[2]">{{sp.appResults[2].result}}</td>
                 <td  v-else></td>
-                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
+                <td style="text-align:center"><a href="javascript:;" v-on:click="idClick(sp.id)" class="lookCom"><i class="iconfont icon-chakan font12" style="margin-right:5px;"></i>查看报告</a></td>
             </tr>
         </tbody>    
     </table>
@@ -75,7 +57,7 @@
 <style>
 .planlist-echarts{
     width:100%;
-    height:600px;
+    height:400px;
 }
 * {
   margin: 0px;
@@ -94,10 +76,19 @@
 
 /*暂无数据*/
 .planList-nodata{
-    background:#ffffff; width:100%; height:500px; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+    background:#ffffff;
+    width:100%;
+    height:300px;
+    font-size:12px;
+    color:#999;
+    margin-bottom:20px;
+    line-height:24px;
+    text-align:center;
+    border:1px solid #ebebeb;
 }
 .planList-nodata img{
-    margin-top:200px;
+    margin-top:100px;
+    margin-bottom:20px;
 }
 .planList{
     min-height:500px; background:#fff; padding:0 15px;
@@ -121,20 +112,18 @@ line-height:30px; float:left; margin-top:13px;
 .PlansearchBtn{
    background:#da121a; width:42px; height:30px; color:#fff; float:right;
 }
-.planlist-table{
 
-}
 .planlist-table>thead>tr>th{
-    height:54px; background:#ebebeb; text-align:center; font-size:14px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
+    height:54px; background:#f3f3f3 !important; text-align:center; font-size:12px; color:#555; border-right:1px solid #e5e5e5 !important; vertical-align: middle;
 }
 .planlist-table>tbody>tr>td{
-    font-size:14px;
+    font-size:12px;
     color:#2b2b2b;
     border-right:1px solid #e5e5e5;
     background:#fff;
 }
 .planlist-table>tbody>tr:nth-child(2n)>td{
-    background:#f7f7f7;
+    background:rgb(247, 247, 247);
 }
 .planlist-table tr th input,.planlist-table tr td input{
     width:16px; height:16px; 
@@ -450,21 +439,44 @@ export default {
                 scale: true,
                 min:0,
                 max:100,
-                interval:10,
                 axisLabel: {
-                    interval:5
+                    interval:20
                 },
                 splitLine: {
                     show: false
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#c2c2c2'
+                        color: '#c2c2c2',
+                        width:'2'
                     }
                 },
                 nameTextStyle:{
                     color:'#333'
                 }
+            },
+            visualMap: {
+                min: 0,
+                max: 100,
+                dimension: 0,
+                right:'5%',
+                //left: '73%',
+                top: '10',
+                text: ['高', '低'], // 文本，默认为数值文本
+                calculable: false,
+                itemWidth: 10,
+                itemHeight: 90,
+                textStyle: {
+                    color: '#666',
+                    height: 56,
+                    fontSize: 11,
+                    lineHeight: 60,
+                },
+                inRange: {
+                    color: ['yellow', '#da121a']
+                },
+                //padding: [50, 20],
+                orient: 'horizontal',
             },
             series: [{
                 type: 'scatter',
@@ -473,7 +485,7 @@ export default {
                 markLine: {
                     lineStyle: {
                         normal: {
-                            color: "#626c91",
+                            color: "#f7a72c",
                             type: 'solid',
                             width: 1,
                         },
@@ -483,7 +495,7 @@ export default {
                     },
                     data: [{
                         xAxis: 50,
-                        name: '',
+                        name: '平均线',
                         itemStyle: {
                             normal: {
                                 color: "#b84a58",
@@ -491,7 +503,7 @@ export default {
                         }
                     }, {
                         yAxis: 50,
-                        name: '',
+                        name: '平均线',
                         itemStyle: {
                             normal: {
                                 color: "#b84a58",
@@ -506,7 +518,7 @@ export default {
                             name: '',//合适
                             itemStyle: {
                                 normal: {
-                                    color: '#e7faff'
+                                    color: '#fff'
                                 },
                             },
                             label: {
@@ -514,7 +526,7 @@ export default {
                                     show: true,
                                     position: 'insideTopLeft',
                                     fontStyle: 'normal',
-                                    color: "#409EFF",
+                                    color: "#fff",
                                     fontSize: 20,
                                 }
                             },
@@ -526,7 +538,7 @@ export default {
                             name: '',//低
                             itemStyle: {
                                 normal: {
-                                    color: '#efefef',
+                                    color: '#fff',
                                 },
                             },
                             label: {
@@ -534,7 +546,7 @@ export default {
                                     show: true,
                                     position: 'insideTopRight',
                                     fontStyle: 'normal',
-                                    color: "#409EFF",
+                                    color: "#fff",
                                     fontSize: 20,
                                 }
                             },
@@ -546,7 +558,7 @@ export default {
                             name: '',//高
                             itemStyle: {
                                 normal: {
-                                    color: '#ffe9ea',
+                                    color: '#fff',
                                 },
                             },
                             label: {
@@ -554,7 +566,7 @@ export default {
                                     show: true,
                                     position: 'insideBottomLeft',
                                     fontStyle: 'normal',
-                                    color: "#409EFF",
+                                    color: "#fff",
                                     fontSize: 20,
                                 }
                             },
@@ -566,7 +578,7 @@ export default {
                             name: '',//一般
                             itemStyle: {
                                 normal: {
-                                    color: '#fff1e2',
+                                    color: '#fff',
                                 },
                             },
                             label: {
@@ -574,7 +586,7 @@ export default {
                                     show: true,
                                     position: 'insideBottomRight',
                                     fontStyle: 'normal',
-                                    color: "#409EFF",
+                                    color: "#fff",
                                     fontSize: 20,
                                 }
                             },

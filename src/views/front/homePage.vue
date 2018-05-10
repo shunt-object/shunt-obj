@@ -3,15 +3,15 @@
   <div class="homepage">
     <div class="fixed-box">
         <ul class="fixed-ul">
-            <li id="xiaowei"  class="liHoversBj"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt="">在线客服</li>
-            <li class="phone-li liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt="">电话咨询</a>
+            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
+               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
                 <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
             </li>
-           
+            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
         </ul>
         <div id="rys" style="z-index:100 !important"></div>
-        <img src="../../assets/scroll.png" alt="" class="scrollUp">
+        
+        <img src="../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
     <Sec active="0"></Sec>
     <!--  nav end--> 
@@ -23,48 +23,79 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
       <div class="carousel-inner">
-        
         <div class="item active" style="width:100%;min-width:100%;height:100%;">
-          <div class=" lunmain">
-            <div class="container" style="position:relative">
-                <img src="../../assets/tu.png" alt="" class="tuPa animated slideInUp">
-              <div class="col-md-7 lun-le animated rollIn">
-                <h1 style="font-size:26px !important;font-weight:100">业界领先上云服务，助您轻松上云！</h1>
-                <p class="pCenter">在数字化时代，企业上云已经成了必然的发展趋势，云服务商纷繁复杂，令人眼花缭乱。任何一个企业都有差异化的上云需求，只有真正能够帮您梳理出清晰的需求，才能让上云按您所需，如您所愿。依托于国内外云服务的经验积累，结合国内客户使用习惯，打造了科学化和专业化的上云、选云、测云的一站式线上SaaS服务平台。</p>
-                <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsb()" class="hoverSapn">了解更多</span></p>
-              </div>
-              <div class="col-md-5 col-sx-12 lun-rig animated rotateInDownRight">  
-                <img src="../../assets/shouye.png" alt="" class="tranimg">
-              </div>
-            </div>
-          </div>
-        </div>
-       
-       
-        <div class="item" style="width:100%;min-width:100%;height:100%;">
-                 <div class=" lunmain">
-                    <div class="container">
-                        <div class="col-md-5 lun-le animated rollIn">
-                            <h1>360°智能专家咨询服务</h1>
-                            <p class="pCenter" style="font-weight:100">六大场景，数百个专业问题，确保您360° 评估自身需求和目标云的匹配，结合大数据及智能算法，帮助您轻松获取行业及上云建议，快速有效的形成专业选云评估报告。</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaClound()" class="hoverSapn">了解更多</span></p>
+                 <div class=" lunmain lunmaen">
+                    <div class="container"  style="position:relative">
+                    <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">省钱、快捷、专业，助您轻松上云！</h1>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">上云，如何实施？</p>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">我们为您量身定制最适合的上云方案！</p>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
-                        <div class="col-md-7  animated rotateInDownRight" style="padding-top:10%;"><img src="../../assets/wei.png" alt="" style="width:100%;height:100%;"></div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:12%;"><img src="../../assets/smart.png" alt="" style="width:90%;height:90%;"></div>
                     </div>
                 </div>
-
-
          </div>
-         <div class="item" style="width:100%;min-width:100%;height:100%;">
-                 <div class=" lunmain">
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
+                <div class=" lunmain lun2">
+                    <div class="container" style="position:relative">
+                       
+                    <div class="col-md-12 lun-le animated rollIn">
+                        <h1 style="font-size:32px !important;font-weight:100">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:18px !important;font-weight:100">30%降低上云咨询成本，50%减少上云投入时间</h1>
+                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+           <div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain lunmaen lun3">
+                    <div class="container"  style="position:relative">
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式</h1>
+                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里</h1>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                        </div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:110%;height:100%;"></div>
+                    </div>
+                </div>
+         </div>
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain lunmaen lun3">
+                    <div class="container"  style="position:relative">
+                        <div class="col-md-7 lun-le animated rollIn text">
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">CloudBroker²以“云”为核心</h1>
+                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">是您上云咨询、云迁移和云运维的贴身服务专家</h1>
+                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
+                        </div>
+                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:130%;height:100%;"></div>
+                    </div>
+                </div>
+         </div>
+         <!-- <div class="item" style="width:100%;min-width:100%;height:100%;" id="itms">
+                <div class=" lunmain lun4">
+                    <div class="container" style="position:relative">
+                        <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
+                    <div class="col-md-12 lun-le animated rollIn">
+                        <h1 style="font-size:26px !important;font-weight:100;color:#333333;">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:16px !important;font-weight:100;color:#333333">30%降低上云咨询成本，50%减少上云投入时间!</h1>
+                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn" style="color:#da121a !important;border-color:#da121a !important;">DEMO体验</span></p>
+                    </div>
+                    </div>
+                </div>
+            </div>-->
+         <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
+                 <div class=" lunmain lunmirn">
                     <div class="container">
                         <div class="col-md-6 lun-le animated rollIn">
                             <h1>多场景、目标云真机测试</h1>
                             <p class="pCenter" style="font-weight:100">轻松点击即可完成的场景化真机测试，帮助您实时在线测试和体验多个目标云的各种不同业务负载表现，确保您 “看的清，试的准”。</p>
-                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaSc()" class="hoverSapn">了解更多</span></p>
+                            <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                             
                         </div>
                         <div class="col-md-6  animated rotateInDownRight" style="padding-top:2%"><img src="../../assets/sanbanner.png" alt="" style="width:75%;"></div>
@@ -75,7 +106,7 @@
          </div>
         
    
-   </div>
+   </div>-->
      
     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"></a>
@@ -84,49 +115,80 @@
       
     
     <!--------------------------------公告------------------------------------------------>  
-    <div class="announce">
+    <!--<div class="announce">
         <div class="container">
             <ul class="row col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <li class="col-md-2 annou  col-xs-6" style="line-height:48px;"><p><i class="iconfont icon-gonggao1" style="font-size:19px"></i><span style="font-size:16px;">公告信息</span></p></li>
                 <li class="col-md-10 col-xs-6 lis" style="text-align:center;line-height:48px;">
-                <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 我们将推出重磅服务云实测功能，敬请您的期待！</marquee>
+                <marquee direction="left">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 我们将隆正推出预算收益数据分析服务，敬请您的体验！</marquee>
                 </li>
             </ul>
       </div>
-    </div>
+    </div>-->
     <!----------------------------main-start---------------------------------->
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
           <h1 class="text-center thin ths animated tada">SaaS化云服务</h1>
-          <h3 class="text-center thin">竭力为您提供科学的一站式上云服务</h3>
+          <p class="text-center thin" style="font-size: 16px;color: #777777">为您提供精准有效便捷的云服务</p>
           <div class="heng"></div>
         </div>
         <div class="row text-center">
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/homepage/13.png" alt="" class="Yunimg">
+            <div class="cround"><img src="../../assets/homepage/13.png" alt="" class="Yunimg"></div>
             <h2>云规划</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我们的工作负载可上云吗？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的工作负载可以上云吗？</span><span class="color_999">通过“云规划最佳实践”，对当前的工作负载进行全面立体分析和科学规划，判断该工作负载 是否可上云？精确计算该工作负载云的收益度和云的亲和度，从而得出上哪种类型的云服务。</span></p>
+              <p class="text-left"><span class="color_999">通过“云规划最佳实践”，CloudBroker²为您全面分析工作负载，助您规划最适合的云场景。</span></p>
             </div>
-            <span class="obj-cta" @click="ctaCloundCsb()">查看更多</span>
+            <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/Page 1.png" alt="" class="Yunimg">
+            <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
             <h2>云选型</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云厂商如何选择？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们应该上哪家云厂商呢？</span><span class="color_999">建立在您设计的业务场景之上，通过CloudBroker²提供的上百个标准，多维度横向比较和可视化展现公有云服务商所提供的功能，从而为您科学选择最佳的云厂商。</span></p>
+              <p class="text-left"><span class="color_999">根据业务需求，通过CloudBroker²提供的百个指标进行多维度和多场景对比，为您优选最佳服务商。</span></p>
             </div>
-            <span class="obj-cta"  @click="ctaClound()">查看更多</span>
+            <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta">
-            <img src="../../assets/homepage/12.png" alt="" class="Yunimg">
-            <h2>云实测</h2>  
+            <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
+            <h2>云设计</h2>  
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">总是要邀请专家上门吗？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="pS">我们的云规划和云选型报告可以进行真机验证吗？</span><span class="color_999">基于云选型的业务场景，通过CloudBroker²提供的网络和应用性能测试方案，实现对目标云厂商的端到端的测试可视化，实现测试的完整闭环，确保上云和选云的科学性。</span></p>
+              <p class="text-left"><span class="color_999">通过大数据积累，对上云负载采取场景化设计，科学获得该负载的云规格配置和自动生成云拓扑。</span></p>
             </div>
-           <span class="obj-cta" @click="cloundScc()">查看更多</span>
+           <span class="obj-cta" @click="cloundScc()">&nbsp查看更多</span>
           </div>
+          <div class="col-xs-12 col-sm-4 blurb-cta">
+            <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
+            <h2>云买手</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有高效购买性价比高的云资源和服务方式吗？</h4>
+            <div class="bluar-ccc">
+              <p class="text-left"><span class="color_999">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</span></p>
+            </div>
+            <span class="obj-cta"  @click="ctaCloundf()">&nbsp查看更多</span>
+          </div>
+           <div class="col-xs-12 col-sm-4 blurb-cta">
+            <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
+            <h2>云实测</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以找到既专业又性价比高的真机实测吗？</h4>
+            <div class="bluar-ccc">
+              <p class="text-left"><span class="color_999">根据云选场景，CloudBroker²实现对目标云厂商的测试可视化，助上云和选云更具科学性。</span></p>
+            </div>
+           <span class="obj-cta"  @click="ctaCloundk()">&nbsp查看更多</span>
+          </div>
+          <div class="col-xs-12 col-sm-4 blurb-cta">
+            <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
+            <h2>Prof. 吴数据</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以快速洞察企业内外的上云状态吗？</h4>
+            <div class="bluar-ccc">
+              <p class="text-left"><span class="color_999">CloudBroker²通过对上云应用的精准画像和可视化数据分析服务，为您多维角度进行解析。</span></p>
+            </div>
+            <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
+          </div>
+         
         </div>
       </div>
     </div>
@@ -137,45 +199,77 @@
         <p class="p-wha">科学权威的云咨询服务</p>
         <div class="heng"></div>
         <div class="col-xs-12 cla">
-          <div class="col-xs-12 col-sm-2 claes" style="padding-left:1px;">
-            <img src="../../assets/a.png" alt="" class="tranImg">
-            <h4>SaaS化</h4>
-            <div class="mainpa">
-              <p class="mainPd">数千客户积累</p>
-              <p>打造国内顶级产品</p>
-            </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">SaaS化</pstyle>
+                        <p class="mainPd">数千客户积累</p>
+                        <p>打造国内顶级产品</p>
+                    </div>
+                </dd>
+            </dl>
           </div>
-          <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/b.png" alt="" class="tranImg">
-            <h4>一站化</h4>
-            <div class="mainpa">
-              <p class="mainPd">1V1顾问支持</p>
-              <p>提供全生命周期服务体验</p>
-            </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">保姆化</pstyle>
+                        <p class="mainPd">1V1顾问支持</p>
+                        <p>提供一站化体验</p>
+                    </div>
+                </dd>
+            </dl>
           </div>
-          <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/c.png" alt="" class="tranImg">
-            <h4>权威化</h4>
-            <div class="mainpa">
-              <p class="mainPd">云集百位专家</p>
-              <p>提供科学化上云服务</p>
-            </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/e.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
+                        <p class="mainPd">多维报表分析</p>
+                        <p>提供可视化数据展现</p>
+                    </div>
+                </dd>
+            </dl>
           </div>
-          <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/e.png" alt="" class="tranImg">
-            <h4>可视化</h4>
-            <div class="mainpa">
-              <p class="mainPd">多维报表分析</p>
-              <p>提供可视化数据展现</p>
-            </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">实测化</pstyle>
+                        <p class="mainPd">云端百台真机测试</p>
+                        <p>节省百台真机费用</p>
+                    </div>
+                </dd>
+            </dl>
           </div>
-          <div class="col-xs-12 col-sm-2 claes">
-            <img src="../../assets/homepage/5.png" alt="" class="tranImg">
-            <h4>实测化</h4>
-            <div class="mainpa">
-              <p class="mainPd">云端百台真机测试</p>
-              <p>节省百台真机费用</p>
-            </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/c.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">权威化</pstyle>
+                        <p class="mainPd">云集百位专家</p>
+                        <p>提供科学化上云规划</p>
+                    </div>
+                </dd>
+            </dl>
+          </div>
+          <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
+            <dl>
+                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/ors.png" alt="" class="tranImg"></dt>
+                <dd style="diaplay:inline-block">
+                     <div class="mainpa">
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">AI设计化</pstyle>
+                        <p class="mainPd">借助人工智能</p>
+                        <p>设计最佳云方案</p>
+                    </div>
+                </dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -189,20 +283,23 @@
         <ul class="row col-xs-12 uls-w" style="margin-top:20px !important;">
             <li class="col-xs-12 col-sm-4 pictes">
                 <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
+                <div class="obj-clear"></div>
                 <h2>省钱</h2>
-                <p style="padding-top:40%">洞察您当前的工作负载，<br/> 为您节省 30%的上云成本支出</p>
+                <p style="padding-top:39%">洞察您当前的工作负载，<br/> 为您节省30%的上云成本支出</p>
                 </div>
             </li>
           <li class="col-xs-12 col-sm-4 pictes">
             <div class=" li-fir lis-hov"><img src="../../assets/pict-1.png" alt="" class="pict">
+              <div class="obj-clear"></div>
               <h2>省力</h2>
               <p style="padding-top:44%">为您减少50%的上云规划时间</p>
             </div>
           </li>
           <li class="col-xs-12 col-sm-4 pictes">
             <div class="li-sec lis-hov"><img src="../../assets/pict-3.png" alt="" class="picts">
+              <div class="obj-clear"></div>
               <h2>专业</h2>
-              <p style="padding-top:40%">集结上百位专家心血，<br/> 为了您提供科学规划和上云</p>
+              <p style="padding-top:39%">集结上百位专家心血，<br/> 为了您提供科学上云和管云</p>
             </div>
           </li>
           
@@ -214,7 +311,7 @@
       <div class="container friendContainer">
         <div class="row text-center jzWe jsFei" style="margin-bottom:20px !important;">
           <h1 class="text-center thin">合作伙伴</h1>
-          <h3 class="text-center thin">诚邀各行业优秀合作伙伴与我们共建云服务生态</h3>
+          <h3 class="text-center thin">诚邀各行业优秀的合作伙伴与我们一起共建生态！</h3>
           <div class="he-su"></div>
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
@@ -248,9 +345,9 @@
     <div class=" obj-frees"   style="height:200px;position:relative;">
       <div class="pder">
         <h4 class="text-center" style="font-weight:100">
-          现在开启您的上云分析之旅
+          现在开启您的上云之旅
         </h4>
-        <span class="PlanLj" v-on:click="PlanLj">立即体验</span>
+        <span class="PlanLj" v-on:click="ctaCloundCsbsD">立即体验</span>
       </div>
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
@@ -264,16 +361,15 @@
 </div>
 </template>
 <script>
- import wei from '../front/wei.vue';
  import "../front/animate.min.css";
-
  import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
+
 export default {
     name: 'homePage',
     components:{
-        wei,
+        
         Sec,
         Sex,
         
@@ -287,15 +383,21 @@ export default {
       }
     },
     mounted: function() {
-          
-
+        //判断是否是从微信点击的，需要直接跳转应用市场
+        if(this.url!=''){
+            for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                if(this.url[i].indexOf('redirect=appstore')>-1){
+                    if(sessionStorage.getItem('account')){
+                        this.$router.push({path:'/appcenterList'});
+                    }else{
+                        this.$router.push({path:'/login'});
+                    }
+                }
+            }
+        }
+        
+        
         $(document).ready(function(){ 
-                $("#xiaowei").click(function(){
-                     var adw = document.getElementById("rys")
-                      rongClouds(adw)
-                })    
-            
-               
                      $.fn.extend({
                         animateCss: function (animationName) {
                             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
@@ -327,7 +429,7 @@ export default {
                         $('.lis-hov').mouseout(function(){
                             $(this).find(".pict").css("transform", "scale(1.0)")
                              $(this).find(".picts").css("transform", "scale(1.0)")
-                             $(this).find("p").css({"transform":"scale(1.0)","color":"#ffffff","padding-top":"44%"})
+                             $(this).find("p").css({"transform":"scale(1.0)","color":"#ffffff","padding-top":"40%"})
                         });
                 
                         $(".jz-img").hover(function(){
@@ -373,7 +475,7 @@ export default {
     
             $(".scrollUp").click(function(){
                 $('html ,body').animate({scrollTop: 0}, 300);
-                return false;
+               
             });
         });
 
@@ -568,21 +670,16 @@ export default {
           
     },
     methods: {
-        // cloudertye:function(){
-            
-        //             // window.open("#/wei",'','width=600,height=600')    
-        //               var adw = document.getElementById("rys")
-        //               rongClouds(adw)
-              
-               
-
-
-
-
-        // },
-         
+    
+        ctaCloundCsbs:function(){
+            window.open("http://demo.csb-china.com/#/consolePage")
+             //this.$router.push({path: '/registerOne'});
+        },
+        ctaCloundCsbsD:function(){
+            this.$router.push({path: '/registerOne'});
+        },
         PlanLj:function(){
-             this.$router.push({path: '/register'});
+             this.$router.push({path: '/registerOne'});
         },
         asd:function(){
             this.logoutlist==true?this.logoutlist=false:this.logoutlist=true;
@@ -603,24 +700,38 @@ export default {
       condole: function() {
           this.$router.push({path: '/consolePage'});
       },
+      ctaCloundk:function(){
+         this.$router.push({path: '/cloudmeasured'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
       reset: function() {
-        this.$router.push({path: '/register'})
+        this.$router.push({path: '/registerOne'})
       },
       ctaClound:function(){
-          this.$router.push({path: '/seleconefirst'});
+          this.$router.push({path: '/cloudselection'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaCloundCsb:function(){
-          this.$router.push({path: '/sleconesecond'});
+          this.$router.push({path: '/cloudplanning'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaSc:function(){
-          this.$router.push({path: '/seleconeThree'});
+          this.$router.push({path: '/cloudmeasured'});
             $('html ,body').animate({scrollTop: 0},0);
       },
       cloundScc:function(){
-             this.$router.push({path: '/seleconeThree'});
+             this.$router.push({path: '/designer'});
             $('html ,body').animate({scrollTop: 0},0);
+      },
+      ctaCloundf:function(){
+             this.$router.push({path: '/orderlist'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      xiaowei:function(){
+         // var win = window.open("#/CustomerService");
+        
+        //   var that = this;                    
+            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
       },
       jiaxinTogglerDiv:function(){
          
@@ -646,6 +757,41 @@ export default {
 /**{
    overflow:hidden
 }*/
+               
+.carousel-indicators .active{
+    width:32px !important;
+    transition:width 1s !important;
+    -moz-transition:width 1s !important; /* Firefox 4 */
+    -webkit-transition:width 1s !important; /* Safari and Chrome */ 
+}
+.obj-clear{
+    width:36px;
+    height:2px;
+    background:#da121a;
+    margin:0 auto;
+    margin-top:15px;
+}
+.cround{
+    background: #f5f5f5;
+    border-radius:100%;
+    width:130px;
+    height:130px;
+    margin:0 auto;
+    line-height:130px
+}
+.rong-jian{
+    font-weight:bold;
+	display: inline-block;
+	z-index: 1;
+    width: 20px;
+	height: 20px;
+    line-height:20px;
+	border-radius:50px;
+    background:#fff;
+    color:#4db8fb;
+    vertical-align: middle;
+	background-position: 0 -139px
+}
 .hoverSapn:hover{
     cursor:pointer;
 }
@@ -702,9 +848,7 @@ ul,ol li {
 #carousel-example-generic{
     height:600px;
 }
-.lunmain {
-    background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 600px; 
-}
+
 .lumain{
     background: url('../../assets/li.png') no-repeat; background-size:100% 600px;width:100%; height: 600px;position: relative
 }
@@ -733,11 +877,11 @@ ul,ol li {
 }
 .fixed-box .scrollUp{
     position:fixed;
-    right:0px;
+    right:12px;
     display:none;
 }
 .fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:50px; height:50px; color:#fff;
+    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
     padding-top:1px; line-height:2px; cursor:pointer;
     font-size:10px;
 }
@@ -752,19 +896,32 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
+.lunmain .lun-le .pBottom {
+    margin-top: 30px;
+}
+.lunmain {
+       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 100%; width: 100%; height: 600px; 
+}
+.lun2{
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
+.lun3{
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
+.lun4{
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+}
     .jzfei{
         padding-right:10px;
         margin-left:26px
     }
  .mainPd {
-    margin-top: 20px; color: #666666; display: block
+   color: #666666; display: block
 }
   .tuPa {
-      left: 2%; height: 288px; position: absolute; bottom: -14%
+      left: 2%; height:300px; position: absolute; bottom: -40%
   }
-  .cla {
-      margin-left: 8%;
-  }
+ 
   .cl {
       margin-left: 40%;
   }
@@ -772,7 +929,7 @@ ul,ol li {
       margin-right: 20px;
   }
   .lunmain .lun-le {
-      padding-top: 180px; padding-left: 48px; text-align: left;
+      padding-top: 180px; padding-left: 48px; text-align: center;
   }
   .lumain .lun-le {
       padding-top: 180px; padding-left: 48px; text-align: left;
@@ -802,9 +959,7 @@ ul,ol li {
      margin-top: 12px;
 }
 
-.lunmain .lun-le .pBottom {
-    margin-top: 25px;
-}
+
 .lunmain .lun-le .pBottom span {
     padding: 10px 25px; border: 1px solid #ccc; color: #fff; font-size: 12px;
 }
@@ -898,8 +1053,12 @@ ul,ol li {
     /*width: 120px; height: 75px;*/
 }
 .obj-main .obj-cta {
-    width:120px; height:35px; line-height:35px; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
-  font-size: 14px;
+    width:88px !important; height:30px !important; line-height:30px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
+  font-size: 12px!important;
+}
+.obj-demo{
+    width:88px !important; height:30px !important; line-height:30px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
+  font-size: 12px!important; margin-right:10px;
 }
 .obj-main p {
     font-size: 14px; color: #666666;
@@ -1000,9 +1159,7 @@ ul,ol li {
 .footer .container {
     width: 60%;
 }
-.footer .footer-left {
-    border-left:1px solid #2e383e;
-}
+
 .footer .footer-jx {
     font-weight: 200; font-size:14px; color:#ccc;
 }
@@ -1028,18 +1185,44 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
+.tiuis{
+    display:none;   
+}
+.hsa{
+    text-align:center!important; 
+}
+.lunmain {
+    background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 100%; width: 100%; height: 370px; 
+}
+.lun2{
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
+.lun3{
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
+.lun4{
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 370px !important; 
+}
+.lunmain .lun-le .pBottom {
+    margin-top: 30px;
+}
+.lunmain .container {
+    width: 100%;
+    padding-top: 10%;
+    margin-top:0%;
+}
 .pCenter{
     padding-bottom:20px;
 }
 .mainPd {
-    margin-top: 20px; color: #666666; display: block;margin-bottom:15px;
+    margin-top: 12px; color: #666666; display: block;margin-bottom:15px;
 }
 .right{
     height:100%;
 }
 
 .tuPa {
-  right: 0; height:0%; position: absolute; bottom: 0
+  right: 0; height:0%; bottom: 0
 }
 .lun-rig img {
   width: 100%; height: 100%; margin-top: 50px;
@@ -1127,9 +1310,9 @@ a:hover {
 .logout-ul li {
     width:100%;text-align: center; line-height: 20px;
 }
-.bluar-ccc {
+/*.bluar-ccc {
     border: 1px solid #f7f7f7; background: #f7f7f7; color: #999; border-radius: 2px; font-size: 14px; padding: 10px; height:140px; line-height:1.5; margin-top:20px;
-}
+}*/
 h2 {
     font-size: 20px;
 }
@@ -1156,7 +1339,7 @@ h2 {
 }
 
 .mainpa {
-    font-size: 14px; color: #666666; line-height: 12px;
+    font-size: 14px; color: #666666; line-height: 12px;text-align:left;
 }
 .mainpa p {
     color: #666666; display: block
@@ -1172,7 +1355,7 @@ h2 {
    
 }
 .he-su {
-    background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;
+    background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;margin-top:15px;
 }
 /*@-webkit-keyframes rotation {
   from {
@@ -1204,7 +1387,7 @@ h2 {
     width: 54px; height: 60px; transition: all 0.6s;   margin-top: 30%;
 }
 .picts {
-    width: 70px; height: 60px; transition: all 0.6s;  margin-top: 30%; margin-left: 4%;
+    width: 70px; height: 60px; transition: all 0.6s;  margin-top: 30%; margin-left: 0% !important;
 }
 .pictes .dnsery{
     position:absolute;

@@ -18,7 +18,7 @@
        <table id="example" class="table table-striped table-bordered compareList-table" border="1">
              <thead>
                 <tr class="text-center">
-                    <th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>
+                    <!--<th class="col-md-1" ><input type="checkbox" name="checkbox" class="cls"></th>-->
                     <th class="col-md-1">应用名称</th>
                     <th class="col-md-1">云分析名称</th>
                     <th class="col-md-3">对比供应商</th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody  id="myTable" v-if="res.length>0" >
                 <tr width="100%" v-for="re in res">
-                    <td><input type="checkbox" name="checkbox" :data-id="re.id"></td>
+                    <!--<td><input type="checkbox" name="checkbox" :data-id="re.id"></td>-->
                     <td>{{re.appname}}</td>
                     <td>{{re.proname}}</td>
                     <td v-if="re.appResults[0]!=null" >
@@ -41,7 +41,7 @@
                         </ul>
                     </td>
                     <td v-else></td>
-                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7 !important;"><i class="iconfont icon-chakan" style="margin-right:5px;"></i>查看报告</a></td>
+                        <td class="col-md-1"> <a href="javascript:;" v-on:click="idClick(re.id)" style="color:#337ab7 !important;"><i class="iconfont icon-chakan font12" style="margin-right:5px;"></i>查看报告</a></td>
                 </tr>
             </tbody>
         </table>
@@ -59,7 +59,7 @@
     line-height:50px;
 }
 .compareList{
-    min-height:500px; background:#fff; padding:0 15px;
+    min-height:81vh; background:#fff; padding:0 15px;
 }
 .compareList-search{
     background:#ffffff; box-shadow:0 1px 1px 0 rgba(222,222,222,0.50); width:100%; height:57px;border-bottom:1px solid #e5e5e5;
@@ -90,13 +90,13 @@ line-height:30px; float:left; margin-top:13px;
     vertical-align:middle !important;
 }
 .table>tbody>tr>td{
-    line-height:30px; background:#fff; color:#2b2b2b;
+    line-height:30px; background:#fff; color:#2b2b2b; font-size:12px;
 }
 .table>thead>tr>th{
-    background:#ebebeb; color:#555; height:50px; text-align:center;
+    background:#f3f3f3; color:#555; height:50px; text-align:center; font-size:12px;
 }
 .table>tbody>tr:nth-child(2n)>td{
-    background:#f7f7f7;
+    background:rgb(247, 247, 247);
 }
 .firm-name{
     min-width:100px; text-align:left;
@@ -106,10 +106,20 @@ line-height:30px; float:left; margin-top:13px;
 }
 /*暂无数据*/
 .compareList-nodata{
-    background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
+    /*background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;*/
+    background:#ffffff;
+    width:100%;
+    height:300px;
+    font-size:12px;
+    color:#999;
+    margin-bottom:20px;
+    line-height:24px;
+    text-align:center;
+    border:1px solid #ebebeb;
 }
 .compareList-nodata img{
-    margin-top:20%;
+    margin-top:100px;
+    margin-bottom:20px;
 }
 *{
     margin:0px;

@@ -5,8 +5,24 @@
         用户数据
     </div>  
         <!--<input type="button" value="导出" style="width:50px;height:30px;left:30px;top:50px;color:#333" v-on:click="daochu">-->
-    <div class="dvsmain">
-        
+    <div class="dvsmain" style="position:relative">
+        <input  type="button" class="btnDAo" value="导出" v-on:click="fiaer"/>
+
+        <el-dialog 
+            title="数据导出"
+            :visible.sync="dialogVisible"
+            width="30%"
+            >
+            <div style="margin:0 auto;text-align:center;">
+                <div style="margin-bottom:10px"><input type="radio" name="w" value="0">&nbsp&nbsp今日用户</div>
+                <div><input type="radio" name="w" value="1">&nbsp&nbsp全部用户</div>
+            </div>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="qucenters" class="enterDing">确定</el-button>
+                <el-button type="primary" @click="dialogVisible = false" class="clseys">取消</el-button>
+            </span>
+        </el-dialog>
+
         <div class="zhengtab">
             <table class="table table-bordered" id="tabelId">
                 <thead class="row">
@@ -18,6 +34,8 @@
                         <th class="text-center thtop" prop="industryStr.name">行业信息</th>
                         <th class="text-center thtop" prop="phone">手机号码</th>
                         <th class="text-center thtop" prop="email">邮件地址</th>
+                        <th class="text-center thtop" prop="jue">用户角色</th>
+                        <th class="text-center thtop" prop="lei">注册类型</th>
                         <th class="text-center thtop" prop="createDt">注册时间</th>
                     </tr>
                 </thead>
@@ -49,6 +67,18 @@
                         <td v-else>{{re.phone}}</td>
                         <td v-if="re.email==null">未填写</td>
                         <td v-else>{{re.email}}</td>
+                        <td v-if="re.utype==1">个人</td>
+                        <td v-if="re.utype==2">企业</td>
+                        <td v-if="re.utype==3">运营商</td>
+                        <td v-if="re.utype==4">政府</td>
+                        <td v-if="re.utype==5">运营</td>
+                        <td v-if="re.utype==6">代理商</td>
+                        <td v-if="re.utype==7">独立顾问</td>
+                        <td v-if="re.registerType==null">无</td>
+                        <td v-if="re.registerType==1">手机注册</td>
+                        <td v-if="re.registerType==2">微信注册</td>
+                        <td v-if="re.registerType==3">关注微信号注册</td>
+                        <td v-if="re.registerType==4">运营注册</td>
                         <td>{{re.createDt}}</td>
                     </tr>
                 
@@ -60,6 +90,48 @@
  </div>   
 </template>
 <style>
+#tabelId thead th,#tabelId tbody td{
+    font-size:12px;
+}
+.el-button:active {
+    color: #fff !important;
+    border-color: #fff !important;
+    outline: 0;
+}
+.clseys{
+    color:#ccc !important;
+    background:#fff !important;
+    border-color:#ccc !important;
+}
+.el-dialog{
+    text-align:left;
+   
+}
+.clsey{
+    background:#fff;
+    border-color:#ccc;
+    color:#ccc;
+}
+.clsey:hover{
+      background:#fff;
+    border-color:#ccc;
+    color:#ccc;
+}
+.enterDing:hover{
+      color:#fff !important;
+}
+.enterDing{
+    background: #da121a !important;
+     color:#fff !important;
+}
+.btnDAo{
+    width:50px;
+    height:30px;
+    position:absolute;
+    right:250px;
+    top:12px;
+    z-index:99;
+}
     .btnDao:hover{
         cursor:pointer
     }
@@ -117,14 +189,12 @@ import "../plan/planList/datatable.css";
     export default{
          data () {
             return {
-                responers:[]
+                responers:[],
+                dialogVisible:false
             }
          },
      updated:function(){
-        
-                $(document).ready(function(){
-                   
-                        $.noConflict();
+                    $.noConflict();
                     $("#tabelId").dataTable().fnDestroy();
                         $('#tabelId').DataTable({
                              dom: "<'toolbar'>Bfrtip",  
@@ -169,12 +239,16 @@ import "../plan/planList/datatable.css";
                             },  
                         });
                        
-                    });
+                    
   },
          created:function(){
-             this.$this.get('/broker/admin/user/list').then((respone)=>{
+            this.ap();
+         },
+         methods:{
+             ap:function(){
+                    this.$this.get('/broker/admin/user/list').then((respone)=>{
               this.responers = respone.data.data;
-              console.log(this.responers)
+              //console.log(this.responers)
             //    for(var i=0;i<this.responers.length;i++){
             //         for(var j=0;j<this.responers[i].industryStr.length;j++){
             //             console.log(this.responers[i].industryStr[j].name)
@@ -182,21 +256,41 @@ import "../plan/planList/datatable.css";
             //    }
             }).catch((error)=>{
             })
-         },
-         methods:{
-             daochu:function(){
-                    require.ensure([], () => {
-        　　　　　　　　const { export_json_to_excel } = require('../../../vendor/vendor/Export2Excel.js');
-        　　　　　　　　const tHeader = ['用户名', '登录名', '公司信息', '注册地址','行业信息','手机号码','邮箱地址','注册时间']; //对应表格输出的title
-        　　　　　　　　const filterVal = ['username', 'realname','tenant','addr','industryStr.name','phone','email','createDt']; // 对应表格输出的数据
-        　　　　　　　　const list = this.responers;
-        　　　　　　　　const data = this.formatJson(filterVal, list);
-        　　　　　　　　export_json_to_excel(tHeader, data, '列表excel'); //对应下载文件的名字
-        　　　　　　})
              },
-             formatJson:function(filterVal, jsonData) {
-　　　　　　      return jsonData.map(v => filterVal.map(j => v[j]))
-　　　　       },
+             fiaer:function(){
+                this.dialogVisible = true;
+             },
+             qucenters:function(){
+                var val=$('input:radio[name="w"]:checked')
+                var vals = val.val();
+                var rad = document.getElementsByName("w");
+                if(vals==0){
+                      this.dialogVisible = false;
+                      for(var i=0;i<rad.length;i++){   //为了点击确定之后清楚选中 
+                          rad[i].checked = false;
+                      }
+                      window.location.href="/broker/template/exportByExcel/today";
+                }else if(vals==1){
+                     window.location.href="/broker/template/exportByExcel/all";
+                     for(var i=0;i<rad.length;i++){
+                          rad[i].checked = false;
+                      }
+                     this.dialogVisible = false;
+                }
+             }
+//              daochu:function(){
+//                     require.ensure([], () => {
+//         　　　　　　　　const { export_json_to_excel } = require('../../../vendor/vendor/Export2Excel.js');
+//         　　　　　　　　const tHeader = ['用户名', '登录名', '公司信息', '注册地址','行业信息','手机号码','邮箱地址','注册时间']; //对应表格输出的title
+//         　　　　　　　　const filterVal = ['username', 'realname','tenant','addr','industryStr.name','phone','email','createDt']; // 对应表格输出的数据
+//         　　　　　　　　const list = this.responers;
+//         　　　　　　　　const data = this.formatJson(filterVal, list);
+//         　　　　　　　　export_json_to_excel(tHeader, data, '列表excel'); //对应下载文件的名字
+//         　　　　　　})
+//              },
+//              formatJson:function(filterVal, jsonData) {
+// 　　　　　　      return jsonData.map(v => filterVal.map(j => v[j]))
+// 　　　　       },
              
          }
     }
