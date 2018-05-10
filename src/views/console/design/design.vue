@@ -873,6 +873,7 @@ export default{
     },
     methods:{
         servied:function(){
+            console.log(111);
             this.$this.get('/broker/result/plan/'+this.appId+'').then((response)=>{
                 //console.log('结果',response);
                 for(let i=0;i<response.data.data.appResults.length;i++){
