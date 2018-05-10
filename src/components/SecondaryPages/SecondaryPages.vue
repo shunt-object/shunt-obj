@@ -111,9 +111,10 @@
                     </el-dropdown>              
                 </a>
             </li>
+            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='5'?'border_active':''">111</a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='5'?'border_active':''">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='6'?'border_active':''">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='6'?'border_active':''">关于我们</a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='7'?'border_active':''">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
