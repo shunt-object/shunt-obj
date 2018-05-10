@@ -106,7 +106,7 @@
                     <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
                 </div>
                 <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu">我要预约</button>
+                <button class="openCourse-class-yu" v-on:click="yuyue()">我要预约</button>
             </div>
         </div>
         <div class="openCourse-class-list row">
@@ -192,7 +192,7 @@
             <div class="opendia-list">
                 <div class="row">
                     <div class="col-md-3 opendia-key">开课内容：</div>
-                    <div class="col-md-9" style="padding-left:0px !important;">
+                    <div class="col-md-9" style="padding-left:0px !important;color:#da121a;">
                         AI公司商业化的关键
                     </div>
                 </div>
@@ -238,7 +238,7 @@ export default {
         return {
             phoneBox:false,
             isfixed:false,
-            dialogclass:true
+            dialogclass:false
         }
     },
     mounted:function(){
@@ -260,6 +260,9 @@ export default {
          })
     },
     methods:{
+        yuyue:function(){
+            this.dialogclass = true;
+        },
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
         },
