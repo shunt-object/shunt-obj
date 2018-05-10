@@ -35,11 +35,7 @@
                         <td>规格</td>
                         <td>数量</td>
                         <td>时间</td>
-<<<<<<< HEAD
-                        <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i v-if="issort!=0" class="iconfont" :class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"></i></td>
-=======
                         <td style="cursor:pointer;" v-on:click="sortPrice()">费用参考<i class="iconfont icon-paixu"></i></td><!-- v-if="issort!=0" :class="issort=='1'?'icon-sanjiao':'icon-xiaosanjiaoup'"-->
->>>>>>> develop
                         <td>京玉折扣价</td>
                     </tr>                
                 </thead>
@@ -107,14 +103,11 @@ export default{
         }
     },
     mounted:function(){
-<<<<<<< HEAD
-=======
         $(document).keyup(function (evnet) {
             if (evnet.keyCode == '13') {
                 return false;
             }
         });
->>>>>>> develop
         this.getAppMsg();//获取应用
     },
     methods:{
@@ -184,8 +177,6 @@ export default{
                     this.pricelist[i].boolean = true;
                 }
                 this.pricelistOne[0].boolean = true;
-<<<<<<< HEAD
-=======
                 if(this.pricelistOne[0].boolean==true){
                     pname.push(this.pricelistOne[0].data.pname);
                     series.push(this.pricelistOne[0].data.cloudPrice);
@@ -196,31 +187,16 @@ export default{
                         series.push(this.pricelist[i].data.cloudPrice);
                     }
                 }
->>>>>>> develop
             }else{
                 for(let i=0;i<this.pricelist.length;i++){
                     this.pricelist[i].boolean = false;
                 }
                 this.pricelistOne[0].boolean = false;
-<<<<<<< HEAD
-            }
-            if(this.pricelistOne[0].boolean==true){
-                pname.push(this.pricelistOne[0].data.pname);
-                series.push(this.pricelistOne[0].data.cloudPrice);
-            }
-            for(let i=0;i<this.pricelist.length;i++){
-                if(this.pricelist[i].boolean==true){
-                    pname.push(this.pricelist[i].data.pname);
-                    series.push(this.pricelist[i].data.cloudPrice);
-                }
-            }
-=======
                 pname = [];
                 series = [];
             }
             
             this.getroi();//预算率
->>>>>>> develop
             if(this.budgetprice!=''){
                 price = this.budgetprice;
             }
@@ -229,10 +205,7 @@ export default{
             })
         },
         appchange:function(){
-<<<<<<< HEAD
-=======
             this.budgetprice = '';
->>>>>>> develop
             this.getPrice(this.appidModel);
         },
         budget:function(){//预算
@@ -258,30 +231,16 @@ export default{
         },
         budgetYes:function(){
             this.isbudget = false;
-<<<<<<< HEAD
-            let arr = [];
-=======
->>>>>>> develop
             let pname = [];
             let series = [];
             if(this.budgetprice!=''){
                 for(let i=0;i<this.pricelist.length;i++){
                     if(this.pricelist[i].boolean==true){
-<<<<<<< HEAD
-                        arr.push(this.pricelist[i].data.id);
-=======
->>>>>>> develop
                         pname.push(this.pricelist[i].data.pname);
                         series.push(this.pricelist[i].data.cloudPrice);
                     }
                 }
                 if(this.pricelistOne[0].boolean==true){
-<<<<<<< HEAD
-                    arr.push(this.pricelistOne[0].data.id);
-                    pname.push(this.pricelistOne[0].data.pname);
-                    series.push(this.pricelistOne[0].data.cloudPrice);
-                }
-=======
                     pname.push(this.pricelistOne[0].data.pname);
                     series.push(this.pricelistOne[0].data.cloudPrice);
                 }
@@ -289,26 +248,10 @@ export default{
                 //     pname.push('');
                 //     series.push(0);
                 // }
->>>>>>> develop
                 //console.log('aaaa',series);
                 this.$nextTick(function() {
                     this.canvasROI('roi-echarts',pname,series,this.budgetprice);
                 })
-<<<<<<< HEAD
-                let obj = {
-                    appid:[this.appidModel],
-                    budget:this.budgetprice,
-                    purchaseIds:arr
-                };
-                this.$this.post('/broker/price/roi',JSON.stringify(obj)).then((response)=>{
-                    if(response.data.code==1){
-                        this.priceRate = response.data.data.roi;
-                    }
-                }).catch((error)=>{})
-            }
-            
-        },
-=======
                 this.getroi();
             }
             
@@ -334,7 +277,6 @@ export default{
                 }
             }).catch((error)=>{})
         },
->>>>>>> develop
         investInput:function(arrname,index){
             let pname = [];
             let series = [];
@@ -361,10 +303,7 @@ export default{
             }
             //console.log('aaaa',series);
             if(this.budgetprice!=''){
-<<<<<<< HEAD
-=======
                 this.getroi();
->>>>>>> develop
                 price = this.budgetprice;
             }
             if(a>0){
@@ -373,11 +312,7 @@ export default{
             this.$nextTick(function() {
                 this.canvasROI('roi-echarts',pname,series,price);
             })
-<<<<<<< HEAD
-            this.budgetYes();
-=======
             //this.budgetYes();
->>>>>>> develop
         },
         getAppMsg:function(){//应用
             this.$this.get('/broker/app/getAppMsg').then((response)=>{//应用
@@ -388,10 +323,7 @@ export default{
             }).catch((error)=>{});
         },
         getPrice:function(appId){
-<<<<<<< HEAD
-=======
             //alert(111);
->>>>>>> develop
             let obj = {"ids":[]};
             this.pricelistOne = [];
             this.pricelist = [];
@@ -403,13 +335,8 @@ export default{
                     for(let i=1;i<response.data.data.length;i++){
                         this.pricelist.push({boolean:false,data:response.data.data[i]});
                     }
-<<<<<<< HEAD
-                    pname.push(this.pricelist[0].data.pname);
-                    series.push(this.pricelist[0].data.cloudPrice);
-=======
                     pname.push(this.pricelistOne[0].data.pname);
                     series.push(this.pricelistOne[0].data.cloudPrice);
->>>>>>> develop
                     // for(let i=0;i<response.data.data.length;i++){
                     //     pname.push(response.data.data[i].pname);
                     //     series.push(response.data.data[i].cloudPrice);
@@ -422,11 +349,6 @@ export default{
             })
         },
         canvasROI:function(dom,x,series,centerline){
-<<<<<<< HEAD
-            // let arr = series;
-            // arr.push(centerline);
-            // let max = Math.max.apply(null,arr);
-=======
             let sortarr = series;
             let max = sortarr[0];
             if(series.length>0){                
@@ -445,7 +367,6 @@ export default{
             }
             // console.log('series',series);
             // console.log('list',list);
->>>>>>> develop
             this.charts = echarts.init(document.getElementById(dom));
             this.charts.setOption({
                 tooltip : {
@@ -471,12 +392,6 @@ export default{
                     data: x,
                     name:'实例',
                     axisLabel:{
-<<<<<<< HEAD
-                        color:'#333',
-                        interval:0,  
-                        rotate:20                    
-                    },
-=======
                         interval:0,  
                         rotate:20                    
                     },
@@ -488,14 +403,10 @@ export default{
                     nameTextStyle:{
                         color:'#333'
                     }
->>>>>>> develop
                 },
                 yAxis: {
                     name:'价格',
                     type: 'value',
-<<<<<<< HEAD
-                    //max:max,
-=======
                     //data:series,
                     max:max,
                     axisLine: {
@@ -506,17 +417,12 @@ export default{
                     nameTextStyle:{
                         color:'#333'
                     }
->>>>>>> develop
                 },
                 color:['#da121a'],
                 series: [
                     {
                     name:'价格',
-<<<<<<< HEAD
-                    data: series,
-=======
                     data: list,
->>>>>>> develop
                     barWidth : 25,//柱图宽度
                     type: 'bar',
                     markLine: {
@@ -525,21 +431,14 @@ export default{
                                 color: "#f7a72c",
                                 type: 'solid',
                                 width: 2,
-<<<<<<< HEAD
-=======
                             },
                             emphasis: {
                                 color: "#f7a72c"
->>>>>>> develop
                             }
                         },
                         data: [ {
                             yAxis: centerline,
-<<<<<<< HEAD
-                            name: '预算'
-=======
                             name: '预算',
->>>>>>> develop
                         }]
                     }
                 }]

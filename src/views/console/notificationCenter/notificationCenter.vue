@@ -2,11 +2,7 @@
     <div class="total notification-box">
         <div>
             <div class="row notification-header">
-<<<<<<< HEAD
-                    <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;">通知中心<span style="color::#333333;font-size:14px;">（共<span>{{totalPages}}</span>封，其中<span>{{acp}}</span>封未读<span class="unread" v-on:click="weidulooks" v-show="weidushow">&nbsp仅查看未读消息</span>）</span></div>
-=======
                     <div class="col-md-6 text-left col-xs-12" style=" line-height:47px;"><span class="msdg">通知中心</span><span style="color::#333333;font-size:14px;">（共<span>{{totalPages}}</span>封，其中<span>{{acp}}</span>封未读<span class="unread" v-on:click="weidulooks" v-show="weidushow">&nbsp仅查看未读消息</span>）</span></div>
->>>>>>> develop
                     <div class="col-md-6 PlansearchBoxs text-right col-xs-12" style="padding-right:47px;">
                         <div style="padding-top:10px">
                             <input type="text" id="myInputs" v-on:keyup="myFun()" placeholder="搜索"><button class="PlansearchBtns" v-on:click="myFun()"><i class="fa fa-search"></i></button>
@@ -14,20 +10,13 @@
                     </div>
             </div>
             <div class="row notification-xuze">
-<<<<<<< HEAD
-                <div class="col-md-4 text-left spanleft" style="padding-left:47px;margin-top:20px;margin-bottom:20px"><span class="shanrem" v-on:click="removes()">删除</span><span class="shandu" v-on:click="yiduCreat">标记为已读</span><span class="shanyidu" v-on:click="yiduAll">已读所有消息</span></div>
-=======
                 <div class="col-md-4 text-left spanleft sls"><span class="shanrem" v-on:click="removes()">删除</span><span class="shandu" v-on:click="yiduCreat">标记为已读</span><span class="shanyidu" v-on:click="yiduAll">已读所有消息</span></div>
->>>>>>> develop
                 <div class="col-md-8 text-left hangyeselect" style="margin-top:20px;margin-bottom:20px" >
                      <span class="sp1" v-on:click="zongs">全部</span><p v-for="(le,index) in lei" class="psed"><span  class="sps2" v-on:click="typedata(index,le.id)" :id="le.id" >{{le.name}}</span></p>
                 </div>
             </div>
            
-<<<<<<< HEAD
-=======
            <div style="width:100%;min-height:82vh;background:#fff;" :class="isopens==false?'paddingtop':''">
->>>>>>> develop
             <div class="notification-main" v-show="isopens">
                 <div class="kongkong"></div>
                 <div class="notification-mainTable">
@@ -64,30 +53,14 @@
             <div class="notification-undata" v-show="isopen">
                 <img src="../../../assets/compare-nodata.png" alt="">
                 <br>
-<<<<<<< HEAD
-                暂无数据
-            </div>
-        </div>
-    
-=======
                 <span class="spla">暂无数据</span>
             </div>
         </div>
     </div>
->>>>>>> develop
     
     </div>
 </template>
 <style>
-<<<<<<< HEAD
-    .notification-header{
-        background:#ffffff;
-        height:47px;
-        width:100%;
-       
-        padding-left:40px;
-    }
-=======
     @media(min-width:768px){  /* pc */
         .sls{
             padding-left:47px;margin-top:20px;margin-bottom:20px
@@ -124,7 +97,6 @@
     }
 
   
->>>>>>> develop
     .unread{
         color:#f7a72c;
     }
@@ -194,13 +166,6 @@
    }
   
    .notification-undata{
-<<<<<<< HEAD
-        background:#ffffff; width:100%; height:100vh; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center;
-   }
-   .notification-undata img{
-       margin-top:20%;
-   }
-=======
         /*background:#ffffff; width:100%; height:100%; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center; padding-bottom:16%;*/
         background:#ffffff;
         width:100%;
@@ -218,7 +183,6 @@
         margin-bottom:20px;
    }
   
->>>>>>> develop
    .notificationTable{
       margin-top:30px !important;
    }
@@ -232,11 +196,7 @@
        height:30px;
    }
    .notification-mainTabletr tr{
-<<<<<<< HEAD
-       height:70px;
-=======
        height:50px;
->>>>>>> develop
    }
    .kongbottom{
        height:1px;
@@ -269,13 +229,7 @@
 #myInputs:focus{
     border:1px solid #409EFF;
 }
-<<<<<<< HEAD
-#myInputs{
-    border:1px solid #cccccc; width:192px; height:30px; padding:0 10px;
-}
-=======
 
->>>>>>> develop
 .PlansearchBtns{
    background:#da121a; width:42px; height:30px; color:#fff;
 }
@@ -375,10 +329,7 @@
 
                 }
             },
-<<<<<<< HEAD
-=======
           
->>>>>>> develop
             // updated:function(){
             //     this.handleCurrentChange(1)
             // },
@@ -394,11 +345,7 @@
                             "pageReq": {
                                         "order": null,
                                         "page": val-1,
-<<<<<<< HEAD
-                                        "size": this.sizePage,
-=======
                                         "size": 6,
->>>>>>> develop
                                         "sort": null
                                     }
                         }
@@ -429,20 +376,12 @@
                                 "pageReq": {
                                     "order": null,
                                     "page": 0,
-<<<<<<< HEAD
-                                    "size": this.sizePage,
-=======
                                     "size": 6,
->>>>>>> develop
                                     "sort": null
                                 },
                                 "type": id
                                 }
-<<<<<<< HEAD
-                        
-=======
                   
->>>>>>> develop
                      this.$this.post('/broker/content/user/get/content',obj).then((pons)=>{  //获取分类的消息
                                 this.dats = pons.data.data.content;
                                
@@ -471,22 +410,6 @@
                             "pageReq": {
                                         "order": null,
                                         "page": 0,
-<<<<<<< HEAD
-                                        "size": this.sizePage,
-                                        "sort": null
-                                    }
-                            }
-                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                 this.dats = response.data.data.content;      
-                                  this.totalPages = response.data.data.totalElements;
-                                   this.weidulook();
-                                if(this.totalPages ==0){
-                                    this.isopens= false;
-                                    this.isopen = true;
-                                }else{  
-                                    this.isopens=true;
-                                    this.isopen = false;
-=======
                                         "size": 6,
                                         "sort": null
                                     }
@@ -506,35 +429,11 @@
                                         this.isopens=true;
                                         this.isopen = false;
                                     }
->>>>>>> develop
                                 }
                                 //this.titleWeidu(this.totalPages);
                         }).catch((error)=>{
                     });
                },
-<<<<<<< HEAD
-               titleWeidu:function(e){
-                    var a = {
-                            "pageReq": {
-                                        "order": null,
-                                        "page": 0,
-                                        "size": e,
-                                        "sort": null
-                                    }
-                            }
-                    this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                this.dats = response.data.data.content;      
-                                for(let k = 0;k<e;k++){
-                                    if(this.dats[k].status==null){
-                                       this.acp.push(this.dats[k])
-                                    }
-                                }
-                                console.log(this.acp)
-                                
-                        }).catch((error)=>{
-                    });
-               },
-=======
             //    titleWeidu:function(e){
             //         var a = {
             //                 "pageReq": {
@@ -556,7 +455,6 @@
             //             }).catch((error)=>{
             //         });
             //    },
->>>>>>> develop
                changeSta:function(item){
                     if(this.checkboxAll){
                          $("#tryes input[type='checkbox']").prop("checked",true)

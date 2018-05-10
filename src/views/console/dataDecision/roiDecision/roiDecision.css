@@ -13,11 +13,8 @@
 }
 .roi-header{
     width:100%;
-<<<<<<< HEAD
     height:40px;
-=======
     min-height:40px;
->>>>>>> develop
     background:#F6F6F6;
     line-height:40px;
     font-size:14px;
