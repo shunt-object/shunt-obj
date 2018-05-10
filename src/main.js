@@ -38,25 +38,25 @@ Vue.use(url);
 Vue.use(mobile);
 let load;
 let loading;
-Vue.http.interceptors.push((request, next) => {
-    if (request.headers.loading) {
-        loading = Vue.prototype.$loading({
-            lock: true,
-            spinner: 'el-icon-loading',
-            background: 'rgba(0, 0, 0, 0.7)',
-            customClass: 'loading'
-        });
-        setTimeout(function () {
-            loading.close();
-        }, 3000)
-    }
-    　　next((response) => {
-        if (response.status == 200) {
-            loading.close();
-        }
-        　　　return response;
-    });
-});
+// Vue.http.interceptors.push((request, next) => {
+//     //if (request.headers.loading) {
+//         loading = Vue.prototype.$loading({
+//             lock: true,
+//             spinner: 'el-icon-loading',
+//             background: 'rgba(0, 0, 0, 0.7)',
+//             customClass: 'loading'
+//         });
+//         setTimeout(function () {
+//             loading.close();
+//         }, 3000)
+//     //}
+//     　　next((response) => {
+//         if (response.status == 200) {
+//             loading.close();
+//         }
+//         　　　return response;
+//     });
+// });
 
 
 axios.interceptors.request.use(

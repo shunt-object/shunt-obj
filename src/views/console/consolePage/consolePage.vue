@@ -278,11 +278,34 @@ export default{
     },
     created:function(){
         var that = this;
-        setInterval( function(){that.getHttpMsgCenter()},300000);
+        setInterval( function(){that.getHttpUseResour()},300000);
 
     },
 
     methods:{
+        getHttpUseResour:function(){  //使用resourse请求消息中心   每过五分钟刷新一次
+            var a = {
+            "pageReq": {
+                        "order": null,
+                        "page": 0,
+                        "size": 3,
+                        "sort": null
+                    }
+            }
+            this.$http.post('/broker/content/user/get/content',a).then((response)=>{ 
+                    this.dates = response.data.data.content;
+                    this.totalPages = response.data.data.totalElements;
+                    if(this.totalPages ==0){
+                        this.noMsg= true;
+                        this.haveMsg =false;
+                    }else{
+                        this.haveMsg=true;
+                        this.noMsg = false;
+                    }
+            },(err)=>{
+                    console.log("不好意思")
+            })
+        },
         getHttpMsgCenter:function(){
            var a = {
             "pageReq": {
@@ -292,7 +315,7 @@ export default{
                         "sort": null
                     }
             }
-            this.$this.defaults.headers['loading'] = false;
+         
             this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容
                             this.dates = response.data.data.content;
                             this.totalPages = response.data.data.totalElements;
