@@ -50,7 +50,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -59,7 +59,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for="(dat,index) in dats">
-                            <td class="ds" style="line-height:110px">
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dat.boolean" v-on:click="clickCheck(index)">
                             </td>
                             <td class="ds" style="line-height:110px">应用服务</td>
@@ -82,7 +82,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb">
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dbserall" v-on:click="dbWhole()">价格优选
                             </th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
@@ -93,7 +93,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for="(dati,index) in datis">
-                            <td class="ds" style="line-height:110px">
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dati.boolean" v-on:click="checkDB(index)">
                             </td>
                             <td class="ds" style="line-height:110px">数据库服务</td>
@@ -146,7 +146,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -155,7 +155,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for=" sto in data.storage">
-                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox"></td>
                             <td class="ds" style="line-height:110px">存储服务</td>
                             <td class="ds" style="line-height:110px">{{sto.num}}</td>
                             <td>
@@ -180,7 +180,7 @@
                 <table class="table table-bordered">
                     <thead class="row">
                         <tr>
-                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb"><input type="checkbox">价格优选</th>
+                            <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox">价格优选</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <!--<th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>-->
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -189,7 +189,7 @@
                     </thead>
                     <tbody>
                         <tr style="height:110px" v-for=" stos in data.cdns">
-                            <td class="ds" style="line-height:110px"><input type="checkbox"></td>
+                            <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox"></td>
                             <td class="ds" style="line-height:110px">CDN</td>
                             <!--<td class="ds" style="line-height:110px">2</td>-->
                             <td>
