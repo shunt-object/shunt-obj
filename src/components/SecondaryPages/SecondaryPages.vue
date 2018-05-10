@@ -156,9 +156,8 @@ export default {
                                 $(this).children().css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
-                        })
-                       
-        if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
+                        }) 
+        if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
           this.islogin = false;
         } else {
           this.islogin = true;

@@ -290,7 +290,7 @@ export default{
         },
         submit:function(){
             let proid,analysisName;
-            if(this.changeyun==''){
+            if(this.radio1==true){
                 //this.proId = 0;
                 proid = 0;
                 analysisName = this.proName;
