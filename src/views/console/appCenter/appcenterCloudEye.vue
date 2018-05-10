@@ -9,15 +9,21 @@
     <div class="">
         <div class="col-md-12 col-xs-12 padding10">
             <div class="decision-titles"><div class="col-md-2">  上云趋势统计分析</div>
-                <select class="year-select col-xs-7 col-md-2" v-model="year" v-on:change="lineModel()" >
-                    <option v-for="item in yearList" :value="item">{{item}}</option>
-                </select>
-                <select class="up-select col-xs-7 col-md-2" v-model="lineArea" v-on:change="lineModel()" >
-                    <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
-                </select>
-                <select class="up-select col-xs-7 col-md-2" v-model="lineInsdusty" v-on:change="lineModel()">
-                    <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
-                </select>
+                <div class="col-xs-7 col-md-2" style="margin:0 auto">
+                    <select class="year-select " v-model="year" v-on:change="lineModel()" >
+                        <option v-for="item in yearList" :value="item">{{item}}</option>
+                    </select>
+                </div>
+                <div class="col-xs-7 col-md-2" style="margin:0 auto">
+                    <select class="up-select" v-model="lineArea" v-on:change="lineModel()" >
+                        <option v-for="item in areaList" :value="item.id">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="col-xs-7 col-md-2" style="margin:0 auto">
+                    <select class="up-select" v-model="lineInsdusty" v-on:change="lineModel()">
+                        <option v-for="item in industryList" :value="item.id">{{item.name}}</option>
+                    </select>
+                </div>
             </div>
            
                 <div class="line" id="line" style="width:100%;margin:0 auto;"></div>
@@ -69,7 +75,7 @@
     .line{
         height:400px;
     }
-  .up-select{
+    {
     /*position:absolute;
     right:100px;
     top:8px;*/
@@ -124,6 +130,9 @@
 @media (max-width: 768px) {
     .datadecision-lists{
         height:300px !important;
+    }
+    .up-select{
+        width:80px !important
     }
     .line{
         width:260px !important;
