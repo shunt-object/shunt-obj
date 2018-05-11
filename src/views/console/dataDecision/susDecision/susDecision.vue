@@ -157,14 +157,15 @@ export default{
             let str = JSON.stringify(obj);
             // 饼图 1==区域 2==行业
             this.$this.post('/broker/user/analysis/adviceServer',str).then((response)=>{
+                //console.log(response);
                 this.pielegend = [];
                 this.piedata = [];
                 this.pieList = response.data.data;
                 for(let i=0;i<response.data.data.length;i++){
+                    console.log(i);
                     this.pielegend.push(response.data.data[i].serverName);
                     this.piedata.push({value:response.data.data[i].num, name:response.data.data[i].serverName});
                 } 
-                console.log('----',aaaa,this.pielegend);
                 this.$nextTick(function() {
                     this.canversPie('pie')
                 })
