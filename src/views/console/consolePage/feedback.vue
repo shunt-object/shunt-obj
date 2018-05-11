@@ -2,7 +2,7 @@
 <div>
     <el-dialog title="意见反馈" :visible.sync="feedback.boolean" style="text-align:left;" @close='closeDialog'>
         <div class="comment-box">
-            <div class="comment-word">您的反馈，是我们前进的动力！</div>
+            <div class="comment-word">我们不是完美的，渴望您的反馈，让我们一起成长。</div>
             <div class="comment-list">
                 <div class="row">
                     <div class="col-md-2 comment-key">我的评分</div>
