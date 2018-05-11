@@ -31,7 +31,7 @@
                                         <div class="seclone-dv">
                                             <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
                                         </div>
-                                        <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
+                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
                                     </div>
                             </div>
                          </div>
@@ -45,16 +45,18 @@
                      </div>
              </div>
              <div class="kong"></div>
-             <div id="ProductFeatures" class="go1">
+             <div id="ProductFeatures" class="go1" >
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">上云工具</span>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-md-4 kuao">
-                                <div class="kuao-jia">云价格</div>
-                                <div class="kuao-main">支持AWS、Azure、阿里、腾讯和华为等云厂商IaaS层资源快速查询列表价格，获取相关价格参考，助您便捷和实时掌握当前云资源市场价格。</div>
-                                <div><div class="kuao-borde"><img src="../../../assets/homepage/osa.png" alt=""></div></div>
+                    <div class="row text-center" style="padding-left:50px;">
+                        <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;" v-for="lis in list">
+                                <div class="kuao-jia">{{lis.app_name}}</div>
+                                <div class="kuao-main">{{lis.description}}</div>
+                                <div><div class="kuao-borde"><img :src="lis.picture_url" alt=""></div></div>
+                                <div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>
+                                <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
                         </div>
                     </div>
                  </div>
@@ -63,6 +65,30 @@
     </div>
 </template>
 <style>
+.fens{
+    font-size:12px;
+    color:#f15532;
+    margin-left:5px;
+}
+.hhs:hover{
+    color:#da121a !important;
+}
+.jia-yue{
+    width:100%;
+    margin-top:20px;
+    
+}
+.jiaq{
+    text-align:center;
+    font-size:12px;
+    color:#da121a;
+}
+.huang{
+   color: rgb(247, 167, 44)
+}
+.yuan{
+    color:#dfdfdf;
+}
 .spanshover:hover{
     color:#da121a;
     cursor:pointer;
@@ -571,15 +597,17 @@
                Sis:true,
                Asd:false,
                phoneBox:false,
-               activeName:"first"
+               activeName:"first",
+               list:[]
             }
         },
         methods:{
             lister:function(){
-                // this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容
-                           
-                //     }).catch((error)=>{
-                // });
+                this.$this.get('/broker/market/user/all/list').then((res)=>{  //获取所有的信息内容
+                            console.log(res);
+                            this.list = res.data;
+                    }).catch((error)=>{
+                });
             },
             xiaowei:function(){
                 //  var that = this; 
@@ -598,6 +626,7 @@
              },
         },
         mounted:function(){
+            this.lister();
               $(document).ready(function(){ 
                      $(window).scroll(function(){
                         if($(this).scrollTop() > 550){

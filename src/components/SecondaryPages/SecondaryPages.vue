@@ -269,7 +269,7 @@ export default {
          this.$router.push({path: "/appcenterPrice"}) 
       },
       yunshili:function(){
-          this.$router.push({path:"/registerOne"})
+          this.$router.push({path:"/appcenterSearch"})
       },
       yunproxy:function(){
           this.$router.push({path:"/appcenterProxy"})
