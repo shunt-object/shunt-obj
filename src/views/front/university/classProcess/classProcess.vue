@@ -87,8 +87,70 @@
                 <div class="classProcess-erweima-desc">扫描二维码关注</div>
             </div>
         </div>
+        <div class="classProcess-yue">
+            <div class="classProcess-yue-line" style="top:20% !important;height:80%;"></div>
+            <div class="classProcess-yue-title">
+                <span class="classProcess-yue-yuan">2</span>
+                <div class="classProcess-yue-tit" style="line-height:31px;">
+                    为您安排预约
+                    <div class="classProcess-yue-tits">您的专职客服会及时与您联系，将为您提供量身定制的撮合服务</div>
+                </div>
+            </div>
+            <div class="classProcess-yue-list">
+                <div class="classProcess-yue-listname">预约顾问流程：</div>
+                <div class="classProcess-yue-lc">
+                    <img src="../../../../assets/university/classProcess-lc1.png" alt="">
+                    <span class="classProcess-yue-lc1">预约选择顾问</span>
+                    <span class="classProcess-yue-lc2">预约选择课程</span>
+                    <span class="classProcess-yue-lc3">确认上课时间</span>
+                    <span class="classProcess-yue-lc4">确认观看课程方式</span>
+                </div>
+            </div> 
+            <div class="classProcess-yue-list">
+                <div class="classProcess-yue-listname">预约课程流程：</div>
+                <div class="classProcess-yue-lc">
+                    <img src="../../../../assets/university/classProcess-lc2.png" alt="">
+                    <span class="classProcess-yue-lc1">预约选择课程</span>
+                    <span class="classProcess-yue-lc2">确认上课时间</span>
+                    <span class="classProcess-yue-lc3">确认讲课顾问</span>
+                    <span class="classProcess-yue-lc4">确认观看课程方式</span>
+                </div>
+            </div>    
+        </div>
+        <div class="classProcess-yue">
+            <div class="classProcess-yue-title">
+                <span class="classProcess-yue-yuan">3</span>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="classProcess-yue-tit" style="line-height:31px;">
+                            进入在线直播空间开始上课
+                            <div class="classProcess-yue-tits">为您带来最新的、最专业的和最实用的课程培训</div>
+                        </div>
+                        <ul class="classProcess-sp-ul">
+                            <li>1.	专业技术支持您顺利进入在线直播空间；</li>
+                            <li>2.	您可以开启培训课程；</li>
+                            <li>3.	问卷调查收集您的反馈，帮助我们改进服务质量。</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4" style="padding-left:68px;">
+                        <img src="../../../../assets/university/shipin.png" alt="" style="max-width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--  -->
+    <div style="background:#ededed;;width:100%;height:auto;">
+        <div class="seleconeMain-footer row">
+            <div class="container text-left" style="width:60%;padding-left:cd30px;">
+                    <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                    <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                    <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                    <div class="col-md-3 col-xs-12 juright" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+            </div>
+        </div>
+    </div>
+    <finish></finish>
 </div>
 </template>
 <script>
@@ -104,22 +166,22 @@ export default {
         }
     },
     mounted:function(){
-        // let readytop = $(window).scrollTop();
-        // let _top = $(".smallnav").offset().top;
-        // let that = this;
-        // if(readytop>=_top){
-        //     this.isfixed = true;
-        // }else{
-        //     this.isfixed = false;
-        // }
-        // $(window).scroll(function(){
-        //     if($(this).scrollTop()>=_top){
-        //         that.isfixed = true;
-        //     }else{
-        //         that.isfixed = false;
-        //     }
-        //     //console.log('----',$(this).scrollTop());
-        //  })
+        let readytop = $(window).scrollTop();
+        let _top = $(".smallnav").offset().top;
+        let that = this;
+        if(readytop>=_top){
+            this.isfixed = true;
+        }else{
+            this.isfixed = false;
+        }
+        $(window).scroll(function(){
+            if($(this).scrollTop()>=_top){
+                that.isfixed = true;
+            }else{
+                that.isfixed = false;
+            }
+            //console.log('----',$(this).scrollTop());
+         })
     },
     methods:{
         jump:function(dom){

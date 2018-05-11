@@ -81,60 +81,17 @@
             <span class="bigcafe-team-title-desc">大咖介绍</span>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" v-for="item in cafelist">
                 <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="" v-on:click="teamdetail()">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
+                    <img :src="item.userProfessor.headImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
+                    <div class="bigcafe-desc-name">{{item.realname}}</div>
+                    <div class="bigcafe-desc-jobs">{{item.userProfessor.title}}</div>
+                    <div class="bigcafe-desc-honour">{{item.userProfessor.desc}}</div>
                     <button class="bigcafe-desc-btn">我要预约</button>   
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
-                    <button class="bigcafe-desc-btn">我要预约</button>   
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
-                    <button class="bigcafe-desc-btn">我要预约</button>   
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
-                    <button class="bigcafe-desc-btn">我要预约</button>   
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
-                    <button class="bigcafe-desc-btn">我要预约</button>   
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bigcafe-desc-list">
-                    <img src="../../../../assets/university/teampeople-desc2.png" alt="">
-                    <div class="bigcafe-desc-name">戴剑</div>
-                    <div class="bigcafe-desc-jobs">微吼直播优秀讲师</div>
-                    <div class="bigcafe-desc-honour">创立《达摩云轩》社群，研究交流黑科技，关注ABC（AI,BlockChain,Cloud），组织沙龙，私董会，讲座，分享汇。</div>
-                    <button class="bigcafe-desc-btn">我要预约</button>   
-                </div>
-            </div>
+            
+            
         </div>
     </div>
     <div style="background:#ededed;;width:100%;height:auto;">
@@ -159,7 +116,8 @@ export default {
     data(){
         return {
             phoneBox:false,
-            isfixed:false
+            isfixed:false,
+            cafelist:[]
         }
     },
     mounted:function(){
@@ -179,13 +137,23 @@ export default {
             }
             //console.log('----',$(this).scrollTop());
          })
+         this.getlist();
     },
     methods:{
+        getlist:function(){
+            this.$this.get('/broker/prof/getList').then((response)=>{
+                //console.log('---',response.data);
+                this.cafelist = response.data.data;
+            }).catch((error)=>{
+
+            })
+        },
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
         },
-        teamdetail:function(){
-            this.$router.push({path:'/teamDetail'});
+        teamdetail:function(cafeid){
+            //console.log(cafeid);
+            this.$router.push({path:'/teamDetail',query:{bigcafeId:cafeid}});
         },
         phoneEnter:function(){
             this.phoneBox = true;

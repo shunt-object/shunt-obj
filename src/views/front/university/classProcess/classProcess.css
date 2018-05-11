@@ -128,7 +128,18 @@
 /* 预约流程 */
 .classProcess-yue{
     position:relative;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
 }
+.classProcess-yue-line{
+    position: absolute;
+    width: 2px;
+    height: 65%;
+    left: 29px;
+    top: 28%;
+    background: #dadada;
+}
+/* 1 */
 .classProcess-yue-title{
     text-align:left;
 }
@@ -148,9 +159,83 @@
     line-height:58px;
     font-size:18px;
     color:#333333;
+    padding-left:68px;
 }
 .classProcess-erweima{
     padding-left:68px;
+    text-align:left;
+}
+.classProcess-erweima img{
+    margin-top:60px;
+}
+.classProcess-erweima-desc{
+    width:160px;
+    text-align:center;
+    font-size:14px;
+    color:#999999;
+}
+/* 2 */
+.classProcess-yue-tit .classProcess-yue-tits{
+    font-size:14px;
+    color:#666666;
+}
+.classProcess-yue-list{
+    padding-left:78px;
+    margin-top:20px;
+    width:100%;
+}
+.classProcess-yue-listname{
+    font-size:14px;
+    color:#da121a;
+    text-align:left;
+}
+.classProcess-yue-lc{
+    width:80%;
+}
+@media (max-width: 990px) {
+    .classProcess-yue-lc{
+        width:100%;
+    }
+}
+.classProcess-yue-lc img{
+    width:100%;
+}
+.classProcess-yue-lc{
+    text-align:left;
+    padding-top:20px;
+    position:relative;
+    padding-bottom:30px;
+}
+.classProcess-yue-lc  span{
+    position:absolute;
+    font-size:12px;
+    color:#333333;
+    width:14.2%;
+    overflow:hidden;
+    bottom:-10px;
+    min-height:26px;
+} 
+.classProcess-yue-lc1{
+    left: 2%;
+}
+.classProcess-yue-lc2{
+    left: 30.4%;
+}
+.classProcess-yue-lc3{
+    left: 58.8%;
+}
+.classProcess-yue-lc4{
+    left: 87.2%;
+} 
+/* 3 */
+.classProcess-sp-ul{
+    margin-top:20px;
+    padding-left: 68px;
+}
+.classProcess-sp-ul li{
+    font-size:14px;
+    color:#333333;
+    line-height:28px;
     text-align:left;
 }
 

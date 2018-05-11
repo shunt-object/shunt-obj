@@ -29,20 +29,8 @@
     <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
             <div class="col-md-1 col-xs-1"></div>
-            <div class="col-md-2 col-xs-2">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#teamDetail-introduce')"><i class="iconfont icon-shenpiliucheng"></i> 大咖介绍</a>
-            </div>
-            <div class="col-md-2 col-xs-2">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#teamDetail-honour')"><i class="iconfont icon-shenpiliucheng"></i> 资质和荣誉</a>
-            </div>
-            <div class="col-md-2 col-xs-2">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#teamDetail-jobs')"><i class="iconfont icon-shenpiliucheng"></i> 工作经历</a>
-            </div>
-            <div class="col-md-2 col-xs-2">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#teamDetail-tc')"><i class="iconfont icon-shenpiliucheng"></i> 专业特长</a>
-            </div>
-            <div class="col-md-2 col-xs-2">
-                 <a href="javascript:;" class="hoover-a" v-on:click="jump('#teamDetail-yuan')"><i class="iconfont icon-shenpiliucheng"></i> 原创专区</a>
+            <div class="col-md-2 col-xs-2" v-for="item in titlelist">
+                <a href="javascript:;" class="hoover-a" v-on:click="jump(item)"><i class="iconfont icon-shenpiliucheng"></i>{{item}}</a>
             </div>
             <div class="col-md-1 col-xs-1"></div>
         </div>
@@ -67,81 +55,56 @@
         </div>
     </div> 
     <!-- 资质和荣誉 -->
-    <div class="container teamDetail-introduce" id="teamDetail-honour">
+    <div class="container teamDetail-introduce" id="teamDetail-honour" v-if="isshow.honour==true">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">资质和荣誉</span>
         </div>
         <div class="teamDetail-honour-list row">
-            <div class="col-md-4 teamDetail-honour-item">
-                <img src="../../../../assets/university/teamDetail-honour.png" alt="">
-                <div class="teamDetail-honour-desc">EXIN授权ITIL/ISO 20000/BCM/DevOps讲师</div>
-            </div>
-            <div class="col-md-4 teamDetail-honour-item">
-                <img src="../../../../assets/university/teamDetail-honour.png" alt="">
-                <div class="teamDetail-honour-desc">EXIN DevOps Master/ITIL Expert/BCM Foundation等证书拥有者</div>
-            </div>
-            <div class="col-md-4 teamDetail-honour-item">
-                <img src="../../../../assets/university/teamDetail-honour.png" alt="">
-                <div class="teamDetail-honour-desc">EXIN DevOps Master/ITIL Expert/BCM Foundation等证书拥有者</div>
+            <div class="col-md-4 teamDetail-honour-item" v-for="item in honour.props">
+                <img :src="item.imgUrl" alt="">
+                <div class="teamDetail-honour-desc">{{item.desc}}</div>
             </div>
         </div>
     </div>  
     <!-- 工作经历 --> 
-    <div class="container teamDetail-introduce" id="teamDetail-jobs">
+    <div class="container teamDetail-introduce" id="teamDetail-jobs" v-if="isshow.jobs==true">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">工作经历</span>
         </div>
         <div class="row">
-            <div class="col-md-12 teamDetail-jobs-list">20年IT行业从业经验（涉及系统集成、软件开发等领域）</div>
-            <div class="col-md-12 teamDetail-jobs-list">20年IT行业从业经验（涉及系统集成、软件开发等领域）</div>
-            <div class="col-md-12 teamDetail-jobs-list">20年IT行业从业经验（涉及系统集成、软件开发等领域）</div>
-            <div class="col-md-12 teamDetail-jobs-list">20年IT行业从业经验（涉及系统集成、软件开发等领域）</div>
-            <div class="col-md-12 teamDetail-jobs-list">20年IT行业从业经验（涉及系统集成、软件开发等领域）</div>
+            <div class="col-md-12 teamDetail-jobs-list" v-for="item in jobs.props">{{item.desc}}</div>
         </div>
     </div>
     <!-- 专业特长 --> 
-    <div class="container teamDetail-introduce" id="teamDetail-tc">
+    <div class="container teamDetail-introduce" id="teamDetail-tc" v-if="isshow.tc==true">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">专业特长</span>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" v-for="item in tc.props">
                 <div class="teamDetail-tc-img">
-                    <img src="../../../../assets/university/teampeople1.png" alt="">
+                    <img :src="item.imgUrl" alt="" style="width:100%;height:100%;margin:0;">
                 </div>
-                <div class="teamDetail-tc-title">掌握ITSM咨询和落地的方法，熟悉ISO 20000认证程序</div>
-                <div class="teamDetail-tc-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域）。12年高校工作经验（涉及教学及教务管理）曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div>
-            </div>
-            <div class="col-md-6">
-                <div class="teamDetail-tc-img">
-                    <img src="../../../../assets/university/teampeople1.png" alt="">
-                </div>
-                <div class="teamDetail-tc-title">掌握ITSM咨询和落地的方法，熟悉ISO 20000认证程序</div>
-                <div class="teamDetail-tc-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域）。12年高校工作经验（涉及教学及教务管理）曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div>
+                <div class="teamDetail-tc-title">{{item.desc}}</div>
+                <!-- <div class="teamDetail-tc-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域）。12年高校工作经验（涉及教学及教务管理）曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div> -->
             </div>
         </div>
     </div>
     <!-- 原创专区 -->  
-    <div class="container teamDetail-introduce" id="teamDetail-yuan">
+    <div class="container teamDetail-introduce" id="teamDetail-yuan" v-if="isshow.yuan==true">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">原创专区</span>
         </div>
         <div class="teamDetail-honour-list row">
-            <div class="col-md-4 teamDetail-honour-item teamDetail-yuan">
+            <div class="col-md-4 teamDetail-honour-item teamDetail-yuan" v-for="item in yuan.props">
                 <div class="teamDetail-yuan-img">
-                    <img src="../../../../assets/university/teamDetail-book1.png" alt="">
+                    <img :src="item.imgUrl" alt="">
                 </div>
-                <div class="teamDetail-honour-desc">云计算-核心技术剖析</div>
-            </div>
-            <div class="col-md-4 teamDetail-honour-item teamDetail-yuan">
-                <div class="teamDetail-yuan-img">
-                    <img src="../../../../assets/university/teamDetail-book1.png" alt="">
-                </div>
-                <div class="teamDetail-honour-desc">云计算-核心技术剖析</div>
+                <div class="teamDetail-honour-desc">{{item.desc}}</div>
             </div>
         </div>
     </div>  
@@ -168,7 +131,20 @@ export default {
     data(){
         return {
             phoneBox:false,
-            isfixed:false
+            isfixed:false,
+            bigcafe:[],
+            honour:[],
+            jobs:[],
+            tc:[],
+            yuan:[],
+            titlelist:['大咖介绍'],
+            isshow:{
+                bigcafe:false,
+                honour:false,
+                jobs:false,
+                tc:false,
+                yuan:false
+            }
         }
     },
     mounted:function(){
@@ -188,10 +164,52 @@ export default {
             }
             //console.log('----',$(this).scrollTop());
          })
+         this.getteam();
     },
     methods:{
+        getteam:function(){
+            this.$this.get('/broker/prof/propList/'+this.$route.query.bigcafeId).then((response)=>{
+                //console.log('---',response.data);
+                for(let i=0;i<response.data.data.length;i++){
+                    if(response.data.data[i].name!='大咖介绍'){
+                        if(response.data.data[i].props.length>0){
+                            this.titlelist.push(response.data.data[i].name);
+                        }
+                    }
+                    if(response.data.data[i].name=='大咖介绍'){
+                        this.bigcafe = response.data.data[i];
+                    }else if(response.data.data[i].name=='资质和荣誉' && response.data.data[i].props.length>0){
+                        this.honour = response.data.data[i];
+                        this.isshow.honour = true;
+                    }else if(response.data.data[i].name=='工作经历' && response.data.data[i].props.length>0){
+                        this.jobs = response.data.data[i];
+                        this.isshow.jobs = true;
+                    }else if(response.data.data[i].name=='专业特长' && response.data.data[i].props.length>0){
+                        this.tc = response.data.data[i];
+                        this.isshow.tc = true;
+                    }else if(response.data.data[i].name=='原创专区' && response.data.data[i].props.length>0){
+                        this.yuan = response.data.data[i];
+                        this.isshow.yuan = true;
+                    }
+                }
+            }).catch((error)=>{
+
+            })
+        },
         jump:function(dom){
-            $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
+            let box;
+            if(dom=='大咖介绍'){
+                box = '#teamDetail-introduce';
+            }else if(dom=='资质和荣誉'){
+                box = '#teamDetail-introduce';
+            }else if(dom=='工作经历'){
+                box = '#teamDetail-jobs';
+            }else if(dom=='专业特长'){
+                box = '#teamDetail-tc';
+            }else if(dom=='原创专区'){
+                box = '#teamDetail-yuan';
+            }
+            $('html,body').animate({scrollTop:$(box).offset().top}, 800);
         },
         phoneEnter:function(){
             this.phoneBox = true;
