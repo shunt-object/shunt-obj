@@ -30,7 +30,8 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
+        <div class="appcheck-canvastitle"  v-if="pricelist.length>0"><span></span>云实例匹配结果列表</div>
+         <div id="designHalf-app" style="width:100%;height:300px;" v-if="pricelist.length>0"></div>
         <div class="appcenterPrice-table" v-if="pricelist.length>0">
             <table>
                 <thead>
@@ -55,7 +56,7 @@
                 </tbody>
             </table>
         </div>
-          <div id="designHalf-app" style="width:100%;height:300px;"></div>
+         
     </div>
 </div>
 </template>
