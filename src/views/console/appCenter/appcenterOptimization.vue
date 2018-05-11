@@ -31,7 +31,7 @@
             </el-form>
         </div>
         <div class="appcheck-canvastitle"  v-if="pricelist.length>0"><span></span>云实例匹配结果列表</div>
-         <div id="designHalf-app" style="width:100%;height:300px;" v-if="pricelist.length>0"></div>
+        <div id="designHalf-app" style="width:100%;height:300px;" v-if="pricelist.length>0"></div>
         <div class="appcenterPrice-table" v-if="pricelist.length>0">
             <table>
                 <thead>
@@ -56,7 +56,11 @@
                 </tbody>
             </table>
         </div>
-         
+        <div class="nodata" v-if="proxyshow==true">
+            <img src="../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无此信息，具体请联系Prof. 吴。
+        </div>
     </div>
 </div>
 </template>
@@ -82,6 +86,7 @@ export default {
                 region:'',
                 months:''
             },
+            proxyshow:false,
             appX:[],
             appXs:[],
             appEcharts:[],
@@ -237,6 +242,7 @@ export default {
             this.$refs[value].validate((valid) => {
                 if (valid) {
                     this.appXs = []; 
+                    this.proxyshow = false;
                     this.appEcharts= [];  
                     this.match.appMatchBo.cores = this.matchBo.cores;
                     this.match.appMatchBo.ram = this.matchBo.ram;
@@ -245,6 +251,9 @@ export default {
                    
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
                     this.pricelist = response.data.data;
+                    if(this.pricelist.length==0){
+                        this.proxyshow = true;
+                    }
                     this.appX = this.pricelist.slice(0,5);
                     for(var a = 0 ;a<this.appX.length;a++){
                         console.log(this.appX[a].cloudPrice)
