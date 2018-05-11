@@ -146,6 +146,7 @@
 /*  */
 .openCourse-class{
     max-width: 1020px !important;
+    padding-bottom:50px;
 }
 .openCourse-class-list{
     padding:15px 0;

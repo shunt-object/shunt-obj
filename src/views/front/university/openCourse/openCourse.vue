@@ -93,87 +93,22 @@
             </div>
             <div class="clear"></div>
         </div>
-        <div class="openCourse-class-list row">
+        <div class="openCourse-class-list row" v-for="item in list">
             <div class="col-md-4 openCourse-class-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
+                <img :src="item.url" alt="">
                 <div class="clear"></div>
             </div>
             <div class="col-md-8">
-                <div class="openCourse-class-name">AI公司商业化的关键</div>
+                <div class="openCourse-class-name">{{item.cname}}</div>
                 <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>戴剑</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level 1,2</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
+                    <span><i class="iconfont icon-mn_gongneng"></i>{{item.realname}}</span>
+                    <span><i class="iconfont icon-mn_gongneng"></i>Level {{item.level}}</span>
+                    <span><i class="iconfont icon-mn_gongneng"></i>{{item.begin_time}}   未开始</span>
                 </div>
-                <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu" v-on:click="yuyue()">我要预约</button>
+                <div class="openCourse-class-desc">{{item.desc}}</div>
+                <button class="openCourse-class-yu" v-on:click="yuyue(item)">我要预约</button>
             </div>
         </div>
-        <div class="openCourse-class-list row">
-            <div class="col-md-4 openCourse-class-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
-                <div class="clear"></div>
-            </div>
-            <div class="col-md-8">
-                <div class="openCourse-class-name">AI公司商业化的关键</div>
-                <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>戴剑</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level 1,2</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
-                </div>
-                <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu">我要预约</button>
-            </div>
-        </div>
-        <div class="openCourse-class-list row">
-            <div class="col-md-4 openCourse-class-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
-                <div class="clear"></div>
-            </div>
-            <div class="col-md-8">
-                <div class="openCourse-class-name">AI公司商业化的关键</div>
-                <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>戴剑</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level 1,2</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
-                </div>
-                <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu">我要预约</button>
-            </div>
-        </div>
-        <div class="openCourse-class-list row">
-            <div class="col-md-4 openCourse-class-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
-                <div class="clear"></div>
-            </div>
-            <div class="col-md-8">
-                <div class="openCourse-class-name">AI公司商业化的关键</div>
-                <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>戴剑</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level 1,2</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
-                </div>
-                <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu">我要预约</button>
-            </div>
-        </div>
-        <div class="openCourse-class-list row">
-            <div class="col-md-4 openCourse-class-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
-                <div class="clear"></div>
-            </div>
-            <div class="col-md-8">
-                <div class="openCourse-class-name">AI公司商业化的关键</div>
-                <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>戴剑</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level 1,2</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>2018-05-08  16:30   未开始</span>
-                </div>
-                <div class="openCourse-class-desc">1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验1V1顾问支持提供一站化体1V1顾问支持提供一站化体验1V1顾问支持提供一站化体验</div>
-                <button class="openCourse-class-yu">我要预约</button>
-            </div>
-        </div>
-
     </div>
     <div style="background:#ededed;;width:100%;height:auto;">
         <div class="seleconeMain-footer row">
@@ -191,17 +126,17 @@
         <div class="opendia-box">
             <div class="opendia-list">
                 <div class="row">
-                    <div class="col-md-3 opendia-key">开课内容：</div>
-                    <div class="col-md-9" style="padding-left:0px !important;color:#da121a;">
-                        AI公司商业化的关键
+                    <div class="col-md-3 opendia-key">课程讲师：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        {{checkcontent.realname}}
                     </div>
                 </div>
             </div>
             <div class="opendia-list">
                 <div class="row">
-                    <div class="col-md-3 opendia-key">课程讲师：</div>
-                    <div class="col-md-9" style="padding-left:0px !important;">
-                        戴剑
+                    <div class="col-md-3 opendia-key">开课内容：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;color:#da121a;">
+                        {{checkcontent.cname}}
                     </div>
                 </div>
             </div>
@@ -209,7 +144,7 @@
                 <div class="row">
                     <div class="col-md-3 opendia-key">开课时间：</div>
                     <div class="col-md-9" style="padding-left:0px !important;">
-                        2018-05-08  16:30
+                        {{checkcontent.begin_time}}
                     </div>
                 </div>
             </div>           
@@ -238,7 +173,17 @@ export default {
         return {
             phoneBox:false,
             isfixed:false,
-            dialogclass:false
+            dialogclass:false,
+            datastr:{
+                leavel: '',//级别
+                pageReq: {
+                    page: '0',//页数
+                    size: '10',//数量
+                },
+                status: ''//状态  2==回放 不传==正常的
+            },
+            list:[],
+            checkcontent:{},
         }
     },
     mounted:function(){
@@ -258,10 +203,26 @@ export default {
             }
             //console.log('----',$(this).scrollTop());
          })
+         this.getlist();
     },
     methods:{
-        yuyue:function(){
-            this.dialogclass = true;
+        getlist:function(){
+            let str = JSON.stringify(this.datastr);
+            this.$this.post('/broker/prof/courseList',str).then((response)=>{
+                //console.log('---',response.data);
+                this.list = response.data.data.content;
+            }).catch((error)=>{
+
+            })
+        },
+        yuyue:function(item){
+            this.checkcontent = item;
+            if(sessionStorage.getItem("account")){
+                this.dialogclass = true;
+            }else{
+
+            }
+            
         },
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
