@@ -192,7 +192,7 @@ export default {
             if(id==1){
                 this.$router.push({path: '/bigcafeTeam'});
             }else if(id==2){
-
+                this.$router.push({path: '/classProcess'});
             }else{
                 this.$router.push({path: '/openCourse'});
             }
