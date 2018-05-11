@@ -70,7 +70,7 @@
                     <img src="../../../../assets/university/teampeople4.png" alt="">
                 </div>
                 <div class="bigcafe-specialty-world">VIP </div>
-                <div class="bigcafe-specialty-desc">1V1服务，量身定制课程</div>
+                <div class="bigcafe-specialty-desc">1V1顾问资源，传递 IT前沿知识，答疑解惑</div>
             </div>
         </div>
     </div>
