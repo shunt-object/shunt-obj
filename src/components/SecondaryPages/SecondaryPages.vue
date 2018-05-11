@@ -156,21 +156,12 @@ export default {
                                 $(this).children().css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
-<<<<<<< HEAD
-=======
-
->>>>>>> e3d3ae699efcdf6add9fd956af61b5b973a74216
                         })
                        $('.carousel').carousel({  //bootstrap轮播时间
                                 interval: 5000
                        })
-<<<<<<< HEAD
-        if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
-=======
 
         if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
-
->>>>>>> e3d3ae699efcdf6add9fd956af61b5b973a74216
           this.islogin = false;
         } else {
           this.islogin = true;
