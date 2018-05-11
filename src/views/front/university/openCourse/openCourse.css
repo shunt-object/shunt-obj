@@ -84,7 +84,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999999999;
+    z-index:999999;
     border: 1px #d6d6d6 solid;
     line-height: 68px;
     background:#fff;

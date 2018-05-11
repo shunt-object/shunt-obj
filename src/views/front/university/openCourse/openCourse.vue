@@ -156,7 +156,7 @@
                 </div>
             </div>
             <div class="opendia-btn">
-                <button class="opendia-btn-save">提交</button>
+                <button class="opendia-btn-save" v-on:click="fixsubmit()">提交</button>
                 <button class="opendia-btn-cel">再想想</button>
             </div>   
         </div>         
@@ -184,9 +184,15 @@ export default {
             },
             list:[],
             checkcontent:{},
+            fixclass:{
+                apponitUser:'',
+                cid:''
+            },
+            information:''
         }
     },
     mounted:function(){
+        this.information = JSON.parse(sessionStorage.getItem("account"));
         let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
@@ -218,11 +224,27 @@ export default {
         yuyue:function(item){
             this.checkcontent = item;
             if(sessionStorage.getItem("account")){
-                this.dialogclass = true;
+                if(this.information){
+                    this.dialogclass = true;
+                }else{
+                    //手机号弹框
+                }
+                
             }else{
-
+                this.$router.push({path:'/login',query:{univeristy:'openCourse'}});
             }
             
+        },
+        fixsubmit:function(){
+            this.dialogclass = false;
+            this.fixclass.apponitUser = this.information.username;
+            this.fixclass.cid = this.checkcontent.course_id;
+            this.$this.post('/broker/prof/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
+                if(response.data.code==1){
+                    //预约成功
+                }
+            }).catch((error)=>{
+            })
         },
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);

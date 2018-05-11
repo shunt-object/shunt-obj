@@ -105,6 +105,46 @@
         </div>
     </div>
     <finish></finish>
+    <!-- 预约课程弹框 -->
+    <el-dialog title="确认预约" :visible.sync="dialogteam" style="text-align:left;" class="teamdia">
+        <div class="teamdia-box">
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key"><span style="color:#da121a;">*</span>预约时间：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key"><span style="color:#da121a;">*</span>预约事由：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;color:#da121a;">
+                        <textarea class="teamdia-text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key">备注：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        <textarea class="teamdia-input"></textarea>
+                    </div>
+                </div>
+            </div>           
+            <div class="">
+                <div class="teamdia-notice">
+                    <p>温馨提示：</p>
+                    1、预约成功我们的专职客服经理会尽快与您联系。<br>
+                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                </div>
+            </div>
+            <div class="teamdia-btn">
+                <button class="teamdia-btn-save">确定</button>
+                <button class="teamdia-btn-cel">取消</button>
+            </div>   
+        </div>         
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -117,7 +157,8 @@ export default {
         return {
             phoneBox:false,
             isfixed:false,
-            cafelist:[]
+            cafelist:[],
+            dialogteam:false
         }
     },
     mounted:function(){
