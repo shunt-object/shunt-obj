@@ -156,16 +156,14 @@ export default {
                                 $(this).children().css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
-<<<<<<< HEAD
+
                         })
                        $('.carousel').carousel({  //bootstrap轮播时间
                                 interval: 5000
                        })
-        if (sessionStorage.getItem("accountId") == null || sessionStorage.getItem("accountId") == '') {
-=======
-                        }) 
+
         if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
->>>>>>> 8975ec048e3051e75776f13ce564a65457c4e856
+
           this.islogin = false;
         } else {
           this.islogin = true;
