@@ -30,32 +30,39 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
-        <div class="appcenterPrice-table" v-if="pricelist.length>0">
-            <table>
-                <thead>
-                    <tr>
-                        <th>云厂商</th>
-                        <th>产品名称</th>
-                        <th>CPU</th>
-                        <th>内存</th>
-                        <th>选型评星</th>
-                        <th>价格评星</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="it in pricelist">
-                        <td>{{it.sname}}</td>
-                        <td>{{it.pname}}</td>
-                        <td>{{it.cores}}</td>
-                        <td>{{it.ram}}</td>
-                        <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.serverStar>index?'startd-huang':'startd-ccc'"></i></td>
-                        <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.priceStar>index?'startd-huang':'startd-ccc'"></i></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="riu">
+            <div class="appcheck-canvastitle" v-if="this.pricelist.length>0"><span></span>云实例匹配结果列表</div>
+            <div id="designHalf-app" style="width:100%;height:300px;"></div>
+            <div class="appcenterPrice-table" v-if="this.pricelist.length>0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>云厂商</th>
+                            <th>产品名称</th>
+                            <th>CPU</th>
+                            <th>内存</th>
+                            <th>选型评星</th>
+                            <th>价格评星</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="it in pricelist">
+                            <td>{{it.sname}}</td>
+                            <td>{{it.pname}}</td>
+                            <td>{{it.cores}}</td>
+                            <td>{{it.ram}}</td>
+                            <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.serverStar>index?'startd-huang':'startd-ccc'"></i></td>
+                            <td><i v-for="(i,index) in 5" class="iconfont icon-xingxing" :class="it.priceStar>index?'startd-huang':'startd-ccc'"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-          <div id="designHalf-app" style="width:100%;height:300px;"></div>
+        <div class="nodata" v-show="proxyshow">
+            <img src="../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无此信息，具体请联系Prof. 吴。
+        </div>
     </div>
 </div>
 </template>
@@ -81,6 +88,9 @@ export default {
                 region:'',
                 months:''
             },
+            gth:false,
+            proxyshow:false,
+            ist:false,
             appX:[],
             appXs:[],
             appEcharts:[],
@@ -165,6 +175,7 @@ export default {
         canversBar:function(dom,xdata,datalist,text){
             let that = this;
             this.charts = echarts.init(document.getElementById(dom));
+           
             this.charts.setOption({              
                 tooltip:{
                     trigger: 'axis',
@@ -235,8 +246,11 @@ export default {
         submit:function(value){
             this.$refs[value].validate((valid) => {
                 if (valid) {
-                    this.appXs = []; 
-                    this.appEcharts= [];  
+                  
+                     this.pricelist = [];
+                     this.appX = [];
+                     this.appEcharts  = [] ;
+                     this.appXs = []; 
                     this.match.appMatchBo.cores = this.matchBo.cores;
                     this.match.appMatchBo.ram = this.matchBo.ram;
                     this.match.priceParamBo.month = this.matchBo.months;
@@ -244,13 +258,22 @@ export default {
                    
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
                     this.pricelist = response.data.data;
-                    this.appX = this.pricelist.slice(0,5);
-                    for(var a = 0 ;a<this.appX.length;a++){
-                        console.log(this.appX[a].cloudPrice)
-                        this.appXs.push(this.appX[a].cloudPrice)
-                        this.appEcharts.push(this.appX[a].sname+'/'+this.appX[a].pname);
-                    }
-                    this.canversBar('designHalf-app',this.appEcharts,this.appXs,'云厂商应用规格');
+                    if(this.pricelist.length==0){
+                           $(".riu").hide();
+                            this.proxyshow = true;
+                    }else if(this.pricelist.length>0){
+                        $(".riu").show();
+                        this.proxyshow = false;
+                        this.appX = this.pricelist.slice(0,5);
+                        for(var a = 0 ;a<this.appX.length;a++){
+                        
+                            this.appXs.push(this.appX[a].cloudPrice)
+                            this.appEcharts.push(this.appX[a].sname+'/'+this.appX[a].pname);
+                        }
+                            console.log(this.appEcharts)
+                        this.canversBar('designHalf-app',this.appEcharts,this.appXs,'云厂商应用规格');
+                     }       
+                       
                     }).catch((error)=>{})
                 } else {
                     return false;

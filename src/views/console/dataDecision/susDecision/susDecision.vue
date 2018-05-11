@@ -156,10 +156,12 @@ export default{
             let str = JSON.stringify(obj);
             // 饼图 1==区域 2==行业
             this.$this.post('/broker/user/analysis/adviceServer',str).then((response)=>{
+                //console.log(response);
                 this.pielegend = [];
                 this.piedata = [];
                 this.pieList = response.data.data;
                 for(let i=0;i<response.data.data.length;i++){
+                    console.log(i);
                     this.pielegend.push(response.data.data[i].serverName);
                     this.piedata.push({value:response.data.data[i].num, name:response.data.data[i].serverName});
                 } 
@@ -294,7 +296,17 @@ export default{
                     orient : 'vertical',
                     x : '79%',
                     y:'10px',
-                    data:this.pielegend
+                    data:this.pielegend,
+                    formatter:function(name){
+                        let nams;
+                        if(name.length>4){
+                            nams = name.slice(0,4)+'...'
+                        }else{
+                            nams = name;
+                        }
+                        return nams
+                        
+                    }
                 },
                 calculable : true,
                 series : [

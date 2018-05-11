@@ -44,7 +44,7 @@
                 <span v-on:click="gaopeis" class="col-md-4 peiSpan"  style="margin-left:20px;">高配</span>
             </p>
         </div>
-        <div class="design-notice col-md-12" v-if="yyshow==true&&dats.length>0 || sjshow==true&&datis.length>0">*在您进行价格优选前，请首先优选对象。</div>
+        <div class="design-notice col-md-12" v-if="yyshow==true&&dats.length>0&&isclick!=1&&isclick!=2&&isclick!=3 || sjshow==true&&datis.length>0&&isclick!=1&&isclick!=2&&isclick!=3">*在您进行价格优选前，请首先优选对象。</div>
         <div class="designConfig" v-if="yyshow==true&&dats.length>0">
             <div style="margin:0 30px 0 30px;" >
                 <table class="table table-bordered">

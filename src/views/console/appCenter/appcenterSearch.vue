@@ -55,6 +55,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="nodata" v-if="proxyshow==true">
+            <img src="../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无此信息，具体请联系Prof. 吴。
+        </div>
     </div>
 </div>
 </template>
@@ -71,6 +76,7 @@ export default {
                 region:'',
                 months:''
             },
+            proxyshow:false,
             match:{
                 "appMatchBo": {
                     "cores": '',
@@ -149,6 +155,7 @@ export default {
         submit:function(value){
             this.$refs[value].validate((valid) => {
                 if (valid) {
+                    this.proxyshow = false;
                     this.match.appMatchBo.cores = this.matchBo.cores;
                     this.match.appMatchBo.ram = this.matchBo.ram;
                     this.match.priceParamBo.month = this.matchBo.months;
@@ -157,6 +164,9 @@ export default {
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
                         //console.log('---',response.data);
                         this.pricelist = response.data.data;
+                        if(this.pricelist.length==0){
+                            this.proxyshow = true
+                        }
                     }).catch((error)=>{})
                 } else {
                     return false;

@@ -13,8 +13,8 @@
                 <div class="from-head-right" style="float:right;padding-right:2%">{{information.proname}} 上云分析综合报告</div>
             </div>
             <div class="colligate-heade">
-                <button class="pointersd buttHover" @click="pointers()"><i class="iconfont icon-dayinji1" style="margin-right: 2px !important;"></i>打印</button>
-                <button class="exportBtn buttHover" v-on:click="getPdf()"><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
+                <button class="pointersd buttHover" @click="getpoint()"><i class="iconfont icon-dayinji1" style="margin-right: 2px !important;"></i>打印</button>
+                <button class="exportBtn buttHover" v-on:click="pdf()"><i class="iconfont icon-icon-" style="margin-right:3px"></i>导出</button>
             </div>
             <div class="colligateReport" id="titBody">
                 <!-- 基本信息 -->
@@ -524,11 +524,11 @@ export default{
                 that.isClass = false;
             });
        },
-      pointers:function(){
-            this.feeddialog.boolean = true;
-            this.point = true; 
-            this.pdfs = false; 
-     },
+        pointers:function(){
+                this.feeddialog.boolean = true;
+                this.point = true; 
+                this.pdfs = false; 
+        },
         getpoint:function(){
             var a =$("#difference-box").html();
             $("#boxinnerHtml").html(a);
