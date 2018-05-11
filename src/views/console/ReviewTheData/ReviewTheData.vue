@@ -34,7 +34,7 @@
             </tr>                
         </thead>
         <tbody>
-            <tr v-for="re in respones">
+            <tr v-for="re in respones" v-if="re.userSimple!=null">
                 <td>{{re.userSimple.username}}</td>
                 <td>{{re.userSimple.realname}}</td>
                 <td>{{re.type.name}}</td>
@@ -95,6 +95,9 @@ export default{
         this.$http.post('/broker/feedback/page/list',obj).then((response)=>{
             // this.respones = eval("(" + response.body +")");
             this.respones = response.body.data.content;
+            // for(let i=0;i<this.respones.length;i++){
+            //     console.log(this.respones[i].userSimple);
+            // }
         }).catch((error)=>{
         })
         this.getBar();
