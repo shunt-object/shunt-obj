@@ -52,7 +52,7 @@
                 <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="goEye">
                     <img src="../../../../assets/appcenter/wechartseye2.png" alt="">
                 </div>
-                云眼
+                云眼查
             </div>
             <div class="clear"></div>
         </div>

@@ -416,10 +416,11 @@
                             }
                     
                     this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                  console.log(response)
-                                  if(responsee.data.data.totalElements!=0){
+                               
+                                
+                                     
                                     this.dats = response.data.data.content;  
-                                    console.log(this.dats)    
+                                    //console.log(this.dats)    
                                     this.totalPages = response.data.data.totalElements;
                                     this.weidulook();
                                     if(this.totalPages ==0){
@@ -429,7 +430,7 @@
                                         this.isopens=true;
                                         this.isopen = false;
                                     }
-                                }
+                                
                                 //this.titleWeidu(this.totalPages);
                         }).catch((error)=>{
                     });

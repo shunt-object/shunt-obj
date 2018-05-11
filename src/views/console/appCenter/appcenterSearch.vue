@@ -35,7 +35,7 @@
             </el-form>
         </div>
         <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
-        <div class="appcenterPrice-table" v-if="pricelist.length>0">
+        <div class="appcenterPrice-table" v-show="hello">
             <table>
                 <thead>
                     <tr>
@@ -55,9 +55,33 @@
                 </tbody>
             </table>
         </div>
+        <div class="notification-undata" v-show="world">
+                <img src="../../../assets/compare-nodata.png" alt="">
+                <br>
+                <span class="spla">暂无数据</span>
+        </div>
     </div>
 </div>
 </template>
+<style>
+     .notification-undata{
+        /*background:#ffffff; width:100%; height:100%; font-size:14px; color:#555; margin:10px 0;line-height:30px; text-align:center; padding-bottom:16%;*/
+        background:#ffffff;
+        width:100%;
+        height:300px;
+        font-size:12px;
+        color:#999;
+        margin-bottom:20px;
+        line-height:24px;
+        text-align:center;
+        border:1px solid #ebebeb;
+   }
+   .notification-undata img{
+       /*margin-top:20%;*/
+       margin-top:100px;
+        margin-bottom:20px;
+   }
+</style>
 <script>
 import '../appCenter/appcenterPrice/appcenterPrice.css'
 export default {
@@ -71,6 +95,8 @@ export default {
                 region:'',
                 months:''
             },
+            hello:false,
+            world:false,
             match:{
                 "appMatchBo": {
                     "cores": '',
@@ -157,6 +183,13 @@ export default {
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
                         //console.log('---',response.data);
                         this.pricelist = response.data.data;
+                        if(this.pricelist.length>0){
+                            this.hello = true;
+                            this.world = false;
+                        }else if(this.pricelist.length==0){
+                            this.world = true;
+                            this.hello = false;
+                        }
                     }).catch((error)=>{})
                 } else {
                     return false;
