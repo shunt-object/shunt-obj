@@ -164,6 +164,7 @@ export default{
                     this.pielegend.push(response.data.data[i].serverName);
                     this.piedata.push({value:response.data.data[i].num, name:response.data.data[i].serverName});
                 } 
+                console.log('----',aaaa,this.pielegend);
                 this.$nextTick(function() {
                     this.canversPie('pie')
                 })
@@ -296,7 +297,17 @@ export default{
                     orient : 'vertical',
                     x : '79%',
                     y:'10px',
-                    data:this.pielegend
+                    data:this.pielegend,
+                    formatter:function(name){
+                        let nams;
+                        if(name.length>4){
+                            nams = name.slice(0,4)+'...'
+                        }else{
+                            nams = name;
+                        }
+                        return nams
+                        
+                    }
                 },
                 calculable : true,
                 series : [
