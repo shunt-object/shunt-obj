@@ -112,6 +112,48 @@
     font-size: 20px;
     color: #2b2b2b;
 }
+.classProcess-img{
+    height:50px;
+}
+.classProcess-desc{
+    font-size:14px;
+    color:#333333;
+    text-align:center;
+    line-height:30px;
+    margin-top:20px;
+}
+.classProcess-bor{
+    border-right:1px solid #dadada;
+}
+/* 预约流程 */
+.classProcess-yue{
+    position:relative;
+}
+.classProcess-yue-title{
+    text-align:left;
+}
+.classProcess-yue-yuan{
+    float:left;
+    border:1px solid #da121a;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    font-size:36px;
+    color:#da121a;
+    text-align:center;
+    line-height:58px;
+    margin-right:10px;
+}
+.classProcess-yue-tit{
+    line-height:58px;
+    font-size:18px;
+    color:#333333;
+}
+.classProcess-erweima{
+    padding-left:68px;
+    text-align:left;
+}
+
 /* 悬浮框 */
 .fixed-box{
     width: 55px;

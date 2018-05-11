@@ -43,9 +43,48 @@
             <span class="classDemand-title-line"></span>
             <span class="classDemand-title-desc">参加培训设备要求</span>
         </div>
-        <div class="row">
+        <div class="row classProcess-list">
             <div class="col-md-3">
-                <!-- <img src="" alt=""> -->
+                <div class="classProcess-img">
+                    <img src="../../../../assets/university/classProcess-yq1.png" alt="">
+                </div>
+                <div class="classProcess-desc">台式电脑+摄像头+头戴耳麦</div>
+            </div>
+            <div class="col-md-3 classProcess-bor">
+                <div class="classProcess-img">
+                    <img src="../../../../assets/university/classProcess-yq2.png" alt="">
+                </div>
+                <div class="classProcess-desc">笔记本电脑+头戴耳麦</div>
+            </div>
+            <div class="col-md-3">
+                <div class="classProcess-img">
+                    <img src="../../../../assets/university/classProcess-yq3.png" alt="">
+                </div>
+                <div class="classProcess-desc">苹果台式电脑或笔记本电脑</div>
+            </div>
+            <div class="col-md-3">
+                <div class="classProcess-img">
+                    <img src="../../../../assets/university/classProcess-yq4.png" alt="">
+                </div>
+                <div class="classProcess-desc">手机</div>
+            </div>
+        </div>
+    </div>
+    <!-- 预约流程 -->
+    <div class="classProcess-demand container">
+        <div class="classProcess-demand-title">
+            <span class="classDemand-title-line"></span>
+            <span class="classDemand-title-desc">预约流程</span>
+        </div>
+        <div class="classProcess-yue">
+            <div class="classProcess-yue-line"></div>
+            <div class="classProcess-yue-title">
+                <span class="classProcess-yue-yuan">1</span>
+                <div class="classProcess-yue-tit">CloudBroker²平台注册，关注微信公众号</div>
+            </div>
+            <div class="classProcess-erweima">
+                <img src="../../../../assets/university/erweima.png" alt="">
+                <div class="classProcess-erweima-desc">扫描二维码关注</div>
             </div>
         </div>
     </div>
