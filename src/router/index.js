@@ -51,6 +51,7 @@ import aboutus from "../views/front/selecone/aboutus.vue"
 import bigcafeTeam from '@/views/front/university/bigcafeTeam/bigcafeTeam'
 import openCourse from '@/views/front/university/openCourse/openCourse'
 import teamDetail from '@/views/front/university/teamDetail/teamDetail'
+import classProcess from '@/views/front/university/classProcess/classProcess'
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
@@ -178,6 +179,11 @@ export default new Router({
       path:'/teamDetail',
       name: 'teamDetail',
       component: teamDetail
+    },
+    {//上课流程
+      path:'/classProcess',
+      name: 'classProcess',
+      component: classProcess
     },
     // {
     //   path:'/register',
