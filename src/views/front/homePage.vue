@@ -398,7 +398,7 @@ export default {
         
         $('.carousel').carousel({//首页轮播时间
              interval: 5000
-        })
+        });
         
         $(document).ready(function(){ 
                      $.fn.extend({
