@@ -67,7 +67,7 @@
         <div class="nodata" v-if="lengthnum==false">
             <img src="../../../../assets/compare-nodata.png" alt="">
             <br>        
-            因多云价格优选未做或没有把优选实际加入到购物车，所以暂无数据。
+            因多云价格优选未做或没有把优选实例加入到购物车，所以暂无数据。
         </div>
     </div>
 </div>
