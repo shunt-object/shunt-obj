@@ -157,9 +157,7 @@ export default {
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-                       $('.carousel').carousel({  //bootstrap轮播时间
-                                interval: 5000
-                       })
+                    
 
         if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
           this.islogin = false;
