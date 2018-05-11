@@ -35,7 +35,7 @@
             </el-form>
         </div>
         <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
-        <div class="appcenterPrice-table" v-show="hello">
+        <div class="appcenterPrice-table">
             <table>
                 <thead>
                     <tr>
@@ -54,11 +54,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="notification-undata" v-show="world">
-                <img src="../../../assets/compare-nodata.png" alt="">
-                <br>
-                <span class="spla">暂无数据</span>
         </div>
     </div>
 </div>
@@ -183,13 +178,6 @@ export default {
                     this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
                         //console.log('---',response.data);
                         this.pricelist = response.data.data;
-                        if(this.pricelist.length>0){
-                            this.hello = true;
-                            this.world = false;
-                        }else if(this.pricelist.length==0){
-                            this.world = true;
-                            this.hello = false;
-                        }
                     }).catch((error)=>{})
                 } else {
                     return false;
