@@ -66,6 +66,7 @@ import appcenterProxy from '@/views/console/appCenter/appcenterProxy/appcenterPr
 import appcenterSearch from '@/views/console/appCenter/appcenterSearch.vue'
 import appcenterCloudEye from '@/views/console/appCenter/appcenterCloudEye.vue'
 import notification from "@/views/console/notificationCenter/notificationCenter"
+import adviser from '@/views/console/adviser/adviser'//顾问
 import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
@@ -321,7 +322,14 @@ export default new Router({
           },
           component:adviserList
         },
-
+        {//顾问
+          path:"/adviser",
+          name:"adviser",
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:adviser
+        },
          {
           path:"/messAdd",
           name:"messAdd",
