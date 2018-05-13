@@ -51,7 +51,8 @@
                        <span class="redLine"></span><span class="redlasttitle">上云工具</span>
                     </div>
                     <div class="row text-center" style="padding-left:50px;">
-                        <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;" v-for="lis in list">
+                        <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index)">
+                                <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
                                 <div class="kuao-main">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt=""></div></div>
@@ -65,13 +66,48 @@
     </div>
 </template>
 <style>
+.kuao:hover{
+    cursor:pointer;
+}
+.dis{
+    display:none;
+}
+.mianfei-div{
+    position:absolute;
+    right:25px;
+    top:10px;
+}
+.mianfei{
+    display:inline-block;
+    background:url("../../../assets/er-icon/mianfei.png") no-repeat;
+    width:67px;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    color:#fff;
+    border-radius:4px;
+    padding-left:5px;
+    font-size:12px;
+    border-radius:2px 2px 2px 2px 0 0 0;
+}
 .fens{
     font-size:12px;
     color:#f15532;
     margin-left:5px;
 }
+.hhs{
+        border: 1px solid #e41e2b;
+    font-size: 12px;
+    color: #fff;
+    padding: 10px 25px;
+    display: inline-block;
+    text-align: center;
+    background: #e41e2b;
+}
 .hhs:hover{
     color:#da121a !important;
+    background: #fff;
+      border: 1px solid #fff;
 }
 .jia-yue{
     width:100%;
@@ -602,6 +638,32 @@
             }
         },
         methods:{
+            dianHover:function(e){
+              var sess =  sessionStorage.getItem("account");
+              if(e==0){
+                    alert("弹框")
+              }else{
+                  if(sess){
+                     this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            confirmButtonClass:'lay-btn-red',
+                            cancelButtonClass:'lay-cancel-btn',
+                            type: 'warning',
+                            }).then(() => {
+                                this.$router.push({path:'/appcenterList'});
+                            }).catch(() => {
+                                
+                            });
+                  }else{
+                       alert("未登录")  
+                  }
+              }
+
+
+
+             
+            },
             lister:function(){
                 this.$this.get('/broker/market/user/all/list').then((res)=>{  //获取所有的信息内容
                             console.log(res);
