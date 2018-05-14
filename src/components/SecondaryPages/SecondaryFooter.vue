@@ -21,6 +21,7 @@
                 <p class="text-left footer-jx">服务与支持</p>
                 <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
                 <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
+               <!-- <p class="text-left footer-list hoverReds" @click="yijianlook">意见反馈</p> -->
                 </div>
                 <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left pagd">
                     <div class="lerf">
@@ -767,6 +768,10 @@ h2 {
             },
             cloundsj:function(){
                     this.$router.push({path: '/wudata'});
+                   $('html ,body').animate({scrollTop: 0},0); 
+            },
+            yijianlook:function(){
+                   this.$router.push({path: '/wudata'});
                    $('html ,body').animate({scrollTop: 0},0); 
             },
             helpCenter:function(){
