@@ -3,7 +3,7 @@
 }
 /* banner */
 .openCourse-banner{
-    background: url('../../../../assets/university/openCourse-banner.png') no-repeat;
+    background: url('../../../../assets/university/kecheng-banner.png') no-repeat;
     text-align: center;
     background-size: 100% 100%;
 }
@@ -18,6 +18,9 @@
 @media (max-width: 768px) {
     .seleconeMain-mainfir{
         margin-bottom:0px;
+    }
+    .opendia .el-dialog{
+        width:90% !important;
     }
 }
 .seleconeMain-mainfir{margin-top:160px;}
@@ -295,4 +298,46 @@
     color:#595959;
     margin-left:10px;
     border: 1px solid #dcdfe6;
+}
+/* 手机号弹框 */
+.dialogPhone-input{
+    height:30px;
+    padding:0 10px;
+    border-radius:2px;
+    border:1px solid #ebebeb;
+}
+.dialogPhone-codebtn{
+    width:100px;
+    height:30px;
+    background:#da121a;
+    color:#fff;
+    font-size:14px;
+    line-height:30px;
+    border-radius:2px;
+}
+.phoneerror{
+    border:1px solid red;
+}
+.dialogPhone-btn{
+    width:100%;
+    height:38px;
+    border-radius:3px;
+    background:#da121a;
+    color:#fff;
+    font-size:14px;
+    line-height:38px;
+}
+.opendia-select .el-input__inner{
+    height:30px !important;
+    line-height:30px !important;
+}
+/* page */
+.adviser-page{
+    margin-bottom:50px;
+}
+.adviser-page-bg .active{
+    background:#da121a !important;;
+}
+.adviser-page-bg .number:hover{
+    color:#da121a !important;
 }

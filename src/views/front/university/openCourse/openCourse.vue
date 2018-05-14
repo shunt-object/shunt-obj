@@ -19,7 +19,7 @@
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">为您开始五彩缤纷的云世界</h3>
                 </div>
-                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="openCourse-yu">预约课程</span></p>
+                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="openCourse-yu" v-on:click="yueclasss()">预约课程</span></p>
             </div>
         </div>
     </div>
@@ -110,6 +110,10 @@
             </div>
         </div>
     </div>
+    <div class="adviser-page">
+        <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(total)" @current-change="handleCurrentChange">
+</el-pagination>
+    </div>
     <div style="background:#ededed;;width:100%;height:auto;">
         <div class="seleconeMain-footer row">
             <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -161,6 +165,77 @@
             </div>   
         </div>         
     </el-dialog>
+    <!-- 预约课程弹框可选择 -->
+    <el-dialog title="确认预约" :visible.sync="classchage" style="text-align:left;" class="opendia">
+        <div class="opendia-box">
+            <div class="opendia-list">
+                <div class="row">
+                    <div class="col-md-3 opendia-key" style="line-height:30px;">课程讲师：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        <el-select class="opendia-select" v-model="teacher" placeholder="请选择讲师" v-on:change="selctclass()">
+                            <el-option class="opendia-option" v-for="item in cafelist" :label="item.realname" :value="item.userProfessor.username" :key="JSON.stringify(item.userProfessor.username)"></el-option>
+                        </el-select>
+                    </div>
+                </div>
+            </div>
+            <div class="opendia-list" v-if="teacher!=''">
+                <div class="row">
+                    <div class="col-md-3 opendia-key" style="line-height:30px;">开课内容：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;color:#da121a;">
+                        <el-select class="opendia-select" v-model="classMain" placeholder="请选择课程">
+                            <el-option class="opendia-option" v-for="item in classlist" :label="item.cname" :value="item" :key="JSON.stringify(item)"></el-option>
+                        </el-select>
+                    </div>
+                </div>
+            </div>
+            <div class="opendia-list" style="line-height:30px;" v-if="teacher!=''">
+                <div class="row">
+                    <div class="col-md-3 opendia-key">开课时间：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">{{classMain.beginTime}}</div>
+                </div>
+            </div>           
+            <div class="">
+                <div class="opendia-notice">
+                    <p>温馨提示：</p>
+                    1、预约成功我们的专职客服经理会尽快与您联系。<br>
+                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                </div>
+            </div>
+            <div class="opendia-btn">
+                <button class="opendia-btn-save" v-on:click="submit()">提交</button>
+                <button class="opendia-btn-cel">再想想</button>
+            </div>   
+        </div>         
+    </el-dialog>
+    <!-- 手机号弹框 -->
+    <el-dialog title="绑定手机" :visible.sync="dialogPhone" style="text-align:left;" class="opendia">
+        <div class="opendia-box">
+            <div class="opendia-list">
+                <div class="row">
+                    <div class="col-md-3 opendia-key">手机号码</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        <input type="tel" placeholder="请输入手机号" class="dialogPhone-input" v-model="phone" v-on:blur="phoneOff()" :class="isphone==false?'phoneerror':''">
+                        <button class="dialogPhone-codebtn" v-on:click="getcode()">{{codenotice}}</button>
+                        <div style="color:red" v-if="isphone==false">{{phonenotice}}</div>
+                    </div>
+                </div>
+            </div> 
+            <div class="opendia-list">
+                <div class="row">
+                    <div class="col-md-3 opendia-key">短信验证码</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        <input type="tel" placeholder="请输入4位数字验证码" v-on:blur="codeOff()" :class="iscode==false?'phoneerror':''" v-model="code" style="width:98%;padding:0 10px;height:30px;border-radius:2px;border:1px solid #ebebeb;">
+                        <div v-if="iscode==false" style="color:red;">{{codeerror}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="opendia-list" style="padding:0 20px;">
+                <div class="row">
+                    <button class="dialogPhone-btn" v-on:click="confirm()">确认</button>
+                </div>
+            </div>
+        </div>        
+    </el-dialog>
 </div>
 </template>
 <script>
@@ -188,7 +263,22 @@ export default {
                 apponitUser:'',
                 cid:''
             },
-            information:''
+            information:'',
+            dialogPhone:false,
+            phone:'',
+            code:'',
+            codenotice:'获取验证码',
+            phonenotice:'',
+            isphone:null,
+            countI:60,
+            codeerror:'',
+            iscode:null,
+            classchage:false,
+            cafelist:[],
+            teacher:'',
+            classMain:'',
+            classlist:[],
+            total:''
         }
     },
     mounted:function(){
@@ -209,14 +299,140 @@ export default {
             }
             //console.log('----',$(this).scrollTop());
          })
-         this.getlist();
+         this.getlist(this.datastr);
+         this.getcafe();
     },
     methods:{
-        getlist:function(){
-            let str = JSON.stringify(this.datastr);
+        handleCurrentChange:function(val){
+            this.datastr.pageReq.page = val-1;
+            this.getlist(this.datastr);
+        },
+        getcafe:function(){
+            this.$this.get('/broker/prof/getList').then((response)=>{
+                this.cafelist = response.data.data;
+            }).catch((error)=>{
+
+            })
+        },
+        selctclass:function(){
+            this.$this.get('/broker/prof/getCourse/'+this.teacher).then((response)=>{
+                this.classMain = response.data.data[0];
+                this.classlist = response.data.data;
+                //this.cafelist = response.data.data;
+            }).catch((error)=>{
+
+            })
+        },
+        yueclasss:function(){
+            this.classchage = true;
+        },
+        submit:function(){
+            this.classchage = false;
+            this.fixclass.apponitUser = this.information.username;
+            this.fixclass.cid = this.classMain.id;
+            this.$this.post('/broker/apponit/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
+                if(response.data.code==1){
+                    //预约成功
+                }
+            }).catch((error)=>{
+            })
+        },
+        phoneOff:function(){
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+            if(this.phone==''){
+                this.phonenotice = '请输入手机号码';
+                this.isphone = false;
+            }else if(phoneReg.test(this.phone)==false){
+                this.isphone = false;
+                this.phonenotice = '请输入正确的手机号码';
+            }else{
+                this.$this.get('/broker/auth/check/'+this.phone+'/').then((response)=> {
+                    //console.log(response);
+                    if(response.data.data==true){
+                        this.isphone = true;
+                    }else{
+                        that.isphone = false;
+                        that.phonenotice = '您的手机号已被注册';
+                    }
+                }).catch((error)=> {
+                    console.log(error);
+                });
+            }
+            
+        },
+        codeOff:function(){
+            if(this.code==''){
+                this.iscode = false;
+                this.codeerror = '请输入验证码';
+            }else if(this.code.length>4){
+                this.iscode = false;
+                this.codeerror = '请输入4位数的验证码';
+            }else{
+                this.iscode = true;
+            }
+        },
+        getcode:function(){
+            let phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0-9]))|(18[0-9]))\d{8}$/;
+            if(this.phone!='' && phoneReg.test(this.phone)==true){
+                this.codeHttp();             
+            }
+        },
+        codeHttp:function(){
+            let obj = {
+                mobile:this.phone,
+                type:true,
+                username:this.information.username,
+                validCode:''
+            };
+            let str = JSON.stringify(obj);
+            this.$this.post('/broker/sms/send/code/bind',str).then((response)=>{
+                //console.log('----',response.data.code);
+                if(response.data.code==1){
+                    this.$message('验证码发送成功');
+                    let self = this;
+                    let clear = setInterval(function(){
+                        self.countI--;
+                        self.codenotice = self.countI+'s';
+                        if(self.countI==0){
+                            clearInterval(clear);
+                            self.countI = 60;
+                            self.codenotice = '重新获取';
+                        }
+                    },1000)
+                }
+            }).catch((error)=>{
+            })
+        },
+        confirm:function(){
+            let obj = {
+                mobile:this.phone,
+                type:true,
+                username:this.information.username,
+                validCode:this.code
+            };
+            let str = JSON.stringify(obj);
+            this.$this.post('/broker/user/setting/mobile',str).then((response)=>{
+                //console.log('解绑',response);
+                if(response.data.code==-1){//验证码已超时
+                    this.iscode = false;
+                    this.codeerror = '验证码请求超时，请重新发送验证码。';
+                }else if(response.data.code==1){
+                    this.iscode = true;
+                    this.dialogPhone = false;
+                    this.information.phone = this.phone;
+                    let string = JSON.stringify(this.information);
+                    sessionStorage.setItem("account",string);
+                    alert('您已成功绑定手机');
+                }
+            }).catch((error)=>{
+            })
+        },
+        getlist:function(datastr){
+            let str = JSON.stringify(datastr);
             this.$this.post('/broker/prof/courseList',str).then((response)=>{
                 //console.log('---',response.data);
                 this.list = response.data.data.content;
+                this.total = response.data.data.totalElements;
             }).catch((error)=>{
 
             })
@@ -224,10 +440,10 @@ export default {
         yuyue:function(item){
             this.checkcontent = item;
             if(sessionStorage.getItem("account")){
-                if(this.information){
+                if(JSON.parse(sessionStorage.getItem("account")).phone!=null){
                     this.dialogclass = true;
-                }else{
-                    //手机号弹框
+                }else{//手机号弹框
+                    this.dialogPhone = true;
                 }
                 
             }else{
@@ -239,7 +455,7 @@ export default {
             this.dialogclass = false;
             this.fixclass.apponitUser = this.information.username;
             this.fixclass.cid = this.checkcontent.course_id;
-            this.$this.post('/broker/prof/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
+            this.$this.post('/broker/apponit/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
                 if(response.data.code==1){
                     //预约成功
                 }
