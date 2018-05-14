@@ -86,7 +86,7 @@ export default{
     },
     methods:{
         gologin:function(){
-            this.$router.push({path:'/login'});
+            this.$router.push({path:'/login',query:{univeristy:this.$route.query.univeristy}});
         },
         getIndustry:function(){
             this.$this.get('/broker/prop/industry/').then((response)=>{
@@ -145,7 +145,7 @@ export default{
                 this.$this.post('/broker/user/update',string).then((response)=>{
                     //console.log('-----',response.data.data);
                     if(response.data.code==1){
-                        this.$router.push({path:'/registerThree'});
+                        this.$router.push({path:'/registerThree',query:{univeristy:this.$route.query.univeristy}});
                     }
                 }).catch((error)=>{
 

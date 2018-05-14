@@ -42,6 +42,11 @@
         <!--头部icon-->
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
+                <li class="dropdown" v-on:click="university()">
+                    <a data-toggle="dropdown" class="dropdown-toggle navli user-hover">
+                        <i class="iconfont icon-kefu"></i>智识学院
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover" id="xiaowei">
                         <i class="iconfont icon-kefu"></i><!--小微-->Prof. 吴
@@ -278,7 +283,11 @@ export default{
     },
     created:function(){
         var that = this;
+<<<<<<< HEAD
         setInterval( function(){that.getHttpUseResour()},300000);
+=======
+        setInterval( function(){that.getHttpMsgCenter()},5000);
+>>>>>>> feature/adviser
 
     },
 
@@ -364,6 +373,9 @@ export default{
         TheirAllies:function(){
            this.$router.push({path:'/TheirAllies'});
            this.nocopy();
+        },
+        university:function(){
+            this.$router.push({path:'/adviser'});
         },
         responsiveView:function () {
             var wSize = $(window).width();

@@ -47,7 +47,7 @@ export default{
             sessionStorage.removeItem("account");
             sessionStorage.clear();
             localStorage.removeItem("as");
-            this.$router.push({path:'/login'});
+            this.$router.push({path:'/login',query:{univeristy:this.$route.query.univeristy}});
         }
     },
     components:{

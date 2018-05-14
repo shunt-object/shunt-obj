@@ -30,7 +30,7 @@
                             <input type="checkbox" v-model="remember">记住用户
                         </div>
                         <div class="login-from-right">
-                            <router-link to="/registerOne" class="linkto">立即注册</router-link> | <router-link to="/forgetPassword" class="linkto" style="display:inline !important;">忘记密码</router-link>
+                            <a class="linkto" href="javascript:;" v-on:click="gores()">立即注册</a> | <a href="javascript:;" class="linkto" style="display:inline !important;" v-on:click="goforget()">忘记密码</a>
                         </div>
                     </div>
                     <!--其他方式登录-->
@@ -85,10 +85,13 @@ export default{
             dialogUnbing:false,
             wechartUrl:'',
             timer:'',
-            success:false
+            success:false,
+            isuniveristy:''
         }
     },
     mounted:function(){
+        this.isuniveristy = this.$route.query.univeristy;
+        console.log('======',this.isuniveristy);
         // if(localStorage.getItem('remPassword')!='' && localStorage.getItem('remPassword')!=null){
         //     this.remember = true;
         //     this.password = localStorage.getItem('remPassword');
@@ -118,6 +121,12 @@ export default{
         this.nextTo = this.$route.query.redirect;
     },
     methods:{
+        gores:function(){
+            this.$router.push({path:'/registerOne',query:{univeristy:this.isuniveristy}});
+        },
+        goforget:function(){
+            this.$router.push({path:'/forgetPassword',query:{univeristy:this.isuniveristy}});
+        },
         closeDialog:function(){
             clearInterval(this.timer);
         },
@@ -134,17 +143,22 @@ export default{
                         that.success = true;
                         setTimeout(function(){
                             that.dialogUnbing = false;
-                            if(that.url==''){
-                                that.$router.push({path:'/consolePage'}); 
+                            if(that.isuniveristy=='openCourse'){
+                                that.$router.push({path:'/openCourse'}); 
                             }else{
-                                for(let i=0;i<this.url.length;i++){//this.url公共的方法 
-                                    if(that.url[i].indexOf('redirect=appstore')>-1){
-                                        that.$router.push({path:'/appcenterList'});
-                                    }else{
-                                        that.$router.push({path:'/consolePage'}); 
+                                if(that.url==''){
+                                    that.$router.push({path:'/consolePage'}); 
+                                }else{
+                                    for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                                        if(that.url[i].indexOf('redirect=appstore')>-1){
+                                            that.$router.push({path:'/appcenterList'});
+                                        }else{
+                                            that.$router.push({path:'/consolePage'}); 
+                                        }
                                     }
                                 }
                             }
+                            
                         },1000)
                     }
                 }).catch((error)=>{})
@@ -213,17 +227,22 @@ export default{
                         //     this.$router.push({path:'/consolePage'}); 
                         // }
                         //console.log('aaa',this.url);
-                        if(this.url==''){
-                            this.$router.push({path:'/consolePage'}); 
+                        if(this.isuniveristy=='openCourse'){
+                            that.$router.push({path:'/openCourse'}); 
                         }else{
-                            for(let i=0;i<this.url.length;i++){//this.url公共的方法 
-                                if(this.url[i].indexOf('redirect=appstore')>-1){
-                                    this.$router.push({path:'/appcenterList'});
-                                }else{
-                                    this.$router.push({path:'/consolePage'}); 
+                            if(this.url==''){
+                                this.$router.push({path:'/consolePage'}); 
+                            }else{
+                                for(let i=0;i<this.url.length;i++){//this.url公共的方法 
+                                    if(this.url[i].indexOf('redirect=appstore')>-1){
+                                        this.$router.push({path:'/appcenterList'});
+                                    }else{
+                                        this.$router.push({path:'/consolePage'}); 
+                                    }
                                 }
                             }
                         }
+                        
                         
                     }else if(res.data.code=='0'){//用户名或密码不正确
                         // this.isaccount=true;
