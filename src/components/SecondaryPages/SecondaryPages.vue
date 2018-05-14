@@ -176,12 +176,6 @@ export default {
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-<<<<<<< HEAD
-                    
-
-=======
-                       
->>>>>>> feature/adviser
         if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
           this.islogin = false;
         } else {

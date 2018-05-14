@@ -283,11 +283,8 @@ export default{
     },
     created:function(){
         var that = this;
-<<<<<<< HEAD
         setInterval( function(){that.getHttpUseResour()},300000);
-=======
-        setInterval( function(){that.getHttpMsgCenter()},5000);
->>>>>>> feature/adviser
+
 
     },
 
