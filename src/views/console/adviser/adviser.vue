@@ -31,9 +31,9 @@
             <tbody>
                 <tr v-for="item in hisclasslist">
                     <td>--</td>
-                    <td>预约时间</td>
-                    <td>预约是由</td>
-                    <td>备注</td>
+                    <td>{{item.appoint_time}}</td>
+                    <td>{{item.reason}}</td>
+                    <td>{{item.remark}}</td>
                     <td><i class="iconfont icon-bianji" style="margin-right:10px;cursor:pointer;"></i><i class="iconfont icon-shanchu" style="cursor:pointer;"></i></td>
                 </tr>
             </tbody>
