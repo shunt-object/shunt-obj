@@ -21,7 +21,7 @@
                     <div class="col-md-2 col-xs-2"><a href="#ContactUs"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
             </div>
         </div>
-            <Sec active="4"></Sec>
+            <Sec active="6"></Sec>
             <div class="cloundcompare">
                     <div class="cloundbanner">
                         <div class="container">

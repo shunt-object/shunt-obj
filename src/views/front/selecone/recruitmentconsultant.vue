@@ -936,7 +936,7 @@
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-                         $(".naver a").hover(function(){
+                        $(".naver a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
@@ -1036,23 +1036,32 @@
                     this.phoneBox = false;
             },
             hyDemo:function(){
-                 if(this.names==""||this.phones==""){
-                     return false;
-                 }else{
+                 if(this.phones!=""){
                      var oas = {
                             "mobile":this.phones,
                             "username":this.names,
                             }
-                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取消息类型
+                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取验证码
                                                                 
                                    
                                 }).catch((error)=>{
                     })
+                 }else{
+                   return false;
                  }
             },
             wle:function(){
                if(this.names==""||this.phones==""||this.gs==""||this.hys==""||this.dx==""){
-                   return false;
+                   this.$alert('请完善您的信息，谢谢！', '提示', {
+                    confirmButtonText: '我知道了',
+                    confirmButtonClass:'lay-btn-red',
+                     showClose:false,
+                    type: 'warning',
+                    }).then(() => {
+                        
+                    }).catch(() => {
+                        
+                    });
                }else{
                    var obj = {
                         "company":this.gs,

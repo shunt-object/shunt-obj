@@ -1,0 +1,282 @@
+/* banner */
+.classProcess-banner{
+    background: url('../../../../assets/university/university-banner.png') no-repeat;
+    text-align: center;
+    background-size: 100% 100%;
+}
+.container{
+    max-width: 1090px;
+}
+@media (min-width: 768px) {
+    .seleconeMain-mainfir{
+        margin-bottom:50px;
+    }
+}
+@media (max-width: 768px) {
+    .seleconeMain-mainfir{
+        margin-bottom:0px;
+    }
+}
+.seleconeMain-mainfir{margin-top:160px;}
+.seleconeMain-mainfir .selecone-pfir{
+    font-size:26px;
+    color:#ffffff;
+    text-align:center;
+}
+.seleconeMain-mainfir .selecone-pfir span{
+    font-weight:100;
+    color:#ccc;
+}
+.classProcess-yu{
+    border:1px solid #e41e2b;font-size:12px;color:#fff;padding:10px 25px;display:inline-block;text-align:center;background:#e41e2b;margin-right:10px;
+}
+.classProcess-yu:hover{
+    cursor:pointer;
+    background:#fff;
+    color:#e41e2b;
+    border:1px solid #fff;
+}
+/* 副导航 */
+.smallnav{
+    height:70px;
+    line-height:70px;
+}
+.smallnav i{
+    color:#c2c2c2;
+}
+.smallnav a{
+    font-size:14px;
+    color:#333333;  
+}
+.smallnav a i{
+    font-size:14px;
+    color:#A5A5A5;  
+}
+.smallnav a:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.smallnav a i:hover{
+    cursor:pointer;
+    color:#da121a;
+    display:inline-block;
+    border-bottom:1px solid #da121a;
+}
+.smallnav  div{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.classProcess-titles-left{
+    text-align:right;
+    padding:0 30px 0 15px !important;
+}
+.classProcess-titles-right{
+    text-align:left;
+    padding:0 15px 0 30px !important;
+}
+.titlesfixed{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999999999;
+    border: 1px #d6d6d6 solid;
+    line-height: 68px;
+    background:#fff;
+}
+/*  */
+.classProcess-line{
+    width:100%;
+    height:1px;
+    background:#d6d6d6;
+}
+/* 参加培训设备要求 */
+.classProcess-demand{
+    max-width: 1020px !important;
+}
+.classProcess-demand-title{
+    margin: 40px 0 40px 0;
+    text-align: left;
+}
+.classDemand-title-line{
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+.classDemand-title-desc{
+    font-size: 20px;
+    color: #2b2b2b;
+}
+.classProcess-img{
+    height:50px;
+}
+.classProcess-desc{
+    font-size:14px;
+    color:#333333;
+    text-align:center;
+    line-height:30px;
+    margin-top:20px;
+}
+.classProcess-bor{
+    border-right:1px solid #dadada;
+}
+/* 预约流程 */
+.classProcess-yue{
+    position:relative;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+}
+.classProcess-yue-line{
+    position: absolute;
+    width: 2px;
+    height: 65%;
+    left: 29px;
+    top: 28%;
+    background: #dadada;
+}
+/* 1 */
+.classProcess-yue-title{
+    text-align:left;
+}
+.classProcess-yue-yuan{
+    float:left;
+    border:1px solid #da121a;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    font-size:36px;
+    color:#da121a;
+    text-align:center;
+    line-height:58px;
+    margin-right:10px;
+}
+.classProcess-yue-tit{
+    line-height:58px;
+    font-size:18px;
+    color:#333333;
+    padding-left:68px;
+}
+.classProcess-erweima{
+    padding-left:68px;
+    text-align:left;
+}
+.classProcess-erweima img{
+    margin-top:60px;
+}
+.classProcess-erweima-desc{
+    width:160px;
+    text-align:center;
+    font-size:14px;
+    color:#999999;
+}
+/* 2 */
+.classProcess-yue-tit .classProcess-yue-tits{
+    font-size:14px;
+    color:#666666;
+}
+.classProcess-yue-list{
+    padding-left:78px;
+    margin-top:20px;
+    width:100%;
+}
+.classProcess-yue-listname{
+    font-size:14px;
+    color:#da121a;
+    text-align:left;
+}
+.classProcess-yue-lc{
+    width:80%;
+}
+@media (max-width: 990px) {
+    .classProcess-yue-lc{
+        width:100%;
+    }
+}
+.classProcess-yue-lc img{
+    width:100%;
+}
+.classProcess-yue-lc{
+    text-align:left;
+    padding-top:20px;
+    position:relative;
+    padding-bottom:30px;
+}
+.classProcess-yue-lc  span{
+    position:absolute;
+    font-size:12px;
+    color:#333333;
+    width:14.2%;
+    overflow:hidden;
+    bottom:-10px;
+    min-height:26px;
+} 
+.classProcess-yue-lc1{
+    left: 2%;
+}
+.classProcess-yue-lc2{
+    left: 30.4%;
+}
+.classProcess-yue-lc3{
+    left: 58.8%;
+}
+.classProcess-yue-lc4{
+    left: 87.2%;
+} 
+/* 3 */
+.classProcess-sp-ul{
+    margin-top:20px;
+    padding-left: 68px;
+}
+.classProcess-sp-ul li{
+    font-size:14px;
+    color:#333333;
+    line-height:28px;
+    text-align:left;
+}
+
+/* 悬浮框 */
+.fixed-box{
+    width: 55px;
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    z-index: 10;
+}
+.fixed-box .scrollUp{
+    position: fixed;
+    right: 12px;
+    display: none;
+}
+.fixed-ul li{
+    background: #da121a;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    padding-top: 1px;
+    line-height: 2px;
+    cursor: pointer;
+    font-size: 10px;
+}
+.phone-li{
+    margin-top:7px; position:relative;
+}
+.phone-box{
+    width: 185px;
+    height: 60px;
+    position: absolute;
+    right: 68px;
+    top: 0;
+}
+.fixed-icon{
+    display:block; margin:10px auto; width:18px; height:18px;
+}
+.liHoversBj:hover{
+    background:#EF131D;
+}

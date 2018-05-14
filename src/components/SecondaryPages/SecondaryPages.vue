@@ -93,9 +93,28 @@
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
+            <li class="lihovzan">
+                <a class="page-scroll  hovers" :class="active=='4'?'border_active':''">
+                    <el-dropdown placement="bottom">
+                        <span class="el-dropdown-link" style="outline:none">
+                            智始学院
+                        </span>
+                        <el-dropdown-menu slot="dropdown"  class="dropCsbse">
+                            <el-dropdown-item >
+                                <p class="row text-center"> 
+                                    <span v-on:click="university('1')" class="col-md-4">大咖团队</span>
+                                    <span v-on:click="university('2')" class="col-md-4">上课流程</span>
+                                    <span v-on:click="university('3')" class="col-md-4">公开课程</span>
+                                </p>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>              
+                </a>
+            </li>
+            <li><a class="page-scroll  hovers" @click="yyshic" :class="active=='5'?'border_active':''">应用市场</a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='6'?'border_active':''">关于我们</a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='7'?'border_active':''">控制台</a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -124,18 +143,18 @@
 </div>
 </template>
 <script>
-          $(window).scroll(function(){
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("background","#1D1E20")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("background","none")
-                 }
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("display","block")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("display","block")
-                 }
-          });
+$(window).scroll(function(){
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("background","#1D1E20")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("background","none")
+    }
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("display","block")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("display","block")
+    }
+});
 export default { 
     props:["active"],  
     data() {
@@ -169,6 +188,16 @@ export default {
           
     },
     methods: {
+        university:function(id){
+            //id==1 大咖团队  id==2上课流程 id==3公开课程
+            if(id==1){
+                this.$router.push({path: '/bigcafeTeam'});
+            }else if(id==2){
+                this.$router.push({path: '/classProcess'});
+            }else{
+                this.$router.push({path: '/openCourse'});
+            }
+        },
         
         PlanLj:function(){
              this.$router.push({path: '/registerOne'});
@@ -241,7 +270,7 @@ export default {
          this.$router.push({path: "/appcenterPrice"}) 
       },
       yunshili:function(){
-          this.$router.push({path:"/registerOne"})
+          this.$router.push({path:"/appcenterSearch"})
       },
       yunproxy:function(){
           this.$router.push({path:"/appcenterProxy"})
@@ -251,6 +280,9 @@ export default {
       },
       yusuan:function(){
            this.$router.push({path:"/appcenterRoi"})
+      },
+      yyshic:function(){
+          this.$router.push({path:"/cloudmarket"})
       }
     
     }
@@ -438,7 +470,7 @@ ul,ol li {
   }
 
   .cl {
-      margin-left: 28% !important;
+      margin-left: 14% !important;
   }
   .log {
       margin-right: 20px;
