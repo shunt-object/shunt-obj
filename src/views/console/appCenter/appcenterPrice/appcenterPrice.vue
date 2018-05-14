@@ -1,10 +1,6 @@
 <template>
 <div class="total">
-    <div class="total-header">
-        <span></span>
-        <router-link class="zong" to="/appcenterList">应用市场</router-link>
-        ><p class="comback">云价格计算器</p>
-    </div>
+    <Sed></Sed>
     <div class="appcenterPrice">
         <div class="appcplan-list"> 
             <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
@@ -61,8 +57,12 @@
 </template>
 <script>
 import '../appcenterPrice/appcenterPrice.css'
+import Sed from '../../../../components/SecondaryPages/appCenterstitle'
 export default {
     name:'appcenterPrice',
+    components:{
+        Sed
+    },
     data(){
         return {
             matchBo:{

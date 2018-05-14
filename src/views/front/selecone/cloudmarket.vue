@@ -31,7 +31,7 @@
                                         <div class="seclone-dv">
                                             <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
                                         </div>
-                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTy"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
+                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTys"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
                                     </div>
                             </div>
                          </div>
@@ -40,34 +40,150 @@
              <div>
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover">上云类工具</span><span class="spanshover" style="margin-left:120px;">迁云类工具</span>
+                            <span class="spanshover spanbot" @click="Upclouds">上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud">迁云类工具</span>
                         </div>
                      </div>
              </div>
              <div class="kong"></div>
-             <div id="ProductFeatures" class="go1" >
+             <div id="ProductFeatures" class="go1" v-show="indexIds">
                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">上云工具</span>
                     </div>
-                    <div class="row text-center" style="padding-left:50px;">
+                    <div class="row text-center igs">
                         <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index)">
                                 <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
                                 <div class="kuao-main">{{lis.description}}</div>
-                                <div><div class="kuao-borde"><img :src="lis.picture_url" alt=""></div></div>
+                                <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
                                 <div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>
                                 <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
                         </div>
                     </div>
                  </div>
             </div>
+            <div v-show="indesIds">
+                <div>
+                        <div class="cloimg"><img src="../../../assets/paying-bg.png" alt=""></div>
+                        <div class="clofont"><span>迁云类工具正在开发中…</span></div>
+                </div>
+            </div>
+
+            <!--弹出框-->
+            <el-dialog title="云价格计算器"  :visible.sync="dialogVisible">
+                 <div class="appcenterPrice">
+                        <div class="appcplan-list"> 
+                            <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
+                                <el-form-item label="CPU" prop="cores" class="appcplan-from-item">
+                                    <el-input class="appcplan-input" type="number" min="1" placeholder="请输入CPU" v-model="matchBo.cores" v-on:blur="onblur('cores')"></el-input>
+                                </el-form-item>
+                                <el-form-item label="内存" prop="ram" class="appcplan-from-item">
+                                    <el-input class="appcplan-input" type="number" min="1" placeholder="请输入内存" v-model="matchBo.ram" v-on:blur="onblur('ram')"></el-input>
+                                </el-form-item>
+                                <el-form-item label="云厂商" prop="firm" class="appcenter-from-select">
+                                    <el-select v-model="matchBo.firm" placeholder="请选择云厂商">
+                                        <el-option v-for="item in clouldcompany" :label="item.name" :value="item.id" :key="JSON.stringify(item.id)"></el-option>
+                                    </el-select>
+                                </el-form-item>
+                                <el-form-item label="购买周期" prop="months" class="appcenter-from-select">
+                                    <el-select v-model="matchBo.months" placeholder="请选择购买周期">
+                                        <el-option v-for="item in month" :label="item.name" :value="item.months" :key="JSON.stringify(item.months)"></el-option>
+                                    </el-select>
+                                </el-form-item>
+                                <el-form-item label="区域" prop="region" class="appcenter-from-select">
+                                    <el-select v-model="matchBo.region" placeholder="请选择区域">
+                                        <el-option v-for="item in region" :label="item.region" :value="item.code" :key="JSON.stringify(item.code)"></el-option>
+                                    </el-select>
+                                </el-form-item>
+                                <el-form-item class="appcplan-btn">
+                                    <el-button type="button" class="appcplan-button" v-on:click="submit('matchBo')">查询</el-button>
+                                </el-form-item>
+                            </el-form>
+                        </div>
+                        <div v-if="pricelist.length>0" class="appcheck-canvastitle"><span></span>云实例匹配结果列表</div>
+                        <div class="appcenterPrice-table" v-if="pricelist.length>0">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>云厂商</th>
+                                        <th>产品名称</th>
+                                        <th>区域</th>
+                                        <th>费用参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="it in pricelist">
+                                        <td>{{it.sname}}</td>
+                                        <td>{{it.pname}}</td>
+                                        <td>{{it.region}}</td>
+                                        <td v-if="it.cloudPrice==0">￥原厂在线暂不支持</td>
+                                        <td v-else>¥{{it.cloudPrice}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisible = false" class="enterDing ResourceGroup-lay-btn ResourceGroup-lay-yes">确定</el-button> 
+                    <el-button type="primary" @click="dialogVisible = false" class="ResourceGroup-lay-btn ResourceGroup-lay-del">取消</el-button>   
+                </span>
+            </el-dialog>
+             <div style="background:#ededed;;width:100%;height:auto;">
+                <div class="seleconeMain-footer row">
+                    <div class="container text-left" style="width:60%;padding-left:cd30px;">
+                            <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
+                            <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/1fuwu.png" alt="" style="width:18%;margin-right:10px;" class="imgeys"><span style="font-size:14px;color:#333333">1V1专家服务</span></div>
+                            <div class="col-md-3 col-xs-12 juright" style="margin-top:27px;margin-bottom:20px;padding-right:40px !important;"><img src="../../../assets/90fuwu.png" alt="" style="width:22%;margin-right:10px"><span style="font-size:14px;color:#333333">90秒极速响应</span></div>
+                    </div>
+                </div>
+            </div>
             <Sex></Sex>
     </div>
 </template>
 <style>
+.cloimg{
+    margin-top:100px;   
+}
+.cloimg img{
+    width:13%;
+}
+.clofont{
+    margin-bottom:100px;
+    margin-top:20px;
+}
+.clofont span{
+    font-size:14px;
+    color:#999999;
+}
+.el-dialog{
+    
+    text-align:left;
+    border-radius:4px;
+}
+.ResourceGroup-lay-del{
+    background: #fff !important;
+    border: 1px solid #dcdfe6 !important;
+    color: #606266 !important;
+}
+.ResourceGroup-lay-del:hover{
+    background:#F5F7FA !important;
+}
+.ResourceGroup-lay-yes:hover{
+    background:#EF131D !important;
+}
+.ResourceGroup-lay-btn{
+    padding: 9px 15px !important;
+}
+.enterDing{
+    background:#da121a !important;
+    color:#fff !important;
+    border:none;
+}
 .kuao:hover{
     cursor:pointer;
+   box-shadow:5px 5px 15px 2px #EAEAEA;
+   background:#f4f4f4;
 }
 .dis{
     display:none;
@@ -163,12 +279,7 @@
     width:73px;
     height:46px;
 }
-.spanshover{
-    display:inline-block;
-    padding: 0 10px;
-    font-size:14px;
-    color:#333333;
-}
+
 .kong{
     border:1px solid #d6d6d6;
     width:100%;
@@ -311,9 +422,21 @@
         background:#EF131D;
     }
     @media (min-width: 768px) {
+        .el-dialog{
+            width:30% !important;
+        }
         .juright{
-        text-align:right;
-    }
+            text-align:right;
+        }
+        .igs{
+            padding-left:50px;
+        }
+        .spanshover{
+            display:inline-block;
+            padding: 0 10px;
+            font-size:14px;
+            color:#333333;
+        }
     .juzhong{
         text-align:center;
     }
@@ -359,6 +482,17 @@
         }
     }
     @media (max-width: 768px) {
+        .el-dialog{
+            width:96% !important;
+        } 
+        .spanshover{
+            display:inline-block;
+            font-size:14px;
+            color:#333333;
+        }
+        .el-message-box{
+            width:280px !important;
+        }
           .juright,.juzhong{
                 text-align:left !important;
             }
@@ -556,13 +690,14 @@
 </style>
 
 <script>
+
     $(document).ready(function(){ 
                         // $(".rightBs ul li").find("a").click(function(){
                         //     // $(".rightBs ul li").css("background","#d8d8d8");
                         //     // $(this).css("background","#da121a");
                         //     alert(1)
                         // });
-                    
+                  
                      $(window).scroll(function(){
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
@@ -620,6 +755,8 @@
 
               })
         import '../selecone/bais.css'
+        import '../../console/app/resourceGroup/resourceGroup.css'
+        import '../../console/appCenter/appcenterPrice/appcenterPrice.css'
         import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
         import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
      export default{
@@ -634,19 +771,129 @@
                Asd:false,
                phoneBox:false,
                activeName:"first",
-               list:[]
+               list:[],
+               dialogVisible: false,
+                matchBo:{
+                    cores:'',
+                    ram:'',
+                    firm:'',
+                    region:'',
+                    months:''
+                },
+                indexIds:true,
+                indesIds:false,
+            match:{
+                "appMatchBo": {
+                    "cores": '',
+                    "ram": ''
+                },
+                "priceParamBo": {
+                    "buyType": 1,//包年包月
+                    "month": '',//购买周期
+                    "paymentType": 1,//预付费
+                    "regions": [],//区域
+                    "serverId": ''//云厂商
+                }
+            },
+            month:[
+                {name:'1年',months:'12'},
+                {name:'2年',months:'24'},
+                {name:'3年',months:'36'},
+                {name:'4年',months:'48'},
+                {name:'5年',months:'60'},
+            ],
+            rules:{
+                ram: [
+                    { required: true, message: '请输入内存容量', trigger: 'blur,change' },
+                ],
+                cores: [
+                    { required: true, message: '请输入CPU核数', trigger: 'blur,change' },
+                ],
+                firm:[
+                    { required: true, message: '请选择云厂商', trigger: 'blur,change' },
+                ],
+                region:[
+                    { required: true, message: '请选择区域', trigger: 'blur,change' },
+                ],
+                months:[
+                    { required: true, message: '请选择购买周期', trigger: 'blur,change' },
+                ]
+            },
+            clouldcompany:[],
+            region:[],
+            pricelist:[]
             }
         },
         methods:{
+            Upclouds:function(){
+                this.indexIds = true;
+                this.indesIds = false;
+                $(".spanbos").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+            },
+            moneyCloud:function(){
+                this.indesIds = true;
+                this.indexIds = false;
+                $(".spanbot").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbos").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+            },
+            onblur:function(dom){
+                if(dom=='cores'){
+                    this.matchBo.cores<0?this.matchBo.cores=1:this.matchBo.cores=this.matchBo.cores;
+                }else if(dom=='ram'){
+                    this.matchBo.ram<0?this.matchBo.ram=1:this.matchBo.ram=this.matchBo.ram;
+                }
+            },
+            getCloudlist:function(){
+                this.$this.get('/broker/price/suppliers/list').then((res)=>{
+                // console.log(res.data.data);
+                    for(let i=0;i<res.data.data.length;i++){                    
+                        for(let n in res.data.data[i]){
+                            this.clouldcompany.push({id:n,name:res.data.data[i][n]})
+                        }
+                    }
+                }).catch((error)=>{})
+            },
+            getRegion:function(id){
+                this.$http.get('/broker/price/region/'+id).then((response)=>{
+                    //console.log('----',response.data.data);
+                    if(id==-1){
+                        this.getRegion(response.data.data[0].id);
+                    }else{
+                        this.region = response.data.data;
+                    }                
+                }).catch((error)=>{
+                })
+            },
+            submit:function(value){
+                this.$refs[value].validate((valid) => {
+                    if (valid) {
+                        this.match.appMatchBo.cores = this.matchBo.cores;
+                        this.match.appMatchBo.ram = this.matchBo.ram;
+                        this.match.priceParamBo.month = this.matchBo.months;
+                        this.match.priceParamBo.regions.push(this.matchBo.region);
+                        this.match.priceParamBo.serverId = this.matchBo.firm;
+                        this.$this.post('/broker/app/math/calc/price',JSON.stringify(this.match)).then((response)=>{
+                            //console.log('---',response.data);
+                            this.pricelist = response.data.data;
+                        }).catch((error)=>{})
+                    } else {
+                        return false;
+                    }
+                });
+            },
             dianHover:function(e){
+              
               var sess =  sessionStorage.getItem("account");
               if(e==0){
-                    alert("弹框")
+                    
+                    this.dialogVisible = true;
+                  
               }else{
                   if(sess){
-                     this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-                            confirmButtonText: '确定',
-                            cancelButtonText: '取消',
+                     this.$confirm('您已成功添加到控制台应用市场', '提示', {
+                            confirmButtonText: '立即体验',
+                            cancelButtonText: '继续添加',
                             confirmButtonClass:'lay-btn-red',
                             cancelButtonClass:'lay-cancel-btn',
                             type: 'warning',
@@ -656,7 +903,7 @@
                                 
                             });
                   }else{
-                       alert("未登录")  
+                       this.$router.push({path:'/login'});
                   }
               }
 
@@ -688,8 +935,11 @@
              },
         },
         mounted:function(){
+            this.getCloudlist();
+            this.getRegion(-1);
             this.lister();
               $(document).ready(function(){ 
+                     $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
                      $(window).scroll(function(){
                         if($(this).scrollTop() > 550){
                             $('.scrollUp').css("display","block")
@@ -702,8 +952,21 @@
                         return false;
                      });
 
-              
+                    $.fn.extend({  //封装animate方法
+                        animateCss: function (animationName) {
+                            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                            $(this).removeClass('animated ' + animationName);
+                            });
+                        }           
+                    }); 
                        
+                    $('.kuao').hover(function(){
+                           $(this).children().find("img").animateCss('flip');
+                        },function(){
+                            $(this).children().find("img").removeClass("flip")
+
+                    });
               })
     }
 }
