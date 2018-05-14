@@ -51,10 +51,10 @@
                        <span class="redLine"></span><span class="redlasttitle">上云工具</span>
                     </div>
                     <div class="row text-center igs">
-                        <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index)">
+                        <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index,lis.id)">
                                 <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
-                                <div class="kuao-main">{{lis.description}}</div>
+                                <div class="kuao-main text-center">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
                                 <div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>
                                 <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
@@ -254,7 +254,7 @@
 .kuao-main{
     margin-top:16px;
     padding:0 5px; 
-    height:92px;
+    height:80px;
     font-size:12px;
     color:#999999;
     line-height:24px;
@@ -882,7 +882,7 @@
                     }
                 });
             },
-            dianHover:function(e){
+            dianHover:function(e,a){
               
               var sess =  sessionStorage.getItem("account");
               if(e==0){
@@ -891,17 +891,21 @@
                   
               }else{
                   if(sess){
-                     this.$confirm('您已成功添加到控制台应用市场', '提示', {
-                            confirmButtonText: '立即体验',
-                            cancelButtonText: '继续添加',
-                            confirmButtonClass:'lay-btn-red',
-                            cancelButtonClass:'lay-cancel-btn',
-                            type: 'warning',
-                            }).then(() => {
-                                this.$router.push({path:'/appcenterList'});
-                            }).catch(() => {
-                                
-                            });
+                        this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
+                            this.$confirm('您已成功添加到控制台中的“应用市场”', '提示', {
+                                confirmButtonText: '立即体验',
+                                cancelButtonText: '继续添加',
+                                confirmButtonClass:'lay-btn-red',
+                                cancelButtonClass:'lay-cancel-btn',
+                                type: 'warning',
+                                }).then(() => {
+                                    this.$router.push({path:'/appcenterList'});
+                                }).catch(() => {
+                                    
+                                });
+                        }).catch((error)=>{
+                        });
+
                   }else{
                        this.$router.push({path:'/login'});
                   }

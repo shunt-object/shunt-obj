@@ -3,7 +3,7 @@
     <div class="total-header">
             <span></span>
             <router-link class="zong" to="/appcenterList">应用市场</router-link>
-            ><p class="comback">云眼</p>
+            ><p class="comback">云眼查</p>
     </div>
 <div class="datadecisions">
     <div class="">

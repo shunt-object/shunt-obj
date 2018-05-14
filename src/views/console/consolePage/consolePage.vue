@@ -76,6 +76,11 @@
                         <i class="iconfont icon-dianping"></i>意见反馈
                     </a>
                 </li>
+                <li id="header_notification_bar" class="dropdown" v-on:click="appcenterList()">
+                    <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
+                        <i class="iconfont icon-yingyong01" style="font-size:13px"></i>应用市场
+                    </a>
+                </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="cart()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <i class="iconfont icon-gouwuche"></i>购物车
@@ -129,12 +134,12 @@
                         <li v-on:click="sus()"><a href="javascript:;">数据洞察</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu" v-if="utype!=3&&utype!=4" v-on:click="appcenterList()">
+                <!--<li class="sub-menu" v-if="utype!=3&&utype!=4" v-on:click="appcenterList()">
                     <a class="outhover" href="javascript:;">
-                        <img src="../../../assets/appcenter.png" class="sub-bigimg" alt=""><!-- 8a8a8a-->
+                        <img src="../../../assets/appcenter.png" class="sub-bigimg" alt="">
                         <span>应用市场</span>
                     </a>
-                </li>
+                </li>-->
                   <li class="sub-menu" v-show="istrue">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->

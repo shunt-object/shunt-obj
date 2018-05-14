@@ -10,11 +10,18 @@
                 <p class="text-left footer-list hoverRed"><img src="../../assets/dizhiicon.svg" alt="" style="width:9px;height:10px">&nbsp江苏无锡惠山区信息港</p>
                 </div>
                 
-                <div class="col-xs-12 col-sm-4 obj-what-dv footer-ts pkd">
+                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts pkd">
                 <p class=" footer-jx text-left">产品与服务</p>
                 <p class="text-left footer-list hoverRed"><span @click="yungh">云规划</span><span style="margin-left:10px" @click="yunsj">云设计</span></p>
                 <p class="text-left footer-list hoverRed"><span @click="cloundSelect">云选型</span><span style="margin-left:10px" @click="yungm">云购买</span></p>
                 <p class="text-left footer-list hoverRed"><span @click="cloundCe">云实测</span><span  style="margin-left:10px" @click="cloundsj">Prof. 吴数据</span></p>
+                <p class="text-left footer-list hoverRed"></p>
+                </div>
+                <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pkd">
+                <p class=" footer-jx text-left">智识学院</p>
+                <p class="text-left footer-list hoverRed"><span @click="yungh">大咖团队</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">上课流程</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCe">公开课程</span></p>
                 <p class="text-left footer-list hoverRed"></p>
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
@@ -23,7 +30,7 @@
                 <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
                <!-- <p class="text-left footer-list hoverReds" @click="yijianlook">意见反馈</p> -->
                 </div>
-                <div class="col-xs-12 col-sm-3 obj-what-dv footer-ts footer-left pagd">
+                <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts footer-left pagd">
                     <div class="lerf">
                 <p class="footer-jx">CloudBroker</p>
                     <div class="footer-ke">
@@ -132,18 +139,14 @@ ul,ol li {
 }
 
 @media (min-width: 768px) {
-.pkd{
-    padding-left:8%;
-}
+
 .pag{
     padding-left:20px;
 }
 .pad{
     padding-left:3%;
 }   
-.pagd{
-    padding-left:5%;
-}
+
 
 .lerf{
     border-left:1px solid #2e383e;
