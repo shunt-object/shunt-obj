@@ -562,11 +562,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;

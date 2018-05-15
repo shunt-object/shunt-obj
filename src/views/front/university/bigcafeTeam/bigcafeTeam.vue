@@ -284,6 +284,12 @@ export default {
                     reason: "",
                     remark: ""
                 };
+                this.$message({
+                    message: '您已预约成功。',
+                    customClass:'lay-msg',
+                    iconClass:'el-icon-success',
+                    duration:1000
+                });
             }).catch((error)=> {
                 console.log(error);
             });
@@ -343,7 +349,12 @@ export default {
             this.$this.post('/broker/sms/send/code/bind',str).then((response)=>{
                 //console.log('----',response.data.code);
                 if(response.data.code==1){
-                    this.$message('验证码发送成功');
+                    this.$message({
+                        message: '验证码已成功发送到您的手机，请注意查收。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                     let self = this;
                     let clear = setInterval(function(){
                         self.countI--;
@@ -377,7 +388,12 @@ export default {
                     this.information.phone = this.phone;
                     let string = JSON.stringify(this.information);
                     sessionStorage.setItem("account",string);
-                    alert('您已成功绑定手机');
+                    this.$message({
+                        message: '您已成功绑定手机。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{
             })

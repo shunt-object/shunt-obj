@@ -44,7 +44,7 @@
             <ul class="nav top-menu">
                 <li class="dropdown" v-on:click="university()">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover">
-                        <i class="iconfont icon-kefu"></i>智识学院
+                        <i class="iconfont icon-daka1"></i>智识学院
                     </a>
                 </li>
                 <li class="dropdown">

@@ -69,7 +69,7 @@
             </div>
 
             <!--弹出框-->
-            <el-dialog title="云价格计算器"  :visible.sync="dialogVisible">
+            <el-dialog title="云价格计算器"  :visible.sync="dialogVisible" class="cloudmarket-dialog">
                  <div class="appcenterPrice">
                         <div class="appcplan-list"> 
                             <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
@@ -390,11 +390,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;
@@ -438,7 +439,7 @@
         background:#EF131D;
     }
     @media (min-width: 768px) {
-        .el-dialog{
+        .cloudmarket-dialog .el-dialog{
             width:30% !important;
         }
         .juright{
@@ -498,7 +499,7 @@
         }
     }
     @media (max-width: 768px) {
-        .el-dialog{
+        .cloudmarket-dialog .el-dialog{
             width:96% !important;
         } 
         .spanshover{

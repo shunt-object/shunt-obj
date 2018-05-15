@@ -147,6 +147,8 @@ export default{
                                 that.$router.push({path:'/openCourse'}); 
                             }else if(that.isuniveristy=='cloudmarket'){
                                 that.$router.push({path:'/cloudmarket'}); 
+                            }else if(that.isuniveristy=='teamDetail'){
+                                that.$router.push({path:'/teamDetail'}); 
                             }else{
                                 if(that.url==''){
                                     that.$router.push({path:'/consolePage'}); 
@@ -232,7 +234,9 @@ export default{
                         if(this.isuniveristy=='openCourse'){
                             that.$router.push({path:'/openCourse'}); 
                         }else if(that.isuniveristy=='cloudmarket'){
-                                that.$router.push({path:'/cloudmarket'}); 
+                            that.$router.push({path:'/cloudmarket'}); 
+                        }else if(that.isuniveristy=='teamDetail'){
+                            that.$router.push({path:'/teamDetail'}); 
                         }else{
                             if(this.url==''){
                                 this.$router.push({path:'/consolePage'}); 

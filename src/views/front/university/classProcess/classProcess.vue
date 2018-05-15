@@ -29,16 +29,16 @@
     <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
             <div class="col-md-6 col-xs-6 classProcess-titles-left">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-team')"><i class="iconfont icon-mn_gongneng"></i> 参加培训设备要求</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#shebei')"><i class="iconfont icon-shebei"></i> 参加培训设备要求</a>
             </div>
             <div class="col-md-6 col-xs-6 classProcess-titles-right">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-shenpiliucheng"></i> 预约流程</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#classProcess-lc')"><i class="iconfont icon-shenpiliucheng"></i> 预约流程</a>
             </div>
         </div>
     </div>
     <div class="classProcess-line"></div>
     <!-- 参加培训设备要求 -->
-    <div class="classProcess-demand container">
+    <div class="classProcess-demand container" id="shebei">
         <div class="classProcess-demand-title">
             <span class="classDemand-title-line"></span>
             <span class="classDemand-title-desc">参加培训设备要求</span>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="classProcess-desc">台式电脑+摄像头+头戴耳麦</div>
             </div>
-            <div class="col-md-3 classProcess-bor">
+            <div class="col-md-3">
                 <div class="classProcess-img">
                     <img src="../../../../assets/university/classProcess-yq2.png" alt="">
                 </div>
@@ -71,7 +71,7 @@
         </div>
     </div>
     <!-- 预约流程 -->
-    <div class="classProcess-demand container">
+    <div class="classProcess-demand container" id="classProcess-lc">
         <div class="classProcess-demand-title">
             <span class="classDemand-title-line"></span>
             <span class="classDemand-title-desc">预约流程</span>
@@ -124,7 +124,7 @@
                     <div class="col-md-5">
                         <div class="classProcess-yue-tit" style="line-height:31px;">
                             进入在线直播空间开始上课
-                            <div class="classProcess-yue-tits">为您带来最新的、最专业的和最实用的课程培训</div>
+                            <div class="classProcess-yue-tits">为您带来最新的、最专业的和最实用的课程培训。</div>
                         </div>
                         <ul class="classProcess-sp-ul">
                             <li>1.	专业技术支持您顺利进入在线直播空间；</li>
@@ -133,7 +133,7 @@
                         </ul>
                     </div>
                     <div class="col-md-4" style="padding-left:68px;">
-                        <img src="../../../../assets/university/shipin.png" alt="" style="max-width:100%;">
+                        <img src="../../../../assets/university/shipin.png" alt="" class="phone-img">
                     </div>
                 </div>
             </div>

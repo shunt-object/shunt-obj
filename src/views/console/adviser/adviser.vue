@@ -7,7 +7,7 @@
 </div>
 <div class="adviser" style="background:#fff;">
     <div class="adviser-title">
-        <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>预约信息
+        <i class="iconfont icon-xinxi1 main-color" style="color:#da121a"></i>预约信息
     </div>
     <div class="adviser-select">
         <div class="adviser-sele-list" :class="isclass==true?'adviser-sele-on':''">
@@ -23,7 +23,7 @@
                 <tr>
                     <th>已预约顾问</th>
                     <th>预约时间</th>
-                    <th>预约是由</th>
+                    <th>预约事由</th>
                     <th>备注</th>
                     <th>操作</th>
                 </tr>
@@ -64,7 +64,7 @@
         </el-pagination>
     </div>
     <div class="adviser-title">
-        <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>智识学院
+        <i class="iconfont icon-daka1 main-color" style="color:#da121a"></i>智识学院
     </div>
     <div class="adviser-cafe row">
         <div class="col-md-4" v-for="item in cafelist">
@@ -220,6 +220,12 @@ export default {
                 if(response.data.code==1){
                     this.updatedialog = false;
                     this.getprof();
+                    this.$message({
+                        message: '您已修改成功。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{})
         },
@@ -244,6 +250,12 @@ export default {
                 that.$this.post('/broker/apponit/updateCourseApt/repeal',JSON.stringify(obj)).then((response)=>{
                     if(response.data.code==1){
                         that.getprof();
+                        this.$message({
+                            message: '删除成功。',
+                            customClass:'lay-msg',
+                            iconClass:'el-icon-success',
+                            duration:1000
+                        });
                     }
                 }).catch((error)=>{})
             }).catch(() => {});  
@@ -264,6 +276,12 @@ export default {
                 that.$this.post('/broker/apponit/updateProfApt/repeal',JSON.stringify(obj)).then((response)=>{
                     if(response.data.code==1){
                         that.getprof();
+                        this.$message({
+                            message: '撤销成功。',
+                            customClass:'lay-msg',
+                            iconClass:'el-icon-success',
+                            duration:1000
+                        });
                     }
                 }).catch((error)=>{})
             }).catch(() => {});  

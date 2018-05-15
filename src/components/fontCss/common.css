@@ -60,6 +60,9 @@
     color:#f7a72c !important;
     margin-right:5px;
 }
+.lay-msg{
+    top:100px !important;
+}
 .el-message-box__status{
     top:20px !important;
 }

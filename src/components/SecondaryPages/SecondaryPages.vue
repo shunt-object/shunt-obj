@@ -105,7 +105,7 @@
                 <a class="page-scroll  hovers" :class="active=='4'?'border_active':''">
                     <el-dropdown placement="bottom">
                         <span class="el-dropdown-link" style="outline:none">
-                            智始学院
+                            智识学院
                         </span>
                         <el-dropdown-menu slot="dropdown"  class="dropCsbse">
                             <el-dropdown-item >
@@ -174,6 +174,12 @@ export default {
       }
     },
     mounted: function() {
+        let readytop = $(window).scrollTop();
+        if(readytop>50){
+            $('.navbar').css("background","#1D1E20");
+        }else if($(this).scrollTop() < 50){
+            $('.navbar').css("background","none")
+        }
                          $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){

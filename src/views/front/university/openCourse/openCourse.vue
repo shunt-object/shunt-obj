@@ -15,7 +15,7 @@
     <div class="seleconeMain-banners  row openCourse-banner">
         <div class="container">
             <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">鲸鱼学院</span></p>
+                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">智识学院</span></p>
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">为您开始五彩缤纷的云世界</h3>
                 </div>
@@ -29,10 +29,10 @@
     <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
             <div class="col-md-6 col-xs-6 openCourse-titles-left">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-outline')"><i class="iconfont icon-mn_gongneng"></i> 公开课程大纲</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-outline')"><i class="iconfont icon-yaodian"></i> 公开课程大纲</a>
             </div>
             <div class="col-md-6 col-xs-6 openCourse-titles-right">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-class')"><i class="iconfont icon-shenpiliucheng"></i> 预约课程</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-class')"><i class="iconfont icon-yuyue"></i> 预约课程</a>
             </div>
         </div>
     </div>
@@ -54,25 +54,25 @@
             </div>
             <div class="col-md-4">
                 <div class="openCourse-outline-list">
-                    <img src="../../../../assets/university/openCourse-outline1.png" alt="">
+                    <img src="../../../../assets/university/openCourse-outline2.png" alt="">
                     <div class="openCourse-outline-desc">云计算技术及行业应用</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="openCourse-outline-list">
-                    <img src="../../../../assets/university/openCourse-outline1.png" alt="">
+                    <img src="../../../../assets/university/openCourse-outline3.png" alt="">
                     <div class="openCourse-outline-desc">企业迁云的方法论</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="openCourse-outline-list" style="margin-bottom:0 !important;">
-                    <img src="../../../../assets/university/openCourse-outline1.png" alt="">
+                    <img src="../../../../assets/university/openCourse-outline4.png" alt="">
                     <div class="openCourse-outline-desc">雾计算技术及行业应用</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="openCourse-outline-list" style="margin-bottom:0 !important;">
-                    <img src="../../../../assets/university/openCourse-outline1.png" alt="">
+                    <img src="../../../../assets/university/openCourse-outline5.png" alt="">
                     <div class="openCourse-outline-desc">云计算发展趋势和展望</div>
                 </div>
             </div>
@@ -89,7 +89,9 @@
                 <button class="openCourse-check-btn">公开课程</button>
             </div>
             <div class="openCourse-select">
-                筛选Level：<select name="" id=""></select>
+                筛选Level：<select v-model="levelModel" v-on:change="selectLevel()" class="level-input">
+                    <option v-for="item in levelList" :value="item.value">{{item.name}}</option>
+                </select>
             </div>
             <div class="clear"></div>
         </div>
@@ -101,9 +103,9 @@
             <div class="col-md-8">
                 <div class="openCourse-class-name">{{item.cname}}</div>
                 <div class="openCourse-class-honour">
-                    <span><i class="iconfont icon-mn_gongneng"></i>{{item.realname}}</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>Level {{item.level}}</span>
-                    <span><i class="iconfont icon-mn_gongneng"></i>{{item.begin_time}}   未开始</span>
+                    <span><i class="iconfont icon-tubiao-"></i>{{item.realname}}</span>
+                    <span><i class="iconfont icon-xunzhang"></i>Level {{item.level}}</span>
+                    <span><i class="iconfont icon-shijian"></i>{{item.begin_time}}   未开始</span>
                 </div>
                 <div class="openCourse-class-desc">{{item.desc}}</div>
                 <button class="openCourse-class-yu" v-on:click="yuyue(item)">我要预约</button>
@@ -112,7 +114,7 @@
     </div>
     <div class="adviser-page">
         <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(total)" @current-change="handleCurrentChange">
-</el-pagination>
+        </el-pagination>
     </div>
     <div style="background:#ededed;;width:100%;height:auto;">
         <div class="seleconeMain-footer row">
@@ -161,7 +163,7 @@
             </div>
             <div class="opendia-btn">
                 <button class="opendia-btn-save" v-on:click="fixsubmit()">提交</button>
-                <button class="opendia-btn-cel">再想想</button>
+                <button class="opendia-btn-cel" v-on:click="cancel()">再想想</button>
             </div>   
         </div>         
     </el-dialog>
@@ -203,7 +205,7 @@
             </div>
             <div class="opendia-btn">
                 <button class="opendia-btn-save" v-on:click="submit()">提交</button>
-                <button class="opendia-btn-cel">再想想</button>
+                <button class="opendia-btn-cel" v-on:click="cancel2()">再想想</button>
             </div>   
         </div>         
     </el-dialog>
@@ -278,7 +280,9 @@ export default {
             teacher:'',
             classMain:'',
             classlist:[],
-            total:''
+            total:'',
+            levelList:[{name:'不限',value:''}],
+            levelModel:''
         }
     },
     mounted:function(){
@@ -299,13 +303,39 @@ export default {
             }
             //console.log('----',$(this).scrollTop());
          })
-         this.getlist(this.datastr);
+         this.getlist();
          this.getcafe();
+         this.getLevel();
     },
     methods:{
+        selectLevel:function(){
+            if(this.levelModel!=''){
+                let arr = this.levelModel.split('-');
+                this.datastr.leavel = arr[arr.length-1];
+            }else{
+                this.datastr.leavel = this.levelModel;
+            }
+            this.getlist();
+        },
+        getLevel:function(){
+            ///broker/prop/typedata/-1/qq
+            this.$this.get('/broker/prop/typedata/tp-level/-1').then((response)=>{
+                for(let i=0;i<response.data.data.length;i++){
+                    this.levelList.push(response.data.data[i]);
+                }
+                this.datastr.leavel = '';
+            }).catch((error)=>{
+            })
+        },
+        cancel:function(){
+            this.dialogclass = false;
+        },
+        cancel2:function(){
+            this.classchage = false;
+        },
         handleCurrentChange:function(val){
             this.datastr.pageReq.page = val-1;
-            this.getlist(this.datastr);
+            this.getlist();
         },
         getcafe:function(){
             this.$this.get('/broker/prof/getList').then((response)=>{
@@ -333,6 +363,12 @@ export default {
             this.$this.post('/broker/apponit/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
                 if(response.data.code==1){
                     //预约成功
+                    this.$message({
+                        message: '您已预约成功。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{
             })
@@ -388,7 +424,12 @@ export default {
             this.$this.post('/broker/sms/send/code/bind',str).then((response)=>{
                 //console.log('----',response.data.code);
                 if(response.data.code==1){
-                    this.$message('验证码发送成功');
+                    this.$message({
+                        message: '验证码已成功发送到您的手机，请注意查收。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                     let self = this;
                     let clear = setInterval(function(){
                         self.countI--;
@@ -422,13 +463,18 @@ export default {
                     this.information.phone = this.phone;
                     let string = JSON.stringify(this.information);
                     sessionStorage.setItem("account",string);
-                    alert('您已成功绑定手机');
+                    this.$message({
+                        message: '您已成功绑定手机。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{
             })
         },
-        getlist:function(datastr){
-            let str = JSON.stringify(datastr);
+        getlist:function(){
+            let str = JSON.stringify(this.datastr);
             this.$this.post('/broker/prof/courseList',str).then((response)=>{
                 //console.log('---',response.data);
                 this.list = response.data.data.content;
@@ -458,6 +504,12 @@ export default {
             this.$this.post('/broker/apponit/saveApponitCourse',JSON.stringify(this.fixclass)).then((response)=>{
                 if(response.data.code==1){
                     //预约成功
+                    this.$message({
+                        message: '您已预约成功。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{
             })
