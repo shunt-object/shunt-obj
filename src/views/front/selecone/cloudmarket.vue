@@ -12,26 +12,18 @@
             
             <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
         </div>
-          <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
-            <div class=" fixshow fis container">
-                     <div class="col-md-2 col-xs-2"><a href="#ProductFeatures"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#QuickStart"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#qualification"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#ContactUs"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
-            </div>
-        </div>
+          
             <Sec active="5"></Sec>
             <div class="cloundcompare">
                     <div class="cloundbannerser">
                         <div class="container">
                             <div class="container" >
-                                    <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12">
-                                        <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">打造全新云服务模式，0元助力企业上云</span></p>
+                                    <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12 text-left">
+                                        <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#ffffff">打造全新云服务模式，0元助力企业上云</span></p>
                                         <div class="seclone-dv">
-                                            <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
+                                            <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:left;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
                                         </div>
-                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTys"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
+                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTys"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
                                     </div>
                             </div>
                          </div>
@@ -65,7 +57,7 @@
             <div v-show="indesIds">
                 <div>
                         <div class="cloimg"><img src="../../../assets/paying-bg.png" alt=""></div>
-                        <div class="clofont"><span>迁云类工具正在开发中…</span></div>
+                        <div class="clofont"><span>迁云类工具正在开发中，敬请您的期待...</span></div>
                 </div>
             </div>
 
@@ -265,7 +257,7 @@
     box-shadow:0 0 1px 2px rgba(236,236,236,0.50);
     border-radius:2px;
     width:295px;
-    height:339px;
+    height:315px;
 }
 .kuao-borde{
     background:#f9f9f9;
@@ -429,7 +421,7 @@
             text-align:right;
         }
         .igs{
-            padding-left:50px;
+            padding-left:80px;
         }
         .spanshover{
             display:inline-block;

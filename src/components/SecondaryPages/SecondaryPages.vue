@@ -56,7 +56,7 @@
                                             <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">公开课程</span>
                                         </div>
                                     </el-dropdown-item>
-                                     <el-dropdown-item class="text-left" style="margin-top:20px">
+                                     <!--<el-dropdown-item class="text-left" style="margin-top:20px">
                                         <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <span><img src="../../assets/homepage/new.png" alt="" style="width:7%;margin-top:-10px !important"></span></div>
                                         <div class="row">
                                             <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
@@ -66,7 +66,7 @@
                                             <span class=" gms text-left" style="margin-left:10px;" @click="yusuan">预算收益分析助手</span> 
                                              <span class=" gms " style="margin-left:10px;" @click="yunshili">云眼查</span>
                                         </div>
-                                    </el-dropdown-item>
+                                    </el-dropdown-item>-->
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>

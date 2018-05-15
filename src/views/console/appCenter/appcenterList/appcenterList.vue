@@ -12,13 +12,19 @@
                 </div>
                 收益度和亲和度
             </div> -->
-            <div class="appcenterlist-item" v-on:click="goPrice()">
+            <div class="appcenterlist-item" v-on:click="goPrice(lis.id)" v-for="(lis,index) in yylist">
                 <div class="appcenterlist-item-img appcenterlist-item-img1">
-                    <img src="../../../../assets/appcenter/wechartprice.png" alt="">
+                    <img :src="lis.picture_url" alt="">
                 </div>
-                云价格计算器
+                {{lis.app_name}}
             </div>
             <div class="appcenterlist-item">
+                <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goCheck()">
+                    <img src="../../../../assets/er-icon/jia.png" alt="">
+                </div>
+                添加更多
+            </div>
+            <!--<div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goRoi()">
                     <img src="../../../../assets/appcenter/wechartshouyi.png" alt="">
                 </div>
@@ -36,12 +42,6 @@
                 </div>
                 云匹配度分析器
             </div>
-            <!-- <div class="appcenterlist-item">
-                <div class="appcenterlist-item-img appcenterlist-item-img2">
-                    <img src="../../../../assets/appcenter/appcen-compare.png" alt="">
-                </div>
-                云选型
-            </div> -->
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img2" v-on:click="goSeacher">
                     <img src="../../../../assets/homepage/osa.png" alt="">
@@ -59,7 +59,7 @@
                     <img src="../../../../assets/appcenter/wechartseye3.png" alt="">
                 </div>
                 多云价格优选分析助手
-            </div>
+            </div>-->
             <div class="clear"></div>
         </div>
         
@@ -70,31 +70,55 @@
 import '../appcenterList/appcenterList.css';
 export default{
     name:'appcenterList',
+    data(){
+        return  {
+            yylist:[]
+        }
+    },
     methods:{
         goPlan:function(){
             this.$router.push({path:'/appcenterPlan'});
         },
-        goPrice:function(){
-            this.$router.push({path:'/appcenterPrice'});
-        },
-        goRoi:function(){
-            this.$router.push({path:'/appcenterRoi'});
-        },
-        goProxy:function(){
-            this.$router.push({path:'/appcenterProxy'});
-        },
         goCheck:function(){
+            this.$router.push({path:'/cloudmarket'});
+        },
+        goPrice:function(e){
+          
+            switch (e)
+            {
+            case 1:
+            this.$router.push({path:'/appcenterPrice'});
+            break;
+            case 2:
+            this.$router.push({path:'/appcenterRoi'});
+            break;
+            case 3:
+            this.$router.push({path:'/appcenterProxy'});
+            break;
+            case 4:
             this.$router.push({path:'/appcenterCheck'});
-        },
-        goSeacher:function(){
+            break;
+            case 5:
             this.$router.push({path:'/appcenterSearch'});
-        },
-        goEye:function(){
-             this.$router.push({path:'/appcenterCloudEye'});
-        },
-        gomoney:function(){
+            break;
+            case 6:
+            this.$router.push({path:'/appcenterCloudEye'});
+            break;
+            case 7:
             this.$router.push({path:"/appcenterOptimization"})
+            break;
+            }
+           
+        },
+       
+        getList:function(){
+            this.$this.get('/broker/market/user/app/list').then((res)=>{
+                this.yylist = res.data;
+            }).catch((error)=>{})
         }
+    },
+    mounted:function(){
+            this.getList();
     }
 }
 </script>
