@@ -960,7 +960,7 @@ ul,ol li {
     margin-top: 30px;
 }
 .lunmain {
-       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 600px; width: 100%; height: 600px; 
+       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 600px; 
 }
 .lun2{
    background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 

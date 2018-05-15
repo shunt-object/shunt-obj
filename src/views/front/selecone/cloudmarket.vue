@@ -148,12 +148,12 @@
     z-index:999999999;
 }
 
-.el-message-box__header{
-    background:#da121a !important;
-    border:1px solid #da121a !important;
-}
+
 .el-message-box__title span{
-    color:#fff !important;
+    color:#000 !important;
+}
+.el-message-box__headerbtn .el-message-box__close{
+    color:#da121a !important;
 }
 .el-message-box__headerbtn{
     top:8 !important
@@ -171,6 +171,7 @@
 .clofont span{
     font-size:14px;
     color:#999999;
+    padding-left:10px;
 }
 .el-dialog{
     
@@ -506,6 +507,14 @@
             display:inline-block;
             font-size:14px;
             color:#333333;
+
+        }
+        .spanbot{
+            float:left;
+        }
+        .spanbos{
+            float:right;
+            margin-left:0 !important;
         }
         .el-message-box{
             width:280px !important;
