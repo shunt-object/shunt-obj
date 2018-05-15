@@ -230,8 +230,6 @@ export default {
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
         this.date = new Date();
-        this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
-        this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
         let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
@@ -274,6 +272,8 @@ export default {
             }else{
                 this.apponitProf.pid = this.checkedItem.userProfessor.id;
             }
+            this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
+            this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
             this.dialogteam = false;
             this.$this.post('/broker/apponit/saveApponitProf',JSON.stringify(this.apponitProf)).then((response)=> {
                 //console.log(response);
