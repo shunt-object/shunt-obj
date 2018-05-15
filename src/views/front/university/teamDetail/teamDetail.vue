@@ -15,7 +15,7 @@
     <div class="seleconeMain-banners  row teamDetail-banner">
         <div class="container">
             <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">鲸鱼学院</span></p>
+                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">智识学院</span></p>
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">为您开始五彩缤纷的云世界</h3>
                 </div>
