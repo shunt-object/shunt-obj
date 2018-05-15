@@ -51,22 +51,22 @@
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
                                         <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">智识学院 <span><img src="../../assets/er-icon/beat.png" alt="" style="width:7%;margin-top:-10px !important"></span></div>
                                         <div class="row">
-                                            <span class="col-md-1 gms " @click="yunjia">大咖团队</span> 
-                                            <span class="col-md-1 gms " @click="yunshili">上课流程</span>
-                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">公开课程</span>
+                                            <span class="col-md-1 gms " @click="yundaka">大咖团队</span> 
+                                            <span class="col-md-1 gms " @click="liuch">上课流程</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="gkk">公开课程</span>
                                         </div>
                                     </el-dropdown-item>
-                                     <!--<el-dropdown-item class="text-left" style="margin-top:20px">
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
                                         <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <span><img src="../../assets/homepage/new.png" alt="" style="width:7%;margin-top:-10px !important"></span></div>
                                         <div class="row">
                                             <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
-                                            <span class="col-md-1 gms " @click="yunshili">云实例快搜器</span>
-                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">云代理查询助手</span>
-                                            <span class="col-md-1 gms " @click="yunpei">云匹配度分析器</span> 
-                                            <span class=" gms text-left" style="margin-left:10px;" @click="yusuan">预算收益分析助手</span> 
-                                             <span class=" gms " style="margin-left:10px;" @click="yunshili">云眼查</span>
+                                            <span class="col-md-1 gms " @click="yunjia">云实例快搜器</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunjia">云代理查询助手</span>
+                                            <span class="col-md-1 gms " @click="yunjia">云匹配度分析器</span> 
+                                            <span class=" gms text-left" style="margin-left:10px;" @click="yunjia">预算收益分析助手</span> 
+                                             <span class=" gms " style="margin-left:10px;" @click="yunjia">云眼查</span>
                                         </div>
-                                    </el-dropdown-item>-->
+                                    </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
@@ -215,6 +215,15 @@ export default {
         this.logout();
         this.islogin = false;
       },
+      gkk:function(){
+        this.$router.push({path: '/openCourse'});
+      },
+      liuch:function(){
+         this.$router.push({path: '/classProcess'});
+      },
+      yundaka:function(){
+         this.$router.push({path: '/bigcafeTeam'});
+      },
       loGog: function() {
         this.$router.push({path: '/login'});
       },
@@ -273,7 +282,7 @@ export default {
           this.$router.push({path: "/partners"})
       },
       yunjia:function(){
-         this.$router.push({path: "/appcenterPrice"}) 
+         this.$router.push({path: "/cloudmarket"}) 
       },
       yunshili:function(){
           this.$router.push({path:"/appcenterSearch"})

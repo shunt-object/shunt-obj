@@ -126,6 +126,49 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
+  <!--  <div style="background:#2b2b2d;
+                height:100px;">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3">
+                        <dl class="imgdl">
+                            <dt><img src="../../assets/imgs/1.png" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">场景化方案设计</div>
+                                <div class="tuis">一站式S级平台，助力企业转型</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3">
+                         <dl class="imgdl">
+                            <dt><img src="../../assets/imgs/2.png" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">服务生态</div>
+                                <div class="tuis">携手打造MSP+，共建云生态</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3">
+                         <dl class="imgdl">
+                            <dt><img src="../../assets/imgs/3.png" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">智识学院</div>
+                                <div class="tuis">打造“顾问+平台”全新服务模式</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3">
+                         <dl class="imgdl">
+                            <dt><img src="../../assets/imgs/4.png" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">市场活动</div>
+                                <div class="tuis">品牌活动和技术沙龙</div>
+                            </dd>
+                        </dl>
+                    </div>
+            </div>
+        </div>
+    </div>-->
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
@@ -759,7 +802,22 @@ export default {
 /**{
    overflow:hidden
 }*/
-               
+.tls{
+    font-size:14px;
+}
+.tuis{
+    font-size:12px;
+}
+.imgdl dt{
+    float:left;
+    width:57px;
+    height:60px;
+} 
+.imgdl dd{
+    margin-top:20px;
+    color:#cfcfcf;
+    padding-top:5px;
+}       
 .carousel-indicators .active{
     width:32px !important;
     transition:width 1s !important;
@@ -902,16 +960,16 @@ ul,ol li {
     margin-top: 30px;
 }
 .lunmain {
-       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 100%; width: 100%; height: 600px; 
+       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 600px; width: 100%; height: 600px; 
 }
 .lun2{
-   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
 }
 .lun3{
-   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
 }
 .lun4{
-   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
 }
     .jzfei{
         padding-right:10px;
@@ -921,7 +979,7 @@ ul,ol li {
    color: #666666; display: block
 }
   .tuPa {
-      left: 2%; height:300px; position: absolute; bottom: -40%
+      left: 6%; height:268px; position: absolute; bottom: -25%
   }
  
   .cl {

@@ -14,6 +14,13 @@
         </div>
           
             <Sec active="5"></Sec>
+            <!--<div class="ycs" style="background:#f5f5f5;width:100%;height:70px;line-height:70px;">
+                     <div class="container">
+                        <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
+                        </div>
+                     </div>
+             </div>-->
             <div class="cloundcompare">
                     <div class="cloundbannerser">
                         <div class="container">
@@ -29,10 +36,10 @@
                          </div>
                     </div>        
              </div>
-             <div>
+             <div class="lcs">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds">上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud">迁云类工具</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
                         </div>
                      </div>
              </div>
@@ -121,7 +128,7 @@
                 </span>
             </el-dialog>
              <div style="background:#ededed;;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
+                <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -134,6 +141,23 @@
     </div>
 </template>
 <style>
+.ycs{
+    position:fixed;
+    top:0;
+    display:none;
+    z-index:999999999;
+}
+
+.el-message-box__header{
+    background:#da121a !important;
+    border:1px solid #da121a !important;
+}
+.el-message-box__title span{
+    color:#fff !important;
+}
+.el-message-box__headerbtn{
+    top:8 !important
+}
 .cloimg{
     margin-top:100px;   
 }
@@ -700,42 +724,18 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        // if($(this).scrollTop()>80){
-                        //     $(".sectb").css("display","none");
-                        // };
-                        // if($(this).scrollTop()<80){
-                        //     $(".sectb").css("display","block");
-                          
-                        // };
+                  
                         
-                         if($(".navers").length==1){
+                         if($(".lcs").length==1){
+                            if($(".lcs").scrollTop() < 0){
+                                // $('.ycs').css("display","block")
                           
-                            var topa = $(".navers").offset().top - $(window).scrollTop();
-                             if(topa<0){
-                                 $(".displayshow").css("display","block") 
-                             }else if(topa>0){
-                                  $(".displayshow").css("display","none") 
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                             }
-                            
-                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
-                                $(".rightBs ul li").css("background","#d8d8d8") 
-                                $(".nexton").css("background","#da121a")
-                             }
-                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextsec").css("background","#da121a")
-                             }
-                            if($("#QuickStart").length>0){
-                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                    $(".rightBs ul li").css("background","#d8d8d8") 
-                                        $(".nextthe").css("background","#da121a")
-                                }
+                                // $('.navbar').css("background","none")
+                                //  $('.navbar').css("display","none")
+                                alert(1)
                             }
-                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8");
-                                  $(".nextf").css("background","#da121a")  
-                             }
+                           
+                            
                         }
                     });
             
@@ -884,12 +884,12 @@
               }else{
                   if(sess){
                         this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
-                            this.$confirm('您已成功添加到控制台中的“应用市场”', '提示', {
+                            this.$confirm('您已成功添加到控制台中的应用市场。', '提示', {
                                 confirmButtonText: '立即体验',
                                 cancelButtonText: '继续添加',
                                 confirmButtonClass:'lay-btn-red',
                                 cancelButtonClass:'lay-cancel-btn',
-                                type: 'warning',
+                                type: 0,
                                 }).then(() => {
                                     this.$router.push({path:'/appcenterList'});
                                 }).catch(() => {
@@ -943,6 +943,18 @@
                         }else{
                             $('.scrollUp').fadeOut();
                         }
+                          
+                        //  if($(".lcs").length==1){
+                        //     if($(".lcs").offset().top - $(window).scrollTop() < 0){
+                        //         $('.ycs').css("display","block")
+                        //         $('.navbar').css("background","none")
+                        //         $('.navbar').css("display","none")
+                        //     }else{
+                        //         $('.ycs').css("display","none")
+                        //         $('.navbar').css("background","#1D1E20")
+                        //         $('.navbar').css("display","block")
+                        //     }
+                        // }
                      });
                      $(".scrollUp").click(function(){
                         $('html ,body').animate({scrollTop: 0}, 300);
