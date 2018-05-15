@@ -145,6 +145,8 @@ export default{
                             that.dialogUnbing = false;
                             if(that.isuniveristy=='openCourse'){
                                 that.$router.push({path:'/openCourse'}); 
+                            }else if(that.isuniveristy=='cloudmarket'){
+                                that.$router.push({path:'/cloudmarket'}); 
                             }else{
                                 if(that.url==''){
                                     that.$router.push({path:'/consolePage'}); 
@@ -229,6 +231,8 @@ export default{
                         //console.log('aaa',this.url);
                         if(this.isuniveristy=='openCourse'){
                             that.$router.push({path:'/openCourse'}); 
+                        }else if(that.isuniveristy=='cloudmarket'){
+                                that.$router.push({path:'/cloudmarket'}); 
                         }else{
                             if(this.url==''){
                                 this.$router.push({path:'/consolePage'}); 

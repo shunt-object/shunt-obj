@@ -30,7 +30,7 @@
         <div class="" style="width:100%!important">
             <div class="col-md-1 col-xs-1"></div>
             <div class="col-md-2 col-xs-2" v-for="item in titlelist">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump(item)"><i class="iconfont icon-shenpiliucheng"></i>{{item}}</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump(item)"><i class="iconfont" :class="item=='大咖介绍'?'icon-daka1':item=='资质和荣誉'?'icon-zizhirenzheng':item=='工作经历'?'icon-gongzuojingli':item=='专业特长'?'icon-zan':item=='原创专区'?'icon-yuanchuangicon':''" style="margin-right:5px;"></i>{{item}}</a>
             </div>
             <div class="col-md-1 col-xs-1"></div>
         </div>

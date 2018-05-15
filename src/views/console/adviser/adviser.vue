@@ -10,14 +10,14 @@
         <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>预约信息
     </div>
     <div class="adviser-select">
-        <div class="adviser-sele-list adviser-sele-on">
-            <button>已预约顾问</button>
+        <div class="adviser-sele-list" :class="isclass==true?'adviser-sele-on':''">
+            <button v-on:click="clickProf('prof')">已预约顾问</button>
         </div>
-        <div class="adviser-sele-list">
-            <button>已预约课程</button>
+        <div class="adviser-sele-list" :class="isclass==false?'adviser-sele-on':''">
+            <button v-on:click="clickProf('course')">已预约课程</button>
         </div>
     </div>
-    <div class="adviser-table">
+    <div class="adviser-table" v-if="isclass==true">
         <table>
             <thead>
                 <tr>
@@ -30,14 +30,38 @@
             </thead>
             <tbody>
                 <tr v-for="item in hisclasslist">
-                    <td>--</td>
+                    <td>{{item.realname}}</td>
                     <td>{{item.appoint_time}}</td>
                     <td>{{item.reason}}</td>
                     <td>{{item.remark}}</td>
-                    <td><i class="iconfont icon-bianji" style="margin-right:10px;cursor:pointer;"></i><i class="iconfont icon-shanchu" style="cursor:pointer;"></i></td>
+                    <td><i class="iconfont icon-bianji" style="margin-right:10px;cursor:pointer;" v-on:click="updata(item)"></i><i class="iconfont icon-shanchu" style="cursor:pointer;" v-on:click="delprof(item.id)"></i></td>
                 </tr>
             </tbody>
         </table>
+        <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(total)" @current-change="handleCurrentChange">
+        </el-pagination>
+    </div>
+    <div class="adviser-table" v-if="isclass==false">
+        <table>
+            <thead>
+                <tr>
+                    <th>已预约课程</th>
+                    <th>课程讲师</th>
+                    <th>课程时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in courselist">
+                    <td>{{item.cname}}</td>
+                    <td>{{item.realname}}</td>
+                    <td>{{item.begin_time}}</td>
+                    <td><i class="iconfont icon-shanchu" style="cursor:pointer;" v-on:click="delcourse(item.id)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(coursetotal)" @current-change="handleCurrentChange"> 
+        </el-pagination>
     </div>
     <div class="adviser-title">
         <i class="iconfont icon-jibenxinxi main-color" style="color:#da121a"></i>智识学院
@@ -95,6 +119,43 @@
             </div>   
         </div>         
     </el-dialog>
+    <!-- 修改预约时间 -->
+    <el-dialog title="修改" :visible.sync="updatedialog" style="text-align:left;" class="teamdia">
+        <div class="teamdia-box">
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key"><span style="color:#da121a;">*</span>预约时间：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">
+                        <el-date-picker popper-class="bigcafe-time" v-model="updatetime" type="datetime" placeholder="选择日期时间" :picker-options="pickerOptions0" value-format="yyyy-MM-dd HH:mm:ss">
+                        </el-date-picker>
+                    </div>
+                </div>
+            </div>
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key">预约事由：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">{{updatemain.reason}}</div>
+                </div>
+            </div>
+            <div class="teamdia-list">
+                <div class="row">
+                    <div class="col-md-3 teamdia-key">备注：</div>
+                    <div class="col-md-9" style="padding-left:0px !important;">{{updatemain.remark}}</div>
+                </div>
+            </div>           
+            <div class="">
+                <div class="teamdia-notice">
+                    <p>温馨提示：</p>
+                    1、预约成功我们的专职客服经理会尽快与您联系。<br>
+                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                </div>
+            </div>
+            <div class="teamdia-btn">
+                <button class="teamdia-btn-save" v-on:click="updataSave()">确定</button>
+                <button class="teamdia-btn-cel" v-on:click="updataDel()">取消</button>
+            </div>   
+        </div>         
+    </el-dialog>
 
 </div>
 </template>
@@ -121,8 +182,21 @@ export default {
                 }
             },
             checkedItem:'',
-            hisclasslist:[]
-
+            hisclasslist:[],
+            pagedata:{
+                pageReq: {
+                    page: 0,
+                    size: 10,
+                },
+                type: "prof"
+            },
+            total:'',
+            isclass:true,
+            courselist:[],
+            coursetotal:'',
+            updatedialog:false,
+            updatetime:'',
+            updatemain:''
         }
     },
     mounted:function(){
@@ -134,16 +208,91 @@ export default {
         this.getprof();
     },
     methods:{
-        getprof:function(){
+        updataDel:function(){
+            this.updatedialog = false;
+        },
+        updataSave:function(){
             let obj = {
-                pageReq: {
-                    page: 0,
-                    size: 10,
-                },
-                type: "prof"
+                appointTime:this.updatetime,
+                id:this.updatemain.id
             };
-            this.$this.post('/broker/apponit/getApponit',JSON.stringify(obj)).then((response)=> {
-                this.hisclasslist = response.data.data.content;
+            this.$this.post('/broker/apponit/updateProfApt/updateTime',JSON.stringify(obj)).then((response)=>{
+                if(response.data.code==1){
+                    this.updatedialog = false;
+                    this.getprof();
+                }
+            }).catch((error)=>{})
+        },
+        updata:function(item){
+            this.updatedialog = true;
+            this.updatemain = item;
+            this.updatetime = item.appoint_time;
+        },
+        delcourse:function(Id){
+            let obj = {
+                id:Id
+            };
+            let that = this;
+            this.$confirm('您预约的课程确定要删除吗？', '温馨提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                confirmButtonClass:'lay-btn-red',
+                cancelButtonClass:'lay-cancel-btn',
+                type: 'warning',
+                center: false
+            }).then(() => {
+                that.$this.post('/broker/apponit/updateCourseApt/repeal',JSON.stringify(obj)).then((response)=>{
+                    if(response.data.code==1){
+                        that.getprof();
+                    }
+                }).catch((error)=>{})
+            }).catch(() => {});  
+        },
+        delprof:function(Id){
+            let obj = {
+                id:Id
+            };
+            let that = this;
+            this.$confirm('您预约的大咖确定要撤销吗？', '温馨提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                confirmButtonClass:'lay-btn-red',
+                cancelButtonClass:'lay-cancel-btn',
+                type: 'warning',
+                center: false
+            }).then(() => {
+                that.$this.post('/broker/apponit/updateProfApt/repeal',JSON.stringify(obj)).then((response)=>{
+                    if(response.data.code==1){
+                        that.getprof();
+                    }
+                }).catch((error)=>{})
+            }).catch(() => {});  
+        },
+        clickProf:function(dom){
+            this.pagedata.pageReq.page = 0;
+            if(dom=='prof'){
+                this.pagedata.type = 'prof';
+                this.isclass = true;
+            }else{
+                this.pagedata.type = 'course';
+                this.isclass = false;
+            }
+            this.getprof();
+        },
+        handleCurrentChange:function(val){
+            this.pagedata.pageReq.page = val-1;
+            this.getprof();
+        },
+        getprof:function(){
+            this.$this.post('/broker/apponit/getApponit',JSON.stringify(this.pagedata)).then((response)=> {
+                if(this.isclass == true){
+                    this.hisclasslist = response.data.data.content;
+                    this.total = response.data.data.totalElements;
+                }else{
+                    this.courselist = response.data.data.content;
+                    this.coursetotal = response.data.data.totalElements;
+                }
+                
             }).catch((error)=> {
                 console.log(error);
             });

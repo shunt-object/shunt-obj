@@ -32,7 +32,7 @@
                 <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-team')"><i class="iconfont icon-tuandui1"></i> 大咖团队</a>
             </div>
             <div class="col-md-6 col-xs-6 bigcafeTeam-titles-right">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-dakatuijian"></i> 大咖介绍</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-daka1"></i> 大咖介绍</a>
             </div>
         </div>
     </div>
