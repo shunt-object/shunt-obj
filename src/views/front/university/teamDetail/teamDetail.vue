@@ -42,15 +42,15 @@
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">大咖介绍</span>
         </div>
-        <div class="teamDetail-introduce-list row">
+        <div class="teamDetail-introduce-list row" v-if="bigcafe!=''">
             <div class="col-md-4 teamDetail-introduce-img">
-                <img src="../../../../assets/university/openCourse-class.png" alt="">
+                <img :src="bigcafe.userProfessor.headSideImg" alt="">
                 <div class="clear"></div>
             </div>
             <div class="col-md-8">
-                <div class="teamDetail-introduce-name">戴剑</div>
-                <div class="teamDetail-introduce-honour">微吼直播优秀讲师</div>
-                <div class="teamDetail-introduce-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域），12年高校工作经验（涉及教学及教务管理） 曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div>
+                <div class="teamDetail-introduce-name">{{bigcafe.realname}}</div>
+                <div class="teamDetail-introduce-honour">{{bigcafe.userProfessor.title}}</div>
+                <div class="teamDetail-introduce-desc">{{bigcafe.userProfessor.desc}}</div>
             </div>
         </div>
     </div> 
@@ -62,7 +62,7 @@
         </div>
         <div class="teamDetail-honour-list row">
             <div class="col-md-4 teamDetail-honour-item" v-for="item in honour.props">
-                <img :src="item.imgUrl" alt="">
+                <img src="../../../../assets/university/detail-rongyu.png" alt="">
                 <div class="teamDetail-honour-desc">{{item.desc}}</div>
             </div>
         </div>
@@ -74,11 +74,11 @@
             <span class="teamDetail-outline-title-desc">工作经历</span>
         </div>
         <div class="row">
-            <div class="col-md-12 teamDetail-jobs-list" v-for="item in jobs.props">{{item.desc}}</div>
+            <div class="col-md-12 teamDetail-jobs-list" v-for="(item,index) in jobs">{{index+1}}、{{item}}</div>
         </div>
     </div>
     <!-- 专业特长 --> 
-    <div class="container teamDetail-introduce" id="teamDetail-tc" v-if="isshow.tc==true">
+    <div class="container teamDetail-introduce" id="teamDetail-tc" v-if="isshow.tc==true" style="margin-bottom:50px;">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">专业特长</span>
@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-md-6" v-for="item in tc.props">
                 <div class="teamDetail-tc-img">
-                    <img :src="item.imgUrl" alt="" style="width:100%;height:100%;margin:0;">
+                    <img src="../../../../assets/university/detail-techang.png" alt="" style="width:100%;height:100%;margin:0;">
                 </div>
                 <div class="teamDetail-tc-title">{{item.desc}}</div>
                 <!-- <div class="teamDetail-tc-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域）。12年高校工作经验（涉及教学及教务管理）曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div> -->
@@ -212,7 +212,7 @@ export default {
         return {
             phoneBox:false,
             isfixed:false,
-            bigcafe:[],
+            bigcafe:'',
             honour:[],
             jobs:[],
             tc:[],
@@ -251,14 +251,12 @@ export default {
             },
             teach:'',
             information:'',
-            date:'',
+            date:''
         }
     },
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
         this.date = new Date();
-        this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
-        this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
         let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
@@ -282,6 +280,8 @@ export default {
         submit:function(){
             this.apponitProf.pid = this.teach;
             this.dialogteam = false;
+            this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
+            this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
             this.$this.post('/broker/apponit/saveApponitProf',JSON.stringify(this.apponitProf)).then((response)=> {
                 //console.log(response);
                 this.apponitProf = {
@@ -330,8 +330,8 @@ export default {
                     if(response.data.data==true){
                         this.isphone = true;
                     }else{
-                        that.isphone = false;
-                        that.phonenotice = '您的手机号已被注册';
+                        this.isphone = false;
+                        this.phonenotice = '您的手机号已被注册';
                     }
                 }).catch((error)=> {
                     console.log(error);
@@ -422,6 +422,12 @@ export default {
                 //console.log('---',response.data);
                 this.cafelist = response.data.data;
                 this.teach = this.cafelist[0].userProfessor.id;
+                for(let i=0;i<response.data.data.length;i++){
+                   if(response.data.data[i].userProfessor.id==this.$route.query.bigcafeId){
+                       this.bigcafe = response.data.data[i];
+                   }
+               }
+               console.log(this.bigcafe);
             }).catch((error)=>{
             })
         },
@@ -435,13 +441,19 @@ export default {
                         }
                     }
                     if(response.data.data[i].name=='大咖介绍'){
-                        this.bigcafe = response.data.data[i];
+                        //this.bigcafe = response.data.data[i];
                     }else if(response.data.data[i].name=='资质和荣誉' && response.data.data[i].props.length>0){
                         this.honour = response.data.data[i];
                         this.isshow.honour = true;
                     }else if(response.data.data[i].name=='工作经历' && response.data.data[i].props.length>0){
-                        this.jobs = response.data.data[i];
+                        //this.jobs = response.data.data[i];
                         this.isshow.jobs = true;
+                        //console.log(response.data.data[i].descs);
+                        for(let j=0;j<response.data.data[i].props[0].descs.length;j++){
+                            if(response.data.data[i].props[0].descs[j]!=''){
+                                this.jobs.push(response.data.data[i].props[0].descs[j]);
+                            }
+                        }
                     }else if(response.data.data[i].name=='专业特长' && response.data.data[i].props.length>0){
                         this.tc = response.data.data[i];
                         this.isshow.tc = true;

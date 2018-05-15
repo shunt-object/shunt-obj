@@ -354,7 +354,15 @@ export default {
             })
         },
         yueclasss:function(){
-            this.classchage = true;
+            if(sessionStorage.getItem("account")){
+                if(JSON.parse(sessionStorage.getItem("account")).phone!=null){
+                    this.classchage = true;
+                }else{//手机号弹框
+                    this.dialogPhone = true;
+                }
+            }else{
+                this.$router.push({path:'/login',query:{univeristy:'openCourse'}});
+            }
         },
         submit:function(){
             this.classchage = false;
@@ -387,8 +395,8 @@ export default {
                     if(response.data.data==true){
                         this.isphone = true;
                     }else{
-                        that.isphone = false;
-                        that.phonenotice = '您的手机号已被注册';
+                        this.isphone = false;
+                        this.phonenotice = '您的手机号已被注册';
                     }
                 }).catch((error)=> {
                     console.log(error);

@@ -83,7 +83,7 @@
         <div class="row">
             <div class="col-md-4" v-for="item in cafelist">
                 <div class="bigcafe-desc-list">
-                    <img :src="item.userProfessor.headImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
+                    <img :src="item.userProfessor.headRoundImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
                     <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
                     <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
                     <div class="bigcafe-desc-honour" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.desc}}</div>
@@ -312,8 +312,8 @@ export default {
                     if(response.data.data==true){
                         this.isphone = true;
                     }else{
-                        that.isphone = false;
-                        that.phonenotice = '您的手机号已被注册';
+                        this.isphone = false;
+                        this.phonenotice = '您的手机号已被注册';
                     }
                 }).catch((error)=> {
                     console.log(error);

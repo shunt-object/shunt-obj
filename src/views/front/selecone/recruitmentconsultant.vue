@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col-md-4" v-for="item in cafelist" v-on:click="teamdetail(item.userProfessor.id)">
                         <div class="bigcafe-desc-list resruit-cafe">
-                            <img :src="item.userProfessor.headImg" alt="">
+                            <img :src="item.userProfessor.headRoundImg" alt="">
                             <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
                             <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
                         </div>
