@@ -11,7 +11,7 @@
         </ul>
         <img src="../../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
-    <!-- banner -->
+    <!-- banner11 -->
     <div class="seleconeMain-banners  row teamDetail-banner">
         <div class="container">
             <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">

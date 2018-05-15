@@ -36,7 +36,7 @@
                          </div>
                     </div>        
              </div>
-             <div class="lcs">
+             <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
                             <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
@@ -725,19 +725,6 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                  
-                        
-                         if($(".lcs").length==1){
-                            if($(".lcs").scrollTop() < 0){
-                                // $('.ycs').css("display","block")
-                          
-                                // $('.navbar').css("background","none")
-                                //  $('.navbar').css("display","none")
-                                alert(1)
-                            }
-                           
-                            
-                        }
                     });
             
                     $(".scrollUp").click(function(){
@@ -885,7 +872,7 @@
               }else{
                   if(sess){
                         this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
-                            this.$confirm('您已成功添加到控制台中的应用市场。', '提示', {
+                            this.$confirm('您已成功添加到控制台中的应用市场。', '温馨提示', {
                                 confirmButtonText: '立即体验',
                                 cancelButtonText: '继续添加',
                                 confirmButtonClass:'lay-btn-red',
