@@ -256,7 +256,7 @@
     border:1px solid #f0f0f0;
     box-shadow:0 0 1px 2px rgba(236,236,236,0.50);
     border-radius:2px;
-    width:295px;
+    width:295px !important;
     height:315px;
 }
 .kuao-borde{
@@ -899,7 +899,8 @@
                         });
 
                   }else{
-                       this.$router.push({path:'/login'});
+                       this.$router.push({path:'/login',query:{univeristy:'cloudmarket'}});
+
                   }
               }
 
