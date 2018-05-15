@@ -68,7 +68,7 @@
             </tbody>
         </table>
     </div>
-    <div class="compare-cate" v-if="res==true">上云工作负载配置信息详情</div>
+    <!-- <div class="compare-cate" v-if="res==true">上云工作负载配置信息详情</div>
     <table class="table-score resourGroup-table" v-if="res==true">
         <thead v-if="appServer.length>0||dbServer.length>0||network!=null||storage.length>0||cdns.length>0">
             <tr>
@@ -131,7 +131,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
     <div class="compareResult-btn" style="margin-top:20px;">
         <button class="compare-btn compare-nextBtn" v-on:click="nextgo()">
             <span class="pl-10">下一步</span><i class="iconfont icon-xiayibu" style="margin-left:5px;"></i>
