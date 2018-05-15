@@ -107,7 +107,7 @@
                     <span><i class="iconfont icon-xunzhang"></i>Level {{item.level}}</span>
                     <span><i class="iconfont icon-shijian"></i>{{item.begin_time}}   未开始</span>
                 </div>
-                <div class="openCourse-class-desc">{{item.desc}}</div>
+                <div class="openCourse-class-desc">{{item.course_desc}}</div>
                 <button class="openCourse-class-yu" v-on:click="yuyue(item)">我要预约</button>
             </div>
         </div>
