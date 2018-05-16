@@ -131,7 +131,7 @@
     <!----------------------------main-start---------------------------------->
   <div style="background:#2b2b2d;">
         <div class="container">
-            <div class="row">
+            <div class="">
                     <div class="col-md-3 leftborder" @click="scenarioDesign()">
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
