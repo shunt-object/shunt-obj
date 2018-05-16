@@ -15,6 +15,7 @@
     <table class="table-score">
         <thead>
             <tr>
+                <th v-if="planSid==2 || planSid==3">选择意向厂商</th>
                 <th>云供应商</th>
                 <th>分数</th>
                 <th>官网地址</th>
@@ -22,6 +23,9 @@
         </thead>
         <tbody>
             <tr v-for="item in compareResultList">
+                <td class="text-center col-md-2" v-if="planSid==2 || planSid==3">
+                    <input type="checkbox" :value="item.sid" v-model="inserver" v-on:change="intentionServer(item.sid,$event)">
+                </td>
                 <td>{{item.serverName}}</td>
                 <td>{{item.scope}}</td>
                 <td>
@@ -164,16 +168,57 @@ export default{
             confirm:[],
             length:'',
             res:false,
-            pricelink:''
+            pricelink:'',
+            planSid:null,
+            intentionSid:null,
+            inserver:[]
         }
     },
     mounted:function(){
         this.queryType = this.$route.query.type;
         this.appId = this.$route.query.id;
+        this.servied();
         this.getdata();
+        this.getIntentionSid();
         // this.getfeature();
     },
     methods:{
+        servied:function(){
+            this.$this.get('/broker/plan/result/'+this.appId+'').then((response)=>{
+                this.planSid = response.data.data.serverId;
+            }).catch((error)=>{
+            }) 
+        },
+        getIntentionSid:function(){
+            this.$this.get('/broker/private/cloud/get/provider/'+this.appId+'').then((response)=>{
+                if(response.data.code!=-1){
+                    this.intentionSid = response.data.data.sid;
+                    this.inserver.push(this.intentionSid);
+                }
+            }).catch((error)=>{
+            })
+        },
+        intentionServer:function(sid,event){
+            var el = event.currentTarget;
+            var bool = !(el.checked);
+            this.inserver.forEach(el =>{
+                this.saveServer(true,el);
+            });
+            this.inserver = [];
+            if(!bool){
+                this.inserver.push(sid);
+            }
+            this.saveServer(bool,sid);
+        },
+        saveServer:function(bool,sid){
+            let param = {
+                "appid": this.appId,
+                "del": bool,
+                "matchType": 2,
+                "sid": sid
+            };
+            this.$this.post('/broker/compare/save/intention',JSON.stringify(param));
+        },
         getfeature:function(){
             let time = new Date();   
             this.$this.get('/broker/compare/selected/feature/'+this.appId+'?time='+time.getTime()).then((response)=>{
@@ -210,7 +255,7 @@ export default{
             }  
             let time = new Date();       
             this.$this.post('/broker/compare/result?time='+time.getTime(),JSON.stringify(resultObj)).then((response)=>{
-                this.compareResultList = response.data.data.datas; 
+                this.compareResultList = response.data.data.datas;
                 this.getfeature();
             }).catch((error)=>{})
         },
