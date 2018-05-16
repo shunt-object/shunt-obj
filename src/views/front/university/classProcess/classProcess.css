@@ -16,6 +16,9 @@
     .seleconeMain-mainfir{
         margin-bottom:0px;
     }
+    .phoneshipin-img{
+        padding-left:68px;
+    }
 }
 .seleconeMain-mainfir{margin-top:160px;}
 .seleconeMain-mainfir .selecone-pfir{
@@ -123,7 +126,9 @@
     margin-top:20px;
 }
 .classProcess-bor{
-    border-right:1px solid #dadada;
+    background:url('../../../../assets/university/liucheng-line.png') no-repeat right center;
+    background-size:2px 60%;
+    /* border-right:1px solid #dadada; */
 }
 /* 预约流程 */
 .classProcess-yue{

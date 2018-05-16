@@ -149,6 +149,8 @@ export default{
                                 that.$router.push({path:'/cloudmarket'}); 
                             }else if(that.isuniveristy=='teamDetail'){
                                 that.$router.push({path:'/teamDetail'}); 
+                            }else if(that.isuniveristy=='bigcafeTeam'){
+                                that.$router.push({path:'/bigcafeTeam'}); 
                             }else{
                                 if(that.url==''){
                                     that.$router.push({path:'/consolePage'}); 
@@ -237,6 +239,8 @@ export default{
                             that.$router.push({path:'/cloudmarket'}); 
                         }else if(that.isuniveristy=='teamDetail'){
                             that.$router.push({path:'/teamDetail'}); 
+                        }else if(that.isuniveristy=='bigcafeTeam'){
+                                that.$router.push({path:'/bigcafeTeam'}); 
                         }else{
                             if(this.url==''){
                                 this.$router.push({path:'/consolePage'}); 

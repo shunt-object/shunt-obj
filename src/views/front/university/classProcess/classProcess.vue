@@ -50,7 +50,7 @@
                 </div>
                 <div class="classProcess-desc">台式电脑+摄像头+头戴耳麦</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 classProcess-bor">
                 <div class="classProcess-img">
                     <img src="../../../../assets/university/classProcess-yq2.png" alt="">
                 </div>
@@ -124,7 +124,7 @@
                     <div class="col-md-5">
                         <div class="classProcess-yue-tit" style="line-height:31px;">
                             进入在线直播空间开始上课
-                            <div class="classProcess-yue-tits">为您带来最新的、最专业的和最实用的课程培训。</div>
+                            <div class="classProcess-yue-tits">为您带来最新的、最专业的和最实用的课程培训</div>
                         </div>
                         <ul class="classProcess-sp-ul">
                             <li>1.	专业技术支持您顺利进入在线直播空间；</li>
@@ -132,7 +132,7 @@
                             <li>3.	问卷调查收集您的反馈，帮助我们改进服务质量。</li>
                         </ul>
                     </div>
-                    <div class="col-md-4" style="padding-left:68px;">
+                    <div class="col-md-4 phoneshipin-img">
                         <img src="../../../../assets/university/shipin.png" alt="" class="phone-img">
                     </div>
                 </div>

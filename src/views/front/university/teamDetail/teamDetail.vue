@@ -74,7 +74,7 @@
             <span class="teamDetail-outline-title-desc">工作经历</span>
         </div>
         <div class="row">
-            <div class="col-md-12 teamDetail-jobs-list" v-for="(item,index) in jobs">{{index+1}}、{{item}}</div>
+            <div class="col-md-12 teamDetail-jobs-list" v-for="(item,index) in jobs"><span class="teamDetail-index">{{index+1}}、</span>{{item}}</div>
         </div>
     </div>
     <!-- 专业特长 --> 
@@ -84,27 +84,26 @@
             <span class="teamDetail-outline-title-desc">专业特长</span>
         </div>
         <div class="row">
-            <div class="col-md-6" v-for="item in tc.props">
+            <div class="col-md-6" v-for="item in tc">
                 <div class="teamDetail-tc-img">
-                    <img src="../../../../assets/university/detail-techang.png" alt="" style="width:100%;height:100%;margin:0;">
+                    <img src="../../../../assets/university/detail-techang.png" alt="">
                 </div>
-                <div class="teamDetail-tc-title">{{item.desc}}</div>
-                <!-- <div class="teamDetail-tc-desc">20年IT行业从业经验（涉及系统集成、软件开发等领域），15年IT服务管理经验（涉及专项服务、技术支持、运维保障、顾问咨询等领域）。12年高校工作经验（涉及教学及教务管理）曾为海关总署、国税总局、中国移动、中国联通、国家开发银行、日本三菱银行、中国惠普、西门子（中国）。</div> -->
+                <div class="teamDetail-tc-title">{{item}}</div>
             </div>
         </div>
     </div>
     <!-- 原创专区 -->  
-    <div class="container teamDetail-introduce" id="teamDetail-yuan" v-if="isshow.yuan==true">
+    <div class="container teamDetail-introduce" id="teamDetail-yuan" v-if="isshow.yuan==true" style="margin-bottom:50px;">
         <div class="teamDetail-outline-title">
             <span class="teamDetail-outline-title-line"></span>
             <span class="teamDetail-outline-title-desc">原创专区</span>
         </div>
         <div class="teamDetail-honour-list row">
-            <div class="col-md-4 teamDetail-honour-item teamDetail-yuan" v-for="item in yuan.props">
-                <div class="teamDetail-yuan-img">
+            <div class="col-md-12 teamDetail-honour-item teamDetail-yuan" v-for="item in yuan">
+                <!-- <div class="teamDetail-yuan-img">
                     <img :src="item.imgUrl" alt="">
-                </div>
-                <div class="teamDetail-honour-desc">{{item.desc}}</div>
+                </div> -->
+                <div class="teamDetail-yuan-desc" v-for="item in yuan">{{item}}</div>
             </div>
         </div>
     </div>  
@@ -162,7 +161,7 @@
                 <div class="teamdia-notice">
                     <p>温馨提示：</p>
                     1、预约成功我们的专职客服经理会尽快与您联系。<br>
-                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                    2、也可以通过<span class="univeristy-bz">Prof. 吴</span>和<span class="univeristy-bz">400-828-7308</span>直接与我们沟通。
                 </div>
             </div>
             <div class="teamdia-btn">
@@ -455,11 +454,21 @@ export default {
                             }
                         }
                     }else if(response.data.data[i].name=='专业特长' && response.data.data[i].props.length>0){
-                        this.tc = response.data.data[i];
+                        //this.tc = response.data.data[i];
                         this.isshow.tc = true;
+                        for(let n=0;n<response.data.data[i].props[0].descs.length;n++){
+                            if(response.data.data[i].props[0].descs[n]!=''){
+                                this.tc.push(response.data.data[i].props[0].descs[n]);
+                            }
+                        }
                     }else if(response.data.data[i].name=='原创专区' && response.data.data[i].props.length>0){
-                        this.yuan = response.data.data[i];
+                        //this.yuan = response.data.data[i];
                         this.isshow.yuan = true;
+                        for(let f=0;f<response.data.data[i].props[0].descs.length;f++){
+                            if(response.data.data[i].props[0].descs[f]!=''){
+                                this.yuan.push(response.data.data[i].props[0].descs[f]);
+                            }
+                        }
                     }
                 }
             }).catch((error)=>{

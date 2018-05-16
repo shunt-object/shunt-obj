@@ -91,7 +91,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4" v-for="item in cafelist" v-on:click="teamdetail(item.userProfessor.id)">
-                        <div class="bigcafe-desc-list resruit-cafe">
+                        <div class="bigcafe-desc-list resruit-cafe" style="height:220px;">
                             <img :src="item.userProfessor.headRoundImg" alt="">
                             <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
                             <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
@@ -101,7 +101,7 @@
             </div>
             </div>
             <!--  -->
-            <div style="width:100%;" id="QuickStart" class="go4">
+            <div style="width:100%; background: rgb(248, 248, 248); margin-top: 50px;" id="QuickStart" class="go4">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:40px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">加入大咖团队</span>

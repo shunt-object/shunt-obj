@@ -158,23 +158,29 @@
     margin-bottom:10px;
 }
 .teamDetail-introduce-name{
-    font-size:18px;
+    font-size:16px;
     color:#333333;
     text-align:left;
     margin-top:15px;
+    font-weight:bold;
 }
 .teamDetail-introduce-honour{
     text-align:left;
     margin-top:10px;
-    font-size:12px;
-    color:#666666;
+    font-size:14px;
+    color:#333;
+    line-height:24px;
 }
 .teamDetail-introduce-desc{
-    font-size:12px;
+    font-size:14px;
     color:#999999;
-    line-height:20px;
+    line-height:24px;
     text-align:left;
     margin-top:10px;
+    display: -webkit-box;    
+    -webkit-box-orient: vertical;    
+    -webkit-line-clamp: 3;    
+    overflow: hidden;
 }
 /* 资质和荣誉 */
 .teamDetail-honour-item{
@@ -189,8 +195,8 @@
     margin:0 auto;
     font-size:14px;
     color:#666;
-    text-align:center;
-    line-height:24px;
+    text-align:left;
+    line-height:28px;
     margin-top:20px;
 }
 /* 工作经历 */
@@ -199,14 +205,21 @@
     color:#666;
     text-align:left;
     margin-bottom:15px;
+    position:relative;
+    padding-left:34px !important;
+}
+.teamDetail-index{
+    position:absolute;
+    left:15px;
+    top:0;
 }
 /* 专业特长 */
 .teamDetail-tc-img{
-    background:#f5f5f5;
+    /* background:#f5f5f5;
     border-radius:50%;
     width: 90px;
     height: 90px;
-    margin:0 auto;
+    margin:0 auto; */
 }
 .teamDetail-tc-img img{
     margin:35px auto 0 auto;
@@ -215,7 +228,9 @@
     font-size:14px;
     color:#666666;
     text-align:left;
-    margin:10px 0;
+    line-height:26px;
+    width:80%;
+    margin:10px auto;
 }
 .teamDetail-tc-desc{
     font-size:12px;
@@ -235,4 +250,13 @@
 }
 .teamDetail-yuan{
     margin-bottom:20px;
+}
+.teamDetail-yuan-desc{
+    width:94%;
+    margin:0 auto;
+    font-size:14px;
+    color:#666;
+    text-align:left;
+    line-height:28px;
+    margin-top:20px;
 }

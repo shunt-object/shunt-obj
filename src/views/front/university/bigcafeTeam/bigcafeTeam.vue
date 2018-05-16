@@ -49,7 +49,7 @@
                     <img src="../../../../assets/university/teampeople1.png" alt="">
                 </div>
                 <div class="bigcafe-specialty-world">大咖</div>
-                <div class="bigcafe-specialty-desc">云计算、大数据、人工智能 <br> 和区块链等技术的翘楚</div>
+                <div class="bigcafe-specialty-desc">云计算、大数据、人工智能和区块链等技术的翘楚</div>
             </div>
             <div class="col-md-3 bigcafe-specialty-list">
                 <div class="bigcafe-specialty-img">
@@ -70,7 +70,7 @@
                     <img src="../../../../assets/university/teampeople4.png" alt="" style="margin-top:30px;">
                 </div>
                 <div class="bigcafe-specialty-world">VIP </div>
-                <div class="bigcafe-specialty-desc">1V1顾问资源，传递 IT前沿知识，答疑解惑</div>
+                <div class="bigcafe-specialty-desc">1V1顾问资源，传递 IT前沿知识，为您答疑解惑</div>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
         </div>
     </div>
     <finish></finish>
-    <!-- 预约课程弹框 -->
+    <!-- 预约大咖弹框 -->
     <el-dialog title="确认预约" :visible.sync="dialogteam" style="text-align:left;" class="teamdia">
         <div class="teamdia-box">
             <div class="teamdia-list" v-if="alllist==true">
@@ -147,7 +147,7 @@
                 <div class="teamdia-notice">
                     <p>温馨提示：</p>
                     1、预约成功我们的专职客服经理会尽快与您联系。<br>
-                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                    2、也可以通过<span class="univeristy-bz">Prof. 吴</span>和<span class="univeristy-bz">400-828-7308</span>直接与我们沟通。
                 </div>
             </div>
             <div class="teamdia-btn">
@@ -263,7 +263,7 @@ export default {
                     this.dialogPhone = true;
                 }
             }else{
-                this.$router.push({path:'/login',query:{univeristy:'openCourse'}});
+                this.$router.push({path:'/login',query:{univeristy:'bigcafeTeam'}});
             }
         },
         submit:function(){

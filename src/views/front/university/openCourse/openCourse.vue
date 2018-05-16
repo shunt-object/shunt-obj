@@ -158,7 +158,7 @@
                 <div class="opendia-notice">
                     <p>温馨提示：</p>
                     1、预约成功我们的专职客服经理会尽快与您联系。<br>
-                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                    2、也可以通过<span class="univeristy-bz">Prof. 吴</span>和<span class="univeristy-bz">400-828-7308</span>直接与我们沟通。
                 </div>
             </div>
             <div class="opendia-btn">
@@ -200,7 +200,7 @@
                 <div class="opendia-notice">
                     <p>温馨提示：</p>
                     1、预约成功我们的专职客服经理会尽快与您联系。<br>
-                    2、也可以通过Prof. 吴和400-828-7308直接与我们沟通。<br>
+                    2、也可以通过<span class="univeristy-bz">Prof. 吴</span>和<span class="univeristy-bz">400-828-7308</span>直接与我们沟通。
                 </div>
             </div>
             <div class="opendia-btn">
