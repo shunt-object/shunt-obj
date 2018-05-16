@@ -105,7 +105,7 @@
                 <div class="openCourse-class-honour">
                     <span><i class="iconfont icon-tubiao-"></i>{{item.realname}}</span>
                     <span><i class="iconfont icon-xunzhang"></i>Level {{item.level}}</span>
-                    <span><i class="iconfont icon-shijian"></i>{{item.begin_time}}   未开始</span>
+                    <span style="color:#333;"><i class="iconfont icon-shijian"></i>{{item.begin_time}}<span style="color:#999;margin-left:10px;">未开始</span></span>
                 </div>
                 <div class="openCourse-class-desc">{{item.course_desc}}</div>
                 <button class="openCourse-class-yu" v-on:click="yuyue(item)">我要预约</button>

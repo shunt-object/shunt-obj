@@ -345,7 +345,8 @@
 }
 .adviser-page-bg .active{
     background:#da121a !important;;
+    color:#fff !important;
 }
 .adviser-page-bg .number:hover{
-    color:#da121a !important;
+    color:#666 !important;
 }
