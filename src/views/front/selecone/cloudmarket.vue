@@ -53,7 +53,7 @@
                         <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index,lis.id)">
                                 <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
-                                <div class="kuao-main text-center">{{lis.description}}</div>
+                                <div class="kuao-main text-left">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
                                 <div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>
                                 <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
@@ -153,7 +153,7 @@
     color:#000 !important;
 }
 .el-message-box__headerbtn .el-message-box__close{
-    color:#da121a !important;
+    color:#000 !important;
 }
 .el-message-box__headerbtn{
     top:8 !important
@@ -270,7 +270,7 @@
 }
 .kuao-main{
     margin-top:16px;
-    padding:0 5px; 
+    padding:0 3px 0 10px; 
     height:80px;
     font-size:12px;
     color:#999999;

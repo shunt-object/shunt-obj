@@ -31,7 +31,7 @@
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item class="text-left ">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
                                         <div class="row">
                                             <span @click="cloundPlan" class="col-md-1 gms">云规划</span>
                                             <span @click="cloundPlen" class="col-md-1 gms">云选型</span>
@@ -41,11 +41,11 @@
                                         </div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlin">Prof. 吴数据</span></div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">

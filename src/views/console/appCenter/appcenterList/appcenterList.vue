@@ -20,7 +20,7 @@
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goCheck()">
-                    <img src="../../../../assets/er-icon/jia.png" alt="">
+                    <img src="../../../../assets/er-icon/jia.png" alt="" style="width:80px;height:80px">
                 </div>
                 添加更多
             </div>

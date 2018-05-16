@@ -41,6 +41,7 @@
                     </div>
                 </div>
          </div>
+      
           <div class="item" style="width:100%;min-width:100%;height:100%;">
                 <div class=" lunmain lun2">
                     <div class="container" style="position:relative">
@@ -77,6 +78,8 @@
                     </div>
                 </div>
          </div>
+
+
          <!-- <div class="item" style="width:100%;min-width:100%;height:100%;" id="itms">
                 <div class=" lunmain lun4">
                     <div class="container" style="position:relative">
@@ -126,49 +129,48 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
-  <!--  <div style="background:#2b2b2d;
-                height:100px;">
+  <div style="background:#2b2b2d;">
         <div class="container">
             <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 leftborder">
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
                             <dd>
                                 <div class="text-left tls">场景化方案设计</div>
-                                <div class="tuis">一站式S级平台，助力企业转型</div>
+                                <div class="tuis text-left">一站式S级平台，助力企业转型</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 leftborder">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/2.png" alt=""></dt>
-                            <dd>
+                            <dd class="did">
                                 <div class="text-left tls">服务生态</div>
-                                <div class="tuis">携手打造MSP+，共建云生态</div>
+                                <div class="tuis text-left">携手打造MSP+，共建云生态</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 leftborder">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/3.png" alt=""></dt>
                             <dd>
                                 <div class="text-left tls">智识学院</div>
-                                <div class="tuis">打造“顾问+平台”全新服务模式</div>
+                                <div class="tuis text-left">打造“顾问+平台”全新服务模式</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 leftborder tshu">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/4.png" alt=""></dt>
-                            <dd>
+                            <dd class="did">
                                 <div class="text-left tls">市场活动</div>
-                                <div class="tuis">品牌活动和技术沙龙</div>
+                                <div class="tuis text-left">品牌活动和技术沙龙</div>
                             </dd>
                         </dl>
                     </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
@@ -440,7 +442,7 @@ export default {
         }
         
         $('.carousel').carousel({//首页轮播时间
-             interval: 5000
+             interval: 3000
         });
         
         $(document).ready(function(){ 
@@ -802,11 +804,16 @@ export default {
 /**{
    overflow:hidden
 }*/
+.leftborder{
+    border-left:1px solid #979797;
+    padding-left:5px !important;
+}
 .tls{
     font-size:14px;
 }
 .tuis{
     font-size:12px;
+    margin-top:10px;
 }
 .imgdl dt{
     float:left;
@@ -817,7 +824,11 @@ export default {
     margin-top:20px;
     color:#cfcfcf;
     padding-top:5px;
-}       
+    padding-left:70px;
+}   
+.did{
+    padding-left:80px !important;
+}    
 .carousel-indicators .active{
     width:32px !important;
     transition:width 1s !important;
@@ -959,6 +970,13 @@ ul,ol li {
 .lunmain .lun-le .pBottom {
     margin-top: 30px;
 }
+.tshu{
+    border-right:1px solid #979797;
+}
+.lunmain .lun-le .pCenter {
+    color: #f0f0f0; font-size: 14px;
+     margin-top: 12px;
+}
 .lunmain {
        background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 600px; 
 }
@@ -1014,10 +1032,7 @@ ul,ol li {
     font-size: 28px; color: #f6f6f6; margin-bottom: 10px;
     
 }
-.lunmain .lun-le .pCenter {
-    color: #f0f0f0; font-size: 14px;
-     margin-top: 12px;
-}
+
 
 
 .lunmain .lun-le .pBottom span {
@@ -1245,6 +1260,12 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
+.carousel-indicators{
+    bottom:235px !important;
+}
+.lunmain .lun-le .pCenter {
+    color: #f0f0f0; font-size: 14px;
+}
 .tiuis{
     display:none;   
 }
@@ -1271,9 +1292,7 @@ ul,ol li {
     padding-top: 10%;
     margin-top:0%;
 }
-.pCenter{
-    padding-bottom:20px;
-}
+
 .mainPd {
     margin-top: 12px; color: #666666; display: block;margin-bottom:15px;
 }
