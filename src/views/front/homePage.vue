@@ -132,7 +132,7 @@
   <div style="background:#2b2b2d;">
         <div class="container">
             <div class="row">
-                    <div class="col-md-3 leftborder">
+                    <div class="col-md-3 leftborder" @click="scenarioDesign()">
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
                             <dd>
@@ -774,6 +774,10 @@ export default {
              this.$router.push({path: '/orderlist'});
             $('html ,body').animate({scrollTop: 0},0);
       },
+      scenarioDesign:function(){
+          this.$router.push({path: '/scenarioDesign'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
       xiaowei:function(){
          // var win = window.open("#/CustomerService");
         
@@ -807,6 +811,9 @@ export default {
 .leftborder{
     border-left:1px solid #979797;
     padding-left:5px !important;
+}
+.leftborder:hover{
+    cursor:pointer;
 }
 .tls{
     font-size:14px;

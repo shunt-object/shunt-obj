@@ -36,6 +36,7 @@ import CustomerService from '@/views/front/CustomerService'
 import cloudselection from "../views/front/selecone/cloudselection.vue"
 import cloudplanning from "../views/front/selecone/cloudplanning.vue"
 import clouddesignning from "../views/front/selecone/clouddesignning.vue"
+import scenarioDesign from "../views/front/selecone/scenarioDesign.vue"
 import wudata from "../views/front/selecone/wudata.vue"
 import technologyandservices from "../views/front/selecone/technologyandservices.vue"
 import cloudbuying from "../views/front/selecone/cloudbuying.vue"
@@ -132,6 +133,12 @@ export default new Router({
       path:"/wudata",  
       name:"wudata",
       component:wudata
+    },
+     {
+      // Pro.吴数据
+      path:"/scenarioDesign",  
+      name:"scenarioDesign",
+      component:scenarioDesign
     },
      {
       //  技术与服务
