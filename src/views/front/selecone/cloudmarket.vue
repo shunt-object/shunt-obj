@@ -147,7 +147,9 @@
     display:none;
     z-index:999999999;
 }
-
+.el-message-box__headerbtn{
+    top:12px !important;
+}
 
 .el-message-box__title span{
     color:#000 !important;

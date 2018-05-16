@@ -15,95 +15,48 @@
         <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
     </div>
 
-    <Sec active="3" class="sectb"></Sec>
+    <Sec active="0" class="sectb"></Sec>
     <div class="selecMain ">
             <div class="seleconeMain-banners  row rusetb">
                  <div class="container" >
                         <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px;">
-                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">最前沿的云资讯、最新的产品动态、最实时的头条新闻</span></p>
+                            <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">场景化方案设计</span></p>
                             <div class="seclone-dv">
-                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">就在CloudBroker²</h3>
+                                <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">S级一站式服务平台，助力企业数字化转型，降低企业信息系统构建成本</h3>
                             </div>
                              <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span></span></p>
                         </div>
                  </div>
             </div>
-            <div>
-                    <div class="container" style="margin-bottom:140px">
-                        <div class="group-money">行业动态</div>
-                        <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，以“云”为核心，是您上云咨询、云迁移和云运维的贴身服务专家！作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的行业新闻。</div>
-                        <div  style="margin-top:60px;">
-                            <div class="row hynews" >
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201804261440194238.png" alt="" ></div>
-                                        <div class="fifter text-left">云市场第一季度份额：AWS 33%、 Azure 13%、阿里云 4%。</div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/12.png" alt="" ></div>
-                                        <div class="fifter text-left">微信小游戏上线广告新形态：banner 广告和激励式视频广告。</div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/13.png" alt="" ></div>
-                                        <div class="fifter text-left">2018年私有云企业排行榜，华为、新华三和浪潮勇夺三甲。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/0.png" alt="" ></div>
-                                        <div class="fifter text-left">腾讯控股 3 个月蒸发 6500 亿，马化腾“闪退”华人首富。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/01.png" alt="" ></div>
-                                        <div class="fifter text-left">百度张亚勤：类脑技术、量子计算和5G是AI的未来方向。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/02.png" alt="" ></div>
-                                        <div class="fifter text-left">未受数据泄露丑闻影响，Facebook Q1业绩超预期 盘后上涨7%。 </div>
-                                        <!--<div class="fifters"></div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!--<div class="row hynews" style="margin-top:0px !important;">
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201711071504091015.jpg" alt="" ></div>
-                                        <div class="fifter text-left">至少12%的Facebook帐号是虚假或重复帐号</div>
-                                        <div class="fifters">至少12%的Facebook帐号是虚假或重复帐号；《王者荣耀》外挂牟利可能被刑拘;上海已清理50万辆过度投放共享单车......以下为您奉上更多热点事件。</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201429153623.jpg" alt="" ></div>
-                                        <div class="fifter text-left">IT安全漏洞、威胁与风险的区别，你都知道吗？ </div>
-                                        <div class="fifters">在当前的世界中，数据和数据保护是企业至关重要的考虑因素。客户希望您确保其信息的安全性，如果您不能保证信息安全，就会失去业务。许多拥有敏感信息的客户在与您开展业务之前，会要求您部署坚固的数据安全基础架构。基于这种考虑，您是否相信自己企业内的IT安全性？</div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
-                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
-                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/201710201437181812.jpg" alt="" ></div>
-                                        <div class="fifter text-left">有效服务台管理的5个关键度量指标</div>
-                                        <div class="fifters">有两句商业格言说：1）无法度量则无法管理，2）无法度量则无法改进。这些说辞对服务台管理和企业在使用信息技术基础架构库（ITIL）框架来实施信息技术服务管理（ITSM）系统时创建的良性循环是非常贴切的。</div>
-                                    </div>
-                                </div>
-                            </div>-->
+             <div class="lcss">
+                     <div class="container">
+                        <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
                         </div>
+                     </div>
+             </div>
+             <div class="kong"></div>
+             <div id="ProductFeatures" class="go1" v-show="ids">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitles">
+                       <span class="redLine"></span><span class="redlasttitle">核心优势</span>
                     </div>
-
+                    <div class="row text-center bjia">
+                        <div>CloudBroker²依托国内外咨询和实施的经验积累，集合国内用户使用习惯，为用户提供从规划、选型、设计、购买、迁移和运维的全流程一站式云服务；着</div>
+                        <div>力为中小企业客户破解上云难题，降低企业客户上云、选云和管云成本，让企业聚焦于业务创新和创造；切实帮助中小企业用户易上云、选好云和用好云。</div>
+                    </div>
+                 </div>
+                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitles">
+                       <span class="redLine"></span><span class="redlasttitle">特色功能</span>
+                    </div>
+                    <div class="row text-center bjia">
+                        <div>CloudBroker²依托国内外咨询和实施的经验积累，集合国内用户使用习惯，为用户提供从规划、选型、设计、购买、迁移和运维的全流程一站式云服务；着</div>
+                        <div>力为中小企业客户破解上云难题，降低企业客户上云、选云和管云成本，让企业聚焦于业务创新和创造；切实帮助中小企业用户易上云、选好云和用好云。</div>
+                    </div>
+                 </div>
             </div>
+            <div v-show="iders">1213332</div>
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -121,6 +74,16 @@
 
 </template>
 <style>
+.bjia{
+    font-size:14px;
+    color:#666666;
+    line-height:30px;
+}
+.kong{
+    border:1px solid #d6d6d6;
+    width:100%;
+    height:2px;
+}
 .dv2:hover{
     cursor:pointer;
 }
@@ -445,6 +408,11 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
+      .spanshover{
+            display:inline-block;
+            font-size:14px;
+            color:#333333;
+        }
       .juright,.juzhong{
           text-align:left !important;
       }
@@ -494,6 +462,12 @@
         }
 }
 @media (min-width: 768px) {
+    .spanshover{
+            display:inline-block;
+            padding: 0 10px;
+            font-size:14px;
+            color:#333333;
+    }
     .juright{
         text-align:right;
     }
@@ -586,8 +560,8 @@
 .erfs{
         max-width: 1020px !important;
 }
-.redtitle{
-    margin:40px 0 40px 0;
+.redtitles{
+    margin:40px 0 30px 0;
 }
 .redLine{
     background: #da121a;
@@ -935,6 +909,11 @@
      .scrollUp:hover{
         cursor:pointer;
     } 
+    .spanshover:hover{
+    color:#da121a;
+    cursor:pointer;
+    border-bottom:2px solid #da121a;
+}
 </style>
 <script>
     $(document).ready(function(){ 
@@ -980,7 +959,7 @@
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
     export default{
-         name: 'cloudplanning',
+         name: 'scenarioDesign',
         components:{
             Sec,
             Sex
@@ -988,10 +967,23 @@
         data(){
             return{
                  phoneBox:false,
-               
+                 ids:true,
+                 iders:false
             }
         },
         methods:{
+            Upclouds:function(){
+                this.ids = true;
+                this.iders = false;
+                $(".spanbos").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+            },
+             moneyCloud:function(){
+                this.iders = true;
+                this.ids = false;
+                $(".spanbot").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbos").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
