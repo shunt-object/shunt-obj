@@ -134,7 +134,12 @@ export default{
         this.province = JSON.parse(sessionStorage.getItem("account")).province;
         this.city = JSON.parse(sessionStorage.getItem("account")).city;
         this.area = JSON.parse(sessionStorage.getItem("account")).area;
-        console.log(this.industry);
+        //console.log(this.industry);
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                return false;
+            }
+        });
     },
     methods:{
         updata:function(dom){
