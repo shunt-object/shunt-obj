@@ -12,35 +12,34 @@
             
             <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
         </div>
-          <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
-            <div class=" fixshow fis container">
-                     <div class="col-md-2 col-xs-2"><a href="#ProductFeatures"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 我们的发展</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#QuickStart"><i class="iconfont icon-jibenxinxi"></i> 企业文化</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#qualification"><i class="iconfont icon-shu"></i> 我们的资质</a></div>
-                    <div class="col-md-2 col-xs-2"><a href="#ContactUs"><i class="iconfont icon-kefu"></i> 联系我们</a></div>
-            </div>
-        </div>
+          
             <Sec active="5"></Sec>
+            <!--<div class="ycs" style="background:#f5f5f5;width:100%;height:70px;line-height:70px;">
+                     <div class="container">
+                        <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
+                        </div>
+                     </div>
+             </div>-->
             <div class="cloundcompare">
                     <div class="cloundbannerser">
                         <div class="container">
                             <div class="container" >
-                                    <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12">
-                                        <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">打造全新云服务模式，0元助力企业上云</span></p>
+                                    <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12 text-left">
+                                        <p class="selecone-pfir" style="font-weight:100;text-align:left;font-size:26px;color:#ffffff">打造全新云服务模式，0元助力企业上云</span></p>
                                         <div class="seclone-dv">
-                                            <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
+                                            <h3 class="selecone-pfir menospp" style="font-weight:100;text-align:left;font-size:26px;color:#ffffff;">轻松、便捷、快速进入智能云时代</h3>
                                         </div>
-                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="spanTys"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
+                                         <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:left;padding:0 !important"><span class="spanTys"><a href="#ProductFeatures" style="color:#fff" class="hhs">立即体验</a></span></p>
                                     </div>
                             </div>
                          </div>
                     </div>        
              </div>
-             <div>
+             <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds">上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud">迁云类工具</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
                         </div>
                      </div>
              </div>
@@ -65,12 +64,12 @@
             <div v-show="indesIds">
                 <div>
                         <div class="cloimg"><img src="../../../assets/paying-bg.png" alt=""></div>
-                        <div class="clofont"><span>迁云类工具正在开发中…</span></div>
+                        <div class="clofont"><span>迁云类工具正在开发中，敬请您的期待...</span></div>
                 </div>
             </div>
 
             <!--弹出框-->
-            <el-dialog title="云价格计算器"  :visible.sync="dialogVisible">
+            <el-dialog title="云价格计算器"  :visible.sync="dialogVisible" class="cloudmarket-dialog">
                  <div class="appcenterPrice">
                         <div class="appcplan-list"> 
                             <el-form :model="matchBo" :rules="rules" ref="matchBo" label-width="80px">
@@ -129,7 +128,7 @@
                 </span>
             </el-dialog>
              <div style="background:#ededed;;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
+                <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -142,6 +141,23 @@
     </div>
 </template>
 <style>
+.ycs{
+    position:fixed;
+    top:0;
+    display:none;
+    z-index:999999999;
+}
+
+
+.el-message-box__title span{
+    color:#000 !important;
+}
+.el-message-box__headerbtn .el-message-box__close{
+    color:#da121a !important;
+}
+.el-message-box__headerbtn{
+    top:8 !important
+}
 .cloimg{
     margin-top:100px;   
 }
@@ -155,6 +171,7 @@
 .clofont span{
     font-size:14px;
     color:#999999;
+    padding-left:10px;
 }
 .el-dialog{
     
@@ -264,8 +281,8 @@
     border:1px solid #f0f0f0;
     box-shadow:0 0 1px 2px rgba(236,236,236,0.50);
     border-radius:2px;
-    width:295px;
-    height:339px;
+    width:273px !important;
+    height:315px;
 }
 .kuao-borde{
     background:#f9f9f9;
@@ -374,11 +391,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;
@@ -422,14 +440,14 @@
         background:#EF131D;
     }
     @media (min-width: 768px) {
-        .el-dialog{
+        .cloudmarket-dialog .el-dialog{
             width:30% !important;
         }
         .juright{
             text-align:right;
         }
         .igs{
-            padding-left:50px;
+            padding-left:80px;
         }
         .spanshover{
             display:inline-block;
@@ -482,13 +500,21 @@
         }
     }
     @media (max-width: 768px) {
-        .el-dialog{
+        .cloudmarket-dialog .el-dialog{
             width:96% !important;
         } 
         .spanshover{
             display:inline-block;
             font-size:14px;
             color:#333333;
+
+        }
+        .spanbot{
+            float:left;
+        }
+        .spanbos{
+            float:right;
+            margin-left:0 !important;
         }
         .el-message-box{
             width:280px !important;
@@ -708,43 +734,6 @@
                             }else{
                                     $('.scrollUp').fadeOut();
                             }
-                        // if($(this).scrollTop()>80){
-                        //     $(".sectb").css("display","none");
-                        // };
-                        // if($(this).scrollTop()<80){
-                        //     $(".sectb").css("display","block");
-                          
-                        // };
-                        
-                         if($(".navers").length==1){
-                          
-                            var topa = $(".navers").offset().top - $(window).scrollTop();
-                             if(topa<0){
-                                 $(".displayshow").css("display","block") 
-                             }else if(topa>0){
-                                  $(".displayshow").css("display","none") 
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                             }
-                            
-                             if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
-                                $(".rightBs ul li").css("background","#d8d8d8") 
-                                $(".nexton").css("background","#da121a")
-                             }
-                             if($(window).scrollTop()+70>=$("#CoreStrengths").offset().top){
-                                  $(".rightBs ul li").css("background","#d8d8d8") 
-                                    $(".nextsec").css("background","#da121a")
-                             }
-                            if($("#QuickStart").length>0){
-                                if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
-                                    $(".rightBs ul li").css("background","#d8d8d8") 
-                                        $(".nextthe").css("background","#da121a")
-                                }
-                            }
-                             if($("#he").height()-($(window).height()+$(this).scrollTop())<50){
-                                 $(".rightBs ul li").css("background","#d8d8d8");
-                                  $(".nextf").css("background","#da121a")  
-                             }
-                        }
                     });
             
                     $(".scrollUp").click(function(){
@@ -892,12 +881,12 @@
               }else{
                   if(sess){
                         this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
-                            this.$confirm('您已成功添加到控制台中的“应用市场”', '提示', {
+                            this.$confirm('您已成功添加到控制台中的应用市场。', '温馨提示', {
                                 confirmButtonText: '立即体验',
                                 cancelButtonText: '继续添加',
                                 confirmButtonClass:'lay-btn-red',
                                 cancelButtonClass:'lay-cancel-btn',
-                                type: 'warning',
+                                type: 0,
                                 }).then(() => {
                                     this.$router.push({path:'/appcenterList'});
                                 }).catch(() => {
@@ -907,7 +896,8 @@
                         });
 
                   }else{
-                       this.$router.push({path:'/login'});
+                       this.$router.push({path:'/login',query:{univeristy:'cloudmarket'}});
+
                   }
               }
 
@@ -950,6 +940,18 @@
                         }else{
                             $('.scrollUp').fadeOut();
                         }
+                          
+                        //  if($(".lcs").length==1){
+                        //     if($(".lcs").offset().top - $(window).scrollTop() < 0){
+                        //         $('.ycs').css("display","block")
+                        //         $('.navbar').css("background","none")
+                        //         $('.navbar').css("display","none")
+                        //     }else{
+                        //         $('.ycs').css("display","none")
+                        //         $('.navbar').css("background","#1D1E20")
+                        //         $('.navbar').css("display","block")
+                        //     }
+                        // }
                      });
                      $(".scrollUp").click(function(){
                         $('html ,body').animate({scrollTop: 0}, 300);

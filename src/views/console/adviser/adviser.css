@@ -48,6 +48,7 @@
 .adviser-table table{
     width:100%;
     border:1px solid #e5e5e5;
+    margin-bottom:30px;
 }
 .adviser-table table thead tr th{
     text-align:center;
@@ -76,10 +77,6 @@
 .adviser-table table tbody tr:nth-child(2n){
     background: rgb(247, 247, 247);
 }
-
-
-
-
 /*  */
 .bigcafe-desc-list{
     background:#ffffff;
@@ -117,4 +114,16 @@
 }
 .bigcafe-desc-btn:hover{
     background:#EF131D;
+}
+/*  */
+.teamdia-list .el-input__inner{
+    height:30px !important;
+    line-height:30px !important;
+    width:100% !important;
+}
+.teamdia-list .el-input__icon{
+    line-height:30px !important;
+}
+.bigcafe-time .el-input__inner{
+    width:100% !important;
 }

@@ -84,7 +84,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999999999;
+    z-index: 1500;
     border: 1px #d6d6d6 solid;
     line-height: 68px;
     background:#fff;
@@ -150,8 +150,16 @@
     border-radius:2px;
     margin-bottom:20px;
 }
+.bigcafe-desc-list:hover{
+    cursor:pointer;
+   box-shadow:5px 5px 15px 2px #EAEAEA;
+   background:#f4f4f4;
+}
 .bigcafe-desc-list img{
     margin:15px auto;
+    width:120px;
+    height:120px;
+    border-radius:50%;
 }
 .bigcafe-desc-name{
     font-size:16px;

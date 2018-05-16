@@ -159,7 +159,7 @@
     line-height:58px;
     font-size:18px;
     color:#333333;
-    padding-left:68px;
+    /* padding-left:68px; */
 }
 .classProcess-erweima{
     padding-left:68px;
@@ -230,13 +230,27 @@
 /* 3 */
 .classProcess-sp-ul{
     margin-top:20px;
-    padding-left: 68px;
+    /* padding-left: 68px; */
 }
 .classProcess-sp-ul li{
     font-size:14px;
     color:#333333;
     line-height:28px;
     text-align:left;
+}
+@media (max-width: 768px) {
+    .classProcess-yue-lc img{
+        width:100%;
+    }
+    .classProcess-yue-tits{
+        padding-left:54px;
+    }
+    .classProcess-sp-ul{
+        padding-left:68px;
+    }
+    .phone-img{
+        width:100%;
+    }
 }
 
 /* 悬浮框 */

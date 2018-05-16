@@ -120,7 +120,7 @@
     min-height:160px;
 }
 .openCourse-outline-desc{
-    font-size:18px;
+    font-size:16px;
     color:#333333;
     text-align:center;
     line-height:30px;
@@ -145,6 +145,14 @@
     float:right;
     font-size:14px;
     color:#323232;
+}
+.level-input{
+    border:1px solid #da121a;
+    background:#fff;
+    border-radius:0px;
+    color:#da121a;
+    padding:0 8px;
+    width:100px;
 }
 /*  */
 .openCourse-class{

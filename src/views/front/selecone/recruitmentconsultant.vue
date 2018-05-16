@@ -6,7 +6,8 @@
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
                 
-                <li class="nextf" data-to="go3"></li>
+                <li class="nextcafe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
             </ul>
       </div>
       <div class="fixed-box">
@@ -23,9 +24,10 @@
     </div>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#BigCafe"><i class="iconfont icon-woshou"></i> 已签约的大咖</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
     </div>
@@ -45,9 +47,10 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#BigCafe" class="hoover-a"><i class="iconfont icon-woshou"></i> 已签约的大咖</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -80,7 +83,25 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;" id="QuickStart" class="go3">
+            <!--  -->
+            <div class="container  erfs">
+            <div class="go3" style="padding-top:20px;" id="BigCafe">
+                <div class=" text-left redtitle">
+                    <span class="redLine"></span><span class="redlasttitle">已签约的大咖</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" v-for="item in cafelist" v-on:click="teamdetail(item.userProfessor.id)">
+                        <div class="bigcafe-desc-list resruit-cafe">
+                            <img :src="item.userProfessor.headRoundImg" alt="">
+                            <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
+                            <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--  -->
+            <div style="width:100%;" id="QuickStart" class="go4">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:40px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">加入大咖团队</span>
@@ -116,7 +137,7 @@
            
       
             <div style="background:#ededed;;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
+                <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -132,6 +153,10 @@
 
 </template>
 <style>
+/**/
+.resruit-cafe{
+    border-bottom:2px #da121a solid;
+}
 .dvsa:hover{
     background:#EF131D;
 }
@@ -576,11 +601,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;
@@ -967,7 +993,7 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                            // console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
                              if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
@@ -976,6 +1002,13 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
+                             
+                             if($("#BigCafe").length>0){
+                                if($(window).scrollTop()+70>=$("#BigCafe").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextcafe").css("background","#da121a")
+                                }
+                            }
                             if($("#QuickStart").length>0){
                                 if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                     $(".rightBs ul li").css("background","#d8d8d8") 
@@ -1010,10 +1043,21 @@
                  gs:"",
                  hys:"",
                  dx:"",
-                 haha:"欢迎加入我们"
+                 haha:"欢迎加入我们",
+                 cafelist:[]
             }
         },
         methods:{
+            teamdetail:function(cafeid){
+                this.$router.push({path:'/teamDetail',query:{bigcafeId:cafeid}});
+            },
+            getlist:function(){
+                this.$this.get('/broker/prof/getList').then((response)=>{
+                    //console.log('---',response.data);
+                    this.cafelist = response.data.data;
+                }).catch((error)=>{
+                })
+            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -1090,10 +1134,11 @@
             }
         },
         mounted:function(){
+            this.getlist();
                $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
-                               console.log(s)
+                               //console.log(s)
                              $(".rightBs ul li").not($(this)).css("background","#d8d8d8")
                              $(this).css("background","#da121a")
                              var target = e.target;

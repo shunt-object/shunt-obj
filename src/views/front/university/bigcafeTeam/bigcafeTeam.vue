@@ -32,7 +32,7 @@
                 <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-team')"><i class="iconfont icon-tuandui1"></i> 大咖团队</a>
             </div>
             <div class="col-md-6 col-xs-6 bigcafeTeam-titles-right">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-dakatuijian"></i> 大咖介绍</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#bigcafe-desc')"><i class="iconfont icon-daka1"></i> 大咖介绍</a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
         <div class="row">
             <div class="col-md-4" v-for="item in cafelist">
                 <div class="bigcafe-desc-list">
-                    <img :src="item.userProfessor.headImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
+                    <img :src="item.userProfessor.headRoundImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
                     <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
                     <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
                     <div class="bigcafe-desc-honour" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.desc}}</div>
@@ -95,7 +95,7 @@
         </div>
     </div>
     <div style="background:#ededed;;width:100%;height:auto;">
-        <div class="seleconeMain-footer row">
+        <div class="seleconeMain-footer">
             <div class="container text-left" style="width:60%;padding-left:cd30px;">
                     <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                     <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -230,8 +230,6 @@ export default {
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
         this.date = new Date();
-        this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
-        this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
         let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
@@ -274,6 +272,8 @@ export default {
             }else{
                 this.apponitProf.pid = this.checkedItem.userProfessor.id;
             }
+            this.apponitProf.appointTime = this.date.getFullYear()+'-'+(this.date.getMonth()+1)+'-'+this.date.getDate()+' '+this.date.getHours()+':'+this.date.getMinutes()+':'+this.date.getSeconds();
+            this.apponitProf.apponitUser = JSON.parse(sessionStorage.getItem("account")).username;
             this.dialogteam = false;
             this.$this.post('/broker/apponit/saveApponitProf',JSON.stringify(this.apponitProf)).then((response)=> {
                 //console.log(response);
@@ -284,6 +284,12 @@ export default {
                     reason: "",
                     remark: ""
                 };
+                this.$message({
+                    message: '您已预约成功。',
+                    customClass:'lay-msg',
+                    iconClass:'el-icon-success',
+                    duration:1000
+                });
             }).catch((error)=> {
                 console.log(error);
             });
@@ -306,8 +312,8 @@ export default {
                     if(response.data.data==true){
                         this.isphone = true;
                     }else{
-                        that.isphone = false;
-                        that.phonenotice = '您的手机号已被注册';
+                        this.isphone = false;
+                        this.phonenotice = '您的手机号已被注册';
                     }
                 }).catch((error)=> {
                     console.log(error);
@@ -343,7 +349,12 @@ export default {
             this.$this.post('/broker/sms/send/code/bind',str).then((response)=>{
                 //console.log('----',response.data.code);
                 if(response.data.code==1){
-                    this.$message('验证码发送成功');
+                    this.$message({
+                        message: '验证码已成功发送到您的手机，请注意查收。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                     let self = this;
                     let clear = setInterval(function(){
                         self.countI--;
@@ -377,7 +388,12 @@ export default {
                     this.information.phone = this.phone;
                     let string = JSON.stringify(this.information);
                     sessionStorage.setItem("account",string);
-                    alert('您已成功绑定手机');
+                    this.$message({
+                        message: '您已成功绑定手机。',
+                        customClass:'lay-msg',
+                        iconClass:'el-icon-success',
+                        duration:1000
+                    });
                 }
             }).catch((error)=>{
             })

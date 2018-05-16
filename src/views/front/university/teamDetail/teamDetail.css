@@ -188,7 +188,7 @@
     width:94%;
     margin:0 auto;
     font-size:14px;
-    color:#333333;
+    color:#666;
     text-align:center;
     line-height:24px;
     margin-top:20px;
@@ -196,7 +196,7 @@
 /* 工作经历 */
 .teamDetail-jobs-list{
     font-size:14px;
-    color:#333333;
+    color:#666;
     text-align:left;
     margin-bottom:15px;
 }
@@ -204,8 +204,8 @@
 .teamDetail-tc-img{
     background:#f5f5f5;
     border-radius:50%;
-    width:117px;
-    height:113px;
+    width: 90px;
+    height: 90px;
     margin:0 auto;
 }
 .teamDetail-tc-img img{
@@ -213,7 +213,7 @@
 }
 .teamDetail-tc-title{
     font-size:14px;
-    color:#333333;
+    color:#666666;
     text-align:left;
     margin:10px 0;
 }

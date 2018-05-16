@@ -19,9 +19,9 @@
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pkd">
                 <p class=" footer-jx text-left">智识学院</p>
-                <p class="text-left footer-list hoverRed"><span @click="yungh">大咖团队</span></p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundSelect">上课流程</span></p>
-                <p class="text-left footer-list hoverRed"><span @click="cloundCe">公开课程</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="yunghs">大咖团队</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundSelects">上课流程</span></p>
+                <p class="text-left footer-list hoverRed"><span @click="cloundCes">公开课程</span></p>
                 <p class="text-left footer-list hoverRed"></p>
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts pad">
@@ -741,6 +741,18 @@ h2 {
 <script>
     export default{
         methods:{
+            cloundCes:function(){
+                this.$router.push({path: '/openCourse'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            cloundSelects:function(){
+                  this.$router.push({path: '/classProcess'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            },
+            yunghs:function(){
+                 this.$router.push({path: '/bigcafeTeam'});
+                    $('html ,body').animate({scrollTop: 0},0);
+            },
             cloundPlan:function(){
                   this.$router.push({path: '/cloudplanning'});
                     $('html ,body').animate({scrollTop: 0},0);
