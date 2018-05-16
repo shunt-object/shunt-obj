@@ -441,7 +441,7 @@
     }
     @media (min-width: 768px) {
         .cloudmarket-dialog .el-dialog{
-            width:30% !important;
+            width:480px !important;
         }
         .juright{
             text-align:right;
