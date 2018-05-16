@@ -31,7 +31,7 @@
                 </div>
                 <div class="kongbottom"></div>
                 <!--<div class="block" style="text-align:right">
-                    <el-pagination
+                    <el-pagination class="notification-page"
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page.sync="currentPage1"
@@ -222,10 +222,10 @@
        margin-top:20px;
        padding-bottom:10%
    }
-   .el-pager li:hover{
+   .notification-page .el-pager li:hover{
        color:#da121a !important
    }
-   .el-pager li.active{
+   .notification-page .el-pager li.active{
        color:#da121a !important
    }
    .spanleft span:hover{
