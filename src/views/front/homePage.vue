@@ -122,9 +122,7 @@
   <div style="background:#2B2B2D;">
         <div class="container">
             <div class="">
-
                     <div class="col-md-3 leftborder" @click="scenarioDesign()">
-
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
                             <dd>
