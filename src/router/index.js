@@ -135,7 +135,7 @@ export default new Router({
       component:wudata
     },
      {
-      // Pro.吴数据
+      // 首页文案
       path:"/scenarioDesign",  
       name:"scenarioDesign",
       component:scenarioDesign

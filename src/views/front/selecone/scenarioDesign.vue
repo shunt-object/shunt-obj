@@ -28,10 +28,14 @@
                         </div>
                  </div>
             </div>
+            <div>
+                <div class="jia-main">场景化定制设计</div>
+                <div class="jia-h">精准匹配您的需求，助力信息化水平提高</div>
+            </div>
              <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-jibenxinxi"></i> 中小企业</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-shenpiliucheng"></i> 云代商和集成商</span>
                         </div>
                      </div>
              </div>
@@ -41,22 +45,164 @@
                     <div class=" text-left redtitles">
                        <span class="redLine"></span><span class="redlasttitle">核心优势</span>
                     </div>
-                    <div class="row text-center bjia">
-                        <div>CloudBroker²依托国内外咨询和实施的经验积累，集合国内用户使用习惯，为用户提供从规划、选型、设计、购买、迁移和运维的全流程一站式云服务；着</div>
-                        <div>力为中小企业客户破解上云难题，降低企业客户上云、选云和管云成本，让企业聚焦于业务创新和创造；切实帮助中小企业用户易上云、选好云和用好云。</div>
+                    <div class="row text-left bjia">
+                        <div style="text-indent:1em">CloudBroker²依托国内外咨询和实施的经验积累，集合国内用户使用习惯，为用户提供从规划、选型、设计、购买、迁移和运维的全流程一站式云服务；着</div>
+                        <div style="text-indent:1em">力为中小企业客户破解上云难题，降低企业客户上云、选云和管云成本，让企业聚焦于业务创新和创造；切实帮助中小企业用户易上云、选好云和用好云。</div>
                     </div>
                  </div>
-                 <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                 <div class="container erfs whyContainer" style="margin-bottom:70px;">
                     <div class=" text-left redtitles">
                        <span class="redLine"></span><span class="redlasttitle">特色功能</span>
                     </div>
                     <div class="row text-center bjia">
-                        <div>CloudBroker²依托国内外咨询和实施的经验积累，集合国内用户使用习惯，为用户提供从规划、选型、设计、购买、迁移和运维的全流程一站式云服务；着</div>
-                        <div>力为中小企业客户破解上云难题，降低企业客户上云、选云和管云成本，让企业聚焦于业务创新和创造；切实帮助中小企业用户易上云、选好云和用好云。</div>
+                        <div>
+                            <div class="col-md-4">
+                                <div class="bjia-poai">
+                                    <div class="text-right bjia-title">深度定制解决方案</div>
+                                    <ul class="text-right bjia-uls">
+                                        <li>全方位的技术托管服务</li>
+                                        <li>架构优化与云化解决方案咨询服务</li>
+                                        <li>网站与系统安全规划</li>
+                                        <li>云主机数据备份与恢复</li>
+                                        <li>网站数据库服务</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner1.png" alt="">
+                                </div>
+                                <div class="bjia-poai poai">
+                                    <div class="text-right bjia-title">云运维</div>
+                                    <ul class="text-right bjia-uls">
+                                        <li>VIP专家服务+云管平台，专业、安全和可靠</li>
+                                        <li>完善的云运维体系，7*24*4的运维保障服务 </li>
+                                        <li>从硬件到操作系统到中间件到应用的立体监控</li>
+                                        <li>覆盖故障排查、云主机备份/恢复等多种服务</li>
+                                        <li>基于ITIL的3级服务保障体系</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner1111.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-4 img-position">
+                                <img src="../../../assets/er-icon/zheng.png" alt="" class="jia-img">
+                                <div class="sji">
+                                    <ol class="text-center">
+                                        <li class="ol-lis">S级</li>
+                                        <li  class="ol-lit">一站式解决方案</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="bjia-posi">
+                                    <div class="text-left bjia-title">咨询顾问</div>
+                                    <ul class="text-left bjia-ules">
+                                        <li>1V1上云咨询，专家助力上云</li>
+                                        <li>S级平台功能，20分钟内完成规划、选型和设</li>
+                                        <li>线上咨询和线下服务相结合，省时、省钱和专业</li>
+                                        <li>提供完整和专业的上云综合分析报告</li>
+                                        <li class="bjia-kong">&nbsp</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner11.png" alt="">
+                                </div>
+                                <div class="bjia-posi posi">
+                                    <div class="text-left bjia-title">迁移</div>
+                                    <ul class="text-left bjia-ules">
+                                        <li>1V1上云咨询，专家助力上云</li>
+                                        <li>S级平台功能，20分钟内完成规划、选型和设计</li>
+                                        <li>线上咨询和线下服务相结合，省时、省钱和专业</li>
+                                        <li>提供完整和专业的上云综合分析报告</li>
+                                        <li class="bjia-kong">&nbsp</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner1111111.png" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                  </div>
             </div>
-            <div v-show="iders">1213332</div>
+            <div v-show="iders">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
+                    <div class=" text-left redtitles">
+                       <span class="redLine"></span><span class="redlasttitle">核心优势</span>
+                    </div>
+                    <div class="row text-left bjia">
+                        <div style="text-indent:1em">基于运营商云业务特点，CloudBroker²打造了“平台+顾问”的全新服务模式，将有效降低运营商云销售难度，协助运营商为其用户提供1V1上云咨询、迁移</div>
+                        <div style="text-indent:1em">和优化方案；通过对企业应用进行画像、与竞争对手的优劣势分析，上云、迁云和管云的数据横向打通，从而构建了从咨询与设计、迁移与实施到运维与管理</div>
+                        <div style="text-indent:1em">的一个完整闭环云技术服务保障体系。</div>
+                    </div>
+                 </div>
+                 <div class="container erfs whyContainer" style="margin-bottom:70px;">
+                    <div class=" text-left redtitles">
+                       <span class="redLine"></span><span class="redlasttitle">特色功能</span>
+                    </div>
+                    <div class="row text-center bjia">
+                        <div>
+                            <div class="col-md-4">
+                                <div class="bjia-poai">
+                                    <div class="text-right bjia-title">运维与管理</div>
+                                    <ul class="text-right bjia-uls">
+                                        <li>顾问全程参与，优化决策化</li>
+                                        <li>挖掘行业和区域上云数据</li>
+                                        <li>看清自身及其客户的云化成本</li>
+                                        <li>助力云业务精细化和科学化管理</li>
+                                        <li>持续优化规范提供辅助决策支撑</li>
+                                        <li>平台对服务过程全程安全监监管</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner12.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-4 img-position">
+                                <img src="../../../assets/er-icon/yuan.png" alt="" class="jia-img">
+                                <div class="sjis sji-a">
+                                    <ol class="text-center">
+                                        <li class="text-left">运维与</li>
+                                        <li  class="text-left">管理</li>
+                                    </ol>
+                                </div>
+                                <div class="sjis sji-d">
+                                    <ol class="text-center">
+                                        <li class="text-center">为云代理和集成商提升</li>
+                                        <li  class="text-center">销售和技术支撑能力</li>
+                                    </ol>
+                                </div>
+                                <div class="sjis sji-b">
+                                    <ol class="text-center">
+                                        <li class="text-left">销售与</li>
+                                        <li  class="text-left">咨询</li>
+                                    </ol>
+                                </div>
+                                <div class="sjis sji-c">
+                                    <ol class="text-center">
+                                        <li class="">迁移与实施</li>
+                                    </ol>
+                                </div>
+                                <div class="bjia-pon">
+                                    <img src="../../../assets/er-icon/banner1122.png" alt="">
+                                    <div class="text-center bjia-title">迁移与实施</div>
+                                    <ul class="text-left bjia-ules uhas">
+                                        <li>提供平台+顾问的技术服务模式</li>
+                                        <li>基于客户场景深度定制上云方案</li>
+                                        <li>依托上云最佳实践和场景化设计</li>
+                                        <li>开发多个辅助工具，降低工作量</li>
+                                        <li>减少客户上云迁移成本和面临风险</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="bjia-posi">
+                                    <div class="text-left bjia-title">销售与咨询</div>
+                                    <ul class="text-left bjia-ules">
+                                        <li>1V1顾问咨询，分析上云可行性</li>
+                                        <li>采集应用信息，提供精准画像</li>
+                                        <li>助清晰了解企业用户购买意愿</li>
+                                        <li>精准分析与竞争对手差异</li>
+                                        <li>已定制多个工具，无需安装，用完即走</li>
+                                        <li>提供完整和专业的上云分析报告</li>
+                                    </ul>
+                                    <img src="../../../assets/er-icon/banner11.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
             <div style="background:#ededed;;width:100%;height:auto;">
                 <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
@@ -74,6 +220,100 @@
 
 </template>
 <style>
+.sjis{
+    font-size:14px;
+    color:#333333;
+    line-height:27px;
+}
+ol li{
+    list-style:none;
+}
+.ol-lis{
+    color:#da121a;
+    font-size:14px;
+    font-weight:900;
+}
+.ol-lit{
+    font-size:14px;
+    color:#000;
+    line-height:20px;
+    font-weight:900;
+}
+.img-position{
+    position:relative;
+}
+
+.jia-main{
+    font-size:26px;
+    color:#333333;
+    text-align:center;
+    margin-top:30px;
+}
+.jia-h{
+    font-size:16px;
+    color:#999999;
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+.posi,.poai{
+    margin-top:25px !important;
+}
+.bjia-poai{
+    position:relative;
+    padding-right:30px;
+    margin-top:10px;
+}
+.bjia-posi{
+     position:relative;
+     padding-left:30px;
+     margin-top:10px;
+}
+.bjia-pon{
+       position:relative;
+        padding-left:30px;
+        margin-top:10px;
+}
+.bjia-pon img{
+     width:40px;
+    height:40px;
+    margin-top:25px;
+}
+.bjia-poai img{
+    width:40px;
+    height:40px;
+    position:absolute;
+    right:-20px;
+    top:0
+}
+.bjia-posi img{
+    width:40px;
+    height:40px;
+    position:absolute;  
+    left:-20px;
+    top:0
+}
+.bjia-title{
+    font-size:18px;
+    color:#333333;
+}
+.bjia-uls li{
+    background:url("../../../assets/er-icon/dianRed.png") no-repeat right center;
+    padding-right:16px;
+    font-size:12px;
+    color:#666666;
+    line-height:20px !important
+}
+.bjia-ules li{
+    background:url("../../../assets/er-icon/dianRed.png") no-repeat left center;
+    padding-left:16px;
+    font-size:12px;
+    color:#666666;
+    line-height:20px !important
+}
+.bjia-kong{
+    background:none !important
+}
 .bjia{
     font-size:14px;
     color:#666666;
@@ -408,6 +648,19 @@
     margin-top:5px;
 }
 @media (max-width: 768px) {
+    .sjis{
+        display:none;
+    }
+    .sji{
+        display:none;
+    }
+        .spanbot {
+            float: left;
+        }
+        .spanbos{
+            float:right;
+            margin-left:0 !important;
+        }   
       .spanshover{
             display:inline-block;
             font-size:14px;
@@ -462,6 +715,38 @@
         }
 }
 @media (min-width: 768px) {
+    .sji-a{
+        position:absolute;
+        left:28px;
+        top:100px;
+    }
+    .sji-b{
+        position:absolute;
+        right:28px;
+        top:100px;
+    }
+    .sji-c{
+        position:absolute;
+        bottom:44%;
+        left:140px;
+    }
+ .sji-d{
+        position:absolute;
+        top:130px;
+        left:95px;
+    }
+    .sji{
+        position:absolute;
+        left:115px;
+        top:120px;
+    }
+    .uhas{
+        padding-left:34px;
+    }
+    .jia-img{
+        width:300px;
+        height:300px;
+    }
     .spanshover{
             display:inline-block;
             padding: 0 10px;
@@ -673,6 +958,10 @@
     }
 }
 @media (max-width: 768px) {
+     .jia-img{
+        width:200px;
+        height:200px;
+    }
     .lasilasis{
         margin-top:10px;
         margin-bottom:20px;
@@ -1008,6 +1297,7 @@
           
         },
         mounted:function(){
+               $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
                $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
