@@ -206,47 +206,6 @@
 .openCourse-check-btn:hover,.openCourse-class-yu:hover{
     background:#EF131D;
 }
-/* 悬浮框 */
-.fixed-box{
-    width: 55px;
-    position: fixed;
-    right: 0;
-    bottom: 100px;
-    z-index: 10;
-}
-.fixed-box .scrollUp{
-    position: fixed;
-    right: 12px;
-    display: none;
-}
-.fixed-ul li{
-    background: #da121a;
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    padding-top: 1px;
-    line-height: 2px;
-    cursor: pointer;
-    font-size: 10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width: 185px;
-    height: 60px;
-    position: absolute;
-    right: 68px;
-    top: 0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
-}
-.liHoversBj:hover{
-    background:#EF131D;
-}
 /* 弹框 */
 .opendia .el-dialog{
     width:35%;

@@ -1,18 +1,8 @@
 <template style="position:relative">
  
   <div class="homepage">
-    <div class="fixed-box">
-        <ul class="fixed-ul">
-            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-            </li>
-            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        </ul>
-        <div id="rys" style="z-index:100 !important"></div>
-        
-        <img src="../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-    </div>
+    <!-- 悬浮框 -->
+    <fixedbox></fixedbox>  
     <Sec active="0"></Sec>
     <!--  nav end--> 
    
@@ -410,6 +400,7 @@
  import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
+ import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
 
 export default {
     name: 'homePage',
@@ -417,13 +408,13 @@ export default {
         
         Sec,
         Sex,
+        fixedbox
         
     },
     data() {
       return {
         islogin: false,
         realname: '',
-        phoneBox:false,
         logoutlist:false
       }
     },
@@ -510,21 +501,6 @@ export default {
                               $(this).find("img").removeClass("flip");
                         })
             //$('.scrollUp').hide();        
-            $(window).scroll(function(){
-                // console.log($(this).scrollTop());
-    
-                //当window的scrolltop距离大于1时，go to 
-                if($(this).scrollTop() > 550){
-                    $('.scrollUp').css("display","block")
-                    }else{
-                            $('.scrollUp').fadeOut();
-                         }
-                });
-    
-            $(".scrollUp").click(function(){
-                $('html ,body').animate({scrollTop: 0}, 300);
-               
-            });
         });
 
         $('.dropdown-toggle').dropdown();
@@ -738,12 +714,6 @@ export default {
       loGog: function() {
         this.$router.push({path: '/login'});
       },
-      phoneEnter:function(){
-          this.phoneBox = true;
-      },
-      phoneleave:function(){
-          this.phoneBox = false;
-      },
       condole: function() {
           this.$router.push({path: '/consolePage'});
       },
@@ -773,12 +743,6 @@ export default {
       ctaCloundf:function(){
              this.$router.push({path: '/orderlist'});
             $('html ,body').animate({scrollTop: 0},0);
-      },
-      xiaowei:function(){
-         // var win = window.open("#/CustomerService");
-        
-        //   var that = this;                    
-            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
       },
       jiaxinTogglerDiv:function(){
          
@@ -941,29 +905,6 @@ ul,ol li {
 }
 .ourPoint{
     background:#f7f7f7; padding-bottom: 30px;
-}
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
 }
 /**/
 @media (min-width: 768px) {

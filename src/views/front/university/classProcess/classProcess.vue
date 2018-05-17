@@ -1,16 +1,7 @@
 <template>
 <div class="classProcess">
     <!-- 悬浮框 -->
-    <div class="fixed-box">
-        <ul class="fixed-ul">
-            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-            </li>
-            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        </ul>
-        <img src="../../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-    </div>
+    <fixedbox></fixedbox>
     <!-- banner -->
     <div class="seleconeMain-banners  row classProcess-banner">
         <div class="container">
@@ -157,6 +148,7 @@
 import '../classProcess/classProcess.css';
 import start from '../../../../components/SecondaryPages/SecondaryPages.vue';
 import finish from '../../../../components/SecondaryPages/SecondaryFooter.vue';
+import fixedbox from '../../../../components/SecondaryPages/protalFixed.vue';
 export default {
     name:'classProcess',
     data(){
@@ -202,7 +194,8 @@ export default {
     },
     components:{
         start,
-        finish
+        finish,
+        fixedbox
     },
 }
 </script>

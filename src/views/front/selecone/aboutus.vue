@@ -1,17 +1,7 @@
 <template>
     <div>
-        <div class="fixed-box">
-            <ul class="fixed-ul">
-                <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                    <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-                </li>
-                <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-            </ul>
-        
-            
-            <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-        </div>
+        <!-- 悬浮框 -->
+        <fixedbox></fixedbox>
           <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow fis container">
                      <div class="col-md-2 col-xs-2"><a href="#ProductFeatures"><i class="iconfont icon-tuandui"></i> 关于我们</a></div>
@@ -215,30 +205,6 @@
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
-}
-
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
 }
 /**/
 .redtitle{
@@ -550,12 +516,6 @@
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
                         // console.log($(window).scrollTop())
-                    //当window的scrolltop距离大于1时，go to 
-                        if($(this).scrollTop() > 550){
-                            $('.scrollUp').css("display","block")
-                            }else{
-                                    $('.scrollUp').fadeOut();
-                            }
                         // if($(this).scrollTop()>80){
                         //     $(".sectb").css("display","none");
                         // };
@@ -594,21 +554,16 @@
                              }
                         }
                     });
-            
-                    $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                    });
-
-
               })
         import '../selecone/bais.css'
         import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
         import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
+        import fixedbox from '../../../components/SecondaryPages/protalFixed.vue';
      export default{
         components:{
             Sec,
-            Sex
+            Sex,
+            fixedbox
         },
         data(){
             return {

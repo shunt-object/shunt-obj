@@ -377,7 +377,7 @@ export default{
            this.nocopy();
         },
         university:function(){
-            this.$router.push({path:'/adviser'});
+            this.$router.push({path:'/adviserCenter'});
         },
         responsiveView:function () {
             var wSize = $(window).width();

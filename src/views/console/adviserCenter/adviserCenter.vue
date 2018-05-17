@@ -204,9 +204,9 @@
 </div>
 </template>
 <script>
-import '../adviser/adviser.css'
+import '../adviserCenter/adviserCenter.css'
 export default {
-    name:'adviser',
+    name:'adviserCenter',
     data(){
         return {
             cafelist:[],

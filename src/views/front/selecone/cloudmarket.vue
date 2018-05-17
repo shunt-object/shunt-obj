@@ -1,18 +1,7 @@
 <template>
     <div>
-        <div class="fixed-box">
-            <ul class="fixed-ul">
-                <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-                <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                    <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-                </li>
-                <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-            </ul>
-        
-            
-            <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-        </div>
-          
+        <!-- 悬浮框 -->
+        <fixedbox></fixedbox>
             <Sec active="5"></Sec>
             <!--<div class="ycs" style="background:#f5f5f5;width:100%;height:70px;line-height:70px;">
                      <div class="container">
@@ -361,30 +350,6 @@
     color:#da121a;
     display:inline-block;
     border-bottom:1px solid #da121a;
-}
-
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
 }
 /**/
 .redtitle{
@@ -748,17 +713,18 @@
         import '../../console/appCenter/appcenterPrice/appcenterPrice.css'
         import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
         import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
+        import fixedbox from '../../../components/SecondaryPages/protalFixed.vue';
      export default{
         components:{
             Sec,
-            Sex
+            Sex,
+            fixedbox
         },
         data(){
             return {
                Ais:false,
                Sis:true,
                Asd:false,
-               phoneBox:false,
                activeName:"first",
                list:[],
                dialogVisible: false,
@@ -907,22 +873,9 @@
             },
             lister:function(){
                 this.$this.get('/broker/market/user/all/list').then((res)=>{  //获取所有的信息内容
-                            console.log(res);
                             this.list = res.data;
                     }).catch((error)=>{
                 });
-            },
-            xiaowei:function(){
-                //  var that = this; 
-                 //var win = window.open("#/CustomerService");
-             var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
-              // var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
-            },
-            phoneEnter:function(){
-                this.phoneBox = true;
-            },
-            phoneleave:function(){
-                    this.phoneBox = false;
             },
             ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
@@ -935,12 +888,6 @@
               $(document).ready(function(){ 
                      $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
                      $(window).scroll(function(){
-                        if($(this).scrollTop() > 550){
-                            $('.scrollUp').css("display","block")
-                        }else{
-                            $('.scrollUp').fadeOut();
-                        }
-                          
                         //  if($(".lcs").length==1){
                         //     if($(".lcs").offset().top - $(window).scrollTop() < 0){
                         //         $('.ycs').css("display","block")
@@ -952,10 +899,6 @@
                         //         $('.navbar').css("display","block")
                         //     }
                         // }
-                     });
-                     $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
                      });
 
                     $.fn.extend({  //封装animate方法
