@@ -84,10 +84,9 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 1500;
-    border: 1px #d6d6d6 solid;
+    z-index: 999999999;
     line-height: 68px;
-    background:#fff;
+    background: rgb(245, 245, 245);
 }
 /*  */
 .bigcafeTeam-line{

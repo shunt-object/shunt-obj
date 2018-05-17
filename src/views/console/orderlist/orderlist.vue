@@ -31,10 +31,12 @@
         </div>
     </div>
     <div class="designOrder-title">
-      <p>
-        <span><a v-on:click="publicShow()">公有云意向订单&nbsp;&nbsp;{{orderlist.length}}</a></span>
-        <span><a v-on:click="privateShow()">私有云意向订单&nbsp;&nbsp;{{privateOrderList.length}}</a></span>
-      </p>
+        <div class="designOrder-tab" :class="isShow==true?'designOrder-tab-on':''">
+            <button v-on:click="publicShow()">公有云意向订单</button>
+        </div>
+        <div class="designOrder-tab" :class="isNotShow==true?'designOrder-tab-on':''">
+                <button v-on:click="privateShow()">私有云意向订单</button>
+        </div>
     </div>
     <div class="designOrder-list" v-for="(item,index) in orderlist" v-show="isShow" >
         <div class="designOrder-list-head">
@@ -157,7 +159,7 @@ export default{
             barlist:[],
             barlegened:[],
             isShow:true,
-            isNotShow:false
+            isNotShow:false,
             //contact:false
         }
     },

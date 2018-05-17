@@ -79,7 +79,7 @@
     </div>
     
     <div class="adviser-title">
-        <i class="iconfont icon-daka1 main-color" style="color:#da121a"></i>智识学院
+        <i class="iconfont icon-daka1 main-color" style="color:#da121a"></i>大咖团队
     </div>
     <div class="adviser-cafe row">
         <div class="col-md-4" v-for="item in cafelist">
@@ -277,7 +277,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '您的手机号已被注册';
+                        this.phonenotice = '该手机号已使用';
                     }
                 }).catch((error)=> {
                     console.log(error);

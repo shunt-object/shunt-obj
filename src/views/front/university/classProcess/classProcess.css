@@ -85,9 +85,8 @@
     position: fixed;
     top: 0;
     z-index: 999999999;
-    border: 1px #d6d6d6 solid;
     line-height: 68px;
-    background:#fff;
+    background: rgb(245, 245, 245);
 }
 /*  */
 .classProcess-line{

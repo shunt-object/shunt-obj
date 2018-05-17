@@ -304,7 +304,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '您的手机号已被注册';
+                        this.phonenotice = '该手机号已使用';
                     }
                 }).catch((error)=> {
                     console.log(error);

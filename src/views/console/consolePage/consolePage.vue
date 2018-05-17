@@ -42,7 +42,7 @@
         <!--头部icon-->
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
-                <li class="dropdown" v-on:click="university()">
+                <li class="dropdown idicon" v-on:click="university()">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover">
                         <i class="iconfont icon-daka1"></i>智识学院
                     </a>

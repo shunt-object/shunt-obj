@@ -51,6 +51,8 @@
                     <thead class="row">
                         <tr>
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向订单</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向云厂商</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -62,6 +64,10 @@
                             <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dat.boolean" v-on:click="clickCheck(index)">
                             </td>
+                            <td class="ds" style="line-height:110px" v-if="isclick==2||isclick==3">
+                                <input type="checkbox" v-model="dat.data.intention" v-on:click="prvatiteYun(index)">
+                            </td>
+                            <td class="ds" style="line-height:110px" v-if="isclick==2||isclick==3">{{clouldname}}</td>
                             <td class="ds" style="line-height:110px">应用服务</td>
                             <td class="ds" style="line-height:110px">{{dat.data.num}}</td>
                             <td>
@@ -85,6 +91,8 @@
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dbserall" v-on:click="dbWhole()">价格优选
                             </th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向订单</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向云厂商</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
                             <th class="text-center col-md-4 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">云配置（推荐）</th>
@@ -96,6 +104,10 @@
                             <td class="ds" style="line-height:110px" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dati.boolean" v-on:click="checkDB(index)">
                             </td>
+                            <td class="ds" style="line-height:110px" v-if="isclick==2||isclick==3">
+                                <input type="checkbox" v-model="dati.data.intention" v-on:click="prvaSj(index)">
+                            </td>
+                            <td class="ds" style="line-height:110px" v-if="isclick==2||isclick==3">{{clouldname}}</td>
                             <td class="ds" style="line-height:110px">数据库服务</td>
                             <td class="ds" style="line-height:110px">{{dati.data.num}}</td>
                             <td>
@@ -774,7 +786,8 @@ export default{
                 dbgao:[],
                 dbdi:[]
             },
-            isclick:''
+            isclick:'',
+            clouldname:''
         }
     },
     mounted:function(){
@@ -869,9 +882,45 @@ export default{
         });
 
         this.topology();   
-        this.servied();   
+        this.servied();  
+        this.getIntentionSid();//云厂商 
     },
     methods:{
+        prvatiteYun:function(index){
+            if(this.dats[index].data.intention==false){
+                this.dats[index].data.intention=true;
+                this.savePratite(false,this.dats[index].data.id);
+            }else{
+                this.dats[index].data.intention=false;
+                this.savePratite(true,this.dats[index].data.id);
+            }
+        }, 
+        prvaSj:function(index){
+            if(this.datis[index].data.intention==false){
+                this.datis[index].data.intention=true;
+                this.savePratite(false,this.datis[index].data.id);
+            }else{
+                this.datis[index].data.intention=false;
+                this.savePratite(true,this.datis[index].data.id);
+            }
+        }, 
+        savePratite:function(bool,designVmId){
+            let param = {
+                "appid": this.appId,
+                "del": bool,
+                "matchType": 1,
+                "designVmId": designVmId
+            };
+            this.$this.post('/broker/compare/save/intention',JSON.stringify(param));
+        },
+        getIntentionSid:function(){
+            this.$this.get('/broker/private/cloud/get/provider/'+this.appId+'').then((response)=>{
+                if(response.data.code!=-1){
+                    this.clouldname = response.data.data.sname
+                }
+            }).catch((error)=>{
+            })
+        },
         servied:function(){
             this.$this.get('/broker/plan/result/'+this.appId+'').then((response)=>{
                 this.isclick = response.data.data.serverId;

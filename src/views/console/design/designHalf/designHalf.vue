@@ -416,7 +416,7 @@ export default{
             appX:[],
             dbX:[],
             islookecharts:false,
-            issort:'0'
+            issort:'0',
         }
     },
     mounted:function(){
@@ -424,6 +424,7 @@ export default{
         this.lookobj.appid = this.id;
         this.getRegion(-1);
         this.getCloudlist();//云厂商列表
+        
        // console.log('-----',this.appG,this.appD,this.dbG,this.dbD);
     },
     methods:{
@@ -766,7 +767,8 @@ export default{
             this.$router.push({path:'/colligateReport',query:{id:this.appId,type:this.type}});
         },
         designprev:function(){
-            this.$router.push({path:'/compareResult',query:{id:this.appId,listid:arr,type:this.type}});
+            this.$router.push({path:'/compareResult',query:{id:this.appId,type:this.type}});
+            //this.$router.push({path:'/compareResult',query:{id:this.appId,listid:arr,type:this.type}});
         },
         canversBar:function(dom,xdata,datalist,text){
             let that = this;
