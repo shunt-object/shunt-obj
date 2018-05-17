@@ -119,10 +119,14 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
-  <div style="background:#2b2b2d;">
+  <div style="background:#2B2B2D;">
         <div class="container">
             <div class="">
+<<<<<<< HEAD
                     <div class="col-md-3 leftborder">
+=======
+                    <div class="col-md-3 leftborder" @click="scenarioDesign()">
+>>>>>>> feature/sy
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
                             <dd>
@@ -131,7 +135,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder">
+                    <div class="col-md-3 leftborder" @click="sexlocal()">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/2.png" alt=""></dt>
                             <dd class="did">
@@ -140,7 +144,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder">
+                    <div class="col-md-3 leftborder" @click="seslocal()">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/3.png" alt=""></dt>
                             <dd>
@@ -149,7 +153,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder tshu">
+                    <div class="col-md-3 leftborder tshu" @click="seclocal()">
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/4.png" alt=""></dt>
                             <dd class="did">
@@ -481,6 +485,11 @@ export default {
                         //  },function(){
                         //      $(this).find(".PlanLj").remoteClass('flash');
                         //  })10px 10px 1px 2px #ccc"
+                        $(".leftborder").hover(function(){
+                            $(this).find(".tuis").css("color","#fff");
+                        },function(){
+                            $(this).find(".tuis").css("color","#999999"); 
+                        })
                         $(".blurb-cta").hover(function(){
                             $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
                         },function(){
@@ -501,6 +510,25 @@ export default {
                               $(this).find("img").removeClass("flip");
                         })
             //$('.scrollUp').hide();        
+<<<<<<< HEAD
+=======
+            $(window).scroll(function(){
+                // console.log($(this).scrollTop());
+    
+                //当window的scrolltop距离大于1时，go to 
+                if($(this).scrollTop() > 550){
+                    $('.scrollUp').css("display","block")
+                    }else{
+                            $('.scrollUp').fadeOut();
+                         }
+                });
+    
+            $(".scrollUp").click(function(){
+                $('html ,body').animate({scrollTop: 0}, 300);
+               
+            });
+
+>>>>>>> feature/sy
         });
 
         $('.dropdown-toggle').dropdown();
@@ -744,6 +772,19 @@ export default {
              this.$router.push({path: '/orderlist'});
             $('html ,body').animate({scrollTop: 0},0);
       },
+<<<<<<< HEAD
+=======
+      scenarioDesign:function(){
+          this.$router.push({path: '/scenarioDesign'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      xiaowei:function(){
+         // var win = window.open("#/CustomerService");
+        
+        //   var that = this;                    
+            var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
+      },
+>>>>>>> feature/sy
       jiaxinTogglerDiv:function(){
          
             (function(ji, a, x, i, n, c) {
@@ -759,6 +800,17 @@ export default {
             })(window, document, "script", "//web.jiaxincloud.com/mcs.js", "_JIAXIN");_JIAXIN();
 
 
+      },
+      sexlocal:function(){
+          window.location.href="https://www.csb-china.com/#/partners"; 
+      },
+      seslocal:function(){
+          this.$router.push({path: '/bigcafeTeam'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      seclocal:function(){
+          this.$router.push({path: '/openCourse'});
+            $('html ,body').animate({scrollTop: 0},0);
       }
     }
   }
@@ -769,8 +821,14 @@ export default {
    overflow:hidden
 }*/
 .leftborder{
-    border-left:1px solid #979797;
-    padding-left:5px !important;
+    border-left:1px solid #535458;
+    padding-left:18px !important;
+    color: #cfcfcf;
+}
+.leftborder:hover{
+    cursor:pointer;
+    background:#535458;
+    color:#fff !important;
 }
 .tls{
     font-size:14px;
@@ -778,21 +836,22 @@ export default {
 .tuis{
     font-size:12px;
     margin-top:10px;
+    color:#999999;
 }
 .imgdl dt{
     float:left;
-    width:57px;
-    height:60px;
+    width:45px;
+    height:45px;
+} 
+.imgdl dt img{
+    width:45px;
+    height:45px;
 } 
 .imgdl dd{
     margin-top:20px;
-    color:#cfcfcf;
-    padding-top:5px;
-    padding-left:70px;
+    padding-left:60px;
 }   
-.did{
-    padding-left:80px !important;
-}    
+ 
 .carousel-indicators .active{
     width:32px !important;
     transition:width 1s !important;
@@ -912,7 +971,7 @@ ul,ol li {
     margin-top: 30px;
 }
 .tshu{
-    border-right:1px solid #979797;
+    border-right:1px solid #535458;
 }
 .lunmain .lun-le .pCenter {
     color: #f0f0f0; font-size: 14px;
