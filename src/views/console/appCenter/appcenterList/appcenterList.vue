@@ -21,9 +21,11 @@
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goCheck()">
                     <div style="line-height:120px;" class="jsn">
-                        <i class="iconfont icon-tianjia-yin"></i>&nbsp继续添加
+                        <!--<i class="iconfont icon-tianjia-yin"></i>&nbsp继续添加-->
+                        <img src="../../../../assets/er-icon/jia.png" alt="" style="margin-top:0!important">
                     </div>
                 </div>
+                继续添加
                 
             </div>
             <!--<div class="appcenterlist-item">

@@ -138,7 +138,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder tshu" @click="seclocal()">
+                    <div class="col-md-3 leftborder tshu" ><!--@click="seclocal()"-->
                          <dl class="imgdl">
                             <dt><img src="../../assets/imgs/4.png" alt=""></dt>
                             <dd class="did">
@@ -781,6 +781,9 @@ export default {
 /**{
    overflow:hidden
 }*/
+dl{
+    margin-bottom:20px !important;
+}
 .obj-main .obj-cta:hover{
 background:#da121a;
 color:#fff;
