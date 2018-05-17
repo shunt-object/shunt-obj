@@ -122,11 +122,9 @@
   <div style="background:#2B2B2D;">
         <div class="container">
             <div class="">
-<<<<<<< HEAD
-                    <div class="col-md-3 leftborder">
-=======
+
                     <div class="col-md-3 leftborder" @click="scenarioDesign()">
->>>>>>> feature/sy
+
                         <dl class="imgdl">
                             <dt><img src="../../assets/imgs/1.png" alt=""></dt>
                             <dd>
@@ -510,8 +508,7 @@ export default {
                               $(this).find("img").removeClass("flip");
                         })
             //$('.scrollUp').hide();        
-<<<<<<< HEAD
-=======
+
             $(window).scroll(function(){
                 // console.log($(this).scrollTop());
     
@@ -528,7 +525,7 @@ export default {
                
             });
 
->>>>>>> feature/sy
+
         });
 
         $('.dropdown-toggle').dropdown();
@@ -772,8 +769,6 @@ export default {
              this.$router.push({path: '/orderlist'});
             $('html ,body').animate({scrollTop: 0},0);
       },
-<<<<<<< HEAD
-=======
       scenarioDesign:function(){
           this.$router.push({path: '/scenarioDesign'});
             $('html ,body').animate({scrollTop: 0},0);
@@ -784,7 +779,6 @@ export default {
         //   var that = this;                    
             var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
       },
->>>>>>> feature/sy
       jiaxinTogglerDiv:function(){
          
             (function(ji, a, x, i, n, c) {
