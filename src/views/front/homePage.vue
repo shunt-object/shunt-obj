@@ -794,7 +794,8 @@ export default {
 
       },
       sexlocal:function(){
-          window.location.href="https://www.csb-china.com/#/partners"; 
+          this.$router.push({path: '/partners'});
+           $('html ,body').animate({scrollTop: 0},0); 
       },
       seslocal:function(){
           this.$router.push({path: '/bigcafeTeam'});

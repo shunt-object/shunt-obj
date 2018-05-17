@@ -35,7 +35,7 @@
              <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-jibenxinxi"></i> 中小企业</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-shenpiliucheng"></i> 云代商和集成商</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-iconqyxx"></i> 中小企业</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-dailishang"></i> 云代商和集成商</span>
                         </div>
                      </div>
              </div>
@@ -262,12 +262,10 @@ ol li{
 .bjia-poai{
     position:relative;
     padding-right:30px;
-    margin-top:10px;
 }
 .bjia-posi{
      position:relative;
      padding-left:30px;
-     margin-top:10px;
 }
 .bjia-pon{
        position:relative;
@@ -302,14 +300,14 @@ ol li{
     padding-right:16px;
     font-size:12px;
     color:#666666;
-    line-height:20px !important
+    line-height:24px !important
 }
 .bjia-ules li{
     background:url("../../../assets/er-icon/dianRed.png") no-repeat left center;
     padding-left:16px;
     font-size:12px;
     color:#666666;
-    line-height:20px !important
+    line-height:24px !important
 }
 .bjia-kong{
     background:none !important
