@@ -223,7 +223,7 @@
 .sjis{
     font-size:14px;
     color:#333333;
-    line-height:27px;
+    line-height:27px !important;
 }
 ol li{
     list-style:none;
