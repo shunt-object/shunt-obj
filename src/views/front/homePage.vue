@@ -16,7 +16,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
       <div class="carousel-inner">
-        <div class="item active" style="width:100%;min-width:100%;height:100%;">
+       <div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
                     <div class="container"  style="position:relative">
                     <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
@@ -32,7 +32,7 @@
                 </div>
          </div>
       
-          <div class="item" style="width:100%;min-width:100%;height:100%;">
+         <div class="item" style="width:100%;min-width:100%;height:100%;">
                 <div class=" lunmain lun2">
                     <div class="container" style="position:relative">
                        
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-           <div class="item" style="width:100%;min-width:100%;height:100%;">
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
@@ -70,18 +70,7 @@
          </div>
 
 
-         <!-- <div class="item" style="width:100%;min-width:100%;height:100%;" id="itms">
-                <div class=" lunmain lun4">
-                    <div class="container" style="position:relative">
-                        <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
-                    <div class="col-md-12 lun-le animated rollIn">
-                        <h1 style="font-size:26px !important;font-weight:100;color:#333333;">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
-                        <h1 style="font-size:16px !important;font-weight:100;color:#333333">30%降低上云咨询成本，50%减少上云投入时间!</h1>
-                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn" style="color:#da121a !important;border-color:#da121a !important;">DEMO体验</span></p>
-                    </div>
-                    </div>
-                </div>
-            </div>-->
+        
          <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmirn">
                     <div class="container">
@@ -169,7 +158,7 @@
           <div class="heng"></div>
         </div>
         <div class="row text-center">
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaCloundCsb()">
             <div class="cround"><img src="../../assets/homepage/13.png" alt="" class="Yunimg"></div>
             <h2>云规划</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我们的工作负载可上云吗？</h4>
@@ -178,7 +167,7 @@
             </div>
             <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaClound()">
             <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
             <h2>云选型</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云厂商如何选择？</h4>
@@ -187,7 +176,7 @@
             </div>
             <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="cloundScc()">
             <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
             <h2>云设计</h2>  
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">总是要邀请专家上门吗？</h4>
@@ -196,7 +185,7 @@
             </div>
            <span class="obj-cta" @click="cloundScc()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundf()">
             <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
             <h2>云买手</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有高效购买性价比高的云资源和服务方式吗？</h4>
@@ -205,7 +194,7 @@
             </div>
             <span class="obj-cta"  @click="ctaCloundf()">&nbsp查看更多</span>
           </div>
-           <div class="col-xs-12 col-sm-4 blurb-cta">
+           <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundk()">
             <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
             <h2>云实测</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以找到既专业又性价比高的真机实测吗？</h4>
@@ -214,7 +203,7 @@
             </div>
            <span class="obj-cta"  @click="ctaCloundk()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaClound()">
             <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
             <h2>Prof. 吴数据</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以快速洞察企业内外的上云状态吗？</h4>
@@ -445,13 +434,12 @@ export default {
                             });
                         }           
                     });
-                    //   $(".blurb-cta")(function(){
-                    //      console.log(i)
-                    //   })
                         $('.blurb-cta').hover(function(){
                             $(this).find("img").animateCss('flip');
+                            $(this).find(".obj-cta").css({"background":"#da121a","color":"#fff"})
                         },function(){
                             $(this).find("img").removeClass("flip")
+                            $(this).find(".obj-cta").css({"background":"#fff","color":"#da121a"})
 
                         });
                        
@@ -459,11 +447,6 @@ export default {
                             $(this).find(".pict").css("transform", "scale(1.4)")
                              $(this).find(".picts").css("transform", "scale(1.4)")
                              $(this).find("p").css({"transform":"scale(1.3)","color":"#fff","padding-top":"35%"})
-                            //  $(this).css("position","relative");
-                            //  var res = "<div class='dnsery'></div>";
-                            //  $(".dnsery").css({"position":"absolute","top":0,"width":"273px","height":"376px","opacity":0.2,"background":"#1f2745"})
- 
-                            //  $(this).append(res);
                         });
                         $('.lis-hov').mouseout(function(){
                             $(this).find(".pict").css("transform", "scale(1.0)")
@@ -476,11 +459,7 @@ export default {
                         },function(){
                             $(this).css("transform", "scale(1.0)")
                         })
-                        //  $(".obj-frees").hover(function(){
-                        //         $(this).find(".PlanLj").animateCss('shake');
-                        //  },function(){
-                        //      $(this).find(".PlanLj").remoteClass('flash');
-                        //  })10px 10px 1px 2px #ccc"
+                      
                         $(".leftborder").hover(function(){
                             $(this).find(".tuis").css("color","#fff");
                         },function(){
@@ -493,23 +472,12 @@ export default {
                         });
                         $(".claes").hover(function(){
                             $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
-                        //    //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
-                        //    var a = $(this).find(".tranImg");
-                        //     a.addClass("imgAnimation");
                             $(this).find("img").animateCss('flip'); 
-                          
                         },function(){
-                             $(this).css({"box-shadow":"","background":""});;
-                            //   var a = $(this).find(".tranImg");
-                            //  a.css({opacity:'1'});
-                            //   a.removeClass("imgAnimation");
-                              $(this).find("img").removeClass("flip");
+                            $(this).css({"box-shadow":"","background":""});;
+                            $(this).find("img").removeClass("flip");
                         })
-            //$('.scrollUp').hide();        
-
             $(window).scroll(function(){
-                // console.log($(this).scrollTop());
-    
                 //当window的scrolltop距离大于1时，go to 
                 if($(this).scrollTop() > 550){
                     $('.scrollUp').css("display","block")
@@ -813,6 +781,16 @@ export default {
 /**{
    overflow:hidden
 }*/
+.obj-main .obj-cta:hover{
+background:#da121a;
+color:#fff;
+}
+.carousel-indicators li{
+    border: 1px solid #969696 !important;
+}
+.carousel-indicators .active{
+    background:#969696 !important
+}
 .leftborder{
     border-left:1px solid #535458;
     padding-left:18px !important;
@@ -899,6 +877,9 @@ export default {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+.blurb-cta:hover{
+    cursor:pointer;
+}
 .container{ 
     max-width: 1090px;
 }
@@ -960,6 +941,9 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
+.carousel-indicators {
+    bottom: 88px !important;
+}
 .lunmain .lun-le .pBottom {
     margin-top: 30px;
 }
@@ -971,16 +955,16 @@ ul,ol li {
      margin-top: 12px;
 }
 .lunmain {
-       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 600px; 
+       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 530px; 
 }
 .lun2{
-   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
 .lun3{
-   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
 .lun4{
-   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
     .jzfei{
         padding-right:10px;
@@ -990,7 +974,7 @@ ul,ol li {
    color: #666666; display: block
 }
   .tuPa {
-      left: 6%; height:268px; position: absolute; bottom: -25%
+      left: 18%; height:200px; position: absolute; bottom: -11%
   }
  
   .cl {
@@ -1429,20 +1413,6 @@ h2 {
 .he-su {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;margin-top:15px;
 }
-/*@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-.tranImg:hover{
-   
-   -moz-animation:rotation 2s linear infinite; 
-    -webkit-animation:rotation 2s linear infinite;
-    -o-animation:rotation 2s linear infinite
-}*/
 .ths {
     font-size: 36px;
 }
@@ -1508,9 +1478,9 @@ h2 {
       width:100%;
   }
   .pder h4{
-          font-size: 26px;
-         margin: 63px 0 25px;
-         color:#fff;
+      font-size: 26px;
+      margin: 63px 0 25px;
+      color:#fff;
   }
 
 .tranimg:hover{

@@ -53,3 +53,9 @@
         padding-top:100px;
     }
 }
+.appcenterlist-item:hover{
+    cursor:pointer;
+}
+.jsn:hover{
+    cursor:pointer
+}

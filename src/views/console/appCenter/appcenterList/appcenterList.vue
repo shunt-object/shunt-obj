@@ -20,7 +20,7 @@
             </div>
             <div class="appcenterlist-item">
                 <div class="appcenterlist-item-img appcenterlist-item-img1" v-on:click="goCheck()">
-                    <div style="line-height:120px;">
+                    <div style="line-height:120px;" class="jsn">
                         <i class="iconfont icon-tianjia-yin"></i>&nbsp继续添加
                     </div>
                 </div>

@@ -680,7 +680,7 @@
    }
    *{margin:0px;padding:0px;}
    .selectHelp{
-        background:#222222;text-align:center;background-size:100% 100%;
+       background:url("../../../assets/er-icon/bgs.png") no-repeat;text-align:center;background-size:100% 100%;
    }
 
    .seleconeMain-mainfir{margin-top:160px;}
