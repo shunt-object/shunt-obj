@@ -81,7 +81,7 @@
                                             <div class="col-md-6 col-xs-12"   >
                                                 <div class=" werxins">
                                                    <div>
-                                                        <div class=" Wemls"><i class="iconfont icon-yuanhuan"></i> 我们的使命</div>
+                                                        <div class=" Wemls"><i class="iconfont icon--qiyeshim"></i> 我们的使命</div>
                                                         <div class="dsh dhz">对社会：</div>
                                                         <div class="dsh">建立一个有远大抱负，勇于创新，锐意进取，技术专业的云服务品牌</div>
                                                         <div class="dsh dhz">对云客户：</div>
@@ -90,7 +90,7 @@
                                                         <div class="dsh">提供海量、准确、标准、有深度的云中咨讯</div>
                                                    </div>
                                                    <div>
-                                                        <div class="Weml"><i class="iconfont icon-listfeiji"></i> 我们的愿景</div>
+                                                        <div class="Weml"><i class="iconfont icon-huojian"></i> 我们的愿景</div>
                                                         <div class="wey">“服务的创新者，行业的领导者"</div>
                                                    </div>
                                                   
