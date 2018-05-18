@@ -71,7 +71,7 @@
     </div>
     <!-- 预约课程 -->
     <div class="container openCourse-class" id="openCourse-class"> 
-        <div class="openCourse-outline-title">
+        <div class="openCourse-outline-title" style="margin: 10px 0 40px 0 !important;">
             <span class="openCourse-outline-title-line"></span>
             <span class="openCourse-outline-title-desc">预约课程</span>
         </div>
