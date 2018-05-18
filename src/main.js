@@ -21,9 +21,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import url from '../src/components/js/url.js'//公共方法获取url
 import mobile from '../src/components/js/mobile.js'//判断移动端
 
-import iView from 'iview'
-// import 'iview/dist/styles/iview.css'    // 使用 CSS
-Vue.use(iView)
 // import "../rongCloud/RongIMLib-cs"
 // import "../rongCloud/cs.min.css"
 // import "../rongCloud/cs.min.js"

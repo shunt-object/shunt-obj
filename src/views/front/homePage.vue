@@ -343,7 +343,6 @@
            <img src="../../assets/Group 43.png" alt=""  class="jz-img">
           
         </div>
-        <Rate allow-half v-model="valueHalf"></Rate>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
            <img src="../../assets/Group 34.png" alt=""  class="jz-img">
           <img src="../../assets/Group 41.png" alt=""  class="jz-img">
@@ -405,8 +404,7 @@ export default {
       return {
         islogin: false,
         realname: '',
-        logoutlist:false,
-        valueHalf:2
+        logoutlist:false
       }
     },
     mounted: function() {
