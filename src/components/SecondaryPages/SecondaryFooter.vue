@@ -28,6 +28,7 @@
                 <p class="text-left footer-jx">服务与支持</p>
                 <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
                 <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
+                <p class="text-left footer-list hoverReds" @click="feedbacks">意见反馈</p>
                <!-- <p class="text-left footer-list hoverReds" @click="yijianlook">意见反馈</p> -->
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts footer-left pagd">
@@ -793,6 +794,10 @@ h2 {
                 //   var that = this; 
                   var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
 //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
+            },
+            feedbacks:function(){
+                this.$router.push({path: "/selfeedback"})
+                 $('html ,body').animate({scrollTop: 0},0); 
             }
         },
         mounted:function(){
