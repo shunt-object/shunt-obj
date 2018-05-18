@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-fixed-top" style="border-bottom:1px solid rgb(43, 47, 50);">
+    <nav class="navbar navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
