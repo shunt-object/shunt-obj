@@ -65,7 +65,7 @@
             <span class="teamDetail-outline-title-desc">工作经历</span>
         </div>
         <div class="row">
-            <div class="col-md-12 teamDetail-jobs-list" v-for="(item,index) in jobs"><span class="teamDetail-index">{{index+1}}、</span>{{item}}</div>
+            <div class="col-md-12 teamDetail-jobs-list" :class="jobs.length>1?'':'teamDetail-padd0'" v-for="(item,index) in jobs"><span class="teamDetail-index" v-if="jobs.length>1">{{index+1}}、</span>{{item}}</div>
         </div>
     </div>
     <!-- 专业特长 --> 

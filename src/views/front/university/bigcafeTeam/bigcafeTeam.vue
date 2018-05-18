@@ -73,12 +73,12 @@
         </div>
         <div class="row">
             <div class="col-md-4" v-for="item in cafelist">
-                <div class="bigcafe-desc-list">
-                    <img :src="item.userProfessor.headRoundImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
-                    <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
-                    <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
-                    <div class="bigcafe-desc-honour" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.desc}}</div>
-                    <button class="bigcafe-desc-btn" v-on:click="yuyue(item)">我要预约</button>   
+                <div class="bigcafe-desc-list" v-on:click="teamdetail($event,item.userProfessor.id)">
+                    <img :src="item.userProfessor.headRoundImg" alt="">
+                    <div class="bigcafe-desc-name">{{item.realname}}</div>
+                    <div class="bigcafe-desc-jobs">{{item.userProfessor.title}}</div>
+                    <div class="bigcafe-desc-honour">{{item.userProfessor.desc}}</div>
+                    <button class="bigcafe-desc-btn" v-on:click="yuyue($event,item)">我要预约</button>   
                 </div>
             </div>
             
@@ -240,7 +240,8 @@ export default {
          this.getlist();
     },
     methods:{
-        yuyue:function(item){
+        yuyue:function(e,item){
+            e.stopPropagation();
             if(item!=0){
                 this.alllist = false;
                 this.checkedItem = item;
@@ -401,7 +402,7 @@ export default {
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
         },
-        teamdetail:function(cafeid){
+        teamdetail:function(e,cafeid){
             //console.log(cafeid);
             this.$router.push({path:'/teamDetail',query:{bigcafeId:cafeid}});
         },
