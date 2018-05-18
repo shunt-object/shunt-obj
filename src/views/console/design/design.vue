@@ -51,7 +51,9 @@
                     <thead class="row">
                         <tr>
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick!=1&&isclick!=2&&isclick!=3"><input type="checkbox" v-model="appserall" v-on:click="appWhole()">价格优选</th>
-                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向订单</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">
+                                <input type="checkbox" v-model="appPrvate" v-on:click="appPrvateall()">意向订单
+                            </th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向云厂商</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;">角色</th><!--border-top:none !important;-->
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
@@ -91,7 +93,9 @@
                             <th class="text-center col-md-2 trds" style="height:50px;line-height:50px;background:#ebebeb" v-if="isclick!=1&&isclick!=2&&isclick!=3">
                                 <input type="checkbox" v-model="dbserall" v-on:click="dbWhole()">价格优选
                             </th>
-                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向订单</th>
+                            <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">
+                                <input type="checkbox" v-model="dbPrvate" v-on:click="dbPrvateall()">意向订单
+                            </th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb;padding:0px !important;" v-if="isclick==2||isclick==3">意向云厂商</th>
                             <th class="text-center col-md-1 trds" style="height:50px;line-height:50px;background:#ebebeb">角色</th>
                             <th class="text-center col-md-2 trds" style="padding:0px !important;border-top:1px solid #ddd;height:50px;line-height:50px;background:#ebebeb">数量</th>
@@ -787,7 +791,9 @@ export default{
                 dbdi:[]
             },
             isclick:'',
-            clouldname:''
+            clouldname:'',
+            appPrvate:false,
+            dbPrvate:false
         }
     },
     mounted:function(){
@@ -886,6 +892,40 @@ export default{
         this.getIntentionSid();//云厂商 
     },
     methods:{
+        dbPrvateall:function(){
+            if(this.dbPrvate==true){
+                for(let i=0;i<this.datis.length;i++){
+                    if(this.datis[i].data.intention==true){
+                        this.datis[i].data.intention = false;
+                        this.savePratite(true,this.datis[i].data.id);
+                    }
+                }
+            }else{
+                for(let i=0;i<this.datis.length;i++){
+                    if(this.datis[i].data.intention==false){
+                        this.datis[i].data.intention = true;
+                        this.savePratite(false,this.datis[i].data.id);
+                    }
+                }
+            }
+        },
+        appPrvateall:function(){
+            if(this.appPrvate==true){
+                for(let i=0;i<this.dats.length;i++){
+                    if(this.dats[i].data.intention==true){
+                        this.dats[i].data.intention = false;
+                        this.savePratite(true,this.dats[i].data.id);
+                    }
+                }
+            }else{
+                for(let i=0;i<this.dats.length;i++){
+                    if(this.dats[i].data.intention==false){
+                        this.dats[i].data.intention = true;
+                        this.savePratite(false,this.dats[i].data.id);
+                    }
+                }
+            }
+        },
         prvatiteYun:function(index){
             if(this.dats[index].data.intention==false){
                 this.dats[index].data.intention=true;
@@ -905,6 +945,7 @@ export default{
             }
         }, 
         savePratite:function(bool,designVmId){
+            //bool false=保存  true=取消
             let param = {
                 "appid": this.appId,
                 "del": bool,
@@ -1261,6 +1302,7 @@ export default{
                 this.dats = [];
                     this.$this.get('/broker/design/list/'+this.appId+'/1/18').then((ris)=>{
                             //this.dats = ris.data.data;
+                        let appPrvateId = 0;
                         if(this.appsave.appdi.length>0){
                             this.dats = this.appsave.appdi;
                         }else{
@@ -1268,6 +1310,16 @@ export default{
                                 this.dats.push({data:ris.data.data[i],boolean:false});
                             }
                             this.appsave.appdi = this.dats;
+                        }
+                        for(let r=0;r<ris.data.data.length;r++){
+                            if(ris.data.data[r].intention==false){
+                                appPrvateId++;
+                            }
+                        }
+                        if(appPrvateId>0){
+                            this.appPrvate = false;
+                        }else{
+                            this.appPrvate = true;
                         }
                         
                             //console.log(this.dats)
@@ -1284,6 +1336,7 @@ export default{
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/18').then((ros)=>{
                             //this.datis = ros.data.data;
+                            let dbPrvateId = 0;
                             if(this.dbsave.dbdi.length>0){
                                 this.datis = this.dbsave.dbdi;
                             }else{
@@ -1292,7 +1345,16 @@ export default{
                                 }
                                 this.dbsave.dbdi = this.datis;
                             }
-                            
+                            for(let r=0;r<ros.data.data.length;r++){
+                                if(ros.data.data[r].intention==false){
+                                    dbPrvateId++;
+                                }
+                            }
+                            if(dbPrvateId>0){
+                                this.dbPrvate = false;
+                            }else{
+                                this.dbPrvate = true;
+                            }
                             this.sjshow=true;
                             if(this.datis.length>0){
                                 this.haveSj = true;
@@ -1318,6 +1380,7 @@ export default{
                 this.dats = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/1/17').then((ris)=>{
                     //this.dats = ris.data.data;
+                    let appPrvateId = 0;
                     if(this.appsave.appgao.length>0){
                         this.dats = this.appsave.appgao;
                     }else{
@@ -1325,6 +1388,16 @@ export default{
                             this.dats.push({data:ris.data.data[i],boolean:false});
                         }
                         this.appsave.appgao = this.dats;
+                    }
+                    for(let r=0;r<ris.data.data.length;r++){
+                        if(ris.data.data[r].intention==false){
+                            appPrvateId++;
+                        }
+                    }
+                    if(appPrvateId>0){
+                        this.appPrvate = false;
+                    }else{
+                        this.appPrvate = true;
                     }
                     
                     this.yyshow=true;
@@ -1341,6 +1414,7 @@ export default{
                 this.datis = [];
                 this.$this.get('/broker/design/list/'+this.appId+'/2/17').then((ros)=>{
                     //this.datis = ros.data.data;
+                    let dbPrvateId = 0;
                     if(this.dbsave.dbgao.length>0){
                         this.datis = this.dbsave.dbgao;
                     }else{
@@ -1348,6 +1422,16 @@ export default{
                             this.datis.push({data:ros.data.data[i],boolean:false});
                         }
                         this.dbsave.dbgao = this.datis;
+                    }
+                    for(let r=0;r<ros.data.data.length;r++){
+                        if(ros.data.data[r].intention==false){
+                            dbPrvateId++;
+                        }
+                    }
+                    if(dbPrvateId>0){
+                        this.dbPrvate = false;
+                    }else{
+                        this.dbPrvate = true;
                     }
                     
                     this.sjshow=true;

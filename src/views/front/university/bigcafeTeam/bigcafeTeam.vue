@@ -6,7 +6,7 @@
     <div class="seleconeMain-banners  row bigcafeTeam-banner">
         <div class="container">
             <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">云集国内数百位云专家</span></p>
+                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">云集国内数十位云专家</span></p>
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">打造适合、实战、专业的云课程体系</h3>
                 </div>
@@ -304,7 +304,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '该手机号已使用';
+                        this.phonenotice = '手机号已被注册使用，请输入其他手机号。';
                     }
                 }).catch((error)=> {
                     console.log(error);
