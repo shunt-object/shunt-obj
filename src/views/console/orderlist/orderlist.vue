@@ -173,6 +173,7 @@ export default{
             "industry":this.information.industry,
             "provinceid":this.information.provinceid,
             "cityid":this.information.cityid,
+            "cloudType":'5',
             "year": this.year
         };
         this.getPiedata(this.obj);
@@ -198,12 +199,16 @@ export default{
             this.getPiedata(this.obj);
         },
         publicShow:function(){
+            this.obj.cloudType = '5';
+            this.getPiedata(this.obj);
             this.isShow = true;
             this.isNotShow = false;
         },
         privateShow:function(){
-          this.isShow = false;
-          this.isNotShow = true;
+            this.obj.cloudType = '2';
+            this.getPiedata(this.obj);
+            this.isShow = false;
+            this.isNotShow = true;
         },
         getBardata:function(obj,name,color){
             this.$this.post('/broker/user/analysis/app/purchasin/get/rightAnalysis',JSON.stringify(obj)).then((response)=>{
@@ -212,7 +217,7 @@ export default{
                 this.barlist = [];
                 for(let i=0;i<response.data.data.length;i++){
                     this.barlegened.push(response.data.data[i].name);
-                    this.barlist.push([response.data.data[i].name,response.data.data[i].rightNum]);
+                    this.barlist.push([response.data.data[i].name,response.data.data[i].num]);
                 }
                 //console.log('aaaaa',this.barlist);
                this.$nextTick(function() {
@@ -244,6 +249,7 @@ export default{
                         "industry":this.obj.industry,
                         "provinceid":this.obj.provinceid,
                         "cityid":this.obj.cityid,
+                        "cloudType":this.obj.cloudType,
                         "sid":this.piereslist[0].sid,
                         "year": this.obj.year
                     };
@@ -477,7 +483,7 @@ export default{
             });
             let that = this,str = {};
             mychart.on('click', function (params) {
-                console.log('params',params);
+                //console.log('params',params);
                 for(let i=0;i<that.piereslist.length;i++){
                     if(params.data.name==that.piereslist[i].name){
                         str = {
@@ -485,6 +491,7 @@ export default{
                             "industry":that.obj.industry,
                             "provinceid":that.obj.provinceid,
                             "cityid":that.obj.cityid,
+                            "cloudType":that.obj.cloudType,
                             "sid":that.piereslist[i].sid,
                             "year": that.obj.year
                         };

@@ -210,11 +210,15 @@
     margin-bottom:20px;
 }
 .teamDetail-yuan-desc{
-    width:94%;
+    width:100%;
     margin:0 auto;
     font-size:14px;
     color:#666;
     text-align:left;
     line-height:28px;
     margin-top:20px;
+    padding-left:10px !important;
+}
+.teamDetail-padd0{
+    padding-left:15px !important;
 }

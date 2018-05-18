@@ -277,7 +277,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '该手机号已使用';
+                        this.phonenotice = '手机号已被注册使用，请输入其他手机号。';
                     }
                 }).catch((error)=> {
                     console.log(error);

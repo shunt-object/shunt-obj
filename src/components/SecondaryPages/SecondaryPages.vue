@@ -581,7 +581,7 @@ ul,ol li {
     padding: 10px 15px;
 }
 .navbar-nav li {
-    line-height: 48px; padding-bottom: 5px !important; padding-top: 10px
+    line-height: 50px; padding-bottom: 0px !important; padding-top: 10px
 }
 .left,.right {
     width: 5%;

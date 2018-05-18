@@ -71,7 +71,7 @@
     </div>
     <!-- 预约课程 -->
     <div class="container openCourse-class" id="openCourse-class"> 
-        <div class="openCourse-outline-title">
+        <div class="openCourse-outline-title" style="margin: 10px 0 40px 0 !important;">
             <span class="openCourse-outline-title-line"></span>
             <span class="openCourse-outline-title-desc">预约课程</span>
         </div>
@@ -86,7 +86,7 @@
             </div>
             <div class="clear"></div>
         </div>
-        <div class="openCourse-class-list row" v-for="item in list">
+        <div class="openCourse-class-list row" v-for="item in list" v-if="list.length>0">
             <div class="col-md-4 openCourse-class-img">
                 <img :src="item.url" alt="">
                 <div class="clear"></div>
@@ -99,11 +99,17 @@
                     <span style="color:#333;"><i class="iconfont icon-shijian"></i>{{item.begin_time}}<span style="color:#999;margin-left:10px;">未开始</span></span>
                 </div>
                 <div class="openCourse-class-desc">{{item.course_desc}}</div>
-                <button class="openCourse-class-yu" v-on:click="yuyue(item)">我要预约</button>
+                <button class="openCourse-class-yu" v-on:click="yuyue(item)" v-if="islogin==null || islogin==true&&item.isapponit==false || islogin==false">我要预约</button>
+                <button class="openCourse-class-oldyu" disabled v-if="islogin==true&&item.isapponit==true">已预约</button>
             </div>
         </div>
+        <div class="design-nodata" v-if="list.length<1" style="margin-top:20px;">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无课程
+        </div>
     </div>
-    <div class="adviser-page">
+    <div class="adviser-page" v-if="list.length>0">
         <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(total)" @current-change="handleCurrentChange">
         </el-pagination>
     </div>
@@ -274,11 +280,17 @@ export default {
             classlist:[],
             total:'',
             levelList:[{name:'不限',value:''}],
-            levelModel:''
+            levelModel:'',
+            islogin:null
         }
     },
     mounted:function(){
         this.information = JSON.parse(sessionStorage.getItem("account"));
+        if(JSON.parse(sessionStorage.getItem("account"))){
+            this.islogin = true;
+        }else{
+            this.islogin = false;
+        }
         let readytop = $(window).scrollTop();
         let _top = $(".smallnav").offset().top;
         let that = this;
@@ -388,7 +400,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '该手机号已使用';
+                        this.phonenotice = '手机号已被注册使用，请输入其他手机号。';
                     }
                 }).catch((error)=> {
                     console.log(error);

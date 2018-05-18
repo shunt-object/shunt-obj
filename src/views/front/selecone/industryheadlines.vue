@@ -64,6 +64,13 @@
                                         <!--<div class="fifters"></div>-->
                                     </div>
                                 </div>
+                                <div class="col-md-4 col-xs-12" style="padding:10px 10px;">
+                                    <div style=" border: 1px solid #dedede; border-radius: 4px;padding:10px">
+                                        <div style="width:250px;height:177px;background:#000;margin: 0 auto;"><img src="../../../assets/news/03.jpg" alt="" ></div>
+                                        <div class="fifter text-left">陆奇 7 月起辞去百度总裁兼 COO 职位，去年 1 月份刚加入。</div>
+                                        <!--<div class="fifters"></div>-->
+                                    </div>
+                                </div>
                             </div>
                             <!--<div class="row hynews" style="margin-top:0px !important;">
                                  <div class="col-md-4 col-xs-12" style="padding:10px 10px;">

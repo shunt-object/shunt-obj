@@ -108,39 +108,39 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
-  <div style="background:#2B2B2D;">
+  <div style="background:#161b25;opacity:0.9;">
         <div class="container">
             <div class="">
-                    <div class="col-md-3 leftborder" @click="scenarioDesign()">
+                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('1')" v-on:mouseleave="imgblur('1')" @click="scenarioDesign()">
                         <dl class="imgdl">
-                            <dt><img src="../../assets/imgs/1.png" alt=""></dt>
+                            <dt><img :src="imglist.img1" alt=""></dt>
                             <dd>
                                 <div class="text-left tls">场景化方案设计</div>
                                 <div class="tuis text-left">一站式S级平台，助力企业转型</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder" @click="sexlocal()">
+                    <div class="col-md-3 leftborder" @click="sexlocal()" v-on:mouseenter="imghover('2')" v-on:mouseleave="imgblur('2')">
                          <dl class="imgdl">
-                            <dt><img src="../../assets/imgs/2.png" alt=""></dt>
+                            <dt><img  :src="imglist.img2" alt=""></dt>
                             <dd class="did">
                                 <div class="text-left tls">服务生态</div>
                                 <div class="tuis text-left">携手打造MSP+，共建云生态</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder" @click="seslocal()">
+                    <div class="col-md-3 leftborder" @click="seslocal()" v-on:mouseenter="imghover('3')" v-on:mouseleave="imgblur('3')">
                          <dl class="imgdl">
-                            <dt><img src="../../assets/imgs/3.png" alt=""></dt>
+                            <dt><img :src="imglist.img3" alt=""></dt>
                             <dd>
                                 <div class="text-left tls">智识学院</div>
                                 <div class="tuis text-left">打造“顾问+平台”全新服务模式</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder tshu" ><!--@click="seclocal()"-->
+                    <div class="col-md-3 leftborder tshu"  v-on:mouseenter="imghover('4')" v-on:mouseleave="imgblur('4')"><!--@click="seclocal()"-->
                          <dl class="imgdl">
-                            <dt><img src="../../assets/imgs/4.png" alt=""></dt>
+                            <dt><img :src="imglist.img4" alt=""></dt>
                             <dd class="did">
                                 <div class="text-left tls">市场活动</div>
                                 <div class="tuis text-left">品牌活动和技术沙龙</div>
@@ -390,6 +390,14 @@
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
  import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
+ import img1_1 from '../../assets/imgs/1-1.png';
+import img2_2 from '../../assets/imgs/2-2.png';
+import img3_3 from '../../assets/imgs/3-3.png';
+import img4_4 from '../../assets/imgs/4-4.png';
+import img1 from '../../assets/imgs/1.png';
+import img2 from '../../assets/imgs/2.png';
+import img3 from '../../assets/imgs/3.png';
+import img4 from '../../assets/imgs/4.png';
 
 export default {
     name: 'homePage',
@@ -397,14 +405,27 @@ export default {
         
         Sec,
         Sex,
-        fixedbox
-        
+        fixedbox,
+        img1_1,
+        img2_2,
+        img3_3,
+        img4_4,
+        img1,
+        img2,
+        img3,
+        img4,
     },
     data() {
       return {
         islogin: false,
         realname: '',
-        logoutlist:false
+        logoutlist:false,
+        imglist:{
+            img1:img1,
+            img2:img2,
+            img3:img3,
+            img4:img4,
+        }
       }
     },
     mounted: function() {
@@ -684,6 +705,28 @@ export default {
           
     },
     methods: {
+        imghover:function(index){
+            if(index==1){
+                this.imglist.img1 = img1_1;
+            }else if(index==2){
+                this.imglist.img2 = img2_2;
+            }else if(index==3){
+                this.imglist.img3 = img3_3;
+            }else if(index==4){
+                this.imglist.img4= img4_4;
+            }
+        },
+        imgblur:function(index){
+            if(index==1){
+                this.imglist.img1 = img1;
+            }else if(index==2){
+                this.imglist.img2 = img2;
+            }else if(index==3){
+                this.imglist.img3 = img3;
+            }else if(index==4){
+                this.imglist.img4= img4;
+            }
+        },
     
         ctaCloundCsbs:function(){
             window.open("http://demo.csb-china.com/#/consolePage")
@@ -795,13 +838,13 @@ color:#fff;
     background:#969696 !important
 }
 .leftborder{
-    border-left:1px solid #535458;
+    border-left:1px solid #2c313c;
     padding-left:18px !important;
     color: #cfcfcf;
 }
 .leftborder:hover{
     cursor:pointer;
-    background:#535458;
+    background:#2c313c;
     color:#fff !important;
 }
 .tls{

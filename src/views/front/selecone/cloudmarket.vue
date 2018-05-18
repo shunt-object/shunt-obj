@@ -44,7 +44,8 @@
                                 <div class="kuao-jia">{{lis.app_name}}</div>
                                 <div class="kuao-main text-left">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
-                                <div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>
+                                <!--<div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>-->
+                                <div><el-rate  v-model="lis.star" disabled  text-color="#da121a"  show-score :score-template='lis.star' style="display:inline-block"></el-rate></div>
                                 <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
                         </div>
                     </div>

@@ -35,7 +35,7 @@
              <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-iconqyxx"></i> 中小企业</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yunzhanghu"></i> 云代商和集成商</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-iconqyxx"></i> 中小企业</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun2"></i> 云代商和集成商</span>
                         </div>
                      </div>
              </div>
@@ -254,7 +254,7 @@ ol li{
     color:#999999;
     text-align:center;
     margin-top:10px;
-    margin-bottom:30px;
+    margin-bottom:10px;
 }
 .posi,.poai{
     margin-top:25px !important;

@@ -6,11 +6,11 @@
     <div class="seleconeMain-banners  row bigcafeTeam-banner">
         <div class="container">
             <div class="seleconeMain-mainfir nfir col-xs-12 col-md-12" style="padding-left:50px">
-                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">云集国内数百位云专家</span></p>
+                <p class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">云集国内数十位云专家</span></p>
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">打造适合、实战、专业的云课程体系</h3>
                 </div>
-                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="bigcafeTeam-yu" v-on:click="yuyue(0)">预约大咖</span></p>
+                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="bigcafeTeam-yu" v-on:click="yuyue($event,0)">预约大咖</span></p>
             </div>
         </div>
     </div>
@@ -73,12 +73,12 @@
         </div>
         <div class="row">
             <div class="col-md-4" v-for="item in cafelist">
-                <div class="bigcafe-desc-list">
-                    <img :src="item.userProfessor.headRoundImg" alt="" v-on:click="teamdetail(item.userProfessor.id)">
-                    <div class="bigcafe-desc-name" v-on:click="teamdetail(item.userProfessor.id)">{{item.realname}}</div>
-                    <div class="bigcafe-desc-jobs" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.title}}</div>
-                    <div class="bigcafe-desc-honour" v-on:click="teamdetail(item.userProfessor.id)">{{item.userProfessor.desc}}</div>
-                    <button class="bigcafe-desc-btn" v-on:click="yuyue(item)">我要预约</button>   
+                <div class="bigcafe-desc-list" v-on:click="teamdetail($event,item.userProfessor.id)">
+                    <img :src="item.userProfessor.headRoundImg" alt="">
+                    <div class="bigcafe-desc-name">{{item.realname}}</div>
+                    <div class="bigcafe-desc-jobs">{{item.userProfessor.title}}</div>
+                    <div class="bigcafe-desc-honour">{{item.userProfessor.desc}}</div>
+                    <button class="bigcafe-desc-btn" v-on:click="yuyue($event,item)">我要预约</button>   
                 </div>
             </div>
             
@@ -240,7 +240,8 @@ export default {
          this.getlist();
     },
     methods:{
-        yuyue:function(item){
+        yuyue:function(e,item){
+            e.stopPropagation();
             if(item!=0){
                 this.alllist = false;
                 this.checkedItem = item;
@@ -304,7 +305,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '该手机号已使用';
+                        this.phonenotice = '手机号已被注册使用，请输入其他手机号。';
                     }
                 }).catch((error)=> {
                     console.log(error);
@@ -401,7 +402,7 @@ export default {
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);
         },
-        teamdetail:function(cafeid){
+        teamdetail:function(e,cafeid){
             //console.log(cafeid);
             this.$router.push({path:'/teamDetail',query:{bigcafeId:cafeid}});
         },

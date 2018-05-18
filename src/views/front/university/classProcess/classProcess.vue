@@ -23,7 +23,7 @@
                 <a href="javascript:;" class="hoover-a" v-on:click="jump('#shebei')"><i class="iconfont icon-shebei"></i> 参加培训设备要求</a>
             </div>
             <div class="col-md-6 col-xs-6 classProcess-titles-right">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#classProcess-lc')"><i class="iconfont icon-shenpiliucheng"></i> 预约流程</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#classProcess-lc')"><i class="iconfont icon-liuchengcaidan"></i> 预约流程</a>
             </div>
         </div>
     </div>

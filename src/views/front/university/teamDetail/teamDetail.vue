@@ -52,7 +52,7 @@
             <span class="teamDetail-outline-title-desc">资质和荣誉</span>
         </div>
         <div class="teamDetail-honour-list row">
-            <div class="col-md-4 teamDetail-honour-item" v-for="item in honour.props">
+            <div class="col-md-6 teamDetail-honour-item" v-for="item in honour.props">
                 <img src="../../../../assets/university/detail-rongyu.png" alt="">
                 <div class="teamDetail-honour-desc">{{item.desc}}</div>
             </div>
@@ -65,7 +65,7 @@
             <span class="teamDetail-outline-title-desc">工作经历</span>
         </div>
         <div class="row">
-            <div class="col-md-12 teamDetail-jobs-list" v-for="(item,index) in jobs"><span class="teamDetail-index">{{index+1}}、</span>{{item}}</div>
+            <div class="col-md-12 teamDetail-jobs-list" :class="jobs.length>1?'':'teamDetail-padd0'" v-for="(item,index) in jobs"><span class="teamDetail-index" v-if="jobs.length>1">{{index+1}}、</span>{{item}}</div>
         </div>
     </div>
     <!-- 专业特长 --> 
@@ -90,11 +90,11 @@
             <span class="teamDetail-outline-title-desc">原创专区</span>
         </div>
         <div class="teamDetail-honour-list row">
-            <div class="col-md-12 teamDetail-honour-item teamDetail-yuan" v-for="item in yuan">
+            <div class="col-md-12 teamDetail-honour-item teamDetail-yuan">
                 <!-- <div class="teamDetail-yuan-img">
                     <img :src="item.imgUrl" alt="">
                 </div> -->
-                <div class="teamDetail-yuan-desc" v-for="item in yuan">{{item}}</div>
+                <div class="teamDetail-yuan-desc">{{yuan}}</div>
             </div>
         </div>
     </div>  
@@ -322,7 +322,7 @@ export default {
                         this.isphone = true;
                     }else{
                         this.isphone = false;
-                        this.phonenotice = '该手机号已使用';
+                        this.phonenotice = '手机号已被注册使用，请输入其他手机号。';
                     }
                 }).catch((error)=> {
                     console.log(error);
@@ -456,11 +456,12 @@ export default {
                     }else if(response.data.data[i].name=='原创专区' && response.data.data[i].props.length>0){
                         //this.yuan = response.data.data[i];
                         this.isshow.yuan = true;
-                        for(let f=0;f<response.data.data[i].props[0].descs.length;f++){
-                            if(response.data.data[i].props[0].descs[f]!=''){
-                                this.yuan.push(response.data.data[i].props[0].descs[f]);
-                            }
-                        }
+                        // for(let f=0;f<response.data.data[i].props[0].descs.length;f++){
+                        //     if(response.data.data[i].props[0].descs[f]!=''){
+                        //         this.yuan.push(response.data.data[i].props[0].descs[f]);
+                        //     }
+                        // }
+                        this.yuan = response.data.data[i].props[0].desc.split('，').join('、');
                     }
                 }
             }).catch((error)=>{
