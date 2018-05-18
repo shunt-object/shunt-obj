@@ -254,7 +254,7 @@ ol li{
     color:#999999;
     text-align:center;
     margin-top:10px;
-    margin-bottom:30px;
+    margin-bottom:10px;
 }
 .posi,.poai{
     margin-top:25px !important;

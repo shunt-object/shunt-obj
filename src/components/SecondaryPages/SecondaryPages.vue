@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top" style="border-bottom:1px solid rgb(43, 47, 50);">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -581,7 +581,7 @@ ul,ol li {
     padding: 10px 15px;
 }
 .navbar-nav li {
-    line-height: 48px; padding-bottom: 5px !important; padding-top: 10px
+    line-height: 50px; padding-bottom: 0px !important; padding-top: 10px
 }
 .left,.right {
     width: 5%;

@@ -10,7 +10,7 @@
                 <div class="seclone-dv">
                     <h3 class="selecone-pfir" style="font-weight:100;text-align:center;font-size:26px;color:#ffffff">打造适合、实战、专业的云课程体系</h3>
                 </div>
-                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="bigcafeTeam-yu" v-on:click="yuyue(0)">预约大咖</span></p>
+                <p class="col-xs-12" style="margin-top:20px;margin-bottom:40px;text-align:center;padding:0 !important"><span class="bigcafeTeam-yu" v-on:click="yuyue($event,0)">预约大咖</span></p>
             </div>
         </div>
     </div>

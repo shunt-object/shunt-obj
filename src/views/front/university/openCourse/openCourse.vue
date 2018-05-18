@@ -86,7 +86,7 @@
             </div>
             <div class="clear"></div>
         </div>
-        <div class="openCourse-class-list row" v-for="item in list">
+        <div class="openCourse-class-list row" v-for="item in list" v-if="list.length>0">
             <div class="col-md-4 openCourse-class-img">
                 <img :src="item.url" alt="">
                 <div class="clear"></div>
@@ -103,8 +103,13 @@
                 <button class="openCourse-class-oldyu" disabled v-if="islogin==true&&item.isapponit==true">已预约</button>
             </div>
         </div>
+        <div class="design-nodata" v-if="list.length<1" style="margin-top:20px;">
+            <img src="../../../../assets/compare-nodata.png" alt="">
+            <br>
+            暂无课程
+        </div>
     </div>
-    <div class="adviser-page">
+    <div class="adviser-page" v-if="list.length>0">
         <el-pagination class="adviser-page-bg"  background layout="prev, pager, next" :page-size="10" :total="Number(total)" @current-change="handleCurrentChange">
         </el-pagination>
     </div>
