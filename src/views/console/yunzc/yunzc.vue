@@ -74,6 +74,7 @@
                         <td v-if="re.utype==5">运营</td>
                         <td v-if="re.utype==6">代理商</td>
                         <td v-if="re.utype==7">独立顾问</td>
+                        <td v-if="re.utype==8">专家</td>
                         <td v-if="re.registerType==null">无</td>
                         <td v-if="re.registerType==1">手机注册</td>
                         <td v-if="re.registerType==2">微信注册</td>

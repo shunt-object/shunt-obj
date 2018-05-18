@@ -49,6 +49,7 @@ import cloudmeasured from "../views/front/selecone/cloudmeasured.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
 import aboutus from "../views/front/selecone/aboutus.vue"
+import selfeedback from "../views/front/selecone/selfeedback.vue"
 import cloudmarket from "../views/front/selecone/cloudmarket.vue"
 import bigcafeTeam from '@/views/front/university/bigcafeTeam/bigcafeTeam'
 import openCourse from '@/views/front/university/openCourse/openCourse'
@@ -109,6 +110,12 @@ export default new Router({
       path:"/aboutus",
       name:"aboutus",
       component:aboutus
+    },
+    {
+      //意见反馈 
+      path:"/selfeedback",
+      name:"selfeedback",
+      component:selfeedback
     },
     //应用市场
     {
