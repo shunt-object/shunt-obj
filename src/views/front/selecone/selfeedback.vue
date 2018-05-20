@@ -118,7 +118,7 @@
 
 @media (min-width: 768px) {
     .phtext{
-        order:1px solid #d1d2d3;
+        border:1px solid #d1d2d3;
         border-radius:2px;
         width:350px !important;
         height:28px;
@@ -145,7 +145,7 @@
 }
 @media (max-width: 768px) {
     .phtext{
-        order:1px solid #d1d2d3;
+        border:1px solid #d1d2d3;
         border-radius:2px;
         width:280px !important;
         height:28px;

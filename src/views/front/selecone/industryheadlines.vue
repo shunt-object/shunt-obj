@@ -17,7 +17,7 @@
                  </div>
             </div>
             <div>
-                    <div class="container" style="margin-bottom:140px">
+                    <div class="container" style="margin-bottom:40px">
                         <div class="group-money">行业动态</div>
                         <div style="text-align:left;line-height:30px;margin-bottom:10px;"> CloudBroker²，以“云”为核心，是您上云咨询、云迁移和云运维的贴身服务专家！作为国内团队上云和管云SaaS的创新者，CloudBroker²，致力于为更多公司和团队实现目标，成为一家拥抱变化、持续创新的好公司。 在这里，你可以看到最新的行业新闻。</div>
                         <div  style="margin-top:60px;">

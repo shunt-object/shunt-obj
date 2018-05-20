@@ -41,11 +41,12 @@
                     <div class="row text-center igs">
                         <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index,lis.id)">
                                 <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
+                                <div class="mianfei-div" :class="shus[index].boolean==true?'':'dis'"><span class="mianfei">已添加</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
                                 <div class="kuao-main text-left">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
                                 <!--<div><div><i class="iconfont  icon-xingxing" v-for="(ls,index) in 5" :class="lis.star>index?'huang':'yuan'"></i><span class="fens">{{lis.star}}分</span></div></div>-->
-                                <div><el-rate  v-model="lis.star" disabled  text-color="#da121a"  show-score :score-template='lis.star' style="display:inline-block"></el-rate></div>
+                                <div><el-rate  v-model="lis.star" disabled  text-color="#da121a"  show-score  style="display:inline-block"></el-rate></div>
                                 <div class="jia-yue"><div class="jiaq">￥{{lis.price}}/月</div></div>
                         </div>
                     </div>
@@ -725,12 +726,15 @@
         },
         data(){
             return {
+                es:[],
+                shus:[],
                Ais:false,
                Sis:true,
                Asd:false,
                activeName:"first",
                list:[],
                dialogVisible: false,
+               value3:4,
                 matchBo:{
                     cores:'',
                     ram:'',
@@ -849,7 +853,12 @@
                   
               }else{
                   if(sess){
+                       
                         this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
+                               this.shus[e].boolean=true;
+                            //  localStorage.setItem("ds",this.shus[e].boolean);
+                              localStorage.setItem("e",JSON.stringify(this.shus));
+                              console.log(this.shus)
                             this.$confirm('您已成功添加到控制台中的应用市场。', '温馨提示', {
                                 confirmButtonText: '立即体验',
                                 cancelButtonText: '继续添加',
@@ -859,7 +868,6 @@
                                 }).then(() => {
                                     this.$router.push({path:'/appcenterList'});
                                 }).catch(() => {
-                                    
                                 });
                         }).catch((error)=>{
                         });
@@ -876,7 +884,19 @@
             },
             lister:function(){
                 this.$this.get('/broker/market/user/all/list').then((res)=>{  //获取所有的信息内容
-                            this.list = res.data;
+                            this.list = res.data;                                
+                                if(localStorage.getItem("e")){
+                                        this.shus= [];
+                                        var es = eval("("+(localStorage.getItem("e"))+")");
+                                         console.log(es)
+                                         this.shus = es
+                                    }else{
+                                        for(var i = 0;i<this.list.length;i++){
+                                            this.shus.push({boolean:false})
+                                        }
+                                    }
+                            
+                            
                     }).catch((error)=>{
                 });
             },

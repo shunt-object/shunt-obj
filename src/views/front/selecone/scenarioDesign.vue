@@ -123,9 +123,9 @@
                        <span class="redLine"></span><span class="redlasttitle">核心优势</span>
                     </div>
                     <div class="row text-left bjia">
-                        <div style="text-indent:1em">基于运营商云业务特点，CloudBroker²打造了“平台+顾问”的全新服务模式，将有效降低运营商云销售难度，协助运营商为其用户提供1V1上云咨询、迁移</div>
-                        <div style="text-indent:1em">和优化方案；通过对企业应用进行画像、与竞争对手的优劣势分析，上云、迁云和管云的数据横向打通，从而构建了从咨询与设计、迁移与实施到运维与管理</div>
-                        <div style="text-indent:1em">的一个完整闭环云技术服务保障体系。</div>
+                        <div style="text-indent:1em">基于代理商和集成商云业务特点，CloudBroker²打造了“平台+顾问”的全新服务模式，将有效降低运营商云销售难度，协助运营商为其用户提供1V1上云</div>
+                        <div style="text-indent:1em">咨询、迁移和优化方案；通过对企业应用进行画像、与竞争对手的优劣势分析，上云、迁云和管云的数据横向打通，从而构建了从咨询与设计、迁移与实施</div>
+                        <div style="text-indent:1em">到运维与管理的一个完整闭环云技术服务保障体系。</div>
                     </div>
                  </div>
                  <div class="container erfs whyContainer" style="margin-bottom:70px;">
