@@ -6,7 +6,7 @@
             <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
         </li>
         <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        <li class="liHoversBj phonegf"><p>咨询</br>反馈</p></li>
+        <li class="liHoversBj phonegf" @click="yijian"><p>意见</br>反馈</p></li>
     </ul>
     <div id="rys" style="z-index:100 !important"></div>
 
@@ -31,6 +31,15 @@
     font-size:20px !important;
     color:#000 !important;
     text-align:center
+}
+.phonegf p{
+        position: relative;
+    padding: 10px 16px;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    line-height: 16px;
+    text-align: center; 
 }
 .fixed-ul li{
     background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
@@ -76,6 +85,10 @@ export default {
         },
         phoneleave:function(){
             this.phoneBox = false;
+        },
+        yijian:function(){
+            this.$router.push({path: '/selfeedback'});
+            $('html ,body').animate({scrollTop: 0},0);
         },
         xiaowei:function(){
             // var that = this; 
