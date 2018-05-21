@@ -6,10 +6,12 @@
             <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
         </li>
         <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
+        <li class="liHoversBj"></li>
     </ul>
     <div id="rys" style="z-index:100 !important"></div>
-    
+
     <img src="../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
+    
 </div>
 </template>
 <style>
