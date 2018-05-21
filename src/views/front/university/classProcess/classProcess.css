@@ -234,6 +234,7 @@
 /* 3 */
 .classProcess-sp-ul{
     margin-top:20px;
+    padding-left:0px;
     /* padding-left: 68px; */
 }
 .classProcess-sp-ul li{
@@ -241,6 +242,9 @@
     color:#333333;
     line-height:28px;
     text-align:left;
+}
+.phone-img{
+    width:120%;
 }
 @media (max-width: 768px) {
     .classProcess-yue-lc img{
@@ -253,6 +257,6 @@
         padding-left:68px;
     }
     .phone-img{
-        width:100%;
+        width:100% !important;
     }
 }

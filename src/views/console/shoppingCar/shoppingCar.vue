@@ -411,7 +411,7 @@ export default{
                     }
                 },
                 xAxis: {
-                    name:name+'订单意向实例',
+                    name:name+'意向实例',
                     type: 'category',
                     data: legend,
                     axisLabel:{
