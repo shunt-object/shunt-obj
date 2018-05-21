@@ -873,7 +873,7 @@
                     return this.$confirm(`确定移除 ${ file.name }？`);
                 },
                 upDatas:function(res){
-                        this.picList.push(res.url)
+                        this.picList.push(res.id)
                 },
                 
                 selectcomment:function(index,lisid){
@@ -932,7 +932,7 @@
                             isAnonymous:this.tys,//是否匿名   0不匿名 1匿名
                             pictureList:this.picList //照片列表    传url 装在数组里
                         }
-                            this.$this.post('/broker/feedback/add',obj).then((response)=>{
+                            this.$this.post('/broker/feedback/protal/add',obj).then((response)=>{
                             this.$message({
                                 message: '您已提交成功。',
                                 //type: 'success',

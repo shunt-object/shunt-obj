@@ -28,7 +28,7 @@
                 <p class="text-left footer-jx">服务与支持</p>
                 <p class="text-left footer-list hoverReds" @click="helpCenter">帮助中心</p>
                 <p class="text-left footer-list hoverReds" @click="fuwuLook">服务条款</p>
-                <!--<p class="text-left footer-list hoverReds" @click="feedbacks">意见反馈</p>-->
+                <p class="text-left footer-list hoverReds" @click="feedbacks">意见反馈</p>
                <!-- <p class="text-left footer-list hoverReds" @click="yijianlook">意见反馈</p> -->
                 </div>
                 <div class="col-xs-12 col-sm-2 obj-what-dv footer-ts footer-left pagd">
