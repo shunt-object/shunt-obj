@@ -27,7 +27,7 @@
 .phonegf{
     height:90px !important;
     background:#fff!important;
-    margin-top:10px;
+    margin-top:7px;
     font-size:20px !important;
     color:#000 !important;
     text-align:center

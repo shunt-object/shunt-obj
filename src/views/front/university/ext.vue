@@ -20,13 +20,13 @@
     <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
             <div class="col-md-4 col-xs-4 ">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('.lia')"><i class="iconfont icon-yaodian"></i> 云计算技术及行业应用</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('.lia')"><i class="iconfont icon-yunjisuan"></i> 云计算技术及行业应用</a>
             </div>
             <div class="col-md-4 col-xs-4 ">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('.lie')"><i class="iconfont icon-yuyue"></i> 容器化简介及运维实践</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('.lie')"><i class="iconfont icon-rongqi"></i> 容器化简介及运维实践</a>
             </div>
             <div class="col-md-4 col-xs-4 ">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('.liy')"><i class="iconfont icon-yuyue"></i> DevOps简介及运维实战</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('.liy')"><i class="iconfont icon-devops--"></i> DevOps简介及运维实战</a>
             </div>
         </div>
     </div>
