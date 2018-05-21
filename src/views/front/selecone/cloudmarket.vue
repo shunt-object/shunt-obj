@@ -41,7 +41,7 @@
                     <div class="row text-center igs">
                         <div class="col-md-3 kuao" style="margin-right:15px;margin-bottom:20px;position:relative" v-for="(lis,index) in list" @click="dianHover(index,lis.id)">
                                 <div class="mianfei-div" :class="index==0?'':'dis'"><span class="mianfei">免费体验</span></div>
-                                <div class="mianfei-div" :class="shus[index].boolean==true?'':'dis'"><span class="mianfei">已添加</span></div>
+                                <div class="mianfei-div" :class="lis.isUsed==true?'':'dis'"><span class="mianfei">已添加</span></div>
                                 <div class="kuao-jia">{{lis.app_name}}</div>
                                 <div class="kuao-main text-left">{{lis.description}}</div>
                                 <div><div class="kuao-borde"><img :src="lis.picture_url" alt="" class="imganimate"></div></div>
@@ -855,10 +855,11 @@
                   if(sess){
                        
                         this.$this.post('/broker/market/user/save/'+a).then((res)=>{ //保存用户行为
-                               this.shus[e].boolean=true;
-                            //  localStorage.setItem("ds",this.shus[e].boolean);
-                              localStorage.setItem("e",JSON.stringify(this.shus));
-                              console.log(this.shus)
+                            //    this.shus[e].boolean=true;
+                            // //  localStorage.setItem("ds",this.shus[e].boolean);
+                            //   localStorage.setItem("e",JSON.stringify(this.shus));
+                            //   console.log(this.shus)
+                            this.lister();
                             this.$confirm('您已成功添加到控制台中的应用市场。', '温馨提示', {
                                 confirmButtonText: '立即体验',
                                 cancelButtonText: '继续添加',
@@ -885,16 +886,16 @@
             lister:function(){
                 this.$this.get('/broker/market/user/all/list').then((res)=>{  //获取所有的信息内容
                             this.list = res.data;                                
-                                if(localStorage.getItem("e")){
-                                        this.shus= [];
-                                        var es = eval("("+(localStorage.getItem("e"))+")");
-                                         console.log(es)
-                                         this.shus = es
-                                    }else{
-                                        for(var i = 0;i<this.list.length;i++){
-                                            this.shus.push({boolean:false})
-                                        }
-                                    }
+                                // if(localStorage.getItem("e")){
+                                //         this.shus= [];
+                                //         var es = eval("("+(localStorage.getItem("e"))+")");
+                                //          console.log(es)
+                                //          this.shus = es
+                                //     }else{
+                                //         for(var i = 0;i<this.list.length;i++){
+                                //             this.shus.push({boolean:false})
+                                //         }
+                                //     }
                             
                             
                     }).catch((error)=>{

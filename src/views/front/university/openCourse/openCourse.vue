@@ -20,7 +20,7 @@
     <div class="smallnav" id="title-small" :class="isfixed==true?'titlesfixed':'container'">            
         <div class="" style="width:100%!important">
             <div class="col-md-6 col-xs-6 openCourse-titles-left">
-                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-outline')"><i class="iconfont icon-yaodian"></i> 公开课程大纲</a>
+                <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-outline')"><i class="iconfont icon-yaodian"></i> 公开课程类目</a>
             </div>
             <div class="col-md-6 col-xs-6 openCourse-titles-right">
                 <a href="javascript:;" class="hoover-a" v-on:click="jump('#openCourse-class')"><i class="iconfont icon-yuyue"></i> 预约课程</a>
@@ -32,41 +32,30 @@
     <div class="container openCourse-outline" id="openCourse-outline">
         <div class="openCourse-outline-title">
             <span class="openCourse-outline-title-line"></span>
-            <span class="openCourse-outline-title-desc">公开课程大纲</span>
+            <span class="openCourse-outline-title-desc">公开课程类目</span>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="openCourse-outline-list">
-                    <img src="../../../../assets/university/openCourse-outline1.png" alt="">
+                <div class="openCourse-outline-list" @click="thisRoute">
+                    <img src="../../../../assets/class-icon/Group 11.png" alt="">
                     <div class="openCourse-outline-desc">
-                        信息通信产业发展<br>的背景和趋势
+                        云计算技术及行业应用
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="openCourse-outline-list">
-                    <img src="../../../../assets/university/openCourse-outline2.png" alt="">
-                    <div class="openCourse-outline-desc">云计算技术及行业应用</div>
+                <div class="openCourse-outline-list" @click="thisRoute">
+                    <img src="../../../../assets/class-icon/Group 13.png" alt="">
+                    <div class="openCourse-outline-desc">容器化简介及运维实践</div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="openCourse-outline-list">
-                    <img src="../../../../assets/university/openCourse-outline3.png" alt="">
-                    <div class="openCourse-outline-desc">企业迁云的方法论</div>
+                <div class="openCourse-outline-list" @click="thisRoute">
+                    <img src="../../../../assets/class-icon/Group 14.png" alt="">
+                    <div class="openCourse-outline-desc">DevOps简介及运维实战</div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="openCourse-outline-list" style="margin-bottom:0 !important;">
-                    <img src="../../../../assets/university/openCourse-outline4.png" alt="">
-                    <div class="openCourse-outline-desc">雾计算技术及行业应用</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="openCourse-outline-list" style="margin-bottom:0 !important;">
-                    <img src="../../../../assets/university/openCourse-outline5.png" alt="">
-                    <div class="openCourse-outline-desc">云计算发展趋势和展望</div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- 预约课程 -->
@@ -525,6 +514,10 @@ export default {
                 }
             }).catch((error)=>{
             })
+        },
+        thisRoute:function(){
+            this.$router.push({path:'/ext'});
+           $('html ,body').animate({scrollTop: 0},0);
         },
         jump:function(dom){
             $('html,body').animate({scrollTop:$(dom).offset().top-100}, 800);

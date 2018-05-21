@@ -120,12 +120,12 @@
     .phtext{
         border:1px solid #d1d2d3;
         border-radius:2px;
-        width:350px !important;
+        width:500px !important;
         height:28px;
         text-indent:1em;
     }
     .areate{
-        width:360px;
+        width:516px;
         height:155px;
         overflow-x:hidden;
         overflow-y:hidden;
@@ -137,7 +137,7 @@
         text-indent:1em;
     }
     .containerus{
-            max-width:600px;
+            max-width:818px;
             text-align:left;
             margin:0 auto;
             padding-left:90px;
@@ -213,13 +213,14 @@
     border:1px solid #ccc;
     margin-right:10px;
     margin-bottom:10px;
+    border-radius:2px !important
 }
 
 
 .pafen{
     font-size:14px;
     color:#333333;
-    padding-top:80px;
+    padding-top:40px;
 }
 .pf{
     display:inline-block;

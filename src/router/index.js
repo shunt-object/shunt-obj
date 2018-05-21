@@ -75,7 +75,7 @@ import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
 import adviserList from "../views/front/adviser/adviserList.vue"
-
+import ext from '@/views/front/university/ext.vue'
 
 
 Vue.use(Router)
@@ -197,6 +197,11 @@ export default new Router({
       path:'/openCourse',
       name: 'openCourse',
       component: openCourse
+    },
+    {//公开课程 二级页面
+      path:'/ext',
+      name: 'ext',
+      component: ext
     },
     {//团队详情
       path:'/teamDetail',

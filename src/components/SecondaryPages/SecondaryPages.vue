@@ -520,7 +520,7 @@ ul,ol li {
       padding-top: 150px; padding-right: 50px
   }
   .Imgs {
-     margin-top: 11px;
+     margin-top: 8px;
   }
   .navbar ul li .hovers:hover {
     
