@@ -6,7 +6,7 @@
             <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
         </li>
         <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        <li class="liHoversBj phonegf">反馈意见</li>
+        <li class="liHoversBj phonegf"><p>咨询</br>反馈</p></li>
     </ul>
     <div id="rys" style="z-index:100 !important"></div>
 

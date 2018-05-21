@@ -21,7 +21,7 @@
                             <div class="pafen">
                                     <div class="row">
                                         <div class="pf col-md-2">我的评分：</div>
-                                        <div class="block clags col-md-10">
+                                        <div class=" clags col-md-10">
                                             <el-rate v-model="value1" allow-half ></el-rate>
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
 
                                     <div class="row">
                                         <div class="pf col-md-2 shang ">上传图片：</div>
-                                        <div class="block clags col-md-10 chuan">
+                                        <div class=" clags col-md-10 chuan">
                                           <el-upload
                                             class="upload-demo"
                                             :on-success="upDatas"
@@ -62,14 +62,14 @@
 
                                     <div class="row">
                                         <div class="pf col-md-2 shang">是否匿名：</div>
-                                        <div class="block clags col-md-10 shang">
+                                        <div class=" clags col-md-10 shang">
                                             <button class="btnsg bfff" :class="ni==true?'niTrue':'nifalse'" @click="nis()">匿名</button><button class="btnsg bfff" :class="fni==true?'niTrue':'nifalse'" @click="fnis()">非匿名</button>
                                         </div>
                                     </div>
 
                                     <div class="row" v-if="fni==true">
                                         <div class="pf col-md-2 shang"><span style="color:#da121a">*</span>电话号码：</div>
-                                        <div class="block clags col-md-10 shang">
+                                        <div class=" clags col-md-10 shang">
                                             <input type="text" class="phtext" placeholder="请输入手机号或电话号码" v-model="phtext">
                                             <div v-show="Reg" style="margin-top:10px;color:#da121a;font-size:12px">请输入正确的手机号或电话号</div>
                                             <div style="margin-top:10px;color:#da121a;font-size:12px">留下的您的联系方式，我们会根据反馈内容提供一定奖励。</div>
