@@ -21,11 +21,11 @@
 }
 .fixed-box .scrollUp{
     position:fixed;
-    right:12px;
+    right:11px;
     display:none;
 }
 .phonegf{
-    height:80px !important;
+    height:90px !important;
     background:#fff!important;
     margin-top:10px;
     font-size:20px !important;
