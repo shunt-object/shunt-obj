@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" :class="active=='0'?'border_active':''">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" ><span  :class="active=='0'?'border_active':''" class="el-dropdown-link">首页</span></a></li>
             <li class="dropdown">
                <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
                <!-- <div class="dropdown-content">
@@ -24,10 +24,10 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
+            <li><a class="page-scroll  hovers" >
                         <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link " style="outline:none">
-                                    产品与服务
+                                <span class="el-dropdown-link " style="outline:none" :class="active=='1'?'border_active':''">
+                                    <span class="as">产品与服务</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item class="text-left ">
@@ -70,59 +70,59 @@
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
+            <li><a class="page-scroll  hovers">
                     <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link" style="outline:none">
-                                    生态
+                                <span class="el-dropdown-link" style="outline:none" :class="active=='2'?'border_active':''">
+                                    <span>生态</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbs">
                                     <el-dropdown-item >
                                         <p class="row text-center" >
-                                            <span @click="cloundPlvn" class="col-md-6">招募顾问</span>
-                                            <span @click="cloundPlkn" class="col-md-6">合作伙伴</span>
+                                            <span @click="cloundPlvn" class="col-md-6 col-xs-12">招募顾问</span>
+                                            <span @click="cloundPlkn" class="col-md-6 col-xs-12">合作伙伴</span>
                                         </p>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li class="lihovzan"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
+            <li class="lihovzan"><a class="page-scroll  hovers">
                        <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link" style="outline:none">
-                                    动态
+                                <span class="el-dropdown-link" style="outline:none" :class="active=='3'?'border_active':''">
+                                   <span>动态</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbse">
                                     <el-dropdown-item >
                                         <p class="row text-center"> 
-                                            <span @click="cloundPlqn" class="col-md-4">新闻动态</span>
-                                            <span @click="cloundPlfn" class="col-md-4">行业头条</span>
-                                            <span @click="cloundPlgn" class="col-md-4">CSB²社群</span>
+                                            <span @click="cloundPlqn" class="col-md-4 col-xs-12">新闻动态</span>
+                                            <span @click="cloundPlfn" class="col-md-4 col-xs-12">行业头条</span>
+                                            <span @click="cloundPlgn" class="col-md-4 col-xs-12">CSB²社群</span>
                                         </p>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
             <li class="lihovzan">
-                <a class="page-scroll  hovers" :class="active=='4'?'border_active':''">
+                <a class="page-scroll  hovers">
                     <el-dropdown placement="bottom">
-                        <span class="el-dropdown-link" style="outline:none">
-                            智识学院
+                        <span class="el-dropdown-link" style="outline:none"  :class="active=='4'?'border_active':''">
+                            <span>智识学院</span>
                         </span>
                         <el-dropdown-menu slot="dropdown"  class="dropCsbse">
                             <el-dropdown-item >
                                 <p class="row text-center"> 
-                                    <span v-on:click="university('1')" class="col-md-4">大咖团队</span>
-                                    <span v-on:click="university('2')" class="col-md-4">上课流程</span>
-                                    <span v-on:click="university('3')" class="col-md-4">公开课程</span>
+                                    <span v-on:click="university('1')" class="col-md-4 col-xs-12">大咖团队</span>
+                                    <span v-on:click="university('2')" class="col-md-4 col-xs-12">上课流程</span>
+                                    <span v-on:click="university('3')" class="col-md-4 col-xs-12">公开课程</span>
                                 </p>
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>              
                 </a>
             </li>
-            <li><a class="page-scroll  hovers" @click="yyshic" :class="active=='5'?'border_active':''">应用市场</a></li>
+            <li><a class="page-scroll  hovers" @click="yyshic" ><span class="el-dropdown-link" :class="active=='5'?'border_active':''">应用市场</span></a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='6'?'border_active':''">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='7'?'border_active':''">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer"><span  :class="active=='6'?'border_active':''" class="el-dropdown-link">关于我们</span></a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole"><span :class="active=='7'?'border_active':''" class="el-dropdown-link">控制台</span></a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -313,6 +313,20 @@ export default {
 </script>
 
 <style>
+ .el-dropdown-link:hover{ border-bottom: 1px solid #da121a; cursor: pointer;}
+.el-dropdown-link{
+    padding:10px 15px;
+    line-height:20px;
+}
+.nav>li>a{
+    padding:0 0 !important;
+    
+}
+.navbar-nav li {
+    line-height: 20px !important;
+    padding-bottom: 16px !important;
+    padding-top: 21px !important;
+}
 .dropCsb{
     width:100%;
     top:60px !important;
@@ -320,8 +334,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
     opacity:0.9;
-       max-width: 1090px;
-    
+    max-width: 1090px;
 }
 .dropCsbs{
     width:30%;
@@ -330,8 +343,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
     opacity:0.9;
-       max-width: 1090px;
-    
+    max-width: 1090px;
 }
 .dropCsbse{
     width:30%;
@@ -340,8 +352,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
      opacity:0.9;
-       max-width: 1090px;
-    
+     max-width: 1090px;
 }
 .gms{
     color:#A8A8A8;
@@ -509,10 +520,10 @@ ul,ol li {
       padding-top: 150px; padding-right: 50px
   }
   .Imgs {
-     margin-top: 15px;
+     margin-top: 11px;
   }
   .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #da121a; cursor: pointer;
+    
       background:none;
   }
   .navbar ul li .hovers:visited {
@@ -581,7 +592,7 @@ ul,ol li {
     padding: 10px 15px;
 }
 .navbar-nav li {
-    line-height: 50px; padding-bottom: 0px !important; padding-top: 10px
+    line-height: 50px; padding-top: 10px
 }
 .left,.right {
     width: 5%;
@@ -589,7 +600,7 @@ ul,ol li {
     background:none !important;
 }
 .navbar-nav li a:hover {
-    border-bottom: 1px solid #fff
+ /** border-bottom: 1px solid #fff*/
 }
 .imgs {
     width: 100px; height: 60px; margin-left: 150px;
@@ -751,10 +762,15 @@ ul,ol li {
 }
 @media (max-width: 768px) {
  .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #da121a; cursor: pointer;
+      /*border-bottom: 1px solid #da121a; cursor: pointer;*/
       background:none;
   }
-
+  .dropCsb{
+      left:1px!important
+  }
+.el-dropdown-menu__item{
+    padding:0 0 !important
+}
 .right{
     height:100%;
 }
