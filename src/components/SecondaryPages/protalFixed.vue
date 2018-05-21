@@ -34,11 +34,11 @@
 }
 .phonegf p{
         position: relative;
-    padding: 10px 16px;
+    padding: 10px 10px;
     background-color: white;
     font-size: 14px;
     color: #333;
-    line-height: 16px;
+    line-height: 18px;
     text-align: center; 
 }
 .fixed-ul li{
