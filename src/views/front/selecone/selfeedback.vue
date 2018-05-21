@@ -209,7 +209,9 @@
      line-height: 10px
     }
 .btnsg{
-    padding:5px 10px;
+   width:70px;
+   height:30px;
+   line-height:30px;
     border:1px solid #ccc;
     margin-right:10px;
     margin-bottom:10px;
