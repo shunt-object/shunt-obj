@@ -994,7 +994,7 @@ ul,ol li {
     margin-top: 30px;
 }
 .tshu{
-    border-right:1px solid #535458;
+    border-right:1px solid #2c313c;
 }
 .lunmain .lun-le .pCenter {
     color: #f0f0f0; font-size: 14px;

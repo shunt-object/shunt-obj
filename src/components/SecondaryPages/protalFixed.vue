@@ -6,7 +6,7 @@
             <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
         </li>
         <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        <li class="liHoversBj phonegf" @click="yijian"><p>意见</br>反馈</p></li>
+        <li class="phonegf" @click="yijian"><p>意见</br>反馈</p></li>
     </ul>
     <div id="rys" style="z-index:100 !important"></div>
 
@@ -26,16 +26,18 @@
 }
 .phonegf{
     height:90px !important;
-    background:#fff!important;
+    background:#fff !important;
     margin-top:7px;
     font-size:20px !important;
     color:#000 !important;
     text-align:center
 }
+.phonegf:hover{
+        background: #F5F7FA !important;
+}
 .phonegf p{
         position: relative;
     padding: 10px 10px;
-    background-color: white;
     font-size: 14px;
     color: #333;
     line-height: 18px;
