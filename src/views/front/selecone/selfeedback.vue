@@ -118,9 +118,12 @@
 .sdubs{
     background:#da121a;
     width:100%;
-    height:30px;
-    line-height:30px;
+    height:36px;
+    line-height:36px;
     color:#fff;
+}
+.sdubs:hover{
+    background:#EF131D;
 }
 .sdubs:hover{
     cursor:pointer;
