@@ -225,7 +225,7 @@
         <div class="col-xs-12 cla">
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">SaaS化</pstyle>
@@ -237,7 +237,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">保姆化</pstyle>
@@ -249,7 +249,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/e.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/e.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
@@ -261,7 +261,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
+                <dt  class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">实测化</pstyle>
@@ -273,7 +273,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/c.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/c.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">权威化</pstyle>
@@ -285,7 +285,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/ors.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/ors.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">AI设计化</pstyle>
@@ -987,8 +987,14 @@ ul,ol li {
 }
 /**/
 @media (min-width: 768px) {
+    .dtgs{
+        width:20%;
+    }
 .carousel-indicators {
     bottom: 88px !important;
+}
+.mainpa {
+    font-size: 14px; color: #666666; line-height: 12px;text-align:left;
 }
 .lunmain .lun-le .pBottom {
     margin-top: 30px;
@@ -1283,8 +1289,17 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
+    p {
+        margin: 0!important;
+    }
+    .dtgs{
+        width:24%;
+    }
 .carousel-indicators{
     bottom:235px !important;
+}
+.mainpa {
+    font-size: 14px; color: #666666; line-height: 25px;text-align:left;
 }
 .lunmain .lun-le .pCenter {
     color: #f0f0f0; font-size: 14px;
@@ -1440,9 +1455,7 @@ h2 {
     color:#999;
 }
 
-.mainpa {
-    font-size: 14px; color: #666666; line-height: 12px;text-align:left;
-}
+
 .mainpa p {
     color: #666666; display: block
 }
