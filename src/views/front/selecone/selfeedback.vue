@@ -56,7 +56,7 @@
                                             :file-list="fileList"
                                             list-type="picture">
                                             <el-button size="small" type="primary" class="shangbtn">点击上传</el-button>
-                                            <div slot="tip" class="el-upload__tip">温馨提示：当前只支持jpg和png格式文件，且不超过500kb</div>
+                                            <div slot="tip" class="el-upload__tip">温馨提示：当前只支持jpg和png格式文件，且不超过500kb。</div>
                                           </el-upload>
                                         </div>
                                     </div>
@@ -886,7 +886,7 @@
                     this.$message.warning(`当前限制选择 10 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
                 },
                 beforeRemove(file, fileList) {
-                    return  this.$confirm(`确定移除 ${ file.name }？`, '温馨提示', {
+                    return  this.$confirm(`确定移除 ${ file.name }？`, '提示', {
                                 confirmButtonText: '确定',
                                 cancelButtonText: '取消',
                                 confirmButtonClass:'lay-btn-red',
