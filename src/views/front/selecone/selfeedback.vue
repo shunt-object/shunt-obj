@@ -53,9 +53,10 @@
                                             multiple
                                             :limit="10"
                                             :on-exceed="handleExceed"
-                                            :file-list="fileList">
+                                            :file-list="fileList"
+                                            list-type="picture">
                                             <el-button size="small" type="primary" class="shangbtn">点击上传</el-button>
-                                            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                                            <div slot="tip" class="el-upload__tip">温馨提示：当前只支持jpg和png格式文件，且不超过500kb</div>
                                           </el-upload>
                                         </div>
                                     </div>
@@ -105,6 +106,15 @@
 </div>
 </template>
 <style>
+.el-upload-list__item.is-success .el-upload-list__item-name:focus, .el-upload-list__item.is-success .el-upload-list__item-name:hover{
+    color:#da121a !important;
+}
+.el-upload-list--picture .el-upload-list__item-status-label{
+    background:#da121a !important;
+}
+.el-upload__tip{
+    color:#da121a !important;
+}
 .sdubs{
     background:#da121a;
     width:100%;

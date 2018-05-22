@@ -28,7 +28,9 @@
              <div class="lcss">
                      <div class="container">
                         <div class="" style="margin:0 auto!important;width:100%;height:70px;line-height:70px;">
-                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span><span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
+                            <span class="spanshover spanbot" @click="Upclouds"><i class="iconfont icon-yun1"></i> 上云类工具</span>
+                            <span class="spanshover spanbos" style="margin-left:120px;" @click="moneyCloud"><i class="iconfont icon-yun"></i> 迁云类工具</span>
+                            <span class="spanshover spanbon" style="margin-left:120px;" @click="Cloudrow"><i class="iconfont icon-yunkongzhi" style="font-size:10px;"></i> 云管类工具</span>
                         </div>
                      </div>
              </div>
@@ -58,7 +60,91 @@
                         <div class="clofont"><span>迁云类工具正在开发中，敬请您的期待...</span></div>
                 </div>
             </div>
+            <div id="ProductFeatures" class="go1" v-show="indesoud">
+                <div class="container erfs whyContainer" style="margin-bottom:50px;">
 
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">上云工具</span>
+                    </div>
+                    <div class="row text-center igns">
+                        <div class="text-left">云是企业数字化转型的基石，混合云和多云正在成为企业IT的新常态。CloudBroker²结合中国客户上云和管云的相撞，提供适合中国企业的云管平台，助力企业 IT 部门从以“管”为主的模式向以“服务”为主的模式转型，从而实现管好云、用好云和控好云。</div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 text-left cline">
+                                <div>
+                                    <img src="../../../assets/cloudguan/Group 29.png" alt="">
+                                    <h4>扩展性</h4>
+                                    <ul>
+                                        <li class="ulLibg">以REST API 形式开放所有API，用户可以定制自己的云管理平台</li>
+                                        <li class="ulLibg">支持与客户现有的IT运维管控体系的集成与对接</li>
+                                        <li class="ulLibg">模块化概念，既可以基于全部开源组件构建小规模云管平台，也可以无缝地与商用</li>
+                                        <li>的分布式文件系统(GPFS)，集群管理软件（PCM）无缝衔接，构建大规模云管平台</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 cline text-left los">
+                                <div>
+                                    <img src="../../../assets/cloudguan/Group 30.png" alt="">
+                                    <h4>灵活性</h4>
+                                    <ul>
+                                        <li class="ulLibg">支持多台虚拟机（包括主流操作系统、中间件组合）的灵活安装配置</li>
+                                        <li class="ulLibg">支持多种通用数据库、中间件产品的自动安装部署及配置</li>
+                                        <li class="ulLibg">支持灵活地业务流程的定制以及丰富的运维管理支撑</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 text-left cline">
+                                <div>
+                                    <img src="../../../assets/cloudguan/Group 28.png" alt="">
+                                    <h4>兼容性</h4>
+                                    <ul>
+                                        <li class="ulLibg">包括X86、Power, System Z 在内的主流软硬件的支持</li>
+                                        <li class="ulLibg">支持多种虚拟化技术（ESXi, KVM, PowerVM, PowerVC, LinuxONE等）</li>
+                                        <li class="ulLibg">不限定厂商的 KVM 虚拟化软件，OpenStack，以及其他的虚拟化管理软件或平台</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 cline text-left los">
+                                <div>
+                                    <img src="../../../assets/cloudguan/Group 31.png" alt="">
+                                    <h4>持续性</h4>
+                                    <ul>
+                                        <li class="ulLibg">基于成熟的系统架构，为用户提供IaaS 管理平台</li>
+                                        <li class="ulLibg">提供开箱即用的微服务 (容器, 区块链，数据库服务，大数据等)</li>
+                                        <li>满足客户不断发展的业务转型需求</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 text-left cline">
+                                <div>
+                                    <img src="../../../assets/cloudguan/Group 26.png" alt="">
+                                    <h4>开放性</h4>
+                                    <ul>
+                                        <li class="ulLibg">全面拥抱开源的云操作系统OpenStack，同时也可以直接管理 Vmware， Power</li>
+                                        <li>以及裸机的资源</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            
+                 <div class="container  erfs whyContainer"  style="margin-bottom:50px;">
+                    <div class=" text-left redtitle">
+                       <span class="redLine"></span><span class="redlasttitle">产品架构</span>
+                    </div>
+                    <div class="row text-center igns">
+                        <div class="text-left">CloudBroker²云管理平台采用模块化的架构设计，可向下统一纳管物理机、服务器虚拟化、私有云、公有云等基础设施资源，向上支持传统应用和云原生应用。</div>
+                        <img src="../../../assets/cloudguan/Group 25.png" alt="" style="margin-top:50px;" class="xuniimg">
+                    </div>
+                 </div>
+            
+            
+            
+            </div>
             <!--弹出框-->
             <el-dialog title="云价格计算器"  :visible.sync="dialogVisible" class="cloudmarket-dialog">
                  <div class="appcenterPrice">
@@ -142,6 +228,17 @@
     top:12px !important;
 }
 
+.cline ul .ulLibg{
+    background:url("../../../assets/er-icon/dianRed.png") no-repeat left center;
+}
+.cline{
+    margin-top:50px;
+}
+.cline ul li{
+    font-size:12px;
+    color:#666666;
+    padding-left:20px
+}
 .el-message-box__title span{
     color:#000 !important;
 }
@@ -201,7 +298,7 @@
 .mianfei-div{
     position:absolute;
     right:25px;
-    top:10px;
+    top:5px;
 }
 .mianfei{
     display:inline-block;
@@ -258,7 +355,7 @@
 }
 .kuao-jia{
     font-size:16px;
-    margin-top:20px;
+    margin-top:26px;
     color:#333333;
 }
 .kuao-main{
@@ -412,11 +509,24 @@
         .cloudmarket-dialog .el-dialog{
             width:480px !important;
         }
+        .xuniimg{
+            width:95%;
+        }
+        .los{
+            padding-left:82px;
+        }
         .juright{
             text-align:right;
         }
         .igs{
             padding-left:80px;
+        }
+        .igns{
+            padding-left:15px;
+            font-size:14px;
+            color:#666666;
+            line-height:24px;
+
         }
         .spanshover{
             display:inline-block;
@@ -478,12 +588,14 @@
             color:#333333;
 
         }
-        .spanbot{
-            float:left;
+        .xuniimg{
+            width:100%;
         }
         .spanbos{
-            float:right;
             margin-left:0 !important;
+        }
+        .spanbon{
+              margin-left:0 !important;
         }
         .el-message-box{
             width:280px !important;
@@ -744,6 +856,7 @@
                 },
                 indexIds:true,
                 indesIds:false,
+                indesoud:false,
             match:{
                 "appMatchBo": {
                     "cores": '',
@@ -790,14 +903,26 @@
             Upclouds:function(){
                 this.indexIds = true;
                 this.indesIds = false;
+                this.indesoud = false;
                 $(".spanbos").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbon").css({"borderBottom":"none","color":"#333333"});
                 $(".spanbot").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
             },
             moneyCloud:function(){
                 this.indesIds = true;
                 this.indexIds = false;
+                this.indesoud = false;
                 $(".spanbot").css({"borderBottom":"none","color":"#333333"});
                 $(".spanbos").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+                $(".spanbon").css({"borderBottom":"none","color":"#333333"});
+            },
+            Cloudrow:function(){
+                this.indesIds = false;
+                this.indexIds = false;
+                this.indesoud = true;
+                $(".spanbot").css({"borderBottom":"none","color":"#333333"});
+                $(".spanbon").css({"borderBottom":"2px solid #da121a","color":"#da121a"});
+                $(".spanbos").css({"borderBottom":"none","color":"#333333"});
             },
             onblur:function(dom){
                 if(dom=='cores'){

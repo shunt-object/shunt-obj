@@ -242,6 +242,9 @@
         border:1px solid #ebebeb;
         
 }
+.sp1:hover{
+    cursor:pointer;
+}
 .sps2:hover{
     cursor:pointer;
   background:#F5F7FA;
@@ -258,9 +261,9 @@
     color:#fff;
 }
 .actives{
-    background:#f7a72c;
-    border-color:#f7a72c;
-    color:#fff;
+    background:#f7a72c !important;
+    border-color:#f7a72c !important;
+    color:#fff !important;
 }
 .ac{
     color:red
@@ -287,7 +290,7 @@
                                 })
                                 $(".sps2").removeClass("actives");
                                 var spa = $(".sps2")[e];
-
+                               
                                $(".psed").find(spa).addClass("actives"); 
                                 //$(this).addClass("actives"); 
                   
