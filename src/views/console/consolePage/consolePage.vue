@@ -42,6 +42,11 @@
         <!--头部icon-->
         <div class="nav notify-row" id="top_menu" style="float:right;">
             <ul class="nav top-menu">
+                <li class="dropdown idicon" v-on:click="university()">
+                    <a data-toggle="dropdown" class="dropdown-toggle navli user-hover">
+                        <i class="iconfont icon-daka1"></i>智识学院
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle navli user-hover" id="xiaowei">
                         <i class="iconfont icon-kefu"></i><!--小微-->Prof. 吴
@@ -74,6 +79,11 @@
                 <li id="header_notification_bar" class="dropdown" v-on:click="mycomment()">
                     <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
                         <i class="iconfont icon-dianping"></i>意见反馈
+                    </a>
+                </li>
+                <li id="header_notification_bar" class="dropdown" v-on:click="appcenterList()">
+                    <a data-toggle="dropdown" class="dropdown-toggle user-hover" href="#">
+                        <i class="iconfont icon-yingyong01" style="font-size:13px"></i>应用市场
                     </a>
                 </li>
                 <li id="header_notification_bar" class="dropdown" v-on:click="cart()">
@@ -129,12 +139,12 @@
                         <li v-on:click="sus()"><a href="javascript:;">数据洞察</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu" v-if="utype!=3&&utype!=4" v-on:click="appcenterList()">
+                <!--<li class="sub-menu" v-if="utype!=3&&utype!=4" v-on:click="appcenterList()">
                     <a class="outhover" href="javascript:;">
-                        <img src="../../../assets/appcenter.png" class="sub-bigimg" alt=""><!-- 8a8a8a-->
+                        <img src="../../../assets/appcenter.png" class="sub-bigimg" alt="">
                         <span>应用市场</span>
                     </a>
-                </li>
+                </li>-->
                   <li class="sub-menu" v-show="istrue">
                     <a href="javascript:;" class="">
                         <!--<i class="icon-book"></i>-->
@@ -280,6 +290,7 @@ export default{
         var that = this;
         setInterval( function(){that.getHttpUseResour()},300000);
 
+
     },
 
     methods:{
@@ -364,6 +375,9 @@ export default{
         TheirAllies:function(){
            this.$router.push({path:'/TheirAllies'});
            this.nocopy();
+        },
+        university:function(){
+            this.$router.push({path:'/adviserCenter'});
         },
         responsiveView:function () {
             var wSize = $(window).width();

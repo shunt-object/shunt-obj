@@ -60,6 +60,9 @@
     color:#f7a72c !important;
     margin-right:5px;
 }
+.lay-msg{
+    top:100px !important;
+}
 .el-message-box__status{
     top:20px !important;
 }
@@ -72,4 +75,8 @@
 /* 字体大小 */
 .font12{
     font-size:12px !important;
+}
+/* 学院标注字体颜色 */
+.univeristy-bz{
+    color:#da121a;
 }

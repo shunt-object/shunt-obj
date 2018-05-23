@@ -32,8 +32,8 @@
 }
 .appcenterlist-item-img img{
     width:100px;
-    height:64px;
-    margin-top:28px;
+    height:71px;
+    margin-top:23px;
 }
 @media (min-width: 768px){
     .appcenterlist-item{
@@ -52,4 +52,10 @@
         margin:0 auto;
         padding-top:100px;
     }
+}
+.appcenterlist-item:hover{
+    cursor:pointer;
+}
+.jsn:hover{
+    cursor:pointer
 }

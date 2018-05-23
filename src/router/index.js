@@ -36,6 +36,7 @@ import CustomerService from '@/views/front/CustomerService'
 import cloudselection from "../views/front/selecone/cloudselection.vue"
 import cloudplanning from "../views/front/selecone/cloudplanning.vue"
 import clouddesignning from "../views/front/selecone/clouddesignning.vue"
+import scenarioDesign from "../views/front/selecone/scenarioDesign.vue"
 import wudata from "../views/front/selecone/wudata.vue"
 import technologyandservices from "../views/front/selecone/technologyandservices.vue"
 import cloudbuying from "../views/front/selecone/cloudbuying.vue"
@@ -48,6 +49,12 @@ import cloudmeasured from "../views/front/selecone/cloudmeasured.vue"
 import messageCenter from "../views/front/messageCenter/messageCenter.vue"
 import messAdd from "../views/front/messageCenter/messAdd.vue"
 import aboutus from "../views/front/selecone/aboutus.vue"
+import selfeedback from "../views/front/selecone/selfeedback.vue"
+import cloudmarket from "../views/front/selecone/cloudmarket.vue"
+import bigcafeTeam from '@/views/front/university/bigcafeTeam/bigcafeTeam'
+import openCourse from '@/views/front/university/openCourse/openCourse'
+import teamDetail from '@/views/front/university/teamDetail/teamDetail'
+import classProcess from '@/views/front/university/classProcess/classProcess'
 import susDecision from '../views/console/dataDecision/susDecision/susDecision'
 import smarterDecision from '@/views/console/dataDecision/smarterDecision/smarterDecision.vue'
 import roiDecision from '@/views/console/dataDecision/roiDecision/roiDecision'
@@ -62,13 +69,13 @@ import appcenterSearch from '@/views/console/appCenter/appcenterSearch.vue'
 import appcenterCloudEye from '@/views/console/appCenter/appcenterCloudEye.vue'
 import appcenterOptimization from "@/views/console/appCenter/appcenterOptimization.vue"
 import notification from "@/views/console/notificationCenter/notificationCenter"
+import adviserCenter from '@/views/console/adviserCenter/adviserCenter'//顾问
 import orderlist from '@/views/console/orderlist/orderlist'
 import shoppingCar from '@/views/console/shoppingCar/shoppingCar'
 import vis from "../views/front/visiterying/visiterying.vue"
 import leame from "../views/front/LeaveAmessage/LeaveAmessage.vue"
 import adviserList from "../views/front/adviser/adviserList.vue"
-
-
+import ext from '@/views/front/university/ext.vue'
 
 
 Vue.use(Router)
@@ -104,6 +111,18 @@ export default new Router({
       name:"aboutus",
       component:aboutus
     },
+    {
+      //意见反馈 
+      path:"/selfeedback",
+      name:"selfeedback",
+      component:selfeedback
+    },
+    //应用市场
+    {
+      path: "/cloudmarket",
+      name: "cloudmarket",
+      component:cloudmarket
+    },
      {
       //  云设计
       path:"/clouddesignning",
@@ -121,6 +140,12 @@ export default new Router({
       path:"/wudata",  
       name:"wudata",
       component:wudata
+    },
+     {
+      // 首页文案
+      path:"/scenarioDesign",  
+      name:"scenarioDesign",
+      component:scenarioDesign
     },
      {
       //  技术与服务
@@ -162,6 +187,31 @@ export default new Router({
       path: '/CustomerService',
       name: 'CustomerService',
       component: CustomerService
+    },
+    {//大咖团队
+      path:'/bigcafeTeam',
+      name: 'bigcafeTeam',
+      component: bigcafeTeam
+    },
+    {//公开课程
+      path:'/openCourse',
+      name: 'openCourse',
+      component: openCourse
+    },
+    {//公开课程 二级页面
+      path:'/ext',
+      name: 'ext',
+      component: ext
+    },
+    {//团队详情
+      path:'/teamDetail',
+      name: 'teamDetail',
+      component: teamDetail
+    },
+    {//上课流程
+      path:'/classProcess',
+      name: 'classProcess',
+      component: classProcess
     },
     // {
     //   path:'/register',
@@ -292,7 +342,14 @@ export default new Router({
           },
           component:adviserList
         },
-
+        {//顾问
+          path:"/adviserCenter",
+          name:"adviserCenter",
+          meta: {
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+          },
+          component:adviserCenter
+        },
          {
           path:"/messAdd",
           name:"messAdd",

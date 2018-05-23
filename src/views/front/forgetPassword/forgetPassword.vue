@@ -83,7 +83,7 @@
                 <div class="forget-list" v-if="index==4">
                     <img src="../../../assets/front/activate-success.png" class="activate-img for-success-img" alt="">
                     <div class="forget-success">密码更改成功</div>
-                    <router-link to="/login" class="forget-type-btn">立即登录</router-link>
+                    <button v-on:click="gologin()" class="forget-type-btn">立即登录</button>
                 </div>
             </div>
         </div>
@@ -119,10 +119,12 @@ export default{
             isemailnum:false,
             isone:false,
             istwo:false,
-            isRegister:false
+            isRegister:false,
+            isuniveristy:''
         }
     },
     mounted:function(){
+        this.isuniveristy = this.$route.query.univeristy;
         //alert(this.$route.query.forget);
         if(this.$route.query.forget==1){
             this.index = 1;
@@ -156,6 +158,9 @@ export default{
         // }
     },
     methods:{
+        gologin:function(){
+            this.$router.push({path:'/login',query:{univeristy:this.isuniveristy}});
+        },
         test:function(dom){
             this.or = dom;
             this.index=2;

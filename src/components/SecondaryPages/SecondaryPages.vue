@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav cl">
-            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" :class="active=='0'?'border_active':''">首页</a></li>
+            <li style=" padding-bottom:5px" @click="homePager()"><a class="page-scroll   hovers" ><span  :class="active=='0'?'border_active':''" class="el-dropdown-link">首页</span></a></li>
             <li class="dropdown">
                <!--<a class="page-scroll animated fadeInDown alist hovers" href="javascript:;">产品功能</a>-->
                <!-- <div class="dropdown-content">
@@ -24,14 +24,14 @@
                     <a style="color:#000 !important;" >云实测</a>
                 </div>-->    
             </li>
-            <li><a class="page-scroll  hovers" :class="active=='1'?'border_active':''">
+            <li><a class="page-scroll  hovers" >
                         <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link " style="outline:none">
-                                    产品与服务
+                                <span class="el-dropdown-link " style="outline:none" :class="active=='1'?'border_active':''">
+                                    <span class="as">产品与服务</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsb">
                                     <el-dropdown-item class="text-left ">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">上云咨询</div>
                                         <div class="row">
                                             <span @click="cloundPlan" class="col-md-1 gms">云规划</span>
                                             <span @click="cloundPlen" class="col-md-1 gms">云选型</span>
@@ -41,61 +41,88 @@
                                         </div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">数据分析</div>
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlin">Prof. 吴数据</span></div>
                                     </el-dropdown-item>
                                     <el-dropdown-item class="text-left" style="margin-top:20px">
-                                        <div style="width:40%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">技术与服务</div>
                                         <div class="row"><span class="col-md-1 gms" @click="cloundPlon">技术与服务</span></div>
                                     </el-dropdown-item>
-                                     <el-dropdown-item class="text-left" style="margin-top:20px">
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
+                                        <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">智识学院 <span><img src="../../assets/er-icon/beat.png" alt="" style="width:7%;margin-top:-10px !important"></span></div>
+                                        <div class="row">
+                                            <span class="col-md-1 gms " @click="yundaka">大咖团队</span> 
+                                            <span class="col-md-1 gms " @click="liuch">上课流程</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="gkk">公开课程</span>
+                                        </div>
+                                    </el-dropdown-item>
+                                    <el-dropdown-item class="text-left" style="margin-top:20px">
                                         <div style="width:48%;border-bottom:1px solid #2C313C;color:#D5D5D5">应用市场 <span><img src="../../assets/homepage/new.png" alt="" style="width:7%;margin-top:-10px !important"></span></div>
                                         <div class="row">
                                             <span class="col-md-1 gms " @click="yunjia">云价格计算器</span> 
-                                            <span class="col-md-1 gms " @click="yunshili">云实例快搜器</span>
-                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunproxy">云代理查询助手</span>
-                                            <span class="col-md-1 gms " @click="yunpei">云匹配度分析器</span> 
-                                            <span class=" gms text-left" style="margin-left:10px;" @click="yusuan">预算收益分析助手</span> 
-                                             <span class=" gms " style="margin-left:10px;" @click="yunshili">云眼</span>
+                                            <span class="col-md-1 gms " @click="yunjia">云实例快搜器</span>
+                                            <span class="col-md-1 gms " style="margin-right:10px !important;" @click="yunjia">云代理查询助手</span>
+                                            <span class="col-md-1 gms " @click="yunjia">云匹配度分析器</span> 
+                                            <span class=" gms text-left" style="margin-left:10px;" @click="yunjia">预算收益分析助手</span> 
+                                             <span class=" gms " style="margin-left:10px;" @click="yunjia">云眼查</span>
                                         </div>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li><a class="page-scroll  hovers" :class="active=='2'?'border_active':''">
+            <li><a class="page-scroll  hovers">
                     <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link" style="outline:none">
-                                    生态
+                                <span class="el-dropdown-link" style="outline:none" :class="active=='2'?'border_active':''">
+                                    <span>生态</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbs">
                                     <el-dropdown-item >
                                         <p class="row text-center" >
-                                            <span @click="cloundPlvn" class="col-md-6">招募顾问</span>
-                                            <span @click="cloundPlkn" class="col-md-6">合作伙伴</span>
+                                            <span @click="cloundPlvn" class="col-md-6 col-xs-12">招募顾问</span>
+                                            <span @click="cloundPlkn" class="col-md-6 col-xs-12">合作伙伴</span>
                                         </p>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>
             </a></li>
-            <li class="lihovzan"><a class="page-scroll  hovers" :class="active=='3'?'border_active':''">
+            <li class="lihovzan"><a class="page-scroll  hovers">
                        <el-dropdown placement="bottom">
-                                <span class="el-dropdown-link" style="outline:none">
-                                    动态
+                                <span class="el-dropdown-link" style="outline:none" :class="active=='3'?'border_active':''">
+                                   <span>动态</span>
                                 </span>
                                 <el-dropdown-menu slot="dropdown"  class="dropCsbse">
                                     <el-dropdown-item >
                                         <p class="row text-center"> 
-                                            <span @click="cloundPlqn" class="col-md-4">新闻动态</span>
-                                            <span @click="cloundPlfn" class="col-md-4">行业头条</span>
-                                            <span @click="cloundPlgn" class="col-md-4">CSB²社群</span>
+                                            <span @click="cloundPlqn" class="col-md-4 col-xs-12">新闻动态</span>
+                                            <span @click="cloundPlfn" class="col-md-4 col-xs-12">行业头条</span>
+                                            <span @click="cloundPlgn" class="col-md-4 col-xs-12">CSB²社群</span>
                                         </p>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                          </el-dropdown>              
             </a></li>
+            <li class="lihovzan">
+                <a class="page-scroll  hovers">
+                    <el-dropdown placement="bottom">
+                        <span class="el-dropdown-link" style="outline:none"  :class="active=='4'?'border_active':''">
+                            <span>智识学院</span>
+                        </span>
+                        <el-dropdown-menu slot="dropdown"  class="dropCsbse">
+                            <el-dropdown-item >
+                                <p class="row text-center"> 
+                                    <span v-on:click="university('1')" class="col-md-4 col-xs-12">大咖团队</span>
+                                    <span v-on:click="university('2')" class="col-md-4 col-xs-12">上课流程</span>
+                                    <span v-on:click="university('3')" class="col-md-4 col-xs-12">公开课程</span>
+                                </p>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>              
+                </a>
+            </li>
+            <li><a class="page-scroll  hovers" @click="yyshic" ><span class="el-dropdown-link" :class="active=='5'?'border_active':''">应用市场</span></a></li>
             <!--<li><a class="page-scroll animated bounceIn hovers" href="javascript:;">帮助</a></li>-->
-            <li><a class="page-scroll  hovers" @click="listwer" :class="active=='4'?'border_active':''">关于我们</a></li>
-            <li><a class="page-scroll  hovers" v-on:click="condole" :class="active=='5'?'border_active':''">控制台</a></li>
+            <li><a class="page-scroll  hovers" @click="listwer"><span  :class="active=='6'?'border_active':''" class="el-dropdown-link">关于我们</span></a></li>
+            <li><a class="page-scroll  hovers" v-on:click="condole"><span :class="active=='7'?'border_active':''" class="el-dropdown-link">控制台</span></a></li>
           </ul>
           <div class="navbar-right clearfix">
             <ul class="nav navbar-nav " id="navright">
@@ -124,18 +151,18 @@
 </div>
 </template>
 <script>
-          $(window).scroll(function(){
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("background","#1D1E20")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("background","none")
-                 }
-                if($(this).scrollTop() > 50){
-                    $('.navbar').css("display","block")
-                }else if($(this).scrollTop() < 50){
-                    $('.navbar').css("display","block")
-                 }
-          });
+$(window).scroll(function(){
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("background","#1D1E20")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("background","none")
+    }
+    if($(this).scrollTop() > 50){
+        $('.navbar').css("display","block")
+    }else if($(this).scrollTop() < 50){
+        $('.navbar').css("display","block")
+    }
+});
 export default { 
     props:["active"],  
     data() {
@@ -147,6 +174,12 @@ export default {
       }
     },
     mounted: function() {
+        let readytop = $(window).scrollTop();
+        if(readytop>50){
+            $('.navbar').css("background","#1D1E20");
+        }else if($(this).scrollTop() < 50){
+            $('.navbar').css("background","none")
+        }
                          $(".fixshow a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
@@ -157,8 +190,6 @@ export default {
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-                    
-
         if (sessionStorage.getItem("account") == null || sessionStorage.getItem("account") == '') {
           this.islogin = false;
         } else {
@@ -169,6 +200,16 @@ export default {
           
     },
     methods: {
+        university:function(id){
+            //id==1 大咖团队  id==2上课流程 id==3公开课程
+            if(id==1){
+                this.$router.push({path: '/bigcafeTeam'});
+            }else if(id==2){
+                this.$router.push({path: '/classProcess'});
+            }else{
+                this.$router.push({path: '/openCourse'});
+            }
+        },
         
         PlanLj:function(){
              this.$router.push({path: '/registerOne'});
@@ -179,6 +220,15 @@ export default {
       fn: function() {
         this.logout();
         this.islogin = false;
+      },
+      gkk:function(){
+        this.$router.push({path: '/openCourse'});
+      },
+      liuch:function(){
+         this.$router.push({path: '/classProcess'});
+      },
+      yundaka:function(){
+         this.$router.push({path: '/bigcafeTeam'});
       },
       loGog: function() {
         this.$router.push({path: '/login'});
@@ -238,10 +288,10 @@ export default {
           this.$router.push({path: "/partners"})
       },
       yunjia:function(){
-         this.$router.push({path: "/appcenterPrice"}) 
+         this.$router.push({path: "/cloudmarket"}) 
       },
       yunshili:function(){
-          this.$router.push({path:"/registerOne"})
+          this.$router.push({path:"/appcenterSearch"})
       },
       yunproxy:function(){
           this.$router.push({path:"/appcenterProxy"})
@@ -251,6 +301,9 @@ export default {
       },
       yusuan:function(){
            this.$router.push({path:"/appcenterRoi"})
+      },
+      yyshic:function(){
+          this.$router.push({path:"/cloudmarket"})
       }
     
     }
@@ -260,6 +313,20 @@ export default {
 </script>
 
 <style>
+ .el-dropdown-link:hover{ border-bottom: 1px solid #da121a; cursor: pointer;}
+.el-dropdown-link{
+    padding:10px 15px;
+    line-height:20px;
+}
+.nav>li>a{
+    padding:0 0 !important;
+    
+}
+.navbar-nav li {
+    line-height: 20px !important;
+    padding-bottom: 16px !important;
+    padding-top: 21px !important;
+}
 .dropCsb{
     width:100%;
     top:60px !important;
@@ -267,8 +334,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
     opacity:0.9;
-       max-width: 1090px;
-    
+    max-width: 1090px;
 }
 .dropCsbs{
     width:30%;
@@ -277,8 +343,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
     opacity:0.9;
-       max-width: 1090px;
-    
+    max-width: 1090px;
 }
 .dropCsbse{
     width:30%;
@@ -287,8 +352,7 @@ export default {
     border-color:#161b25 !important;
     /*text-align:center !important;*/
      opacity:0.9;
-       max-width: 1090px;
-    
+     max-width: 1090px;
 }
 .gms{
     color:#A8A8A8;
@@ -438,7 +502,7 @@ ul,ol li {
   }
 
   .cl {
-      margin-left: 28% !important;
+      margin-left: 14% !important;
   }
   .log {
       margin-right: 20px;
@@ -456,10 +520,10 @@ ul,ol li {
       padding-top: 150px; padding-right: 50px
   }
   .Imgs {
-     margin-top: 15px;
+     margin-top: 8px;
   }
   .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #da121a; cursor: pointer;
+    
       background:none;
   }
   .navbar ul li .hovers:visited {
@@ -528,7 +592,7 @@ ul,ol li {
     padding: 10px 15px;
 }
 .navbar-nav li {
-    line-height: 48px; padding-bottom: 5px !important; padding-top: 10px
+    line-height: 50px; padding-top: 10px
 }
 .left,.right {
     width: 5%;
@@ -536,7 +600,7 @@ ul,ol li {
     background:none !important;
 }
 .navbar-nav li a:hover {
-    border-bottom: 1px solid #fff
+ /** border-bottom: 1px solid #fff*/
 }
 .imgs {
     width: 100px; height: 60px; margin-left: 150px;
@@ -698,10 +762,15 @@ ul,ol li {
 }
 @media (max-width: 768px) {
  .navbar ul li .hovers:hover {
-      border-bottom: 1px solid #da121a; cursor: pointer;
+      /*border-bottom: 1px solid #da121a; cursor: pointer;*/
       background:none;
   }
-
+  .dropCsb{
+      left:1px!important
+  }
+.el-dropdown-menu__item{
+    padding:0 0 !important
+}
 .right{
     height:100%;
 }

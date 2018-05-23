@@ -6,26 +6,18 @@
                 <li class="nexton" data-to="go1"></li>
                 <li class="nextsec" data-to="go2"></li>
                 
-                <li class="nextf" data-to="go3"></li>
+                <li class="nextcafe" data-to="go3"></li>
+                <li class="nextf" data-to="go4"></li>
             </ul>
       </div>
-      <div class="fixed-box">
-        <ul class="fixed-ul">
-            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-            </li>
-            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        </ul>
-      
-        
-        <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-    </div>
+         <!-- 悬浮框 -->
+        <fixedbox></fixedbox>
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#BigCafe"><i class="iconfont icon-woshou"></i> 已签约的大咖</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                     <!--<div class="col-md-3 col-xs-3"><a href="#sz"><i class="iconfont icon-shijianriqi"></i> 时间轴</a></div>-->
             </div>
     </div>
@@ -45,9 +37,10 @@
             </div>
             <div class="container naver">            
                 <div class="" style="width:100%!important">
-                    <div class="col-md-4 col-xs-4"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
-                    <div class="col-md-4 col-xs-4"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#ProductFeatures" class="hoover-a"><i class="iconfont icon-mn_gongneng"></i> 招募顾问计划</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#CoreStrengths" class="hoover-a"><i class="iconfont icon-shenpiliucheng"></i> 招募顾问合作流程</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#BigCafe" class="hoover-a"><i class="iconfont icon-woshou"></i> 已签约的大咖</a></div>
+                    <div class="col-md-3 col-xs-3"><a href="#QuickStart" class="hoover-a"><i class="iconfont icon-tuandui"></i> 加入大咖团队</a></div>
                 </div>
             </div>
             <div class="nav-bottom-kk"></div>
@@ -80,7 +73,25 @@
                 </div>
             </div>
             </div>
-            <div style="width:100%;" id="QuickStart" class="go3">
+            <!--  -->
+            <div class="container  erfs">
+            <div class="go3" style="padding-top:20px;" id="BigCafe">
+                <div class=" text-left redtitle">
+                    <span class="redLine"></span><span class="redlasttitle">已签约的大咖</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" v-for="item in cafelist" v-on:click="teamdetail(item.userProfessor.id)">
+                        <div class="bigcafe-desc-list resruit-cafe" style="height:220px;">
+                            <img :src="item.userProfessor.headRoundImg" alt="">
+                            <div class="bigcafe-desc-name">{{item.realname}}</div>
+                            <div class="bigcafe-desc-jobs">{{item.userProfessor.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--  -->
+            <div style="width:100%; background: rgb(248, 248, 248); margin-top: 50px;" id="QuickStart" class="go4">
                 <div class="seleconeMain-shrts container erfs " style="padding-top:20px;padding-bottom:40px" >
                     <div class=" text-left redtitle">
                        <span class="redLine"></span><span class="redlasttitle">加入大咖团队</span>
@@ -116,7 +127,7 @@
            
       
             <div style="background:#ededed;;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
+                <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -132,6 +143,10 @@
 
 </template>
 <style>
+/**/
+.resruit-cafe{
+    border-bottom:2px #da121a solid;
+}
 .dvsa:hover{
     background:#EF131D;
 }
@@ -192,29 +207,6 @@
 }
 .fixshow i{
     color:#c2c2c2;
-}
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
 }
 /**/
 .rightBs ul li{
@@ -576,11 +568,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;
@@ -936,7 +929,7 @@
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
                         })
-                         $(".naver a").hover(function(){
+                        $(".naver a").hover(function(){
                                 $(this).find("i").css("color","#da121a")
                         },function(){
                                 $(this).find("i").css("color","#c2c2c2")
@@ -945,12 +938,6 @@
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
                         // console.log($(window).scrollTop())
-                    //当window的scrolltop距离大于1时，go to 
-                        if($(this).scrollTop() > 550){
-                            $('.scrollUp').css("display","block")
-                            }else{
-                                    $('.scrollUp').fadeOut();
-                            }
                         // if($(this).scrollTop()>80){
                         //     $(".sectb").css("display","none");
                         // };
@@ -967,7 +954,7 @@
                                   $(".displayshow").css("display","none") 
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                              }
-                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
+                            // console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
                              if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
@@ -976,6 +963,13 @@
                                   $(".rightBs ul li").css("background","#d8d8d8") 
                                     $(".nextsec").css("background","#da121a")
                              }
+                             
+                             if($("#BigCafe").length>0){
+                                if($(window).scrollTop()+70>=$("#BigCafe").offset().top){
+                                    $(".rightBs ul li").css("background","#d8d8d8") 
+                                        $(".nextcafe").css("background","#da121a")
+                                }
+                            }
                             if($("#QuickStart").length>0){
                                 if($(window).scrollTop()+70>=$("#QuickStart").offset().top){
                                     $(".rightBs ul li").css("background","#d8d8d8") 
@@ -995,25 +989,37 @@
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
+ import fixedbox from '../../../components/SecondaryPages/protalFixed.vue';
     export default{
          name: 'cloudplanning',
         components:{
             Sec,
-            Sex
+            Sex,
+            fixedbox
         },
         data(){
             return{
-                 phoneBox:false,
                  resulters:[],
                  names:"",
                  phones:"",
                  gs:"",
                  hys:"",
                  dx:"",
-                 haha:"欢迎加入我们"
+                 haha:"欢迎加入我们",
+                 cafelist:[]
             }
         },
         methods:{
+            teamdetail:function(cafeid){
+                this.$router.push({path:'/teamDetail',query:{bigcafeId:cafeid}});
+            },
+            getlist:function(){
+                this.$this.get('/broker/prof/getList').then((response)=>{
+                    //console.log('---',response.data);
+                    this.cafelist = response.data.data;
+                }).catch((error)=>{
+                })
+            },
               ctaCloundCsbs:function(){
                     window.open("http://demo.csb-china.com")
                 },
@@ -1023,36 +1029,33 @@
             lj:function(){
                 this.$router.push({path: '/registerOne'});
             },
-             xiaowei:function(){
-                // var that = this; 
-                // var win = window.open("#/CustomerService");
-                 var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
-               //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
-            },
-            phoneEnter:function(){
-                this.phoneBox = true;
-            },
-            phoneleave:function(){
-                    this.phoneBox = false;
-            },
             hyDemo:function(){
-                 if(this.names==""||this.phones==""){
-                     return false;
-                 }else{
+                 if(this.phones!=""){
                      var oas = {
                             "mobile":this.phones,
                             "username":this.names,
                             }
-                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取消息类型
+                     this.$this.post('/broker/sms/send/code/experts',oas).then((pon)=>{  //获取验证码
                                                                 
                                    
                                 }).catch((error)=>{
                     })
+                 }else{
+                   return false;
                  }
             },
             wle:function(){
                if(this.names==""||this.phones==""||this.gs==""||this.hys==""||this.dx==""){
-                   return false;
+                   this.$alert('请完善您的信息，谢谢！', '提示', {
+                    confirmButtonText: '我知道了',
+                    confirmButtonClass:'lay-btn-red',
+                     showClose:false,
+                    type: 'warning',
+                    }).then(() => {
+                        
+                    }).catch(() => {
+                        
+                    });
                }else{
                    var obj = {
                         "company":this.gs,
@@ -1081,10 +1084,11 @@
             }
         },
         mounted:function(){
+            this.getlist();
                $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
-                               console.log(s)
+                               //console.log(s)
                              $(".rightBs ul li").not($(this)).css("background","#d8d8d8")
                              $(this).css("background","#da121a")
                              var target = e.target;
@@ -1093,10 +1097,6 @@
                             
                          
                 })
-                $(".scrollUp").click(function(){
-                        $('html ,body').animate({scrollTop: 0}, 300);
-                        return false;
-                });
 
                 this.$this.get('/broker/prop/industry/').then((pon)=>{  //获取消息类型
                                    

@@ -40,6 +40,7 @@
                 <div class="kongbottom"></div>
                 <div class="block" style="text-align:right">
                     <el-pagination 
+                        class="notification-page"
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
                         :current-page.sync="currentPage1"
@@ -210,10 +211,10 @@
        margin-top:20px;
        padding-bottom:10%
    }
-   .el-pager li:hover{
+   .notification-page .el-pager li:hover{
        color:#da121a !important
    }
-   .el-pager li.active{
+   .notification-page .el-pager li.active{
        color:#da121a !important
    }
    .spanleft span:hover{
@@ -241,6 +242,9 @@
         border:1px solid #ebebeb;
         
 }
+.sp1:hover{
+    cursor:pointer;
+}
 .sps2:hover{
     cursor:pointer;
   background:#F5F7FA;
@@ -257,9 +261,9 @@
     color:#fff;
 }
 .actives{
-    background:#f7a72c;
-    border-color:#f7a72c;
-    color:#fff;
+    background:#f7a72c !important;
+    border-color:#f7a72c !important;
+    color:#fff !important;
 }
 .ac{
     color:red
@@ -286,7 +290,7 @@
                                 })
                                 $(".sps2").removeClass("actives");
                                 var spa = $(".sps2")[e];
-
+                               
                                $(".psed").find(spa).addClass("actives"); 
                                 //$(this).addClass("actives"); 
                   
@@ -416,10 +420,11 @@
                             }
                     
                     this.$this.post('/broker/content/user/get/content',a).then((response)=>{  //获取所有的信息内容 
-                                  console.log(response)
-                                  if(responsee.data.data.totalElements!=0){
+                               
+                                
+                                     
                                     this.dats = response.data.data.content;  
-                                    console.log(this.dats)    
+                                    //console.log(this.dats)    
                                     this.totalPages = response.data.data.totalElements;
                                     this.weidulook();
                                     if(this.totalPages ==0){
@@ -429,7 +434,7 @@
                                         this.isopens=true;
                                         this.isopen = false;
                                     }
-                                }
+                                
                                 //this.titleWeidu(this.totalPages);
                         }).catch((error)=>{
                     });

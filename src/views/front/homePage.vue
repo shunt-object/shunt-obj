@@ -1,18 +1,8 @@
 <template style="position:relative">
  
   <div class="homepage">
-    <div class="fixed-box">
-        <ul class="fixed-ul">
-            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-            </li>
-            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        </ul>
-        <div id="rys" style="z-index:100 !important"></div>
-        
-        <img src="../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-    </div>
+    <!-- 悬浮框 -->
+    <fixedbox></fixedbox>  
     <Sec active="0"></Sec>
     <!--  nav end--> 
    
@@ -26,7 +16,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
       <div class="carousel-inner">
-        <div class="item active" style="width:100%;min-width:100%;height:100%;">
+       <div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
                     <div class="container"  style="position:relative">
                     <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
@@ -41,7 +31,8 @@
                     </div>
                 </div>
          </div>
-          <div class="item" style="width:100%;min-width:100%;height:100%;">
+      
+         <div class="item" style="width:100%;min-width:100%;height:100%;">
                 <div class=" lunmain lun2">
                     <div class="container" style="position:relative">
                        
@@ -53,7 +44,7 @@
                     </div>
                 </div>
             </div>
-           <div class="item" style="width:100%;min-width:100%;height:100%;">
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
@@ -77,18 +68,9 @@
                     </div>
                 </div>
          </div>
-         <!-- <div class="item" style="width:100%;min-width:100%;height:100%;" id="itms">
-                <div class=" lunmain lun4">
-                    <div class="container" style="position:relative">
-                        <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
-                    <div class="col-md-12 lun-le animated rollIn">
-                        <h1 style="font-size:26px !important;font-weight:100;color:#333333;">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
-                        <h1 style="font-size:16px !important;font-weight:100;color:#333333">30%降低上云咨询成本，50%减少上云投入时间!</h1>
-                        <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn" style="color:#da121a !important;border-color:#da121a !important;">DEMO体验</span></p>
-                    </div>
-                    </div>
-                </div>
-            </div>-->
+
+
+        
          <!--<div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmirn">
                     <div class="container">
@@ -126,6 +108,48 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
+  <div style="background:#161b25;opacity:0.9;">
+        <div class="container">
+            <div class="">
+                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('1')" v-on:mouseleave="imgblur('1')" @click="scenarioDesign()">
+                        <dl class="imgdl">
+                            <dt><img :src="imglist.img1" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">场景化方案设计</div>
+                                <div class="tuis text-left">一站式S级平台，助力企业转型</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 leftborder" @click="sexlocal()" v-on:mouseenter="imghover('2')" v-on:mouseleave="imgblur('2')">
+                         <dl class="imgdl">
+                            <dt><img  :src="imglist.img2" alt=""></dt>
+                            <dd class="did">
+                                <div class="text-left tls">服务生态</div>
+                                <div class="tuis text-left">携手打造MSP+，共建云生态</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 leftborder" @click="seslocal()" v-on:mouseenter="imghover('3')" v-on:mouseleave="imgblur('3')">
+                         <dl class="imgdl">
+                            <dt><img :src="imglist.img3" alt=""></dt>
+                            <dd>
+                                <div class="text-left tls">智识学院</div>
+                                <div class="tuis text-left">打造“顾问+平台”全新服务模式</div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 leftborder tshu"  v-on:mouseenter="imghover('4')" v-on:mouseleave="imgblur('4')"><!--@click="seclocal()"-->
+                         <dl class="imgdl">
+                            <dt><img :src="imglist.img4" alt=""></dt>
+                            <dd class="did">
+                                <div class="text-left tls">市场活动</div>
+                                <div class="tuis text-left">品牌活动和技术沙龙</div>
+                            </dd>
+                        </dl>
+                    </div>
+            </div>
+        </div>
+    </div>
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
@@ -134,7 +158,7 @@
           <div class="heng"></div>
         </div>
         <div class="row text-center">
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaCloundCsb()">
             <div class="cround"><img src="../../assets/homepage/13.png" alt="" class="Yunimg"></div>
             <h2>云规划</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我们的工作负载可上云吗？</h4>
@@ -143,7 +167,7 @@
             </div>
             <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaClound()">
             <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
             <h2>云选型</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云厂商如何选择？</h4>
@@ -152,7 +176,7 @@
             </div>
             <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="cloundScc()">
             <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
             <h2>云设计</h2>  
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">总是要邀请专家上门吗？</h4>
@@ -161,7 +185,7 @@
             </div>
            <span class="obj-cta" @click="cloundScc()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundf()">
             <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
             <h2>云买手</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有高效购买性价比高的云资源和服务方式吗？</h4>
@@ -170,7 +194,7 @@
             </div>
             <span class="obj-cta"  @click="ctaCloundf()">&nbsp查看更多</span>
           </div>
-           <div class="col-xs-12 col-sm-4 blurb-cta">
+           <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundk()">
             <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
             <h2>云实测</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以找到既专业又性价比高的真机实测吗？</h4>
@@ -179,7 +203,7 @@
             </div>
            <span class="obj-cta"  @click="ctaCloundk()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta">
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaClound()">
             <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
             <h2>Prof. 吴数据</h2>
             <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以快速洞察企业内外的上云状态吗？</h4>
@@ -201,7 +225,7 @@
         <div class="col-xs-12 cla">
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">SaaS化</pstyle>
@@ -213,7 +237,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">保姆化</pstyle>
@@ -225,7 +249,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/e.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/e.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">可视化</pstyle>
@@ -237,7 +261,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
+                <dt  class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">实测化</pstyle>
@@ -249,7 +273,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/c.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/c.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">权威化</pstyle>
@@ -261,7 +285,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
             <dl>
-                <dt style="width:20%;float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/ors.png" alt="" class="tranImg"></dt>
+                <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/ors.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">AI设计化</pstyle>
@@ -365,6 +389,15 @@
  import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
+ import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
+ import img1_1 from '../../assets/imgs/1-1.png';
+import img2_2 from '../../assets/imgs/2-2.png';
+import img3_3 from '../../assets/imgs/3-3.png';
+import img4_4 from '../../assets/imgs/4-4.png';
+import img1 from '../../assets/imgs/1.png';
+import img2 from '../../assets/imgs/2.png';
+import img3 from '../../assets/imgs/3.png';
+import img4 from '../../assets/imgs/4.png';
 
 export default {
     name: 'homePage',
@@ -372,14 +405,27 @@ export default {
         
         Sec,
         Sex,
-        
+        fixedbox,
+        img1_1,
+        img2_2,
+        img3_3,
+        img4_4,
+        img1,
+        img2,
+        img3,
+        img4,
     },
     data() {
       return {
         islogin: false,
         realname: '',
-        phoneBox:false,
-        logoutlist:false
+        logoutlist:false,
+        imglist:{
+            img1:img1,
+            img2:img2,
+            img3:img3,
+            img4:img4,
+        }
       }
     },
     mounted: function() {
@@ -397,7 +443,7 @@ export default {
         }
         
         $('.carousel').carousel({//首页轮播时间
-             interval: 5000
+             interval: 3000
         });
         
         $(document).ready(function(){ 
@@ -409,13 +455,12 @@ export default {
                             });
                         }           
                     });
-                    //   $(".blurb-cta")(function(){
-                    //      console.log(i)
-                    //   })
                         $('.blurb-cta').hover(function(){
                             $(this).find("img").animateCss('flip');
+                            $(this).find(".obj-cta").css({"background":"#da121a","color":"#fff"})
                         },function(){
                             $(this).find("img").removeClass("flip")
+                            $(this).find(".obj-cta").css({"background":"#fff","color":"#da121a"})
 
                         });
                        
@@ -423,11 +468,6 @@ export default {
                             $(this).find(".pict").css("transform", "scale(1.4)")
                              $(this).find(".picts").css("transform", "scale(1.4)")
                              $(this).find("p").css({"transform":"scale(1.3)","color":"#fff","padding-top":"35%"})
-                            //  $(this).css("position","relative");
-                            //  var res = "<div class='dnsery'></div>";
-                            //  $(".dnsery").css({"position":"absolute","top":0,"width":"273px","height":"376px","opacity":0.2,"background":"#1f2745"})
- 
-                            //  $(this).append(res);
                         });
                         $('.lis-hov').mouseout(function(){
                             $(this).find(".pict").css("transform", "scale(1.0)")
@@ -440,11 +480,12 @@ export default {
                         },function(){
                             $(this).css("transform", "scale(1.0)")
                         })
-                        //  $(".obj-frees").hover(function(){
-                        //         $(this).find(".PlanLj").animateCss('shake');
-                        //  },function(){
-                        //      $(this).find(".PlanLj").remoteClass('flash');
-                        //  })10px 10px 1px 2px #ccc"
+                      
+                        $(".leftborder").hover(function(){
+                            $(this).find(".tuis").css("color","#fff");
+                        },function(){
+                            $(this).find(".tuis").css("color","#999999"); 
+                        })
                         $(".blurb-cta").hover(function(){
                             $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
                         },function(){
@@ -452,22 +493,12 @@ export default {
                         });
                         $(".claes").hover(function(){
                             $(this).css({"box-shadow":"5px 5px 15px 2px #EAEAEA","background":"#f4f4f4"});
-                        //    //$(this).find(".tranImg").css(  "-webkit-animation","rotation 2s linear infinite")
-                        //    var a = $(this).find(".tranImg");
-                        //     a.addClass("imgAnimation");
                             $(this).find("img").animateCss('flip'); 
-                          
                         },function(){
-                             $(this).css({"box-shadow":"","background":""});;
-                            //   var a = $(this).find(".tranImg");
-                            //  a.css({opacity:'1'});
-                            //   a.removeClass("imgAnimation");
-                              $(this).find("img").removeClass("flip");
+                            $(this).css({"box-shadow":"","background":""});;
+                            $(this).find("img").removeClass("flip");
                         })
-            //$('.scrollUp').hide();        
             $(window).scroll(function(){
-                // console.log($(this).scrollTop());
-    
                 //当window的scrolltop距离大于1时，go to 
                 if($(this).scrollTop() > 550){
                     $('.scrollUp').css("display","block")
@@ -480,6 +511,8 @@ export default {
                 $('html ,body').animate({scrollTop: 0}, 300);
                
             });
+
+
         });
 
         $('.dropdown-toggle').dropdown();
@@ -672,6 +705,28 @@ export default {
           
     },
     methods: {
+        imghover:function(index){
+            if(index==1){
+                this.imglist.img1 = img1_1;
+            }else if(index==2){
+                this.imglist.img2 = img2_2;
+            }else if(index==3){
+                this.imglist.img3 = img3_3;
+            }else if(index==4){
+                this.imglist.img4= img4_4;
+            }
+        },
+        imgblur:function(index){
+            if(index==1){
+                this.imglist.img1 = img1;
+            }else if(index==2){
+                this.imglist.img2 = img2;
+            }else if(index==3){
+                this.imglist.img3 = img3;
+            }else if(index==4){
+                this.imglist.img4= img4;
+            }
+        },
     
         ctaCloundCsbs:function(){
             window.open("http://demo.csb-china.com/#/consolePage")
@@ -692,12 +747,6 @@ export default {
       },
       loGog: function() {
         this.$router.push({path: '/login'});
-      },
-      phoneEnter:function(){
-          this.phoneBox = true;
-      },
-      phoneleave:function(){
-          this.phoneBox = false;
       },
       condole: function() {
           this.$router.push({path: '/consolePage'});
@@ -729,6 +778,10 @@ export default {
              this.$router.push({path: '/orderlist'});
             $('html ,body').animate({scrollTop: 0},0);
       },
+      scenarioDesign:function(){
+          this.$router.push({path: '/scenarioDesign'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
       xiaowei:function(){
          // var win = window.open("#/CustomerService");
         
@@ -750,6 +803,18 @@ export default {
             })(window, document, "script", "//web.jiaxincloud.com/mcs.js", "_JIAXIN");_JIAXIN();
 
 
+      },
+      sexlocal:function(){
+          this.$router.push({path: '/partners'});
+           $('html ,body').animate({scrollTop: 0},0); 
+      },
+      seslocal:function(){
+          this.$router.push({path: '/bigcafeTeam'});
+            $('html ,body').animate({scrollTop: 0},0);
+      },
+      seclocal:function(){
+          this.$router.push({path: '/openCourse'});
+            $('html ,body').animate({scrollTop: 0},0);
       }
     }
   }
@@ -759,7 +824,51 @@ export default {
 /**{
    overflow:hidden
 }*/
-               
+dl{
+    margin-bottom:20px !important;
+}
+.obj-main .obj-cta:hover{
+background:#da121a;
+color:#fff;
+}
+.carousel-indicators li{
+    border: 1px solid #969696 !important;
+}
+.carousel-indicators .active{
+    background:#969696 !important
+}
+.leftborder{
+    border-left:1px solid #2c313c;
+    padding-left:18px !important;
+    color: #cfcfcf;
+}
+.leftborder:hover{
+    cursor:pointer;
+    background:#2c313c;
+    color:#fff !important;
+}
+.tls{
+    font-size:14px;
+}
+.tuis{
+    font-size:12px;
+    margin-top:10px;
+    color:#999999;
+}
+.imgdl dt{
+    float:left;
+    width:45px;
+    height:45px;
+} 
+.imgdl dt img{
+    width:45px;
+    height:45px;
+} 
+.imgdl dd{
+    margin-top:20px;
+    padding-left:60px;
+}   
+ 
 .carousel-indicators .active{
     width:32px !important;
     transition:width 1s !important;
@@ -813,6 +922,9 @@ export default {
     -ms-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+.blurb-cta:hover{
+    cursor:pointer;
 }
 .container{ 
     max-width: 1090px;
@@ -873,45 +985,38 @@ ul,ol li {
 .ourPoint{
     background:#f7f7f7; padding-bottom: 30px;
 }
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
-}
 /**/
 @media (min-width: 768px) {
+    .dtgs{
+        width:20%;
+    }
+.carousel-indicators {
+    bottom: 88px !important;
+}
+.mainpa {
+    font-size: 14px; color: #666666; line-height: 12px;text-align:left;
+}
 .lunmain .lun-le .pBottom {
     margin-top: 30px;
 }
+.tshu{
+    border-right:1px solid #2c313c;
+}
+.lunmain .lun-le .pCenter {
+    color: #f0f0f0; font-size: 14px;
+     margin-top: 12px;
+}
 .lunmain {
-       /*background: url('../../assets/Rectangle 10.png') no-repeat;*/background:#27282c; background-size:100% 100%; width: 100%; height: 600px; 
+       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 530px; 
 }
 .lun2{
-   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
 .lun3{
-   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
 .lun4{
-   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 100% !important; width: 100% !important; height: 600px !important; 
+   background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
 }
     .jzfei{
         padding-right:10px;
@@ -921,7 +1026,7 @@ ul,ol li {
    color: #666666; display: block
 }
   .tuPa {
-      left: 2%; height:300px; position: absolute; bottom: -40%
+      left: 18%; height:200px; position: absolute; bottom: -11%
   }
  
   .cl {
@@ -956,10 +1061,7 @@ ul,ol li {
     font-size: 28px; color: #f6f6f6; margin-bottom: 10px;
     
 }
-.lunmain .lun-le .pCenter {
-    color: #f0f0f0; font-size: 14px;
-     margin-top: 12px;
-}
+
 
 
 .lunmain .lun-le .pBottom span {
@@ -1055,11 +1157,11 @@ ul,ol li {
     /*width: 120px; height: 75px;*/
 }
 .obj-main .obj-cta {
-    width:88px !important; height:30px !important; line-height:30px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
+    width:88px !important; height:30px !important; line-height:28px !important; background: #fff; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #da121a; cursor:pointer;
   font-size: 12px!important;
 }
 .obj-demo{
-    width:88px !important; height:30px !important; line-height:30px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
+    width:88px !important; height:30px !important; line-height:28px !important; background: #da121a; border: 1px solid #da121a; margin-top: 15px; display: inline-block; color: #ffffff; cursor:pointer;
   font-size: 12px!important; margin-right:10px;
 }
 .obj-main p {
@@ -1187,6 +1289,21 @@ ul,ol li {
     /*width: 426px; height: 303px;*/
 }
 @media (max-width: 768px) {
+    p {
+        margin: 0!important;
+    }
+    .dtgs{
+        width:24%;
+    }
+.carousel-indicators{
+    bottom:235px !important;
+}
+.mainpa {
+    font-size: 14px; color: #666666; line-height: 25px;text-align:left;
+}
+.lunmain .lun-le .pCenter {
+    color: #f0f0f0; font-size: 14px;
+}
 .tiuis{
     display:none;   
 }
@@ -1213,9 +1330,7 @@ ul,ol li {
     padding-top: 10%;
     margin-top:0%;
 }
-.pCenter{
-    padding-bottom:20px;
-}
+
 .mainPd {
     margin-top: 12px; color: #666666; display: block;margin-bottom:15px;
 }
@@ -1340,9 +1455,7 @@ h2 {
     color:#999;
 }
 
-.mainpa {
-    font-size: 14px; color: #666666; line-height: 12px;text-align:left;
-}
+
 .mainpa p {
     color: #666666; display: block
 }
@@ -1359,20 +1472,6 @@ h2 {
 .he-su {
     background: #da121a; margin: 0 auto; width: 60px; height: 3px; margin-bottom: 30px;margin-top:15px;
 }
-/*@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-.tranImg:hover{
-   
-   -moz-animation:rotation 2s linear infinite; 
-    -webkit-animation:rotation 2s linear infinite;
-    -o-animation:rotation 2s linear infinite
-}*/
 .ths {
     font-size: 36px;
 }
@@ -1438,9 +1537,9 @@ h2 {
       width:100%;
   }
   .pder h4{
-          font-size: 26px;
-         margin: 63px 0 25px;
-         color:#fff;
+      font-size: 26px;
+      margin: 63px 0 25px;
+      color:#fff;
   }
 
 .tranimg:hover{

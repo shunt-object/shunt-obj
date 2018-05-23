@@ -9,18 +9,8 @@
                 <li class="nextf" data-to="go4"></li>
             </ul>
       </div>
-      <div class="fixed-box">
-        <ul class="fixed-ul">
-            <li class=" liHoversBj" v-on:mouseenter="phoneEnter()" v-on:mouseleave="phoneleave()">
-               <a href="tel:4008287308" style="color:#fff"><img src="../../../assets/homePage-phone.png" class="fixed-icon" alt=""></a>
-                <div v-show="phoneBox" class="phone-box liHoversBj"><img src="../../../assets/alertPhone.png" alt="" style="width:100%;height:100%"></div>
-            </li>
-            <li id="xiaowei"  class="liHoversBj phone-li" v-on:click="xiaowei"> <img src="../../../assets/homePage-online.png" class="fixed-icon" alt=""></li>
-        </ul>
-      
-        
-        <img src="../../../assets/scroll.png" alt="" class="scrollUp" style="width:47px;height:47px;">
-    </div>
+        <!-- 悬浮框 -->
+        <fixedbox></fixedbox> 
     <div style="background:#f5f5f5;width:100%;height:70px;line-height:70px;" class="displayshow">
             <div class=" fixshow container">
                     <div class="col-md-3 col-xs-3"><span><a href="#ProductFeatures"><i class="iconfont icon-shenpiliucheng"></i> 服务流程</a></span></div>
@@ -1685,7 +1675,7 @@
             </div>
       
             <div style="background:#ededed;;width:100%;height:auto;">
-                <div class="seleconeMain-footer row">
+                <div class="seleconeMain-footer">
                     <div class="container text-left" style="width:60%;padding-left:cd30px;">
                             <div class="col-md-3 col-xs-12" style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/qian.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">5天无理由退款</span></div>
                             <div class="col-md-3 col-xs-12 juzhong " style="margin-top:27px;margin-bottom:20px;"><img src="../../../assets/24fuwu.png" alt="" style="width:18%;margin-right:10px"><span style="font-size:14px;color:#333333">7×24小时顾问支持</span></div>
@@ -1725,29 +1715,6 @@
 }
 .fixshow i{
     color:#c2c2c2;
-}
-/*悬浮框*/
-.fixed-box{
- width:55px; position:fixed;right:0;bottom:100px;z-index:10;
-}
-.fixed-box .scrollUp{
-    position:fixed;
-    right:12px;
-    display:none;
-}
-.fixed-ul li{
-    background:#da121a; box-shadow:0 2px 4px 0 rgba(0,0,0,0.15); width:40px; height:40px; color:#fff;
-    padding-top:1px; line-height:2px; cursor:pointer;
-    font-size:10px;
-}
-.phone-li{
-    margin-top:7px; position:relative;
-}
-.phone-box{
-    width:185px; height:60px; position:absolute; right:68px; top:0;
-}
-.fixed-icon{
-    display:block; margin:10px auto; width:18px; height:18px;
 }
 /**/
 .rightBs ul li{
@@ -2102,11 +2069,12 @@
     margin:40px 0 40px 0;
 }
 .redLine{
-    display:inline-block;
-    background:#da121a;
-    width:4px;
-    height:16px;
-    margin-right:5px;
+    background: #da121a;
+    width: 3px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 2px;
 }
 .redlasttitle{
     font-size:20px;
@@ -2250,7 +2218,7 @@
    }
    *{margin:0px;padding:0px;}
    .selectHelp{
-        background:#222222;text-align:center;background-size:100% 100%;
+       background:url("../../../assets/er-icon/bgs.png") no-repeat;text-align:center;background-size:100% 100%;
    }
 
    .seleconeMain-mainfir{margin-top:160px;}
@@ -2455,12 +2423,6 @@
                     // console.log($(this).scrollTop());
                         // console.log("p",$(".naver").offset().top - $(window).scrollTop())
                         // console.log($(window).scrollTop())
-                    //当window的scrolltop距离大于1时，go to 
-                        if($(this).scrollTop() > 550){
-                            $('.scrollUp').css("display","block")
-                            }else{
-                                    $('.scrollUp').fadeOut();
-                            }
                         // if($(this).scrollTop()>80){
                         //     $(".sectb").css("display","none");
                         // };
@@ -2479,7 +2441,6 @@
                                   $(".rightBs ul li").css("background","#d8d8d8");
                                   $(".sectb").css("display","block"); 
                              }
-                             console.log($("#ProductFeatures").offset().top - $(window).scrollTop());
                              if($(window).scrollTop()+70>=$("#ProductFeatures").offset().top){
                                 $(".rightBs ul li").css("background","#d8d8d8") 
                                 $(".nexton").css("background","#da121a")
@@ -2507,16 +2468,16 @@
               })
  import Sec from "../../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../../components/SecondaryPages/SecondaryFooter.vue"
+ import fixedbox from '../../../components/SecondaryPages/protalFixed.vue';
     export default{
          name: 'clouddesignning',
         components:{
             Sec,
-            Sex
+            Sex,
+            fixedbox
         },
         data(){
             return{
-                 phoneBox:false,
-                 
             }
         },
         methods:{
@@ -2529,24 +2490,12 @@
             lj:function(){
                 this.$router.push({path: '/registerOne'});
             },
-             xiaowei:function(){
-               
-                 //var win = window.open("#/CustomerService");
-                var win = window.open("http://xiaowei.io/chat/pc/index.html?appid=3311&style=red","_blank","height=600,width=500","top=0,left=0,toolbar=yes,menubar=yes,scrollbars=no,resizable=no,location=no,status=no");
-               //var win = window.open("#/CustomerService","_blank","height=600,width=500","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes");
-            },
-            phoneEnter:function(){
-                this.phoneBox = true;
-            },
-            phoneleave:function(){
-                    this.phoneBox = false;
-            }
         },
         mounted:function(){
                $(".rightBs ul li").click(function(e){
                                //$(".rightBs ul li").css("background","#d8d8d8");
                                var s = $(this).index();
-                               console.log(s)
+                               //console.log(s)
                              $(".rightBs ul li").not($(this)).css("background","#d8d8d8")
                              $(this).css("background","#da121a")
                              var target = e.target;
@@ -2555,10 +2504,6 @@
                             
                          
                          })
-                           $(".scrollUp").click(function(){
-                                $('html ,body').animate({scrollTop: 0}, 300);
-                                return false;
-                            });
                         //   $(".rightBs ul li").click(function(e){
                         //      var target = e.target;
                         //      var id = $(target).data("to");

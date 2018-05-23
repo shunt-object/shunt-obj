@@ -30,8 +30,15 @@
             </div>
         </div>
     </div>
-    <div class="designOrder-title"><span>全部商品&nbsp;&nbsp;{{orderlist.length}}</span></div>
-    <div class="designOrder-list" v-for="(item,index) in orderlist">
+    <div class="designOrder-title">
+        <div class="designOrder-tab" :class="isShow==true?'designOrder-tab-on':''">
+            <button v-on:click="publicShow()">公有云意向订单</button>
+        </div>
+        <div class="designOrder-tab" :class="isNotShow==true?'designOrder-tab-on':''">
+                <button v-on:click="privateShow()">私有云意向订单</button>
+        </div>
+    </div>
+    <div class="designOrder-list" v-for="(item,index) in orderlist" v-show="isShow" >
         <div class="designOrder-list-head">
             <p class="designOrder-list-name">
                 <input type="checkbox" v-model="item.model" v-on:click="select(index)">{{item.data.rtype=='1'?'应用服务':item.data.rtype=='2'?'数据库服务':''}}
@@ -81,8 +88,44 @@
             价格：<span class="designOrder-list-price-color">￥{{item.data.cloudPrice}}</span>
         </div>
     </div>
+    <div class="designOrder-list" v-for="(item,index) in privateOrderList" v-show="isNotShow">
+        <div class="designOrder-list-head">
+            <p class="designOrder-list-name">
+                <input type="checkbox" v-model="item.model" v-on:click="select(index)">{{item.type=='1'?'应用服务':item.type=='2'?'数据库服务':''}}
+            </p>
+            <p class="designOrder-list-del" v-on:click="delPrivate(item.purchasingId)"><i class="iconfont icon-shanchu main-color"></i>删除订单</p>
+        </div>
+        <table class="designOrder-list-table">
+            <thead>
+                <tr>
+                    <td rowspan="2">云厂商</td>
+                    <td rowspan="2">角色类型</td>
+                    <td rowspan="2">配置类型</td>
+                    <td colspan="4">购买规格</td>
+                </tr>
+                <tr>
+                    <td class="designOrder-td-bg">CPU</td>
+                    <td class="designOrder-td-bg">处理器主频</td>
+                    <td class="designOrder-td-bg">内存</td>
+                    <td class="designOrder-td-bg">系统盘</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{item.sid}}</td>
+                    <td>{{item.type=='1'?'应用服务':item.type=='2'?'数据库服务':'--'}}</td>
+                    <td>{{item.type_level=='17'?'高配':item.type_level=='18'?'低配':'--'}}</td>
+                    <td>{{item.cpu}}</td>
+                    <td>--</td>
+                    <td>{{item.ram}}</td>
+                    <td>40GB</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
-<div class="designOrder-fixed">
+<div class="designOrder-fixed" v-show="isShow">
     <div class="designOrder-sum-price">
         价格：<span class="designOrder-list-price-color">￥{{Number(sumprice).toFixed(2)}}</span><span class="price-desc">线下咨询购买 您放心的选择</span>
         <button class="designOrder-pay-btn" v-on:click="pay()">支付</button>
@@ -101,6 +144,7 @@ export default{
             appId:'',
             param:[],
             orderlist:[],
+            privateOrderList:[],
             sumprice:0,
             areaList:[{id:'1',name:'所在区域'},{id:'2',name:'全部区域'}],
             industryList:[{id:'1',name:'所在行业'},{id:'2',name:'全部行业'}],
@@ -113,7 +157,9 @@ export default{
             pielegened:[],
             piereslist:[],
             barlist:[],
-            barlegened:[]
+            barlegened:[],
+            isShow:true,
+            isNotShow:false,
             //contact:false
         }
     },
@@ -127,6 +173,7 @@ export default{
             "industry":this.information.industry,
             "provinceid":this.information.provinceid,
             "cityid":this.information.cityid,
+            "cloudType":'5',
             "year": this.year
         };
         this.getPiedata(this.obj);
@@ -151,6 +198,18 @@ export default{
             }
             this.getPiedata(this.obj);
         },
+        publicShow:function(){
+            this.obj.cloudType = '5';
+            this.getPiedata(this.obj);
+            this.isShow = true;
+            this.isNotShow = false;
+        },
+        privateShow:function(){
+            this.obj.cloudType = '2';
+            this.getPiedata(this.obj);
+            this.isShow = false;
+            this.isNotShow = true;
+        },
         getBardata:function(obj,name,color){
             this.$this.post('/broker/user/analysis/app/purchasin/get/rightAnalysis',JSON.stringify(obj)).then((response)=>{
                 //console.log('aaa',response.data.data);
@@ -158,7 +217,7 @@ export default{
                 this.barlist = [];
                 for(let i=0;i<response.data.data.length;i++){
                     this.barlegened.push(response.data.data[i].name);
-                    this.barlist.push([response.data.data[i].name,response.data.data[i].rightNum]);
+                    this.barlist.push([response.data.data[i].name,response.data.data[i].num]);
                 }
                 //console.log('aaaaa',this.barlist);
                this.$nextTick(function() {
@@ -179,7 +238,7 @@ export default{
                         this.pielegened.push(response.data.data[i].name);
                         this.pielist.push({value:response.data.data[i].num, name:response.data.data[i].name});
                     }
-                    
+
                 }
                 this.$nextTick(function() {
                     this.canvasPie('designOrder-pie',this.pielist,this.pielegened)
@@ -190,25 +249,33 @@ export default{
                         "industry":this.obj.industry,
                         "provinceid":this.obj.provinceid,
                         "cityid":this.obj.cityid,
+                        "cloudType":this.obj.cloudType,
                         "sid":this.piereslist[0].sid,
                         "year": this.obj.year
                     };
                     this.getBardata(str,this.piereslist[0].name,'#F7A72C');
                 }
-                
+
             }).catch((error)=>{})
         },
         getdata:function(){
             this.orderlist = [];
             this.sumprice = 0;
-            let obj = {"ids":this.param};
             this.$http.get('/broker/price/purchasing/list').then((response)=>{
-                //console.log('----',response); 
+                //console.log('----',response);
                 for(let i=0;i<response.data.data.length;i++){
                     this.orderlist.push({data:response.data.data[i],model:true});
                     this.sumprice = this.sumprice+response.data.data[i].cloudPrice;
                 }
                 //this.sumprice = Number(this.sumprice).toFixed(2);
+            }).catch((error)=>{
+            })
+
+            this.privateOrderList = [];
+            this.sumprice = 0;
+            this.$http.get('/broker/private/cloud/get/getIntention').then((response)=>{
+                //console.log('----',response.data);
+                this.privateOrderList = response.data.data;
             }).catch((error)=>{
             })
         },
@@ -220,13 +287,13 @@ export default{
                     if(this.orderlist[index].model==false){
                         this.orderlist[index].model = false;
                     }else{
-                        this.orderlist[index].model = true;                    
+                        this.orderlist[index].model = true;
                     }
                     this.sumprice = 0;
                     for(let i=0;i<this.orderlist.length;i++){
                         if(this.orderlist[i].model==true){
                             this.sumprice =this.sumprice + this.orderlist[i].data.cloudPrice;
-                        }                        
+                        }
                     }
 
                 }else{
@@ -238,21 +305,21 @@ export default{
                         this.sumprice = this.sumprice + this.orderlist[index].data.cloudPrice;
                     }
                 }
-                
+
             }else{
                 if(this.orderlist[index].model==false){
                     this.orderlist[index].model = false;
                 }else{
-                    this.orderlist[index].model = true;                    
+                    this.orderlist[index].model = true;
                 }
                 this.sumprice = 0;
                 for(let i=0;i<this.orderlist.length;i++){
                     if(this.orderlist[i].model==true){
                         this.sumprice =this.sumprice + this.orderlist[i].data.cloudPrice;
-                    }                        
+                    }
                 }
             }
-            
+
         },
         pay:function(){
             this.$router.push({path:'/pay',query:{id:this.appId,type:this.$route.query.type,enter:'1'}});
@@ -272,6 +339,32 @@ export default{
                 that.$this({
                     method: "delete",
                     url: "/broker/price/purchasing/delete",
+                    data: obj
+                }).then((response)=> {
+                    that.getdata();
+                    that.$message({
+                        message: '您的订单已成功删除。',
+                        type: 'success'
+                    });
+                    //console.log(response)
+                }).catch((error)=> {
+                });      
+            }).catch(() => {});   
+        },
+      delPrivate:function(id){
+            let obj = {"ids":[id]};
+            let that = this;
+            this.$confirm('您确定要删除该订单吗？', '温馨提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                confirmButtonClass:'lay-btn-red',
+                cancelButtonClass:'lay-cancel-btn',
+                type: 'warning',
+                center: false
+            }).then(() => {
+                that.$this({
+                    method: "delete",
+                    url: "/broker/private/cloud/purchasing/delete",
                     data: obj
                 }).then((response)=> {
                     that.getdata();
@@ -318,13 +411,13 @@ export default{
                     }
                 },
                 xAxis: {
-                    name:name+'订单意向实例',
+                    name:name+'意向实例',
                     type: 'category',
                     data: legend,
                     axisLabel:{
                         color:'#999',
-                        interval:0,  
-                        rotate:15                    
+                        interval:0,
+                        rotate:15
                     },
                     axisLine: {
                         lineStyle: {
@@ -390,7 +483,7 @@ export default{
             });
             let that = this,str = {};
             mychart.on('click', function (params) {
-                console.log('params',params);
+                //console.log('params',params);
                 for(let i=0;i<that.piereslist.length;i++){
                     if(params.data.name==that.piereslist[i].name){
                         str = {
@@ -398,6 +491,7 @@ export default{
                             "industry":that.obj.industry,
                             "provinceid":that.obj.provinceid,
                             "cityid":that.obj.cityid,
+                            "cloudType":that.obj.cloudType,
                             "sid":that.piereslist[i].sid,
                             "year": that.obj.year
                         };
@@ -405,7 +499,7 @@ export default{
                 }
                 that.getBardata(str,params.data.name,params.color);
             });
-            
+
         },
     }
 }

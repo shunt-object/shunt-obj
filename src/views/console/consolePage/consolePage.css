@@ -63,7 +63,7 @@
 .comment-active{
    background:#f7a72c; 
    color:#fff;
-   border:1px solid #f7a72c; 
+   border:1px solid #f7a72c !important; 
 }
 .comment-default:hover{
     background:#F5F7FA;

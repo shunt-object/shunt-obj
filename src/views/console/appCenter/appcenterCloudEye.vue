@@ -3,11 +3,14 @@
     <div class="total-header">
             <span></span>
             <router-link class="zong" to="/appcenterList">应用市场</router-link>
-            ><p class="comback">云眼</p>
+            ><p class="comback">云眼查</p>
     </div>
 <div class="datadecisions">
     <div class="">
         <div class="col-md-12 col-xs-12 padding10">
+            <div class="decision-titles">上云区域地图</div>
+        </div>
+        <!-- <div class="col-md-12 col-xs-12 padding10">
             <div class="decision-titles"><div class="col-md-2">  上云趋势统计分析</div>
                 <div class="col-xs-7 col-md-2" style="margin:0 auto">
                     <select class="year-select " v-model="year" v-on:change="lineModel()" >
@@ -28,8 +31,8 @@
            
                 <div class="line" id="line" style="width:100%;margin:0 auto;"></div>
            
-        </div>
-       
+        </div> -->
+       <div style="width:100%;height:500px" id="map"></div>
     </div>
 </div>
 </div>
@@ -43,8 +46,6 @@
 .detadcision-header{
     padding:0 10px !important;
 }
-
-
 
 .comm-select{
     position:absolute;
@@ -217,7 +218,10 @@ export default{
             lineArea:'1',
             lineInsdusty:'1',
             pieArea:'1',
-            pieInsdusty:'1'
+            pieInsdusty:'1',
+            maplist:[],
+            map:[],
+            max:''
         }
     },
     mounted:function(){
@@ -231,8 +235,104 @@ export default{
         };
         this.getLine(obj);
         var that = this;
+        this.getJson();
     },
     methods:{
+        getClould:function(){
+            this.$this.get('/broker/app/analysis/area/cloud/').then((response)=>{
+                let arr = [];
+                for(let i=0;i<response.data.data.length;i++){
+                    arr.push(response.data.data[i].num);
+                    for(let n=0;n<this.maplist.length;n++){
+                        if(this.maplist[n].name==response.data.data[i].province){
+                            this.maplist[n].value=response.data.data[i].num;
+                        }
+                    }
+                }
+                this.max = Math.max.apply(Math, arr);
+                //console.log(this.maplist);
+                this.$nextTick(function() {
+                        this.drawMap();
+                })
+            }).catch((error)=>{})
+        },
+        getJson:function(){
+            this.$this.get('../../../../static/data/map.json').then((response)=>{
+                
+                for(let i=0;i<response.data.features.length;i++){
+                    this.maplist.push({name:response.data.features[i].properties.name,value:0});
+                }
+                this.map = response.data;
+                //console.log('map',this.maplist);
+                this.getClould();
+            }).catch((error)=>{
+                console.log('err',error);
+            })
+        },
+        drawMap:function(){
+            this.charts = echarts.init(document.getElementById('map'));
+            echarts.registerMap('china', this.map);
+            this.charts.setOption({ 
+                tooltip : {
+                    trigger : "item",
+                    formatter:function(params){
+                        let str;
+                        if(params.name==''){
+                            str = '';
+                        }else{
+                            str = params.name+'：'+params.value;
+                        }
+                        return str;
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: this.max,
+                    // text:['High','Low'],
+                    // realtime: false,
+                    // calculable: true,
+                    // inRange: {
+                    //     color: ['lightskyblue','yellow', 'orangered']
+                    // }
+                    dimension: 0,
+                    right:'5%',
+                    //left: '73%',
+                    top: '10',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: false,
+                    itemWidth: 10,
+                    itemHeight: 90,
+                    textStyle: {
+                        color: '#666',
+                        height: 56,
+                        fontSize: 11,
+                        lineHeight: 60,
+                    },
+                    inRange: {
+                        color: ['#FFF1DC', '#da121a']
+                    },
+                    //padding: [50, 20],
+                    orient: 'horizontal',
+                },
+                series : [ {
+                    name : "中国",
+                    type : "map",
+                    mapType : "china",
+                    selectedMode : "multiple",
+                    label : {
+                        normal : {
+                            show : true,
+                            fontSize:10,
+                            color:'#666'
+                        },
+                        emphasis : {
+                            show : true
+                        }
+                    },
+                    data : this.maplist
+                } ]
+            });
+        },
         lineModel:function(){//1=所选  2=全部
             let sheng = this.information.provinceid,shi = this.information.cityid,
             qu = this.information.areaid,insdusty = this.information.industry;

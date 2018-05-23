@@ -291,10 +291,10 @@ export default{
                     trigger: 'item',
                     formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
-                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#F7A72C','#DA121B','#E15E2D'],
+                color:['#F7A72C', '#da121a','#E15F2D','#55D0C5','#6380D3','#8261E0','#DA121B','#E15E2D','	#EE30A7','#EE6363','#EE7600','#EE7AE9','#EE9A00','#EEC591','#EED2EE','#CDB79E','#CDC0B0','#CDC8B1','#CDCDB4','#D2B48C','#B8860B'],
                 legend: {
                     orient : 'vertical',
-                    x : '79%',
+                    x : '75%',
                     y:'10px',
                     data:this.pielegend,
                     formatter:function(name){

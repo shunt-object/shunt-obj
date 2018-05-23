@@ -6,7 +6,7 @@ Website: http://thevectorlab.net/
 */
 
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 /*公告*/
 .consolePage{
     font-family:'Microsoft YaHei';
@@ -620,7 +620,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .top-nav  {
-    margin-top: 7px;
+    margin-top: 16px;
     float:right;
 }
 
@@ -721,7 +721,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .top-nav .nav .caret {
     border-bottom-color: #A4AABA;
     border-top-color: #A4AABA;
-    margin-left:8px !important;
+    margin-left:16px !important;
 }
 .top-nav ul.top-menu > li > a:hover .caret {
     /*border-bottom-color: #000;

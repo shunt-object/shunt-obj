@@ -136,7 +136,7 @@ export default{
     },
     methods:{
         gologin:function(){
-            this.$router.push({path:'/login'});
+            this.$router.push({path:'/login',query:{univeristy:this.$route.query.univeristy}});
         },
         passfocus:function(){
             this.isnotice = true;
@@ -189,7 +189,7 @@ export default{
                         let strObj = JSON.stringify(obj);
                         this.$this.post('/broker/auth/register/mobile/'+this.registerCommonForm.phonecode,strObj).then((response)=>{
                             if(response.data.code==1){
-                                this.$router.push({path:'/registerTwo',query:{userid:response.data.data.id}});
+                                this.$router.push({path:'/registerTwo',query:{userid:response.data.data.id,univeristy:this.$route.query.univeristy}});
                             }
                         })
                     }else{
