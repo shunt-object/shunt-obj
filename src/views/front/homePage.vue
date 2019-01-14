@@ -397,7 +397,7 @@ import img1 from '../../assets/imgs/1.png';
 import img2 from '../../assets/imgs/2.png';
 import img3 from '../../assets/imgs/3.png';
 import img4 from '../../assets/imgs/4.png';
-
+import img4 from '../../assets/imgs/4.png';
 export default {
     name: 'homePage',
     components:{
