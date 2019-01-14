@@ -386,8 +386,8 @@
 <script>
  import "../front/animate.min.css";
  //import {rongClouds} from "../../components/rongCloud/rongcloud.js";
- import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
- import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
+//  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
+//  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
  //import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
  import img1_1 from '../../assets/imgs/1-1.png';
 import img2_2 from '../../assets/imgs/2-2.png';
@@ -402,8 +402,6 @@ export default {
     name: 'homePage',
     components:{
         
-        Sec,
-        Sex,
        // fixedbox,
         img1_1,
         img2_2,
