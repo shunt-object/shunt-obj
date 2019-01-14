@@ -18,15 +18,6 @@ import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import url from '../src/components/js/url.js'//公共方法获取url
-import mobile from '../src/components/js/mobile.js'//判断移动端
-
-// import "../rongCloud/RongIMLib-cs"
-// import "../rongCloud/cs.min.css"
-// import "../rongCloud/cs.min.js"
-
-
-
 Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
 axios.defaults.withCredentials = true;
@@ -34,36 +25,13 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 axios.defaults.headers['loading'] = true;
 Vue.use(VueResource);
 Vue.use(ElementUI);
-Vue.use(url);
-Vue.use(mobile);
 let load;
 let loading;
-// Vue.http.interceptors.push((request, next) => {
-//     //if (request.headers.loading) {
-//         loading = Vue.prototype.$loading({
-//             lock: true,
-//             spinner: 'el-icon-loading',
-//             background: 'rgba(0, 0, 0, 0.7)',
-//             customClass: 'loading'
-//         });
-//         setTimeout(function () {
-//             loading.close();
-//         }, 3000)
-//     //}
-//     　　next((response) => {
-//         if (response.status == 200) {
-//             loading.close();
-//         }
-//         　　　return response;
-//     });
-// });
+
 
 
 axios.interceptors.request.use(
     config => {
-        /* load = layer(Vue).loading(2, {
-            time: 0
-        }); */
         if (config.headers.loading) {
             loading = Vue.prototype.$loading({
                 lock: true,
@@ -123,7 +91,7 @@ router.beforeEach((to, from, next) => {
         } else {
             next({
                 path: '/login',
-                query: { redirect: to.fullPath }  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+                // query: { redirect: to.fullPath }  // 将跳转的路由path作为参数，登录成功后跳转到该路由
             })
         }
     }

@@ -1,9 +1,9 @@
 <template style="position:relative">
  
   <div class="homepage">
-    <!-- 悬浮框 -->
-    <fixedbox></fixedbox>  
-    <Sec active="0"></Sec>
+<!--     悬浮框
+    <fixedbox></fixedbox>  -->
+    <Sec active="0" ></Sec>
     <!--  nav end--> 
    
     <!-------------------------------banner------------------------------------------>
@@ -13,50 +13,50 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                            <!-- <li data-target="#carousel-example-generic" data-slide-to="3"></li> -->
                         </ol>
       <div class="carousel-inner">
        <div class="item active" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen">
                     <div class="container"  style="position:relative">
-                    <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">
+                   <!-- <img src="../../assets/tu.b2d3f2d.png" alt="" class="tuPa">-->
                         <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">省钱、快捷、专业，助您轻松上云！</h1>
-                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">上云，如何实施？</p>
-                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">我们为您量身定制最适合的上云方案！</p>
-                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
-                            
+                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">专业、专注，使客户发展更加顺畅！</h1>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">IT服务，哪家强？</p>
+                            <p class="pCenter hsa" style="font-weight:100;text-align:left;font-size:18px">北京海淀zxdl帮你忙！</p>
+                            <p class="pBottom hsa" style="text-align:left;"></p>
+
                         </div>
-                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:12%;"><img src="../../assets/smart.png" alt="" style="width:90%;height:90%;"></div>
+                        <!--<div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:12%;"><img src="../../assets/smart.png" alt="" style="width:90%;height:90%;"></div>-->
                     </div>
                 </div>
          </div>
-      
+          <div class="item" style="width:100%;min-width:100%;height:100%;">
+            <div class=" lunmain lunmaen lun3">
+              <div class="container"  style="position:relative">
+                <div class="col-md-7 lun-le animated rollIn text">
+                  <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">全流程IT技术研发、推广服务模式</h1>
+                  <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">带领客户迅速洞悉各个IT领域</h1>
+                  <!--<p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>-->
+                </div>
+                <!--<div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:110%;height:100%;"></div>-->
+              </div>
+            </div>
+          </div>
          <div class="item" style="width:100%;min-width:100%;height:100%;">
                 <div class=" lunmain lun2">
                     <div class="container" style="position:relative">
                        
                     <div class="col-md-12 lun-le animated rollIn">
-                        <h1 style="font-size:32px !important;font-weight:100">全新模式上云平台，正式上线，免费套餐，零元使用</h1>
+                        <h1 style="font-size:32px !important;font-weight:100">上云平台，正式上线，免费套餐，零元使用</h1>
                         <h1 style="font-size:18px !important;font-weight:100">30%降低上云咨询成本，50%减少上云投入时间</h1>
                         <p class="pBottom"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
                     </div>
                     </div>
                 </div>
             </div>
-          <div class="item" style="width:100%;min-width:100%;height:100%;">
-                 <div class=" lunmain lunmaen lun3">
-                    <div class="container"  style="position:relative">
-                        <div class="col-md-7 lun-le animated rollIn text">
-                            <h1 style="font-size:32px;font-weight:100;text-align:left;" class="hsa">一站式、全流程SaaS服务模式</h1>
-                            <h1 style="font-size:18px;font-weight:100;text-align:left;" class="hsa">专注帮助企业完善云服务最后一公里</h1>
-                            <p class="pBottom hsa" style="text-align:left;"><span class="pSpan" v-on:click="reset">立即注册</span>&nbsp&nbsp&nbsp<span @click="ctaCloundCsbs()" class="hoverSapn">DEMO体验</span></p>
-                        </div>
-                        <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/styles.png" alt="" style="width:110%;height:100%;"></div>
-                    </div>
-                </div>
-         </div>
-          <div class="item" style="width:100%;min-width:100%;height:100%;">
+
+       <!--   <div class="item" style="width:100%;min-width:100%;height:100%;">
                  <div class=" lunmain lunmaen lun3">
                     <div class="container"  style="position:relative">
                         <div class="col-md-7 lun-le animated rollIn text">
@@ -67,7 +67,7 @@
                         <div class="col-md-5  animated rotateInDownRight tiuis" style="padding-top:15%;"><img src="../../assets/stylese.png" alt="" style="width:130%;height:100%;"></div>
                     </div>
                 </div>
-         </div>
+         </div>-->
 
 
         
@@ -108,37 +108,37 @@
       </div>
     </div>-->
     <!----------------------------main-start---------------------------------->
-  <div style="background:#161b25;opacity:0.9;">
+  <!--<div style="background:#161b25;opacity:0.9;">
         <div class="container">
             <div class="">
-                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('1')" v-on:mouseleave="imgblur('1')" @click="scenarioDesign()">
+                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('1')" v-on:mouseleave="imgblur('1')" >
                         <dl class="imgdl">
                             <dt><img :src="imglist.img1" alt=""></dt>
                             <dd>
                                 <div class="text-left tls">场景化方案设计</div>
-                                <div class="tuis text-left">一站式S级平台，助力企业转型</div>
+                                <div class="tuis text-left">助力完成技术认识</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder" @click="sexlocal()" v-on:mouseenter="imghover('2')" v-on:mouseleave="imgblur('2')">
+                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('2')" v-on:mouseleave="imgblur('2')">
                          <dl class="imgdl">
                             <dt><img  :src="imglist.img2" alt=""></dt>
                             <dd class="did">
-                                <div class="text-left tls">服务生态</div>
-                                <div class="tuis text-left">携手打造MSP+，共建云生态</div>
+                                <div class="text-left tls">专业化服务</div>
+                                <div class="tuis text-left">沉浸IT行业多年，累积经验。</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder" @click="seslocal()" v-on:mouseenter="imghover('3')" v-on:mouseleave="imgblur('3')">
+                    <div class="col-md-3 leftborder" v-on:mouseenter="imghover('3')" v-on:mouseleave="imgblur('3')">
                          <dl class="imgdl">
                             <dt><img :src="imglist.img3" alt=""></dt>
                             <dd>
-                                <div class="text-left tls">智识学院</div>
-                                <div class="tuis text-left">打造“顾问+平台”全新服务模式</div>
+                                <div class="text-left tls">专注化服务</div>
+                                <div class="tuis text-left">始终如一坚持IT服务</div>
                             </dd>
                         </dl>
                     </div>
-                    <div class="col-md-3 leftborder tshu"  v-on:mouseenter="imghover('4')" v-on:mouseleave="imgblur('4')"><!--@click="seclocal()"-->
+                    <div class="col-md-3 leftborder tshu"  v-on:mouseenter="imghover('4')" v-on:mouseleave="imgblur('4')">&lt;!&ndash;@click="seclocal()"&ndash;&gt;
                          <dl class="imgdl">
                             <dt><img :src="imglist.img4" alt=""></dt>
                             <dd class="did">
@@ -149,66 +149,66 @@
                     </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="obj-main">
       <div class="container whyContainer">
         <div class="row text-center">
-          <h1 class="text-center thin ths animated tada">SaaS化云服务</h1>
-          <p class="text-center thin" style="font-size: 16px;color: #777777">为您提供精准有效便捷的云服务</p>
+          <h1 class="text-center thin ths animated tada">专业化的技术推广服务</h1>
+          <p class="text-center thin" style="font-size: 16px;color: #777777">为您提供精准有效便捷的技术普及知识</p>
           <div class="heng"></div>
         </div>
         <div class="row text-center">
-          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaCloundCsb()">
-            <div class="cround"><img src="../../assets/homepage/13.png" alt="" class="Yunimg"></div>
-            <h2>云规划</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我们的工作负载可上云吗？</h4>
-            <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">通过“云规划最佳实践”，CloudBroker²为您全面分析工作负载，助您规划最适合的云场景。</span></p>
-            </div>
-            <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
-          </div>
           <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaClound()">
-            <div class="cround"><img src="../../assets/Page 1.png" alt="" class="Yunimg"></div>
-            <h2>云选型</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云厂商如何选择？</h4>
+            <div class="cround"><img src="../../assets/homepage/small-1.jpg" alt="" class="Yunimg"></div>
+            <h2>Big Data</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">云计算时代来临的基础是什么？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">根据业务需求，通过CloudBroker²提供的百个指标进行多维度和多场景对比，为您优选最佳服务商。</span></p>
+              <p class="text-left"><span class="color_999">通过大数据技术，对数据进行大规模的筛选、挖掘，最终得到最有价值的数据资料。</span></p>
             </div>
             <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
-          <div class="col-xs-12 col-sm-4 blurb-cta" @click="cloundScc()">
-            <div class="cround"><img src="../../assets/homepage/osa.png" alt="" class="Yunimg"></div>
-            <h2>云设计</h2>  
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">总是要邀请专家上门吗？</h4>
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaCloundCsb()">
+            <div class="cround"><img src="../../assets/homepage/small-2.jpg" alt="" class="Yunimg"></div>
+            <h2>ETL</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">大数据的背景下我们如何去进行数据存储？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">通过大数据积累，对上云负载采取场景化设计，科学获得该负载的云规格配置和自动生成云拓扑。</span></p>
+              <p class="text-left"><span class="color_999">ETL(数据仓库)是对数据进行抽取、清洗转换和加载，ETL设计关乎一个BI（商务智能）项目的成败。</span></p>
+            </div>
+            <span class="obj-cta" @click="ctaCloundCsb()">&nbsp查看更多</span>
+          </div>
+          <div class="col-xs-12 col-sm-4 blurb-cta" @click="cloundScc()">
+            <div class="cround"><img src="../../assets/homepage/small-3.jpg" alt="" class="Yunimg"></div>
+            <h2>区块链</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">编程思维逻辑和生活中的一样么？</h4>
+            <div class="bluar-ccc">
+              <p class="text-left"><span class="color_999">JAVA中实现了面向对象理论，通过封装、继承以及多态让程序员优雅的思维方式进行复杂的编程。</span></p>
             </div>
            <span class="obj-cta" @click="cloundScc()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundf()">
-            <div class="cround"><img src="../../assets/homepage/ose.png" alt="" class="Yunimg"></div>
-            <h2>云买手</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有高效购买性价比高的云资源和服务方式吗？</h4>
+            <div class="cround"><img src="../../assets/homepage/small-4.jpg" alt="" class="Yunimg"></div>
+            <h2>Python</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">有没有更加简单快速的开发语言？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">借助CloudBroker²提供的多云价格优选器和第三方云评星标准，为您提供最适合的云资源和服务。</span></p>
+              <p class="text-left"><span class="color_999">Python支持面向对象，同时社区创造了一大堆各种各样的Python库，使得程序员能够方便地进行开发。</span></p>
             </div>
             <span class="obj-cta"  @click="ctaCloundf()">&nbsp查看更多</span>
           </div>
            <div class="col-xs-12 col-sm-4 blurb-cta"  @click="ctaCloundk()">
-            <div class="cround"><img src="../../assets/homepage/12.png" alt="" class="Yunimg"></div>
-            <h2>云实测</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以找到既专业又性价比高的真机实测吗？</h4>
+            <div class="cround"><img src="../../assets/homepage/small-5.jpg" alt="" class="Yunimg"></div>
+            <h2>云计算</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">那我打开一个网页，绚丽的效果是怎么做的呢？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">根据云选场景，CloudBroker²实现对目标云厂商的测试可视化，助上云和选云更具科学性。</span></p>
+              <p class="text-left"><span class="color_999">在今天，H5不再局限于网页开发，可以称为无所不在，工作包含有web页面、小游戏、微信营销互动等。</span></p>
             </div>
            <span class="obj-cta"  @click="ctaCloundk()">&nbsp查看更多</span>
           </div>
           <div class="col-xs-12 col-sm-4 blurb-cta" @click="ctaClound()">
-            <div class="cround"><img src="../../assets/homepage/ost.png" alt="" class="Yunimg"></div>
-            <h2>Prof. 吴数据</h2>
-            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">可以快速洞察企业内外的上云状态吗？</h4>
+            <div class="cround"><img src="../../assets/homepage/small-6.jpg" alt="" class="Yunimg"></div>
+            <h2>AI</h2>
+            <h4 style="font-size:14px;color:#333333;margin-bottom:10px;">我可不可以让人工智能帮我完成这些呢？</h4>
             <div class="bluar-ccc">
-              <p class="text-left"><span class="color_999">CloudBroker²通过对上云应用的精准画像和可视化数据分析服务，为您多维角度进行解析。</span></p>
+              <p class="text-left"><span class="color_999">人工和智能是两部分，可以通过人工智能在一定的程度内让机器去完成一些简单任务，AI具有巨大的前景。</span></p>
             </div>
             <span class="obj-cta"  @click="ctaClound()">&nbsp查看更多</span>
           </div>
@@ -220,7 +220,7 @@
     <div class="obj-what ourPoint phone-position">
       <div class="container obj-what-whew">
         <h2>我们的优势</h2>
-        <p class="p-wha">科学权威的云咨询服务</p>
+        <p class="p-wha">科学权威的IT新兴技术咨询服务</p>
         <div class="heng"></div>
         <div class="col-xs-12 cla">
           <div class="col-xs-12 col-sm-4 claes" style="padding-left:1px;">
@@ -228,9 +228,9 @@
                 <dt class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/a.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
-                        <p style="padding-top:6px;font-size:18px;color:#333333;">SaaS化</pstyle>
-                        <p class="mainPd">数千客户积累</p>
-                        <p>打造国内顶级产品</p>
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">全方位化</pstyle>
+                        <p class="mainPd">数百行业先行者</p>
+                        <p>打造国内顶级资源体系</p>
                     </div>
                 </dd>
             </dl>
@@ -240,9 +240,9 @@
                 <dt class="dtgs"  style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/b.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
-                        <p style="padding-top:6px;font-size:18px;color:#333333;">保姆化</pstyle>
-                        <p class="mainPd">1V1顾问支持</p>
-                        <p>提供一站化体验</p>
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">1V1化</pstyle>
+                        <p class="mainPd">1V1咨询顾问支持</p>
+                        <p>提供建设性解决方案</p>
                     </div>
                 </dd>
             </dl>
@@ -264,9 +264,9 @@
                 <dt  class="dtgs" style="float:left;margin-right:20px;margin-left:70px;"><img src="../../assets/homepage/5.png" alt="" class="tranImg"></dt>
                 <dd style="diaplay:inline-block">
                      <div class="mainpa">
-                        <p style="padding-top:6px;font-size:18px;color:#333333;">实测化</pstyle>
-                        <p class="mainPd">云端百台真机测试</p>
-                        <p>节省百台真机费用</p>
+                        <p style="padding-top:6px;font-size:18px;color:#333333;">大数据化</pstyle>
+                        <p class="mainPd">大数据分析IT从业者积累方式</p>
+                        <p>为IT初学者提供经验</p>
                     </div>
                 </dd>
             </dl>
@@ -278,7 +278,7 @@
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">权威化</pstyle>
                         <p class="mainPd">云集百位专家</p>
-                        <p>提供科学化上云规划</p>
+                        <p>提供科学化入门方案</p>
                     </div>
                 </dd>
             </dl>
@@ -290,7 +290,7 @@
                      <div class="mainpa">
                         <p style="padding-top:6px;font-size:18px;color:#333333;">AI设计化</pstyle>
                         <p class="mainPd">借助人工智能</p>
-                        <p>设计最佳云方案</p>
+                        <p>设计最佳知识积累方案</p>
                     </div>
                 </dd>
             </dl>
@@ -302,28 +302,28 @@
     <div class="obj-what obj-lhat ">
       <div class="container obj-what-whew expru">
         <h2 class="lhat-td">为什么选择我们</h2>
-        <p class="p-wha">云可能很复杂，但我们助您上云变得简单和轻松</p>
+        <p class="p-wha">专业、专注，使每一位客户事业发展更加顺畅！</p>
         <div class="heng"></div>
         <ul class="row col-xs-12 uls-w" style="margin-top:20px !important;">
             <li class="col-xs-12 col-sm-4 pictes">
                 <div class="li-the lis-hov"><img src="../../assets/pict-2.png" alt="" class="pict">
                 <div class="obj-clear"></div>
                 <h2>省钱</h2>
-                <p style="padding-top:39%">洞察您当前的工作负载，<br/> 为您节省30%的上云成本支出</p>
+                <p style="padding-top:39%">洞察您当前的个人情况，<br/> 为您节省30%的入门成本支出</p>
                 </div>
             </li>
           <li class="col-xs-12 col-sm-4 pictes">
             <div class=" li-fir lis-hov"><img src="../../assets/pict-1.png" alt="" class="pict">
               <div class="obj-clear"></div>
               <h2>省力</h2>
-              <p style="padding-top:44%">为您减少50%的上云规划时间</p>
+              <p style="padding-top:44%">为您减少50%的IT学习规划时间</p>
             </div>
           </li>
           <li class="col-xs-12 col-sm-4 pictes">
             <div class="li-sec lis-hov"><img src="../../assets/pict-3.png" alt="" class="picts">
               <div class="obj-clear"></div>
               <h2>专业</h2>
-              <p style="padding-top:39%">集结上百位专家心血，<br/> 为了您提供科学上云和管云</p>
+              <p style="padding-top:39%">集结上百位专家心血，<br/> 全方位助您科学入门和进一步学习</p>
             </div>
           </li>
           
@@ -339,27 +339,26 @@
           <div class="he-su"></div>
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 30.png" alt=""  class="jz-img">
-           <img src="../../assets/Group 43.png" alt=""  class="jz-img">
-          
+          <img src="../../assets/zpark.png" alt=""  class="jz-img">
+
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-           <img src="../../assets/Group 34.png" alt=""  class="jz-img">
-          <img src="../../assets/Group 41.png" alt=""  class="jz-img">
+           <img src="../../assets/wshh.png" alt=""  class="jz-img">
+         <!-- <img src="../../assets/Group 41.png" alt=""  class="jz-img">-->
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/Group 38.png" alt=""  class="jz-img">
-          <img src="../../assets/Group-45-new.png" alt=""  class="jz-img">
+          <img src="../../assets/rtdl.png" alt=""  class="jz-img">
+          <!--<img src="../../assets/Group-45-new.png" alt=""  class="jz-img">-->
          
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-           <img src="../../assets/Group 39.png" alt=""  class="jz-img">
-           <img src="../../assets/Group-36-new.png" alt=""  class="jz-img">
+           <img src="../../assets/hyrj.png" alt=""  class="jz-img">
+           <!--<img src="../../assets/Group-36-new.png" alt=""  class="jz-img">-->
         </div>
         <div class="col-xs-12 col-sm-2 obj-what-dv jzfei">
-          <img src="../../assets/ali.png" alt="" class="jz-img">
+          <img src="../../assets/clkj.png" alt="" class="jz-img">
           <!--<img src="../../assets/Group44.png" alt=""  class="jz-img">-->
-          <img src="../../assets/Group44-new.png" alt=""  class="jz-img">
+          <!--<img src="../../assets/Group44-new.png" alt=""  class="jz-img">-->
         </div>
         
       </div>
@@ -369,9 +368,9 @@
     <div class=" obj-frees"   style="height:200px;position:relative;">
       <div class="pder">
         <h4 class="text-center" style="font-weight:100">
-          现在开启您的上云之旅
+          现在开启您的IT行业之旅
         </h4>
-        <span class="PlanLj" v-on:click="ctaCloundCsbsD">立即体验</span>
+        <span class="PlanLj" v-on:click="ctaCloundCsbsD">立即了解</span>
       </div>
       <canvas id="root" class="canvas"  width="1000" height="210" style="height:100%;width:100%"></canvas>
     </div>
@@ -386,10 +385,10 @@
 </template>
 <script>
  import "../front/animate.min.css";
- import {rongClouds} from "../../components/rongCloud/rongcloud.js";
+ //import {rongClouds} from "../../components/rongCloud/rongcloud.js";
  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
- import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
+ //import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
  import img1_1 from '../../assets/imgs/1-1.png';
 import img2_2 from '../../assets/imgs/2-2.png';
 import img3_3 from '../../assets/imgs/3-3.png';
@@ -405,7 +404,7 @@ export default {
         
         Sec,
         Sex,
-        fixedbox,
+       // fixedbox,
         img1_1,
         img2_2,
         img3_3,
@@ -752,18 +751,18 @@ export default {
           this.$router.push({path: '/consolePage'});
       },
       ctaCloundk:function(){
-         this.$router.push({path: '/cloudmeasured'});
+        this.$router.push({path: "/newsdynamic"});
             $('html ,body').animate({scrollTop: 0},0);
       },
       reset: function() {
         this.$router.push({path: '/registerOne'})
       },
       ctaClound:function(){
-          this.$router.push({path: '/cloudselection'});
+        this.$router.push({path: "/newsdynamic"});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaCloundCsb:function(){
-          this.$router.push({path: '/cloudplanning'});
+        this.$router.push({path: "/newsdynamic"});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaSc:function(){
@@ -771,11 +770,11 @@ export default {
             $('html ,body').animate({scrollTop: 0},0);
       },
       cloundScc:function(){
-             this.$router.push({path: '/designer'});
+        this.$router.push({path: "/newsdynamic"});
             $('html ,body').animate({scrollTop: 0},0);
       },
       ctaCloundf:function(){
-             this.$router.push({path: '/orderlist'});
+        this.$router.push({path: "/newsdynamic"});
             $('html ,body').animate({scrollTop: 0},0);
       },
       scenarioDesign:function(){
@@ -884,11 +883,11 @@ color:#fff;
 }
 .cround{
     background: #f5f5f5;
-    border-radius:100%;
-    width:130px;
-    height:130px;
+    /*border-radius:100%;*/
+    width:100%;
+   /* height:130px;
     margin:0 auto;
-    line-height:130px
+    line-height:130px*/
 }
 .rong-jian{
     font-weight:bold;
@@ -1007,13 +1006,13 @@ ul,ol li {
      margin-top: 12px;
 }
 .lunmain {
-       background: url('../../assets/Rectangle 10.png') no-repeat; background-size:100% 600px; width: 100%; height: 530px; 
+       background: url('../../assets/banner-11.png') no-repeat; background-size:100% 600px; width: 100%; height: 530px;
 }
 .lun2{
-   background: url('../../assets/Bg2.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
+   background: url('../../assets/banner-13.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important;
 }
 .lun3{
-   background: url('../../assets/Bg3.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
+   background: url('../../assets/banner-12.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important;
 }
 .lun4{
    background: url('../../assets/Bg4.png') no-repeat !important; background-size:100% 101% !important; width: 100% !important; height: 530px !important; 
@@ -1094,7 +1093,7 @@ ul,ol li {
     background: #da121a; border-color: #da121a; cursor:pointer;
 }
 .Imgs {
-    width: 144px; height: 19px;
+    width: 150px; height: 30px;
 }
 .navbar-right ul li span {
     padding: 5px 15px; cursor: pointer;
