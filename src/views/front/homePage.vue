@@ -389,28 +389,19 @@
 //  import Sec from "../../components/SecondaryPages/SecondaryPages.vue"
 //  import Sex from "../../components/SecondaryPages/SecondaryFooter.vue"
  //import fixedbox from '../../components/SecondaryPages/protalFixed.vue';
- import img1_1 from '../../assets/imgs/1-1.png';
-import img2_2 from '../../assets/imgs/2-2.png';
-import img3_3 from '../../assets/imgs/3-3.png';
-import img4_4 from '../../assets/imgs/4-4.png';
-import img1 from '../../assets/imgs/1.png';
-import img2 from '../../assets/imgs/2.png';
-import img3 from '../../assets/imgs/3.png';
-import img4 from '../../assets/imgs/4.png';
-import img4 from '../../assets/imgs/4.png';
+//  import img1_1 from '../../assets/imgs/1-1.png';
+// import img2_2 from '../../assets/imgs/2-2.png';
+// import img3_3 from '../../assets/imgs/3-3.png';
+// import img4_4 from '../../assets/imgs/4-4.png';
+// import img1 from '../../assets/imgs/1.png';
+// import img2 from '../../assets/imgs/2.png';
+// import img3 from '../../assets/imgs/3.png';
+// import img4 from '../../assets/imgs/4.png';
+// import img4 from '../../assets/imgs/4.png';
 export default {
     name: 'homePage',
     components:{
-        
        // fixedbox,
-        img1_1,
-        img2_2,
-        img3_3,
-        img4_4,
-        img1,
-        img2,
-        img3,
-        img4,
     },
     data() {
       return {

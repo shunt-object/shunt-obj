@@ -1,0 +1,186 @@
+/*主要的color*/
+
+/*login页*/
+#mian_warper{
+    width:100%;
+    height:100%;
+    background: #ccc;
+}
+.mian_bottom{
+    /*border:1px solid #ccc;*/
+    background: #fff;
+}
+.el-login{
+    background:rgba(27, 103, 178, 1)!important;
+}
+.el-login:hover{
+    background: rgba(27, 103, 178, 1)!important;
+    border:1px solid rgba(27, 103, 178, 1)!important;
+}
+
+/*console控制台页*/
+.white-bg {
+    background: rgba(27, 103, 178, 1);
+}
+/*#sidebar {
+    background: #000;
+}*/
+ul.sidebar-menu li a{
+    font-family: MicrosoftYaHei;
+    color: #344354;
+    letter-spacing: 0;
+}
+
+.outhover:hover{
+    color: #439FFF !important;
+}
+
+.top-nav ul.top-menu > li > a{
+    padding:0!important
+}
+#totalMain{
+    min-height: 90vh;
+    background: rgb(255, 255, 255);
+}
+#totalTitle{
+    width:100%;
+    height: 40px;
+    background: #fff;
+}
+#totalCenter{
+    width: 100%;
+    height:10px;
+    background: #f1f1f1;
+}
+.inputDiver{
+    display: inline-block;
+}
+.inputDiver button{
+    width:80px;
+    height:30px;
+    background: #439FFF;
+    padding:0px!important;
+}
+.inputDiver .el-form-item__content{
+    margin-left: 30px !important;
+}
+#tableMain .el-table {
+    margin:20px 
+}
+
+.current-row > td {
+  background: #f4f4f4 !important;
+}
+.el-table td, .el-table th{
+    padding: 0!important;
+    height: 40px!important;
+}
+#dialog-footer .el-button{
+    width: 100px !important;
+    height: 30px!important;
+    padding: 0!important
+}
+.el-button{
+    width: 100px !important;
+    height: 30px!important;
+    padding: 0!important
+}
+#tableMain .span{
+    height: 30px!important;
+    padding: 5px 10px!important;
+    color:#439FFF;
+    cursor: pointer;
+}
+#tableMain .span:hover{
+    color:#66b1ff;
+}
+#tableMains .span{
+    height: 30px!important;
+    padding: 5px 10px!important;
+    color:#439FFF;
+    cursor: pointer;
+}
+#tableMains .span:hover{
+    color:#66b1ff;
+}
+#colorReder{
+    color:  #FF0016 !important
+}
+#colorReder:hover{
+    color:  #da121a !important
+}
+/*去掉elementui table td出现滚动条的情况*/
+.el-badge__content, .el-progress-bar__inner, .el-steps--horizontal, .el-table .cell.el-tooltip, .el-tabs__nav, .el-tag, .el-time-spinner, .el-tree-node, .el-upload-cover__title{
+    overflow-x: hidden !important
+}
+.el-table .cell{
+    overflow: hidden !important;
+    text-overflow:ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/*element ui 分页基本全局样式*/
+.block .el-pagination__sizes{
+    float: right;
+}
+
+/*功能性弹窗*/
+    /*加入组弹窗 width：800px*/
+#diolog .el-dialog{
+    width:800px!important;
+}
+    /*弹窗title高度40px，bg*/
+#diolog .el-dialog__header{
+    height: 40px;
+    background: #F2F2F2;
+    padding: 0!important;
+    line-height: 40px;
+}
+#diolog .el-dialog__title{
+    margin-left: 20px;
+    font-weight:normal!important
+}
+#diolog .el-dialog__headerbtn{
+    top:0!important
+}
+
+/*删除框，提示框（正常的短的）*/
+#DeleDialog .el-dialog{
+    width: 320px;
+    height:180px;
+}
+#DeleDialog .el-dialog__header{
+    padding: 0!important;
+    height: 40px;
+    line-height: 40px;
+    background: #F2F2F2;
+}
+#DeleDialog .el-dialog__headerbtn{
+    top: 0!important
+}
+#DeleDialog .el-dialog__header span{
+    margin-left: 10px;
+    font-weight: normal!important;
+}
+#DeleDialog .el-button{
+    width:100px;
+    height:30px;
+    padding:0!important;
+    text-align: center;
+} 
+/*删除框，提示框（长的）*/
+#DeleLong #DeleDialog  .el-dialog{
+    width: 480px !important;
+    height: 230px !important;
+}
+#DeleLong #DeleDialog  .el-dialog__body{
+    text-align: center;
+}
+#DeleLong #DeleDialog .el-dialog__footer{
+    text-align: center!important;
+    padding-top:30px !important
+}
+/*表格多选checkbox为圆*/
+#tables .el-checkbox__inner{
+    border-radius: 100%!important
+}

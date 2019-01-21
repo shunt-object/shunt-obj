@@ -14,6 +14,8 @@ import  "datatables/media/css/jquery.dataTables.min.css"
 import  "datatables/media/js/jquery.dataTables.min.js"
 import '../src/components/fontCss/icon.css'
 import '../src/components/fontCss/common.css'
+// 全局color
+import '../src/components/css/mian.css'
 import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -22,13 +24,10 @@ Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
 axios.defaults.withCredentials = true;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
-axios.defaults.headers['loading'] = true;
 Vue.use(VueResource);
 Vue.use(ElementUI);
 let load;
 let loading;
-
-
 
 axios.interceptors.request.use(
     config => {
@@ -85,12 +84,22 @@ Vue.prototype.logout = function () {
 }
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-        if (sessionStorage.getItem("account")) {  // 通过vuex state获取当前的token是否存在
-            next();
+    if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限  
+        if (sessionStorage.getItem("account")) {  // e获取当前的是否有信息是否存在
+            var _EXPIRE_TIME =2*6*1000;  //过期时间
+            var sessionTime = sessionStorage.getItem("nxgx_lastVisitTime")  //sessionStorage存储的登录时间
+            var newTime = new Date().getTime();      //当前时间
+            if(newTime-sessionTime > _EXPIRE_TIME){
+                next({
+                    path: '/',
+                });
+                alert("过期了，请重新登录");
+            }else{
+                next()
+            }
         } else {
             next({
-                path: '/login',
+                path: '/',
                 // query: { redirect: to.fullPath }  // 将跳转的路由path作为参数，登录成功后跳转到该路由
             })
         }

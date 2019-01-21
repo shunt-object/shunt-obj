@@ -1,0 +1,109 @@
+.plsec{
+    width:100%;
+    height:40px;
+    background: #E6E6E6 !important;
+    line-height: 40px;
+    padding-left:20px; 
+}
+.plsec div{
+    display: inline-block;
+}
+.plsec_fir{
+    color: #344354;
+}
+.plsec_sec{
+    margin-left: 20px;
+    font-size: 12px;
+    color: #9B9B9B;
+}
+.plsec_back{
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #9B9B9B;
+    cursor: pointer;
+}
+.plsec_button{
+    padding:20px 20px;
+}
+.plsec_title{
+    padding-left:20px;
+    margin-bottom:5px;
+    background: #F2F2F2;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.plsec_title .plsec_titleFir{
+    font-size: 12px;
+    color: #344354;
+}
+.plsec_title div{
+    display: inline-block;
+}
+.plsec_title i{
+    color: #D8D8D8;
+    font-size: 14px;
+}
+.plsec_titleSec{
+    float: right;
+    margin-right: 20px;
+}
+.plsec_secher{
+    margin-top:20px; 
+}
+.plsec_secher .el-form-item__label{
+    width: 140px !important;
+    font-size:12px !important;
+    font-weight: normal !important;
+}
+.plsec_secher  .el-input,.plsec_secher .el-select{
+    width: 260px!important;
+}
+#soLongName .rule_group .el-form-item__label{
+    /*width: 140px!important*/
+}
+.groupIs{
+    padding: 20px;
+}
+.groupIs .groupIs_main div{
+    display: inline-block;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    font-size:12px;
+    border-radius: 2px;
+} 
+.groupIs_main{
+    background: #F2F2F2;
+    height: 30px;
+    width: 100%;
+}
+.groupIs .groupIs_main div:hover{
+    cursor: pointer;
+    background: #439FFF; 
+    color: #fff;
+}
+.inSr{
+    width:100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #D8D8D8;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+.inSr:hover{
+     background: #439FFF;
+     color: #fff;
+     cursor: pointer;
+     border: 1px solid #439FFF
+}
+.acStyle{
+    background: #439FFF;
+    color: #fff;
+}
+#tableMains .el-table{
+    margin: 20px 0 0 0;
+}

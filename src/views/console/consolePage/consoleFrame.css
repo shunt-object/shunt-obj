@@ -63,7 +63,6 @@ Website: http://thevectorlab.net/
 .header-logo{
     width:180px;
     min-height: 50px;
-    background:#2b2b2b;
     padding-left:15px;
     float:left;
 }
@@ -231,7 +230,7 @@ a, a:hover, a:focus {
     width: 180px;
     height: 100%;
     position: fixed;
-    background: #2b2b2b;
+    margin-top:65px;
 }
 
 .nav-collapse.collapse {
@@ -243,10 +242,7 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
     padding: 0;
 }
 
-ul.sidebar-menu {
-    /*margin-top: 61px;*/
-    margin-top: 50px;
-}
+
 
 #sidebar > ul > li > ul.sub {
     display: none;
@@ -284,7 +280,13 @@ ul.sidebar-menu li ul.sub li a {
 }
 .outhover:hover{
     /*background:#090909;*/
-    background: #3a3d45;
+    background:url('../../../assets/images/leftHover.png') no-repeat;
+    background-size: 99% 100%;
+}
+.actives{
+    background:url('../../../assets/images/leftHover.png') no-repeat;
+    background-size: 99% 100%;
+    color:#439FFF !important
 }
 .outhover-act{
     background: #3a3d45;
@@ -305,16 +307,13 @@ ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
 }
 
 ul.sidebar-menu li{
-    line-height: 20px !important;
-    /*margin-bottom: 5px;
-    margin-left:10px;
-    margin-right:10px;*/
     text-align:left;
     text-indent:5px;
 }
 
 ul.sidebar-menu li.sub-menu{
     line-height: 15px;
+    height:50px;
 }
 ul.sidebar-menu li a img{
     width:20px;
@@ -330,11 +329,9 @@ ul.sidebar-menu li a span{
 
 ul.sidebar-menu li a{
     /*color: #8b9199;*/
-    color: #e8e8e8;
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    /*font-size: 12px;*/
     font-size: 14px;
     outline: none;
     -webkit-transition: all 0.3s ease;
@@ -347,7 +344,7 @@ ul.sidebar-menu li a{
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
     /*background: #3a3d45;*/
     /*background: #090909;*/
-    color: #fff;
+    /*color: #fff;*/
     display: block;
 
     -webkit-transition: all 0.3s ease;
@@ -425,7 +422,7 @@ ul.sidebar-menu li.active a i {
 /*main content*/
 
 #main-content {
-    margin-left: 180px;
+    margin-left: 200px;
 }
 
 .header, .footer {
@@ -441,15 +438,9 @@ ul.sidebar-menu li.active a i {
     z-index: 1002;
 }
 
-.white-bg {
-    background: #fff;
-    /*border-bottom: 1px solid #f1f2f7;*/
-}
 
 .wrapper {
     display: inline-block;
-    margin-top: 60px;
-    /*padding: 15px;*/
     width: 100%;
 }
 
@@ -484,7 +475,7 @@ a.logo span {
 }
 
 ul.top-menu > li > a {
-    color: #333;
+    color: #fff;
     font-size: 14px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -495,8 +486,7 @@ ul.top-menu > li > a {
 
 ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     /*border:1px solid #f0f0f8 !important;*/
-    background-color: #fff!important;
-    border-color: #f0f0f8 !important;
+   
     text-decoration: none;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -620,7 +610,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .top-nav  {
-    margin-top: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     float:right;
 }
 
@@ -708,11 +699,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     /*margin-left: 10px;*/
 }
 
-.top-nav ul.top-menu > li > a:hover, .top-nav ul.top-menu > li > a:focus {
-    /*border:1px solid #F1F2F7;*/
-    background: #F1F2F7;
 
-}
 
 .top-nav .dropdown-menu.extended.logout {
     top: 50px;
@@ -775,7 +762,10 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 
 /*search*/
-
+#sidebar{
+    background: url("../../../assets/images/sider.png") no-repeat;
+    background-size: cover;
+}
 .search {
     margin-top: 6px ;
     width: 20px;
@@ -4045,3 +4035,6 @@ span.customSelect.changed {
 /*.customSelectInner {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
 }*/
+.pull-right .liMargin{
+    margin-right: 20px;
+}
