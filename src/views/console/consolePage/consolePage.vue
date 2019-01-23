@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;" class="outhover" :class="pageIndex==5?'actives':''" >
+                            <a href="javascript:;" @click="go_portGroup()" class="outhover" :class="pageIndex==5?'actives':''" >
                                  <i class="iconfont icon-icon-duankouzupeizhi"></i>
                                 <span>端口组配置</span>
                             </a>
@@ -228,6 +228,10 @@ export default{
         // leftBack:function(e){
         //      prevStop(e);   
         // },
+        //端口组
+        go_portGroup:function(){
+            this.$router.push({path:"/consolePage/portGroup/inputGroup"})
+        },
         go_Ruleconfig:function(){
             this.$router.push({path:"/consolePage/ruleConfig"})
         },

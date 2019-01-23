@@ -8,6 +8,10 @@ import ruleConfig from '@/views/console/ruleConfig/ruleConfig.vue'
 import rulesCreate from '@/views/console/ruleConfig/rulesCreate.vue'
 import port from '@/views/console/port/port.vue'
 import portInto from '@/views/console/portInto/portInto.vue'
+
+//端口组
+import portGroup from './portGroup'
+
 Vue.use(Router)
 
 export default new Router({
@@ -64,5 +68,5 @@ export default new Router({
         }
       ]
     }
-  ]
+  ].concat(portGroup)
 })
