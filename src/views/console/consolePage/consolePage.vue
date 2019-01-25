@@ -230,7 +230,8 @@ export default{
         // },
         //端口组
         go_portGroup:function(){
-            this.$router.push({path:"/consolePage/portGroup/inputGroup"})
+            this.$router.push({path:"/consolePage/portGroup"});
+            $(".oneCurrent").click();
         },
         go_Ruleconfig:function(){
             this.$router.push({path:"/consolePage/ruleConfig"})
