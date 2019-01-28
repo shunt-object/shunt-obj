@@ -1,40 +1,69 @@
 <template>
   <el-menu mode="horizontal">
-    <p class="elMenu">创建输入组</p>
+    <p class="elMenu">{{number}}输出组<span class="goOut" @click="goOut">返回</span></p>
     <div class="mainBtn">
-      <el-button @click="goOut">取消</el-button>
-      <el-button type="primary">保存</el-button>
+      <el-button type="primary">编辑</el-button>
     </div>
     <p class="elMenu">基本信息<i class="jbxxZt" @click="jbxxFuc"></i></p>
     <el-row class="buttns">
       <el-row class="cssFrom">
-        <el-form :label-position="labelPosition" :rules="rules" ref="formInline" :inline="true" :model="formInline" class="demo-ruleForm">
+        <el-form :rules="rules" ref="formInline" :inline="true" :model="formInline" class="demo-ruleForm">
           <el-form-item label="端口组名称:" prop="name">
-            <el-input v-model="formInline.groupName"></el-input>
+            <el-input v-model="formInline.groupName":disabled="true"></el-input>
+          </el-form-item>
+          <el-form-item label="端口组属性:" prop="name">
+            <el-input v-model="formInline.portGroupAttr":disabled="true"></el-input>
           </el-form-item>
           <el-form-item label="端口组描述：" prop="desc" class="descs">
-            <el-input type="textarea" v-model="formInline.desc" class="textarea"></el-input>
+            <el-input type="textarea" v-model="formInline.desc" class="textarea":disabled="true"></el-input>
           </el-form-item>
         </el-form>
       </el-row>
     </el-row>
-    <p class="elMenu">组成员</p>
-    <el-row class="zcyShow">
+    <p class="elMenuP">
+      <span :class="flagGroup==true?'elMenuSpan elMenuSpanCur':'elMenuSpan'" @click="groupAndRule(1)">组成员</span>
+      <span :class="flagRule==true?'elMenuSpan elMenuSpanCur':'elMenuSpan'" @click="groupAndRule(2)">所绑规则</span>
+    </p>
+    <!-- 组成员 -->
+    <el-row v-show="flagGroup" style="background-color: #fff;padding: 20px 10px 0;">
       <div>
         <el-button type="primary" @click="addMan">添加成员</el-button>
         <el-button>批量删除</el-button>
         <span class="yxzdk">已新增n个端口</span>
       </div>
+      <p class="zucyDk">
+        <span>端口</span>
+        <span>端口组</span>
+      </p>
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%;margin-top: 20px;" @selection-change="handleSelectionChange" :header-cell-style="{background:'#f4f4f4'}">
         <el-table-column v-for="(tableTh, key) in tableTh"
            :key="key"
            :prop="tableTh.prop"
            :label="tableTh.label"
            :type="tableTh.type"
-           :width="tableTh.width" align="center" :fixed="key==0?true:key==1?true:key==2?true:false">
+           :width="tableTh.width" align="center" :fixed="key==0?true:key==1?true:false">
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="130">
           <template slot-scope="scope">
+            <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">详情</el-button>
+            <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">移除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-row>
+    <!-- 所绑规则 -->
+    <el-row v-show="flagRule" style="padding: 0 10px;">
+      <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%;margin-top: 20px;" @selection-change="handleSelectionChange" :header-cell-style="{background:'#f4f4f4'}">
+        <el-table-column v-for="(tableTh, key) in tableTh"
+           :key="key"
+           :prop="tableTh.prop"
+           :label="tableTh.label"
+           :type="tableTh.type"
+           :width="tableTh.width" align="center" :fixed="key==0?true:key==1?true:false">
+        </el-table-column>
+        <el-table-column fixed="right" label="操作" width="200">
+          <template slot-scope="scope">
+            <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">编辑</el-button>
             <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">详情</el-button>
             <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">移除</el-button>
           </template>
@@ -94,21 +123,17 @@ import api from '@/service'
 export default {
   data() {
     return {
-      btnCur: '',
       jbxxShow: true,
-      labelPosition: 'right',
+      number: null,
+      flagGroup: true,
+      flagRule: false,
       formInline: {
           portName: '',
           cardCw: '',
-          region: ''
+          region: '',
+          portGroupAttr: ''
       },
       tableTh: [
-        {
-          prop: '',
-          label: '',
-          type: 'selection',
-          width: 55
-        },
         {
           prop: 'number',
           label: '序号',
@@ -331,6 +356,9 @@ export default {
   },
   mounted () {
     this.getCreatGroupList()
+    //数据回显
+    this.formInline.groupName=this.$route.query.name
+    this.number=this.$route.query.number
   },
   methods: {
     //获取列表数据
@@ -372,6 +400,16 @@ export default {
     goOut(){
       this.$router.push({ path: "/consolePage/portGroup" });
     },
+    // 组成员和所绑规则切换
+    groupAndRule(indexNum){
+      if(indexNum==1){
+        this.flagGroup=true;
+        this.flagRule=false;
+      }else{
+        this.flagGroup=false;
+        this.flagRule=true;
+      }
+    },
     // 基本信息展示隐藏
     jbxxFuc(indexs){
       if(this.jbxxShow){
@@ -395,9 +433,6 @@ export default {
     transition: .5s;
     height: 149px;
   }
-  .btnCur{
-    height: 0px;
-  }
   .cssFrom{
     padding: 10px;
   }
@@ -417,12 +452,31 @@ export default {
     border-color: #409EFF !important;
   }
   .elMenu{
+    position: relative
+  }
+  .elMenu,.elMenuP{
     background-color: rgb(242,242,242);
     height: 40px;
     line-height: 40px;
     padding-left: 10px;
     margin: 0;
+  }
+  .elMenuP{
+    padding-left: 0px;
+    z-index: 3;
     position: relative;
+  }
+  .elMenuSpan{
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+  }
+  .elMenuSpanCur{
+    background-color: rgb(67,159,255);
+    color: #fff;
   }
   .elMenuTwo{
     margin: 0 10px;
@@ -475,6 +529,13 @@ export default {
   .btnSize{
     width:80px !important;
   }
+  .yxzdk,.goOut{
+    position: absolute;
+    right: 50px;
+  }
+  .goOut{
+    cursor: pointer;
+  }
   .jbxxZt{
     width: 15px;
     height: 15px;
@@ -485,12 +546,22 @@ export default {
     top: 13px;
     cursor: pointer;
   }
-  .yxzdk{
-    position: absolute;
-    right: 50px;
+  .btnCur{
+    height: 0px;
   }
-  .zcyShow{
-    background-color: #fff;
-    padding: 20px 10px 0;
+  .zucyDk{
+    background-color: rgb(242,242,242);
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+  }
+  .zucyDk>span{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #439FFF;
   }
 </style>

@@ -4,23 +4,23 @@
     <el-button>批量删除</el-button>
     <el-row>
       <el-form :inline="true" :model="formInline" class="demo-form-inline cssFrom">
-        <el-form-item label="端口组名称">
-          <el-input v-model="formInline.groupName" placeholder="端口组名称"></el-input>
+        <el-form-item label="端口组名称:" label-width="90px">
+          <el-input v-model="formInline.groupName" placeholder="端口组名称" class="inpSize"></el-input>
         </el-form-item>
-        <el-form-item label="组成员">
-          <el-input v-model="formInline.groupMan" placeholder="组成员"></el-input>
+        <el-form-item label="组成员:">
+          <el-input v-model="formInline.groupMan" placeholder="组成员" class="inpSize"></el-input>
         </el-form-item>
-        <el-form-item label="规则">
-          <el-input v-model="formInline.groupRule" placeholder="规则"></el-input>
+        <el-form-item label="规则:">
+          <el-input v-model="formInline.groupRule" placeholder="规则" class="inpSize"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">查询</el-button>
-          <el-button>清空</el-button>
-          <el-button type="primary" @click="onSubmit">高级查询</el-button>
+          <el-button type="primary" class="btnSize">查询</el-button>
+          <el-button class="btnSize">清空</el-button>
+          <el-button type="primary" class="btnSize">高级查询</el-button>
         </el-form-item>
       </el-form>
     </el-row>
-    <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+    <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange":header-cell-style="{background:'#f4f4f4'}">
       <el-table-column v-for="(tableTh, key) in tableTh"
          :key="key"
          :prop="tableTh.prop"
@@ -30,9 +30,9 @@
       </el-table-column>
       <el-table-column fixed="right" label="操作">
         <template slot-scope="scope">
-          <el-button class="tableBtn" @click.native.prevent="editPort(scope.$index,scope.row)" type="text" size="small">编辑</el-button>
-          <el-button class="tableBtn" @click.native.prevent="editPort(scope.$index,scope.row)" type="text" size="small">详情</el-button>
-          <el-button class="tableBtn" @click.native.prevent="deleteRow(scope.$index, tableData4)" type="text" size="small">移除</el-button>
+          <el-button class="tableBtn" @click.native.prevent="editPort(scope.$index,scope.row,1)" type="text" size="small">编辑</el-button>
+          <el-button class="tableBtn" @click.native.prevent="editPort(scope.$index,scope.row,2)" type="text" size="small">详情</el-button>
+          <el-button class="tableBtn" @click.native.prevent="deletePort(scope.$index,scope.row)" type="text" size="small">移除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -132,14 +132,39 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
+    //移除端口
+    deletePort(indexs,row){
+      this.$confirm('已选中'+row.name+'输入组, 是否确定移除?', '移除提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        //调接口
+        this.$message({
+          type: 'success',
+          message: '移除成功!'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消移除'
+        });          
+      });
+    },
     //跳转创建输入组页面
     goCreatInp() {
       this.$router.push({ path: "/consolePage/creatInput" });
     },
     //跳转编辑页面
-    editPort(indexs,row){
+    editPort(indexs,row,num){
       console.log(indexs,row)
-      this.$router.push({ path: "/consolePage/editPortGroup",query: row });
+      if(num==1){
+        // 去编辑页面
+        this.$router.push({ path: "/consolePage/editInputGroup",query: row })
+      }else{
+        // 去详情页面
+        this.$router.push({ path: "/consolePage/detailInputGroup",query: row })
+      }
     }
   },
   components: {
@@ -165,5 +190,11 @@ export default {
 .pageCss{
   float: right;
   margin-top: 30px;
+}
+.inpSize{
+  width: 110px;
+}
+.btnSize{
+  width:80px !important;
 }
 </style>

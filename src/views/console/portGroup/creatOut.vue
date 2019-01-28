@@ -1,6 +1,6 @@
 <template>
   <el-menu mode="horizontal">
-    <p class="elMenu">创建输入组</p>
+    <p class="elMenu">创建输出组</p>
     <div class="mainBtn">
       <el-button @click="goOut">取消</el-button>
       <el-button type="primary">保存</el-button>
@@ -11,6 +11,12 @@
         <el-form :label-position="labelPosition" :rules="rules" ref="formInline" :inline="true" :model="formInline" class="demo-ruleForm">
           <el-form-item label="端口组名称:" prop="name">
             <el-input v-model="formInline.groupName"></el-input>
+          </el-form-item>
+          <el-form-item label="端口组属性">
+            <el-select v-model="formInline.portGroupAttr" placeholder="端口组属性">
+              <el-option label="负载均衡" value="负载均衡"></el-option>
+              <el-option label="复制" value="复制"></el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="端口组描述：" prop="desc" class="descs">
             <el-input type="textarea" v-model="formInline.desc" class="textarea"></el-input>
@@ -100,7 +106,8 @@ export default {
       formInline: {
           portName: '',
           cardCw: '',
-          region: ''
+          region: '',
+          portGroupAttr: ''
       },
       tableTh: [
         {

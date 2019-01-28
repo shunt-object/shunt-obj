@@ -30,7 +30,7 @@ instance.interceptors.response.use(function (response) {
   if (!data) {
     return Promise.reject(new Error('后台接口错误！'))
   } else if (data.code !== 0) {
-    //默认code为0 请求失败，
+    //默认code为0 请求成功，
     return Promise.reject(new Error(data.msg))
   }
   return data.content;

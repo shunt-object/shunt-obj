@@ -9,7 +9,15 @@ const outGroup = () => import('@/views/console/portGroup/outGroup')
 //创建输入组
 const creatInput = () => import('@/views/console/portGroup/creatInput')
 //编辑端口组
-const editPortGroup = () => import('@/views/console/portGroup/editPortGroup')
+const editInputGroup = () => import('@/views/console/portGroup/editInputGroup')
+//端口组详情
+const detailInputGroup = () => import('@/views/console/portGroup/detailInputGroup')
+//创建输出组
+const creatOut = () => import('@/views/console/portGroup/creatOut')
+//编辑输出组
+const editOutGroup = () => import('@/views/console/portGroup/editOutGroup')
+//输出组详情页
+const detailoutGroup = () => import('@/views/console/portGroup/detailoutGroup')
 
 export default [{
 	path: '/consolePage',
@@ -23,7 +31,7 @@ export default [{
 			children: [
 				{
 					path: 'inputGroup',
-					name:'consolePage',
+					name:'inputGroup',
 					component: inputGroup
 				},
 				{
@@ -39,9 +47,29 @@ export default [{
 			component: creatInput
 		},
 		{
-			path: 'editPortGroup',
-			name:'editPortGroup',
-			component: editPortGroup
+			path: 'editInputGroup',
+			name:'editInputGroup',
+			component: editInputGroup
+		},
+		{
+			path: 'detailInputGroup',
+			name:'detailInputGroup',
+			component: detailInputGroup
+		},
+		{
+			path: 'creatOut',
+			name:'creatOut',
+			component: creatOut
+		},
+		{
+			path: 'editOutGroup',
+			name:'editOutGroup',
+			component: editOutGroup
+		},
+		{
+			path: 'detailoutGroup',
+			name:'detailoutGroup',
+			component: detailoutGroup
 		}
 	]
 }]
