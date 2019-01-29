@@ -1,7 +1,7 @@
 //主框架，侧边栏
 import consolePage from '@/views/console/consolePage/consolePage'
 //端口组主页面导航
-const portGroup = () => import('@/views/console/portGroup/portGroup')
+const portGroupIndex = () => import('@/views/console/portGroup/portGroup')
 //输入组
 const inputGroup = () => import('@/views/console/portGroup/inputGroup')
 //输出组
@@ -20,14 +20,13 @@ const editOutGroup = () => import('@/views/console/portGroup/editOutGroup')
 const detailoutGroup = () => import('@/views/console/portGroup/detailoutGroup')
 
 export default [{
-	path: '/consolePage',
-	name:'consolePage',
+	path: '/portGroup',
 	component: consolePage,
 	children: [
 			{
-			path: 'portGroup',
-			name:'portGroup',
-			component: portGroup,
+			path: 'portGroupIndex',
+			name:'portGroupIndex',
+			component: portGroupIndex,
 			children: [
 				{
 					path: 'inputGroup',

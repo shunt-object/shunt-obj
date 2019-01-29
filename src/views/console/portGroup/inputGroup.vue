@@ -153,17 +153,17 @@ export default {
     },
     //跳转创建输入组页面
     goCreatInp() {
-      this.$router.push({ path: "/consolePage/creatInput" });
+      this.$router.push({ path: "/portGroup/creatInput" });
     },
     //跳转编辑页面
     editPort(indexs,row,num){
       console.log(indexs,row)
       if(num==1){
         // 去编辑页面
-        this.$router.push({ path: "/consolePage/editInputGroup",query: row })
+        this.$router.push({ path: "/portGroup/editInputGroup",query: row })
       }else{
         // 去详情页面
-        this.$router.push({ path: "/consolePage/detailInputGroup",query: row })
+        this.$router.push({ path: "/portGroup/detailInputGroup",query: row })
       }
     }
   },

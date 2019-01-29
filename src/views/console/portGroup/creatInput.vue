@@ -370,7 +370,7 @@ export default {
     },
     //取消返回
     goOut(){
-      this.$router.push({ path: "/consolePage/portGroup" });
+      this.$router.push({ path: "/portGroup/portGroupIndex" });
     },
     // 基本信息展示隐藏
     jbxxFuc(indexs){

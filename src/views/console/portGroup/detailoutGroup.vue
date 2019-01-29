@@ -398,7 +398,7 @@ export default {
     },
     //取消返回
     goOut(){
-      this.$router.push({ path: "/consolePage/portGroup" });
+      this.$router.push({ path: "/portGroup/portGroupIndex" });
     },
     // 组成员和所绑规则切换
     groupAndRule(indexNum){

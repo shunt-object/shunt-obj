@@ -16,8 +16,8 @@ export default {
     return {
       isActive: 'is-active',
       navList:[
-        {name:'/consolePage/portGroup/inputGroup',navItem:'输入组'},
-        {name:'/consolePage/portGroup/outGroup',navItem:'用户1输出组'}
+        {name:'/portGroup/portGroupIndex/inputGroup',navItem:'输入组'},
+        {name:'/portGroup/portGroupIndex/outGroup',navItem:'用户1输出组'}
       ]
     };
   },

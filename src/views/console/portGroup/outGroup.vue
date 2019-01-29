@@ -171,16 +171,16 @@ export default {
     },
     //跳转创建输出组页面
     goCreatInp() {
-      this.$router.push({ path: "/consolePage/creatOut" });
+      this.$router.push({ path: "/portGroup/creatOut" });
     },
     //跳转到编辑输出组页面
     editOutGroup(indexs,row,num){
       if(num==1){
         // 去编辑页面
-        this.$router.push({ path: "/consolePage/editOutGroup",query: row })
+        this.$router.push({ path: "/portGroup/editOutGroup",query: row })
       }else{
         // 去详情页面
-        this.$router.push({ path: "/consolePage/detailoutGroup",query: row })
+        this.$router.push({ path: "/portGroup/detailoutGroup",query: row })
       }
     }
   },

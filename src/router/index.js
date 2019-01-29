@@ -9,12 +9,15 @@ import rulesCreate from '@/views/console/ruleConfig/rulesCreate.vue'
 import port from '@/views/console/port/port.vue'
 import portInto from '@/views/console/portInto/portInto.vue'
 
-//端口组
+//端口组配置
 import portGroup from './portGroup'
+//系统配置
+import system from './system'
 
 Vue.use(Router)
 
 export default new Router({
+  // mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -68,5 +71,5 @@ export default new Router({
         }
       ]
     }
-  ].concat(portGroup)
+  ].concat(portGroup,system)
 })
