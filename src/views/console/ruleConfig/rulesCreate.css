@@ -3,7 +3,12 @@
 }
 .createRules_mainQuire{
     border: 1px solid #ccc;
-
+}
+.createRules_mainQuire_main{
+     padding:0 20px; 
+}
+#createRules_main{
+    padding: 10px 20px 0px 20px;
 }
 .createRules_mainQuire_titile{
     width: 100%;
@@ -13,4 +18,17 @@
 }
 .crulte{
     display: inline-block
+}
+#crSec .el-form-item__content{
+    margin-top:0px; 
+    margin-left: 20px!important;
+}
+.down .ruler_long input{
+    width:75px !important;
+}
+.clType .ruler_small input{
+    width: 70px!important;
+}
+.cltypeAfter .ruler_small input{
+    width: 90px!important
 }

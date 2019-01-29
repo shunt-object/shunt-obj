@@ -184,3 +184,10 @@ ul.sidebar-menu li a{
 #tables .el-checkbox__inner{
     border-radius: 100%!important
 }
+
+.col-md-4 .rule_group .el-form-item__label{
+    width: 100px!important;
+}
+.col-md-4 .rule_group .el-form-item__content{
+    margin-left: 100px !important;
+}
