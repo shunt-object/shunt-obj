@@ -199,7 +199,7 @@ export default {
 .cssFrom{
   margin-top: 10px;
   border-top: 2px solid rgb(242,242,242);
-  padding: 10px;
+  padding: 10px 4px;
 }
 .tableBtn{
   width: 50px !important;

@@ -12,7 +12,7 @@
             <el-input v-model="formInline.groupName":disabled="true"></el-input>
           </el-form-item>
           <el-form-item label="端口组描述：" prop="desc" class="descs">
-            <el-input type="textarea" v-model="formInline.desc" class="textarea":disabled="true"></el-input>
+            <el-input type="textarea" v-model="formInline.desc" clas`s="textarea":disabled="true"></el-input>
           </el-form-item>
         </el-form>
       </el-row>
@@ -390,7 +390,7 @@ export default {
     },
     //取消返回
     goOut(){
-      this.$router.push({ path: "/portGroup/portGroupIndex" });
+      this.$router.push({ path: "/portGroup/portGroupIndex" })
     },
     // 组成员和所绑规则切换
     groupAndRule(indexNum){
@@ -444,7 +444,7 @@ export default {
     border-color: #409EFF !important;
   }
   .elMenu{
-    position: relative
+    position: relative;
   }
   .elMenu,.elMenuP{
     background-color: rgb(242,242,242);

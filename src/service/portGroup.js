@@ -11,14 +11,18 @@ async function getPortGroupList () {
         name: 'GROUP-1',
         types: '端口',
         groupMan: '端口A、端口B..',
-        okRule: '规则A、规则B、规则V、...'
+        okRule: '规则A、规则B、规则V、...',
+        sels: 0,
+        canSel: true
       },
       {
         number: '108',
         name: 'GROUP-2',
         types: '端口',
         groupMan: '端口c、端口d..',
-        okRule: '规则c、规则d、规则e、...'
+        okRule: '规则c、规则d、规则e、...',
+        sels: null,
+        canSel: false
       } 
     ]
   ]
