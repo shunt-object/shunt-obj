@@ -93,7 +93,7 @@
     </div>
     <!-- 高级查询弹框 -->
     <div class="highQuery">
-      <p class="elMenu">高级查询<span class="closeGjcx"  @click="closeGjcx">X</span></p>
+      <p class="elMenu">高级查询<span class="closeGjcx" @click="closeGjcx">X</span></p>
       <div class="gjcxTop">
         <div class="topLeft">
           查询方案
@@ -147,7 +147,7 @@
         </div>
       </div>
       <div class="gjcxFoot" style="text-align: right;padding:10px 50px">
-        <el-button>取消</el-button>
+        <el-button @click="closeGjcx">取消</el-button>
         <el-button type="primary">立即查询</el-button>
       </div>
     </div>
@@ -155,459 +155,459 @@
 </template>
 
 <script>
-import api from '@/service'
+  import api from '@/service'
 
-export default {
-  data() {
-    return {
-      faer: '方案二',
-      btnCur: '',
-      jbxxShow: true,
-      labelPosition: 'right',
-      formInline: {
-          portName: '',
-          cardCw: '',
-          region: '',
-          portGroupAttr: ''
-      },
-      tableTh: [
-        {
-          prop: '',
-          label: '',
-          type: 'selection',
-          width: 55
+  export default {
+    data() {
+      return {
+        faer: '方案二',
+        btnCur: '',
+        jbxxShow: true,
+        labelPosition: 'right',
+        formInline: {
+            portName: '',
+            cardCw: '',
+            region: '',
+            portGroupAttr: ''
         },
-        {
-          prop: 'number',
-          label: '序号',
-          type: '',
-          width: 50
-        },
-        {
-          prop: 'name',
-          label: '端口名称',
-          type: '',
-          width: 120
-        },
-        {
-          prop: 'types',
-          label: '类型',
-          type: '',
-          width: 50
-        },
-        {
-          prop: 'zgsl',
-          label: '最高速率',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'sl',
-          label: '速率',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'dlzt',
-          label: '端口状态',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'dkms',
-          label: '端口模式',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'zcd',
-          label: '帧长度（MTU）',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'pvid',
-          label: 'PVID',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'zjx',
-          label: '帧间隙（ipg）',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'bckw',
-          label: '板卡槽位',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'nestvlan',
-          label: 'Nestvlan',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'glzt',
-          label: '管理状态',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'ssz',
-          label: '所属组',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'syfxgz',
-          label: '输入方向规则',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'scfxgz',
-          label: '输出方向规则',
-          type: '',
-          width: 220
-        }
-      ],
-      tableData: [],
-      tableThModul: [
-        {
-          prop: '',
-          label: '',
-          type: 'selection',
-          width: 55
-        },
-        {
-          prop: 'number',
-          label: '序号',
-          type: '',
-          width: 50
-        },
-        {
-          prop: 'name',
-          label: '端口名称',
-          type: '',
-          width: 120
-        },
-        {
-          prop: 'types',
-          label: '槽位',
-          type: '',
-          width: 50
-        },
-        {
-          prop: 'groupMan',
-          label: '板卡型号',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'okRule',
-          label: '所属组',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '端口状态',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '端口速率',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '端口模式',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '端口类型',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: 'PVID',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '三层IP',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '帧长度（MTU）',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '帧间隙（IPG）',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: 'nestvlan',
-          type: '',
-          width: 220
-        },
-        {
-          prop: 'maxSd',
-          label: '启用禁止状态',
-          type: '',
-          width: 220
-        }
-      ],
-      tableDataModul: [
-        {
-          number: '109',
-          name: 'GROUP-1',
-          types: '端口',
-          groupMan: '端口A、端口B..',
-          okRule: '规则A、规则B、规则V、...'
-        },
-        {
-          number: '108',
-          name: 'GROUP-2',
-          types: '端口',
-          groupMan: '端口c、端口d..',
-          okRule: '规则c、规则d、规则e、...'
-        } 
-      ],
-      gxfSele: [
-        {
-          value:0,
-          label: "等于"   
-        },
-        {
-          value:1,
-          label: "大于"   
-        },
-        {
-          value:2,
-          label: "小于"   
-        }
-      ],
-      gjcxData: [
-        {
-          indexs: '1',
-          tjName: '端口名称',
-          chidrenAttr: '',
-          gxf: 0,
-          canSel: true,
-          tjz: '',
-          canInp: true,
-          canChecked: false,
-          tjzChecked: false
-        },
-        {
-          indexs: '2',
-          tjName: '板卡槽位',
-          chidrenAttr: '',
-          gxf: 1,
-          canSel: true,
-          tjz: '',
-          canInp: true,
-          canChecked: false,
-          tjzChecked: false
-        },
-        {
-          indexs: '3',
-          tjName: '端口类型',
-          chidrenAttr: '标准',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: true
-        },
-        {
-          indexs: '',
-          tjName: '',
-          chidrenAttr: 'MPO-25GE',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: true
-        },
-        {
-          indexs: '',
-          tjName: '',
-          chidrenAttr: 'MPO-10GE',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: false
-        },
-        {
-          indexs: '4',
-          tjName: '所属组',
-          chidrenAttr: '',
-          gxf: 0,
-          canSel: true,
-          tjz: '端口组A',
-          canInp: true,
-          canChecked: false,
-          tjzChecked: false
-        },
-        {
-          indexs: '5',
-          tjName: '端口状态',
-          chidrenAttr: 'UP',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: true
-        },
-        {
-          indexs: '',
-          tjName: '',
-          chidrenAttr: 'DOWN',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: false
-        },
-        {
-          indexs: '6',
-          tjName: '端口模式',
-          chidrenAttr: '强制',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: false
-        },
-        {
-          indexs: '',
-          tjName: '',
-          chidrenAttr: '自协商',
-          gxf: 1,
-          canSel: false,
-          tjz: '',
-          canInp: false,
-          canChecked: true,
-          tjzChecked: false
-        },
-        {
-          indexs: '7',
-          tjName: 'PVID',
-          chidrenAttr: '',
-          gxf: 1,
-          canSel: true,
-          tjz: '1-4096',
-          canInp: true,
-          canChecked: false,
-          tjzChecked: false
-        },
-        {
-          indexs: '8',
-          tjName: '帧间隙（MTU）',
-          chidrenAttr: '',
-          gxf: 0,
-          canSel: true,
-          tjz: '1-9126',
-          canInp: true,
-          canChecked: false,
-          tjzChecked: false
-        }
-      ],
-      rules: {
-        name: [
-        { required: true, message: ' ', trigger: 'blur' },
-        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-        ]
-      }  
-    }
-  },
-  mounted () {
-    this.getCreatGroupList()
-  },
-  methods: {
-    //获取列表数据
-    async getCreatGroupList () {
-      try {
-        let result = await api.portGroup.getCreatGroupList();
-        this.tableData=result[0]
-      } catch(e) {
-        
-      } finally {
-        
+        tableTh: [
+          {
+            prop: '',
+            label: '',
+            type: 'selection',
+            width: 55
+          },
+          {
+            prop: 'number',
+            label: '序号',
+            type: '',
+            width: 50
+          },
+          {
+            prop: 'name',
+            label: '端口名称',
+            type: '',
+            width: 120
+          },
+          {
+            prop: 'types',
+            label: '类型',
+            type: '',
+            width: 50
+          },
+          {
+            prop: 'zgsl',
+            label: '最高速率',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'sl',
+            label: '速率',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'dlzt',
+            label: '端口状态',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'dkms',
+            label: '端口模式',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'zcd',
+            label: '帧长度（MTU）',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'pvid',
+            label: 'PVID',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'zjx',
+            label: '帧间隙（ipg）',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'bckw',
+            label: '板卡槽位',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'nestvlan',
+            label: 'Nestvlan',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'glzt',
+            label: '管理状态',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'ssz',
+            label: '所属组',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'syfxgz',
+            label: '输入方向规则',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'scfxgz',
+            label: '输出方向规则',
+            type: '',
+            width: 220
+          }
+        ],
+        tableData: [],
+        tableThModul: [
+          {
+            prop: '',
+            label: '',
+            type: 'selection',
+            width: 55
+          },
+          {
+            prop: 'number',
+            label: '序号',
+            type: '',
+            width: 50
+          },
+          {
+            prop: 'name',
+            label: '端口名称',
+            type: '',
+            width: 120
+          },
+          {
+            prop: 'types',
+            label: '槽位',
+            type: '',
+            width: 50
+          },
+          {
+            prop: 'groupMan',
+            label: '板卡型号',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'okRule',
+            label: '所属组',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '端口状态',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '端口速率',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '端口模式',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '端口类型',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: 'PVID',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '三层IP',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '帧长度（MTU）',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '帧间隙（IPG）',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: 'nestvlan',
+            type: '',
+            width: 220
+          },
+          {
+            prop: 'maxSd',
+            label: '启用禁止状态',
+            type: '',
+            width: 220
+          }
+        ],
+        tableDataModul: [
+          {
+            number: '109',
+            name: 'GROUP-1',
+            types: '端口',
+            groupMan: '端口A、端口B..',
+            okRule: '规则A、规则B、规则V、...'
+          },
+          {
+            number: '108',
+            name: 'GROUP-2',
+            types: '端口',
+            groupMan: '端口c、端口d..',
+            okRule: '规则c、规则d、规则e、...'
+          } 
+        ],
+        gxfSele: [
+          {
+            value:0,
+            label: "等于"   
+          },
+          {
+            value:1,
+            label: "大于"   
+          },
+          {
+            value:2,
+            label: "小于"   
+          }
+        ],
+        gjcxData: [
+          {
+            indexs: '1',
+            tjName: '端口名称',
+            chidrenAttr: '',
+            gxf: 0,
+            canSel: true,
+            tjz: '',
+            canInp: true,
+            canChecked: false,
+            tjzChecked: false
+          },
+          {
+            indexs: '2',
+            tjName: '板卡槽位',
+            chidrenAttr: '',
+            gxf: 1,
+            canSel: true,
+            tjz: '',
+            canInp: true,
+            canChecked: false,
+            tjzChecked: false
+          },
+          {
+            indexs: '3',
+            tjName: '端口类型',
+            chidrenAttr: '标准',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: true
+          },
+          {
+            indexs: '',
+            tjName: '',
+            chidrenAttr: 'MPO-25GE',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: true
+          },
+          {
+            indexs: '',
+            tjName: '',
+            chidrenAttr: 'MPO-10GE',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: false
+          },
+          {
+            indexs: '4',
+            tjName: '所属组',
+            chidrenAttr: '',
+            gxf: 0,
+            canSel: true,
+            tjz: '端口组A',
+            canInp: true,
+            canChecked: false,
+            tjzChecked: false
+          },
+          {
+            indexs: '5',
+            tjName: '端口状态',
+            chidrenAttr: 'UP',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: true
+          },
+          {
+            indexs: '',
+            tjName: '',
+            chidrenAttr: 'DOWN',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: false
+          },
+          {
+            indexs: '6',
+            tjName: '端口模式',
+            chidrenAttr: '强制',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: false
+          },
+          {
+            indexs: '',
+            tjName: '',
+            chidrenAttr: '自协商',
+            gxf: 1,
+            canSel: false,
+            tjz: '',
+            canInp: false,
+            canChecked: true,
+            tjzChecked: false
+          },
+          {
+            indexs: '7',
+            tjName: 'PVID',
+            chidrenAttr: '',
+            gxf: 1,
+            canSel: true,
+            tjz: '1-4096',
+            canInp: true,
+            canChecked: false,
+            tjzChecked: false
+          },
+          {
+            indexs: '8',
+            tjName: '帧间隙（MTU）',
+            chidrenAttr: '',
+            gxf: 0,
+            canSel: true,
+            tjz: '1-9126',
+            canInp: true,
+            canChecked: false,
+            tjzChecked: false
+          }
+        ],
+        rules: {
+          name: [
+          { required: true, message: ' ', trigger: 'blur' },
+          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ]
+        }  
       }
     },
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!');
-        } else {
-          console.log('error submit!!');
-          return false;
+    mounted () {
+      this.getCreatGroupList()
+    },
+    methods: {
+      //获取列表数据
+      async getCreatGroupList () {
+        try {
+          let result = await api.portGroup.getCreatGroupList();
+          this.tableData=result[0]
+        } catch(e) {
+          
+        } finally {
+          
         }
-      });
-    },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
-    },
-    handleSelectionChange(val) {
-      this.multipleSelection = val;
-    },
-    // 高级查询弹框
-    addGjcx() {
-      $(".highQuery").show();
-    },
-    // 关闭高级查询弹框
-    closeGjcx() {
-      $(".highQuery").hide();
-    },
-    //添加成员弹框
-    addMan() {
-      $(".modulsMain,.moduls").show();
-    },
-    //关闭弹框
-    closeModul(){
-      $(".modulsMain,.moduls").hide();
-    },
-    //取消返回
-    goOut(){
-      this.$router.push({ path: "/portGroup/portGroupIndex" });
-    },
-    // 基本信息展示隐藏
-    jbxxFuc(indexs){
-      if(this.jbxxShow){
-        this.jbxxShow=false
-        $(".buttns").addClass("btnCur")
-      }else{
-        this.jbxxShow=true
-        $(".buttns").removeClass("btnCur")
+      },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      },
+      // 高级查询弹框
+      addGjcx() {
+        $(".highQuery").show();
+      },
+      // 关闭高级查询弹框
+      closeGjcx() {
+        $(".highQuery").hide();
+      },
+      //添加成员弹框
+      addMan() {
+        $(".modulsMain,.moduls").show();
+      },
+      //关闭弹框
+      closeModul(){
+        $(".modulsMain,.moduls").hide();
+      },
+      //取消返回
+      goOut(){
+        this.$router.push({ path: "/portGroup/portGroupIndex" });
+      },
+      // 基本信息展示隐藏
+      jbxxFuc(indexs){
+        if(this.jbxxShow){
+          this.jbxxShow=false
+          $(".buttns").addClass("btnCur")
+        }else{
+          this.jbxxShow=true
+          $(".buttns").removeClass("btnCur")
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>
