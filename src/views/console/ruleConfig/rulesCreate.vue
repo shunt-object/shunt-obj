@@ -29,12 +29,11 @@
     import "../ruleConfig/rulesCreate.css"
     import ordinary from "../ruleConfig/ruleCreateOrdinary.vue"
     import enior from "../ruleConfig/ruleCreateEnior.vue"
-
     export default {
         name:'ruleCreate',
         components: {
             ordinary,//普通
-            enior    //高级  
+            enior,    //高级
         },
         data(){
             return{

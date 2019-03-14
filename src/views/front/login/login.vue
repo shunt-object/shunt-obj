@@ -7,14 +7,14 @@
                      <div class="main_content">
                          <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm inputTop">
                               <el-form-item  prop="username">
-                                    <el-input prefix-icon="el-icon-third-leading-out" class="ks" placeholder="请输入用户名" v-model="ruleForm.username"></el-input>
+                                    <el-input  class="ks" placeholder="请输入用户名" v-model="ruleForm.username"></el-input>
                               </el-form-item>
                               <el-form-item  prop="password">
-                                    <el-input  placeholder="请输入用户密码" v-model="ruleForm.password" class="ks"></el-input>
+                                    <el-input type="password" placeholder="请输入用户密码" v-model="ruleForm.password" class="ks"></el-input>
                               </el-form-item>
                          </el-form>
                         <div id="login">
-                            <el-button type="primary" class="el-login" @click="login('ruleForm')">登录</el-button>
+                            <el-button type="primary" class="el-login" @click="login()">登录</el-button>
                         </div>
                      </div>
                  </div>
@@ -55,23 +55,36 @@ export default{
         }
     },
     mounted:function(){
-       
+        let that = this;
+        $(document).keyup(function (evnet) {
+            if (evnet.keyCode == '13') {
+                that.login();
+            }
+        });
     },
     methods:{
-
-        login:function(formName){
-            // this.$this.get('/api/system').then((response)=>{
-                
-            // }).catch((error)=>{})
-            this.$refs[formName].validate((valid) => {
+        login:function(){
+            this.$refs["ruleForm"].validate((valid) => {
                 if (valid) {
-                      sessionStorage.setItem("nxgx_lastVisitTime", new Date().getTime());
-                      this.$router.push({path:'/consolePage'});
+                    var obj = {
+                        "username":this.ruleForm.username,
+	                    "passwd":this.ruleForm.password
+                    };
+                    this.$this.post('/api/login',JSON.stringify(obj)).then((response)=>{
+                        if(response.data.retCode==0){
+                            var netword = {
+                                "userName" : this.ruleForm.username, //用户id
+                                "lastVisitTime" : new Date().getTime() //超时时间
+                            };
+                            sessionStorage.setItem("nxgx", JSON.stringify(netword) );
+                            this.$router.push({path:'/consolePage'});
+                        }
+                    }).catch((error)=>{})
                 } else {
                     console.log('error submit!!');
                     return false;
                 }
-            });
+         });
         }
     },
     

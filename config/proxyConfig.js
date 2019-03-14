@@ -1,7 +1,8 @@
 module.exports = {
  proxy: {
     '/api':{
-         target: 'http://10.94.100.122', // 接口域名
+        //   target:"",
+         target: 'http://10.94.150.51', // 接口域名
          //target:"http://WORKGROUP1:8080",   //本地
            //target: 'http://localhost:8080', // 接口域名
           //target:"http://172.16.10.66:8080",  //demo

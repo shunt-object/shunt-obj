@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import homePage from '@/views/front/homePage'
 
 import login from '@/views/front/login/login.vue'
 import consolePage from '@/views/console/consolePage/consolePage.vue'
@@ -26,7 +25,7 @@ export default new Router({
       path:'/consolePage',
       name:'consolePage',
       meta: {
-          requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
+          requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
       },
       component:consolePage,
       children:[
@@ -34,7 +33,7 @@ export default new Router({
           path:'/consolePage/ruleConfig',
           name:'ruleConfig',
           meta: {
-            requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:ruleConfig
         },
@@ -42,7 +41,7 @@ export default new Router({
           path:'/consolePage/ruleConfig/rulesCreate',
           name:'rulesCreate',
           meta: {
-            requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:rulesCreate
         },
@@ -50,7 +49,7 @@ export default new Router({
           path:'/consolePage/port',
           name:'port',
           meta: {
-            requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:port
         },
@@ -58,7 +57,7 @@ export default new Router({
           path:'/consolePage/port/portInto',
           name:'portInto',
           meta: {
-            requireAuth: false,  // 添加该字段，表示进入这个路由是需要登录的
+            requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
           component:portInto
         }

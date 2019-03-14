@@ -11,8 +11,8 @@
             <div class="top-nav ">
                 <ul class="nav pull-right top-menu">
                     <!--用户账号及退出-->
-                    <li class="liMargin"><router-link to="/accountInformation"><i class="iconfont icon-icon-top-home"></i>首页</router-link></li>
-                    <li class="liMargin"><router-link to="/"><i class="iconfont icon-icon-top-login"></i>登录</router-link></li>
+                    <li class="liMargin"><router-link to="/"><i class="iconfont icon-icon-top-home"></i>首页</router-link></li>
+                    <li class="liMargin"><router-link to="/"><i class="iconfont icon-icon-top-login"></i>{{username}}</router-link></li>
                     <li v-on:click="logout()"><a href="javascript:;" style="padding:0!important"><i class="iconfont icon-icon-top-close"></i>关闭</a></li>
                 </ul>
             </div>
@@ -99,14 +99,14 @@
 <script>
 import '../consolePage/consoleFrame.css'
 import '../consolePage/style-responsive.css'
-import '../consolePage/font-awesome/css/font-awesome.css'
+// import '../consolePage/font-awesome/css/font-awesome.css'
 
 export default{
     name:'consolePage',
     data(){
         return {
             pageIndex:1,
-            username:'王玉东',
+            username:'',
             utype:'',
 
             istrue:false,
@@ -132,6 +132,7 @@ export default{
         }
     },
     mounted:function(){
+        this.username = JSON.parse(sessionStorage.getItem("nxgx")).userName;  //获取用户名
          switch(this.$route.name){
               case "port":
                  this.pageIndex = 4   
@@ -228,113 +229,22 @@ export default{
         // leftBack:function(e){
         //      prevStop(e);   
         // },
+
+        //关闭
+        logout:function(){
+            this.closeOrexit();
+        },
         go_Ruleconfig:function(){
             this.$router.push({path:"/consolePage/ruleConfig"})
         },
         go_port:function(){
             this.$router.push({path:"/consolePage/port"})
         },
-        logout:function(){
-            this.$router.push({path:"/"})
-        },
-
-        mycomment:function(){
-            this.dialogcomment.boolean = true;
-        },
-        buycar:function(){
-            this.$router.push({path:'/orderlist'});
-            this.nocopy();
-        },
-        cart:function(){
-            this.$router.push({path:'/shoppingCar'});
-            this.nocopy();
-        },
-        planning:function(){
-            this.$router.push({path:'/planList'});
-            this.nocopy();
-        },
-        compare:function(){
-            this.$router.push({path:'/compareList'});
-            this.nocopy();
-        },
-        measure:function(){
-             this.$router.push({path:'/measured'});
-             this.nocopy();
-        },
-        zhic:function(){
-             this.$router.push({path:'/yunzc'});
-             this.nocopy();
-        },
-        designer:function(){
-            this.$router.push({path:'/designer'});
-            this.nocopy();
-        },
-        TheirAllies:function(){
-           this.$router.push({path:'/TheirAllies'});
-           this.nocopy();
-        },
-        university:function(){
-            this.$router.push({path:'/adviserCenter'});
-        },
-        // responsiveView:function () {
-        //     var wSize = $(window).width();
-        //     if (wSize <= 768) {
-        //         $('#container').addClass('sidebar-close');
-        //         $('#sidebar > ul').hide();
-        //     }
-        //     if (wSize > 768) {
-        //         $('#container').removeClass('sidebar-close');
-        //         $('#sidebar > ul').show();
-        //     }
-        // },
-        index:function(){
-            this.$router.push({path:'/consolePage'});
-            this.nocopy();
-        },
-        smarter:function(){
-            this.$router.push({path:'/smarterDecision'});
-            this.nocopy();
-        },
-        sus:function(){
-            this.$router.push({path:'/susDecision'});
-            this.nocopy();
-        },
-        ReviewTheData:function(){
-            this.$router.push({path:'/ReviewTheData'});
-            this.nocopy();
-        },
-          tongzhiCenter:function(){
-             this.$router.push({path:'/notification'});
-             this.nocopy();
-        },
-        roi:function(){
-            this.$router.push({path:'/roiDecision'});
-            this.nocopy();
-        },
-        messageCenter:function(){
-             this.$router.push({path:'/messageCenter'});
-             this.nocopy();
-        },
-        messageCenters:function(){
-             this.$router.push({path:'/vis'});
-             this.nocopy();
-        },
-        homepage:function(){
-            this.$router.push({path:'/'});
-            this.nocopy();
-        },
         nocopy:function(){
             //禁止copy
             document.oncontextmenu=function(){return true};
             document.onselectstart=function(){return true};
         },
-        appcenterList:function(){
-            this.$router.push({path:'/appcenterList'});
-        },
-        adviserList:function(){
-            this.$router.push({path:'/adviserList'});
-        }
-        
     }
 }
 </script>

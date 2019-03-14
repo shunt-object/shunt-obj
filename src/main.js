@@ -19,6 +19,7 @@ import '../src/components/css/mian.css'
 import animate from 'animate.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'babel-polyfill'
 
 Vue.prototype.$layer = layer(Vue);
 Vue.prototype.$this = axios;
@@ -45,37 +46,33 @@ axios.interceptors.request.use(
         return config;
     }
 )
-axios.interceptors.response.use(
-    response => {
-        if (response.status == 200) {
-            //layer(Vue).close(load);
-            loading.close();
-        }
-        return response;
-    },
-    error => {
-        if (error.response) {
-            switch (error.response.status) {
-                case 403:
-                    router.replace({
-                        path: '/login',
-                        query: { redirect: router.currentRoute.fullPath }
-                    })
-            }
-        }
-        return Promise.reject(error.response.data)   // 返回接口返回的错误信息
-    });
+// axios.interceptors.response.use(
+//     response => {
+//         if (response.status == 200) {
+//             //layer(Vue).close(load);
+//             loading.close();
+//         }
+//         return response;
+//     },
+//     error => {
+//         if (error.response) {
+//             switch (error.response.status) {
+//                 case 403:
+//                     router.replace({
+//                         path: '/login',
+//                         query: { redirect: router.currentRoute.fullPath }
+//                     })
+//             }
+//         }
+//         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+//     });
 
 // 退出
-Vue.prototype.logout = function () {
-    this.$this.get('/broker/auth/logout').then((response) => {
-        if (response.data.code == '1') {
-            sessionStorage.removeItem("utype");
-            sessionStorage.removeItem("accountId");
-            sessionStorage.removeItem("account");
-            sessionStorage.removeItem('uuid')
+Vue.prototype.closeOrexit = function () {
+    this.$this.get('/api/logout').then((response) => {
+        if (response.data.retCode == 0) {
+            sessionStorage.removeItem("nxgx");
             sessionStorage.clear();
-            localStorage.removeItem("as");
             this.$router.push({ path: '/' });
         }
     }).catch((error) => {
@@ -85,15 +82,16 @@ Vue.prototype.logout = function () {
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限  
-        if (sessionStorage.getItem("account")) {  // e获取当前的是否有信息是否存在
-            var _EXPIRE_TIME =2*6*1000;  //过期时间
-            var sessionTime = sessionStorage.getItem("nxgx_lastVisitTime")  //sessionStorage存储的登录时间
-            var newTime = new Date().getTime();      //当前时间
+        if (sessionStorage.getItem("nxgx")) {  // 获取当前的是否有信息是否存在
+            var _EXPIRE_TIME =50*60*1000;  //过期时间 50分钟  毫秒级
+            var sessionTime = JSON.parse(sessionStorage.getItem("nxgx")).lastVisitTime  //sessionStorage存储的登录时间
+            var newTime = new Date().getTime();      //当前时间（getTime得出的时间戳为毫秒级）
             if(newTime-sessionTime > _EXPIRE_TIME){
                 next({
-                    path: '/',
+                    path: '/'
                 });
                 alert("过期了，请重新登录");
+                sessionStorage.removeItem("nxgx");
             }else{
                 next()
             }
