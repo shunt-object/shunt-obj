@@ -40,7 +40,7 @@
                                 <span>设备信息</span>
                             </a>
                         </li>
-                        <li class="sub-menu">
+                        <li class="sub-menu" @click="go_system()">
                             <a href="javascript:;" class="outhover" :class="pageIndex==3?'actives':''" >
                                 <i class="iconfont icon-icon-xitongpeizhi"></i>
                                 <span>系统配置</span>
@@ -53,7 +53,7 @@
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;" class="outhover" :class="pageIndex==5?'actives':''" >
+                            <a href="javascript:;" @click="go_portGroup()" class="outhover" :class="pageIndex==5?'actives':''" >
                                  <i class="iconfont icon-icon-duankouzupeizhi"></i>
                                 <span>端口组配置</span>
                             </a>
@@ -229,10 +229,21 @@ export default{
         // leftBack:function(e){
         //      prevStop(e);   
         // },
+<<<<<<< HEAD
 
         //关闭
         logout:function(){
             this.closeOrexit();
+=======
+        //端口组配置
+        go_portGroup:function(){
+            this.$router.push({path:"/portGroup/portGroupIndex"});
+            $(".oneCurrent").click();
+        },
+        //系统配置
+        go_system:function(){
+            this.$router.push({path:"/system/list"});
+>>>>>>> 51065608a9fd12670a7077f66f3d032a5a803bf9
         },
         go_Ruleconfig:function(){
             this.$router.push({path:"/consolePage/ruleConfig"})
